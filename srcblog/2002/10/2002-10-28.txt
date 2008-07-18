@@ -1,0 +1,5 @@
+Date: 2002-10-28 10:12:40
+Format: wphtml
+Title: Are you unlimited?
+
+<b>Are you unlimited?</b> Finally cellular carriers are starting to understand what they need to provide in order to have customers: low price, unlimited data. That's what Sprint just did. They offer unlimited PCS Vision i.e. unlimited data access for additional $10 per month. Availalbe with Treo. Very tempting, it almost makes it more attractive that T-Mobile's Sidekick because you can use with any voice plan (With Sidekick you only have one plan with abysmall number of minutes and you pay through the nose for additional minutes), number of applications is enormous (none for Sidekick), it has color. Sidekick has a great web browser and a great physical design but those are the only advantages. Hail Sprint and Danger better release developer's SDK or else they'll be left in dust.

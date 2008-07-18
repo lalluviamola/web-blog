@@ -1,0 +1,9 @@
+Date: 2003-01-05 06:50:50
+Format: wphtml
+Title: Your life
+
+<b>Your life</b>
+
+<a href="http://www.fastcompany.com/online/66/mylife.html">An interesting article</a>. This caught my attention:
+<blockquote><i>
+It turns out that having the &#64257;nancial independence to walk away rarely triggers people to do just that. The reality is, making money is such hard work that it changes you. It takes twice as long as anyone plans for. It requires more sacri&#64257;ces than anyone expects. You become so emotionally invested in that world -- and psychologically adapted to it -- that you don't really want to ditch it.  </i></blockquote>

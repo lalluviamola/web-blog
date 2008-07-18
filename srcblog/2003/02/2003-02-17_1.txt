@@ -1,0 +1,5 @@
+Date: 2003-02-17 05:23:41
+Format: wphtml
+Title: Inspiring marketing article.
+
+<b>Inspiring marketing article.</b> <a href="http://www.sethgodin.com/sg/blog/sethgodin.html">Seth Godin</a> has written <a href="http://www.fastcompany.com/online/67/purplecow.html">an iteresting marketing article</a>. The gist of it is that today being good is not good enough, you have to be outstanding in some way.

@@ -1,0 +1,21 @@
+Date: 2003-04-26 03:23:54
+Format: wphtml
+Title: Bayesian filtering for non-spam detection purposes.
+
+<b>Bayesian filtering for non-spam detection purposes.</b>
+
+I was thinking about using Bayesian filtering for the &quot;news watcher&quot; type of an 
+application (i.e. an application that given a keyword(s) would alert you about 
+new articles on the web relating to those keywords). One problem is that 
+keywords aren't very good for narrowing the search result e.g. if I just gave a 
+keyword &quot;Danger&quot; because I wanted to monitor news related to
+<a href="http://www.danger.com/">Danger, Inc.</a>, I would probably be flooded 
+with lots of irrelevant articles because &quot;danger&quot; is a very common word. From 
+what I understand about Bayesian filtering, if I spent some time building a 
+database of interesting/un-interesting articles the Bayesian filtering would be 
+able to pick up interesting articles based on the content by the way of advanced 
+magic. Of course, as is with most of my ideas, I'm not bothering to test the 
+hypothesis. Anyway,
+<a href="http://mail.python.org/pipermail/python-list/2003-March/155527.html">
+this guy</a> did used Bayesian for a text classification not related to spam. 
+Interesting and in Python.

@@ -1,0 +1,8 @@
+Date: 2003-02-07 18:55:13
+Format: wphtml
+Title: Call me Nostradamus
+
+<b>Call me Nostradamus.</b>
+
+You can call me a prophet now. <a href="http://blog.kowalczyk.info/archives/000273.html#000273">I said</a>
+that someone will port KHTML to Windows. And <a href="http://khtml-win32.sourceforge.net/">someone did</a>.

@@ -1,0 +1,10 @@
+Date: 2004-01-04 17:43:30
+Format: wphtml
+Title: Quick links.
+
+<b>Quick links.</b>
+<ul>
+<li><a href="http://wordpress.org/development/archives/65/">WordPress 1.0 released</a> (I plan to replace Movable Type with WordPress as my weblog engine)
+<li><a href="http://paulgraham.com/say.html">What you can't say</a> another essay from <a href="http://paulgraham.com">Paul Graham</a>
+<li><a href="http://www.jakeehrlich.com/Review/BulletTrain/BulletTrain.htm">Bullet Train</a> - interesting design of how a future PDA (future Treo 600 to be specific) might look like
+</ul>

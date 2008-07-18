@@ -1,0 +1,41 @@
+Date: 2003-04-26 22:33:19
+Format: wphtml
+Title: Do you read the old papers?
+
+<b>Do you read the old papers?</b>
+
+Alan Kay's talk at O'Reilly Emerging Technology Conference was widely reported.
+Here's one of the most complete <a href="http://craphound.com/kayetcon2003">notes from the talk</a>.
+Read it, it's good. There's one thing in the talk that got my attention. During 
+the talk Kay demonstrated a lot
+of cool systems designed more than 30 years ago. His point was that those 
+systems were better than what we have today. To quote:
+
+<blockquote><i>
+This stuff is better than anything in our handhelds today. We could implement it
+from they papers they wrote then, but no one reads the papers that were written
+in the 60s.
+</i></blockquote>
+
+I think he meant that no one bothers to read those papers i.e. it's our laziness at fault. 
+But I found more credible reason: those papers are not easily available. For 
+example I tried to find Sutherland's 1963 MIT thesis on his Sketchpad, which 
+pioneered interactive graphics. It's not freely available on-line. You can buy a 
+PDF version from MIT library for $29 (not $6, like Kay said in the talk). I did 
+buy it as an exercise but the price is ridiculously high and it's MIT's failure 
+as an educational institution that they greedily squeeze every last cent from 
+their copyrights.<p>A quick Google and <a href="http://citeseer.nj.nec.com/">CiteSeer</a>
+searches for Engelbart papers also turned up nothing.
+<p>Even if those papers were freely available there's a problem of selection. 
+Thanks to web we have problems with information overload. Too much stuff to 
+process. We need to filter and one good strategy of filtering is trusted 
+referral i.e. if someone we trust says that a given paper is good, we might read 
+it. For example I spent $29 on Sketchpad paper because Kay (whom I trust) 
+mentioned it. Ironically it's people like Kay could fix this situation. Why 
+don't they put a web page with recommended papers and let the blog word-of-mouth 
+do the meme spreading thing? I couldn't do it because no-one cares about 
+&quot;Krzysztof Kowalczyk's recommended papers&quot; page but a lot of people would care 
+about &quot;Alan Kay's recommended papers&quot;.
+<p>BTW: for $50 you can also buy a book
+<a href="http://www.siggraph.org/publications/seminal-graphics.shtml">&quot;Seminal 
+Graphics&quot;</a> that contains Sketchpad thesis (and other break-through papers).

@@ -1,0 +1,5 @@
+Date: 2002-09-23 10:07:34
+Format: wphtml
+Title: MIT's OCW
+
+<b>MIT's OCW.</b> Another <a href="http://news.bbc.co.uk/1/hi/technology/2270648.stm">article</a> about MIT's OpenCourseWare project that is about to debut on 30 September. If the quality of what will they provide will be similar (or better) to what <a href="http://www.aduni.org/">ArsDigita University</a> provides on their web site, it's gonna be great.

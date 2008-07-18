@@ -1,0 +1,5 @@
+Date: 2004-12-08 11:06:46
+Format: wphtml
+Title: scdiff update
+
+<a href="http://www.dblock.org/">dB</a> sent me a few fixes for cvs handling in <a href="/software/scdiff/">scdiff</a>, so I released a newer version with those changes. Enjoy.

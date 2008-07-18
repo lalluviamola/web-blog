@@ -1,0 +1,45 @@
+Date: 2006-03-20 07:56:36
+Format: wphtml
+Title: Big fat lawsuit - the saving grace of patent insanity?
+
+RIM got hit hard when they settled for $612.5 million with NTP (despite the fact that it looked like all of the patents were or would be judged invalid). They started lobbying for patent reform.
+
+Rumor has it that Sony will have to stop selling PS2 due to patent case. If that happens, that will cost them dearly.
+
+Rumor has it that Microsoft (who lost a few costly patent cases as well) started lobbying for patent reform.
+
+Will costly patent lawsuits bring an end to patent insanity?
+
+The current patent situation is insane. Ask anybody. 
+
+Ok, maybe not anybody. Apparently it's completely sane to U.S. Patent Office which seems to be in a race with itself to approve as many pattents as possible. 
+
+It's also completely sane to patent lawyers that get paid by companies to submit patents. Unfortunately both Patent Office and lawyers have a lot of influence on the shape and form of patent system and they both have incentive to encourage patents for as many things as possible. Patent office because it wants more power, patent lawyers because they want more money.
+
+Fortunately, patent office and lawyers are not the only ones that influence the law. At some level you would hope that wise congressman or congresswoman would realise the insanity and change the law. 
+
+As it stands, the wisdom is generally not generated from within the congressman or congresswoman, but rather trickles down from those who have the biggest influence on getting them elected. Which is not you and me but Various Interest Groups With Money To Spend On Election Support.
+
+Large tech companies are one of those interest groups. It stands to reason that when large tech companies realise the insanity of patent system, they'll pump enough money and do enough lobbying to change the law.
+
+It doesn't seem like those large tech companies noticed the insanity just yet. My theory is that it's because of Lottery Effect (aka Las Vegas Effect). Everybody knows that playing lotter is tax on stupidity. Chances of winning lottery are so small that it's a waste of money. Human nature being what it is, this fact is promptly discarded by our brain when we start fantasizing about the imaginary fortune. The cars, the girls, the houses we're buying in our minds with the money we will never win is enough to shame probability theory into disappearance. Besides, someone wins so it just as well might be me.
+
+A similar reason drives patents. All the talk about protecting innovation and the right to make a profit from your hard work is smoke and mirrors. What we really dream of is a NTP-like homerun where a few ideas we came up with in the shower and a little bit of struggling in the court will net us $600 million. It's all about the greed.
+
+I'm guessing that a conventional wisdom in large companies is still based on assumption that loading up with patents might help large companies stop other large companies from making money. Patents, being a monopoly on an idea, have this nice Winner Take All property. 
+
+The bigger you are the more patents you can afford and therefore the more monopolies you can get therefore the more you gain therefore you should lobby for patents.
+
+Bzzt. The last assumption is wrong and recent patent lawsuits are starting to show that.
+
+Patent system has an imbalance in that even a small player can hit hard a large company. When it's large company vs. large company, they'll probably find enough patents to sue each other so the likely result will be an impass.
+
+A small patent troll i.e. an organization only interested in acquiring patents (which isn't terribly expensive) and going for homeruns (i.e. suing large companies with lots of money for infringing on one of their trivial patents) might seriously damage a bottom line of a large company. The larger the company, the bigger of a target it is since it's more likely to infringe some random patent.
+
+Companies are run on greed ("maximizing shareholder value", as they like to call it) by smart people. At some point those smart people will realize that the benefit they get from patents they own doesn't cover costs of paying for patents owned by others. When that happens, they'll start trickle that wisdom in the direction of congresspeople and lobby for the change of laws.
+
+Look at RIM, it's already started.
+
+The more large companies are hit with costly patent lawsuits, the more likely it is that they will realise that rampant patentism isn't good for them.
+
+Therein ends my small contribution to the pool of patent rants.

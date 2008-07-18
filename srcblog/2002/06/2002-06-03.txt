@@ -1,0 +1,5 @@
+Date: 2002-06-03 11:09:23
+Format: wphtml
+Title: This is my first post...
+
+This is my first post using Userland's Radio (not yet paid for)... I wonder how many weblogs begins like that. Better than "test, test", I guess.</P>&#013;&#010;<P>I'm not grokking the tool yet, but that's understandable. I've been following bloggin' thing for a long time. I think I understand the philosphy but I certainly don't understand (yet, I hope) the particular tool. I had an impression that radio had an outliner but all I can see is this lousy edit box (ok, edit box isn't lousy when you compare it with other edit-boxes-in-the-browser, but it's lousy when you compare it with any other editing tool, like Emacs or Ecco. And it doesn't have spell-checker (at least as far as I can see in my first five minutes of exploring it).</P>&#013;&#010;<P>Ok, I'm pressing the magic "Post to Weblog" button. Wonder what will happen.

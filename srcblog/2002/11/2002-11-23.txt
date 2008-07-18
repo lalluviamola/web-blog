@@ -1,0 +1,6 @@
+Date: 2002-11-23 13:48:40
+Format: wphtml
+Title: Free Pepper
+
+<b>Free Pepper.</b>
+Pepper is a text editor that I used shortly. It was a commercial product and its author recently decided to stop developement. I thought it was a nifty app (text editors are aplenty but this one had personality). Apperently more people think that it was nifty and want to <a href="http://www.freepepper.org/">free the source</a>.  They need $11 k to buy out the sources from the author, so far there is $360 in dontations. Recently a trick like that was pulled off for Blender (and it was around $100 k), will those quys succeed as well?

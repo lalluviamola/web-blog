@@ -1,0 +1,29 @@
+Date: 2006-03-22 22:17:26
+Format: wphtml
+Title: Nabble - hosted forums
+
+I just noticed <a href="http://www.nabble.com/">nabble.com</a> and on the first look they seem like a great service for hosted forums.
+
+Personally, I find this a very useful service. For example, a small company (software or otherwise) might use that for hosting forums for their products. An open-source project might use that for hosting forums for users of the software and for developers.
+
+I find that option much more attractive than hosting your own forum software. Even though I have my own server that I can abuse and technical knowledge to do the abuse, I'm not interested in spending time installing/managing/upgrading the software and making sure that it's secure. Administration overhead is a real problem.
+
+Another problem is that most of forum software are phpBB-look-a-likes (phpBB probably wasn't the one to invent the look, it's just an example) and the look is ugly. I couldn't find a decent looking, open-source forum software. The <a href="http://discuss.joelonsoftware.com/?joel">one I  like</a> isn't publicly available.
+
+There are existing solutions, of course. Yahoo! Groups has been there forever and I actually used it once in the past to create a forum. I hate the way they look (even after their re-design) and behave. I follow an Io forum on Yahoo! Groups and it's just painful.
+
+Then there's Google Groups, which works better than Yahoo! Groups but their RSS feeds are broken (no full-text, don't work in bloglines) which is important to me.
+
+To be fair, Nabble doesn't have RSS at all, but I'm hoping they'll implement it.
+
+In addition to hosting your own forums, Nabble also works as a mailing list mirror.
+
+I don't like flooding my mailbox with mailing-list traffic and I don't like the fact that you have to subscribe to post. Nabble solves both problems: you can read the list via web-interface (RSS feed would be much better) and you can post directly from Nabble.
+
+Compare the Nabble version of any mailing-list hosted on SourceForge - the contrast is striking (I hate how SourceForge handles mailing lists of their project).
+
+My only concern is their viability. They're self-funded startup and they admit that they have no idea how will they make money, just yet.
+
+It's great that you can get a free, useful service, but it's not going to be great if the service will vanish because Nabble can't pay the bandwidth bills.
+
+Here's me hoping they'll find a way to get revenues and that they'll add RSS feeds.

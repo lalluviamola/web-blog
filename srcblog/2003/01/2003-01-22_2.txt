@@ -1,0 +1,8 @@
+Date: 2003-01-22 17:33:33
+Format: wphtml
+Title: Sold on RSS aggregators
+
+<b>Sold on RSS aggregators.</b>
+Yesterday was the first time I used an RSS aggregator (<a href="http://yole.ru/projects/syndirella/">Syndirella</a>) 
+and I'm already sold (despite loosing my list of subscriptions three times). 
+It's such a time saver.

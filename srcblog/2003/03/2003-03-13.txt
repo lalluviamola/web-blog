@@ -1,0 +1,20 @@
+Date: 2003-03-13 03:21:50
+Format: wphtml
+Title: Vaio Z1 - notebook lust.
+
+<b>Notebook lust.</b>
+
+It's been a long time since I salivated about a notebook - my Dell Latitude C610 
+works just fine for me. But I wouldn't mind upgrading to
+<a href="http://www.sonystyle.com/is-bin/INTERSHOP.enfinity/eCS/Store/en/-/USD/SY_BrowseCatalog-Start;sid=gqDIC2uRncvIC1Xhhg_CACSepaqCPzB017U=?Dept=cpu&CatalogCategoryID=Q6AKC0.NMYEAAADzXuETluG2">
+Sony VAIO Z1</a>. It's not a giant leap forward but a nice refinement of the 
+concept. Z1 improves on C610 in the following:
+<ul>
+<li>looks better
+<li>weights less (that's important for me)
+<li>integrated wireless
+<li>USB 2.0 and FireWire ports
+<li>can take bigger hard-drives (up to 60 GB)
+<li>battery lasts longer
+</ul>
+without sacrificing features that I came to depend upon: 14'' screen with 1400x1050 resolution.

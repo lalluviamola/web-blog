@@ -1,0 +1,6 @@
+Date: 2004-03-19 17:01:16
+Format: wphtml
+Title: Do bad data plans harm MS Smartphone adoption?
+
+<b>Do bad data plans harm MS Smartphone adoption?</b>
+MS Smartphone like Motorola MPX200 are nice, however in US there's one problem: lack of decent (i.e. not expensive) data plan for them. Currently I have SideKick on T-Mobile network which comes with $20/month unlimited data and Treo 600 on Sprint network with a similiar-priced unlimited data plan. Those are prices that I'm willing to pay. The problem is that none of the networks that provide MS Smartphone-based phones in US have plans like that. AT&T wireless wants $79.99/month for unlimited data ($19.99 for 8MB/month, $12.99 for $4MB/month). Verizon Wireless is similar to AT&T. Not to mention utter pain of trying to find pricing info on their websites. I wonder if lack of data plans doesn't harm smartphone adoption.

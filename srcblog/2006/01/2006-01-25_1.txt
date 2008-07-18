@@ -1,0 +1,5 @@
+Date: 2006-01-25 06:06:05
+Format: wphtml
+Title: More on 
+
+In a shocking proof that someone actually reads this blog, Microsoft's Gangadhar sent me the following explanation of linking problems I've seen:<br> <br> <blockquote>This is regarding the problem you posted on your blog here: <a href="http://blog.kowalczyk.info/archives/2006/01/13/debugging-adventure/" target="_blank">http://blog.kowalczyk.info<wbr>/archives/2006/01/13/debugging<wbr>-adventure/</a><br> <br> The problem was realized a bit late during end game of Whidbey, and we could not accommodate a fix for this in whidbey RTM, This is been tracked as a bug in our database and will be fixed in the next release cycle. You can see the issue being blogged on VSD team blog site here: <a href="http://blogs.msdn.com/vsdteam/archive/2005/11/16/linker_error_lnk2019_lnk2001.aspx" target="_blank">http://blogs.msdn.com/vsdteam<wbr>/archive/2005/11/16/linker<wbr>_error_lnk2019_lnk2001.aspx</a><br> </blockquote>So there's hope for the future.<br> <br> Too bad their weblog isn't updated more often - it has really good information.<br> <br>

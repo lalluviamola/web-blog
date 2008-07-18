@@ -1,0 +1,24 @@
+Date: 2005-10-25 03:08:11
+Format: wphtml
+Title: Rich client is here
+
+
+I was always of the opinion that web-based access is great but in many
+cases a rich client that uses the full power of your local resources is
+even better.<br>
+<br>
+<a title="Stanford on iTunes" href="http://itunes.stanford.edu/">Stanford on iTunes</a>
+is an example of that. They could just offer their talks available as
+downloads but offering them as an iTunes store is even better since you
+can stream or download and play from within one program (especially
+useful if you're a heavy iTunes user).<br>
+<br>
+Not that iTunes doesn't have it problems. It doesn't seem to do any
+caching or pre-fetching so that navigating the store is slower than I
+would have liked, especially given that all they download in Stanford
+case is a smallish list. This should be instantaneous (they should
+remember the last state of a given page and update the list in the
+background).<br>
+<br>
+BTW: they do have some interesting talks. It one-ups <a title="MIT OpenCourseWare" href="http://web.mit.edu/ocw/">MIT OpenCourseWare</a> by going audio. Who's gonna be the first to offer video recordings and notes for all lectures they do?<br>
+<br>

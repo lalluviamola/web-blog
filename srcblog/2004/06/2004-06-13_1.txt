@@ -1,0 +1,10 @@
+Date: 2004-06-13 05:39:42
+Format: wphtml
+Title: Daily reading
+
+<ul>
+
+<li> <a href="http://www.mobile9.com/news/2004/06/mpx220_its_official.php">leaked MPx220 specs and photos</a> </li>
+<li> <a href="http://www.astraware.com/company/paper/tech/enh-sound.php">sound programming on Palm</a> </li>
+
+</ul>

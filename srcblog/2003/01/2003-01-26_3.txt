@@ -1,0 +1,12 @@
+Date: 2003-01-26 23:22:30
+Format: wphtml
+Title: Cheap and good Pocket PC
+
+<b>Cheap and good Pocket PC.</b>
+You can buy refurbished Pocket PC Toshiba e740 for $348 at
+<a href="http://www.pcnation.com/asp/details.asp?item=81072R">PCNation</a> or 
+for $369 at
+<a href="http://www.pcrush.com/prodspec.asp?ln=2&itemno=32832&refid=1050">pcRUSH</a>. 
+It's a great deal - e740 is the only Pocket PC with integrated wi-fi (otherwise 
+expect to spend $100+ for a wi-fi CF card) and the rest of the specs doesn't 
+look bad either (64 MB of RAM and 400 MHz).

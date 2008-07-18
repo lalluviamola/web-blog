@@ -1,0 +1,5 @@
+Date: 2004-05-30 15:30:08
+Format: wphtml
+Title: Using Unison for remote backups
+
+I wrote an article on <a href="http://blog.kowalczyk.info/articles/usingUnison.html">using Unison for remote backups</a>.  <a href="http://www.cis.upenn.edu/~bcpierce/unison/">Unison</a> is a program similar to rsync. It's less popular but more powerful and, unlike rsync, works well under Windows. It's also an example of useful, shipping software written in a non-mainstream, functional language <a href="http://www.ocaml.org/">OCaml</a>. 

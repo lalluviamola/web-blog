@@ -1,0 +1,5 @@
+Date: 2005-10-28 02:49:12
+Format: wphtml
+Title: Pre-RTM Visual Studio 2005 uninstall tool
+
+Pre-RTM Visual Studio 2005 uninstall tool <a href="http://blogs.msdn.com/danielfe/archive/2005/10/27/485863.aspx">is available</a>. Not sure what the benefit is over doing manual unistall but I expect this tool to be useful. I've seen cases where betas of VS 2005 often were hosed after the install so I'm hoping that I'll be able to install final version over my beta 2 without destroying my dev system. Full OS rinstall ain't as much fun as it used to be.

@@ -1,0 +1,19 @@
+Date: 2004-05-29 22:55:40
+Format: wphtml
+Title: Comments on "The future of weblogging"
+
+<a href="http://www.theregister.co.uk/2004/04/18/blogging_future/print.html">The future of weblogging</a> is a good and balanced article on the nature and future of weblogging with a "journalism" angle.
+
+Comparing journalism and weblogging usually brings controversy; personally I don't care. An interesting question still remains: how do we define journalism. One angle would be to define by technology: journalists are those who write for newspapers. If we take that angle I find it strange that the article claims:
+<blockquote>
+One of the greatest limitations of Weblogs is their temporal nature. Postings are always arranged in date order &minus; irrespective of their other dimensions, including importance, substance, popularity &minus; and this often celebrated and rarely decried. In reality, the Weblog model of reverse sequential posting doesn't even support story-telling, which is one pillar of journalism.</blockquote>
+There are few problems with this statement:
+<ul>
+<li>it's not exactly true. A common feature of most current weblog system (including <a href="http://wordpress.org">WordPress</a> that powers this site) is categories i.e. ability to categorize posts based on topic. It's not as powerful as other dimensions mentioned but it's not inexistent either.</li>
+<li>isn't it the case for majority of the "real" journalism? No one reads "Seattle Times" from a year ago. No one reads "Vogue" from a year ago. Newspaper and magazine publishing has a temporal nature.</li>
+<li>is it wise to add sorting by those other dimensions to weblog software? Weblogs became popular in major part thanks to their simplicity. Type the title, post, press "Publish" and there they are, your thoughts on the internet. That's the killer feature. The more sophisticated features, the less people are interested in them. Maybe there just isn't the need, both from blog readers and blog writers, to have those sophisticated sorting dimensions?
+</ul>
+
+Personally I think that weblogging software is good for what it is and for content that doesn't fit well the format of a blog post we should use other means of publishing it. For example I have an <a href="/articles/">articles section</a> with static html content for publishing articles that, in my opinion, outlive the temporal nature of a weblog. But in the age of 
+Google even that might be considered a waste of time. People interested in the article will find it anyway. Maintaining this static content requires more work on my part for (potentially) little benefit for my readers.
+

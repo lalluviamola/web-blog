@@ -1,0 +1,5 @@
+Date: 2003-10-01 21:01:56
+Format: wphtml
+Title: CodeWarrior 9.2 for Palm OS update available.
+
+<b>CodeWarrior 9.2 for Palm OS update available.</b> Ben Combee <a href="http://www.mail-archive.com/palm-dev-forum%40news.palmos.com/msg65362.html">has announced</a> that update for CodeWarrior 9 for Palm OS (v9.2) is available. You can get it from <a href="http://www.metrowerks.com/download">this place</a> (rather confusing page) and <a href="ftp://ftp.metrowerks.com/pub/updates/CWPP9/palm9.2RN.txt">read the release notes</a>.

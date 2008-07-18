@@ -1,0 +1,64 @@
+Date: 2003-01-14 12:08:48
+Format: wphtml
+Title: P2P SourceForge.
+
+<b>P2P SourceForge.</b>
+<blockquote><i>
+"The second reason architects should study networking is that today almost all computers are-or will be-networked to other devices. Thus, understanding networking is critical; any device without a network is somehow flawed."
+<p align="right">&quot;Computer Architecture - A Quantitative Approach&quot; J. Hennessy, D. Patterson</p></i></blockquote>
+Computer without Internet connection is useless yet after a solid number of years since Internet became every-day tool an amazing number of application is Internet-aware by which I mean that it adds features that take advantage of the network. We have plenty of apps that are Internet-specific, like web browsers, IM client, file-sharing clients, e-mail clients etc. but what does latest PhotoShop do to take advantage of the possibilities of the Internet? Not much, just as many other traditional apps. And that's good, if you ask me, because it leaves an opportunity for new software that can take advantage of the Internet in addition to providing the core functionality.
+
+<p>
+Being a programmer I especially decry lack of software for collaboration on software projects. What I need is a desktop-based (as opposed to web-based), p2p (as opposed to server-based) <a href="http://sf.net">SourceForge</a>. The idea behind 
+SourceForge is sound: create a set of integrated tools that cover all the needs of software project management: management of CVS repositories, bug tracking, mailing-list management, tasks management, patch management etc. There are two problems:
+<ul>
+<li> web-based approach has serious weaknesses
+<li> SourceForge's implementation is awful
+</ul>
+Web-based approach has inherent, unsolvable problems. Web-based apps are like early cars: they were great because they were better than alternatives (horse-powered devices) but they don't stand a chance compared to today's cars. We only suffer network latency, writing in primitive text area of a web-browser, loosing what we wrote because of one fatal keystroke etc. just because we don't have anything better. Yet. The future is in what people call "rich clients": the data is either replicated on the server or replicated with peers but most of the processing is done, for speed, comfort and ease of use, in an app specifically written for that task. HTML-based GUIs are not enough: if you won't switch to rich client approach, someone else will. 
+There are many things that just cannot implemented in a web-based app. For 
+example things are really interconnected. I would like to be able to link bugs 
+to CVS check-ins, link bugs/check-ins to feature requests, link bugs to 
+documents described planned features. All of that would be too hard to use in a 
+web-based GUI.<p>I claim that SF's implementation is awful partly because it's 
+subjectively awful to me, partly because it's a fact that those features are 
+rarely used even on active, large projects (i.e. those that could conceivably 
+benefit from using those features). I see two possibilities: </p>
+<ul>
+  <li>those features aren't really useful</li>
+  <li>they're useful but not implemented well enough</li>
+</ul>
+<p>From personal experience I claim that features like bug tracking are crucial 
+for large projects: not having them is like committing delayed suicide. Also 
+there is evidence that if enough care is taken, they're used frequently (e.g. 
+bug tracking in <a href="http://www.mozilla.org/">Mozilla</a> project or 
+Nautilus when it was still driven by Eazel). So the conclusion is that SF 
+implementation is bad enough that avoiding the pain of using it ranks higher 
+than potential benefit of using it.</p>
+<p>So here's a seed of an idea: desktop-based, p2p, software project 
+management/collaboration tool. The basic functionality is obvious:</p>
+<ul>
+  <li>multi-user (collaboration is key)</li>
+  <li>integrate CVS repository viewing</li>
+  <li>integrate bug management</li>
+  <li>integrate document management (should be document-type agnostic so that 
+  for the right task people can use the right tool (e.g. Viso for diagrams, 
+  PowerPoint for presentations etc.) but some documents would be better 
+  supported than others (e.g. text/html documents could be viewed/created/edited from 
+  within the app)</li>
+  <li>tasks management</li>
+  <li>lots of other things (that's why it's just a seed of an idea)</li>
+</ul>
+<p>All resources are finite so you can't optimize everything so you have to 
+decide what things are more important than others. In this case:</p>
+<ul>
+  <li>attention to UI/interaction design; seems obvious, no one starts with the 
+  premise &quot;let's build an app with a sucky UI&quot;. However that's how most apps end 
+  up. Software market is saturated and I'm a strong believer in what
+  <a href="http://www.cooper.com/content/company/about_cooper.asp">Alan Cooper</a> 
+  preaches: the way to break through the crowd is by giving utmost attention to 
+  interaction design</li>
+  <li>integration - things should work together (the whole is more valuable than 
+  the sum of its parts)</li>
+</ul>
+<p>Maybe someone will write this app for me? Anyone?

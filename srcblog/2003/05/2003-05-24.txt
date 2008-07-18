@@ -1,0 +1,5 @@
+Date: 2003-05-24 20:04:29
+Format: wphtml
+Title: Inspiring article.
+
+<b>Inspiring article.</b> <a href="http://www.news.wisc.edu/view.html?id=8682">This</a> is an inspiring read.

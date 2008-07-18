@@ -1,0 +1,5 @@
+Date: 2003-09-18 16:43:08
+Format: wphtml
+Title: We're on web, we don't link.
+
+<b>We're on web, we don't link.</b> Reading <a href="http://www.newscientist.com/news/news.jsp?id=ns99994152">this article</a> makes me want to ask the question <a href="http://www.theregister.co.uk/content/35/32903.html">Which school of journalism did you go to, Moron?</a>. An article about cool software from MIT that can understand and animate sketches. One problem: there's not a single link to a place where you can find out more about the software. Thank god for Google: apparently they're talking about <a href="http://www.ai.mit.edu/projects/rationale/projects.shtml">those projects</a>.

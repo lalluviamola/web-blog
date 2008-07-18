@@ -1,0 +1,11 @@
+Date: 2004-01-29 14:51:39
+Format: wphtml
+Title: Optimization - your worst enemy.
+
+<b>Optimization - your worst enemy.</b>
+<a href="http://users.stargate.net/~newcomer/optimization.htm">Optimization - your worst enemy</a> is an article that talks about basic truth of code optimization. They are basic but often neglected so it's good to brush up on them from time to time, especially if they're illustrated with real-world examples. To quote the summary:
+<blockquote>
+Optimization matters only when it matters. When it matters, it matters a lot, but until you know that it matters, don't waste a lot of time doing it. Even if you know it matters, you need to know where it matters. Without performance data, you won't know what to optimize, and you'll probably optimize the wrong thing. 
+<p />
+The result will be obscure, hard to write, hard to debug, and hard to maintain code that doesn't solve your problem. Thus it has the dual disadvantage of (a) increasing software development and software maintenance costs, and (b) having no performance effect at all.
+</p></blockquote>

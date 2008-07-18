@@ -1,0 +1,96 @@
+Date: 2007-06-12 03:33:09
+Format: wphtml
+Title: iCripple
+
+<strong>iEuphoria meets iDepression.</strong>
+
+Euphoria because it really seems to redefine the smartphone market currently fragmented between equally crappy contenders:
+<ul>
+	<li>PalmOS (barely adequate 10 years ago, hasn't changed since)</li>
+	<li>Windows Mobile (totally inadequate 10 years ago, barely adequate today)</li>
+	<li>Symbian OS (you would never think that an OS could have APIs so much worse than anything that came before)</li>
+	<li>SideKick (good OS, easy to program but closed)</li>
+	<li>BlackBerry (not enough experience to provide pithy quotes).</li>
+</ul>
+Depression because there's no way to write apps for it. Correction: no way to write apps that I would like to have on the iPhone.
+
+<span style="font-weight: bold">An SDK that never was.</span>
+
+After Apple announced iPhone they were widely criticized for not providing a way to write applications for iPhone.
+
+According to engadget there was a huge applause when Steve Jobs mentioned that topic during today's WWDC keynote. A premature applause because what Jobs really delivered is nothing to get excited about: the "applications" that you can write are nothing more than html+css+javascript viewed through Safari, potentially hosted in a dashboard-like environement so they appear as applications and potentially some additional JavaScript APIs to access native capabilities of the phone above what is available through standard JavaScript APIs.
+
+This non-announcement created <a href="http://www.rogueamoeba.com/utm/posts/News/iphone-sdk-2007-06-11-15-30">controversy</a>
+
+Rightfully so - but before passing judgments, let's analyze the topic a bit more.
+First, why does it make sense to allow people to write applications for the iPhone?
+
+<span style="font-weight: bold">A short guide to becoming obscenely rich.</span>
+
+Why there was no such outcry for lack of SDK for iPod? Because no one expects pig to fly or an mp3 player to be a computing platform. iPhone, on the other hand, is in the same league as Treo or Windows Mobile smartphones, in some aspects vastly superior. The expectations are different.
+
+I assume that Apple plays long term and plays to win big and that implies using every possible strategic advantage they can get.
+
+Isn't Apple's hardware and built-in software brilliant enough that it'll give them iPod-like dominance in the market?
+
+No, it isn't.
+
+Great hardware and great built-in software is a good start but it's an accepted wisdom that a platform lives or dies by the amount of software. PC OS vendors know it, console makers know it, phone manufacturers know it. The biggest software empire was built exploiting the inherent strong network effects of software. Microsoft Windows won not by being the best but by being the first to get critical mass and then sucking the oxygen out of everyone else, including Apple. And that's why Bill Gates can buy 19 times as many small countries than Steve Jobs.
+
+It's very puzzling that Apple, an OS company, doesn't get it (or at least acts as if they don't get it).
+
+And yeah, security and a desire to provide consistently good experience for users is a noble goal but, as Windows proves beyond any reasonable doubt, they only way to dominate market and consequently be able to buy small countries is to let anyone write any apps they damn please.
+
+<span style="font-weight: bold">Ajax is good, but not good enough.</span>
+
+Now that we established that having rich ecosystem of 3rd party apps is important for iPhone's long-term success, aren't Ajaxy web apps enough?
+
+No, they are not.
+
+There's a lot that can be done with html and JavaScript but there's also a lot that cannot be done. A responsive dictionary. A multi-protocol im client. An eBook reader supporting currently popular eBook formats. A sudoku solver. A game. A competent PIM application. A real video player. An ogg format audio player. Not so incidently, those are examples of some of the most popular types of 3rd party software for Palm OS, Windows Mobile, Symbian OS.
+
+What Apple offers would be a nice complement to being able to write native applications, but it's not a replacement. Not by a long shot.
+
+<span style="font-weight: bold">Apple took my dream away.</span>
+
+Many developers reacted emotionally when deprived the ability to write software for iPhone, an ability they implicitly expected. The emotion usually was anger.
+
+Some called those developers cry babies.
+
+But we are no cry babies. We're dreamers whose dreams were shattered. Taken away and shot in the head behind the barn.
+
+When shown an iPhone we saw it not only for what it was - a georgous piece of hardware with few awesome applications - but for what it could be.
+
+A device that could do not only what a few engineers at Apple can think of but also all the things that an army of programmers can dream of and program.
+
+But Apple took the dreams away by not allowing us to dream in the first place and that makes us angry.
+
+<span style="font-weight: bold">Why I'm not giving Apple my $600.</span>
+
+I think an iPhone, when released, will be the best smartphone on the market. In hardware and software it'll leapfrog current phones.
+
+It might even be good value for what it'll be.
+But...
+
+Other phones will catch up with the hardware rather quickly (prototypes are already shown).
+
+Software will probably never be as good (HTC's efforts to add iPhone-like interface to Windows Mobile is like putting lipstick on a pig) but it'll get better - no-one ver accused Microsoft of lack of stubbornness and not copying other people's good ideas.
+
+I won't give Apple my $600 until Apple gives me a way to dream and code my own dreams - because Microsoft, Palm, RIM and Nokia already give me that and I would rather have that than a piece of silicon that will loose half its value in a year.
+<a href="http://www.apple.com/iphone/" />
+
+<a href="http://www.apple.com/iphone/"> </a><a href="http://www.apple.com/iphone/">iCripple</a> - just say no.
+
+<span style="font-weight: bold">Is there any hope?</span><br style="font-weight: bold" />
+I hope that there is hope (you can always count on a Lisp programmer to use recursion).
+
+I hope that Apple understands long tail nature of software and how it creates strength through numbers.
+
+I hope they understand that most smart people don't work at 1 Infinite Loop.
+
+I hope that lack of SDK is not caused by (lack of) strategic thinking but inability to provide one in time for launch.
+I hope that even if they're not smart enough to realize they need to give us an SDK, for their own good, they're smart enough to listen to overwhelming demand from dreamers like us.
+
+I hope to some day give Apple my $600.
+
+I hope some day Steve will be able to buy even bigger country thanks to me.

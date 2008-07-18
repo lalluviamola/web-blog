@@ -1,0 +1,15 @@
+Date: 2004-06-11 14:35:44
+Format: wphtml
+Title: Foobar 2000 tip
+
+<a href="http://foobar2000.org/">Foobar 2000</a> is my mp3 playing app of choice. Not as flashy as WinAmp or iTunes - I've chosen it for  its low resource utilization.
+
+Here's the tip: using a global key shortcut for going to a new random song.
+
+Imagine that you have gigabytes of music - chances are you're not really getting to know most of it. Chances are you're sticking to a handful of favourites - such is human nature. 
+
+Random mode to the rescue! 
+
+While most mp3 players offer random mode, in Foobar2000 almost all functionality can be accessed via keyboard. Thanks to that I was able to assign Alt-R as a global keyboard shortcut for Playback/Random action.
+
+Global means that it works even if I'm using some other application. That way I can experience random new music from my collection but if I get a boring song, I can skip it using Alt-R.

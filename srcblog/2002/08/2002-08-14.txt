@@ -1,0 +1,5 @@
+Date: 2002-08-14 08:15:37
+Format: wphtml
+Title: WinSCP is a nice and...
+
+<A href="http://winscp.vse.cz/eng/">WinSCP</A> is a nice and free GUI client for scp protocol. You can copy files to and from remote computer running ssh protocol. &#013;&#010;<P><A href="http://www.chiark.greenend.org.uk/~sgtatham/putty/">Putty</A> is a free Win32 Telnet/SSH GUI client. &#013;&#010;<P>I use both programs quite often and they're great.

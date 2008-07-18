@@ -1,0 +1,9 @@
+Date: 2003-04-03 07:40:04
+Format: wphtml
+Title: DEFCON talks on-line
+
+<b>DEFCON talks on-line.</b>
+
+There is <a href="http://www.defcon.org/html/links/defcon-media-archives.html">an archive of DEF CON talks</a> available on-line. Too bad they're 
+only a streaming RealVideo files so you cannot copy them locally. Is there a way 
+to save RealVideo streams to disk?

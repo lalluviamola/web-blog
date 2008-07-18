@@ -1,0 +1,5 @@
+Date: 2004-06-02 07:06:47
+Format: wphtml
+Title: Web writing that works
+
+<a href="http://www.webwritingthatworks.com/index.htm">Web writing that works</a> - website about improving writing for the web. Good writing isn't easy so the more you know about it, the better.

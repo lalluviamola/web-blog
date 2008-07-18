@@ -1,0 +1,6 @@
+Date: 2003-02-15 06:51:43
+Format: wphtml
+Title: Sound recording setup.
+
+<b>Sound recording setup.</b>
+Joel <a href="http://www.joelonsoftware.com/news/20030214.html">describes</a> his setup for sound recording on a computer.

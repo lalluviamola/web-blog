@@ -1,0 +1,5 @@
+Date: 2002-10-13 05:36:57
+Format: wphtml
+Title: Profitable open-source business.
+
+<b>Profitable open-source business.</b> <a href="http://www.linuxdevices.com/articles/AT9754390998.html">An article</a> describing a rarity: a profitable open-source business. Before you get your hopes too high: this company provides services, it's not a software development company in the strict sense. Even if they write the software, it's a one-off, commisioned software. They just happen to use open-source and the commisioned software they write is also open-source.

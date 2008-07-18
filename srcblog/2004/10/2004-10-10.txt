@@ -1,0 +1,27 @@
+Date: 2004-10-10 02:30:55
+Format: wphtml
+Title: Wiki implementation best practices
+
+I've tested many wiki implementations. This post summaries what I consider to be best practices in wiki implementations.
+
+WikiWords must die. To me WikiWords are incidental and harmful property of wiki implementation that is mindlessly propagated in new implementations because that's how most other implementations work. I think I understand the reason for WikiWords. Web browser is very poor editing environment. WikiWords are a helpful shortcut for implicit links between pages. However they suffer from 2 fatal problems:
+<ul>
+<li>they look ugly
+<li>wiki software has no way to distinguish between intended implicit WikiWord (a link to another wiki page) or unintended link created just because a given word happen to look like a WikiWord (which happen often with company names)
+</ul>
+
+So, implicit WikiWord links are evil. It's not much more effort to write [A link] than it is to write ALink so WikiWords don't help that much. Of course, using WikiWordLooking links shouldn't be prohibited either. Just not enforced or used to create implicit links.
+
+'New page' is a must. Amazingly, most wikis still force you to use this incredibly opaque and broken way of creating new pages:
+<ul>
+<li>modify existing page to add a link to new page
+<li>click on this link
+<li>start editing new page
+</ul>
+
+I wonder how many usability studies showed that this is something that an average person can figure out by themselves.
+'New page' functionality is available in precious few implementations. It should always be there.
+
+Some means of categorizing posts. It already exists but not always and some implementations are better than others. Personally, I would do it exactly the way labels are implemented in gmail.com. It's a good implementation, the name "label" seems no worse than the obvious "category" and many people will be familiar with it thanks to using gmail. Stand on the shoulders of giants.
+
+Oh, yeah, and writing in a web browser sucks. A lot. But there's nothing that can be done about it (with the exception of dramatically enhancing web browser built-in editors or writing a desktop client with a decent editing capabilities).

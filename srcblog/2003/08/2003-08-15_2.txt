@@ -1,0 +1,5 @@
+Date: 2003-08-15 20:56:57
+Format: wphtml
+Title: Developer tools for Pocket PC/Smartphones
+
+<b>Developer tools for Pocket PC/Smartphones</b>. When it comes to developing apps for different versions of Pocket PCs and Smartphones, it's a real jungle of tools out there. <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dnppcgen/html/devmobfaq.asp">This FAQ</a> makes things a little bit clearer as to which tool is needed for developing for a given os.

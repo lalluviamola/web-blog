@@ -1,0 +1,9 @@
+Date: 2005-02-11 21:01:51
+Format: wphtml
+Title: Explanation of U.S. cell-phone mobile data plans.
+
+Trying to figure out available data plans (very useful for advanced cell-phone that can use internet connectivity) for U.S. cell-phone carriers based on their websites is usually painful and confusing.
+
+Thank god for <a href="http://twelveblackcodemonkeys.blog-city.com/read/1050881.htm">this comparison</a> of data plans on major U.S. carriers. An article that I wanted to write myself but don't have to now.
+
+Personally, I have both Sprint and T-Mobile accounts with unlimited data plans ($15/month Sprint and $30/month on T-Mobile (would be only $20 if I also got voice plan)).

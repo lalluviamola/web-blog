@@ -1,0 +1,10 @@
+Date: 2003-01-26 06:09:54
+Format: wphtml
+Title: Website marketing
+
+<b>Website marketing.</b>
+Today found two sites that can be helpful when doing website marketing:
+<a href="http://www.searchengineworld.com/">Search Engine World</a> and
+<a href="http://www.webmasterworld.com/">Webmaster World</a>. The only problem 
+with sites like this is that they have way too much information (which, on the 
+other hand, makes them useful).

@@ -1,0 +1,11 @@
+Date: 2002-11-22 04:21:30
+Format: wphtml
+Title: A bigger agent.
+
+<b>A bigger agent.</b>
+<a href="http://us.imdb.com/Title?0081625"> From Those Lips, Those Eyes </a>:
+<blockquote>
+There's one thing you learn in this business, and you learn it over and
+over: There'll always be a bigger agent, there'll
+always be a better job and there'll always be a prettier girl. 
+</blockquote>

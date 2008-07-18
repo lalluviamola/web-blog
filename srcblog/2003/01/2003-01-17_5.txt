@@ -1,0 +1,7 @@
+Date: 2003-01-17 22:35:44
+Format: wphtml
+Title: Spam conference webcast.
+
+<b>Spam conference webcast.</b>
+
+Today is Paul Graham's spam conference and they have <a href="http://www.spamconference.org/webcast.html">a webcast</a>. I would really like to see it but my connection's too flaky today.

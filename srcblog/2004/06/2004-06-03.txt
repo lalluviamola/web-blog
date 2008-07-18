@@ -1,0 +1,50 @@
+Date: 2004-06-03 01:25:59
+Format: wphtml
+Title: Notes on installing Cardboard.
+
+<a href="http://wiremine.org/">Cardboard</a> looks like a very promising system - something that I would use personally so I decided to install it.
+
+Here are my notes on installing it under Apache/PHP 4.3.6 on Windows.
+
+As you can see on <a href="http://wiremine.org/HelpOnInstalling">Cardboard installation</a> help page,  Cardboard depends on a frightening number of PEAR packages. I believe I completed the task of installing all of them, however I had to twist PEAR a little bit e.g. it refuses to install beta packages unless you force it with <code>-f</code> option; but that doesn't play well with <code>-a</code> (install with all dependencies) option . It looks like PEAR's handling of dependencies combined with how it handles stable/beta/alpha is broken. Not to mention that fundamental stupidity of "preffered version" option - if you set it to "stable" PEAR refuses to install beta and alpha packages. If you set it to to "beta" it'll install beta packages even if stable version is available. Do they have an option to "get stable and if stable is not available then the next best thing" ? (too lazy to find it out myself).
+
+While using existing code helps in developement I think that in long term it is a liability. Dependencies always make system more fragile and negatively impact installation experience (and install experience is important; many people praise <a href="http://wordpress.org">WordPress</a> for its 5-minute install experience).
+
+Some of the dependencies look gratuitious (e.g. PhpDocumentor, SOAP).
+
+There are two solutions to dependencies problem:
+<ul>
+<li>drop dependencies i.e. recode the functionality that requires them. A lot of work.</li>
+<li>package all dependecies with Cardboard and ship it as one, making installation simpler than manually using PEAR (at the price of code duplication - what would happen if someone already has PEAR installed?)</li>
+</ul>
+
+<a href="http://wiremine.org/HelpOnInstalling">Installation instructions</a> are a bit unclear (at least they were for me).  Instructions for "step four" (which should be named "step three") should clarify that you can use any database name for bliki database and that you specify database name later on in <code>config.xml</code>.
+
+I named the database "bliki":
+<pre>
+C:&#92;mysql&#92;bin&#92;mysql.exe -u root
+Welcome to the MySQL monitor.  Commands end with ; or g.
+Your MySQL connection id is 13 to server version: 4.0.18-max-debug
+Type 'help;' or 'h' for help. Type 'c' to clear the buffer.
+mysql> create database bliki;
+Query OK, 1 row affected (0.03 sec)
+mysql> &#92;q
+Bye
+</pre>
+
+Requirement for step six, creating Alias entries should be dropped. As far as I know, this requires changing main <code>httpd.conf</code> configuration file and can't be done in <code>.htaccess</code> file. Many people don't have access to <code>httpd.conf</code> and even if one does, it requires restarting web server.
+
+Better error reporting. E.g. <code>setup-cardboard.php</code> should detect that <code>config.xml</code> is not created and print apropriate error message. Currently the only way to find that out is by looking at server's error log and figuring out that
+<code>[Wed Jun 02 16:45:04 2004] [error] PHP Fatal error:  Call to undefined function:  toarray() in c:&#92;kjk&#92;src&#92;mine&#92;web&#92;kovi&#92;www&#92;bliki2&#92;htdocs&#92;setup-cardboard.php on line 168</code> means exactly that. I fixed that in my local copy.
+
+Step seven should mention that <code>config.xml</code> should be placed in <code>htdocs</code> folder (that's where the setup script looks for it).
+
+Step eight and nine should be automated (it should be possible to do from PHP script).
+
+<code>BlikiApp.php</code> generates a lot of warnings about "call-time pass-by-reference". It can be disabled by setting <code>allow_call_time_pass_reference=On</code> in <code>php.ini</code> but code should be rewritten to avoid that (especially given that, according to the warning message,  it might be removed in the future).
+
+PEAR's <code>Text_Diff</code> should be mentioned in the list of dependencies.
+
+I've also created <code>$CARDBOARD/cache/vsearch/master_word_index.dat</code> (not sure if it's required, but the code looks for it).
+
+And time for the break... The code in CVS seems to be having some re-arrangements since the the app doesn't work. I'm slowly going through the problems, have fixed a few of them (mostly to do with paths for including files) but not all.

@@ -1,0 +1,5 @@
+Date: 2004-06-02 07:48:47
+Format: wphtml
+Title: Experiences of Using PHP in Large Websites
+
+A 2-year old but still relevant paper: <a href="http://www.ukuug.org/events/linux2002/papers/html/php/">Experiences of Using PHP in Large Websites</a>. PHP did bite me so many times that I dislike it with a passion. This paper describes a few mis-designs of PHP. If you program in PHP, you should read it to learn about PHP pitfalls. If you won't read it, you'll learn about them anyway - the hard way.

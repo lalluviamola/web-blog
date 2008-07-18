@@ -1,0 +1,5 @@
+Date: 2004-05-31 06:53:11
+Format: wphtml
+Title: Purple numbers in JavaScript
+
+"Purple numbers" is an enigmatically-named but simple idea: assign unique URI to parts of the html document so that others can point to wisdom on the web with granularity smaller than a web page. The concept was first developed in <a href="http://purplewiki.blueoxen.net/cgi-bin/wiki.pl?HomePage">Purple Wiki</a>.  Simon Willison created <a href="http://simon.incutio.com/archive/2004/05/30/plinks">JavaScript implementation</a> (which looks like it can be easily added to any other tool or existing static pages).

@@ -1,0 +1,38 @@
+Date: 2003-05-25 20:07:50
+Format: wphtml
+Title: Impressions on using WingIDE.
+
+<b>Impressions on using <a href="http://wingide.com/">WingIDE</a>.</b> I decided to check out Chandler's sources. 
+  It's mostly written in Python so I started looking for a good Python IDE because 
+  it's so much easier to dive into unknown code if you can step through the code 
+  and see what it's doing. <a href="http://wingide.com/">WingIDE</a> is such a Python IDE and as an additional benefit 
+  it's used by Chandler team. So far I'm using a 30-days evaluation version (it 
+  has all the functionality of the product). The verdict so far: very good. But 
+  things are never perfect. Here's a list of few things that I would like to see 
+  different:
+<ul>
+  <li>first I had to change keyboard mappings for debugging to better match VisualStudio. 
+    Fortunately it's quite easy (create a new keymap file based on one of the 
+    two defaults ones (keymap.emacs, keymap.normal) and add gui.keymap = $full_path_to_the_new_keymap_file 
+    to preferences file)</li>
+  <li>it seems like displaying local variables has a bug: sometimes a variable 
+    is missing in default debugger window but shows up in the separate locals 
+    window (that can be triggered by double-clicking on Locals tab in variables 
+    window)</li>
+  <li>I'm more used to &quot;one-window-with-docked-subwindows&quot; approach 
+    (i.e. the way Visual Studio.NET works) while WingIDE has &quot;multiple-windows&quot; 
+    approach</li>
+  <li>expression evaluator window seems to be equivalent of &quot;watches&quot; 
+    (i.e. variables/expressions whose value you want to track) in other debuggers 
+    but is less convenient to use (you have to re-type expressions and you can 
+    have only one); Variables window should have another branch in the tree besides 
+    &quot;Locals&quot; and &quot;Globals&quot; called &quot;Watches&quot; which 
+    would be an user-editable list of variables/expressions to show. It could 
+    also have &quot;Autos&quot; (as in Visual Studio.NET)</li>
+  <li>expression evaluator window should remember the tab used (i.e. &quot;Tree 
+    Display&quot; vs. &quot;Text Display&quot; vs. &quot;Combo Display&quot;)</li>
+  <li>there doesn't seem to be a way to capture application's stdout/stderr output</li>
+  <li>it seems to be slow on large projects (and my machine is fast)</li>
+  <li>it should switch to gtk2, gtk1 is ugly</li>
+</ul>
+<p>But it's definitely better than not having it.

@@ -1,0 +1,19 @@
+Date: 2006-04-09 21:54:37
+Format: wphtml
+Title: OnFolio observations
+
+<a href="http://www.onfolio.com">OnFolio</a> is a tool for saving web pages or their excerpts for later. They have a very good integration with IE.
+
+I tried it in the past but gave up because it was too slow. I tried it again because it became free, ships as part of Live Toolbar Beta (another IE toolbar coming from Microsoft; soon my screen will fill with toolbar and leave to place for web pages) and has an RSS reader.
+
+It's sad when a promising tool is completely unusable because of a simple, easy to fix problem.
+
+In case of OnFolio's RSS reader the show stopper is lack of an option to only show feeds with unread items in the list of feeds. My list of feeds spans few screens. Usually only a handful of them have unread items yet I have to scroll the list. Super annoying.
+
+And it's not like it's a feature no-one ever thought about before. Bloglines had it for ages.
+
+Another problem is heavy cpu usage when importing the feeds, probably due to background formatting of feeds. A tip to programmers out there: you can lower the priority of a thread with one API call.
+
+Anyway, desktop RSS reader without synchronization with a web-based reader is a no-go. Microsoft should buy Bloglines,  add decent synchronization API and make OnFolio work with that. Or built their own web-based RSS reader.
+
+As to other OnFolio features - I'm still exploring how useful they are.

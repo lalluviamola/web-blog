@@ -1,0 +1,5 @@
+Date: 2002-08-31 09:07:57
+Format: wphtml
+Title: Joel on Groove thinks the...
+
+<A href="/archives/000010.html">Joel on Groove</A> thinks the same: &#013;&#010;<BLOCKQUOTE>&#013;&#010;<P>"Why do you keep picking on Groove, Joel?" Three reasons:</P>&#013;&#010;<UL>&#013;&#010;<LI>They have an interesting architecture that provides important platform functionality which I could really use in my own products, </LI>&#013;&#010;<LI>They make it impossible (or at least unrealistic) for ISVs to build on their platform, thus dooming themselves to oblivion, either out of greed or because they think Groove is an application, not a platform, </LI>&#013;&#010;<LI>and Groove inventor Ray Ozzie has a <A href="http://www.ozzie.net/blog/">weblog</A>, so he can answer me if he thinks I'm off the bat.</LI></UL></BLOCKQUOTE>

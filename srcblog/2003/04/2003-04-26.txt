@@ -1,0 +1,10 @@
+Date: 2003-04-26 03:23:15
+Format: wphtml
+Title: P800 reviews.
+
+<b>P800 reviews.</b>
+
+All <a href="http://www.oreillynet.com/pub/a/wireless/2003/04/17/smartphone.html">those reviews</a>
+of SonyEricsson P800 but none that will answer the really important question: is 
+there any plan in the U.S. that gives GPRS connection, how well does it work in 
+practice and how much does it cost?

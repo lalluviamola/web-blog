@@ -1,0 +1,11 @@
+Date: 2004-07-22 01:18:41
+Format: wphtml
+Title: Brew abandoned by Korean mobile carrier.
+
+Korean mobile carrier is <a href="http://telecomskorea.com/index.php?option=content&task=view&id=348">planning to stop providing Brew</a>.
+
+Good riddance, Brew is just another closed platform that hopes to make easy money thanks to holding complete lock on services offered through it (therefore a lock on innovation).
+
+The news aren't that good, though. Brew will just be replaced by another closed platform developed in Korea.
+
+When will they (mobile carriers collectively) that the way to win is by offering open platform and letting other business to freely build and sell services on this platform. Long term this strategy outperfoms any "closed garden" wet fantasies of carrier executives. The problem is that they just can't stop charging for SMS.

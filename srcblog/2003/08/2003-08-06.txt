@@ -1,0 +1,5 @@
+Date: 2003-08-06 14:35:30
+Format: wphtml
+Title: Google News Alerts launched
+
+<b>Google News Alerts launched</b> Google has just launched a new, beta service called <a href="http://www.google.com/newsalerts">Google News Alerts</a>. I just signed up asking it to send me news about "treo 600" and "Sidekick". It could be very useful service if it's going to work as I expect it i.e. provide only relevant links. "Sidekick" term is tricky - I'm only interested in news about SideKick/HipTop mobile phone/PDA combo but this is also a very common word so if Google does only simple word matching, it'll flood me with irrelevant articles (having per-subscription bayesian filtering could help). We'll see how it works in practice.

@@ -1,0 +1,5 @@
+Date: 2002-08-15 11:28:05
+Format: wphtml
+Title: Truths that hurt.
+
+<B>Truths that hurt.</B> In the spirit of Dijkstra's <A href="http://www.cs.virginia.edu/~evans/cs655/readings/ewd498.html">truths that might hurt</A>, here's one truth that some people have a hard time accepting. Courtesy of <A href="http://www.bitmover.com/lm/">Larry "BitKeeper" McVoy</A>, in <A href="http://www.regexps.com/pipermail/arch-announce/2002-August/000021.html">this post</A>: &#013;&#010;<BLOCKQUOTE><I>it costs a huge amount of money to make a decent SCM system and there is absolutely zero chance of ever recovering the development costs if it is free software. If it's free, no-one will pay you anything for it. </I></BLOCKQUOTE>Of course that applies to any software, not only SCM. And if only everyone shared Larry's life philosophy: &#013;&#010;<BLOCKQUOTE><I>Either way, there is no crisis, only opportunities. </I></BLOCKQUOTE>

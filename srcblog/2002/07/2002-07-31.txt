@@ -1,0 +1,5 @@
+Date: 2002-07-31 11:29:54
+Format: wphtml
+Title: A quote from Accounting for...
+
+A quote from <A href="http://www.amazon.com/exec/obidos/ASIN/0764553143/">Accounting for Dummies</A>, page 67: &#013;&#010;<BLOCKQUOTE>Be aware that a business may be tempted to deliberately overstate or understate its profit. When a business overstates its profit in its income statement, some amount of its sales revenue has been recorded too soon and/or some amount of its expenses has not yet been recorded (but will be later). Overstating profit is a dangerous game to play because it deceives investors and other interested parties into thinking that the business is doing better than it really is. </BLOCKQUOTE>Looks like corporate America didn't pay attention to "Accounting for Dummies" recently.

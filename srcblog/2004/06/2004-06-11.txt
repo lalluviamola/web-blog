@@ -1,0 +1,18 @@
+Date: 2004-06-11 05:44:25
+Format: wphtml
+Title: Daily reading
+
+<ul>
+
+<li> <a href="http://www.icsi.berkeley.edu/~nweaver/login_witty.txt">Reflections on Witty: Analyzing the Attacker</a> </li>
+<li> <a href="http://store.britannica.com/escalate/store/DetailPage?pls=britannica&bc=britannica&pc=REPLICA&pls0affiliate_id=adtracking&pls1adtracking=WHATSNEW">replica of first Britannica encyclopedia for $195</a> - very old therefore out of copyright. Could it be used as a source material for <a href="http://wikipedia.org">WikiPedia</a> ?</li>
+
+<li> <a href="http://software.ericsink.com/item_10182.html">Law #8: The Law of Duality</a> - doesn't apply in software</li>
+
+<li> <a href="http://news.zdnet.co.uk/hardware/emergingtech/0,39020357,39157406,00.htm">HP improves resolution of projectors</a> - projectors are cool</li>
+
+<li> <a href="http://www.republika.pl/fdstyles/">Feed Demon styles</a> </li>
+
+<li> <a href="http://fourmilab.ch/documents/netslum/">abandoning the internet</a> </li>
+
+</ul>

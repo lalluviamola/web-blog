@@ -1,0 +1,11 @@
+Date: 2004-10-03 04:43:39
+Format: wphtml
+Title: scdiff 0.3 released
+
+I've released version 0.3 of <a href="/software/scdiff">scdiff</a>. The fixes in this version:
+<ul>
+  <li><a href="http://nerdmonkey.com">Eli Tucker</a> fixed a bug handling directories in cvs
+  <li>no longer crash when handling <tt>svn remove</tt>. Still, handling of deleting files
+  is far from perfect (currently they are silently ignored while we should show apropriate diff)</li>
+  <li>properly handle file names with spaces. Fix suggested by Raman Gupta</li>
+</ul>

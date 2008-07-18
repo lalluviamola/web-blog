@@ -1,0 +1,5 @@
+Date: 2004-05-28 06:25:19
+Format: wphtml
+Title: I'm another WordPress switcher.
+
+I joined the legion of <a href="http://wordpress.org">WordPress</a> switchers. I just migrated from MovableType to WordPress 1.2. It was quite easy although I had to spend a lot of time creating a new template (the one included with WordPress is, frankly, quite ugly).

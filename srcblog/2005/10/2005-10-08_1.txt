@@ -1,0 +1,40 @@
+Date: 2005-10-08 07:09:30
+Format: wphtml
+Title: Writely wishlist
+
+I just discovered <a href="http://writely.com" title="Writely">Writely</a> and I
+like it. I like it so much that I have only 2 feature requests.<br/>
+<br/>
+One is improvement to how links are edited. Here's a small test case:<br/>
+<ul>
+  <li>
+    click on a link button</li>
+  <li>
+    enter link name and text</li>
+  <li>
+    type the rest of your text</li>
+</ul>
+<br/>
+There are two bugs (by my definition of a bug):<br/>
+<ul>
+  <li>
+    the cursor is at the beginning of the link, not the end</li>
+  <li>
+    even if I put the cursor at the end, whatever I type is still considered to
+    be a part of the link text. That's not what I expect. It's pretty much
+    impossible to convince writely to not make the text a part of the link (the
+    only work-around I found was enter for new line, type something and then
+    delete the newline). At the very least the logic should be: if I'm at the
+    end of the link and press space, this becomes a body of the message, not the
+    link</li>
+</ul>
+<br/>
+And a feature request: source code highlighter. I often write posts in which I
+would like to embed snippets of code. Those snippets of code are much more
+readable if they're nicely formatted.<br/>
+<br/>
+I know, it's a very geeky feature. But then again, I assume a lot of writely
+early adopters are geeks like me, that jump at the opportunity of playing with
+the latest toys. So how about adding "Code snippet" to "Insert" drop-down? Or
+maybe "Style" "Source code" =&gt; language.<br/>
+<br/>

@@ -1,0 +1,34 @@
+Date: 2004-06-12 14:36:57
+Format: wphtml
+Title: More productivity tips.
+
+As you can tell from reading <a href="/archives/2004/06/10/a-tip-from-getting-things-done/">this post</a> I'm interested in increasing my productivity. <a href="http://craphound.com/lifehacks2.txt">Life Hacks</a> is a summary of approaches taken by uber-productive net personalities like jzw, GvR, Tim Bray or ESR. It's also <a href="http://www.boingboing.net/2004/06/06/danny_obriens_life_h.html">summarized here</a>.
+
+My summary: it's all about managing knowledge in a simple format that allows easy searching and is cross-platform. The format of choice seems to be plain text file and a tool of choice is a text editor.
+
+I tried that approach and it didn't work for me. Storing everything in one file didn't work because I had too much data to store. Navigating one, big text document was too unwieldy. Part of the blame belong to a tool - despite trying a lot of them, I didn't find a really confortable text editor for Windows that I could just have open all the time.
+
+Then I tried storing information in multiple files. I was hoping that by dividing info into files I'll be able to navigate it more easily. A crucial thing in such a setup is a good support from a text editor for managing a collection of files (such collection is usually called a "project"). While I found an editor that did support that, the support wasn't really good. Simple operations like creating a new file and adding it to a project were annoyingly hard to do. Some desired capabilities, like searching through all project files, were not even available.
+
+I can see how a really good editor optimized for such usage would solve those problems, but I didn't find one yet.
+
+Then I tried wiki-like desktop apps like FlexWiki and WikiPad. While the idea is right, the implementation, at least at present, is abominable.
+
+The I tried highly polished product: Microsoft's OneNet. While looking nice it doesn't use open format and is very wasteful when it comes to using screen space. The main activity is writing and copy&paste of texts and OneNet isn't optimized for that.
+
+So what's next? I just <a href="http://blog.kowalczyk.info/archives/2004/06/04/wikipedia-as-a-personal-wiki/">installed myself a wiki</a> and started using it for my knowledge repository. Good things about wiki for knowledge managements:
+<ul>
+<li>flexible structure (you can create any structure you want)</li>
+<li>full-text search</li>
+<li>if you know how (I do), you can backup the data (either backup the whole database or export just the posts)
+</ul>
+Disadvantages of wiki:
+<ul>
+<li>forces me to organize things into small pieces (because edit box is small)</li>
+<li>I need to do extra work to manually create links and hierarchies</li>
+<li>web interface isn't too comfortable either. Lack of powerful editing options like spell-checking, find&replace etc.</li>
+</ul>
+
+But I'm sticking with it for now and see how well it'll work.
+
+Of course ideally I would have a good, Windows implementation of a wiki-like editor that can utomatically sync with a web-based wiki. For now it's only a dream.

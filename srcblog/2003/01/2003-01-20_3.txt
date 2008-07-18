@@ -1,0 +1,15 @@
+Date: 2003-01-20 20:19:38
+Format: wphtml
+Title: My crystal ball
+
+<b>My crystal ball.</b>
+
+My crystal ball tells me that in 2003 someone will create a 
+<a href="http://www.apple.com/safari/">Safari</a>-inspired (by which I mean also 
+based on
+<a href="http://developer.kde.org/documentation/library/kdeqt/kde3arch/khtml/">
+KHTML</a> and having similar to Safari look and feel) browser for Windows. The 
+idea is obvious to conceive, easy to implement and hard to resist. Someone will 
+do it. On a more wishful note: would be good if someone added KHTML-based HTML 
+component to <a href="http://www.wxwindows.org">wxWindows</a>. The one they have 
+is primitive and IE wrapper is Windows-only.

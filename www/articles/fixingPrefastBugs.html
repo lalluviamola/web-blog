@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<title>Fixing Prefast bugs</title>
+	<link rel="stylesheet" href="../css/wp-style.css" type="text/css" />
+	<link rel="stylesheet" href="../css/article.css" type="text/css" />
+</head>
+
+<body>
+
+<!-- search box -->
+<div style="position: absolute;	top: 10px; right: 0; margin-right: 20px;">
+    <form method="get" id="searchForm" action="http://google.com/search">
+        <div>
+            <input type="hidden" name="IncludeBlogs" value="1" />
+            <input id="search" name="q" class="txt" size="25" tabindex="1" />
+            <input type="hidden" name="as_sitesearch" value="blog.kowalczyk.info" />
+            <input type="submit" class="btn" value="&nbsp;Search&nbsp;" />
+        </div>
+    </form>
+</div>
+<!-- end of search box -->
+
+<div id="header">
+<h1>Weblog Without Honor or Humanity</h1>
+<h2>by Krzysztof Kowalczyk</h2>
+</div>
+<div id="banner">
+<ul id="tabnav">
+  <li><a href="/" title="home">Home</a></li>
+  <li><a href="/articles/" title="articles" class="current">Articles</a></li>
+  <li><a href="/software/" title="software">Software</a></li>
+  <li><a href="/contact.html" title="contact">Contact</a></li>
+</ul>
+</div>
+
+<div id="container">
+
+<p><a href="/">Home</a> &raquo; <a href="/articles/">Articles</a> &raquo; <strong>Fixing Prefast bugs</strong> <font color="#aaaaaa" size="-1">(2005-14-05)</font></p>
+<div id="article">
+<h1>Fixing Prefast bugs</h1>
+<h3>What is Prefast?</h3>
+<p> Prefast is Microsoft's static analysis tool for C/C++ code. It tries to find
+bugs in the code by analyzing C/C++ source code. It's like lint, except better.
+
+Prefast is included in Visual Studio 2005 (but only in the Team Studio editions)
+and in Windows CE 5.0 toolkit.
+</p>
+
+<h3>On importance of Prefast-clean builds.</h3>
+
+Prefast is not AI (or RI) and often can't tell code that looks wrong but isn't
+and  code that is just buggy. It is important to keep the code clean of any
+prefast warnings, even those that point problems that aren't really bugs.
+
+First reason for that is often the code in question uses questionable coding
+practices (e.g. shadowing variable names or using strcpy/strcat without checking
+sizes of buffers).
+
+Second reason is that Prefast should be used throughout development, from the very
+beginning till shipping the code. Prefast is a good tool because it does find
+real problems in the code. If the real problems are buried within hundreds of
+warnings, people will not use Prefast.
+
+<h3>Fixing Prefast warnings.</h3>
+   
+There are two ways to remove Prefast warnings:
+<ul>
+    <li>silence Prefast</li>
+    <li>fix the code</li>
+</ul>
+
+Silencing Prefast is not recommended and should only be done as an exception. It's
+(almost) always possible to fix the code to make Prefast happy.
+
+Below is a list of  problems that I found using Prefast on real code and suggestions
+on how to fix it.
+
+<h4>Warning 11 - dereferencing a NULL pointer</h4>
+
+<a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/wcepbguide5/html/wce50grfPREfastWarning11.asp">
+MSDN explanation.</a>
+
+<p>Prefast will complain with warning 11 about code like:
+<pre>
+char *txt = (char*)malloc(50);
+ZeroMemory(txt, 50);
+</pre>
+
+Every allocation can fail and if blindly touch this memory, the app will crash.
+Memory allocation should always be checked for failures e.g.:
+<pre>
+char *txt = (char*)malloc(50);
+if (NULL == txt)
+{
+    // handle allocation failure gracefully
+    return;
+}
+ZeroMemory(txt, 50);
+</pre>
+
+Another example of warning 11 is:
+<pre>
+if (NULL != myPointerStruct)
+{
+    // do something
+}
+myPointerStruct->myField = 1;
+</pre>
+Such code looks wrong - if myPointerStruct can never be NULL, then the check
+is not needed. If it can be NULL, the accessing myField without protecting it
+with a check for NULL will crash the app.
+</p>
+
+<h4>Warning 321 - dereferencing a NULL pointer</h4>
+
+<a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/wcepbguide5/html/wce50grfPREfastWarning321.asp">
+MSDN explanation.</a>
+
+<p>If the app uses LoadLibrary() with relative path to the *.dll loaded system
+will first try to locate the *.dll in current directory. An attacker can plant
+a fake *.dll file and make the app execute any code with the priviledges of
+the app. This is a security risk. It's more of a problem on desktop. The fix
+is simple: change all <code>LoadLibrary*(_T("foo.dll"))</code> calls to
+<code>LoadLibrary(_T("\\Windows\\foo.dll"))</code> (if foo.dll is a system
+dll).</p>
+
+
+<h3>Links</h3>
+<p>
+<ul>
+  <li><a href="http://www.cis.upenn.edu/~bcpierce/unison/">Unison</a> -
+  software being described</li>
+  <li><a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/">putty</a> -
+  telnet/ssh client for Windows.Includes <code>plink.exe</code> needed
+  if we want to fully automate some scenarios using unison.</li>
+  <li><a href="http://samba.anu.edu.au/rsync/">rsync</a> - similar
+  software but with less features and not working well on Windows</li>
+  <li><a href="http://www.cygwin.com/">cygwin</a> - required to run rsync</li>
+</ul>
+</p>
+
+</div>
+<!-- end article -->
+</div>
+<!-- end container -->
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-194516-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+
+</body>
+
+</html>

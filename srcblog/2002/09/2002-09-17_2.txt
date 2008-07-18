@@ -1,0 +1,5 @@
+Date: 2002-09-17 16:17:21
+Format: wphtml
+Title: A new programming language.
+
+<B>A new programming language.</B> Creating a new programming language is an act of bravery. I assume that one would like his language to be popular and to overcome the momentum behind existing languages (Perl/Python/Ruby/PHP/you-name-it) is very hard. Yet some people try. <A href="http://www.ai.mit.edu/~jrb/goo/">GOO</A> is a Lisp-ish/Dylan-ish language in an early, but already usable, stage of life. The encouraging thing about GOO is that its author used to (I think) work on a commercial Dylan compiler, so he should know what he's doing. <A href="http://www.paulgraham.com/arc.html">Arc</A> is a very Lisp-ish, not-yet-released for public consumption, language. The encouraging thing about Arc is that its author is a very intelligent guy who wrote 2 great books about Lisp and has interesting ideas about programming language design.

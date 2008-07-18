@@ -1,0 +1,28 @@
+Date: 2002-10-20 08:12:44
+Format: wphtml
+Title: Mitch Kapor strikes again
+
+<b>Mitch Kapor strikes again.</b> Or at least is planning to strike again. 
+  Mitch is a pioneer in the software business, he designed Lotus 1-2-3 and Lotus 
+  Agenda. Now he has a <a href="http://blogs.osafoundation.org/mitch/">weblog</a> 
+  in which <a href="http://blogs.osafoundation.org/mitch/000007.html#000007">he 
+  reveals his plans for the future</a>. In short - he's planning to <a href="http://www.osafoundation.org/">write 
+  a PIM</a> (Personal Information Manager). There are a couple of things that 
+  make this project interesting despite the &quot;we're still thinking&quot; status 
+  of it. First it's going to be open source. Now, most open source projects fail 
+  to produce anything useful (don't blame me, blame SourceForge) but this one 
+  might just be different. There are few good signs. The project is driven by 
+  Mitch Kapor. He knows how to make and ship succesful software. He did it, so 
+  he's not likely to delude himself into underestimating the effor required (and 
+  a lot of people underestimate how hard making software is). He also has a lot 
+  of experience with PIMs (the aforementioned Agenda that he designed was a PIM). 
+  He's also not deluding himself about making money from the project (I suspect 
+  he's already a wealthy man and is in a position where his personal goals are 
+  more important that making another buck). It's also going to be interesting 
+  to see if they manage to write a really good application in a cross-platform 
+  GUI library. GUI programming is hard both technically and conceptually. Windows 
+  and MacOS ship with a good set of basic widgets but to provide what the most 
+  polished commercial applications provide (latest products from Microsoft or 
+  Adobe or Macromedia) requires a lot of effort. Historically cross-platform GUI 
+  libraries didn't provide enough for the apps to compete with fully native apps. 
+  The conclusion: this project is worth watching.

@@ -1,0 +1,5 @@
+Date: 2003-12-04 00:52:20
+Format: wphtml
+Title: Motorola's MPx200 Smartphone review.
+
+<b>Motorola's MPx200 Smartphone review.</b> There's a <a href="http://www.mobileburn.com/review.jsp?Id=554">decent review</a> of Motorola's MPx200 Smartphone that goes beyond just enumerating what you can find in the specs. Very good pictures of the phone. However, I couldn't find there an answer to the only question I have: can you install third-party apps on it or not?

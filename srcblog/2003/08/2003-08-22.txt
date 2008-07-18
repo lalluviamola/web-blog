@@ -1,0 +1,5 @@
+Date: 2003-08-22 22:02:49
+Format: wphtml
+Title: P800 not good in US.
+
+<b>P800 not good in US.</b> I was interested in Sony-Ericsson P800 smartphone (the only one to have Symbian OS v7) because I wanted to see if it's worth writing applications for. The phone usually gets great reviews but no  carrier in US has it so it's hard to find any information about how well it works in US. It looks like <a href="http://stevenf.com/mt/archives/000390.php">it doesn't work alll that well.</a> This particular person thinks that <a href="http://stevenf.com/mt/archives/000392.php">Sidekick is much better</a>.

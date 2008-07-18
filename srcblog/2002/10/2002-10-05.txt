@@ -1,0 +1,21 @@
+Date: 2002-10-05 07:03:13
+Format: wphtml
+Title: Platform Leadership.
+
+<b>Platform Leadership.</b> <a href="http://www.amazon.com/exec/obidos/tg/detail/-/1578515149/">Platform 
+  Leadership</a> is a book by A. Gawer and M. Cusumano. I picked it up because <a href="http://philip.greenspun.com/">Philip 
+  Greenspun</a> (and others) praised the book on Amazon.com. Authors spend most 
+  of the time doing case analysis of how Intel, Microsoft, Cisco, Palm, DoCoMo 
+  and open-source movement established and maintained what authors call &quot;platform 
+  leadership&quot;. The study of Intel is most comprehensive, Palm DoCoMo and 
+  open-source are least extensively covered. The most important lesson from the 
+  book is that making a platform (be it a microprocessor, operation system or 
+  a wireless service) has its own, unique challenges. Personally, I was disappointed 
+  by the book. One reason is that it didn't contain much information I didn't 
+  already know. Another reason is that the book focuses on analysis but doesn't 
+  give a lot of conclusions and the conclusions it gives are very general. To 
+  be fair: this inability to give prescriptions might be inherent in the problem. 
+  After finishing the book I realized that it has little practical value for me 
+  (and probably most other people). It's intellectually stimulating to ponder 
+  the challenges of a platform vendor but very few people will be in a position 
+  to use any insight gained as there are very few successful platforms.

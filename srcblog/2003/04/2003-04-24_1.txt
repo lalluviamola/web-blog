@@ -1,0 +1,7 @@
+Date: 2003-04-24 03:47:36
+Format: wphtml
+Title: Mailing list archive.
+
+<b>Mailing list archive.</b>
+
+Just so that I don't forget: <a href="http://www.mail-archive.com/lists.html">Mailing lists archive</a> can be useful at times.

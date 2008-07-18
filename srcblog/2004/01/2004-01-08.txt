@@ -1,0 +1,18 @@
+Date: 2004-01-08 08:15:12
+Format: wphtml
+Title: Palm OS 6 news.
+
+<b>Palm OS 6 news.</b>
+
+Palm OS is a terrible OS to program. There's hope, however, and her name is <a href="http://www.brighthand.com/article/Palm_OS_6_Shipped_on_Schedule">Palm OS 6</a>. According to <a href="http://www.brighthand.com/article/Palm_OS_6_Shipped_on_Schedule">this Brighthand article</a> Palm OS 6 is already finished although, as is usually the case, it'll take some (a lot) of time before it shows up in Palm PDAs.
+<p>
+From the description it seems that it'll be the first Palm OS version deserving the title of "operating system". For the first time it will have:
+<ul>
+<li> memory protection (today the smallest programming mistake will crash Palm OS)
+<li> multi-tasking (today it's more or less impossible to do multi-tasking and as a result implementing some nice features is not possible)
+<li> fully ARM-native code (today, if you invest a great deal of pain, you can compile portions of the code as ARM; a majority of the code runs as emulated 68000 code which is a terrible waste of cycles)
+</li></li></li></ul>
+I suspect that for backward-compatibility reasons they'll continue to propagate their braind-dead APIs (especially the graphics/windows handling APIs are a terrible, terrible mess).
+<p>re on February 10 which is the date of PalmOne's developer conference and the day where they  release the OS to developers (i.e. provide SDK and developement tools).
+<p>
+What is not clear is what compiler will be used for Palm OS 6 - will PalmOne coordinate with Metrowerks to ship upgraded CodeWarrior for Palm or will they provide their own tools (most likely gcc-based)? Only the time will tell.</p></p></p>

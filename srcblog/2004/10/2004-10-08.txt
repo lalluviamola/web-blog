@@ -1,0 +1,31 @@
+Date: 2004-10-08 08:11:35
+Format: wphtml
+Title: Podcasting - ain't gonna happen.
+
+One thing I don't like is when people willy-nilly hi-jack buzz-worthy words to describe ancient practices.
+
+A recent example is <a href="http://socialsoftware.weblogsinc.com/entry/2882323800154212/">this post on social software weblog</a> which incorrectly (imho) uses 'podcasting' for no reason other than podcasting is weblogger's fad de jour.
+
+Correct me if I'm wrong, but a 'podcast' is an audio version of a weblog post. What the author of the post calls 'podcast' is simply an audio recording of a conference talk. Yawn.
+
+As to podcasting itself - it'll never work (in the sense of becoming something popular the way weblogs did).
+
+It seems so easy to invent new ways of blogging: moblogging (mobile blogging), audio blogging (podcasting), video blogging (no fancy name yet but it should be channelXblogging). Just combine two existing technologies and get excited about the possibilities. Except that it simply won't work.
+
+It won't work for 2 reasons:
+<ul>
+<li>much more difficult creation of content
+<li>no actual demand for it
+</ul>
+
+Despite proliferation of cheap audio and video recording devices, producing audio and video content (of decent quality) is and always will be much more difficult that producing a written word.
+
+For one, many (a lot, I suspect) just don't have it in them to be interesting speakers. A simple rule of elimination tells us that. In order to write something good, you just need write well. In order to do good audio recording you need to write well and speak well. There's a reason they pay Eddie Murphy do voice-overs for a donkey in <a href="http://www.imdb.com/title/tt0126029/">Shrek</a>. If I did, it would sound terrible.
+
+Second, writting is easy to improve. You can rewrite the whole thing. You can rewrite just a sentence. You can fix a typo here and there. This weblog post, for example, had 3 fairly major revisions. With audio, you either get it right the first time or spend oogles of time editing.
+
+The real reason why audioblogging will remain a niche thing is that there's no demand for audio since it doesn't scale the way reading does. Using an RSS agregator I can manage to read hundreds of posts every day because I can skim and not read most of them. I can't do that with audio.
+
+Furthermore, audio demands attention. From my (significant) experience of listening to audio and video talks from various conferences, it's very difficult not to get distracted while watching them. And that happens when watching top quality content. I wouldn't hope that an average audioblog post would approach the quality of a prepared and researched talk given at a conference by a speaker of Jeff Bezos or Tim O'Reilly quality.
+
+Podcasting - just ain't gonna happen.

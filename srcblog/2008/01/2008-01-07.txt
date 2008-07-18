@@ -1,0 +1,28 @@
+Date: 2008-01-07 01:57:52
+Format: wphtml
+Title: Sumatra 0.8 released
+
+Logging is often useful when debugging software to help understand its behavior.
+
+Consider a problem I was having: Sumatra was crashing because of invalid refcounting of <span style="font-family: Courier New">fz_shade</span> object. Refcounting took place only in two functions: <span style="font-family: Courier New">fz_keepshade()</span> and <span style="font-family: Courier New">fz_dropshade() </span>so my plan of attack was to see who calls those functions and from that hopefully figure out why there is a mismatch.
+
+If I had a logging system with ability to dump callstacks already built into the program, I could modify the program to add logging to those two functions, re-run and look at the logs.
+
+But I didn't so I used WinDBG as an ad-hoc logger.
+
+The trick is to know the following:
+<ul>
+	<li><span style="font-family: Courier New">.logopen $filename</span> WinDBG command</li>
+	<li><span style="font-family: Courier New">.logclose</span> WinDBG command</li>
+	<li>conditional breakpoints</li>
+</ul>
+Under WinDBG I set the following two breakpoints:
+<ul>
+<li style="font-family: Courier New">bp SumatraPDF!fz_dropshade "kb; g"</li>
+<li style="font-family: Courier New">bp SumatraPDF!fz_keepshade "kb; g"</li>
+</ul>
+bp creates a new breakpoint on entry to a given function. A string <span style="font-family: Courier New">"kb; g"</span> is composed of WinDBG commands executed when a breakpoint is hit. In this case I just dump the callstack with kb and continue execution with g.
+
+Then I used <span style="font-family: Courier New">.logopen $filename</span> so that everything WinDBG prints in output window also gets written to a file and voila - an ad-hoc logging without the need to modify and recompile the program.
+
+And yes, after some staring at resulting log I fixed the crash.

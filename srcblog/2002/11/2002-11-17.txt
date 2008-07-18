@@ -1,0 +1,79 @@
+Date: 2002-11-17 13:31:05
+Format: wphtml
+Title: Good programming practices
+
+<b>Good programming practices.</b>
+<a href="http://www.osafoundation.org">OSA Foundation</a> is a project to follow. They have a high-quality people on the board, as evidenced by
+<a href="http://lists.osafoundation.org/pipermail/dev/2002-November/000195.html">this post</a> on good programming practices:
+<blockquote>
+
+Off the top of my head, here's a quick partial list of things that I think are important:
+
+<ul>
+<li>Continuous releases and daily builds
+<li>Rather than put a bug in the bug database, first try to fix it. Don't 
+code first and ask QA to find bugs.
+<li>The engineer who wrote the code is mostly responsible for QA.
+<li>No code is finished until the unit test is finished.
+<li>Good design results from getting something going quickly, followed by 
+lots of quick iteration.
+<li>The best architectures evolve for a long time.
+<li>Code reviews are a regular part of development.
+<li>Difficult parts of code are best done by a team of two people working 
+closely together.
+<li>If you see a new bug while doing something else, drop everything and 
+jump on the chance to fix it. It just make your life easier down the road.
+<li>It is possible to eliminate all bugs from many subsystems and you should 
+use techniques that make it possible, like monte carlo simulations and 
+exhaustive checking code whenever possible.
+<li>Complexity is your enemy -- the sooner you learn the smell of too much 
+complexity, the better.
+<li>Simplicity is your friend. Don't fall for a really cool fancy algorithm 
+unless you know you need it.
+<li>Buzzword technologies often become religious. The only thing you should 
+be religious about is happy customers and they don't care about buzzwords.
+<li>Don't build elaborate systems unless you know you need them.
+<li>Research existing open source project to make sure the code you need 
+isn't already available.
+<li>Never write a slow program.
+<li>By the time your project is finished your competitor's project will be 
+way better than you think.
+<li>Price is only one feature of software. It's often not the most important.
+ From the user's perspective, simple things should be simple and complex 
+things should be possible.
+<li>Automate releases.
+<li>Use source level debuggers.
+<li>Use IDEs
+<li>Don't write makefiles unless you have too.
+<li>Measure then optimize.
+<li>Always spend at least 10% of your time learning new things.
+<li>Use multiple languages, programming environments, operating systems and 
+programming methodologies until you are comfortable with them and learn 
+to appreciate the benefits of different approaches.
+<li>Use the best tools, even if they are expensive.
+<li>Optimize variable names for maximum clarity, not minimum typing.
+<li>It's OK to make mistakes. The only thing that isn't OK is to not learn 
+from them.
+<li>Don't leave code commented out unless it's clearly explained.
+<li>Approach each piece of code you write like it's final finished code. 
+Don't leave loose ends to clean up later because you'll never have time 
+to clean them up.
+<li>Never code an algorithm that you know won't work in the final product 
+either because it won't scale, run fast enough, or will have a rare 
+failure case.
+<li>All successful products have a life longer than you can conceive. Files 
+and processors will grow by factors of 10,000 -- make sure your design 
+can accommodate change.
+<li>Don't code the first algorithm that comes to mind. Try to examine all 
+possible approaches and choose the best. Get someone to review your 
+approach before coding.
+<li>Don't put band aids on bad code, rewrite it. At first is seems hard, but 
+after you've done it awhile you'll find successive rewrites go much 
+faster than you thought.
+<li>When you work on someone else's code, don't leave it in worse shape than 
+it came to you. Ask the original author to review your change.
+<li>No bug is impossible to fix.
+<li>Get to be good friends with a programmer, designer, or writer who's 
+better than you.
+</ul>
+</blockquote>

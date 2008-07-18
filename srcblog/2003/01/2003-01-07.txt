@@ -1,0 +1,16 @@
+Date: 2003-01-07 10:34:53
+Format: wphtml
+Title: Something out of nothing.
+
+<b>Something out of nothing.</b> It's a sad day for computing history in general and Apple in particular. Apple's introduction of <a href="http://news.com.com/2100-1023-979583.html">a new browser</a> is a major event at Macworld Expo. Of course Apple doesn't have a man-power to create a browser from scratch so what they really did is another MacOS X-like trick: they took open-source code (KHTML) and improved it. The revolutionary things in the browser, <a href="http://www.cnet.com/video/ces03/redirect/jobs1.html?tag=fd_vidcon">according to Jobs</a>, are:
+<ul>
+<li> speed
+<li> integration of Google
+<li> improved bookmark management
+<li> pop-up blocking
+</ul>
+Allow me to remain unimpressed.
+<p>
+Speed is irrelevant. Any browser on a decent PC is fast enough. Macs are slow in general so despite being the fastest, Safari is still slow. Google integration: yes, been using <a href="http://toolbar.google.com/">that</a> for ages. Nice idea but not quite new. Same for pop-up blocking. The only interesting part in this mess is watching Jobs making a show out of presenting such a meager achievement. Apple is now a fit and finish company - nothing presented at Macworld deserves "really, really new stuff" prize.
+<p>
+Their <a href="http://lists.kde.org/?l=kfm-devel&m=104197092318639&w=2">dev team</a> is impressive.

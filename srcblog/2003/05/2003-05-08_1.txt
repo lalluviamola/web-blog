@@ -1,0 +1,10 @@
+Date: 2003-05-08 07:11:33
+Format: wphtml
+Title: Amazon's wisdom on web design.
+
+<b>Amazon's wisdom on web design. </b> So there was a GEL conference and there was a talk by Amazon's VP of UI. This is a <a href="http://www.cardhouse.com/heath/2003_05_04_archive.html#200243791">short summary.</a> and it's well worth reading. Condensed wisdom. Bottom line:
+<ul>
+<li>data drives developement. Measure response to different designs and choose the one that works the best according to measured date.
+<li>measure the correct data
+<li> listen to customers but also innovate for them (i.e. don't expect them to do design for you)
+</ul>

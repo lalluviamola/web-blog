@@ -1,0 +1,8 @@
+Date: 2004-01-20 16:37:15
+Format: wphtml
+Title: Disable Flash in Mozilla/Thunderbird.
+
+<b>Disable Flash in Mozilla/Thunderbird.</b>
+I wanted <a href="http://extensionroom.mozdev.org/more-info.php/flashclick">Flash Click To View</a> and now I found it (via <a href="http://jeremy.zawodny.com/blog/archives/001445.html#comments">Jeremy Zawodny</a>). This will block Flash animations in Mozilla/Firebird. It's still possible to view them (if you click on them).
+<p>
+Another Firebird trick: type about:config in the url box and you'll see all the configuration parameters.

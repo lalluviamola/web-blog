@@ -1,0 +1,7 @@
+Date: 2004-06-09 04:54:28
+Format: wphtml
+Title: scdiff update
+
+Made a small update to <a href="/software/scdiff/">scdiff</a>.
+
+scdiff is a Windows program that (graphically) shows a diff of local changes in CVS  or Subversion repository. Ideal for previewing the changes before checking them in. It's a tool for developers. Requires .NET Framework 1.1

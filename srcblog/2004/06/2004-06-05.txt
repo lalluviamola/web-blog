@@ -1,0 +1,6 @@
+Date: 2004-06-05 00:36:50
+Format: wphtml
+Title: .NET Framework bootstrapper
+
+Not sure what the exact nature of 
+<a href="http://www.microsoft.com/downloads/details.aspx?FamilyId=BF253CFD-1EFC-4FC5-BA7E-6A6F21403495&displaylang=en">.NET Framework Setup.exe bootstrapper</a> is but it looks like it helps with automatic installation of .NET redistributable. Can be useful for those distributing .NET apps. Saving for future reference.

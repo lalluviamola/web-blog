@@ -1,0 +1,7 @@
+Date: 2004-06-09 01:23:58
+Format: wphtml
+Title: Wish #2 - tabbed interface in putty
+
+Wish: tabbed windows for <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/">putty</a>. Putty is a free windows GUI telnet/ssh client. Excellent albeit minimalistic app. One thing that proven to be useful in other apps like text editor, IDEs and web browsers are tabs: ability to have more than one documents in the same window. It avoids polluting desktop with multiple windows.
+
+Another thing that annoys me about putty is their preference setting dialog. It's confusing, especially for managing saved session. A better design is possible.

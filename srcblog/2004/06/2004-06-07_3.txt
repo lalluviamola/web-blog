@@ -1,0 +1,21 @@
+Date: 2004-06-07 07:50:44
+Format: wphtml
+Title: Daily reading
+
+<ul>
+
+<li><a href="http://spar.isi.jhu.edu/~chris/mantis-tr.pdf">Mantis: A High-Performance, Anonymity Preserving, P2P Network</a> (PDF). Anonymous P2P is the next frontiere. Looks like the theory has been worked out, now we need a good, pervasive implementation.</li>
+
+<li><a href="http://elmoreleonard.com/index.lasso?template=excerpt&id=86">10 writing tips from Elmore Leonard</a></li>
+
+<li><a href="http://www.daimi.au.dk/~sandmann/explorer%20selection">Internet Explorer selection algorithm</a></li>
+
+<li><a href="http://blogs.msdn.com/greggm">blog with info about debugging under Windows</a></li>
+
+<li><a href="http://blogs.msdn.com/monicaboris">another blog about debugging</a></li>
+
+<li><a href="http://blog.dotnetwiki.org/archive/2004/06/06/325.aspx">.net reflector add-ins</a></li>
+
+<li><a href="http://blog.dotnetwiki.org/archive/2004/06/04/315.aspx">Questions about bugs</a></li>
+
+</ul>

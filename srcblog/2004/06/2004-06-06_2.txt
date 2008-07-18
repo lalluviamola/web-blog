@@ -1,0 +1,13 @@
+Date: 2004-06-06 23:32:02
+Format: wphtml
+Title: Sun's blogging push.
+
+As far as I can tell, Sun was off the blogging map. Compare this to another big company: Microsoft. The story of how Microsoft's employees started to blog was  <a href="http://www.25hoursaday.com/weblog/PermaLink.aspx?guid=0ef50a47-ae94-4c10-a843-b471f80e18cf">told by Dare</a> and <a href="http://www.netcrucible.com/blog/PermaLink.aspx?guid=c0d3c5c7-ad8b-4120-b827-4bdb802bef0c">augmented by Joshua</a>. The short conclusion is: it was an employee-driven, bottom-up effort.
+
+Sun seems to be taking top-down approach by creating <a href="http://blogs.sun.com/roller/">blogs.sun.com</a>. Suddenly we get a new crop of bloggers. Which is good, btw.
+
+I wonder what is (was) holding back Sun's employees from blogging. My bet is on uncertainty on how it'll be looked upon by their managers.
+
+BTW: where are Oracle's worker bees hiding?
+
+<i>Update</i>: I know (well, after being informed by a reader of this post) that there are Sun employees that blogged before introducing <a href="http://blogs.sun.com/roller/">blogs.sun.com</a>. My observation was about the (undisputable?) disproportion of Sun bloggers vs. Microsoft bloggers in the past. Let's hope that Sun's blog website will change that.

@@ -1,0 +1,5 @@
+Date: 2003-06-19 08:33:28
+Format: wphtml
+Title: Color theory 101.
+
+<b>Color theory 101.</b> Knowing <a href="http://www.webdesignclinic.com/ezine/v1i1/color/index.html">how to choose good colors</a> might be useful in web design.

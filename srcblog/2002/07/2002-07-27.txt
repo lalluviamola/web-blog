@@ -1,0 +1,5 @@
+Date: 2002-07-27 10:29:33
+Format: wphtml
+Title: Philip Greenspun's book How...
+
+Philip Greenspun's book <A href="http://philip.greenspun.com/wtr/dead-trees/index.html">How To Be a Web Whore Just Like Me</A> shows how good a book can be if it's written by an intelligent person who writes about the stuff he knows a lot about. The book talks about why to do web publishing and how to do it. While the "how" part is bound to be less and less relevant, the "why" part is timeless. The book has been upgraded and renamed to <A href="http://philip.greenspun.com/panda/">Philip and Alex's Guide to Web Publishing</A>. It's even better than the first version, despite author's self-effacing statement that it's <A href="http://philip.greenspun.com/books/">a 1997 classic that is sort of embarrassing now</A>

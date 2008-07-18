@@ -1,0 +1,6 @@
+Date: 2003-08-15 14:51:36
+Format: wphtml
+Title: nVoy not a threat to Danger Hiptop
+
+<b>nVoy not a threat to Danger Hiptop</b>
+<a href="http://www.infosync.no/news/2002/n/3950.html">nVoy</a> looks like a very nice device. It's said to be a competitor to Danger Hiptop, but I doubt it'll ever be. The only thing it seems to have better is a screen with twice as many pixels. On the down side: it's already way behind Hiptop and there doesn't seem to be any way to develop applications for it by 3rd parties (which I believe is a necessary feature for any gadget that hopes to make a dent in the already crowded market).

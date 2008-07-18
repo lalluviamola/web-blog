@@ -1,0 +1,38 @@
+Date: 2003-05-14 04:38:43
+Format: wphtml
+Title: Integrating blogs and wikis.
+
+<b>Integrating blogs and wikis.</b> Executive summary: blogs and wikis should 
+be integrated. For the first blogging engine that adds wiki-like capabilities 
+it will be a marketable advantage. 
+<p> Currently wikis and blogs are separate worlds: some people are bloggers, some 
+  people are wiki users. Conceptually they are variations on the same theme: web-based 
+  content management and content publishing. They usually serve different goals: 
+  blogs are chronological, private soap-boaxes. I write my blog entries and I 
+  don't want anyone to change them (although I might allow people to comment on 
+  them). Blogs are mostly for stating my opinions or useful tidbits of information. 
+  Wikis are usually public and geared toward collaboration with other people (although 
+  nothing prevents making them more of a private space). Technologically they 
+  are very similar: both wikis and blogs are bags of posts. They mostly differ 
+  in how those posts are presented.
+<p>Given this similarity the question is: why we don't have more people that have 
+  blogs and wikis integrated into one system? Is it because there is no need for 
+  that? It would be hard to decide that. If we judge it only by current popularity 
+  of blog/wiki combos then the answer would be no. But if we judged the demand 
+  for blogs 5 years ago we would also say that there is no demand. It took persistence 
+  of few dedicated evangelists for them to become mainstream thing they are now. 
+  I think many people are both bloggers and wiki users, they just use their own 
+  blogs and thematic (i.e. not personal) wikis. So the question boils down to: 
+  are personal wikis useful for many people. For the sake of the argument, I'll 
+  say that they are. But we won't know until it's as easy to have blog/wiki combo 
+  as it is to have just a blog. Which is to say &quot;until Movable Type/Radio/Blogger 
+  add wikis&quot;. I have a wiki on my site but setting that was not easy and 
+  required a lot from my hosting account (ability to run PHP and access to a MySQL 
+  database). 
+<p>What could be the benefit of having integrated blog/wiki? For one, why not 
+  have the ability to create weblog entries using wiki syntax? Search should also 
+  look at both.
+<p>I think that the main reason we don't have such tool yet is that programmers 
+  that write blogging tools are not the programmers that write wikis. (Ok, there's 
+  at least one tool, <a href="http://tikiwiki.sourceforge.net">TikiWiki</a>, that 
+  has both wikis and blogs (and much more) but it's not very popular).

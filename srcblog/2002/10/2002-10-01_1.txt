@@ -1,0 +1,5 @@
+Date: 2002-10-01 09:46:45
+Format: wphtml
+Title: Better Safari.
+
+<b>Better Safari.</b> O'Reilly's <a href="http://safari.oreilly.com/">Safari</a> got a facelift. From the first looks - it's better. And my major complaint is gone: you can now swap books individually.

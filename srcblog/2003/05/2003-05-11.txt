@@ -1,0 +1,9 @@
+Date: 2003-05-11 19:20:15
+Format: wphtml
+Title: RSS template in Movable Type.
+
+<b>RSS template in Movable Type.</b>
+
+A lesson I learned (again) is that laziness is hard to overcome. But I digress. My blog is powered by <a href="http://www.movabletype.org/">Movable Type</a>. Quite recently I became a member of RSS Syndication cult (and <a href="http://www.yole.ru/projects/syndirella/">Syndirella</a> cult). Reading weblogs through RSS feeds saves me a lot of time compared to the alternative of web-browsing them. So I decided to make an RSS feed for my own blog. Furtunately MT already provides <tt>index.xml</tt> (RSS 0.91 feed) and <tt>index.rdf</tt> (RSS 1.0 feed) by default. Unfortunately it only has excerpts of posts and I hate that in other feeds - I want the whole post in one place (i.e. my RSS aggregator) and I don't want to be forced to launching web browser to read the rest of it. That defeats the main advantage of aggregations: saving time. To make the story short: to fix that I had to modify both templates and change <tt>&lt;description&gt;&lt;&amp;MTEntryExcerpt encode_xml=&quot;1&quot;&amp;&gt;&lt;/description&gt;</tt> to <tt>&lt;description&gt;&lt;&amp;MTEntryBody encode_xml=&quot;1&quot;&amp;&gt;&lt;/description&gt;</tt>
+<p>
+The lesson about laziness comes from the fact that it took me so long to do it even though it was a 5 minute job.

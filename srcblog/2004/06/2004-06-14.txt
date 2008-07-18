@@ -1,0 +1,7 @@
+Date: 2004-06-14 00:12:54
+Format: wphtml
+Title: wTail release
+
+I've released <a href="/software/wtail/">wTail</a>. wTail does on Windows what tail does on Unix. You can monitor changes to a text file. Ideal for watching log files or Apache error logs during development. Requires  .NET Framework 1.1.
+
+The only interesting thing about the app is how easy it was to write. I don't know .NET very well yet I was able to piece a useful application. It's only about 600 lines of code but can do what it can thanks to all the classes in .NET framework and excellent <a href="http://www.scintilla.org/">scintailla editor control</a> (and its <a href="http://sourceforge.net/projects/scide/">.NET wrapper</a>).

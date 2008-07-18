@@ -1,0 +1,13 @@
+Date: 2005-10-17 05:22:25
+Format: wphtml
+Title: Awesome nerdTV interview
+
+
+There are <a title="some great interviews from nerdTV" href="http://www.pbs.org/cringely/nerdtv/shows/">some great interviews from nerdTV</a>
+on-line. It looks like they just started. They only have 6 interviews
+so far, but those are excellent interviews, with Andy Hertzfeld, Bill
+Joy, Brewster Kahle, Tim O'Reilly, Dave Winer, all giants of computer
+industry.<br>
+<br>
+I love Internet for exactly this reason: making available things that would otherwise not be available to me.<br>
+<br>

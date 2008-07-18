@@ -1,0 +1,32 @@
+Date: 2005-10-25 20:29:26
+Format: wphtml
+Title: Bloglines vs. Google Reader - the verdict
+
+I've been a Bloglines user for ages now. I gave Google Reader a fair
+chance by using it exclusively for a few days but I've made my
+decision: I'm going to remain a Bloglines user.<br>
+<br>
+Google Reader is fine and if Bloglines didn't exist I would probably be
+using it. I really like how easy it is to star documents - it's one
+advantage it still has over Bloglines.<br>
+<br>
+Where Bloglines wins big time is efficiency of reading a large number
+of posts. Their layout where one frame has a list of unread feeds and
+the other frame a list of all posts from this feed heavily beats
+Google's "one post at a time" way, even when using keyboard navigation.
+Google should add an option to read posts the Bloglines way.<br>
+<br>
+I subscribe to a few high-frequency-scan-only feeds (like freshmeat's
+announcement feed) and marching through them one by one kills me.<br>
+<br>
+Also, Bloglines seems faster (something that Google can fix, given enough time, but it's not fixed yet).<br>
+<br>
+What I would like to see in Bloglines is a better way to preserve
+specific posts i.e. a copy of the "star this post" feature. Currently I
+use the "clip this" but it requires too many steps. All I need is a
+"star this" link that works like "clip this" but without asking any
+questions and showing me new windows with confirmation. Just do the job
+and don't bother me.<br>
+<br>
+So far the upside for me from Google Reader is that Bloglines added keyboard navigation. Ain't competition grand.<br>
+<br>

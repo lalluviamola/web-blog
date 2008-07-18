@@ -1,0 +1,19 @@
+Date: 2006-08-07 00:05:03
+Format: wphtml
+Title: Sumatra PDF 0.2 released
+
+I released version 0.2 of <a href="http://blog.kowalczyk.info/software/sumatrapdf/">Sumatra PDF</a>. Things that are new:<br /><ul><li>added facing, continuous and continuous facing viewing modes
+</li><li>remember history of opened files
+</li><li>session saving i.e. on exit remember which files are opened and
+restore the session when the program is started without any
+command-line parameters
+</li><li>ability to open encrypted files
+</li><li>"Go to page dialog"
+</li><li>less invasive (less yellow) icon that doesn't jump at you on desktop
+</li><li>fixed problem where sometimes text wouldn't show (better mapping
+for fonts; use a default font if can't find the font specified in PDF
+file)
+</li><li>handle URI links inside PDF documents
+</li><li>show "About" screen
+</li><li>provide a download in a .zip file for those who can't run installation program
+</li><li>switched to poppler code instead of xpdf</li></ul><br />

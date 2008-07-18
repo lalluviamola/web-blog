@@ -1,0 +1,16 @@
+Date: 2003-05-04 02:46:43
+Format: wphtml
+Title: Cheap bandwidth.
+
+<b>Cheap bandwidth.</b>
+
+Some info about cheap bandwidth <a href="http://slashdot.org/comments.pl?sid=62025&cid=5815568">from here</a>:
+<blockquote> <i>I pay $9.95/month for 30gb of traffic at
+<a href="http://www.hostforweb.com">hostforweb.com</a>, a pretty good hosting company. If I need to go to
+300gb/month, they charge 95.00. The next step up in case things get
+crazy is <a href="http://www.sanethosting.com/">www.sanehosting.com</a>. They charge $200/month for
+colocated hosting (including 330gb of transfer) and $99/month for every 330gb block after #1.
+</i></blockquote>
+
+I myself use <a href="http://www.rackshack.net">RackShack</a> ($100 for 400 GB/month) and I'm quite happy
+with it.

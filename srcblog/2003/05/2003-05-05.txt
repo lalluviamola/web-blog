@@ -1,0 +1,72 @@
+Date: 2003-05-05 06:03:56
+Format: wphtml
+Title: Looking for a perfect wiki.
+
+<b>Looking for a perfect wiki.</b>
+  I've spent the whole weekend looking for a perfect <a href="http://www.c2.com/cgi/wiki?WikiGettingStartedFaq">wiki</a>.
+  There was frustration, there were tears. I was looking for something that can
+  be used as a private collaboration
+tool so an access control was a must. Unfortunately (for me) most wikis, by their
+  nature, are very open. I also wanted at least the following features:
+<ul>
+  <li>pages stored in a database</li>
+  <li>users/groups management</li>
+  <li>permissions for pages</li>
+  <li>ability to add comments to pages</li>
+  <li>hierarchical structure</li>
+</ul>
+  First,
+  I gave <a href="http://wikipedia.sourceforge.net/">Wikipedia
+  wiki</a> a shot but it was too much
+  tuned for <a href="http://www.wikipedia.org/">Wikipedia</a> needs. Then I tried
+  <a href="http://tikiwiki.sourceforge.net/">TikiWiki</a> - very feature rich
+  and looks nice on paper (i.e. on demo site) but after installing it I found
+  the default skin to be ugly. <a href="http://www.develnet.org/">coWiki</a> looks
+  like the
+  closest
+  thing
+  to
+  what I
+  want. It looks and has all the features except comments but requires not-yet-released
+  PHP5 so I didn't even try to install it. At this point I  gave all hope of
+  finding existing implementation that would meet my needs and started fantasizing
+  about writing my own. Fortunately  my search led me to <a href="http://www.c2.com/cgi/wiki?WikiEngines">this
+  list of existing wikis</a>.
+Boy, there are a lot of wiki engines out there and one of them, <a href="http://www.wakkawiki.com/">WakkaWiki</a>,
+is almost a perfect fit for me. It's small, written in PHP/MySQL so
+there's hope that I can understand the code and modify it to my needs. It has
+all the basic features I want except hierarchical structure. I'm a happy man.
+During installation I've learned the following:
+<ul>
+<li>WakkaWiki out-of-the-box doesn't really work without mod_rewrite turned on (it creates bad links for stylesheet files so the page looks terrible; it's easy to fix in the code but even easier by turning mod_rewrite).</li>
+<li>to enable mod_rewrite in Apache, I had to do the following:</li>
+<ul>
+<li>add <tt>LoadModule rewrite_module modules/mod_rewrite.so</tt> to <tt>httpd.conf</tt></li>
+<li>add <tt>AddModule mod_rewrite.c</tt> to <tt>httpd.conf</tt></li>
+<li>just to be safe, added <tt>RewriteEngine On</tt> to <tt>httpd.conf</tt></li>
+<li>this one was required a bit of detective work: rules for mod_rewrite for the wiki are in the <tt>.htaccess</tt> file in the wiki sub-directory, but the file was ignored until I added <pre>
+    &lt;Directory /&gt;
+       AllowOverride All
+    &lt;/Directory&gt;
+	</pre>
+	to VirtualHost section in <tt>httpd.conf</tt>. Man, before I figured that out
+	I almost learned the way mod_rewrite works (which is a mental-health hazard).
+	BTW: if you want to debug what mod_rewrite does, add <tt>RewriteLog logs/rewrite_log.txt</tt> and <tt> RewriteLogLevel 9</tt> to <tt>httpd.conf</tt> (the log is placed relative to <tt>ServerRoot</tt></li>
+</ul>
+</ul>
+Before I go to sleep, here are a few enhancements that I would like to have in WakkaWiki:
+<ul>
+<li>ability to create hierarchies of pages (as in <a href="http://www.develnet.org/">coWiki</a>)</li>
+<li>add group management for permissions</li>
+<li>slightly different (less prominent) display of comment. I like the way comments
+  were implemented in ACS (you can see an example in <a href="http://www.photo.net/learn/jpeg/">articles
+  on photo.net</a>)</li>
+<li>user name shouldn't be forced to be a WikiName</li>
+<li>don't use pop-up boxes for notifications (e.g. for log out notification)</li>
+<li>re-do login screen to be like Amazon.com i.e. only require e-mail/password
+  for registration, copy the design and interaction of pages. Add &quot;remember me&quot;
+  check-box for increased security (i.e. don't automatically login based on a
+  cookie unless this check-box was checked-in)</li>
+</ul>
+<p>Fortunately the wiki is usable as is and the changes aren't that big so hopefully
+  I'll be able to implement them myself.

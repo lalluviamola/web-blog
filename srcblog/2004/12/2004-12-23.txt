@@ -1,0 +1,15 @@
+Date: 2004-12-23 09:21:30
+Format: wphtml
+Title: PalmSource - not their brightest moment
+
+PalmSource, makers of Palm OS, has a developer program. In order to get crucial development tools (like Palm OS device simulators, SDKs etc.) and documentation as well as be able to reserve aplication ids for your apps, you have to sign up to their developer program, click on some EULAs, print, sign and fax some legal papers. Then you get the access.
+
+PalmSource decided to "improve" their program by moving their website to a faster host and re-designing it. While improvement is a noble goal, the execution is so abysmall that they made things worse.
+
+First, they moved a working site to a new site that offers less functionality. Why they couldn't wait with the move until they've finished and tested the new site is beyond me.
+
+Another thing that is beyond me is how thoughtless they were. All registered developers just found out that they cannot login to the website. Turns out they've reset all the passwords. You're supposed to log in and a new password will be sent to you. No prior notice given and the process is confusing as hell, as evidenced by number of people posting to Palm dev forums asking why on earth they can no longer login to the website.
+
+Bad PalmSource. They should thank the higher forces of the universe for the fact that Symbian is even worse when it comes to supporting Symbian OS developers.
+
+But on the Microsoft side of the fence, I can download free compiler and SDK without even giving out my e-mail address. Microsoft knows how to support developers.

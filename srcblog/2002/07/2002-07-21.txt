@@ -1,0 +1,5 @@
+Date: 2002-07-21 10:01:32
+Format: wphtml
+Title: Text editors love
+
+<B>Text editors love</B> &#013;&#010;<P></p>Speaking of editors, although my love for <A href="http://www.hekkelman.com/pepper.html">Pepper</A> isn't going away, there are a few things that I would like changed and there are tons of new things that I would like it to have. But the chances of Pepper's author implementing all of it, even if he really tried, are slim. Implementing text editor from scratch is a ridiculous amount of work, so I'm not going to do it. But there's hope: an open-source editor called <A href="http://www.scintilla.org/SciTE.html">SciTE</A> that is very close (feature-wise) to Pepper. It's much less polished but getting it to the state of being desirable wouldn't be much work. And then I could start adding all those feature I long for. One of those days...

@@ -1,0 +1,57 @@
+Date: 2003-04-13 08:12:40
+Format: wphtml
+Title: Why ransom won't work (very well).
+
+<b>Why ransom won't work (very well).</b>
+
+So there is <a href="http://users.sisna.com/woodcock/yanoff.htm">this guy</a> 
+who thinks that he invented a new model for compensating open-source developers: 
+RansomWare. He's updating an existing, GPL-ed NNTP (Usenet) reader for Palm OS 
+but he will not release the update (and source to it) until he will get a 
+promise from people for a pre-determined (but unknown, as far as I can tell) 
+amount of money. Two comments from me:<ul>
+  <li>this is not a new idea</li>
+  <li>it won't work (very well)</li>
+</ul>
+<p>The page where he describes his idea seems to be made in late 2002. In 1998 
+Bruce Schneier and J. Kelsey published a paper that appeared in USENIX Workshop 
+on e-commerce titled <a href="http://www.counterpane.com/street_performer.html">
+The Street Performer Protocol</a> (you can read html version at
+<a href="http://www.firstmonday.dk/issues/issue4_6/kelsey/">FirstMonday</a>). 
+Much more thorough treatment of the subject is available at
+<a href="http://www.theoretic.com/Ransom/Home">Theoretic Solutions</a>. And I 
+know all that thanks to <a href="http://www.google.com">Google</a> and
+<a href="http://www.wikipedia.org/wiki/Street_Performer_Protocol">Wikipedia</a>.</p>
+<p align="left">Why it won't work (very well)? There will be exceptions (the one 
+(and only) successful case of RansomWare I know of was the process of GPL-ing
+<a href="http://www.blender.org/">Blender</a>) but it's an observable fact that 
+it's not working because I don't see anyone doing it. The guy is trying but he's 
+not doing all that great: after more than 5 months he has a pledge for about 
+$170. You can earn that much in less than week in a full-time position for a 
+minimum wage. After we answered the question &quot;does it work&quot;, the interesting 
+question is: &quot;why it doesn't work&quot;? In theory, from user/customer perspective, 
+it's much cheaper way of getting software: in commercial model every costumer 
+has to pay for a copy of the program, in the RansomWare model all costumers need 
+to come up with a fixed amount so it's very likely that a per-copy price will be 
+much smaller. But in practice there are many reasons this model breaks (in 
+comparison to commercial model).
+<p>
+One problem is that it's just not how we've been doing things in 
+the past and habit is a very strong force. People are used to paying for stuff 
+that they know exists. We're not used to paying for some future benefit whose 
+nature isn't entirely known. Even if the program is well defined (as an Usenet 
+reader is) so that people know more or less what to expect, a list of promised 
+features cannot compete with a copy of the program to test or a review by 
+existing, happy user. The model breaks completely with innovative software: when 
+people don't even know what to expect, they won't pay and no amount of marketing 
+material will convince them otherwise.
+<p>The number of money one can get is proportional to the number of 
+users of the program. Even if we assume that the quality is the same, it should 
+not be a surprise that this number is much higher for software developed using 
+commercial model. The way things work in the software business is that, except 
+for a few runaway successes like Netscape or WinAMP or ICQ (but they prove the 
+point even more), you have to build your user base slowly. Joel says:
+<a href="http://www.joelonsoftware.com/articles/fog0000000017.html">good 
+software takes 10 years - get used to it</a> and that's very true. By 
+definition, software that doesn't yet exist cannot build a user base.
+<p>Oh, and the name.

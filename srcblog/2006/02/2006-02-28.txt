@@ -1,0 +1,15 @@
+Date: 2006-02-28 03:33:32
+Format: wphtml
+Title: Gmail feature request - show unread messages first
+
+ About 4 months ago <a title="I asked" href="http://blog.kowalczyk.info/archives/2005/10/30/gmail-feature-request-intelligent-account-selection-for-reply/">I asked</a>   Google to provide an option in Gmail to intelligently reply from the address to which the e-mail was addressed (awfully useful if you have multiple accounts and use gmail as aggregator). And what do you know, they recently did it.<br><br>Encouraged by this 100% hit ratio, I have another request to fix a Gmail annoyance I have.<br><br>
+
+In short the idea could be described as: a way to easily see only unread messages.
+
+<br><br>Imagine that you get a lot of e-mail. Imagine you use filters to automatically label messages. That gives you a way to easily partition messages by view (i.e. a label is a filter). Now imagine that you process different e-mails differently. For example an e-mail from a mailing list will be quickly scanned and forgotten but an e-mail with support request you leave as unread until the moment you have time to respond to it.<br><br>There's a hole in this scenario: as far as I can tell, in Gmail there is no way to see just your unread messages. The whole system breaks down because when you do have to time to respond to e-mails that require more attention than usual, you have to fish out unread messages one by one in a long, Inbox view.<br><br>For that reason alone I stopped using filters and labels and adapted myself to Gmail by processing e-mails linearly.<br><br>Technically, what I want could be done in at least 2 ways:<br><ul><li>an option in preferences "Show unread messages in Inbox first". With this option, unread messages in "Inbox" view would always show up at the top, so that I don't have to chase them down in a sea of read messages</li><li>a fixed "Unread" label/view, which would work like Inbox except only show unread messages. Or at least a way for me to create such filter myself</li></ul><br>
+
+I guess I can't be too hard on Google - they're in Beta after all.
+<br><br>
+<b>Update:</b> I just received a tip that entering "is:unread" in search box will show unread messages. I discovered, that entering "label:unread" does the same thing. There's even <a href="http://persistent.info/archives/2005/03/01/gmail-searches">greasmonkey extention</a> that adds persistent search to gmail (strangely enough by a googler that doesn't work on gmail). Still, those are rather gross hacks. I need those things right there, in gmail.
+<br>
+Also, I discovered a slight inconsitency (i.e. a bug) in gmail. It doesn't show any messages as unread in main view, but when I do explicit search for unread, I get a bunch of them.

@@ -1,0 +1,17 @@
+Date: 2003-01-29 05:50:35
+Format: wphtml
+Title: Automated Alexa
+
+<b>Automated Alexa.</b> There is this web service called
+<a href="http://www.alexa.com/">Alexa</a> that allows you to see popularity of 
+your web site. It would be nice to be able to monitor changes in popularity of a 
+web site. Alexa itself doesn't provide that information but a third-party app 
+could. It would query Alexa from time to time to get the current rank and e-mail 
+the user changes (I assume the rank doesn't change a lot so low-frequency 
+communication (e.g. every week) makes sense here). This is one example of a 
+meta-idea: notification services. Of course the idea of notifications services 
+isn't new but we don't seem to have a lot of them. But we will because it's the 
+next logical step. The pull model is more efficient (technologically) and saves 
+time (for humans). It has happened in the past when interrupts replaced polling 
+in computer hardware, it'll happen for the web.<a href="http://www.googlert.com/"> 
+Googlert</a> is an example and more will come.

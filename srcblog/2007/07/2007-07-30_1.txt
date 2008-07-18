@@ -1,0 +1,15 @@
+Date: 2007-07-30 03:10:31
+Format: wphtml
+Title: Visual Studio 2008 Beta 2 and quality of C++ code
+
+Visual Studio 2008 Beta 2 has just been released so I decided to compare the quality of C++ code generation compared to Visual Studio 2005.
+
+I'm very disappointed. I was expecting an improvement but what I can observe is rather large degradation.
+
+My test is simple: I compiled a release version of my Sumatra PDF viewer on both Visual Studio 2005 and Visual Studio 2008 Beta 2 and compared the size of generated executable. I assume that the compilation flags are the same (I let VS 2008 upgrade my 2005 project).
+
+The size of the binary went from 1.99 MB to 2.39 MB which is a huge 20% increase.
+
+That's just awful. Official release notes for VS 2008 focus mostly on various .NET improvements and are silent about improvements to C++, so I wasn't expecting much but I was certainly not expecting such degradation in the size of generated executables.
+
+When I have some time I should compare *.map files to see why exactly such a big difference. I'm statically linking C++ runtime, so maybe the size increase comes from that. Not that it would be any consolation - I'm force to statically link because C++ runtime from VS 2005 is not available on all machines, which means I would have to re-distribute it with my app, which goes against my goal of having just one executable.

@@ -1,0 +1,5 @@
+Date: 2006-02-25 21:06:23
+Format: wphtml
+Title: Mobile data
+
+ A statement that resonated with me today:<br><blockquote><font color="black"><font face="Tahoma">I think there's incredible room for innovation in the mobile data market, both smartphones and other sorts of devices. But I'm not sure who's going to deliver it. The best mobile devices combine hardware, software, and online services (RIM Blackberry being a great example). Most companies don't know how to build that sort of integrated solution. That's why you see so many devices loaded with features that please technophiles, but don't sell in volume to normal users. The situation is so bad that some of the operators and handset companies have started to write off mobile data in general. </font></font><br></blockquote>From <a title="an interview with Michael Mace" href="http://www.clieuk.co.uk/forum/showthread.php?p=19314">an interview with Michael Mace</a>. The guy <a title="also has a weblog" href="http://mobileopportunity.blogspot.com/">also has a weblog</a>.<br><br>

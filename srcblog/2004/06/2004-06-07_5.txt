@@ -1,0 +1,25 @@
+Date: 2004-06-07 23:59:55
+Format: wphtml
+Title: Daily reading
+
+<ul>
+
+<li> <a href="http://blogs.msdn.com/greggm/archive/2004/06/07/150323.aspx">designing code for debugging </a></li>
+
+<li> <a href="http://www.bradsoft.com/feeddemon/readme/readme110.asp">Feed Demon 1.10 release notes</a> </li>
+
+<li> <a href="http://palmos.combee.net/blog/PODSOpeningHeaderFiles.html">opening header files in PODS</a> (Eclipse-based Palm OS dev IDE) </li>
+
+<li> <a href="http://www.microsoft.com/products/expression/">testing Expression</a> </li>
+
+<li> <a href="http://www.teleread.org/blog/2004_06_06_archive.html#108660541926861369">Palm OS web browsers are lousy</a> </li>
+
+<li> <a href="http://wiremine.org/BlogPost070620041159">don't trust people who talk fast</a> </li>
+
+<li> <a href="http://www.livingroom.org.au/photolog/tips/digital_photography_composition_tips.php">photography composition tips</a> </li>
+
+<li> <a href="http://www.gerrymcgovern.com/nt/2004/nt_2004_06_07_web_sales.htm">if you're on web, you're in sales</a> </li>
+
+<li> <a href="http://www.sitepoint.com/article/1150">Good Designers Copy, Great Designers Steal</a> </li>
+
+</ul>

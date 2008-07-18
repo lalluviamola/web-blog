@@ -1,0 +1,7 @@
+Date: 2008-01-12 07:31:41
+Format: wphtml
+Title: Great Android talk
+
+Stanford has a great series of weekly talks related to computer science and of the recent talks was a talk given by Google engineers <a id="fu8e" title="about Android platform" href="http://www.stanford.edu/class/ee380/fall-schedule-20072008.html">about Android platform</a>.
+
+It's a great intro to not only of Android is but also why it was created and sprinkles bits of history.

@@ -1,0 +1,7 @@
+Date: 2003-02-20 00:41:20
+Format: wphtml
+Title: Proper linking for Amazon Associates.
+
+<b>Proper linking for Amazon Associates.</b>
+
+<a href="http://www.kottke.org/03/02/030218amazon_assoc.html">This article</a> explains how to properly link to Amazon in order not to loose associate fees.

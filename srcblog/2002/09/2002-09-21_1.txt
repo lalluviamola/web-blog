@@ -1,0 +1,64 @@
+Date: 2002-09-21 16:06:45
+Format: wphtml
+Title: SonyEricsson doesn't get it.
+
+Sony Ericsson is a venture of, you guessed it, Sony and Ericsson. They
+are about to release a cool phone named P800. <a
+href="http://www.theregus.com">The Register</a> gave it <a
+href="http://www.theregister.co.uk/content/archive/25054.html">an enthusiastic
+review</a> (something that doesn't happen often there). But it seems
+that they failed to read Joel's <a
+href="http://www.joelonsoftware.com/articles/Platforms.html">article
+about platform</a>.
+<p/>
+A phone like this is a platform - plain and simple, the same way as
+Palm OS or Pocket PC is a platform. P800 is based on the latest
+version 7 of Symbian OS. Functionality wise Symbian OS is on par with
+Palm OS and Pocket PC. It's being developed for a long time but didn't
+gain the same momentum as Palm or Pocket PC, mostly due to Psion's
+(the original developer of Symbian OS) failure to produce a compelling
+PDA based on it. The result of this is that Palm has
+literally thousands of applications available for its devices, Pocket
+PC much less (but steadily gaining) and Symbian OS is a very distant
+third. And applications matter a lot. Applications sell the
+devices. SonyEricsson seems to grasp at least that much since they
+launched <a
+href="http://www.sonyericsson.com/codetocash/">CodeToCash</a>
+competition. Rules are simple: you make an app, you submit the app,
+you get money if you win. But they immediately shoot themselves in the
+foot. Badly. First of all the prizes are very small: top 3 get a PC
+($3000 worth) and top 50 get the phone itself (estimated $800 but of
+course the cost to SE is a fraction of that) and Metrowerks
+Codewarrior dev tools ($1000, , $0 cost to Metrowerks). But here's the
+catch: in order to enter the competition you need to sign up for basic
+developer support (which will cost you $500) and pay $1000 (I guess,
+Metrowerks doesn't even list the price on <a
+href="http://www.metrowerksstore.com/symbiand4.html">their web
+page</a>) for Metrowerks Codewarrior tools because this is the only
+way so far to develop for Symbian 7.
+<p/>
+I have many questions, most important being: how stupid can you get?
+First, what is the value of winning free Metrowerks tools if you have
+to purchase them anyway to even enter the competition? The whole thing
+doesn't look like a genuine attempt to promote the platform but almost
+like a scam to get money from the developers. They'll actually make
+money if more than 50 people enter the competition (in which I highly
+doubt). It's a guaranteed income for Metrowerks (assuming anyone will
+be stupid enough to play along). I wasn't too surprised when I found
+out that the web page is powered by Metrowerks (at some point one link
+was broken and resolved to Metrowerks domain).
+<p/>Here's a message to SonyEricsson: you have to do much
+better. You're late to the market, both Palm and Microsoft offer free
+development tools (although Palm starts making the same mistake by
+more closely "partnering" with Metrowerks which manifests itself mostly by
+Palm not supporting free toolchain in their latest OS 5 SDK). It
+stands to a reason that in a market where you're a distant third you
+should do everything better than the first two players. Cool phone is
+not enough (especially if it costs $800). To add insult to the injury
+all previous versions of Symbian OS had a free development tools (gcc
+toolchain that was probably ported by Cygnus (now RedHat) to ARM
+processor). There <a
+href="http://www.theregus.com/content/54/26048.html">are signs</a>
+that SonyEricsson is coming to its senses and will provide free tools sometime
+in the future. But that's going to be too little too late. It's not
+like you don't have fierce competition, guys. Wake up.

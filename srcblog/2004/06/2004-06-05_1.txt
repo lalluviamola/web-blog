@@ -1,0 +1,10 @@
+Date: 2004-06-05 01:43:11
+Format: wphtml
+Title: Updated article on using Unison for remote backups
+
+I've updated my aricle on <a href="/articles/usingUnison.html">using Unison for remote backups</a>. Only small changes:
+<ul>
+<li>changed the formatting string used by <code>date</code> command to use %H instead of %k. They both print current hour but %H uses 2-digit format with a leading zero (i.e. "9" is "09") while %k uses 2-digit format with a leading space (i.e. "9" is " 9"). Using space causes truncation of the resulting file name.</li>
+<li>added a tip about putting "%" in Windows .bat files (tip: you have to use "%%" since "%" is an escaping character). I just found it out the hard way.</li>
+</ul>
+Now, if only I knew how to silence the output of <code>tar</code>.

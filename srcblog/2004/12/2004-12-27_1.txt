@@ -1,0 +1,25 @@
+Date: 2004-12-27 04:17:23
+Format: wphtml
+Title: Python 2.4, Windows and MySQL
+
+<b>Headline update:</b> I put <a href="http://blog.kowalczyk.info/software/mysql-python24/">mysql-python 1.0.0 binary for Python 2.4 on Windows</a> on my website, as a public service, so that you don't have to compile it yourself. However, read the warning.
+
+Things aren't peachy for those that like to live on the bleeding edge of technology. I just upgraded my Python Windows installation to the latest 2.4 version. As always, a few lessons have been learned.
+
+First tip: if you want SSL support (which includes ability to do HTTPS requests via built-in urllib, urllib2 and httplib modules), you need to use the binary from <a href="http://www.python.org">python.org</a>. The more popular (?) ActiveState Python install doesn't have SSL support (probably due to stupid goverment regulation banning crypto code).
+
+Another nasty surprise was  lack of pre-compiled <a href="http://sourceforge.net/projects/mysql-python/">MySQL-python module</a>. SF download only has version for 2.3, which won't work with 2.4. I lucked out: I was able to compile it myself. So here's how I did it:
+<ul>
+<li>you need to have Visual Studio .NET 2003 installed (the free version that Microsoft provides might work as well, but was not tested)
+<li>you need to have MySQL installed
+<li>download the source for version 1.0: <a href="http://sourceforge.net/project/showfiles.php?group_id=22307&package_id=15775&release_id=243731">
+MySQL-python-1.0.0.tar.gz</a>. Other versions might work as well, but have not been tested.
+</ul>
+And here's the trick: unzip the sources and comment out the following line in <code>setup.py</code>:
+<pre>
+if mysqlversion > (3,23,0):
+    libraries.append("z")
+</pre>
+Then do <code>python setup.py install</code>. If you're as lucky as I was, it'll just work.
+
+It's rather surprising that there is no ready binary for MySQL-python module for Python 2.4. All Python, Windows and MySQL are quite popular, I hear, so even if you take the intersection, there should be people that needed it before me, but all a google search turned out was one post on python list from a person having the same problem, no resultion was suggested.

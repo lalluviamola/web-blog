@@ -1,0 +1,13 @@
+Date: 2004-07-07 01:17:12
+Format: wphtml
+Title: p2pq
+
+<a href="http://www.p2pq.net">p2pq</a> (I think it comes from p2p knowledge) looks like interesting project although I think they'll fail. Basically they implement "ask the expert" services but instead of using web front-end (as all the existing services do) they use p2p (whatever that means in this context) client.
+
+The problem is: I don't think this approach scales. Imagine a lot of people start using it. It's my guess that people asking the questions are also those giving the answer, so basically any question gets broadcasted to everyone on the network, hoping that someone will know the answer. While this mode is crucial for finding answers (the more people on the network, the more likely that someone knows the answer) it's also floods people with questions that they're most likely not able to answer. So the system basically chokes itself. If people stop reading (and therefore answering) the questions from other people, the value of the system goes down (you no longer get the answer).
+
+In an ideal world a given question would only be sent to people who know the answer and are willing to type it. However, there's no technological way to ensure that (absent mind-reading technology).
+
+We can try hacks like categorizing the knowledge e.g. I could say that I only answer questions about wxWindows programming in Python. But categorizing schemes don't scale either - you have to rely on two random, unconnected parties to agree on categories - ain't gonna happen.
+
+Besides, there are already plenty of alternatives e.g. if I have a question about wxWindows programming in Python, I will ask it on wxWindows/Python mailing list - that's the best place to go.

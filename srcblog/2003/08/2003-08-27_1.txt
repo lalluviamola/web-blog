@@ -1,0 +1,5 @@
+Date: 2003-08-27 20:02:11
+Format: wphtml
+Title: Different ways of doing pixels.
+
+<b>Different ways of doing pixels.</b> It's amazing how many different ways of packing pixels in memory there are. <a href="http://www.lurkertech.com/lg/packings/">This article</a> is a handy reference.

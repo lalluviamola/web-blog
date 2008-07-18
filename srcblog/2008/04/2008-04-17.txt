@@ -1,0 +1,23 @@
+Date: 2008-04-17 00:49:00
+Format: wphtml
+Title: Thinkpad x60 - a retrospective.
+
+<p>The best time to review a gadget is after using it for months. Unfortunately given the churn in PC electronics, it usually means that the gadget will be obsolete.</p>
+
+<p>Nevertheless, I&#8217;ll summarize my feelings towards x60 after almost year of use despite the fact that you can&#8217;t buy it any more.</p>
+
+<p>As a programmer I like my compilations go fast so I have rather high demands on my laptops but those days it&#8217;s almost a non-issue. x60 doesn&#8217;t have the fastest processor, a weak graphics card and a hard-drive that is far from being a speed demon, but as long as I stuff it with 2 GB of RAM, I have no problems using it with Visual Studio or even hosting a Linux inside VMWare. Yes, things could always be faster but they&#8217;re fast enough for me.</p>
+
+<p>I bought x60 (as opposed to some other Thinkpad laptop) mostly because of its tablet features. I thought that I&#8217;m compromising on the size and that 12&#8221; isn&#8217;t enough work comfortable work (which was not a big deal because I still had my 14&#8221; t61 as a backup). Turns out I used it as a tablet only a couple of times. I&#8217;m not complaining because I also discovered that 12&#8221; laptop is good enough for day-to-day work (as long as it has 1400x1050 screen) and I ended up shelving my t61 and using primarily using x60.</p>
+
+<p>I count myself as disgruntled Vista users. It really is worse in many ways than XP, sometimes in infuriating ways (like taking forever to show files in a folder on the hard-drive or annoying with UAC dialogs to the point that the only sensible solution was to disable it). Kind of pathetic, given that it was promised to be second coming of Windows OS and that every new release of Mac OS X is praised to heavens (and not without reason).</p>
+
+<p>It&#8217;s even more infuriating that I can&#8217;t upgrade to SP1 because, get this, SP1 won&#8217;t install if it detects an known incompatible driver. Turns out my video driver is on that list. Lenovo doesn&#8217;t seem very motivated to provide an updated driver even after weeks since SP1 release (seriously, they should have upgraded the driver <em>before</em> SP1 official release - it&#8217;s not like it was a tightly kept secret). Driver from Intel site doesn&#8217;t install claiming my computer is not authorized. Thank you Intel and Lenovo for exemplary team work - I imagine there&#8217;s nothing as rewarding as pissing off people who spend thousands of dollars on your stuff.</p>
+
+<p>I phantasize about downgrading to XP and Lenovo even has a program where they offer to send an XP downgrade CD for a certain price for selected devices (mine apparently included). That&#8217;s what one of their web pages claim. However, they were clever enough to make it impossible to actually apply for that. I spent (literally) hours trying to find a way to order that CD and failed. Their web pages just point back to each other, possibly as way to showcase an infinite loop.</p>
+
+<p>Crapware - another annoyance courtesy of Lenovo. There are countless Lenovo branded programs with cryptic names. They all want to load on startup and show ugly icons in the start bar. I can&#8217;t understand from their names what they&#8217;re supposed to do but apparently not much since I see no functionality loss after uninstalling most of them. Lenovo might not be as bad as Sony or Dell, but it&#8217;s bad.</p>
+
+<p>Despite the annoyances, it&#8217;s a good laptop and will do until I can buy a laptop with at least 128 GB of SSD much faster than current best for a reasonable price.</p>
+
+<p>I would entertain switching to Mac but Apple doesn&#8217;t seem inclined to offer a resolution higher than 1280x1024 on their 13&#8221; laptop and I&#8217;m spoiled by 1400x1050. Once you taste it, there&#8217;s no going back.</p>

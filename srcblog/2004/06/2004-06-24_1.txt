@@ -1,0 +1,32 @@
+Date: 2004-06-24 00:05:17
+Format: wphtml
+Title: The danger of carrier control.
+
+It looks like mobile carriers have very limited vision and all their ideas about making money end up doing the opposite - loosing money to competition.
+
+I think they're just too much in love with easy money. Mobile carriers had a few successes in this department e.g. SMS and ring-tones generated nice revenues in some countries. It's easy money because the technologies are very simple (if not primitive) . Carriers fully controlled them and could over-charge. And over-charge they did.
+
+The problem is: compare SMS with applications that can be written for real smartphones like Treo or MS Smartphone and you'll find that SMS is ridiculously over-priced for what it provides. The only way to keep making easy money from SMS is by not letting any other technology compete. That would be a fine (if bad for costumers) strategy except that carriers don't have that power. Once an open platform like Treo or MS Smartphone or Symbian-based smartphones is launched by just one carrier, the cat is out of the bag. The others have to do the same or slowly loose all their business to the carrier that provides a better, cheaper solution to the user.
+
+There are other cases of mobile carriers trying to extort control with long-term detrimental effort. Some carriers providing MS Smartphone-based phones lock their phones so that only signed applications can be run on them. There are some advantages to this approach but the end result is only one: angry costumers and loosing business. Not every developer can (or wants to) spend necessary time, money and effort to obtain carrier's approval for signing. Therefore some applications just don't work on phones requiring signed applications. Customers get angry. This is bad for the carrier, because this problem will be blogged and discussed on user forums and new subscribers will choose a carrier that doesn't have a locked phone. This is also bad for the platform because most users don't care about who's fault it is (carrier's, developer's, Microsoft's) - they spend money on something that doesn't work to their satisfaction. They'll switch to competing platform e.g. Treo.
+
+Another case is Danger. Danger released their SideKick smartphone on T-Mobile network more than a year ago. In many ways it was (and still is) a great device, ahead of Palm or Microsoft smartphones. They've made a big bet: their platform is closed. In case of Palm or MS Smartphone, anyone can write an application and sell it directly to users via web. For Danger, the only way to sell applications is through Catalog which is fully controlled by Danger and the carrier. 
+
+There are advantages to this approach:
+<ul>
+<li>Danger/carrier can (and do) make a cut from every purchase</li>
+<li>Danger/carrier can better control the quality of applications (arguably increasing the public's opinion about their platform)</li>
+<li>if an app is featured in the catalog, it has a chance of getting high buying rate. Because there's only one source of applications and it's built into the device, chances are that an average SideKick user will spend more money on additional apps than an average Palm or MS Smartphone user. Never under-estimate the power of one-click purchase.</li>
+<li>the experience of installing application is much better for the user</li>
+</ul>
+
+All that doesn't matter given that it might have been a suicidal decision for Danger. The problem is: after more than a year since launching the SideKick, there are no third-party applications available. No one really knows why. It doesn't make sense for Danger to drag their feets like that because their long-term survival depends on availability of a large number of applications so everyone's guess is that it's T-Mobile that, for whatever reason, is responsible for the delays.
+
+Things are bad in developer land. Many developers that were very excited about the prospects of the platform and spent time writing applications for it are angry with Danger and are stopping development efforts until things change.
+
+Hard to blame them: writing software for SideKick is always a gamble. If Danger/carrier doesn't accept your app for Catalog, you're screwed. You've lost time and money spent writing the software and there's no way you can make money. Currently Danger doesn't communicate with developers. They might have a good reason for that (e.g. NDA agreements with T-Mobile) but no-one cares who's fault it is. The platform looses.
+
+Users of SideKick also loose. They can't use SideKick to its full potential because there are no third-party apps available. Compare that with thousands of apps avaialbe for Palm.
+
+Danger really is in danger.
+

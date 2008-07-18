@@ -1,0 +1,11 @@
+Date: 2003-05-31 02:35:36
+Format: wphtml
+Title: i.e. vs. e.g.
+
+<b>i.e. vs. e.g.</b> I learn <a href="http://lwn.net/Articles/33130/">something 
+new</a> every day: 
+<blockquote><i>
+i.e. stands for "id est", and means "that is". As used in the article, it would imply that the only possible commercial distribution of AFPL Ghostscript is inside a printer.
+<p>
+e.g. stands for "exempli gratia", and means "for example" and implies that inside a printer is merely one of the many possibilities for commercial distribution of AFPL Ghostscript. 
+</i></blockquote>

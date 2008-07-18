@@ -1,0 +1,15 @@
+Date: 2002-10-20 05:45:57
+Format: wphtml
+Title: Joel, man of his word.
+
+<b>Joel, man of his word.</b> <a href="http://www.joelonsoftware.com/RandomStuff/FB30SetupSpec.htm">Joel 
+  Spolsky</a> <a href="http://www.joelonsoftware.com/articles/fog0000000036.html">advocates</a> 
+  <a href="http://www.joelonsoftware.com/articles/fog0000000035.html">writing</a> 
+  <a href="http://www.joelonsoftware.com/articles/fog0000000034.html">functional</a> 
+  <a href="http://www.joelonsoftware.com/articles/fog0000000033.html">specs</a> 
+  in the name of better software. Recently he wrote <a href="http://www.joelonsoftware.com/news/20021002.html">a 
+  setup program</a> for his company's <a href="http://www.fogcreek.com/FogBUGZ/">bug 
+  tracking system.</a> Someone challenged him to show the specs for the setup 
+  program. And so <a href="http://discuss.fogcreek.com/joelonsoftware/default.asp?cmd=show&ixPost=16917&ixReplies=9">he 
+  did</a> (<a href="http://www.joelonsoftware.com/RandomStuff/FB30SetupSpec.htm">direct 
+  link to a spec</a>). Excellent.</p>

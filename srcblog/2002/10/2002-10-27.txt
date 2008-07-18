@@ -1,0 +1,9 @@
+Date: 2002-10-27 09:45:10
+Format: wphtml
+Title: Open-source lesson from a stripper.
+
+<b>Open-source lesson from a stripper.</b> Hear <a href="http://stripper-faq.org/money.htm">this:</a>
+<blockquote><i>
+If they're used to getting it for free it's going to be hard to get them to pay for it.
+</i></blockquote>
+People writing open-source software hoping to make money off the software should seriously consider this piece of information. Learn from strippers, I say.

@@ -1,0 +1,12 @@
+Date: 2004-07-29 17:23:41
+Format: wphtml
+Title: IronPython finally released.
+
+<a href="http://ironpython.org">IronPython</a> is a Python implementation targetting CLR (i.e. .NET platform as implemented by Microsoft or mono).
+
+Interesting tidbits:
+<ul>
+<li>it's 1.7x faster than Python 2.3 on standard benchmark (although supposedly only barely faster on real-life examples)
+<li>the author has been hired by Microsoft to work on CLR team where he'll continue improving CLR support for dynamic languages with IronPython being a test-bed but production-quality implementation
+</ul>
+Things get really interesting!

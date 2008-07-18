@@ -1,0 +1,6 @@
+Date: 2002-11-09 10:23:32
+Format: wphtml
+Title: Spam for spam.
+
+<b>Spam for spam.</b>
+I just got a spam advertising <a href="http://www.e-mailpromo.net/">spamming services</a>. You too can buy 1 million addresses for just $25. Interesting question: will my address will be in that database? I assume that yes, if the spammers use the database they sell. Which leads me to another question: I wonder how often spammers get their own spam?

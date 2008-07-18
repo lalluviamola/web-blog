@@ -1,0 +1,23 @@
+Date: 2004-06-12 05:55:17
+Format: wphtml
+Title: Daily reading
+
+<ul>
+
+<li> <a href="http://sprezzatura.editthispage.com/garota">Garota de Ipanema</a> </li>
+
+<li> <a href="http://www.photo.net/equipment/leica/digilux2/">Leica Digilux2 review</a> </li>
+
+<li> <a href="http://www.matrixssl.org/">matrixssl.org</a> - GPL, embedded SSL implementation </li>
+
+<li> <a href="http://gear.ign.com/articles/522/522090p1.html?fromint=1">iAudio</a> - iPod competition</li>
+
+<li> <a href="http://www.j2mepolish.org/">J2ME Polish</a> - tools for making j2me apps </li>
+
+<li> <a href="http://software.ericsink.com/item_10183.html">Law #9: The Law of the Opposite</a> </li>
+
+<li> <a href="http://modula.indus3.org/">Modula - audio engine for Palm OS</a>, commercial</li>
+
+<li> <a href="http://www.readwriteweb.com/archives/001946.php">Knowledge Management in the Real World</a> </li>
+
+</ul>

@@ -1,0 +1,7 @@
+Date: 2003-04-16 02:38:18
+Format: wphtml
+Title: Philip Greenspun has a weblog.
+
+<b>Philip Greenspun has a weblog.</b>
+
+So Philip Greenspun has <a href="http://blogs.law.harvard.edu/philg/">a weblog</a>.

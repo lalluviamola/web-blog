@@ -1,0 +1,13 @@
+Date: 2004-06-07 03:02:38
+Format: wphtml
+Title: WordPress parmalink changes - is backward-compatibility included?
+
+According to <a href="http://boren.nu/archives/2004/06/06/cruft-freeurls-everywhere/">this article</a> next version of WordPress will have a better, cruft-free permalinks. 
+
+My question is: will this change be backward-compatible? One thing about permalinks is that they should be, well, permanent. 
+
+I'm guessing that permalinks in WordPress are generated dynamically. If you change the algorithm to generate them, even the old permalinks will change.
+
+What will happen if I upgrade WordPress in the future. Will my existing permalinks change to this new, cruft-free format?
+
+I don't even have to say that it wouldn't be good. I want my permalinks permanent.

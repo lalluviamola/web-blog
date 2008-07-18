@@ -1,0 +1,13 @@
+Date: 2003-12-07 16:03:23
+Format: wphtml
+Title: Making money on shareware.
+
+<b>Making money on shareware.</b>
+
+A couple of articles just about that:
+<ul>
+<li> <a href="http://macslash.org/comments.pl?sid=4039&cid=0&pid=0&startat=&threshold=0&mode=flat&commentsort=0&op=Change">recent MacSlash.org discussion</a></li>
+<li> <a href="http://macslash.org/comments.pl?sid=3060&cid=0&pid=0&startat=&threshold=0&mode=flat&commentsort=0&op=Change">older MacSlash.org discussion</a></li>
+<li> <a href="http://www.macdevcenter.com/lpt/a/3138">Software Strategies for Emerging Developers</a> (from <a href="http://www.ora.com">O'Reilly</a>).
+</ul>
+Some good points were made.

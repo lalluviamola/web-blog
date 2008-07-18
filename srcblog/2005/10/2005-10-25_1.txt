@@ -1,0 +1,108 @@
+Date: 2005-10-25 04:06:19
+Format: wphtml
+Title: Unsolved source control problems
+
+
+Recently there was an explosion of new source control programs:
+subversion, arch (and its many children), darcs, monotone, git,
+codeville, mercurial (and more).<br>
+<br>
+One of the reasons for creating them was the fact that CVS, the king of
+the hill so far, lacks some basic features. Or, as a less cultured
+person might say, sucks.<br>
+<br>
+Almost all those new programs also
+try to make open-source, distributed collaboration easier. Ironically,
+I don't see any of them solving the problems that I've come across trying to
+make small contribution to various open-source projects so I don't
+think that they are solving the right problems.<br>
+<br>
+In open-source projects there are often 2 sides:<br>
+<ul>
+  <li>project leader (or leaders) - those are the people who can commit changes to the repository</li>
+  <li>contributors - a casual contributor didn't earn enough street cred to get full write access<br>
+  </li>
+</ul>
+<br>
+First problem I saw is that submitting patches, reviewing and accepting
+them is time consuming for both leaders and contributors which causes
+projects to suffer because contributions are ignored which discourages
+contributors from contributing more.<br>
+<br>
+Ideally, the flow would be:<br>
+<ul>
+  <li>contributor does some code modifications</li>
+  <li>contributor notifies the leader</li>
+  <li>leader looks at modifications</li>
+  <li>leader applies modification to the main tree or marks them as rejected, providing explanation why they were rejected</li>
+</ul>
+<br>
+With CVS it's all very painful. Contributor has to generate patches. He
+has to send them via e-mail or attach to a bug tracking system. Leader
+has to apply the patch to his tree (which might be out-of-sync wrt. to
+the tree against the patch was generated), preview the patch, respond
+via e-mail or by making a note in the bug tracker.<br>
+<br>
+I went through this a couple of times and for small changes it's just
+not worth the effort, especially if patches rot in the bug tracker for
+weeks. But if a small change is not accepted quickly, I'm not going to
+bother spending more time developing more extensive enhancements,
+therefore the project looses me as a potential contributor.<br>
+<br>
+Now, it might be just a social problem (it's hard to imagine a tool
+that would force project leaders to respond to submitted patches
+faster) but I believe that a better tool would help a lot.<br>
+<br>
+One option would be to give repository write access to anyone who asks, but the cure could be worse than a disease.<br>
+<br>
+Some systems (e.g. darcs, arch) say that they'll solve this problem by
+making things more decentralized i.e. by making it easier to create
+your own repositories based on the main tree and making it easier to
+merge changes between different repositories. But this does have a few
+problems of its own:<br>
+<ul>
+  <li>not everyone can make their repositories available to other people (you need at least a web server)</li>
+  <li>I think that having one repository is better; another repository
+is a mini-fork and there's no easy way to tell other people about it&nbsp;</li>
+</ul>
+<br>
+I think that all a source control system needs to make things better is:<br>
+<ul>
+  <li>anonymous users should be able to create a branch</li>
+  <li>branch management should be easy (list all branches, preview
+changes in a given branch, merge a change from one branch to another)</li>
+  <li>ability to comment on changes <br>
+  </li>
+</ul>
+<br>
+That way the work flow could be:<br>
+<ul>
+  <li>contributor creates a branch for his changes</li>
+  <li>contributor notifies the leader e.g. by e-mail "hey, I've made some changes in a branch foo"</li>
+  <li>leader can issue one command that would show him the changes made on branch foo, as a diff or in some gui</li>
+  <li>if leader likes the changes, he can merge them back to main tree
+with one command; if he doesn't he can add a comment explaining why
+changes are not good</li>
+  <li>if contributor sees the comment, he can modify the code according to comments and redo the process</li>
+</ul>
+<br>
+It's almost like the full decentralized model but separate repositories
+would be replaced by branches in the main repository. Anyone could
+create a branch and make his changes on his own branch. Having everything
+in one place would make it easier for other contributors to discover
+interesting changes.<br>
+<br>
+Currently the biggest problem with open-source development I see is
+that whoever leads the project has a strong-hold on what goes in and
+what's not. Having a system that supports branches for everyone but
+maintains a restricted access to the mainline would hopefully encourage
+more experimentation, more people contributing to projects.<br>
+<br>
+Which reminds me that I'm very disappointed by SourceForge. Did you notice
+that it hasn't changed in ages? No new cool Web 2.0 AJAX-y interfaces.
+It still only offers CVS. They don't offer built-in wiki for projects. Their implementation of a mailing list and a
+bug tracker is terrible. And, ironically, the source code to the
+biggest open-source code repository in the world is closed.<br>
+<br>
+SourceForge could be so much more...<br>
+<br>

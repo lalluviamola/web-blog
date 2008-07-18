@@ -1,0 +1,5 @@
+Date: 2003-05-06 00:43:13
+Format: wphtml
+Title: Perl to Python compiler.
+
+<b>Perl to Python compiler.</b> Now, this is seriously cool: <a href="http://www.crazy-compilers.com/">Perl to Python compiler</a>. I haven't tried it and the docs says that it won't work wonders, it's still extremely cool hack. They also have <a href="http://www.crazy-compilers.com/decompyle/">Python bytecode decompiler</a>.

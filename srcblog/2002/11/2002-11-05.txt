@@ -1,0 +1,32 @@
+Date: 2002-11-05 14:35:25
+Format: wphtml
+Title: How to sell software.
+
+<b>How to sell software.</b>
+Interesting <a href="http://discuss.fogcreek.com/joelonsoftware/default.asp?cmd=show&ixPost=18721&ixReplies=4">
+thread</a> in Joel On Software discussion forums. A guy asks how to sell
+software. Suggested links:
+<ul>
+<li>
+Here's a great tutorial for starting a shareware business:
+<a href="http://www.macdevcenter.com/pub/a/mac/2002/09/30/dev_osx.html">
+http://www.macdevcenter.com/pub/a/mac/2002/09/30/dev_osx.html
+</a>
+
+<li>Here's another good article for new shareware authors:
+<a href="http://www.semicolon.com/ShareSuccess/Shareware1.html">
+http://www.semicolon.com/ShareSuccess/Shareware1.html
+</a>
+
+<li>Here's a great article about forcing users to pay for shareware:
+<a href="http://www.ambrosiasw.com/cgi-bin/ubb/newsdisplay.cgi?action=topics&number=14&article=000052"
+>
+http://www.ambrosiasw.com/cgi-bin/ubb/newsdisplay.cgi?action=topics&number=14&article=000052
+</a>
+
+<li>Here are real sales figures about crippled vs. uncrippled software:
+<a href="http://www.hackvan.com/pub/stig/articles/why-do-people-register-shareware.html">
+http://www.hackvan.com/pub/stig/articles/why-do-people-register-shareware.html
+</a>
+
+</ul>

@@ -1,0 +1,5 @@
+Date: 2002-06-03 11:38:39
+Format: wphtml
+Title: bold
+
+This is a test of posting to my blog straight from the outliner. Will it work? Does it have any surprises? Does it post the whole outline or just the part I'm positioned at? The answer is just a few clicks away.</P>&#013;&#010;<P>Ok, so the way it works is that it copies the text from the outliner to the edit box thing in the browser and the rest is the same. For unknown reason the whole text was <STRONG>bold</STRONG> in the edit box. A bug? A feature?

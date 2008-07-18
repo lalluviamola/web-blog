@@ -1,0 +1,15 @@
+Date: 2003-04-18 04:18:52
+Format: wphtml
+Title: Multi-network file sharing.
+
+<b>Multi-network file sharing.</b> I wonder why no-one has done that yet: a 
+client for multiple file sharing networks. What we have now is very 
+technology-driven approach: finding files on a particular network. While it 
+makes sense from the implementation/programmer view to have a separate client 
+for each file-sharing network, it doesn't serve user's goal which is to find 
+files. What do they care where the file is? It might be that we're just in the 
+first stage of file sharing software evolution. We've seen that with IM 
+software. First we had a client for each protocol but then someone must have had 
+a revelation: those protocols are fundamentally about the same thing and not 
+that different. Thus a first multi-protocol IM client has been born. The same 
+will happen sooner or later for file sharing networks.

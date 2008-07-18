@@ -1,0 +1,5 @@
+Date: 2003-03-08 18:52:42
+Format: wphtml
+Title: NoteTaker
+
+<b>NoteTaker.</b> People <a href="http://joi.ito.com/archives/2003/03/07/scott_love_the_man_behind_notetaker.html">talk</a> about <a href="http://www.aquaminds.com/index.jsp">NoteTaker</a>. I guess I'll have to try it out.

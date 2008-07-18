@@ -1,0 +1,5 @@
+Date: 2003-09-05 17:21:22
+Format: wphtml
+Title: Hosting provider.
+
+<b>Hosting provider.</b> <a href="http://www.hostcentric.com/DedicatedHosting/">hostcentric.com</a> looks like an interesting hosting provider comparable in price to <a href="http://rackshack.com">Rackshack</a> e.g. you can rent 1.7 GHz Celeron/1 GB RAM/120 GB hard-drive with 600 GB of monthly traffic for $109/month. Price isn't everything, though. I don't see on their site any forums for users similar to <a href="http://forum.rackshack.net/">Rackshack talk</a> so it's hard to develop trust that their service is good.

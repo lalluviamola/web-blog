@@ -1,0 +1,25 @@
+Date: 2004-10-15 05:39:40
+Format: wphtml
+Title: rsscache.com - non-solution to a non-problem
+
+I just got spammed by rsscache.com - they want to protect me from a bandwidth usage problem that my rss feed is causing me.
+
+There are only three problems with their business proposition.
+
+a) I really don't like to be spammed
+
+b) My RSS feed doesn't cause bandwidth problems. They are obviously trying to monetize the 'RSS bandwidth problem' meme circulating recently around the internet. Despite the fact that many intelligent people who actually know how RSS works demonstrated that RSS feeds will cause problems only if either the RSS generator or RSS client are broken. And that assumes that you're actually one of the lucky few that has thousands of readers of your RSS feed that can start causing problems.
+
+c) Their "technology" is laughably simple and doesn't work reliably. Basically, they track who requests RSS feed by IP address. If they see another request coming from the same IP address and the feed didn't change, they only send an empty RSS feed, hence the savings. That is trivial to implement in any RSS generating software. Except you don't want to do that, because due to proxies, tracking by IP address is extremely unreliable and there are other well known and already implement in well-behaved clients and servers methods to solve the same problems.
+
+And it's so obvious that they're selling oil-snake from their marketing copy on their web page.
+
+<blockquote>Use our technology on your server and save bandwidth, and do a lot more cool stuff!</blockquote>
+Too bad they fail to mention what exactly is included in the "lot more cool stuff" part.
+
+<blockquote>all requests are stored in optimised tables for efficient response time</blockquote>
+As opposed to un-optimised tables for non-efficient response time.
+
+Their idea of making money is by selling their wonderful technology that can be re-implemented by 5-line perl script as "enterprise solutions". Good luck finding people dumb enough that would actually buy it.
+
+To help their credibility, the only information about the company you can get from their website is that they call themselves "D2Soft Technologies Inc.", the only way to contact them is through web form, there's at least one spelling error on the website, and they are so confident that sales of their rsscache enterprise solutions will fly that they put google adwords on their website. Hopefully the masterminds behind this operations will make enough from adwords to buy themselves a beer when they go to a bar to brainstorm why their brilliant idea flopped in the cruel market.

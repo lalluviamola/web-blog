@@ -1,0 +1,13 @@
+Date: 2004-06-07 00:34:44
+Format: wphtml
+Title: Basecamp annoyances.
+
+<a href="http://basecamphq.com">Basecamp</a> is a web-based project management software that gets a lot of good buzz from all around the web.
+
+I signed up for Basecamp mostly to test drive it and see if it fits my needs. Below is a list of things that I wish Basecamp would improve. Don't take the fact that I only talk about negatives as me saying that it's a bad product. I haven't formed an opinion yet, I need to use it a little bit longer. This is not a balanced review, it's just a list of things that annoy me.
+
+<a href="http://everything.basecamphq.com/archives/cat_faqs.php">FAQ section</a> is badly designed. It's hard to read the titles of faq and tell where one title ends and another begins. Maybe a bigger spacing between titles would help?
+
+I wish there was a way to move todo lists and posts between projects. It takes time for a new user to figure out how to optimally use Basecamp. In that period there's some experimantation going on as to how to structure projects so it would be good to provide support for re-structurization. They could even call it "project refactoring tools" to score higher in buzz-o-meter.
+
+Add undo. Every time you delete a message or a to-do list, Basecamp warns that <b>there's no undo</b>. But why? All deleted items should go to a separate "trashcan" and allow easy un-deleting.

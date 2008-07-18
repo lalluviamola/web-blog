@@ -1,0 +1,6 @@
+Date: 2007-04-29 21:41:28
+Format: wphtml
+Title: SumatraPDF 0.6 released
+
+I've just released another version of <a href="http://blog.kowalczyk.info/software/sumatrapdf/">SumatraPDF.</a> This version mostly fixes bugs. The changes in this release are:<br /><ul><li>enable opening password-protected PDFs</li><li>don't allow printing in PDFs that have printing forbidden</li><li>don't automatically reopen files at startup</li><li>fix opening PDFs from network shares</li><li>new, better icon</li><li>reload the document when changing rendering engine</li><li>improve cursor shown when dragging</li><li>fix toolbar appearance on XP and Vista with classic theme</li><li>when MuPDF engine cannot load a file or render a page, we fallback to
+      poppler engine to make rendering more robust</li><li>fixed a few crashes</li></ul><br /><br />

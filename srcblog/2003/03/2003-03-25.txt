@@ -1,0 +1,12 @@
+Date: 2003-03-25 03:35:59
+Format: wphtml
+Title: The quotes
+
+<b>The quotes.</b>
+
+Oh, <a href="http://www.gumption.org/1996/quotes.htm">the quotes</a>. I love 
+them.
+<blockquote><i>
+My life has a superb cast, but I can't figure out the 
+plot. <BR>-- Ashleigh Brilliant
+</i></blockquote>

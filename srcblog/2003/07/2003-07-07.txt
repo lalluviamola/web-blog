@@ -1,0 +1,9 @@
+Date: 2003-07-07 02:54:38
+Format: wphtml
+Title: Chandler - ultimate RSS aggregator.
+
+<b>Chandler - ultimate RSS aggregator.</b>
+
+<a href="http://www.osafoundation.org/">Chandler</a> is still in its very infancy but the writing is on the wall: it's going to be a killer RSS aggregator. The main problem with exisitng RSS aggregators is that they're only that: RSS aggregators (sometimes with blog posting features). Chandler's long-term vision is to be a hub of personal information, be it e-mail, calendaring information, contacts, notes. It's only natural to add RSS aggregation features to it. Pure RSS aggregators will be able to compete on RSS-specific features (it'll always be possible to make narrower tool to be e.g. more efficient or more streamlined for just RSS reading). However I believe the future lies in Chandler approach: one application to manage various kinds of information.
+<p>
+PS: there is an experimental RSS aggregator parcel in Chandler currently (in fact it was the first non-core parcel written). It's awful (just like the rest of the Chandler). This will change because Chandler is barely out of design phase so awfulness is to be expected.

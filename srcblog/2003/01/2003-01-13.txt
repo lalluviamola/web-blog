@@ -1,0 +1,7 @@
+Date: 2003-01-13 04:19:05
+Format: wphtml
+Title: Pepper is alive.
+
+<b>Pepper is alive.</b>
+Pepper is a cross-platform text editor that I liked enough to purchase it. Unfortunately about a month after that Pepper's author decided to stop working on it. Some people tried to open-source it but couldn't come up with required $10000. It looks like Pepper 
+<a href="http://www.digitalwandering.com/index.html">has been acquired</a> by a third party and is being worked on again. I wonder if they'll respect licenses from people who purchased it from the original author (to offer free/cheaper upgrades).

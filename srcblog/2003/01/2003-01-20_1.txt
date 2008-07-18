@@ -1,0 +1,15 @@
+Date: 2003-01-20 01:55:47
+Format: wphtml
+Title: GForge
+
+<b>GForge.</b> When talking about my &quot;<a href="http://blog.kowalczyk.info/archives/000254.html#000254">p2p, desktop 
+Source Forge</a>&quot; idea, I spoke ill about Source Forge (because I think 
+their UI is terrible). When VA pretty much stopped working of free code (because 
+they now depend on sales of their PRO version) the idea has been picked up by 
+one of the original programmers of Source Forge and <a href="http://gforge.org/">
+GForge</a> was born. From the looks of it fixes the most annoying UI problems. A 
+wonder why it goes the &quot;aggregator&quot; route (i.e. a system for hosting a lot of 
+projects). This is a rather limited market (how many Source Forge's can we 
+have?). What I would like is something that I can easily deploy on my own 
+servers for my own project. In that case some of the functionality doesn't make 
+sense. And of course I would prefer it to be a rich, desktop client.

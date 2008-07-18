@@ -1,0 +1,19 @@
+Date: 2005-06-29 21:03:49
+Format: wphtml
+Title: RocketDock - Mac OS X Doc for Windows
+
+Just a software plug for <a href="http://www.punksoftware.com/index.php?option=com_content&task=view&id=45&Itemid=143">RocketDock</a>.
+
+Yes, it's just a clone of Mac OS X's Dock.
+
+Yes, some people think that Dock should die.
+
+I, howerver, found that it works well and is actually the best of many Windows app launchers that I've tried so far (including 2 other Dock clones). And it's free. 
+
+What else could you ask for?
+
+Ok, maybe the source code, so that I can add features that tickle my fancy (not that  I ever do that).
+
+Or some basic performance monitoring applets (cpu, memory, battery, network i/o, sound volume etc.) so that I can get rid of <a href="http://www.winbar.nl/">WinBar</a>.
+
+Or fixing a bug where RocketDock messes up the cmd.exe window (it cannot be moved using the title bar, copy&paste also doesn't work).

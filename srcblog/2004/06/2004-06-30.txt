@@ -1,0 +1,17 @@
+Date: 2004-06-30 05:21:25
+Format: wphtml
+Title: Daily reading
+
+<ul>
+
+<li> <a href="http://www.engadget.com/entry/4214445011155201/#comments">what is your phone</a> </li>
+<li> <a href="http://www.dashes.com/magazine/backissues/introducing_the_microcontent_client.php">microcontent client</a> </li>
+<li> <a href="http://www.allaboutsymbian.com/reviews/review2.php?id=105">Sendo X (symbian series 60 phone) review</a> </li>
+<li> <a href="http://automaticlabs.com/products/enkoderform">Encoder</a> - a web app to encode e-mail addresses so that it's safe to put them on a web site</li>
+<li> <a href="http://treocentral.com/content/Stories/355-1.htm">PalmOne shipped 151k Treo's in last quarter</a> </li>
+<li> <a href="http://www.pmwiki.org/wiki/Main/HomePage">PmWiki</a> - looks like a very decent wiki, in PHP </li>
+<li> <a href="http://www.dottocomu.com/b/archives/002720.html">Fujitsu F900iT docomo phone review</a> </li>
+
+<li> <a href="http://www.gadgetopia.com/2004/06/29/TheBuildingOfBasecampReview.html">review of "Building of basecamp" seminar</a> </li>
+
+</ul>

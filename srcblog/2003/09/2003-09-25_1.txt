@@ -1,0 +1,5 @@
+Date: 2003-09-25 04:06:52
+Format: wphtml
+Title: Northwest C++ users group meeting.
+
+<b>Northwest C++ users group meeting.</b> Of interest to Seattle (and near-Seattle) dwellers interested in C++: on October 8th there'll be a <a href="http://www.nwcpp.org/Meetings/2003/index.html">Northwest C++ users group meeting</a> with Bartosz Milewski of <a href="http://www.relisoft.com">ReliSoft</a>.

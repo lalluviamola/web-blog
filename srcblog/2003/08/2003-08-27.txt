@@ -1,0 +1,8 @@
+Date: 2003-08-27 17:19:17
+Format: wphtml
+Title: Shirky on Wikis.
+
+<b>Shirky on Wikis.</b> <a href="http://www.corante.com/many/20030801.shtml#50187">Clay Shirky on Wikis:</a>
+<blockquote>
+A wiki in the hands of a healthy community works. A wiki in the hands of an indifferent community fails.
+</blockquote>

@@ -1,0 +1,53 @@
+Date: 2003-04-25 04:46:12
+Format: wphtml
+Title: Is open-source viable?
+
+<b>Is open-source viable?</b>
+
+He, Cringely <a href="http://www.pbs.org/cringely/pulpit/pulpit20030424.html">doesn't think so</a> this week. 
+He already admitted that next week he'll change his mind, but I'll save you the 
+wait and deconstruct Cringely. He says:
+<blockquote><i>
+Here is the core argument: There are a thousand Open Source projects that get 
+started out of need or fun, are maintained for awhile for fame, then get 
+abandoned because there is no reason to go on. Eventually, the programmers come 
+to understand that "users" are people who yell at you to fix stuff. So Open 
+Source is inherently flawed. It only works because otherwise unknown programmers 
+can get 15 minutes of fame using the Internet as low-barrier entry into 
+introducing their skill to the world. 
+</i></blockquote>
+
+There are two problems with this statement. The first part has an exact parallel in non-open-source development: 
+there are thousands of non-open-source projects started but, for one reason or 
+another, only few become interesting and revenue-generating programs.<p>Second 
+problem is a sin of omission: if you accept that need or fun are the only 
+reasons for starting open-source projects and those projects are always 
+abandoned when &quot;introverted nobodies&quot; realize that it's not fun at all, then it 
+open-source could have been &quot;inherently flawed&quot;. When poorly thought out 
+hypothetical arguments contradict the facts, I usually stay with the facts. 
+Today the fact is: open-source is viable and growing. As long as no-one can 
+provide a good argument for why it should stop growing, I'll assume it'll grow 
+in the future.</p>
+<p>Even Cringely admits that there are successful open-source projects but 
+doesn't try to dig into why those projects and not others are successful. Ok, he 
+does try by saying that successful open-source projects are those that have 
+developers paid by some company but to me it looks like mixing up the cause with 
+the effect. Companies pay engineers to work on Linux or Apache or Samba or Gnome 
+because it's a successful project, not the other way around (the only landmark 
+open-source project that I know of that was sponsored by a company from the 
+start is Mozilla).</p>
+<p>After that Cringely goes to describe a hijacking attack on open-source. In 
+his script, soon to be a major motion picture, an evil entity (which is 
+inevitably impersonated by Microsoft) puts their engineers on open-source 
+project. They contribute a lot to the project therefore becoming its de-facto 
+leaders (this should tip you off that Cringely lives in a dangerously 
+imaginative world: as we all know evil entity otherwise known as Microsoft can't 
+produce any good software from which we can safely infer that their developers 
+would be laughed out of court). Anyway, back to the Cringely plot: after 
+becoming de-facto leaders developers steer the development into stray waters and 
+make sure that this project will never compete with evil entity's products.</p>
+<p>Back in the reality: what prevents such hijacking is a license and the fact 
+that those are real humans directing those projects. It's not like you can say: 
+hey, let's just something incredibly stupid and they'll say: yeah, great idea. 
+And even if you can and they do, someone can always fork from the pre-hijacking 
+code.

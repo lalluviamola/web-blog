@@ -1,0 +1,3484 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<title>Unix tips</title>
+	<link rel="stylesheet" href="/css/wp-style.css" type="text/css" />
+	<link rel="stylesheet" href="/css/article.css" type="text/css" />
+</head>
+
+<body>
+
+<!-- search box -->
+<div style="position: absolute;	top: 10px; right: 0; margin-right: 20px;">
+    <form method="get" id="searchForm" action="http://google.com/search">
+        <div>
+            <input type="hidden" name="IncludeBlogs" value="1" />
+            <input id="search" name="q" class="txt" size="25" tabindex="1" />
+            <input type="hidden" name="as_sitesearch" value="blog.kowalczyk.info" />
+            <input type="submit" class="btn" value="&nbsp;Search&nbsp;" />
+
+        </div>
+    </form>
+</div>
+<!-- end of search box -->
+
+<div id="header">
+<h1>Weblog Without Honor or Humanity</h1>
+<h2>by Krzysztof Kowalczyk</h2>
+</div>
+
+<div id="banner">
+    <ul id="tabnav">
+
+    <li><a href="/" title="home">Home</a></li>
+    <li><a href="/articles/" title="articles" class="current">Articles</a></li>
+    <li><a href="/software/" title="software">Software</a></li>
+    <li><a href="/contact.html" title="contact">Contact</a></li>
+
+    <!-- 
+    <li><a href="/about/" title="about">About</a></li> 
+     -->
+    </ul>
+
+</div>
+
+<div id="container">
+<p>
+<a href="/">Home</a> &raquo; <a href="/articles/">Articles</a> &raquo; <b>Unix tips</b>
+</p>
+
+<div id="article">
+<h1>Unix tips, a lot of them</h1>
+
+<p/>
+
+<b>Note:</b> I didn't write those tips, I just did some editing and posted it on my website because
+I use it for reference and the original document 
+<a href="http://prdownloads.sourceforge.net/souptonuts/How_to_Linux_and_Open_Source.txt?download">
+lives on sourceforge.net</a>, which sucks. What follows is the text verbatim but with some html-ization
+(which is a work in progress).
+<p/>
+
+Mike Chirico (mchirico at users.sourceforge.net) or (mchirico at comcast.net)<br
+/>
+Copyright (c) 2004 (GPU Free Documentation License)<br />
+Last Updated: Sat Dec 25 00:29:15 EST 2004<br />
+The latest version of this document can be found at:
+
+<a href="http://prdownloads.sourceforge.net/souptonuts/How_to_Linux_and_Open_Source.txt?download">
+http://prdownloads.sourceforge.net/souptonuts/How_to_Linux_and_Open_Source.txt?download</a>.
+<br />
+For tips on MySQL reference:
+<a href="http://prdownloads.sourceforge.net/souptonuts/README_mysql.txt?download">
+http://prdownloads.sourceforge.net/souptonuts/README_mysql.txt?download</a>
+<br />
+For tips on upgrading RedHat 9 or 8.0 to 2.6.x src kernel
+with Fedora Updates, reference:
+<a href="http://prdownloads.sourceforge.net/souptonuts/README_26.txt?download">
+http://prdownloads.sourceforge.net/souptonuts/README_26.txt?download</a>
+<br />
+For tips on Comcast Email with Home Linux Box
+<a href="http://prdownloads.sourceforge.net/souptonuts/README_COMCAST_EMAIL.txt?download">
+http://prdownloads.sourceforge.net/souptonuts/README_COMCAST_EMAIL.txt?download</a>
+
+<br />
+For tips on using SQLite (over 25 pages)
+<a href="http://prdownloads.sourceforge.net/souptonuts/README_sqlite_tutorial.html?download">
+http://prdownloads.sourceforge.net/souptonuts/README_sqlite_tutorial.html?download</a>
+<p/>
+<b>Note</b>, if you want email notification after every 50 new tips have been
+    added, then, click on the following link:
+<a href="https://sourceforge.net/project/filemodule_monitor.php?filemodule_id=120838">
+https://sourceforge.net/project/filemodule_monitor.php?filemodule_id=120838</a>
+
+<p/>
+<b>Table of contents:</b>
+Tip 1: <a href="#tip1">Is NTP Working?</a>, 
+tip 2: <a href="#tip2">cpio works like tar, only better</a>,
+tip 3: <a href="#tip3">Working with tar. The basics with encryption</a>,
+tip 4: <a href="#tip4">Creating a Virtual File System and Mounting it with a Loopback Device</a>,
+tip 5: <a href="#tip5">Setting up 2 IP address on "One" NIC. This example is on ethernet</a>,
+tip 6: <a href="#tip6">Sharing Directories Amoung Several Users</a>,
+tip 7: <a href="#tip7">Getting Infomation on Commands</a>,
+tip 8: <a href="#tip8">How to Put a "Running Job" in the Background</a>,
+
+
+<h2><a name="tip1">TIP 1: Is NTP Working?</a></h2>
+<pre>
+STEP 1 (Test the current server):
+  Try issuing the following command:
+  $ ntpq -pn
+   remote refid st t when poll reach delay offset jitter
+   ===================================================
+   tock.usno.navy 0.0.0.0 16 u - 64 0 0.000 0.000 4000.00
+  The above is an example of a problem.
+  Compare it to a working configuration.
+  $ ntpq -pn
+   remote refid st t when poll reach delay offset jitter
+   ========================================================
+   +128.4.40.12 128.4.40.10 2 u 107 128 377 25.642 3.350 1.012
+   127.127.1.0 127.127.1.0 10 l 40 64 377 0.000 0.000 0.008
+   +128.91.2.13 128.4.40.12 3 u 34 128 377 21.138 6.118 0.398
+   *192.5.41.41 .USNO. 1 u 110 128 377 33.694 9.533 3.534
+STEP 2 (Configure the /etc/ntp.conf):
+  $ cat /etc/ntp.conf
+    # My simple client-only ntp configuration.
+    server timeserver1.upenn.edu
+    # ping -a timeserver1.upenn.edu shows the IP address 128.91.2.13
+    # which is used in the restrict below
+    restrict 128.91.2.13
+    server tock.usno.navy.mil
+    restrict 192.5.41.41
+    server 128.4.40.12
+    restrict 128.4.40.12
+    server 127.127.1.0 # local clock
+    fudge 127.127.1.0 stratum 10
+    driftfile /etc/ntp/drift
+    restrict default ignore
+    restrict 127.0.0.0 mask 255.0.0.0
+    authenticate no
+STEP 3 (Configure /etc/ntp/step-tickers):
+  The values for server above are placed in the "/etc/ntp/step-tickers" file
+  $ cat /etc/ntp/step-tickers
+      timeserver1.upenn.edu
+      tock.usno.navy.mil
+      128.4.40.12
+  The startup script /etc/rc.d/init.d/ntpd will grab the servers in this
+  file and execute the ntpdate command as follows:
+     /usr/sbin/ntpdate -s -b -p 8 timeserver1.upenn.edu
+  Why? Because if the time is off ntpd will not start. The command above set the
+  clock. If System Time deviates from true time by more than 1000 seconds, then,
+  the ntpd daemon  will enter panic mode and exit.
+STEP 4 (Restart the service and check):
+  Issue the restart command
+    /etc/init.d/ntpd restart
+  check the values for "ntpq -pn",
+  which should match step 1.
+     ntpq -pn
+SPECIAL NOTE:
+  Time is always stored in the kernel as the number os seconds since
+  midnight of the 1st of January 1970 UTC, regardless of whether the
+  hardware clock is stored as UTC or not.  Conversions to local time
+  are done at run-time. So, it's easy to get the time in different
+  timezones for only the current session as follows:
+
+      $ export TZ=EST
+      $ date
+      Mon Aug  2 10:34:04 EST 2004
+      $ export TZ=NET
+      $ date
+      Mon Aug  2 15:34:18 NET 2004
+  The following are possible values for TZ:
+      Hours From Greenwich Mean Time (GMT) Value Description
+      0 GMT Greenwich Mean Time
+      +1 ECT European Central Time
+      +2 EET European Eastern Time
+      +2 ART
+      +3 EAT Saudi Arabia
+      +3.5 MET Iran
+      +4 NET
+      +5 PLT West Asia
+      +5.5 IST India
+      +6 BST Central Asia
+      +7 VST Bangkok
+      +8 CTT China
+      +9 JST Japan
+      +9.5 ACT Central Australia
+      +10 AET Eastern Australia
+      +11 SST Central Pacific
+      +12 NST New Zealand
+      -11 MIT Samoa
+      -10 HST Hawaii
+      -9 AST Alaska
+      -8 PST Pacific Standard Time
+      -7 PNT Arizona
+      -7 MST Mountain Standard Time
+      -6 CST Central Standard Time
+      -5 EST Eastern Standard Time
+      -5 IET Indiana East
+      -4 PRT Atlantic Standard Time
+      -3.5 CNT Newfoundland
+      -3 AGT Eastern South America
+      -3 BET Eastern South America
+      -1 CAT Azores
+      DST timezone
+
+      0      BST for British Summer.
+      +400   ADT for Atlantic Daylight.
+      +500   EDT for Eastern Daylight.
+      +600   CDT for Central Daylight.
+      +700   MDT for Mountain Daylight.
+      +800   PDT for Pacific Daylight.
+      +900   YDT for Yukon Daylight.
+      +1000  HDT for Hawaii Daylight.
+      -100   MEST for Middle European Summer,
+                 MESZ for Middle European Summer,
+                 SST for Swedish Summer and FST for French Summer.
+      -700   WADT for West Australian Daylight.
+      -1000  EADT for Eastern Australian Daylight.
+      -1200  NZDT for New Zealand Daylight.
+The following is an example of setting the TZ environment variable
+for the timezone, only when timezone changes go into effect.
+       $ export TZ=EST+5EDT,M4.1.0/2,M10.5.0/2
+Take a look at the last line "M10.5.0/2". What does it mean? Here is the
+documentation
+
+Mm.w.d This  specifies  day  d (0 &lt;= d &lt;= 6) of week w (1 &lt;= w &lt;= 5) of
+      month m (1 &lt;= m &lt;= 12).  Week 1 is the first week in which day d
+      occurs and week 5 is the last week in which day d occurs.  Day 0
+      is a Sunday.
+      The time fields specify when, in the local time  currently  in
+      effect, the  change  to  the  other  time  occurs.   If omitted,
+      the default is  02:00:00.
+So this is what it means. M10 stands for October, the 5 is the fifth week
+that includes a Sunday (note 0 in M10.5.0/2 is Sunday). To see that it is
+the fifth week see the calendar below. The time change occurs a 2am in
+the morning.
+                        October
+                 Su Mo Tu We Th Fr Sa
+                                 1  2
+                  3  4  5  6  7  8  9
+                 10 11 12 13 14 15 16
+                 17 18 19 20 21 22 23
+                 24 25 26 27 28 29 30
+                 31
+Prove it. Take the following program sunrise, which can calcuates sunrise
+and sunset for an latitude and longitude. This program can be downloaded
+from the following location:
+   http://prdownloads.sourceforge.net/souptonuts/working_with_time.tar.gz?download
+Below is a bash script that will run the program for the next 100 days.
+  #!/bin/bash
+  #  program: next100days  Mike Chirico
+  #  download:
+  #  http://prdownloads.sourceforge.net/souptonuts/working_with_time.tar.gz?download
+  #
+  #  This will calculate the sunrise and sunset for
+  #  latitude     39.95  Note must convert to degrees
+  #  longitude  75.15  Note must convert to degrees
+  lat=39.95
+  long=75.15
+  for (( i=0; i &lt;= 100; i++))
+  do
+   ./sunrise    `date -d "+$i day" "+%Y %m %d"` $lat $long
+  done
+Take a look at the following sample output.
+   $ export TZ=EST+5EDT,M4.1.0/2,M10.5.0/2
+   $ ./next100days
+  Sunrise  08-24-2004  06:21:12   Sunset 08-24-2004  19:43:42
+  Sunrise  08-25-2004  06:22:09   Sunset 08-25-2004  19:42:12
+  Sunrise  08-26-2004  06:23:06   Sunset 08-26-2004  19:40:41
+  Sunrise  08-27-2004  06:24:03   Sunset 08-27-2004  19:39:09
+  Sunrise  08-28-2004  06:25:00   Sunset 08-28-2004  19:37:37
+  Sunrise  08-29-2004  06:25:56   Sunset 08-29-2004  19:36:04
+  Sunrise  08-30-2004  06:26:53   Sunset 08-30-2004  19:34:31
+  Sunrise  08-31-2004  06:27:50   Sunset 08-31-2004  19:32:57
+  Sunrise  09-01-2004  06:28:46   Sunset 09-01-2004  19:31:22
+  Sunrise  09-02-2004  06:29:43   Sunset 09-02-2004  19:29:47
+  ..[values omitted ]
+  Sunrise  10-28-2004  07:25:31   Sunset 10-28-2004  18:02:34
+  Sunrise  10-29-2004  07:26:38   Sunset 10-29-2004  18:01:19
+  Sunrise  10-30-2004  07:27:46   Sunset 10-30-2004  18:00:06
+  Sunrise  10-31-2004  06:28:53   Sunset 10-31-2004  16:58:54
+  Sunrise  11-01-2004  06:30:01   Sunset 11-01-2004  16:57:44
+  Sunrise  11-02-2004  06:31:10   Sunset 11-02-2004  16:56:35
+Compare 10-30-2004 with 10-31-2004. Sunrise is an hour earlier because
+daylight saving time has ended, just as predicted.
+There is an easier way to switch between timezones. Take a look at the
+directory zoneinfo as follows:
+    $ ls /usr/share/zoneinfo
+    Africa      Chile    Factory    Iceland      Mexico    posix       UCT
+    America     CST6CDT  GB         Indian       Mideast   posixrules  Universal
+    Antarctica  Cuba     GB-Eire    Iran         MST       PRC         US
+    Arctic      EET      GMT        iso3166.tab  MST7MDT   PST8PDT     UTC
+    Asia        Egypt    GMT0       Israel       Navajo    right       WET
+    Atlantic    Eire     GMT-0      Jamaica      NZ        ROC         W-SU
+    Australia   EST      GMT+0      Japan        NZ-CHAT   ROK         zone.tab
+    Brazil      EST5EDT  Greenwich  Kwajalein    Pacific   Singapore   Zulu
+    Canada      Etc      Hongkong   Libya        Poland    SystemV
+    CET         Europe   HST        MET          Portugal  Turkey
+TZ can be set to any one of these files. Some of these are directories and contain
+subdirectories, such as ./posix/America. This way you don not have to enter the
+timezone, offset, and range for dst, since it has already been calculated.
+   $ export TZ=:/usr/share/zoneinfo/posix/America/Aruba
+   $ export TZ=:/usr/share/zoneinfo/Egypt
+
+ Reference:
+  http://prdownloads.sourceforge.net/cpearls/date_calc.tar.gz?download
+  Also see  (TIP 27).
+  Also see  (TIP 103) using chrony which is very similiar to ntpd.
+</pre>
+
+<h2><a name="tip2">TIP 2: cpio works like tar, only better.</a></h2>
+
+<pre>
+TIP 2:
+ STEP 1 (Create two directories with data ../dir1 an ../dir2)
+      mkdir -p ../dir1
+      mkdir -p ../dir2
+      cp /etc/*.conf ../dir1/.
+      cp /etc/*.cnf ../dir2/.
+      Which will backup all your cnf and conf files.
+ STEP 2 (Piping the files to tar)
+      cpio works like tar but can take input
+      from the "find" command.
+       $ find ../dir1/ | cpio -o --format=tar &gt; test.tar
+           or
+       $ find ../dir1/ | cpio -o -H tar &gt; test2.tar
+      Same command without the "&gt;"
+       $ find ../dir1/ | cpio -o --format=tar -F test.tar
+          or
+       $ find ../dir1/ | cpio -o -H tar -F test2.tar
+      Using append
+       $ find ../dir1/ | cpio -o --format=tar -F test.tar
+         or
+       $ find ../dir2/ | cpio -o --format=tar --append -F test.tar
+ STEP 3 (List contents of the tar file)
+      $ cpio -it &lt; test.tar
+            or
+      $ cpio -it -F test.tar
+ STEP 4 (Extract the contents)
+      $ cpio -i -F test.tar
+</pre>
+
+<h2><a name="tip3">TIP 3: Working with tar. The basics with encryption.</a></h2>
+
+<pre>
+ STEP 1 (Using the tar command on the directory /stuff)
+      Suppose you have a directory /stuff
+      To tar everything in stuff to create a ".tar" file.
+      $ tar -cvf stuff.tar stuff
+      Which will create "stuff.tar".
+ STEP 2 (Using the tar command to create a ".tar.gz" of /stuff)
+      $ tar -czf stuff.tar.gz stuff
+ STEP 3 (List the files in the archive)
+      $ tar -tzf stuff.tar.gz
+           or
+      $ tar -tf stuff.tar
+ STEP 4 (A way to list specific files)
+      Note, pipe the results to a file and edit
+       $ tar -tzf stuff.tar.gz > mout
+      Then, edit mout to only include the files you want
+       $ tar -T mout -xzf stuff.tar.gz
+      The above command will only get the files in mout.
+      Of couse, if you want them all
+       $ tar -xzf stuff.tar.gz
+ STEP 5 (ENCRYPTION)
+       $ tar -zcvf - stuff|openssl des3 -salt -k secretpassword | dd of=stuff.des3
+      This will create stuff.des3...don't forget the password you
+      put in place of  secretpassword. This can be done interactive as
+      well.
+        $ dd if=stuff.des3 |openssl des3 -d -k secretpassword|tar zxf -
+ NOTE:  above there is a "-" at the end... this will
+        extract everything.
+</pre>
+
+
+<h2><a name="tip4">TIP 4: Creating a Virtual File System and Mounting it with a
+Loopback Device.</a></h2>
+
+<pre>
+ STEP 1 (Construct a 10MB file)
+       $ dd if=/dev/zero of=/tmp/disk-image count=20480
+      By default dd uses block of 512 so the size will be 20480*512
+ STEP 2 (Make an ext2 or ext3 file system) -- ext2 shown here.
+       $ mke2fs -q
+      or if you want ext3
+       $ mkfs -t ext3 -q /tmp/disk-image
+      yes, you can even use reiser, but you'll need to create a bigger
+      disk image. Something like "dd if=/dev/zero of=/tmp/disk-image count=50480".
+       $ mkfs -t reiserfs -q /tmp/disk-image
+      Hit yes for confirmation.  It only asks this because it's a file
+
+ STEP 3 (Create a directory "virtual-fs" and mount. This has to be done as root)
+       $ mkdir /virtual-fs
+       $ mount -o loop=/dev/loop0 /tmp/disk-image /virtual-fs
+     SPECIAL NOTE: if you mount a second device you will have to increase the
+                   loop count: loop=/dev/loop1, loop=/dev/loop2, ... loop=/dev/loopn
+      Now it operates just like a disk. This virtual filesystem can be mounted
+      when the system boots by adding the following to the "/etc/fstab" file. Then,
+      to mount, just type "mount /virtual-fs".
+             /tmp/disk-image /virtual-fs ext2               rw,loop=/dev/loop0 0 0
+ STEP 4 (When done, umount it)
+       $ umount /virtual-fs
+
+ SPECIAL NOTE: If you are using Fedora core 2, in the /etc/fstab you can take
+          advantage of acl properties for this mount. Note the acl next to the
+          rw entry. This is shown here with ext3.
+             /tmp/disk-image     /virtual-fs ext3    rw,acl,loop=/dev/loop1 0 0
+          Also, if you are using Fedora core 2 and above, you can mount the file
+          on a cryptoloop.
+            $ dd if=/dev/urandom of=disk-aes count=20480
+
+            $ modprobe loop
+            $ modprobe cryptoloop
+            $ modprobe aes
+            $ losetup -e aes /dev/loop0 disk-aes
+            $ mkfs -t ext2 /dev/loop0
+            $ mount -o loop,encryption=aes disk-aes &lt;mount point&gt;
+
+          If you do not have Fedora core 2, then, you can build the kernel from source
+          with some of the following options (not complete, yet)
+           reference:
+ http://cvs.sourceforge.net/viewcvs.py/cpearls/cpearls/src/posted_on_sf/acl/ehd.pdf?rev=1.1&amp;view=log
+                  Cryptographic API Support (CONFIG_CRYPTO)
+                  generic loop cryptographic (CONFIG_CRYPTOLOOP)
+                  Cryptographic ciphers (CONFIG_CIPHERS)
+                  Enable one or more  ciphers  (CONFIG CIPHER .*) such as AES.
+
+ HELPFUL INFORMATION: It is possible to bind mount partitions, or associate the
+                 mounted partition to a directory name.
+              # mount --bind  /virtual-fs      /home/mchirico/vfs
+ Also see TIP 91.
+</pre>
+
+
+<h2><a name="tip5">TIP 5: Setting up 2 IP address on "One" NIC. This example is
+on ethernet.</a></h2>
+
+<pre>
+ STEP 1 (The settings for the initial IP address)
+       $ cat /etc/sysconfig/network-scripts/ifcfg-eth0
+        DEVICE=eth0
+        BOOTPROTO=static
+        BROADCAST=192.168.99.255
+        IPADDR=192.168.1.155
+        NETMASK=255.255.252.0
+        NETWORK=192.168.1.0
+        ONBOOT=yes
+ STEP 2 (2nd IP address: )
+       $ cat /etc/sysconfig/network-scripts/ifcfg-eth0:1
+        DEVICE=eth0:1
+        BOOTPROTO=static
+        BROADCAST=192.168.99.255
+        IPADDR=192.168.1.182
+        NETMASK=255.255.252.0
+        NETWORK=192.168.1.0
+        ONBOOT=yes
+ SUMMARY  Note, in STEP 1 the filename is "ifcfg-eth0", whereas in
+          STEP 2 it's "ifcfg-eth0:1" and also not the matching
+          entries for "DEVICE=...".  Also, obviously, the
+          "IPADDR" is different as well.
+
+</pre>
+
+<h2><a name="tip6">TIP 6: Sharing Directories Amoung Several Users.</a></h2>
+
+<pre>
+ Several people are working on a project in "/home/share"
+ and they need to create documents and programs so that
+ others in the group can edit and execute these documents
+ as needed.
+   $  /usr/sbin/groupadd share
+   $  chown -R root.share /home/share
+   $  /usr/bin/gpasswd -a &lt;username&gt; share
+   $  chmod 775 /home/share
+   $  chmod 2775 /home/share
+   $  ls -ld /home/share
+         drwxrwsr-x    2 root     share        4096 Nov  8 16:19 /home/share
+               ^---------- Note the s bit, which was set with the chmod 2775
+   $  cat /etc/group
+      ...
+       share:x:502:chirico,donkey,zoe
+      ...          ^------- users are added to this group.
+ The user will need to issue a reset before they can get access. As root you
+ can test their account.
+   $ su - &lt;username&gt;   "You need to '-' to pickup thier environment  '$ su - chirico' "
+</pre>
+
+
+<h2><a name="tip7">TIP 7: Getting Infomation on Commands</a></h2>
+
+<pre>
+ The "info" is a great utility for getting information about the system.
+ Here's a quick key on using "info" from the terminal prompt.
+   'q' exits.
+   'u' moves up to the table of contents of the current section.
+   'n' moves to the next chapter.
+   'p' moves to the previous chapter.
+   'space' goes into the selected section.
+
+  The following is a good starting point:
+    $ info coreutils
+  Need to find out what a certain program does?
+    $ whatis  open
+   open   (2)  - open and possibly create a file or device
+   open   (3)  - perl pragma to set default PerlIO layers for input and output
+   open   (3pm)  - perl pragma to set default PerlIO layers for input and output
+   open   (n)  - Open a file-based or command pipeline channel
+  To get specific information about the open commmand
+    $ man 2 open
+   also try 'keyword' search. Same as apropos command.
+    $ man -k &lt;some string&gt;
+   or the man full word search. Same as whatis command.
+    $ man -f &lt;some string&gt;
+   This is a hint once you are inside man. Do not type quotes ''
+    'space'      moves forward one page
+    'b'          moves backward
+    '/&lt;string&gt;'  search, repeat seach n
+   To get section numbers
+    $ man 8 ping
+   Note the numbers are used as follows
+     (This is OpenBSD)
+     1  General Commands
+     2  System Calls and Error Numbers
+     3  C Libraries
+     3p perl
+     4  Devices and device drivers
+     5  File Formats and config files
+     6  Game instructions
+     7  Miscellaneous information
+     8  System maintenance
+     9  Kernel internals
+</pre>
+
+
+<h2><a name="tip7">TIP 8: How to Put a "Running Job" in the Background.</a></h2>
+<pre>
+ You're running a job at the terminal prompt, and it's taking
+ a very long time. You want to put the job in the backgroud.
+   "CTL - z" Temporarily suspends the job
+   $ jobs     This will list all the jobs
+   $ bg %jobnumber (bg %1)  To run in the background
+   $ fg %jobnumber          To bring back in the foreground
+ Need to kill all jobs -- say you're using several suspended
+ emacs sessions and you just want everything to exit.
+   $ kill -9  `jobs -p`
+ The "jobs -p" gives the process number of each job, and the
+ kill -9 kills everything. Yes, sometimes "kill -9" is excessive
+ and you should issue a "kill -15" that allows jobs to clean-up.
+ However, for exacs session, I prefer "kill -9" and haven't had
+ a problem.
+ Sometimes you need to list the process id along with job
+ information. For instance, here's process id with the listing.
+   $ jobs -pl
+ Note you can also renice a job, or give it lower priority.
+   $ nice -n +15 find . -ctime 2 -type f  -exec ls {} \; &gt; last48hours
+    ^z
+   $  bg
+ So above that was a ctl-z to suppend. Then, bg to run it in
+ the background. Now, if you want to change the priority lower
+ you just renice it, once you know the process id.
+   $ jobs -pl
+[1]+ 29388 Running                 nice -n +15 find . -ctime 2 -exec ls -l {} \;
+&gt;mout &amp;
+   $ renice +30 -p 29388
+    29388: old priority 15, new priority 19
+  19 was the lowest priority for this job. You cannot increase
+  the priority unless you are root.
+</pre>
+
+<pre>
+TIP 9:
+     Need to Delete a File for Good -- not even GOD can recover.
+     You have a file "secret".  The following makes it so no one
+     can read it.  If the file was 12 bytes, it's now 4096 after it
+     has been over written 100 times.  There's no way to recover this.
+       $ shred -n 100 -z secret
+     Want to remove the file? Use the "u" option.
+       $ shred -n 100 -z -u test2
+     It can be applied to a device
+       $ shred -n 100 -z -u /dev/fd0
+
+     Also see (TIP 52).
+
+TIP 10:
+     Who and What is doing What on Your System - finding open sockets,
+     files etc.
+       $ lsof
+          or as root
+       $ watch lsof -i
+     Also try fuser. Suppose you have a mounted file-system, and you need
+     to umount it. To list the users on the file-system /work
+       $ fuser -u /work
+     To kill all processes accessing the file system /work  in  any way.
+       $ fuser -km /work
+
+     If you need load information try the following.
+       $ iostat
+       $ vmstat
+       $ ifconfig
+       $ cat /proc/sys/vm/.. (entries under here)
+      *NOTE: (TIP 77) shows sample usage of "ifconfig". Also
+       (TIP 84) shows sample output of "$ cat /proc/cpuinfo".
+     Also
+       $ cat /proc/meminfo
+       $ cat /proc/stat
+     Or current process open file descriptors
+        $ ls -l /proc/self/fd/0
+            lrwx------    1 chirico  chirico        64 Jun 29 13:17 0 -&gt; /dev/pts/51
+            lrwx------    1 chirico  chirico        64 Jun 29 13:17 1 -&gt; /dev/pts/51
+            lrwx------    1 chirico  chirico        64 Jun 29 13:17 2 -&gt; /dev/pts/51
+            lr-x------    1 chirico  chirico        64 Jun 29 13:17 3 -&gt; /proc/26667/fd
+      So you could, $ echo "stuff" &gt; /dev/pts/51, to get output. Note, tree is also
+      helpful here:
+         $ tree /proc/self
+            /proc/self
+            |-- auxv
+            |-- cmdline
+            |-- cwd -&gt; /work/souptonuts/documentation/theBook
+            |-- environ
+            |-- exe -&gt; /usr/bin/tree
+            |-- fd
+            |   |-- 0 -&gt; /dev/pts/51
+            |   |-- 1 -&gt; /dev/pts/51
+            |   |-- 2 -&gt; /dev/pts/51
+            |   `-- 3 -&gt; /proc/26668/fd
+            |-- maps
+            |-- mem
+            |-- mounts
+            |-- root -&gt; /
+            |-- stat
+            |-- statm
+            |-- status
+            |-- task
+            |   `-- 26668
+            |       |-- auxv
+            |       |-- cmdline
+            |       |-- cwd -&gt; /work/souptonuts/documentation/theBook
+            |       |-- environ
+            |       |-- exe -&gt; /usr/bin/tree
+            |       |-- fd
+            |       |   |-- 0 -&gt; /dev/pts/51
+            |       |   |-- 1 -&gt; /dev/pts/51
+            |       |   |-- 2 -&gt; /dev/pts/51
+            |       |   `-- 3 -&gt; /proc/26668/task/26668/fd
+            |       |-- maps
+            |       |-- mem
+            |       |-- mounts
+            |       |-- root -&gt; /
+            |       |-- stat
+            |       |-- statm
+            |       |-- status
+            |       `-- wchan
+            `-- wchan
+            10 directories, 28 files
+     Need a listing of the system settings?
+       $ sysctl -a
+     Need IPC (Shared Memory Segments, Semaphore Arrays, Message Queue) status
+     etc?
+       $ ipcs
+       $ ipcs -l  "This gives limits"
+     Need to "watch" everything a user does?  The following watches donkey.
+       $ watch lsof -u donkey
+     Or, to see what in  going on in directory "/work/junk"
+       $ watch lsof +D /work/junk
+
+TIP 11:
+     How to Make a File "immutable" or "unalterable" -- it cannot be changed
+     or deleted even by root. Note this works on (ext2/ext3) filesystems.
+     And, yes, root can delete after it's changed back.
+     As root:
+       $ chattr +i filename
+     And to change it back:
+       $ chattr -i filename
+     List attributes
+       $ lsattr filename
+
+TIP 12:
+     SSH - How to Generate the Key Pair.
+
+     On the local server
+       $  ssh-keygen -t dsa -b 2048
+     This will create the two files:
+            ./.ssh/id_dsa (Private key)
+            ./.ssh/id_dsa.pub  (Public key you can share)
+     Next insert "id_dsa.pub" on the remote server
+     in the file  "authorized_keys" and "authorized_keys2"
+     and change the  permission to (chmod 600). Assuming
+     192.168.1.155 is the remote server and "donkey" is the
+     account on that remove server.
+       $scp ./.ssh/id_dsa.pub  donkey@192.168.1.155:./.ssh/newkey.pub
+     Now connect to that remove server "192.168.1.155" and add ./.ssh/newkey.pub
+     to both "authorized_keys" and "authorized_keys2".  When done, the permission
+     on
+       (This is on the remove server)
+        $chmod 600 ./.ssh/authorized_key*
+     Next, go back to the local server and issue the following:
+        $ ssh-agent $SHELL
+        $ ssh-add
+     The "ssh-add" will allow you to enter the passphrase and it will
+     save it for the current login session.
+     You don't have to enter a password when running "ssh-keygen" above. But,
+     remember anyone with root access can "so - Durant" and then connect
+     to your computers.  It's harder, however, not impossible, for root to do
+     this if  you have a password.
+
+TIP 13:
+     Securing the System: Don't allow root to login remotely.  Instead,
+     the admin could login as another account, then, "su -".  However,
+     root can still login "from the local terminal".
+     In the "/etc/ssh/sshd_config" file change the following lines:
+        Protocol 2
+        PermitRootLogin no
+        PermitEmptyPasswords no
+     Then, restart ssh
+        /etc/init.d/sshd restart
+     Why would you want to do this?  It's not possible for anyone to guess
+     or keep trying the root account.  This is especially good for computers
+     on the Internet. So, even if the "root" passwords is known, they can't
+     get access to the system remotely.  Only from the terminal, which is locked
+     in your computer room. However, if anyone has a account on the server,
+     then, they can login under their  account then "su -".
+
+TIP 14:
+     Keep Logs Longer with Less Space.
+     Normally logs rotate monthly, over writing all the old data.  Here's a
+     sample "/etc/logrotate.conf" that will keep 12 months of backup
+     compressing the logfiles
+       $ cat /etc/logrotate.conf
+             # see "man logrotate" for details
+             # rotate log files weekly
+             #chirico changes to monthly
+             monthly
+             # keep 4 weeks worth of backlogs
+             # keep 12 months of backup
+             rotate 12
+             # create new (empty) log files after rotating old ones
+             create
+             # uncomment this if you want your log files compressed
+             compress
+             # RPM packages drop log rotation information into this directory
+             include /etc/logrotate.d
+             # no packages own wtmp -- we'll rotate them here
+             /var/log/wtmp {
+                 monthly
+                 create 0664 root utmp
+                 rotate 1
+             }
+             # system-specific logs may be also be configured here.
+
+       Note: see tip 1. The clock should always be correctly set.
+
+TIP 15:
+     What Network Services are Running?
+          $ netstat -atup
+     This can be helpful to determine the services running.
+     Also see TIP 77.
+
+
+TIP 16:
+     Apache: Creating and Using an ".htaccess" File
+
+     Below is a sample ".htaccess" file which goes in
+     "/usr/local/apache/htdocs/chirico/alpha/.htpasswd" for this
+     example
+
+         AuthUserFile /usr/local/apache/htdocs/chirico/alpha/.htpasswd
+         AuthGroupFile /dev/null
+         AuthName "Your Name and regular password required"
+         AuthType Basic
+         &lt;Limit GET POST&gt;
+         require valid-user
+         &lt;/Limit&gt;
+    In order for this to work /usr/local/apache/conf/httpd.conf must
+    have the following line in it:
+
+       #
+       &lt;Directory /usr/local/apache/htdocs/chirico/alpha&gt;
+           AllowOverride FileInfo AuthConfig Limit
+           Options MultiViews Indexes SymLinksIfOwnerMatch IncludesNoExec
+           &lt;Limit GET POST OPTIONS PROPFIND&gt;
+               Order allow,deny
+               Allow from all
+           &lt;/Limit&gt;
+
+           &lt;LimitExcept GET POST OPTIONS PROPFIND&gt;
+               Order deny,allow
+               Deny from all
+           &lt;/LimitExcept&gt;
+       &lt;/Directory&gt;
+
+    Also, a password file must be created
+      $ /usr/local/apache/bin/htpasswd -c .htpasswd chirico
+    And enter the user names and passwords.
+    Next Restart Apache:
+      $ /etc/init.d/httpd restart
+
+TIP 17:
+     Working with "mt" Commands: reading and writing to tape.
+     The following assumes the tape device is "/dev/st0"
+     STEP 1 ( rewind the tape)
+          # mt -f /dev/nst0 rewind
+     STEP 2 (check to see if you are at block 0)
+          # mt -f /dev/nst0 tell
+            At block 0.
+     STEP 3 (Backup "tar compress"  directories "one"  and "two")
+          # tar -czf /dev/nst0 one two
+     STEP 4 (Check to see what block you are at)
+           # mt -f /dev/nst0 tell
+       You should get something like block 2 at this point.
+     STEP 5 (Rewind the tape)
+           # mt -f /dev/nst0 rewind
+     STEP 6 (List the files)
+           # tar -tzf /dev/nst0
+              one/
+              one/test
+              two/
+     STEP 7 (Restore directory "one"  into directory "junk").  Note, you
+          have to first rewind the tape, since the last operation moved
+          ahead 2 blocks. Check this with "mt -f /dev/nst0".
+           # cd junk
+           # mt -f /dev/nst0 rewind
+           # mt -f /dev/nst0 tell
+              At block 0.
+           # tar -xzf /dev/nst0 one
+     STEP 8 (Next, take a look to see what block the tape is at)
+           # mt -f /dev/nst0 tell
+              At block 2.
+     STEP 9 (Now backup directories three  and four)
+           # tar -czf /dev/nst0 three four
+       After backing up the files, the tape should be past block 2.
+       Check this.
+           # mt -f /dev/nst0 tell
+             At block 4.
+          Currently the following exist:
+                At block 1:
+                     one/
+                    one/test
+                    two/
+                At block 2:
+                    three/
+                    three/samplehere
+                    four/
+                At block 4:
+                    (* This is empty *)
+     A few notes. You can set the blocking factor and a label
+     with tar. For example:
+      $ tar --label="temp label" --create  --blocking-factor=128 --file=/dev/nst0 Notes
+     But note if you try to read it with the default, incorrect blocking
+     factor, then, you will get the following error:
+        $ tar -t   --file=/dev/nst0
+        tar: /dev/nst0: Cannot read: Cannot allocate memory
+        tar: At beginning of tape, quitting now
+        tar: Error is not recoverable: exiting now
+     However this is easily fixed with the correct blocking factor
+         $ mt -f /dev/nst0 rewind
+         $ tar -t --blocking-factor=128 --file=/dev/nst0
+         temp label
+         Notes
+     Take advantage of the label command.
+         $ MYCOMMENTS="Big_important_tape"
+         $ tar --label="$(date +%F)"+"${MYCOMMENTS}"
+
+TIP 18:
+     Encrypting Data to Tape using "tar" and "openssl".
+     The following shows an example of writing the contents of "tapetest" to tape:
+        $ tar zcvf - tapetest|openssl des3 -salt  -k secretpassword | dd of=/dev/st0
+     Reading the data back:
+        $ dd if=/dev/st0|openssl des3 -d -k secretpassword|tar xzf -
+
+TIP 19:
+     Mounting an ISO Image as a Filesystem -- this is great if you don't have the DVD
+         hardware, but, need to get at the data.  The following show an example of
+         mounting the Fedora core 2 as a file.
+         $ mkdir /iso0
+         $ mount -o loop -t iso9660 /FC2-i386-DVD.iso  /iso0
+     Or to mount automatically at boot, add the following to "/etc/fstab"
+         /FC2-i386-DVD.iso /iso0     iso9660 rw,loop=/dev/loop0 0 0
+
+      Reference: http://umn.dl.sourceforge.net/sourceforge/souptonuts/README_fedora.txt
+
+TIP 20:
+     Getting Information about the Hard drive and list all PCI devices.
+                $ hdparm /dev/hda
+                  /dev/hda:
+                   multcount    = 16 (on)
+                   IO_support   =  0 (default 16-bit)
+                   unmaskirq    =  0 (off)
+                   using_dma    =  1 (on)
+                   keepsettings =  0 (off)
+                   readonly     =  0 (off)
+                   readahead    = 256 (on)
+                   geometry     = 16383/255/63, sectors = 234375000, start = 0
+            or for SCSI
+                $ hdparm /dev/sda
+            Try it with the -i option for information
+                $ hdparm -i /dev/hda
+                /dev/hda:
+                Model=IC35L120AVV207-1, FwRev=V24OA66A, SerialNo=VNVD09G4CZ6E0T
+                Config={ HardSect NotMFM HdSw>15uSec Fixed DTR>10Mbs }
+                RawCHS=16383/16/63, TrkSize=0, SectSize=0, ECCbytes=52
+                BuffType=DualPortCache, BuffSize=7965kB, MaxMultSect=16, MultSect=16
+                CurCHS=16383/16/63, CurSects=16514064, LBA=yes, LBAsects=234375000
+                IORDY=on/off, tPIO={min:240,w/IORDY:120}, tDMA={min:120,rec:120}
+                PIO modes:  pio0 pio1 pio2 pio3 pio4
+                DMA modes:  mdma0 mdma1 mdma2
+                UDMA modes: udma0 udma1 udma2 udma3 udma4 *udma5
+                AdvancedPM=yes: disabled (255) WriteCache=enabled
+                Drive conforms to: ATA/ATAPI-6 T13 1410D revision 3a:  2 3 4 5 6
+            How fast is your drive?
+                $ hdparm -tT /dev/hda
+                /dev/hda:
+                Timing buffer-cache reads:   128 MB in  0.41 seconds =315.32 MB/sec
+                Timing buffered disk reads:  64 MB in  1.19 seconds = 53.65 MB/sec
+            Need to find your device?
+                $ mount
+                   or
+                $ cat /proc/partitions
+                   or
+                $ dmesg | egrep '^(s|h)d'
+                   which for my system lists:
+                      hda: IC35L120AVV207-1, ATA DISK drive
+                      hdc: Lite-On LTN486S 48x Max, ATAPI CD/DVD-ROM drive
+                      hda: max request size: 1024KiB
+                      hda: 234375000 sectors (120000 MB) w/7965KiB Cache, CHS=16383/255/63, UDMA(100)
+     List all PCI devices
+                $ lspci -v
+          00:00.0 Host bridge: Intel Corp. 82845G/GL [Brookdale-G] Chipset Host Bridge (rev
+           Subsystem: Dell Computer Corporation: Unknown device 0160
+           Flags: bus master, fast devsel, latency 0
+           Memory at f0000000 (32-bit, prefetchable) [size=128M]
+           Capabilities: &lt;available only to root&gt;
+   00:02.0 VGA compatible controller: Intel Corp. 82845G/GL [Brookdale-G] Chipset In
+           Subsystem: Dell Computer Corporation: Unknown device 0160
+           Flags: fast devsel, IRQ 11
+           Memory at e8000000 (32-bit, prefetchable) [size=128M]
+           Memory at feb80000 (32-bit, non-prefetchable) [size=512K]
+           Capabilities: &lt;available only to root&gt;
+   00:1d.0 USB Controller: Intel Corp. 82801DB USB (Hub #1) (rev 01) (prog-if 00 [UH
+           Subsystem: Dell Computer Corporation: Unknown device 0160
+           Flags: bus master, medium devsel, latency 0, IRQ 11
+           I/O ports at ff80 [size=32]
+   00:1d.1 USB Controller: Intel Corp. 82801DB USB (Hub #2) (rev 01) (prog-if 00 [UH
+           Subsystem: Dell Computer Corporation: Unknown device 0160
+           Flags: bus master, medium devsel, latency 0, IRQ 10
+           I/O ports at ff60 [size=32]
+   00:1d.2 USB Controller: Intel Corp. 82801DB USB (Hub #3) (rev 01) (prog-if 00 [UH
+           Subsystem: Dell Computer Corporation: Unknown device 0160
+           Flags: bus master, medium devsel, latency 0, IRQ 9
+           I/O ports at ff40 [size=32]
+   00:1d.7 USB Controller: Intel Corp. 82801DB USB EHCI Controller (rev 01) (prog-if
+           Subsystem: Dell Computer Corporation: Unknown device 0160
+           Flags: bus master, medium devsel, latency 0, IRQ 5
+           Memory at ffa80800 (32-bit, non-prefetchable) [size=1K]
+           Capabilities: &lt;available only to root&gt;
+
+   00:1e.0 PCI bridge: Intel Corp. 82801BA/CA/DB PCI Bridge (rev 81) (prog-if 00 [No
+           Flags: bus master, fast devsel, latency 0
+           Bus: primary=00, secondary=01, subordinate=01, sec-latency=32
+           I/O behind bridge: 0000d000-0000dfff
+           Memory behind bridge: fe900000-feafffff
+   00:1f.0 ISA bridge: Intel Corp. 82801DB ISA Bridge (LPC) (rev 01)
+           Flags: bus master, medium devsel, latency 0
+   00:1f.1 IDE interface: Intel Corp. 82801DB ICH4 IDE (rev 01) (prog-if 8a [Master
+           Subsystem: Dell Computer Corporation: Unknown device 0160
+           Flags: bus master, medium devsel, latency 0, IRQ 9
+           I/O ports at &lt;ignored&gt;
+           I/O ports at &lt;ignored&gt;
+           I/O ports at &lt;ignored&gt;
+           I/O ports at &lt;ignored&gt;
+           I/O ports at ffa0 [size=16]
+           Memory at feb7fc00 (32-bit, non-prefetchable) [size=1K]
+   00:1f.3 SMBus: Intel Corp. 82801DB SMBus (rev 01)
+           Subsystem: Dell Computer Corporation: Unknown device 0160
+           Flags: medium devsel, IRQ 3
+           I/O ports at eda0 [size=32]
+   00:1f.5 Multimedia audio controller: Intel Corp. 82801DB AC'97 Audio (rev 01)
+           Subsystem: Dell Computer Corporation: Unknown device 0160
+           Flags: bus master, medium devsel, latency 0, IRQ 3
+           I/O ports at ee00 [size=256]
+           I/O ports at edc0 [size=64]
+           Memory at feb7fa00 (32-bit, non-prefetchable) [size=512]
+           Memory at feb7f900 (32-bit, non-prefetchable) [size=256]
+           Capabilities: &lt;available only to root&gt;
+   01:04.0 Ethernet controller: Accton Technology Corporation SMC2-1211TX (rev 10)
+           Subsystem: Accton Technology Corporation EN-1207D Fast Ethernet Adapter
+           Flags: bus master, medium devsel, latency 64, IRQ 11
+           I/O ports at de00 [size=256]
+           Memory at fe9fdf00 (32-bit, non-prefetchable) [size=256]
+           Expansion ROM at fea00000 [disabled] [size=64K]
+           Capabilities: &lt;available only to root&gt;
+
+   01:09.0 Ethernet controller: Broadcom Corporation BCM4401 100Base-T (rev 01)
+           Subsystem: Dell Computer Corporation: Unknown device 8127
+           Flags: bus master, fast devsel, latency 64, IRQ 3
+           Memory at fe9fe000 (32-bit, non-prefetchable) [size=8K]
+           Expansion ROM at fea00000 [disabled] [size=16K]
+           Capabilities: &lt;available only to root&gt;
+
+TIP 21:
+     Setting up "cron" Jobs.
+     If you want to use the emacs editor for editing cron jobs, then,
+     set the following in your "/home/user/.bash_profile"
+        EDITOR=emacs
+     Then, to edit cron jobs
+        $ crontab -e
+     You may want to put in the following header
+        #MINUTE(0-59) HOUR(0-23) DAYOFMONTH(1-31) MONTHOFYEAR(1-12) DAYOFWEEK(0-6) Note 0=Sun and 7=Sun
+        #
+        #14,15 10 * * 0   /usr/bin/somecommmand  &gt;/dev/null 2&gt;&amp;1
+     The sample "commented out command" will run at 10:14 and 10:15 every Sunday.  There will
+     be no "mail" sent to the user because of the "&gt;/dev/null 2&gt;&amp;1" entry.
+        $ crontab -l
+     The above will list all cron jobs. Or if you're root
+        $ crontab -l -u &lt;username&gt;
+        $ crontab -e -u &lt;username&gt;
+     Reference "man 5 crontab":
+        The time and date fields are:
+                     field          allowed values
+                     -----          --------------
+                     minute         0-59
+                     hour           0-23
+                     day of month   1-31
+                     month          1-12 (or names, see below)
+                     day of week    0-7 (0 or 7 is Sun, or use names)
+              A field may be an asterisk (*), which always stands for ``first-last''.
+              Ranges of numbers are allowed.  Ranges are two numbers separated with a
+              hyphen.   The  specified  range is inclusive.  For example, 8-11 for an
+              ``hours'' entry specifies execution at hours 8, 9, 10 and 11.
+              Lists are allowed.  A list is a set of numbers (or ranges) separated by
+              commas.  Examples: ``1,2,5,9'', ``0-4,8-12''.
+              Ranges can include "steps", so "1-9/2" is the same as "1,3,5,7,9".
+     To run jobs hourly,daily,weekly or monthly you can add shell scripts into the
+     appropriate directory:
+             /etc/cron.hourly/
+             /etc/cron.daily/
+             /etc/cron.weekly/
+             /etc/cron.monthly/
+     Note that the above are pre-configured schedules.
+
+TIP 22:
+     Keeping Files in Sync Between Servers.
+     The remote computer is "192.168.1.171" and has the account "donkey".  You want
+     to "keep in sync" the files under "/home/cu2000/Logs" on the remove computer
+     with files on "/home/chirico/dev/MEDIA_Server" on the local computer.
+       $ rsync  -Lae ssh  donkey@192.168.1.171:/home/cu2000/Logs /home/chirico/dev/MEDIA_Server
+     "rsync" is a convient command for keeping files in sync, and as shown here will work
+     through ssh.  The -L option tells rsync to treat symbolic links like ordinary files.
+
+TIP 23:
+     Looking up the Spelling of a Word.
+        $ look &lt;partial spelling&gt;
+     so the following will list all words that
+     start with stuff
+        $ look stuff
+           stuff
+           stuffage
+           stuffata
+           stuffed
+           stuffender
+           stuffer
+           stuffers
+           stuffgownsman
+           stuffier
+           stuffiest
+           stuffily
+           stuffiness
+           stuffinesses
+           stuffiness's
+           stuffing
+           stuffings
+           stuffing's
+           stuffless
+           stuffs
+           stuffy
+     It helps to have a large "linuxwords" dictionary.  You can download
+     a much bigger dictionary from the following:
+              http://prdownloads.sourceforge.net/souptonuts/linuxwords.1.tar.gz?download
+
+TIP 24:
+     Find out if a Command is Aliased.
+         $ type -all &lt;command&gt;
+
+     Example:
+         $ type -all ls
+            ls is aliased to `ls --color=tty'
+            ls is /bin/ls
+
+TIP 25:
+     Create a Terminal Calculator
+      Put the following in your .bashrc file
+            function calc
+            {
+             echo "${1}"|bc -l;
+            }
+      Or, run it at the shell prompt. Now
+      "calc" from the shell will work as follows:
+            $ calc 3+45
+               48
+      All functions  with a "(" or ")" must be enclosed
+      in quotes.  For instance, to get the sin of .4
+            $ calc "s(.4)"
+              .38941834230865049166
+
+TIP 26:
+     Kill a User and All Their Current Processes.
+
+        #!/bin/bash
+        #  This program will kill all processes from a
+        #  user.  The user name is read from the command line.
+        #
+        #  This program also demonstrates reading a bash variable
+        #  into an awk script.
+        #
+        #  Usage: kill9user &lt;user&gt;
+        #
+        kill -9 `ps aux|awk -v var=$1 '$1==var { print $2 }'`
+    or if you want want to create the above script the command
+    below will kill the user "donkey" and all of his processes.
+        $ kill -9 `ps aux|awk -v var="donkey" '$1==var { print $2 }'`
+    Check their cron jobs and "at" jobs, if you have a security issue.
+          $ crontab -u &lt;user&gt; -e
+    Lock the account:
+          $ passwd -l &lt;user&gt;
+    Remove all authorized_keys
+          $ rm /home/user/.shosts
+          $ rm /home/user/.rhosts
+          $ rm -rf /home/user/.ssh
+          $ rm /home/user/.forward
+      or consider
+          $ mv /home/user  /home/safeuser
+
+    Change the shell
+          $ chsh -s /bin/true &lt;user&gt;
+    Do an inventory
+          $ find / -user &lt;user&gt;  &gt; list_of_user_files
+    NOTE: Also see (TIP 10).
+    To see all users, except the current user
+          $ ps -aux| awk '!/'${USER}'/{printf("%s \n",$0)}'
+    Also see TIP 28. and TIP 89.
+
+TIP 27:
+     Format Dates for Logs and Files
+         $ date "+%m%d%y %A,%B %d %Y %X"
+             061704 Thursday,June 17 2004 07:13:40 PM
+         $ date "+%m%d%Y"
+             06172004
+         $ date -d '1 day ago' "+%m%d%Y"
+             06162004
+         $ date -d '3 months 1 day  2 hour  15 minutes 2 seconds ago'
+      or to go into the future remove the "ago"
+         $ date -d '3 months 1 day  2 hour  15 minutes 2 seconds '
+            Also the following works:
+                $ date -d '+2 year +1 month -1 week  +3 day -8 hour +2 min -5 seconds'
+      Quick question: If there are 100,000,000 stars in the visible sky, and you can
+      count them, round the clock, at a rate of a star per second starting now, when
+      would you finish counting?  Would you still be alive?
+                $ date -d '+100000000 seconds'
+      Sooner than you think!
+      This can be assigned to variables
+         $ mdate=`date -d '3 months 1 day  2 hour  15 minutes 2 seconds ' "+%m%d%Y_%A_%B_%D_%Y_%X"  `
+         $ echo $mdate
+             09182004_Saturday_September_09/18/04_2004_09:40:41 PM
+             ^---- Easy to sort   ^-------^----- Easy to read
+      See TIP 28 below.
+      See TIP 87 when working with large delta time changes -40 years, or -200 years ago, or even
+      1,000,000 days into the future.
+      Also see (TIP 1) for working with time zones.
+
+TIP 28:
+     Need Ascii Codes? For instance, for printing quotes:
+                         awk 'BEGIN { msg = "Don\x27t Panic!"; printf "%s \n",msg }'
+     Or if you wanted to use the date command in "awk" to print date.time.nanosecond.timezone for
+     each line of a file "test".
+     The following date can be used in awk because the single quotes are enclosed within the
+     double quotes.
+             date '+%m%d%Y.%H%M%S.%N%z'
+       $ awk 'BEGIN { "date '+%m%d%Y.%H%M%S.%N%z'" | getline MyDate  } { print MyDate,$0 }' &lt; data
+     But it's also possible to replace  "+"  with  \x2B,  "%" with \x25, and "d" with \x64 as follows:
+       $ awk 'BEGIN { "date
+       \x27\x2B\x25m\x25\x64\x25Y.\x25H\x25M\x25S.\x25N\x25z\x27" | getline MyDate  } { print MyDate,$0 }' &lt; test
+             07062004.113820.346033000-0400 bob 71
+             07062004.113820.346033000-0400 tom 43
+             07062004.113820.346033000-0400 sal 34
+             07062004.113820.346033000-0400 bob 89
+             07062004.113820.346033000-0400 tom 66
+             07062004.113820.346033000-0400 sal 99
+     For this example it's not needed because single quotes are used inside of double quotes; however, there may be times when
+     hex replacement is easier.
+
+       $ man ascii
+        Oct   Dec   Hex   Char           Oct   Dec   Hex   Char
+            -----------------------------------------------------------
+            000   0     00    NUL '\0'       100   64    40    @
+            001   1     01    SOH            101   65    41    A
+            002   2     02    STX            102   66    42    B
+            003   3     03    ETX            103   67    43    C
+            004   4     04    EOT            104   68    44    D
+            005   5     05    ENQ            105   69    45    E
+            006   6     06    ACK            106   70    46    F
+            007   7     07    BEL '\a'       107   71    47    G
+            010   8     08    BS  '\b'       110   72    48    H
+            011   9     09    HT  '\t'       111   73    49    I
+            012   10    0A    LF  '\n'       112   74    4A    J
+            013   11    0B    VT  '\v'       113   75    4B    K
+            014   12    0C    FF  '\f'       114   76    4C    L
+            015   13    0D    CR  '\r'       115   77    4D    M
+            016   14    0E    SO             116   78    4E    N
+            017   15    0F    SI             117   79    4F    O
+            020   16    10    DLE            120   80    50    P
+            021   17    11    DC1            121   81    51    Q
+            022   18    12    DC2            122   82    52    R
+            023   19    13    DC3            123   83    53    S
+            024   20    14    DC4            124   84    54    T
+            025   21    15    NAK            125   85    55    U
+            026   22    16    SYN            126   86    56    V
+            027   23    17    ETB            127   87    57    W
+            030   24    18    CAN            130   88    58    X
+            031   25    19    EM             131   89    59    Y
+            032   26    1A    SUB            132   90    5A    Z
+            033   27    1B    ESC            133   91    5B    [
+            034   28    1C    FS             134   92    5C    \   '\\'
+            035   29    1D    GS             135   93    5D    ]
+            036   30    1E    RS             136   94    5E    ^
+            037   31    1F    US             137   95    5F    _
+            040   32    20    SPACE          140   96    60    `
+            041   33    21    !              141   97    61    a
+            042   34    22    "              142   98    62    b
+            043   35    23    #              143   99    63    c
+            044   36    24    $              144   100   64    d
+            045   37    25    %              145   101   65    e
+            046   38    26    &amp;              146   102   66    f
+            047   39    27    '              147   103   67    g
+            050   40    28    (              150   104   68    h
+            051   41    29    )              151   105   69    i
+            052   42    2A    *              152   106   6A    j
+            053   43    2B    +              153   107   6B    k
+            054   44    2C    ,              154   108   6C    l
+            055   45    2D    -              155   109   6D    m
+            056   46    2E    .              156   110   6E    n
+            057   47    2F    /              157   111   6F    o
+            060   48    30    0              160   112   70    p
+            061   49    31    1              161   113   71    q
+            062   50    32    2              162   114   72    r
+            063   51    33    3              163   115   73    s
+            064   52    34    4              164   116   74    t
+            065   53    35    5              165   117   75    u
+            066   54    36    6              166   118   76    v
+            067   55    37    7              167   119   77    w
+            070   56    38    8              170   120   78    x
+            071   57    39    9              171   121   79    y
+            072   58    3A    :              172   122   7A    z
+            073   59    3B    ;              173   123   7B    {
+            074   60    3C    &lt;              174   124   7C    |
+            075   61    3D    =              175   125   7D    }
+            076   62    3E    &gt;              176   126   7E    ~
+            077   63    3F    ?              177   127   7F    DEL
+
+TIP 29:
+     Need a WWW Browser for the Terminal Session? Try lynx or elinks.
+         $ lynx
+     Or to read all these tips, with the latest updates
+      $ lynx http://umn.dl.sourceforge.net/sourceforge/souptonuts/How_to_Linux_and_Open_Source.txt
+
+     Or, better yet elinks.
+         $ elinks http://somepage.
+     You can get elinks at the following site:
+             http://elinks.or.cz/
+
+
+TIP 30:
+    screen - screen manager with VT100/ANSI terminal emulation
+         This is an excellent utility. But if you work a lot in Emacs,
+         then, you should place the following in your ~./.bashrc
+             alias s='screen -e^Pa -D -R'
+         After loging in again (or source .bashrc) ,
+         type the following to load "screen":
+             $ s
+         If you're using the not using the alias command above, substitute
+         CTL-a for CTL-p below. :
+             CTL-p CTL-C       To get a new session
+             CTL-p  "           To list sessions, and arrow keys to move
+             CTL-p SHFT-A      To name sessions
+             CTL-p S            To split screens
+             CLT-p Q            To unsplit screens
+             CLT-p TAB          To switch between screens
+             CLT-p :resize n    To resize screen to n rows, on split screen
+
+         Screen is very powerful.  Should you become disconneced, you can
+         still resume work after loggin in.
+             $ man screen
+         The above command will give you more information.
+
+TIP 31:
+     Need to Find the Factors of a Number?
+           $ factor 2345678992
+                2345678992: 2 2 2 2 6581 22277
+     It's a quick way to find out if a number is prime
+           $ factor 7867
+                7867: 7867
+
+TIP 32:
+     Less is More -- piping to less to scroll backword and forward
+      For large "ls" listings try the followin, then, use the arrow key
+      to move up and down the list.
+           $ ls /some_large_dir/ | less
+                 or
+           $ cat some_large_file | less
+
+TIP 33:
+     C "indent" Settings for Kernel Development
+           $ indent -kr -i8  program.c
+
+TIP 34:
+     FTP auto-login.  "ftp" to a site and have the password stored.
+     For instance, here's a sample ".net" file in a user's home
+     directory for uploading to sourceforge. Note, sourceforge will
+     take any password, so m@temp.com is used here for login "anonymous".
+           $ cat ~/.netrc
+               machine upload.sourceforge.net login anonymous password m@temp.com
+               default login anonymous password user@site
+     It might be a good idea to change the rights on this file
+           $ chmod 0400 ~/.netrc
+
+         #!/bin/bash
+         #
+         #  Sample ftp automated script to download
+         #  file to ${dwnld}
+         #
+         dwnld="/work/faq/unix-faq"
+         cd ${dwnld}
+         ftp &lt;&lt; FTPSTRING
+         prompt off
+         open rtfm.mit.edu
+         cd /pub/usenet-by-group/news.answers/unix-faq/faq
+         mget contents
+         mget diff
+         mget part*
+         bye
+         FTPSTRING
+
+TIP 35:
+     Bash Brace Expansion
+           $ echo f{ee,ie,oe,um}
+                fee fie foe fum
+     This works with almost any command
+           $ mkdir -p /work/junk/{one,two,three,four}
+
+TIP 36:
+     Getting a List of Users on the System
+           $ cut -d: -f1 /etc/passwd | sort
+
+TIP 37:
+     Editing a Bash Command
+      Try typing a long command say, then, type "fc" for an easy way
+      to edit the command.
+           $ find /etc -iname '*.cnf' -exec grep -H 'log' {} \;
+           $ fc
+      "fc" will bring the last command typed into an editor, "emacs" if
+      that's the default editor. Type "fc -l" to list last few commands.
+      To seach for a command, try typing "CTL-r" at the shell prompt for
+      searching. "CTL-t" to transpose, say "sl" was typed by you want "ls".
+
+      Hints when using "fc: in emacs:
+           ESC-b     move one word backward
+           ESC-f     move one word forward
+           ESC-DEL   kill one word backward
+           CTL-k     kill point to end
+           CTL-y     un-yank killed region at point
+
+TIP 38:
+     Moving around Directories.
+     Change to the home directory:
+          $ cd ~
+            or
+          $ cd
+     To go back to the last directory
+          $ cd -
+     Instead of "cd" to a directory try "pushd" and look
+     at the heading...you can see a list of directories.
+          $ pushd /etc
+          $ pushd /usr/local
+      Then, to get back "popd" or "popd 1"
+
+TIP 39:
+     Need an Underscore after a Variable?
+       Enclose the variable in "{}".
+          $echo ${UID}_
+       Compare to
+          $echo $UID_
+       Also try the following:
+
+                $ m="my stuff here"
+                $ echo -e ${m// /'\n'}
+                        my
+                        stuff
+                        here
+
+TIP 40:
+     Bash Variable Offset and String Operators
+        $ r="this is stuff"
+        $ echo ${r:3}
+        $ echo ${r:5:2}
+      Note, ${varname:offset:length}
+
+         ${varname:?message}  If varname exist and isn't null return value, else,
+                              print var and message.
+           $ r="new stuff"
+           $ echo ${r:? "that's r for you"}
+               new stuff
+           $ unset r
+           $ echo ${r:? "that's r for you"}
+               bash: r:  that's r for you
+         ${varname:+word}    If varname exist and not null return word. Else, return null.
+         ${varname:-word}    If varname exist and not null return value. Else, return word.
+      Working with arrays in bash - bash arrays.
+           $ unset p
+           $ p=(one two three)
+           $ echo -e "${p[@]}"
+           one two three
+      or
+           $ echo -e "${p[*]}"
+           one two three
+           $ echo -e "${#p[@]}"
+           3
+           $ echo -e "${p[0]}"
+           one
+           $ echo -e "${p[1]}"
+           two
+            Also see (TIP 95)
+TIP 41:
+     Loops in Bash
+          $IFS=:
+          $ for dir in $PATH
+          &gt; do
+          &gt; ls -ld $dir
+          &gt; done
+              drwxr-xr-x    2 root     root         4096 Jun 10 20:16 /usr/local/bin
+              drwxr-xr-x    2 root     root         4096 Jun 13 23:12 /bin
+              drwxr-xr-x    3 root     root        40960 Jun 12 08:00 /usr/bin
+              drwxr-xr-x    2 root     root         4096 Feb 14 03:12 /usr/X11R6/bin
+              drwxrwxr-x    2 chirico  chirico      4096 Jun  6 13:06 /home/chirico/bin
+     Other ways of doing loops:
+        for (( i=1; i &lt;= 20; i++))
+                do
+                        echo -n "$i "
+                done
+     Note, to do it all on one line, do the following:
+        $ for (( i=1; i &lt;= 20; i++)); do echo -n "$i"; done
+
+     Try putting a few words in the file "test"
+         $ while read filename; do echo  "- $filename "; done &lt; test |nl -w1
+     Or, using an array
+                declare -a Array
+                Array[0]="zero"
+                Array[1]="one"
+                Array[2]="two"
+                for i in `seq ${#Array[@]}`
+                do
+                  echo $Array[$i-1]
+                done
+         Also see (TIP 95)
+TIP 42:
+     "diff" and "patch".
+        You have created a program "prog.c", saved as this name and also copied
+        to  "prog.c.old". You post "prog.c" to users.  Next, you make changes
+        to prog.c
+          $ diff -c prog.c.old prog.c &gt; prog.patch
+        Now, users can get the latest updates by running.
+          $ patch &lt; prog.patch
+
+TIP 43:
+     "cat" the Contents of Files Listed in a File, in That Order.
+       SETUP (Assume you have the following)
+              $ cat file_of_files
+                  file1
+                  file2
+              $ cat file1
+                  This is the data in file1
+              $ cat file 2
+                  This is the data in file2
+       So there are 3 files here "file_of_files" which contains the name of
+       other files.  In this case "file1" and "file2". And the contents of
+       "file1" and "file2" is shown above.
+               $ cat file_of_files|xargs cat
+                    This is the data in  file1
+                    This is the data in  file2
+
+
+
+TIP 44:
+     Columns and Rows -- getting anything you want.
+     Assume you have the following file.
+        $ cat data
+           1 2 3
+           4 5
+           6 7 8 9 10
+           11 12
+           13 14
+     How to you get everything in  2 columns?
+        $ cat data|tr ' ' '\n'|xargs -l2
+           1 2
+           3 4
+           5 6
+           7 8
+           9 10
+           11 12
+           13 14
+    Three columns?
+        $ cat data|tr ' ' '\n'|xargs -l3
+           1 2 3
+           4 5 6
+           7 8 9
+           10 11 12
+           13 14
+    What's the row sum of the "three columns?"
+        $ cat data|tr ' ' '\n'|xargs -l3|tr ' ' '+'|bc
+           6
+           15
+           24
+           33
+           27
+    or
+        $ tr ' ' '\n' &lt; data |xargs -l3|tr ' ' '+'|bc
+    NOTE "Steven Heiner's rule":
+             cat one_file | program
+           can always be rewritten as
+             program &lt; one_file
+   Note: thanks to Steven Heiner (http://www.shelldorado.com/) the above can be
+       shortened as follows:
+               $ tr ' ' '\n' &lt; data|xargs -l3|tr ' ' '+'|bc
+          Need to "tr" from the stdin?
+               $ tr "xy" "yx"| ... | ...
+       But there is a the "Stephane CHAZELAS" condition here
+         "Note that tr, sed, and awk mail fail on files containing '\0'
+          sed and awk have unspecified behaviors if the input
+          doesn't end in a '\n' (or to sum up, cat works for
+          binary and text files, text utilities such as sed or awk
+          work only for text files).
+
+TIP 45:
+
+     Auto Directory Spelling Corrections.
+      To turn this on:
+           $ shopt -s cdspell
+      Now mispell a directory in the cd command.
+           $ cd /usk/local
+                   ^-------- still gets you to --
+                                                |
+                                            /usr/local
+
+TIP 46:
+     Record Eveything Printed on Your Terminal Screen.
+            $ script -a &lt;filename&gt;
+     Now start doing stuff and "everything" is sent to the &lt;filename&gt;.
+
+TIP 47:
+     Monitor all Network Traffic Except Your Current ssh Connection.
+           $ tcpdump -i eth0 -nN -vvv -xX -s 1500 port not 22
+
+TIP 48:
+     Where are the GNU Reference Manuals?
+           http://www.gnu.org/manual/manual.html
+     Also worth a look the "Linux Documentation Project"
+           http://en.tldp.org/
+
+TIP 49:
+     Setting or Changing the Library Path.
+     The following contains the settings to be added or deleted
+           /etc/ld.so.conf
+     After this file is edited, you must run the following:
+           $ ldconfig
+     See "man ldconfig" for more information.
+
+TIP 50:
+     Working with Libraries in C
+     Assume the following 3 programs:
+      $ cat ./src/test.c
+         int test(int t)
+         {
+           printf("%d\n",t);
+           return t;
+         }
+
+      $ cat ./src/prog1.c
+         /*
+          program: prog1.c
+          dependences: test.c
+          compiling this program:
+          gcc -o prog test.c prog1.c
+          Note the libpersonal include
+          should be remove if NOT using the
+          library
+         */
+         #include &lt;libpersonal.h&gt;
+         #include &lt;stdio.h&gt;
+         int
+         main(int argc, char **argv)
+         {
+           test(45);
+         }
+      $ cat ./include/libpersonal.h
+         extern int test(int);
+
+
+     Prog1.c needs the test function in  test.c
+     To compile, so that both programs work together, do the following:
+          $ cd src
+          $ gcc -o prog test.c prog1.c -I../include
+     However, if you want to create your own static library, then, run the following:
+          $ mkdir -p ../lib
+          $ gcc -c test.c  -o ../lib/test.o
+          $ cd ../lib
+          $ ar r libpersonal.a test.o
+          $ ranlib libpersonal.a
+     or, the ar and ranlib command can be combined as follows:
+          $ ar rs libpersonal.a test.o
+     To compile the program with the static library:
+          $ cd ../src
+          $ gcc -I../include -L../lib -o prog1 prog1.c -lpersonal
+
+     The -I../include  tells  gcc to look in the ../include directory for
+     libpersonal.h. and -L../lib, tells gcc to look for the
+     "libpersonal.a" library.
+
+           $ cd ..
+           $ tree src lib include
+           src
+    |-- prog
+    |-- prog1
+    |-- prog1.c
+    `-- test.c
+    lib
+    |-- libpersonal.a
+    `-- test.o
+    include
+    `-- libpersonal.h
+
+     This was a STATIC library. Often times you will want to use a SHARED
+     or dynamic library.
+     SHARED LIBRARY:
+     You must recompile test.c with -fpic option.
+          $ cd ../lib
+          $ gcc -c -fpic ../src/test.c -o test.o
+     Next create the libpersonal.so file.
+          $ gcc -shared -o libpersonal.so test.o
+     Now, compile the source prog1.c as follows:
+          $ cd ../src
+          $ gcc -Wl,-R../lib -L../lib -I../include -o prog2 prog1.c -lpersonal
+     This should work fine. But, take a look at prog2 using the ldd command.
+          $ ldd prog2
+ libpersonal.so => ../lib/libpersonal.so (0x40017000)
+ libc.so.6 => /lib/tls/libc.so.6 (0x42000000)
+ /lib/ld-linux.so.2 => /lib/ld-linux.so.2 (0x40000000)
+     If you move the program prog2 to a different location, it will not run.
+     Instead you will get the following error:
+
+           prog2: error while loading shared libraries: libpersonal.so:
+                     cannot open shared object file: No such file or directory
+
+     To fix this, you should specify the direct path to the library. And in my
+     case it is rather long
+
+      $  gcc -Wl,-R/work/souptonuts/documentation/theBook/lib -L../lib -I../include -o prog2 prog1.c -lpersonal
+
+     SPECIAL NOTE: The -R must always follow the -Wl.  (-Wl,-R&lt;directory&gt;) They always go together
+
+
+TIP 51:
+     Actively Monitor a File and Send Email when Expression Occurs.
+     This is a way to monitor "/var/log/messages" or any file for certain changes.
+     The example below actively monitors "stuff" for the work "now" and as soon as
+     "now" is added to the file, the contents of msg are sent to the user
+     mikechirico@hotmail.com
+          $ tail -f stuff | \
+              awk ' /now/ { system("mail -s \"This is working\"  mikechirico@hotmail.com &lt; msg") }'
+     Or, you can run a program, say get headings on slashdot from the program "getslash.php" which
+     runs on  "192.168.1.155" with account "chirico". Assuming you have ssh keys setup, then, the following
+     will send mail from the output:
+          $ ssh chirico@192.168.1.155 "./bin/getslash.php"|mail -s "Slash cron Headlines"  mchirico@comcast.net
+     See (TIP 80) for scraping the headings on slash dot and how to get a copy of "getslash.php".  If you still
+     want to use awk:
+           $ ssh chirico@192.168.1.155 "./bin/getslash.php"| \
+                      awk '{ print $0 | "mail -s \x27 Slash Topics \x27 mchirico@comcast.net "}'
+     Note the "\x27" is a quote.  Maybe you only want articles dealing with "Linux":
+           $ ssh chirico@192.168.1.155 "./bin/getslash.php"| \
+                      awk '/Linux/{ print $0 | "mail -s \x27 Slash Topics \x27 mchirico@comcast.net "}'
+     For $60, you can get a numeric display from "delcom engineering" that you can send messages and
+     data to.  I get weather information off the internet and send it to this device.
+         http://sourceforge.net/projects/delcom/
+
+TIP 52:
+     Need to Keep Secrets? Encrypt it.
+      To Encrypt:
+            $ openssl des3 -salt -in file.txt -out file.des3
+      The above will prompt for a password, or you can put it in
+      with a -k option, assuming you're on a trusted server.
+      To Decrypt
+            $  openssl des3 -d -salt -in file.des3 -out file.txt -k mypassword
+      Need to encrypt what you type? Enter the following, then start typing
+      and  ^D to end.
+            $ openssl des3 -salt -out stuff.txt
+
+TIP 53:
+     Check that a File has Not Been Tampered With: Use Cryptographic Hashing Function.
+     The md5sum is popular but dated
+              $ md5sum file
+     Instead, use one of the following;
+              $ openssl dgst -sha1 -c file
+              $ openssl dgst -ripemd160 -c  file
+     All calls give a fixed length string or "message digest".
+
+TIP 54:
+     Need to View Information About a Secure Web Server? A SSL/TLS test.
+           $ openssl s_client -connect www.sourceforge.net:443
+     Above will give a long listing of certificates.
+     REFERENCE: http://www.openssl.org/
+
+TIP 55:
+     cp --parents. What does this option do?
+     Assume you have the following directory structure
+            .
+            |-- a
+            |   `-- b
+            |       `-- c
+            |           `-- d
+            |               |-- file1
+            |               `-- file2
+            `-- newdir
+
+     Issue the following command:
+         $ cp --parents ./a/b/c/d/* ./newdir/
+     Now you have the following:
+            .
+            |-- a
+            |   `-- b
+            |       `-- c
+            |           `-- d
+            |               |-- file1
+            |               `-- file2
+            `-- newdir
+                `-- a
+                    `-- b
+                        `-- c
+                            `-- d
+                                |-- file1
+                                `-- file2
+
+
+
+TIP 56:
+     Quickly Locating files.
+     The "locate" command quickly searches the indexed database for files.  It just
+     gives the name of the files; but, if you need more information use it as follows
+         $ locate document|xargs ls -l
+
+     The "locate" database may only get updated every 24 hours.  For more recent finds,
+     use the "find" command.
+
+TIP 57:
+     Using the "find" Command.
+     List only directories, max 2 nodes down that have "net" in the name
+       $ find /proc -type d -maxdepth 2 -iname '*net*'
+     Find all *.c and *.h files starting from the current "." position.
+       $ find . \( -iname '*.c'  -o -iname '*.h' \) -print
+     Find all, but skip what's in "/CVS" and "/junk". Start from "/work"
+
+       $ find /work \( -iregex '.*/CVS'  -o -iregex '.*/junk' \)  -prune -o -print
+     Note -regex and -iregex work on the directory as well, which means
+     you must consider the "./" that comes before all listings.
+     Here is another example. Find all files except what is under the CVS, including
+     CVS listings. Also exclude "#" and "~".
+       $ find . -regex '.*' ! \( -regex '.*CVS.*'  -o -regex '.*[#|~].*' \)
+     Find a *.c file, then run grep on it looking for "stdio.h"
+       $ find . -iname '*.c' -exec grep -H 'stdio.h' {} \;
+         sample output --&gt;  ./prog1.c:#include &lt;stdio.h&gt;
+                            ./test.c:#include &lt;stdio.h&gt;
+
+     Looking for the disk-hog on the whole system?
+       $ find /  -size +10000k 2&gt;/dev/null
+     Looking for files changed in the last 24 hours? Make sure you add the
+     minus sign "-1", otherwise, you will only find files changed exactly
+     24 hours from now. With the "-1" you get files changed from now to 24
+     hours.
+
+       $ find  . -ctime -1  -printf "%a %f\n"
+       Wed Oct  6 12:51:56 2004 .
+       Wed Oct  6 12:35:16 2004 How_to_Linux_and_Open_Source.txt
+     Or if you just want files.
+       $ find . -type f -ctime -1  -printf "%a %f\n"
+     Details on file status change in the last 48 hours, current directory. Also note "-atime -2").
+       $ find . -ctime -2 -type f -exec ls -l {} \;
+             NOTE: if you don't use -type f, you make get "." returned, which
+             when run through ls "ls ." may list more than what you want.
+             Also you may only want the current directory
+       $ find . -ctime -2 -type f -maxdepth 1 -exec ls -l {} \;
+
+     For more example "find" commands, reference the following looking
+     for the latest version of "bashscripts.x.x.x.tar.gz":
+         http://sourceforge.net/project/showfiles.php?group_id=79320&amp;package_id=80711
+     See "TIP 71" for examples of find using the inode feature. " $ find . -inum &lt;inode&gt; -exec rm -- '{}' \; "
+     If you don't want error messages, or need to redirect error messages "&gt;
+ /dev/null 2&gt;&amp;1", or see
+     "TIP 81".
+
+TIP 58:
+     Using the "rm" command.
+     How do you remove a file that has the name "-".  For instance, if you run the command
+     "$ cat &gt; - " and type some text followed by ^d, how does the "-" file get deleted?
+        $ rm -- -
+     The "--" nullifies any rm options.
+     How do you delete the directory "one", all it's sub-directories, and any data?
+        $ rm -rf ./one
+     Note, to selectively delete stuff on a directory, use the find command "TIP 57".
+     To delete by inode, see "TIP 71".
+
+TIP 59:
+     Giving ownership.
+     How do you give the user "donkey" ownership to all directories and files under
+     "./fordonkey" ?
+          $ chown -R donkey ./fordonkey
+
+TIP 60:
+     Only Permit root login -- give others a message when they try to login.
+     Create the file "/etc/nologin" with "nologin" containing the contents
+     of the message.
+
+TIP 61:
+     Limits: file size, open files, pipe size, stack size, max memory size
+             cpu time, plus others.
+     To get a listing of current limits:
+          $ ulimit -a
+             core file size        (blocks, -c) 0
+             data seg size         (kbytes, -d) unlimited
+             file size             (blocks, -f) unlimited
+             max locked memory     (kbytes, -l) unlimited
+             max memory size       (kbytes, -m) unlimited
+             open files                    (-n) 1024
+             pipe size          (512 bytes, -p) 8
+             stack size            (kbytes, -s) 8192
+             cpu time             (seconds, -t) unlimited
+             max user processes            (-u) 8179
+             virtual memory        (kbytes, -v) unlimited
+     Note as a user you can decrease your limits in the current
+     shell session; but, you cannot increase.  This can be ideal
+     for testing programs.  But, first you may want to create
+     another shell "sh" so that you can "go back to where started".
+          $ ulimit -f 10
+     Now try
+          $ yes >> out
+             File size limit exceeded
+     To set limits on users, make changes to "/etc/security/limits.conf"
+           bozo   - maxlogins 1
+     Will keep bozo from loging in more than once.
+     To list hard limits:
+          $ ulimit -Ha
+     To list soft limits:
+          $ ulimit -Sa
+     To restrict user access by time, day make changes to
+             "/etc/security/time.conf"
+     Also take a look at "/etc/profile" to see what other changes
+     can be made, plus take a look under "/etc/security/*.conf" for
+     other configuration files.
+
+TIP 62:
+     Stupid "cat" Tricks.
+     Also see (TIP 43).
+     If you have multiple blank lines, squeeze these lines down to one,
+     then, try the following:
+          $ cat -s &lt;file&gt;
+     Want to number the lines?
+          $ cat -n &lt;file&gt;
+     Want to see all the ctl characters?
+          /* ctlgen.c
+            Program to generate ctl characters.
+            Compile:
+               gcc -o ctlgen ctlgen.c
+            Run:
+               ./ctlgen &gt; mout
+            Now see the characters:
+               cat -v mout
+            Here's a sample output:
+
+               $ cat -v mout|tail
+                   test M-v
+                   test M-w
+                   test M-x
+                   test M-y
+                   test M-z
+                   test M-{
+                   test M-|
+                   test M-}
+                   test M-~
+                   test M-^?
+          */
+          #include &lt;stdlib.h&gt;
+          #include &lt;stdio.h&gt;
+          int main()
+          {
+            int i;
+            for(i=0; i &lt; 256; ++i)
+              printf("test %c \n",i);
+            return 0;
+          }
+
+TIP 63:
+     Guard against SYN attacks and "ping".
+     As root do the following:
+          echo 1 &gt; /proc/sys/net/ipv4/tcp_syncookies
+     Want to disable "ping" ?
+          echo 1 &gt; /proc/sys/net/ipv4/icmp_echo_ignore_all
+     And to enable again:
+          echo 0 &gt; /proc/sys/net/ipv4/icmp_echo_ignore_all
+
+TIP 64:
+     Make changes to .bash_profile and need to update the current session?
+       $ source .bash_profile
+     With the above command, the user does not have to logout.
+
+TIP 65:
+     What are the Special Shell Variables?
+
+        $#   The number of arguments.
+        $@   All arguments, as separate words.
+        $*   All arguments, as one word.
+        $$   ID of the current process.
+        $?   Exit status of the last command.
+        $0,$1,..$9,${10},${11}...${N}    Positional parameters. After "9" you must use the ${k} syntax.
+     Note that 0 is true. For example if you execute the following, which is true you get zero.
+         $  [[ -f /etc/passwd ]]
+         $  echo $?
+         0
+     And the following is false, which returns a 1.
+         $  [[ -f /etc/passwdjabberwisnohere ]]
+         $  echo $?
+         1
+     So true=0 and false=1.
+
+     Sample program "mdo"  to show the difference between "$@" and "$*"
+        #!/bin/bash
+        function myarg
+        {
+            echo "$# in myarg function"
+        }
+        echo -e "$# parameters on the cmd line\n"
+        echo -e "calling: myarg \"\$@\" and myarg \"\$*\"\n"
+        myarg "$@"
+        myarg "$*"
+        echo -e "\ncalling: myarg \$@ and myarg \$* without quotes\n"
+        myarg $@
+        myarg $*
+
+      The result of running "./mdo one two". Note that when quoted, myarg "$*",
+      returns 1 ... all parameters are smushed together as one word.
+            [chirico@third-fl-71 theBook]$ ./mdo one two
+            2 parameters on the cmd line
+            calling: myarg "$@" and myarg "$*"
+            2 in myarg function
+            1 in myarg function
+            calling: myarg $@ and myarg $* without quotes
+            2 in myarg function
+            2 in myarg function
+      Example program "mdo2" shows how the input separator can be changed.
+        #!/bin/bash
+        IFS=|
+        echo -e "$*\n"
+        IFS=,
+        echo -e "$*\n"
+        IFS=\;
+        echo -e "$*\n"
+        IFS=$1
+        echo -e "$*\n"
+            [chirico@third-fl-71 theBook]$ ./mdo2 one two three four five
+            one two three four five
+            one,two,three,four,five
+            one;two;three;four;five
+            oneotwoothreeofourofive
+
+TIP 66:
+     Replace all "x" with "y" and all "y" with "x" in file data.
+        $ cata data
+          x y
+          y x
+        $ tr "xy"  "yx" &lt; data
+          y x
+          x y
+
+TIP 67:
+     On a Linux 2.6.x Kernel, how do you directly measure disk activity,
+     and where is this information documented?
+          o The information is documented in the kernel source
+               ./Documentation/iostats.txt
+          o The new way of getting this info in 2.6.x is
+              $ cat /sys/block/hda/stat
+            151121 5694 1932358 796675 37867 76770 916994 8353762 0 800672 9150437
+             Field  1 -- # of reads issued
+                 This is the total number of reads completed successfully.
+             Field  2 -- # of reads merged, field 6 -- # of writes merged
+                 Reads and writes which are adjacent to each other may be merged for
+                 efficiency.  Thus two 4K reads may become one 8K read before it is
+                 ultimately handed to the disk, and so it will be counted (and queued)
+                 as only one I/O.  This field lets you know how often this was done.
+             Field  3 -- # of sectors read
+                 This is the total number of sectors read successfully.
+             Field  4 -- # of milliseconds spent reading
+                 This is the total number of milliseconds spent by all reads (as
+                 measured from __make_request() to end_that_request_last()).
+             Field  5 -- # of writes completed
+                 This is the total number of writes completed successfully.
+             Field  7 -- # of sectors written
+                 This is the total number of sectors written successfully.
+             Field  8 -- # of milliseconds spent writing
+                 This is the total number of milliseconds spent by all writes (as
+                 measured from __make_request() to end_that_request_last()).
+             Field  9 -- # of I/Os currently in progress
+                 The only field that should go to zero. Incremented as requests are
+                 given to appropriate request_queue_t and decremented as they finish.
+             Field 10 -- # of milliseconds spent doing I/Os
+                 This field is increases so long as field 9 is nonzero.
+             Field 11 -- weighted # of milliseconds spent doing I/Os
+                 This field is incremented at each I/O start, I/O completion, I/O
+                 merge, or read of these stats by the number of I/Os in progress
+                 (field 9) times the number of milliseconds spent doing I/O since the
+                 last update of this field.  This can provide an easy measure of both
+                 I/O completion time and the backlog that may be accumulating.
+       Note, this is device specific.
+
+TIP 68:
+     Passing Outbound Mail, plus Masquerading User and Hostname.
+     Here's a specific example:
+         How does one send and receive Comcast email from a home Linux box,
+         which uses Comcast as the ISP, if the local account on the Linux
+         box is different from the Comcast email.  For instance, the
+         account on the Linux box is "chirico@third-fl-71" and the Comcast
+         email account is "mchirico@comcast.net".  Note both the hostname and
+         username are different.
+         So, the user "chirico" using "mutt", "elm" or any email program would
+         like to send out email to say "donkey@comcast.net"; yet, donkey would
+         see the email from "mchirico@comcast.net" and not "chirico@third-fl-71"
+         but chirico@third-fl-71 would get the replies.
+         For a full description of how to solve this problem, including related
+         "sendmail.mc", "site.config.m4", "genericstable", "genericsdomain",
+         ".procmailrc", and ".forward" files,  reference the following:
+           http://prdownloads.sourceforge.net/souptonuts/README_COMCAST_EMAIL.txt?download
+         Included in the above link are instructions for building sendmail with
+         "SASL" and "STARTTLS".
+
+TIP 69:
+     How do you remove just the last 2 lines from a file and save the result?
+         $ sed  '$d' file | sed '$d' &gt; savefile
+     And, of course, removing just the last line
+         $ sed '$d' file &gt; savefile
+
+
+TIP 70:
+     Generating Random Numbers.
+         $ od -vAn -N4 -tu4 &lt; /dev/urandom
+             3905158199
+
+TIP 71:
+     Deleting a File by it's Inode Value.
+       See (PROGRAMMING TIP 5) for creating the file, or
+       $ cat &gt; '\n\n\n\n\n\n\n'
+         type some text
+         ^D
+     To list the inode and display the characters.
+       $ ls -libt *
+     To remove by inode. Note the "--" option.  This
+     will keep any special characters in the file from being
+     interpreted at "rm" options.
+       $ find . -inum &lt;inode&gt; -exec rm -- '{}' \;
+     Or to check contents
+       $ find . -inum &lt;inode&gt; -exec cat '{}' \;
+     Reference:
+         http://www.faqs.org/ftp/usenet/news.answers/unix-faq/faq/part2
+
+TIP 72:
+     Sending Attachments Using Mutt -- On the Command Line.
+        $ mutt -s "See Attachment" -a file.doc user@domain.net &lt; message.txt
+          or just the message:
+        $ echo | mutt -a sample.tar.gz user@domain.net
+      Reference:
+          http://www.shelldorado.com/articles/mailattachments.html
+        Also see (TIP 51).
+
+TIP 73:
+     Want to find out what functions a program calls?
+         $ strace &lt;program&gt;
+
+     Try this with "topen.c" (see PROGRAMMING TIP 5)
+         $ strace  ./topen
+
+TIP 74:
+     RPM Usage Summary.
+     Install. Full filename is needed.
+         $ rpm -ivh Fedora/RPMS/postgresql-libs-7.4.2-1.i386.rpm
+     To view list of files installed with a particular package.
+         $ rpm -ql postgresql-libs
+                /usr/lib/libecpg.so.4
+                /usr/lib/libecpg.so.4.1
+                /usr/lib/libecpg_compat.so.1
+                /usr/lib/libecpg_compat.so.1.1
+                /usr/lib/libpgtypes.so.1
+                ...
+     To list all packages installed.
+         $ rpm -qa
+     To find out which file a package belongs to.
+         $ rpm -qf /usr/lib/libecpg.so.4.1
+     To uninstall a package
+         $ rpm -e
+     For building rpm packages reference the following:
+       http://www-106.ibm.com/developerworks/library/l-rpm1/
+     To verify md5 sum so that you know it downloaded ok
+         $ rpm -K  *.rpm
+
+TIP 75:
+     Listing Output from a Bash Script.
+     Add "set -x"
+          #!/bin/bash
+          set -x
+          ls
+          date
+     Will list the files and output as follows:
+           + ls
+           ChangeLog  CVS  data  test
+           + date
+           Thu Jul  1 20:41:04 EDT 2004
+
+TIP 76:
+     Using wget.
+     Grap a webpage and pipe it to less. For example suppose you wanted to pipe the
+     contents of all these tips, directly from the web.
+      $ wget -O - http://umn.dl.sourceforge.net/sourceforge/souptonuts/How_to_Linux_and_Open_Source.txt|less
+
+TIP 77:
+     Finding IP address and MAC address.
+       $ /sbin/ifconfig
+     Note the following output "eth0" and "eth0:1" which means
+     two IP addresses are tied to 1 NIC (Network Interface Card).
+             eth0      Link encap:Ethernet  HWaddr 00:50:DA:60:5B:AD
+                       inet addr:192.168.1.155  Bcast:192.168.99.255  Mask:255.255.252.0
+                       UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+                       RX packets:982757 errors:116 dropped:0 overruns:0 frame:116
+                       TX packets:439297 errors:0 dropped:0 overruns:0 carrier:0
+                       collisions:0 txqueuelen:1000
+                       RX bytes:693529078 (661.4 Mb)  TX bytes:78400296 (74.7 Mb)
+                       Interrupt:10 Base address:0xa800
+             eth0:1    Link encap:Ethernet  HWaddr 00:50:DA:60:5B:AD
+                       inet addr:192.168.1.182  Bcast:192.168.3.255  Mask:255.255.252.0
+                       UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+                       RX packets:982757 errors:116 dropped:0 overruns:0 frame:116
+                       TX packets:439299 errors:0 dropped:0 overruns:0 carrier:0
+                       collisions:0 txqueuelen:1000
+                       RX bytes:693529078 (661.4 Mb)  TX bytes:78400636 (74.7 Mb)
+                       Interrupt:10 Base address:0xa800
+             lo        Link encap:Local Loopback
+                       inet addr:127.0.0.1  Mask:255.0.0.0
+                       UP LOOPBACK RUNNING  MTU:16436  Metric:1
+                       RX packets:785 errors:0 dropped:0 overruns:0 frame:0
+                       TX packets:785 errors:0 dropped:0 overruns:0 carrier:0
+                       collisions:0 txqueuelen:0
+                       RX bytes:2372833 (2.2 Mb)  TX bytes:2372833 (2.2 Mb)
+
+TIP 78:
+     DOS to UNIX and UNIX to DOS.
+        $ dos2unix file.txt
+     And to go the other way from UNIX to DOS
+        $ unix2dos unixfile
+     See the man page, since there are MAC options.
+
+     NOTE: If you're working file DOS files, you'll probably want to use
+           "zip" instead of "gzip" so users on Windows can unzip them.
+              $ zip test.zip test.txt
+
+TIP 79:
+     Need to Run Interactive Commands? Try "expect".
+     Reference:
+        http://www.oreilly.com/catalog/expect/chapter/ch03.html
+
+TIP 80:
+     Using PHP as a Command Line Scripting Language.
+     The following will grab the complete file from slashdot.
+         #!/usr/bin/php -q
+         <?php
+         $fileName = "http://slashdot.org/slashdot.xml";
+         $rss = file($fileName) or die ("Cannot open file $fileName\n");
+         for ($index=0; $index < count($rss); $index++)
+              {
+              echo $rss[$index];
+              }
+         ?>
+       Note, if you want an example that parses the XML of
+       slashdot, then, download the following:
+           http://prdownloads.sourceforge.net/souptonuts/php_scripts.tar.gz?download
+
+TIP 81:
+     Discarding all output -- including stderr messages.
+         $ ls  &gt; /dev/null 2&gt;&amp;1
+     Or sending all output to a file
+         $ someprog &gt; /tmp/file 2&gt;&amp;1
+     Sometimes, find displays a lot of errors when searching through
+     directories that the user doesn't have access to. To discard
+     error messages "stderr", which is normally file descripter "2"
+     work the following:
+         $ find / -iname 'stuff' 2&gt;/dev/null
+          or to pipe results elsewhere
+         $ find / -iname 'stuff' &gt; /tmp/results_of_find  2&gt;/dev/null
+
+TIP 82:
+     Using MIX.  D. Knuth's  assembly language/machine-code instruction set used in
+     his books to illustrate his algorithms.
+     Download the source:
+       http://sourceforge.net/project/showfiles.php?group_id=13897
+       $ ./configure
+       $ make
+       $ make install
+     Documentation can be found at the following link. The link on
+     sourceforge is not correct, but, the one below works.
+       http://www.gnu.org/software/mdk/manual/
+
+TIP 83:
+     Gnuplot [ http://sourceforge.net/projects/gnuplot/ ].
+     This software is ideal for printing graphs.
+         gnuplot&gt; set term png
+         gnuplot&gt; set output 'testcos.png'
+         gnuplot&gt; plot cos(x)*sin(x)
+         gnuplot&gt; exit
+     Or the following command can be put into "file"
+            $ cat &gt; file
+            set term png
+            set output 'testcos.png'
+            plot cos(x)*sin(x)
+            exit
+            ^D
+     Then, run as follows:
+            $ gnuplot file
+
+TIP 84:
+     CPU Information - speed, processor, cache.
+            $ cat /proc/cpuinfo
+               processor       : 0
+               vendor_id       : GenuineIntel
+               cpu family      : 15
+               model           : 2
+               model name      : Intel(R) Pentium(R) 4 CPU 2.20GHz
+               stepping        : 9
+               cpu MHz         : 2193.221
+               cache size      : 512 KB
+               fdiv_bug        : no
+               hlt_bug         : no
+               f00f_bug        : no
+               coma_bug        : no
+               fpu             : yes
+               fpu_exception   : yes
+               cpuid level     : 2
+               wp              : yes
+               flags           : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr
+               bogomips        : 4325.37
+      "bogomips" is a rough but good way to quickly compare two computer speeds. True it's a
+      bogus reading; but, a "good enough" for government work calculation.  See (TIP 10) for
+      "vmstat" and "iostat".
+
+TIP 85:
+     POVRAY - Making Animated GIFs
+     To see this in action, reference:
+      http://souptonuts.sourceforge.net/povray/orbit.pov.html
+     These are the basic command to create:
+
+        $ povray orbit.ini -Iorbit.pov
+        $ convert -delay 20 *.ppm orbit.gif
+     By the way, convert is a program from imagemagick, and it can
+     be downloaded from ( http://www.imagemagick.org ).
+    The following is "orbit.pov"
+
+          #include "colors.inc"
+          #include "finish.inc"
+          #include "metals.inc"
+          #include "textures.inc"
+          #include "stones.inc"
+          #include "skies.inc"
+
+          camera {
+            location &lt; 2, 3, -8 &gt;
+            look_at  &lt; 0, 0, 0 &gt;
+            focal_point &lt;0, 0, 0&gt;
+            blur_samples 20
+          }
+          light_source {
+                  &lt; 0, 10, 0&gt;
+                  color White
+                  area_light &lt;2,0,0&gt;,&lt;0,0,2&gt;, 2, 2
+                  adaptive 1
+                  fade_distance 8
+                  fade_power 1
+                  }
+          sky_sphere {
+            S_Cloud3
+          }
+          plane { &lt;0, 1, 0&gt;, -1
+                  texture {
+                          pigment {
+                                  checker color Blue, color White
+                          }
+                          finish {Phong_Glossy}
+                  }
+          }
+          #declare ball0=
+                  sphere {
+                  &lt;0.5, 0.5, 0&gt;, 1
+                  texture {
+                  T_Silver_1E
+                  pigment {Yellow}
+                          }
+                  }
+          #declare ball1=
+                  sphere {
+                  &lt;3, 2, 0&gt;, 0.5
+                  texture {
+                  T_Silver_1E
+                  pigment {Blue}
+                          }
+                  }
+          #declare ball2=
+                  sphere {
+                  &lt;3, 1, 0&gt;, 1
+                  texture {
+                  T_Silver_1E
+                  pigment {Green}
+                          }
+                  }
+          object {ball0 rotate 360*clock*y}
+          object {ball1 rotate 720*clock*y}
+          object {ball2 rotate 360*(1 - clock)*y}
+
+    And, "orbit.ini" follows:
+          Output_File_Type=P
+          Width=320
+          Height=240
+          Initial_Frame=1
+          Final_Frame=10
+          Antialias=true
+          Subset_Start_Frame=1
+          Subset_End_Frame=10
+          Cyclic_Animation=on
+
+TIP 86:
+     GPG --  GnuPG
+        Reference: http://www.gnupg.org/documentation/faqs.html
+                   http://codesorcery.net/mutt/mutt-gnupg-howto
+                   http://www.gnupg.org/(en)/download/index.html
+                   (SCRIPT 4) on following link:
+                   http://prdownloads.sourceforge.net/souptonuts/README_common_script_commands.html?download
+
+     Generage key:
+        $ gpg --gen-key
+     Generate public key ID and fingerprint
+        $ gpg --fingerprint
+     Get a list of keys:
+        $ gpg --list-keys
+          pub  1024D/A11C1499 2004-07-15 Mike Chirico &lt;mchirico@comcast.net&gt;
+
+          sub  1024g/E1A3C2B3 2004-07-15
+     Encrypt
+        $ gpg -r Mike  --encrypt sample.txt
+       This will produce "sample.txt.asc", which is a binary file.  Note, I can use "Mike" because that's the
+       name on the list of keys. Again, it will be a binary file.
+     Encrypt using "ASCII-armored text"  (--armor), which is probably what you want when sending "in" the body of an
+     email, or some document.
+        $ gpg  -r Mike  --encrypt --armor sample.txt
+            or
+        $ gpg --output somefile.asc --armor -r Mike  --encrypt --armor sample.txt
+     The above will still produce "sample.txt.asc", but look at it, or "$ cat sample.txt.asc" without fear, since
+     there are no binary characters. Yes, you could even compile a program "$ g++ -o test test.c" , then,
+     "$ gpg --output test.asc  -r Mike --encrypt --armor test". However, when decrypting make sure to pipe
+     the results.
+            $ gpg --decrypt test.asc > test
+     Export "public" key:
+           $ gpg --armor --export Mike &gt; m1.asc
+     Signing the file "message.txt":
+           $ gpg --clearsign message.txt
+
+     Sending the key to the "key-server"
+        First, list the keys.
+                $ gpg --list-keys
+                    /home/chirico/.gnupg/pubring.gpg
+                                 v------------------ Use this with "0x" in front -------
+                  pub  1024D/A11C1499 2004-07-15 Mike Chirico  &lt;mchirico@comcast.net&gt;   |
+                  sub  1024g/E1A3C2B3 2004-07-15                                        |
+                                                                                        |
+                                   v----------------------------------------------------
+                $ gpg --send-keys 0xA11C1499
+             The above sends it to the keyserver defined in "/home/chirico/.gnupg/gpg.conf".  Other key servers:
+                            wwwkeys.pgp.net
+                            search.keyserver.net
+                            pgp.ai.mit.edu
+     Receving keys:
+        The following will retrieve my mchirico@comcast.net key
+               $ gpg --recv-keys 0xA11C1499
+
+     Special Note: If you get the following error "GPG: Warning: Using Insecure Memory" , then,
+                   " chmod 4755 /path/to/gpg"  to setuid(root) permissioins on the gpg binary.
+
+
+     NOTE: If using mutt, just before sending with the "y" option, hit "p" to sign or encrypt.
+     It's possible to create a gpg/pgp email from the command line. For a tutorial on this,
+     reference (SCRIPT 4) at the following link:
+           http://prdownloads.sourceforge.net/souptonuts/README_common_script_commands.html?download
+
+TIP 87:
+     Working with Dates: Steffen Beyer has developed a Perl and C module for working with dates
+     This softare can be downloaded from the following location:
+        http://www.engelschall.com/u/sb/download/pkg/Date-Calc-5.3.tar.gz
+         $ wget http://www.engelschall.com/u/sb/download/pkg/Date-Calc-5.3.tar.gz
+         $ tar -xzvf Date-Calc-5.3.tar.gz
+         $ cd Date-Calc-5.3
+         $ cp ./examples/cal.c .
+         $ gcc cal.c DateCalc.c -o mcal
+     The file cal.c contains sample function calls from DateCalc.c.  Note, "DateCalc.c"
+     is just a list of functions and includes for "DateCalc.h" and "ToolBox.h".
+     Or, and this may be easier, just download the following:
+         http://prdownloads.sourceforge.net/cpearls/date_calc.tar.gz?download
+     The above link contains a few examples.
+
+TIP 88:
+     Color patterns for mutt.
+     The colors can be changed in the /home/user/.muttrc file. The first field begins with
+     color, the second field is the foreground color, and the third field is the background
+     color, or default.
+     An example .muttrc for colors:
+       # color patterns for mutt
+       color normal     white          black # normal text
+       color indicator  black          yellow  # actual message
+       color tree       brightmagenta  default # thread arrows
+       color status     brightyellow         default # status line
+       color error      brightred      default # errors
+       color message    magenta        default # info messages
+       color signature  magenta        default # signature
+       color attachment brightyellow   red     # MIME attachments
+       color search     brightyellow   red     # search matches
+       color tilde      brightmagenta  default # ~ at bottom of msg
+       color markers    red            default # + at beginning of wrapped lines
+       color hdrdefault cyan           default # default header lines
+       color bold       red            default # hiliting bold patterns in body
+       color underline  green          default # hiliting underlined patterns in body
+       color quoted     cyan           default # quoted text
+       color quoted1    magenta        default
+       color quoted2    red            default
+       color quoted3    green          default
+       color quoted4    magenta           default
+       color quoted5    cyan           default
+       color quoted6    magenta        default
+       color quoted7    red            default
+       color quoted8    green          default
+       color quoted9    cyan           default
+       color body   cyan  default  "((ftp|http|https)://|news:)[^ >)\"\t]+"
+       color body   cyan  default  "[-a-z_0-9.+]+@[-a-z_0-9.]+"
+       color body   red   default  "(^| )\\*[-a-z0-9*]+\\*[,.?]?[ \n]"
+       color body   green default  "(^| )_[-a-z0-9_]+_[,.?]?[\n]"
+       color body   red   default  "(^| )\\*[-a-z0-9*]+\\*[,.?]?[ \n]"
+       color body   green default  "(^| )_[-a-z0-9_]+_[,.?]?[ \n]"
+       color index  cyan  default  ~F         # Flagged
+       color index  red   default  ~N         # New
+       color index  magenta    default  ~T         # Tagged
+       color index  cyan       default  ~D         # Deleted
+
+TIP 89:
+     ps command in detail
+
+     Here are the possible codes when using state "$ ps -e -o state,cmd"
+
+             PROCESS STATE CODES
+                  D   uninterruptible sleep (usually IO)
+                  R   runnable (on run queue)
+                  S   sleeping
+                  T   traced or stopped
+                  Z   a defunct ("zombie") process
+    For instance:
+     Note that the -o is for user defined, and -e is for select
+     all process.
+       $ ps -e -o pid,state,start,time,etime,cmd
+          ...
+             9946 S 15:40:45 00:00:00    02:23:29 /bin/bash -i
+             9985 T 15:41:24 00:00:01    02:22:50 emacs mout2
+            10003 T 15:43:59 00:00:00    02:20:15 emacs NOTES
+            10320 T 17:38:42 00:00:00       25:32 emacs stuff.c
+         ...
+     You may want to command below, without the -e, which will give the
+     process only under the current terminal.
+       $ ps -o pid,state,start,time,etime,cmd
+
+       $ ps -aux
+            USER       PID %CPU %MEM   VSZ  RSS TTY      STAT START   TIME COMMAND
+            root         1  0.0  0.0  1380  480 ?        S    Aug04   0:00 init [3]
+            root         2  0.0  0.0     0    0 ?        SWN  Aug04   0:00 [ksoftirqd/0]
+            root         3  0.0  0.0     0    0 ?        SW&lt;  Aug04   0:00 [events/0]
+            root         4  0.0  0.0     0    0 ?        SW&lt;  Aug04   0:00 [khelper]
+          ...
+     Or, if you want to see the environment add the -e option
+       $ ps -aeux
+          ...
+            chirico   2735  0.0  0.1  4400 1492 pts/0    S    Aug04   0:00 -bash USER=chirico LOGNAME=chirico HOME=/home/chirico PATH=/usr/
+            chirico   2771  0.0  0.0  4328  924 pts/0    S    Aug04   0:00 screen -e^Pa -D -R HOSTNAME=third-fl-71.localdomain TERM=xterm S
+            chirico   2772  0.0  0.6  9476 6352 ?        S    Aug04   0:54 SCREEN -e^Pa -D -R HOSTNAME=third-fl-71.localdomain TERM=xterm S
+            chirico   2773  0.0  0.1  4432 1548 pts/1    S    Aug04   0:10 /bin/bash STY=2772.pts-0.third-fl-71 TERM=screen TERMCAP=SC|scre
+            chirico   2797  0.0  0.1  4416 1496 pts/2    S    Aug04   0:00 /bin/bash STY=2772.pts-0.third-fl-71 TERM=screen TERMCAP=SC|scre
+            root      2821  0.0  0.0  4100  952 pts/2    S    Aug04   0:00 su -
+            root      2822  0.0  0.1  4384 1480 pts/2    S    Aug04   0:00 -bash
+            chirico   2862  0.0  0.1  4428 1524 pts/3    S    Aug04   0:00 /bin/bash STY=2772.pts-0.third-fl-71 TERM=screen TERMCAP=SC|scre
+            sporkey   2946  0.0  0.2  6836 2960 ?        S    Aug04   0:15 fetchmail
+            chirico   2952  0.0  0.1  4436 1552 pts/5    S    Aug04   0:00 /bin/bash STY=2772.pts-0.third-fl-71 TERM=screen TERMCAP=SC|scre
+            chirico   3880  0.0  0.1  4416 1496 pts/6    S    Aug05   0:00 /bin/bash STY=2772.pts-0.third-fl-71 TERM=screen TERMCAP=SC|scre
+            root      3904  0.0  0.0  4100  956 pts/6    S    Aug05   0:00 su - donkey
+            donkey    3905  0.0  0.1  4336 1452 pts/6    S    Aug05   0:00 -bash
+            donkey    3938  0.0  0.2  6732 2856 ?        S    Aug05   0:14 fetchmail
+            chirico   3944  0.0  0.1  4416 1496 pts/7    S    Aug05   0:00 /bin/bash STY=2772.pts-0.third-fl-71 TERM=screen TERMCAP=SC|scre
+          ...
+     You may also want to consider using top in batch mode. Here the "-n 1" means refresh once,
+     and the "b" is for batch. The "fmt -s" is to put it in a more readable format.
+       $ top -n 1 b |fmt  -s >>statfile
+
+TIP 90:
+     Learning Assembly.
+     Once you have written the source, assuming the file is "exit.s", it can be compiled as follows:
+            $ as exit.s -o exit.o
+            $ ld exit.o -o exit
+
+     Here is the program:
+         #
+         #INPUT:  none
+         #
+         #OUTPUT:         returns a status code. This can be viewed
+         # by typing
+         #
+         # echo $?
+         #
+         # after running the program
+         #
+         #VARIABLES:
+         # %eax holds the system call number
+         # (this is always the case)
+         #
+         # %ebx holds the return status
+         #
+                 .section .data
+                 .section .text
+                 .globl _start
+         _start:
+                 movl $1, %eax # this is the linux kernel command
+                 # number (system call) for exiting
+                 # a program
+                 movl $0, %ebx # this is the status number we will
+                 # return to the operating system.
+                 # Change this around and it will
+                 # return different things to
+                 # echo $?
+                 int $0x80 # this wakes up the kernel to run
+                 # the exit command
+     After running this program, you can get the exit code.
+            $ exit $?
+            0
+     That is about all it does; but, get the book for more details. The
+     book is free.
+          http://savannah.nongnu.org/download/pgubook/
+
+TIP 91:
+     Creating a sandbox for reiserfstune,debugreiserfs and ACL.  Also see TIP 4.
+     Assume you have a reisers files system created from a disk file, which
+     means you have done something like the following:
+          # dd if=/dev/zero of=disk-rfs count=102400
+          # losetup  /dev/loop4 ./disk-rfs
+          # mkfs -t reiserfs /dev/loop4
+          # mkdir /fs2
+          # mount -o loop,acl ./disk-rfs /fs2
+     Now, you can run reiserfstune. But, first you will need to umount fs2
+          # umount /fs2
+          # reiserfstune ./disk-rfs
+     Or you can run the debug command
+          # debugreiserfs -J ./disk-rfs
+     Now, suppose you run through a lot of the debug options on
+     http://www.namesys.com/ and you destroy this file.
+     You can recreate the file and delete the loop device.
+          # dd if=/dev/zero of=disk-rfs count=102400
+          # losetup -d /dev/loop4
+          # mount -o loop,acl ./disk-rfs /fs2
+     Now, try working with some of the ACL options - you can only do this
+     with the latest kernel and tools -- Fedora Core 2 will work.
+     Assume you have 3 users, donkey, chirico and bozo2. You can give
+     everyone rights to this file system as follows:
+          # setfacl -R -m d:u:donkey:rwx,d:u:chirico:rwx,d:u:bozo2:rwx /fs2
+
+TIP 92:
+     SpamAssassin - Setup.
+     Step 1.
+           Installing the SpamAssassin CPAN utility. You will need to do this
+           as root.
+       $ su -
+    Once you have root privileges invoke cpan.
+       # perl -MCPAN -e shell
+              cpan>
+           Now install with prerequisites policy set to ask.
+       cpan> o conf prerequisites_policy ask
+       cpan> install Mail::SpamAssassin
+           You will get lots of output as the necessary modules are downloaded and
+           compiled and installed.
+     Step 2.
+            Configuration.
+            Edit the following "/etc/mail/spamassassin/local.cf"
+            Here is a look at my file
+                $ cat /etc/mail/spamassassin/local.cf
+
+                # This is the right place to customize your installation of SpamAssassin.
+  #
+  # See 'perldoc Mail::SpamAssassin::Conf' for details of what can be
+  # tweaked.
+  #
+  ###########################################################################
+  #
+  # rewrite_subject 0
+  # report_safe 1
+  # trusted_networks 212.17.35.
+  #
+           # Below added from book
+      # You may want to set this to 5, then, work your way down.
+                # Currently I have this 3
+    required_hits 3
+  # This determines how spam is reported. Currently safe email is reported
+                # in the message.
+  report_safe 1
+  # The will rewrite the tag of the spam message.
+  rewrite_subject 1
+  # By default, SpamAssassin will run RBL checks.  If your ISP already
+  # does this, set this to 1.
+  skip_rbl_checks 0
+     Step 3.
+            Update .procmail.
+            You should update the .procmail file as follows. Here is my /home/chirico/.procmail file.
+
+                $ cat /home/chirico/.procmailrc
+                PATH=/bin:/usr/bin:/usr/local/bin
+  MAILDIR=/var/spool/mail
+  DEFAULT=/var/spool/mail/chirico
+  LOGFILE=/home/chirico/MailBAG
+  MYHOME=/home/chirico
+  #  Must have folder MailTRASH
+  TRASH=/home/chirico/MailTRASH
+  # Will get everything from this mail
+  :0
+  * ^From:.*sporkey@comcast.net
+          $DEFAULT
+  # Spamassassin
+  :0fw
+  * &lt;300000
+  |/usr/local/bin/spamassassin
+      Reference:
+        http://pm-doc.sourceforge.net/
+
+TIP 93:
+     Make Graphs: using dot and neato.
+       $ dot -Tpng dotfile -o myout.png
+     To see the output reference the following:
+       http://souptonuts.sourceforge.net/code/myout.png
+     Where "dotfile" is the following:
+       $ cat dotfile
+       digraph g
+       {
+               node [shape = record];
+               node0 [ label ="&lt;f0&gt; stuff | &lt;f1&gt; J | &lt;f2&gt; "];
+               node1 [ label ="&lt;f0&gt; | &lt;f1&gt; E | &lt;f2&gt; "];
+               node4 [ label ="&lt;f0&gt; | &lt;f1&gt; C | &lt;f2&gt; "];
+               node6 [ label ="&lt;f0&gt; | &lt;f1&gt; I | &lt;f2&gt; "];
+               node2 [ label ="&lt;f0&gt; | &lt;f1&gt; U | &lt;f2&gt; "];
+               node5 [ label ="&lt;f0&gt; | &lt;f1&gt; N | &lt;f2&gt; "];
+               node9 [ label ="&lt;f0&gt; | &lt;f1&gt; Y | &lt;f2&gt; "];
+               node8 [ label ="&lt;f0&gt; | &lt;f1&gt; W | &lt;f2&gt; "];
+               node10 [ label ="&lt;f0&gt; | &lt;f1&gt; Z | &lt;f2&gt; "];
+               node7 [ label ="&lt;f0&gt; | &lt;f1&gt; A | &lt;f2&gt; "];
+               node3 [ label ="&lt;f0&gt; | &lt;f1&gt; G | &lt;f2&gt; "];
+
+               "node0":f0 -&gt; "node1":f1;
+               "node0":f2 -&gt; "node2":f1;
+               "node1":f0 -&gt; "node4":f1;
+               "node1":f2 -&gt; "node6":f1;
+               "node4":f0 -&gt; "node7":f1;
+               "node4":f2 -&gt; "node3":f1;
+               "node2":f0 -&gt; "node5":f1;
+               "node2":f2 -&gt; "node9":f1;
+               "node9":f0 -&gt; "node8":f1;
+               "node9":f2 -&gt; "node10":f1;
+       }
+     Checkout the following article:
+        http://www.linuxjournal.com/article.php?sid=7275
+     To download this software
+        http://www.graphviz.org/
+
+TIP 94:
+     Makefile: working with conditions
+
+     First note that all the indentations of the file must be
+     a single tab. There cannot be any spaces, or make will
+     not run.
+       $ cat Makefile
+        # Compiler flags
+        sqliteLIB := $(shell ls /usr/local/lib/libsqlite.so)
+        sqlite3LIB := $(shell ls /usr/local/lib/libsqlite3.so)
+        # all assumes sqlite and sqlite3 are installed
+        #
+        test:
+        ifeq ("$(sqlite3LIB)","/usr/local/lib/libsqlite3.so")
+             @echo -e "True -- we found the file"
+        else
+             @echo "False -- we did not find the file"
+        endif
+
+     So, if I run make I will get the following output.
+       $ make
+       True -- we found the file
+     This is because I have a file /usr/local/lib/libsqlite3.so on my system.
+     Note how the assignment is made, with the shell command
+           sqlite3LIB := $(shell ls /usr/local/lib/libsqlite3.so)
+
+TIP 95:
+     Bash: Conditional Expressions
+          if [ -e /etc/ntp.conf ]
+            then
+       echo "You have the ntp config file"
+     else
+       echo "You do not have the ntp config file"
+          fi
+       Now using an AND condition inside the [ ]. By the way, above, you
+       can put the "then" on the same line as the if "if [ -e /etc/ntp.conf ]; then"
+       as long as you use the ";".
+           if [ \( -e /etc/ntp.conf \) -a \( -e /etc/ntp/ntpservers \) ]
+             then
+        echo "You have ntp config and ntpservers"
+      elif [ -e /etc/ntp.conf ]; then
+               echo " You just have ntp.conf "
+      elif [ -e /etc/ntp/ntpservers ]; then
+               echo " You just have ntpservers "
+      else
+               echo " you have neither ntp.conf or ntpservers"
+    fi
+        A few things to note above. Else if statement is written as "elif", and when
+        dealing with "(" you will need to insert "\(". By the way "-o" can replace "-a"
+        and the "-o" is for OR condition. AND can be done as follows too.
+           if [ -e /etc/ntp.conf ] &amp;&amp; [ -e /etc/ntp/ntpservers ]
+             then
+        echo "You have ntp config and ntpservers"
+      elif [ -e /etc/ntp.conf ]; then
+               echo " You just have ntp.conf "
+      elif [ -e /etc/ntp/ntpservers ]; then
+               echo " You just have ntpservers "
+      else
+               echo " you have neither ntp.conf or ntpservers"
+    fi
+          Conditional Expressions
+             -a           Used in condiion. See above
+             -b file      True if file exists and is a block file
+             -c file      True if file exists and is a character file
+             -d file      True if file exists and is a directory
+             -e file      True if file exists
+             -f file      True if file exists and is a regular file
+             -g file      True if file exists and is set goup id
+             -h file      True if file is a symbolic link
+             -k file      True if "sticky" bit is set
+             -p file      True if file is a named pipe (FIFO)
+             -r file      True if file is readable
+             -s file      True if file has size > 0
+             -t file      True if file is open and refers to a terminal.
+             -u file      True if set user id is set
+             -x file      True if executable
+             -O file      True if owned by the effective user ID
+             -G file      True if owned by the effective group ID
+             -L file      True if symbolic link
+             -S file      True if socket
+             -N file      True if modified since it was last read
+             file1 -nt file2     True if file1 modification date newer than file2
+             file1 -ot file2     True if file1 modification date older than file2
+             file1 -ef file2     True if file1 and file2 have same inode
+
+TIP 96:
+     CVS: Working with cvs
+      INITIAL REPOSITORY:
+       To create a repository, and this is normally done by the system admin. This
+       is NOT creating a project to checkout, but the location where everything
+       will be stored! The initial repository!
+             cvs -d repository_root_directory init
+       Or here is a specific example:
+             cvs -d /work/cvsREPOSITORY/   init
+       Creating a directory tree from scratch. For a new project, the easiest thing to
+       do is probably to create an empty directory structure, like this:
+             $ mkdir sqlite_examples
+      $ mkdir sqlite_examples/man
+      $ mkdir sqlite_examples/testing
+
+       After that, you use the import command to create the
+       corresponding (empty) directory structure inside the repository:
+
+             $ cd &lt;directory&gt;
+
+             $ cvs -d repository_root_directory import  -m "Created directory structure" yoyodyne/dir yoyo start
+       Or, here is a specific example.
+             $  cd sqlite_examples
+             $  cvs  -d /work/cvsREPOSITORY/ import -m 'test SQlite'  sqlite_examples sqlite_examples start
+       Now, you can delete the directory sqlite_examples, or go to another directory and type
+       the following:
+             $ cvs -d /work/cvsREPOSITORY/ co sqlite_examples
+     COOL TOOLS:
+           1. cvsps
+           2. cvsreport
+         cvsps which you can find at http://www.cobite.com/cvsps/cvsps-2.0rc1.tar.gz
+             $ cvsps -f README_sqlite_tutorial.html
+
+TIP 97:
+     Common vi and vim commands
+           Command mode ESC
+                dd       delete
+                u        undelete
+                y        yank (copy to buffer)
+                p        paste
+               /stuff/   search
+                  n   repeat in same direction
+                  N   repeat in opposite direction
+                  /return  repeat seach forward
+                  ?return  repeat seach backward
+
+               "dyy  Yank current line to buffer d
+               "a7yy Yank next 7 lines to buffer a
+                    or
+               :1,7ya a  Yank [ya] lines 1,7 to buffer a
+               :1,7ya b  Yank [ya] lines 1,7 to buffer b
+               :5 pu b   Put [pu] buffer b after line 5
+               "dP   Put the content of buffer d before cursor
+               "ap   Put the contents of buffer a after cursor
+               :1,4 w! file2  Write lines 1,4 to file2
+               :1,3
+               :set nu     Display line numbers
+               :set nonum  Turns off display
+            vim
+               :split
+               :split &lt;filename&gt;
+               :split new
+                   ctl-w   To move between windows
+                   ctl-w+
+                   ctl-w-  To change size
+               :only       To view only 1 window
+
+TIP 98:
+     Using apt-get
+          $ apt-get update
+          $ apt-get -s install &lt;pkage&gt;    &lt;---- if everything is ok, then, remove the s
+
+TIP 99:
+     Mounting a cdrom on openbsd and installing packages
+          $ mkdir -p /cdrom
+          $ mount /dev/cd0a /cdrom
+          $ cd /cdrom
+     To add packages
+          $ pkg_add -v  &lt;directory&gt;
+     Mounting a cdrom on linux to a user's home sub-directory:
+          $ mkdir -p /home/chirico/cdrom
+          $ mount /dev/cdrom /home/chirico/cdrom
+
+TIP 100:
+    Creating a boot floppy for knoppix cd:
+          $ dd if=/mnt/cdrom/KNOPPIX/boot.img of=/dev/fd0 bs=1440k
+    References:
+        http://www.knoppix.net/docs/index.php/BootFloppyHowTo
+    For a lot of the knoppix how-to's
+        http://www.knoppix.net/docs/index.php/
+
+TIP 101:
+    Diction and Style Tools for Linux
+        $ diction mytext|less
+    Or, this can be done interactively
+        $ diction
+        This is more text to read and you can do with it
+        what you want.
+        (stdin):1: This is more text to read and you [can -> (do not confuse with "may")] do with it what you want.
+    DESCRIPTION
+       Diction finds all sentences in a document, that contain phrases from  a
+       database  of  frequently  misused,  bad  or  wordy diction.  It further
+       checks for double words.  If no files are given, the document  is  read
+       from  standard input.  Each found phrase is enclosed in [ ] (brackets).
+       Suggestions and advice, if any, are printed headed by a right arrow ->.
+       A  sentence is a sequence of words, that starts with a capitalised word
+       and ends with a full stop, double colon, question mark or  exclaimation
+       mark.  A single letter followed by a dot is considered an abbreviation,
+       so it does not terminate a sentence.   Various  multi-letter  abbrevia-
+       tions are recognized, they do not terminate a sentence as well.
+
+TIP 102:
+    Using a mail alias.
+       Suppose all root mail on your system to go to one root account root@main.com
+       In the following file:
+             /etc/aliases
+       Add this line
+             root:    root@main.com
+       Next, run newaliases [/usr/bin/newaliases] as follows:
+             $ newaliases
+
+TIP 103:
+    Chrony - this service is similiar to ntp. It keeps accurate time
+            on your computer against a very accurate clock in across
+            a network with various time delays.
+    Reference: http://go.to/chrony
+        In the file "/etc/chrony/chrony.conf" add/replace the following
+             server 146.186.218.60
+             server 128.118.25.3
+             server 128.2.129.21
+        Next start the chrony service
+           $ /etc/init.d/chrony restart
+     Next verify that this is working. It may take 20 or 30 minutes to update
+     the clock.
+
+     Shell command:
+       # chronyc
+       chronyc> sourcestats
+       210 Number of sources = 3
+       Name/IP Address            NP  NR  Span  Frequency   Freq Skew   Std Dev
+       ========================================================================
+       b50.cede.psu.edu            2   0    64       0.000    2000.000  4000ms
+       otc2.psu.edu                2   0    66       0.000    2000.000  4000ms
+       FS3.ECE.CMU.EDU             2   0    64       0.000    2000.000  4000ms
+       chronyc>
+    It is probably best to let chrony do its work. However, if you want to
+    set both the hardware and software clock, the following will work:
+      Sets the hardware clock
+        # hwclock --set --date="12/10/04 10:18:05"
+      Sync the hardware clock to software
+        # hwclock --hctosys
+    Normally the system keep accurate time with the software clock.
+
+TIP 104:
+    NFS mount
+     SERVER (192.168.1.182)
+       At the server the contents of /etc/exports for
+       allowing 2 computers (192.168.1.171 and 192.168.1.71)
+       to access the home directory of this server. Note that
+       read write (rw) access is allowed.
+          $ cat /etc/exports
+         /home   192.168.1.171(rw)
+         /home   192.168.1.71(rw)
+       Next, still at the server, run the exportfs command
+          $ exportfs -rv
+       IPTABLES (values in /etc/sysconfig/iptables on SERVER )
+        # NFS
+        -A INPUT -f -j ACCEPT -s 192.168.1.171
+ -A INPUT -p tcp -m tcp -s 192.168.1.171 -m multiport --dports 111,683,686,685,1026,2049,2219  -j ACCEPT
+ -A INPUT -p tcp -s 192.168.1.171 -d 0/0 --dport 32765:32768  -j ACCEPT
+ -A INPUT -p udp -m udp -s 192.168.1.171 -m multiport --dports 111,683,686,685,1026,2049,2219  -j ACCEPT
+ -A INPUT -p udp -s 192.168.1.171 -d 0/0 --dport 32765:32768  -j ACCEPT
+ -A INPUT -f -j ACCEPT -s 192.168.1.71
+ -A INPUT -p tcp -m tcp -s 192.168.1.71 -m multiport --dports 111,683,686,685,1026,2049,2219  -j ACCEPT
+ -A INPUT -p tcp -s 192.168.1.71 -d 0/0 --dport 32765:32768  -j ACCEPT
+ -A INPUT -p udp -m udp -s 192.168.1.71 -m multiport --dports 111,683,686,685,1026,2049,2219  -j ACCEPT
+ -A INPUT -p udp -s 192.168.1.71 -d 0/0 --dport 32765:32768  -j ACCEPT
+
+     CLIENT1 (192.168.1.171)
+          $ mkdir -p /home2
+          $ cat /etc/fstab
+         192.168.1.182:/home          /home2     nfs     rw 0 0
+          $ mount -a -t nfs
+        Or to do a one time mounting by hand
+          $ mount -t nfs 192.168.1.182:/home  /home2
+        Now /home2 on the client will be /home on the server
+        Reference:
+          http://nfs.sourceforge.net/nfs-howto/index.html
+     MONITOR NFS:
+        To monitor the client:
+          $ nfsstat -c
+           Also note you can "cat /proc/net/rpc/nfs" as well.
+       To monitor the server (note the -s instead of the -c).
+         $ nfsstat -s
+           Also note you can "cat /proc/net/rpc/nfsd" as well.
+
+TIP 105:
+      Ports used for Microsoft products
+               http://www.microsoft.com/canada/smallbiz/sgc/articles/ref_net_ports_ms_prod.mspx?pf=true
+      To find out common port mappings, take a look at "/etc/services"
+
+TIP 106:
+      Man pages: If man pages are formatting incorrectly, try editing
+         the "/etc/man.config" file with the following changes:
+           NROFF /usr/bin/groff -Tlatin1 -mandoc
+           NEQN /usr/bin/geqn -Tlatin1
+         (Reference TIP 7 for using man)
+
+TIP 107:
+      Valgrind: check for memory leaks in your programs. (http://valgrind.kde.org/)
+       This is how you can run it on the program "a.out" for valgrind version 2.2.0
+         $ valgrind --logfile=valgrind.output   --tool=memcheck ./a.out
+
+TIP 108:
+      Runlevel Configuring.
+       These two programs, run as root give you a ncurses GUI to what will
+       run on your system on boot.
+            # ntsysv
+            # chkconfig
+       Note, you can also set these manually. For example, normally you will
+       have files in "/etc/init.d/" that will take parameters like "start","stop"
+       "restart".
+       Take a look at "/etc/init.d/mysql" this file will start and stop the
+       mysql daemon. So, how does know which run levels, and the order it gets
+       loaded in the run level to other programs? By the K&lt;number&gt; and S&lt;number&gt;
+       values.
+            $ ls /etc/rc3.d/*mysql
+                /etc/rc3.d/K85mysql
+                /etc/rc3.d/S85mysql
+       So here on my system the start value is 85. Looking in /etc/rc3.d, which is
+       run level 3, any program with a lower number S84something will get loaded
+       before mysql.
+       I manually set the run level as follows for mysql.
+            # cd /etc/rc3.d
+            # ln -s ../init.d/mysql S85mysql
+            # ln -s ../init.d/mysql K85mysql
+            # cd /etc/rc5.d
+            # ln -s ../init.d/mysql S85mysql
+            # ln -s ../init.d/mysql K85mysql
+       Note that I could have chose other numbers as well. "ntsysv" gives
+       you a graphical interface.
+
+TIP 109:
+       ******  EXAMPLE NOT COMPLETE ***** NOT WORKING FOR ME YET
+       Working with fam  - file alteration monitor.  Mail uses this to signify
+           a change in a file's status.
+        Below is the sample C program ftest.c which can be compiled as
+        follows:
+              $ gcc -o ftest ftest.c  -lfam
+        You will need to work with this as root
+              #  ./ftest &lt;somefile absolute path&gt;
+
+          Reference:
+            http://techpubs.sgi.com/library/tpl/cgi-bin/getdoc.cgi?db=man&amp;fname=/usr/share/catman/p_man/cat3x/fam.z
+            http://www.devchannel.org/devtoolschannel/04/05/13/2146252.shtml
+
+TIP 110:
+       glibc - this is the main library used by C, and the following
+        link below gives you examples on everything from sockets,math,
+        date and time functions, user environment, and much more.
+         http://www.gnu.org/software/libc/manual/html_mono/libc.html
+       How do you know which version of glibc you are running?
+          #include &lt;stdio.h&gt;
+          #include &lt;gnu/libc-version.h&gt;
+          int main (void)
+           {
+             puts (gnu_get_libc_version ());
+             return 0;
+           }
+
+TIP 111:
+       nslookup and dig - query Internet name servers interactively.
+         $ nslookup
+         &gt;chirico.org
+         Server:        68.80.0.6
+         Address:       68.80.0.6#53
+         Name: chirico.org
+         Address: 66.35.250.210
+         &gt;
+      The nslookup command will query the dns server is "/etc/resolve.conf"
+      However, you can force a certain dns with "- server".  For example the
+      command below goes to the server named dilbert
+         $ nslookup - dilbert
+         &gt;
+
+      dig:
+      dig gives you more information. You should probably use dig instead
+      of nslookup.
+      Below I am forcing the lookup from DNS 68.80.0.6 of the name chirico.org
+         $ dig @68.80.0.6  +qr chirico.org
+         ; &lt;&lt;&gt;&gt; DiG 9.2.1 &lt;&lt;&gt;&gt; @68.80.0.6 +qr chirico.org
+  ;; global options:  printcmd
+  ;; Sending:
+  ;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 55908
+  ;; flags: rd; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 0
+  ;; QUESTION SECTION:
+  ;chirico.org.                   IN      A
+  ;; Got answer:
+  ;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 55908
+  ;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 2, ADDITIONAL: 2
+  ;; QUESTION SECTION:
+  ;chirico.org.                   IN      A
+  ;; ANSWER SECTION:
+  chirico.org.            5538    IN      A       66.35.250.210
+  ;; AUTHORITY SECTION:
+  chirico.org.            30599   IN      NS      ns78.worldnic.com.
+  chirico.org.            30599   IN      NS      ns77.worldnic.com.
+  ;; ADDITIONAL SECTION:
+  ns78.worldnic.com.      16022   IN      A       216.168.225.218
+  ns77.worldnic.com.      7       IN      A       216.168.228.41
+  ;; Query time: 155 msec
+  ;; SERVER: 68.80.0.6#53(68.80.0.6)
+  ;; WHEN: Thu Dec 23 07:48:23 2004
+  ;; MSG SIZE  rcvd: 127
+
+TIP 112:
+       Using GNU Autotools - so you can produce the familiar "./configure"  "make"  and "make install"
+                             commands. There is also a "make dist".
+                The program sqlite3api.cc and the rest of this code can be found at
+                 http://prdownloads.sourceforge.net/cpearls/autotools.tar.gz?download
+
+         A "Makefile.am" is required:
+            bin_PROGRAMS = sprog
+            sprog_SOURCES = sqlite3api.cc
+            sprog_LDADD = @INCLUDES@ @SQLIBOBJS@
+
+         In addition, a "configure.in" file is required. Note, AC_CHECK_LIB will
+         check the "libsqlite3.so" file for the "sqlite3_open" file. Note that
+         "sqlite3", is a shortcut for "libsqlite3" by convention. If this file
+         is not found, AC_CHECK_FILE looks for "/usr/local/lib/libsqlite3.a". If
+         this is found, then, "-lsqlite3" is added to the LIBS environment variable.
+         Also, "-I/usr/local/include" and "-L/usr/local/lib" will be added on the
+         command line. This is common when some one does not have the library in
+         the path.  (See TIP 49)
+            dnl Process this file with autoconf to produce a configure script.
+     AC_INIT(sqlite3api.cc)
+     AM_INIT_AUTOMAKE(sqliteprog, 1.0)
+     AC_PROG_CXX
+     CXXFLAGS='-Wall -W -O2 -s -pipe'
+     AC_CHECK_LIB(sqlite3,sqlite3_open,[],found=no)
+      if test "$found" = "no"; then
+        AC_CHECK_FILE(/usr/local/lib/libsqlite3.a, found=yes)
+        if test "$found" = "yes"; then
+          LIBS="$LIBS -lsqlite3"
+          INCLUDES="$INCLUDES -I/usr/local/include"
+          EXTRALIB='-L/usr/local/lib'
+         else
+          echo "Are you SURE sqlite3 is installed?"
+        fi
+      fi
+     SQLIBOBJS='-Wl,-R/usr/local/lib'
+     AC_SUBST(INCLUDES)
+     AC_SUBST(SQLIBOBJS)
+     AC_SUBST(EXTRALIB)
+     AC_OUTPUT(Makefile)
+
+         To build the configure file, just run the following:
+             $ aclocal
+             $ autoconf
+             $ automake --add-missing
+             $ touch NEWS README AUTHORS ChangeLog
+
+         Now if you want to make a tar.gz file "sqliteprog-1.0.tar.gz", then
+         all you have to run is the following:
+             $ make dist
+
+TIP 113:
+       EMACS - common emacs commands.
+         M is the ESC
+         C is the Ctl
+        Shell - when working in a shell
+          M-x rename-uniquely   Use this for multiple shells
+          C-c C-z               Send job in background (when working in a shell)
+          C-c C-o               commit-kill-output (gets rid of a lot of shell output)
+          M-x send-invisible    Hide passwords - use this before typing a password
+
+        Other common commands:
+          c-x rm bookmark make
+   c-x rb bookmark bounce
+   c-x rb notes
+   c-x rb emacs
+   c-x / &lt;r&gt; (save position in register &lt;r&gt;)
+   c-x j &lt;r&gt; (jump to position in register &lt;r&gt;)
+   c-x r SPC 1 (mark current point in register 1)
+   c-x r j 1 (jump to marked point in register 1)
+   c-x r t &lt;string&gt;  (insert string into register)
+   c-x r s 1 (save marked region in register 1)
+   c-x r i 1 (insert marked region)
+   c-x c-o (delete all blank lines, except one)
+   c-x z (repeat the last command ... stop with an a)
+   c-x zz (repeat the last command twice)
+
+   rectangle
+   ---------
+   C-SPC
+   goto the next region
+   C-x
+   C-x
+   then, C-x r r "name of register"
+   to insert the register
+   C-x r i "name of register"
+
+   macros:
+   -------
+   c-x (    start macro
+   c-x )    end macro
+   c-x e    execute macro
+
+   mail:
+   -----
+   c-x m   mail
+   c-c c-s send
+
+   C-x C-e
+   (insert "\n\nExtra Line of text")
+   ;; chirico functions in .emacs
+   ;; This creates an html template
+   (defun my-html ()
+   (interactive)
+   (insert "&lt;html&gt;
+
+   &lt;head&gt;
+   &lt;META HTTP-EQUIV=\"Pragma\" CONTENT=\"no-cache\"&gt;
+   &lt;META HTTP-EQUIV=\"Expires\" CONTENT=\"-1\"&gt;
+   &lt;/head&gt;
+   &lt;body bgcolor=\"#ffffff\"&gt;
+
+   &lt;/body&gt;
+   &lt;/html&gt;")
+   )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+THE FOLLOWING SECTIONS STARTS THE PROGRAMMING TIPS
+PROGRAMMING TIP 1:
+     Simple open command that restarts the close if a signal
+     occurs.  Also note, the POSIX standards committee decided
+     all new functions would not use errno and would instead
+     directly return the error number in the function.
+     A lot of functions return -1 on an error condition, then,
+     set errno to the value of the error.  This will still work
+     for all the well known functions; but, it's changing.
+     /* start of code open.c
+        Compile gcc -o open open.c
+        Reference (Look for simple_but_common_x.x.x.tar.gz):
+         http://sourceforge.net/project/showfiles.php?group_id=79066
+                             */
+     #include &lt;stdio.h&gt;
+     #include &lt;unistd.h&gt;
+
+     #include &lt;sys/types.h&gt;
+     #include &lt;sys/stat.h&gt;
+     #include &lt;fcntl.h&gt;
+     #include &lt;stdlib.h&gt;
+     #include &lt;string.h&gt;             /* for strerror(int errno) */
+     #include &lt;errno.h&gt;
+
+     #define BUFLEN 100
+     extern int errno;
+
+     int
+     main (void)
+     {
+       int fp,error;
+       char buf[BUFLEN+1];
+       if ((fp = open ("data", O_RDWR | O_CREAT, 0600)) == -1)
+         {
+           fprintf (stderr, "Can't open data: %s\n", strerror (errno));
+           return 1;
+         }
+       snprintf (buf, BUFLEN, "123");
+       write (fp, buf, strlen (buf));
+       // Restart close should a signal occur */
+       while((( error = close (fp) ) == -1) &amp;&amp; (errno == EINTR));
+       if(error == -1)
+         perror("Failed to close the file\n");
+       return 0;
+      }
+     /* end of open.c */
+
+PROGRAMMING TIP 2:
+     Example of setting the effective UID on a file
+     /*  start of code
+       gcc uid_open.c -o uid_open
+       su
+       chown root.chirico uid_open
+       chmod u+s uid_open
+       exit
+       Now you can run this as chirico and write to the
+       root directory
+
+     */
+     #include &lt;stdio.h&gt;
+     #include &lt;stdlib.h&gt;
+     #include &lt;sys/types.h&gt;
+     #include &lt;sys/stat.h&gt;
+     #include &lt;fcntl.h&gt;
+
+     #include &lt;string.h&gt;
+     #include &lt;unistd.h&gt;
+
+     int main()
+     {
+             int fd;
+             if ((fd = open("/root/datajunk", O_RDWR | O_CREAT, 0600)) == -1) {
+                     fprintf(stderr, "Can't open file \n");
+                     return 1;
+             }
+             write(fd, "0123456", strlen("0123456"));
+             close(fd);
+             return 0;
+     }
+     /* end of code */
+
+PROGRAMMING TIP 3:
+     Writing a C http post.
+     For downloads reference:
+      http://prdownloads.sourceforge.net/cpearls/spider.tar.gz?download
+
+PROGRAMMING TIP 4:
+     Writing a 2.6.x Kernel Module:
+       Look for the latest version of "procreadwrite".  This is a 2.6 kernel
+       modules that demonstrates how to create /proc entires and write directly
+       to user-land via tty.  It's updated to reflect replacement of "current->tty"
+       with "current->signal->tty".
+         http://sourceforge.net/project/showfiles.php?group_id=79066
+
+PROGRAMMING TIP 5:
+     Creating a filename with '\n'.  This goes with (TIP 71)
+         /**** topen.c ***********************************************************
+           Filenames can be created with any character except the null character
+           and a slash.
+           This example creates a file with returns '\n\n'
+           There's a way to remove a file by inode:
+               $ ls -libt *
+           And, once you know the inode
+               $ find . -inum &lt;num&gt; -exec mv '{}' goodstuff \;
+           or
+               $ find . -inum &lt;num&gt; -exec rm '{}' goodstuff \;
+           or
+               $ find . -inum &lt;num&gt; -exec cat '{}' \;
+
+         Compile:
+             gcc -o topen -Wall -W -O2 -s -pipe  topen.c
+         Reference:
+           http://prdownloads.sourceforge.net/cpearls/simple_but_common_0.0.14.tar.gz?download
+         */
+         #include &lt;stdio.h&gt;
+         #include &lt;unistd.h&gt;
+
+         #include &lt;sys/types.h&gt;
+         #include &lt;sys/stat.h&gt;
+         #include &lt;fcntl.h&gt;
+         #include &lt;stdlib.h&gt;
+         #include &lt;string.h&gt;             /* for strerror(int errno) */
+         #include &lt;errno.h&gt;
+
+         #define BUFLEN 100
+         extern int errno;
+
+         int
+         main (void)
+         {
+           int fp,error;
+           char buf[BUFLEN+1];
+           if ((fp = open ("\n\n\n\n\n\n\n\n\n", O_RDWR | O_CREAT, 0600)) == -1)
+             {
+               fprintf (stderr, "Can't open data: %s\n", strerror (errno));
+               return 1;
+             }
+           snprintf (buf, BUFLEN, "123");
+           write (fp, buf, strlen (buf));
+           // Restart close should a signal occur */
+           while((( error = close (fp) ) == -1) &amp;&amp; (errno == EINTR));
+           if(error == -1)
+             perror("Failed to close the file\n");
+           return 0;
+         }
+
+
+  **Note, if you want email notification after every 50 new tips have been
+    added, then, click on the following link:
+     https://sourceforge.net/project/filemodule_monitor.php?filemodule_id=120838
+
+PROGRAMMING TIP 6:
+     Working With The Lemon Parser Generator.
+     http://prdownloads.sourceforge.net/souptonuts/lemon_examples.tar.gz?download
+
+
+
+REFERENCES:
+  (1)  http://www.tldp.org/LDP/abs/html/index.html
+  (2)  http://www.shelldorado.com/
+  (3)  http://www.faqs.org/ftp/usenet/news.answers/unix-faq/faq/part1
+  (4)  http://www-106.ibm.com/developerworks/library/l-rpm1/
+  (5)  http://www-136.ibm.com/developerworks/linux/
+  (6)  http://www.gnu.org/manual/manual.html
+  (7)  http://fedora.redhat.com/
+  (8)  http://souptonuts.sourceforge.net/chirico/index.php
+  (9)  http://www.faqs.org/faqs/
+ (10)  http://www.faqs.org/docs/linux_network/
+ (11)  http://www.tml.hut.fi/~viu/linux/sag/sag-0.6.2.html/index.html
+ (12)  http://www.yolinux.com/TUTORIALS/LinuxTutorialSysAdmin.html
+
+  SUMMARY:
+   (1)(2)(3) Excellent resource for bash scripts.
+   (4)       rpm resource
+   (6)       GNU Manuals Online
+   (7)       Fedora
+   (8)       Authors Website
+   (11)(12)  System Admin
+
+HIGHLY RECOMMENDED BOOKS:
+    "UNIX Network Programming, The Sockets Networking API", Volume 1, Third Edition.
+        W. Richard Stevens, Bill Fenner, Andrew M. Rudoff.
+    "UNIX Network Programming, Interprocess Communications", Volume 2, Second Edition.
+        W. Richard Stevens.
+    "UNIX SYSTEMS Programming, Communication, Concurrency, and Threads", Kay A. Robbins,
+        Steven Robbins
+    "Programming with POSIX Threads", David R. Butenhof. Addison-Wesley
+    "The C++ Programming Language" Third Edition. Bjarne Stroustrup. Addison-Wesley.
+    "C Programming Language" (2nd Edition), Second Edition, Kernighan and Ritchie
+    "Advanced Linux Programming" by Mark Mitchell, Jeffrey Oldham, and Alex Samuel, of
+        CodeSourcery LL. This book if free at the following resource:
+        http://www.advancedlinuxprogramming.com/
+    "Accelerated C++, Practical Programming by Example" Andrew Koenig, Barbara E. Moo.
+        Addison-Wesley.
+    "C: A Reference Manual", Fifth Edition, Samuel P. Harbison, Guy L. Steele.
+    "C++ Standard Library: A Tutorial and Reference, The", Nicolai M. Josuttis. Addison Wesley.
+    "C++ Templates: The Complete Guide", David Vandevoorde, Nicolai M. Josuttis. Addison Wesley.
+    "Exceptional C++: 47 Engineering Puzzles, Programming Problems, and Solutions", Herb Sutter.
+     Addison Wesley.
+    "More Exceptional C++", Herb Sutter.
+    "The Art of Computer Programming (TAOCP)", Vol 1,Vol 2, Vol 3. Donald E. Knuth. Addison-Wesley.
+    "Programming Perl, 3rd Edition", Tom Christiansen, Jon Orwant, Larry Wall. O'Reilly.
+    "Programming from the Ground Up", Jonathan Bartlett, Edited by Dominick Bruno, Jr.
+       http://savannah.nongnu.org/download/pgubook/
+    "Expert C Programming", Peter van der Linden, Prentice Hall PTR.
+
+    "C++ Coding Standards 101 Rules, Guidelines, and Best Practices", by Herb Sutter and
+       Andrei Alexandrescu.  http://www.gotw.ca/publications/c++cs/bibliography.htm
+
+HIGHLY RECOMMENDED: PHILOSOPHICAL
+     "Zen and the Art of Motorcycle Maintenance: An Inquiry into Values", Robert Pirsig.
+        http://www.virtualschool.edu/mon/Quality/PirsigZen/index.html
+     "Lila: An Inquiry Into Morals", Robert Pirsig.
+
+RECOMMENDED BOOKS:
+    "Structure and Interpretation of Computer Programs", Harold Abelson, Gerald Jay Sussman,
+      Julie Sussman. This book is free:
+        http://mitpress.mit.edu/sicp/full-text/book/book.html
+              and
+        http://www.gnu.org/software/mit-scheme/
+
+The following people made suggestions and corrections:
+  - Jorge Fabregas &lt;fabregasj@prtc.net&gt; TIP 21
+  - Malcolm Parsons &lt;malcolm.parsons@gmail.com&gt; TIP 44
+  - Andreas Haunschmidt &lt;Andreas.Haunschmidt@utanet.at&gt; TIP 102, TIP 90
+
+
+</pre>
+
+</div>
+<!-- end article -->
+</div>
+<!-- end container -->
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-194516-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+
+</body>
+</html>

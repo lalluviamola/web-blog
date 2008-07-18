@@ -1,0 +1,10 @@
+Date: 2003-10-09 19:55:16
+Format: wphtml
+Title: Coding smart.
+
+<b>Coding smart.</b><a href="http://www.acmqueue.org/modules.php?name=Content&pa=printer_friendly&pid=69"> Coding smart</a> is a good article on good coding practices. It talks about well known practices like using revision control, doing code reviews, learning from existing code, using google as a research tool, Interesting ideas that were new to me (but make sense, when you think about it), are:
+<ul>
+<li>keeping developement notes and debugging logs
+<li>writing high-level structure of the code (since it's always lost in the details of real code)
+<li>write pseudo-code before writing real code
+</li></li></li></ul>

@@ -1,0 +1,21 @@
+Date: 2008-04-14 05:50:31
+Format: wphtml
+Title: Software worth using: andLinux
+
+<p>I live in a multi-OS world and it&#8217;s nice to be able to do multi-platform work on just one physical computer. Since my main OS is Windows, when I need to do Linux work I resort to VMWare. While being great piece of software, it annoys me that the Linux world lives in its own sandbox. Sharing the filesystem doesn&#8217;t work very well (regardless of whether I use VMWare&#8217;s built-in folder sharing or use samba in either direction) and while I&#8217;m in VMware, Alt-tab no longer does the expected thing.</p>
+
+<p><a href="http://www.andlinux.org/">andLinux</a> solves some of those problems and, as a bonus, is free. andLinux is an easy to install Ubuntu distribution based on <a href="http://www.colinux.org/">coLinux</a>.</p>
+
+<p>While VMWare emulates the whole hardware, so that you can install any OS and it won&#8217;t see any difference, coLinux is a modified Linux kernel that runs as a process on Windows. Based on that it&#8217;s possible to build a whole Linux distributions and andLinux is a pre-packaged Ubuntu with Windows installer.</p>
+
+<p>After installation you get ability to run a console inside Linux and the advantage over VMWare approach is that a console is just another application on Windows. Open five consoles - you just get 5 windows that behave like any other Windows application.</p>
+
+<p>By also running an X-server on Windows side, it&#8217;s possible to launch graphical applications.</p>
+
+<p>There are some downsides to coLinux, the biggest one being the fact that it&#8217;s slower than VMWare. Latest betas are supposedly faster than what andLinux uses currently, so there&#8217;s hope it&#8217;ll get better.</p>
+
+<p>The Linux &#8220;hard-drive&#8221; is just a file on your Windows filesystem. The default size of that file is only 2GB so you&#8217;ll likely need to increase it quickly, which isn&#8217;t straightforward. The method I used involved expanding the file on Windows with dd command and then running a &#8220;resize ext filesystem&#8221; program on the Linux side. It&#8217;s not the safest way to do it, but it worked for me.</p>
+
+<p>File sharing between Linux and Windows side can be done either by cofs driver which allows mounting any directory on Windows under /mnt, or samba.</p>
+
+<p>On the whole andLinux is an attractive alternative to VMWare. I wouldn&#8217;t use for tasks that are heavy on CPU and disk-drive (e.g. compiling a large code base) since it can be twice as slow as VMWare on the same hardware, but when that is not a factor, a better integration with Windows is really helpful.</p>

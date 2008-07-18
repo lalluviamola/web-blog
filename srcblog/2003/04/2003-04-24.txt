@@ -1,0 +1,22 @@
+Date: 2003-04-24 03:46:53
+Format: wphtml
+Title: Symbian has already beat the pants off Microsoft.
+
+<b>Symbian has already beat the pants off Microsoft.</b>
+
+The love is 
+<a href="http://www.russellbeattie.com/notebook/20030422.html#151618">clearly blind</a>. Just listen to 
+this: Symbian has already beaten Microsoft in the mobile area. I wonder if 
+Microsoft (or Palm) did notice that. So far the facts are that Palm has (still) 
+a majority of market share for PDA devices. Microsoft's Pocket PC is steadily 
+gaining market share. Then there is a distant third place which might belong to 
+Symbian but that's just a blip. And Symbian (and its partners) aren't doing a 
+great job promoting it. First, free tools for C/C++ development for OS 7 still 
+aren't available (and yes, you can get free tools for both Palm and Pocket PC). 
+They only shipped two or three products (phones) which aren't all that superior 
+to Palm's or Microsoft's offerings (in some cases they are better, in some cases 
+they're worse). Then the developer programs are fragmented: Nokia, Motorola and 
+SonyEricsson all have their own separate little developer programs instead of 
+Symbian having one that offers all the good stuff in one place. Not to mention 
+the fixation they all seem to have on multimedia (i.e. cameras integrated with 
+the phone).

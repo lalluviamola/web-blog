@@ -1,0 +1,38 @@
+Date: 2004-04-19 18:18:06
+Format: wphtml
+Title: Psyco - effortless, significant speedup of Python programs.
+
+<p><strong>Summary:</strong> using <a href="http://psyco.sourceforge.net/">psyco</a> is an 
+<a href="http://psyco.sourceforge.net/psycoguide/node8.html">easy way</a>
+to get a 9x speedup for real-life Python program.</p>
+
+<p>I just wrote a Python program that took quite a while to complete.
+It was reading a 600 MB *.sql file (uncompressed 
+<a href="http://download.wikimedia.org/">Wikipedia database dump</a>, parsing it
+to extract some fields and writing the result to a text file for
+easier processing in the future). While it's not a production code it is 
+important for me. Currently Python is my favorite language for writing 
+non-GUI code because of ease of development and rich libraries. The only 
+sore point is its speed, or lack of it but I will always trade CPU cycles for 
+programming cycles. There are efforts to speed up Python code and one of 
+them is <a href="http://psyco.sourceforge.net/">psyco</a>. I've heard about it before 
+but never tried in practice so I decided to give the latest version (1.2) 
+a try. Setup (on Windows XP, Python 2.3.2) was a breeze. All it takes to 
+use psyco is to <a href="http://psyco.sourceforge.net/psycoguide/node8.html">add 2 lines to your 
+program</a>. What about 
+the results? I achieved 9.67 speed up which is great. When, for benchmarking 
+purposes, I limited the processing to only 10.000 (out of around 360.000) 
+records, the processing time dropped from 301.19 seconds 
+to 31.12 seconds. That's a big win and makes a real difference when 
+processing the whole file. Go psyco!</p>
+
+<p>Standard benchmark warning: "there are lies, damn lies and benchmarks". My 
+app is different than yours so it might get better or worse speedup from 
+psyco. Having said that, the app in question is non-trivial, real-life app 
+(i.e. it's not a micro-benchmark designed to test a specific feature) so I 
+think it's fair to say that psyco can give a serious speed up to a large 
+class of python apps. It seems to be stable and is extremely easy to use.</p>
+
+<p>I would post the code so that people could independently verify the 
+results but currently it takes too much effort to upload files to my blog. 
+Sorry about that.</p>

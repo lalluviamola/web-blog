@@ -1,0 +1,12 @@
+Date: 2003-05-13 02:58:11
+Format: wphtml
+Title: Another revision control system (i.e. CVS competition)
+
+<b>Another revision control system (i.e. CVS competition).</b> <a href="http://abridgegame.org/darcs/">Darcs</a> 
+(David's Advanced Revision Control System) is yet another replacement for CVS. 
+Written in Haskell and runs on GNU/Linux and MacOS X. Those are the bad parts 
+(Haskell limits acceptance and ability of other people to contribute, not running 
+on Windows also limits acceptance). </a>&nbsp;The good part is that the author 
+seems committed to the project and things quickly move forward (unlike arc which 
+gets a lot of mailing list activity and little new code). Lessons learned: according 
+to the author merging is very hard.

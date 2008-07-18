@@ -1,0 +1,12 @@
+Date: 2004-06-07 19:52:25
+Format: wphtml
+Title: Automatic posting in the future.
+
+I have a dream: I wish blog software had a way to schedule postings in the future.
+
+The problem: a weblog works the best if it has a constant, steady flow of interesting posts.  We humans aren't good at consistency. There are days when we post abundantly and there are days when we don't post at all. There are simple fix to this problem: buffering of posts. On abundand days don't post all the articles, save some for the future, dry days. With a little discipline you could go on vacations and your blog readers wouldn't even notice.  Problem with this solution is that without a support from a weblogging tool it's not possible. 
+
+In my dream there would be a separate queue of "delayed posts". Posts in this queue are not drafts, those are fully completed posts that I want to post on dry days when I suffer writer's block. There should be a way to specify the precise time of posting but what I would like the most is an option to "post $N from delayed posts queue if I didn't posts today before $time".
+
+Now, that is just a dream. Accidently I discovered that <a href="http://wordpress.org">WordPress</a> has some way to do it: while writing a post you can <a href="http://wordpress.org/docs/reference/post/#edit_timestamp">change a timestamp to a future date</a>. The post won't be visible until this date.
+

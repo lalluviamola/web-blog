@@ -1,0 +1,12 @@
+Date: 2004-06-17 05:55:14
+Format: wphtml
+Title: Daily reading
+
+<ul>
+
+<li> <a href="http://staff.develop.com/candera/weblog2/CommentView.aspx?guid=5f1a3bce-f140-42c9-9e92-9e664e624281">how to implement psexec</a> </li>
+<li> <a href="http://wordpress.org/mailman/listinfo/hackers_wordpress.org">WordPress dev mailing list</a> </li>
+
+<li><a href="http://www.cenamayo.com/wpxref/nav.html?index.html">cross-reference of WordPress code</a> - very useful</li>
+
+<ul>

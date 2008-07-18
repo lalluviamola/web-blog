@@ -1,0 +1,24 @@
+Date: 2003-12-26 18:35:03
+Format: wphtml
+Title: Playing with M2, Opera's e-mail client
+
+<b>Playing with M2, Opera's e-mail client</b>
+
+I just installed Opera and curiously it comes with a bundled e-mail client called M2.
+I'm not entirely satisfied with <a href="http://blog.kowalczyk.info/archives/000528.html#000528">Thunderbird 0.4</a> so I decided to give it a try. First impression was very favourable:
+<ul>
+<li>its IMAP support is good (detected and imported my folder hierarchy)
+<li>it's snappy (unlike Thunderbird that routinely stalls) e.g. I could comfortably
+browse and read messages while it was downloading the rest of my e-mails in background
+<li>M2 has some interesting e-mail management ideas
+</li></li></li></ul>
+
+The interface was a bit strange but I would get used to it eventually.
+<p>it of playing with it I found one show-stopper: it automatically
+flags e-mails as spam (good) but doesn't allow me to manually un-flag messages that were mistakenly flagged as spam (bad). Its spam detection engine generated too many false positives (non-spam messages flagged as spam) and for that one reason I just can't use it. A
+spam filtering that I can train by pointing spam messages that were not recognized
+as spam and correcting false positives is a must in e-mail client. M2 seems to
+only have fixed, automatic spam filterting that cannot be re-trained and it
+does have too many false positives.
+<p>
+It's back to Thunderbird for me.</p></p>

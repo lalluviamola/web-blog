@@ -1,0 +1,21 @@
+Date: 2004-12-23 09:36:21
+Format: wphtml
+Title: Yahoo cancelling Yahoo! Finance
+
+This must be new: I just logged in to Yahoo! Finance section and it has a big notice that they're closing it on February 2005. This notice wasn't there a week ago and I didn't see any news about it in the blogosphere.
+
+That's quite sad news. Accessing data from my (major U.S.) bank or other financial institutions is awful (compared to what it could be). Usually I'm limited to whatever web interface a given institution offers and an average quality of that is low in many cases hoovering near "awful" (datek.com, now ameritrade.com, is a good example of infurating web interface that makes me click and click and click to get the basic information).
+
+I failed to get Microsoft Money or Quicken get data from my bank (and believe me, I tried to the point of furious frustration with cryptic error messages).
+
+Yahoo! Finance was the only thing that I managed to get working. It was able to get the data from my different finance institutions (although there were glitches and periods of non-working) and show them aggregated in a farily good way.
+
+But the killer (if only rarely used) feature was ability to transfer money electrnically between accounts in 2 different banks (btw. in those days it boggles the mind that it's impossible to set this up directly from my bank and that it takes 3 days to settle an electronic transfer).
+
+Now it's gone. But I just discovered that <a href="http://etrade.com">etrade.com</a> allows to transfer from/to other bank accounts. So I can use that as my money router. It'll be more difficult to use since with Yahoo! I could transfer money from account A to account B in one transaction while via etrade I'll have to transfer from A to etrade and from etrade to B.
+
+As I said, banking, once on the cutting age of innovation, is in stone ages when it comes to being able to use computers and network effectively.
+
+Three days to settle an electronic transfer! Do they have a step of manual verification that they outsource to prison inmates in China? Or is it because they didn't upgrade their systems from pdp-11 yet?
+
+And where's the ability to access the info about my bank account on my mobile phone?

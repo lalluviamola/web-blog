@@ -1,0 +1,77 @@
+Date: 2004-04-18 13:38:31
+Format: wphtml
+Title: Ecto for Windows - first (bad) impressions.
+
+<b>Ecto for Windows - first (bad) impressions.</b>
+
+My search for a decent blogging windows desktop client continues. I tried
+them all and today I tried another one: <a href="http://ecto.mineblogging.com">ecto</a>, build 0.3.3.1 (Yet Another Cryptic Build Numbering System).
+<p>
+Ecto journey was short and here are my first (bad) impressions.
+<p>
+I downloaded, installed and launched ecto. Ecto
+informed me that "This might be the first time ecto is run. Please enter your
+user information" which was very unnecessary. This message should be gone and I
+should be taken straight to profile setup window instead.
+<p>
+The splash screen is visible when "Profile Setup" window is shown.
+Why? At this point it's totally unnecessary and annoying. It's "always on top"
+window; although it doesn't cover other ecto's windows, it does obscure
+all other applications e.g. the editor in which I'm writing this review.<p>
+Profile setup dialog box (where you enter you XML-RPC api entry point) - I've
+seen better. Could use some re-design. One of the Mac blogging tools had a very nice interface for providing weblogs
+settings - I forgot which one but the authors of ecto should survey other
+blogging clients and steal the best interface. Theirs isn't.
+<p>
+In "Profile Setup" window I entered my MovableType weblog setup data: profile 
+name, username
+and password and clicked "Apply" button. Ecto informed me (twice!) that "Specified
+key is a known weak key for TripleDES and cannot be used." This error message is bad: 
+<ul>
+<li>it doesn't tell me what the problem is. I entered "profile name",
+"username" and "password", not some "specified key"</li>
+<li>uses techno-babble language that most people don't understand (I know what "TripleDES" is but I doubt 
+many people do)</li>
+<li>it doesn't tell me how to fix the problem</li>
+</ul>
+Two words to ecto's author (and anyone else designing error messages):
+<a href="http://www.amazon.com/exec/obidos/tg/detail/-/0764526413/">About Face</a>. <p>
+Then I clicked "Save" button, hoping that the error message was
+just an information. I forgot what exactly it did but since I didn't see an
+expected reaction from ecto, I launched another copy. It showed me the same
+information as the first run but the previous copy of ecto was running as well. I ended up with 2 "Profile Setup" windows, one splash screen
+and one main window (the one where you enter posts). Main window was blocked by "Profile Setup" modal window. To
+make things worse I couldn't even close ecto since it doesn't provide any close
+button on &quot;Profile Setup&quot; window and no other button does the trick. I had to use "kill -f".
+<p>My theory is that ecto, in a misguided effort to force me to use what it
+thinks is a strong password, refuses to create a profile with a weak password.
+The problem is that I already have a weblog with a password and I'm not going to
+change it just to please ecto. Given those 2 constraints (my refusal to change
+the password and ecto's refusal to accept my existing password) ecto is
+completely useless for me. There's no way to exit ecto without creating a 
+profile.<p>
+Redesign advice: instead of refusing to accept "weak unspecified key", ecto
+should accept it. At best it can display a message that explains that weak
+passwords are bad (without using techno-babble filled with "TripleDES"
+nonsense). But when I press "Shut the fuck up" button, it should accept any
+password I give it. I'm the master here, not ecto. If I want to use blank
+passwords that's my choice.
+<p>
+Summary: my first ecto experience was very bad. Ecto is unusable for me because it 
+refuses to accept settings (presumably password) for my
+existing Movable Type weblog. It has some obvious bugs (showing the same
+dialog box twice, not being able to exit it, splash screen obscuring other 
+applications) and the general feel of the interface is "an average for
+software" which translates "substandard for actual use". Most software is
+badly, carelessly designed and ecto is not an exception.
+<p>
+As you can imagine, this post has not been written using ecto. I'll try it again
+when a new build becomes available, but judging from screenshots I'll have the
+same complaints I had about all other blogging software I tried:
+<ul>
+<li>no spell-checking
+<li>forcing me to save draft posts on the disk
+<li>no full-text search of my previous posts
+</li></li></li></ul>
+Without those features blogging software is no better (and sometimes worse) than
+using FrontPage for writing posts and web interface for posting.</p></p></p></p></p></p></p></p></p></p>

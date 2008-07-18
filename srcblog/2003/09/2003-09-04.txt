@@ -1,0 +1,5 @@
+Date: 2003-09-04 15:13:05
+Format: wphtml
+Title: A bit about bluetooth as medium for game playing.
+
+<b>A bit about bluetooth as medium for game playing.</b> An article <a href="http://costik.com/weblog/2003_09_01_blogchive.html#106268063786014043">Bluetooth for games</a> has a little bit of interesting, high-level information on Bluetooth with a focus on using it for playing multi-player games.

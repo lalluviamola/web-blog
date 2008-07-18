@@ -1,0 +1,7 @@
+Date: 2004-09-25 13:33:40
+Format: wphtml
+Title: Testing ecto for Mac
+
+<p>
+This post has been created using ecto for Mac. Just trying to see if it'll work at all.
+</p>

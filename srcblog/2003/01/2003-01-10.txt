@@ -1,0 +1,6 @@
+Date: 2003-01-10 12:53:03
+Format: wphtml
+Title: Sony pulls old, disgusting tricks.
+
+<b>Sony pulls old, disgusting tricks.</b>
+Sony just announced a new <a href="http://rtnews.globetechnology.com/servlet/ArticleNews/tech/RTGAM/20021220/gtclie/Technology/techBN/">CLIE PEG-NX70V</a>, PDA based on Palm OS. The good part is that it has a standard CompactFlash port. The bad part is that the only thing you can stick there is Sony's proprietary wireless card. This is beyond disgusting. The whole point behind CF standard was for it to be a standard: you get the slot on the device and you buy plenty of third-party devices for that slot. And they're supposed to work together. But Sony prefers to be shortsighted to the point of blindness and tries to protect their meager revenues from one wireless card and push completely unnecessary MemoryStick standard by sacrificing the value of their PDAs (not the mention that at $800 they're expensive as hell). Oh well, watching them bleed will be a pleasure.

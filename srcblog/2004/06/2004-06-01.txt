@@ -1,0 +1,5 @@
+Date: 2004-06-01 07:01:38
+Format: wphtml
+Title: Lisp is better than Java
+
+Turns out I was wrong: <a href="http://www.findinglisp.com/papers/case_study_java_lisp_dns.html">Lisp is better than Java</a>.

@@ -1,0 +1,24 @@
+Date: 2003-03-11 05:43:42
+Format: wphtml
+Title: Always-on experience.
+
+<b>Always-on experience.</b>
+
+I just tried AOL Instant Messenger client built in SideKick. It rocks. It rocks because of one specific feature: you're logged in all the time 
+and that's just shows the superiority of SideKick over any other wireless thingy 
+I know.&nbsp; When a new message comes in you're alerted the same way as you're 
+alerted about a phone call. This capability is, as far as I can tell, unique to 
+SideKick thanks to its operating system that allows such things and unlimited 
+data plan that doesn't make you want to turn everything non-essential off. On 
+Palm-based phones you simply couldn't write an application like this because due 
+to its non-multitasking OS, once you close your app, the network connection is 
+lost and you're logged off. Technically it's possible to achieve that on a 
+Pocket PC-based phone but I don't know if there's any plan for Pocket PC phones 
+with unlimited GPRS data (or any IM client that works in an always-on mode). As 
+far as Symbian devices go I have no clue - technically they should be able to do 
+it but the lack of good (i.e. cheap) data plan would get in the way. I don't 
+think SideKick is perfect - it's far from it - but so far it's the best 
+phone/PDA combo on the market. It shows that what really counts is end-to-end 
+design: to have a good, always on IM you need good OS, cheap data plan and a 
+good keyboard. SideKick has all of those while its competition lacks at least 
+one of the required elements.

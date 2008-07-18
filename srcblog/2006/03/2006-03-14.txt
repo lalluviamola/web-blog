@@ -1,0 +1,17 @@
+Date: 2006-03-14 02:00:21
+Format: wphtml
+Title: Inscape mini-review
+
+More an impression than a mini-review.
+
+<a href="http://www.inkscape.org/">Inscape</a> is an open-source vector drawing program. Think Illustrator.
+
+I've tried the Windows version. My only frame of reference is Illustrator and even that only used a couple of times. I'm not a graphic person but I had to draw a logo so I decided to give Inscape a spin.
+
+It worked surprisingly well. As expected I was confused at first by all the differences from the Illustrator but I quickly got the basics.
+
+I was positively surprised that some of the basic things (like resizing) were done better than in Illustrator (at least in my opinion). I was able to export to plain svg format that I could import in Illustrator.
+
+Inscape has all the basic features. Illustrator, not surprisingly, is much more capable and many things are done better (for example, saving an illustration as an image has a preview in Illustrator).
+
+To conclude, I was able to design my simple thing. I can't say how well would Inkscape work for more complex design tasks.

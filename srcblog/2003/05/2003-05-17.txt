@@ -1,0 +1,39 @@
+Date: 2003-05-17 06:59:08
+Format: wphtml
+Title: Software idea: CVS viewer (and more).
+
+<b>Software idea: CVS viewer (and more).</b> I have to admit a certain amount 
+  of hubris when it comes to designing software: on average I think I could do 
+  a better job that the authors of a given software. Take graphical CVS clients, 
+  for example. There are many of them out there but none that I tried actually 
+  did things I wanted the way I wanted it. Let's sketch the requirements for a 
+  good CVS client. I want it to serve two main purposes:
+<ul>
+  <li>a tool for easily viewing changes to files (i.e. diffs) in CVS repository 
+    and handling the obvious stuff that any other CVS gui client handles</li>
+  <li>a tool for extracting statistics about the project</li>
+</ul>
+<p>Those two purposes aren't closely related so it isn't a good idea to have them 
+  in the same app, but this is my app and I want to address my needs here.</p>
+<p>The tool should work on existing checkouts created with command-line tools 
+  (I didn't manage to get WinCVS to do it)</p>
+<p>As far as statistics go, I'm mainly interested in quickly deciding about the 
+  complexity of the project and whether it's alive or not. Complexity means having 
+  statistics about number of lines of code (despite of its crudeness). To decide 
+  whether project is alive we just need to look at how much of new code has been 
+  checked in. I would like to know daily CVS activity (i.e. number of checkins, 
+  number of lines of new code) for the past few days (say 2 weeks) as well as 
+  weekly/monthly stats for the whole time of project existence (to see how the 
+  project activity evolves in time). Also per-developer stats would be nice (in 
+  overview number of contributed lines of code for each person with ability to 
+  drill down by person to see list of his checkins over time).
+<p>It should be easy to figure out in which checking a given line of code has 
+  been modified (e.g. a built-in viewer for the source with ability to point to 
+  a line and execute &quot;find checkins that modified this line&quot; command).
+<p>It should be possible to filter out files/directories (e.g. Chandler project 
+  has a lot of third party code in their repository for ease of development but 
+  when I look at their changes I'm not interested in changes to python itself).
+<p>It should be easy to see latest changes (as this is what newcomers to a project 
+  are most interested in).
+<p>And that's it for now - I know it's not very impressing. I get this feeling 
+  that writing requirements docs (or any other spec) isn't easy.

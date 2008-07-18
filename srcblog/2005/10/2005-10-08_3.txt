@@ -1,0 +1,109 @@
+Date: 2005-10-08 23:59:19
+Format: wphtml
+Title: Google Reader first impressions
+
+<p>
+  Dave Winer
+  <a href="http://archive.scripting.com/2005/10/08#When:8:18:32AM" title="bashed Google Reader">bashed
+  Google Reader</a>. Bashing is good when it has meat in it. Instead of history
+  lessons in spreadsheets he should rather point out specific things that suck.
+</p>
+<p>
+  So, does it suck or not? In my personal, although limited experience it's ok.
+  I'm a FeedDemon turned Bloglines user. I've imported my 300+
+  <a href="http://bloglines.com/" title="Bloglines">Bloglines</a>&nbsp;subscriptions
+  into <a href="http://www.google.com/reader" title="Google Reader">Google
+  Reader</a> and I've been using it for the past 2 days to read news.
+</p>
+<p>
+</p>
+<p>
+  Performance problems people were complaining about seem to&nbsp;be gone.
+</p>
+<p>
+</p>
+<p>
+  An interesting thing is that the design of the application changes how you use
+  it.
+</p>
+<p>
+</p>
+<p>
+  In Bloglines, I would mostly use mouse and do a topical-based scanning i.e. I
+  would scan the list of subscriptions with unread items on the left, click on
+  those I find the most interesting at&nbsp;the time. Then I would scan all the
+  posts from a given source. I would do that because it comes natural given
+  Bloglines design.
+</p>
+<p>
+</p>
+<p>
+  Main page of Google Reader is more or less random selection of items from all
+  subscriptions so I just scan them sequentially, using keyboard shortcuts.
+</p>
+<p>
+</p>
+<p>
+  So is it good or bad? That's not the right question. The good question is:
+  will I switch from Bloglines to Google Reader like I switched from FeedDemon
+  to Bloglines? I don't know yet. I'm still experimenting but 2 days is not
+  enough to tell if Google Reader suits me better than Bloglines.
+</p>
+<p>
+</p>
+<p>
+  A few random Bloglines vs. Google Reader smackdowns.
+</p>
+<p>
+</p>
+<p>
+  Google Reader confuses me in a way Bloglines doesn't. In Bloglines I always
+  know how many feeds are unread. In Google Reader my main page shows 0 unread
+  items but when I go to a pages for a specific feed, it shows plenty of unread
+  items. I just don't get it.
+</p>
+<p>
+</p>
+<p>
+  Starring in GR is better than filing a clipping in Bloglines.
+</p>
+<p>
+</p>
+<p>
+  Unsubscribe in GR is flaky.
+</p>
+<p>
+</p>
+<p>
+  I like that Bloglines shows how many people are subscribed to a given blog - a
+  good way to measure my blog's popularity.
+</p>
+<p>
+</p>
+<p>
+  "Gmail this" crashed my FireFox one time I tried to use it.
+</p>
+<p>
+</p>
+<p>
+  Telling me "Item 11 of of more than X" isn't very helpful. I want to know an
+  exact number of unread items I have.
+</p>
+<p>
+</p>
+<p>
+  Both Bloglines and GR seem to have a problem (by my definition of a problem)
+  of posting the same entries after they got a minor update. Now, technically
+  you might put the blame on faulty RSS generators or bloggers who like to touch
+  their old posts for no apparent reason but I would sure like an option "don't
+  show minor edits" which would hide posts that I've read and only got a minor
+  update of the content. How do you define minor update? I don't know but I'm
+  sure such problems isn't too big for an army of Ph.Ds.
+</p>
+<p>
+</p>
+<p>
+  It would also be nice if GR gave more screen estate to the post itself.
+  Currently the distance between the top of the window and the beginning of the
+  post text is too big - it's a wasted space.
+</p>

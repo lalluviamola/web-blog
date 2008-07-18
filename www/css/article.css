@@ -1,0 +1,19 @@
+#article { font-size: 12px; margin-bottom: 20px; }
+#article h1 { font-weight: bold; font-size: 1.5em; padding:0; margin: 0}
+
+#kb { font-size: 12px; margin-bottom: 20px; }
+#kb h1 { font-weight: bold; font-size: 1.5em; padding:0; margin: 0}
+
+#kb pre { 
+  border-left: 0px; margin-left: 1.5em; margin-right: 1.5em; 
+  border: 1px solid #ccc; 
+  color:#000000; padding:10px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.tags {
+       text-align: center;
+       border: 1px solid #fcc; 
+       margin-left: 0.5em;
+       padding-bottom: 3px;
+}

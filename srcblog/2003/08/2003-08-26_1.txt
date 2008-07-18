@@ -1,0 +1,5 @@
+Date: 2003-08-26 22:13:08
+Format: wphtml
+Title: We don't link, we don't have to. We're Wired.
+
+<b>We don't link, we don't have to. We're Wired.</b> This <a href="http://www.wired.com/wired/archive/11.09/mit_pr.html">Wired article about MIT's OpenCourseWare</a> is close to unbelivable: they have a photo of a Vietnamiese guy who happens to use the MIT's web site but there is not a single link to the <a href="http://ocw.mit.edu/index.html">actual site</a> they're writing about.

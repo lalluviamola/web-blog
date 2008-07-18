@@ -1,0 +1,21 @@
+Date: 2004-06-29 20:58:53
+Format: wphtml
+Title: Marketing as a skillful lying.
+
+Personally, I think that marketing is much more than skillful lying, however there are things that re-inforce that image to me. A recent example is Handango's press release about their InHand on-the-device catalog for downloading and buying applications. The idea is sound but Handango's marketing team manages to put at least 2 blatant lies in the press-release.
+
+First they say:
+<blockquote>
+XML DATA. InHand is built on an XML data architecture, which ensures very efficient data transmission as well as the ability for licensees to manage the data feeds in-house.
+</blockquote>
+There are many benefits of XML to tout so why they decided to lie by pointing out one thing XML is not good at i.e. "efficient data transimission"? Efficient compared to what? It's hard to come up with a format that is more inefficient than XML.
+
+Then they try to one-up themselves:
+<blockquote>
+"With this announcement, Handango InHand is now available for virtually every smart or feature phone in the market regardless of whether it is running Symbian OS(TM), Windows Mobile(TM) or Java(TM)," said Randy Eisenman, president and chief executive officer of Handango. 
+</blockquote>
+
+Except Palm based phones like Treo 600. A curious definition of "virtually every". 
+
+Considering blatant lies I guess there's no point quibbling over small details like using meaningless phrases of the "one-click interface" sort (although technically it must be a lie too; I challange Handango to show how I can accomplish anything with InHand using just "one click").
+

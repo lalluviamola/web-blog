@@ -1,0 +1,5 @@
+Date: 2004-06-05 21:08:59
+Format: wphtml
+Title: Web testing with HTTP::Recorder
+
+Excellent idea: <a href="http://www.perl.com/pub/a/2004/06/04/recorder.html?page=1">HTTP::Recorder</a>  is a web proxy in perl that records requests made through it. Then those requests can be replayed. Can be used to easily create web testing scripts or to analyze how a given web application works.

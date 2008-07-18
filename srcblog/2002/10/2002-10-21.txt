@@ -1,0 +1,5 @@
+Date: 2002-10-21 10:44:53
+Format: wphtml
+Title: Mitch makes waves.
+
+<b>Mitch makes waves.</b>. <a href="http://www.osafoundation.org/">OSAF</a> makes waves. There are mainstream <a href="http://www.siliconvalley.com/mld/siliconvalley/4327025.htm">articles</a> written about it, it gets mentioned in weblogs (<a href="http://kode-fu.com/geek/2002_10_20_archive.shtml#85585428">here</a>, <a href="http://www.docuverse.com/blog/donpark/2002/10/21.html#a103">here</a>, <a href="http://www.aaronsw.com/weblog/000678">here</a>), their mailing lists immediately <a href="http://lists.osafoundation.org/pipermail/design/">attracted a lot of posts</a>. This is a project to watch.

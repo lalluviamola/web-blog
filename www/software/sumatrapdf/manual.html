@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Sumatra PDF viewer</title>
+<link rel="stylesheet" href="sumatra.css" type="text/css" />
+<meta http-equiv="Content-Type"content="text/html; charset=iso-8859-1" />
+</head>
+
+<body>
+
+<div id="container">
+  <div id="banner">
+    <h1>Sumatra PDF</h1>
+    <h2>A PDF Viewer for Windows</h2>
+    <div id="ddcolortabs">
+      <ul>
+        <li><a href="index.html" title="Home"><span>Home</span></a></li>
+        <li><a href="news.html" title="News"><span>News</span></a></li>
+        <li id="current"><a href="manual.html" title="Manual"><span>Manual</span></a></li>
+        <li><a href="download.html" title="Download"><span>Download</span></a></li>
+        <li><a href="develop.html" title="Develop"><span>Develop</span></a></li>
+        <li><a href="translations.html" title="Translations"><span>Translations</span></a></li>
+        <li><a href="/forum_sumatra/" title="Forums"><span>Forums</span></a></li>
+      </ul>
+    </div>
+    <div id="ddcolortabsline"> </div>
+  </div>
+
+  <div id="center">
+    <div class="content">
+      <a href="sumatra-shot-01-full.gif"><img align="right" src="sumatra-shot-01.gif" /></a>
+      <a href="sumatra-shot-00-full.gif"><img align="right" src="sumatra-shot-00.gif" /></a>
+      <h2 id="manual">Keyboard shortcuts</h2>
+      <ul>
+        <li>Ctrl+Left Mouse - select a text on a page and copy to clipboard. Use Ctrl-V to paste it in other programs</li>
+        <li>space - scroll by screen</li>
+        <li>backspace - scroll back by screen</li>
+        <li>k - scroll by one line</li>
+        <li>j - scroll back by one line</li>
+        <li>Down - scroll by one line</li>
+        <li>Up - scroll back by one line</li>
+        <li>n - goto next page</li>
+        <li>p - goto previous page</li>
+        <li>Page Down - go to next page</li>
+        <li>Page Up - go to previous page</li>
+        <li>Ctrl-F - find text</li>
+        <li>F3 - find next</li>
+        <li>Shift-F3 - find previous</li>
+        <li>g - goto page</li>
+        <li>q - quit</li>
+        <li>+ - zoom in</li>
+        <li>- - zoom out</li>
+        <li>r - reload PDF document</li>
+        <li>&lt;Shift&gt; &lt;Ctrl&gt; + - rotate clockwise</li>
+        <li>&lt;Shift&gt; &lt;Ctrl&gt; - - rotate counter-clockwise</li>
+        <li>Home - go to first page</li>
+        <li>End - go to last page</li>
+      </ul>
+      <h2 id="manual">Command-line arguments</h2>
+      <ul>
+        <li>-esc-to-exit - if given, ESC key will exit the program. It's persistent in settings file, so it only needs to be provided once.</li>
+        <li>-bgcolor $color - change the yellow background color to a provided color in hex format (e.g. 0xffff00)</li>
+        <li>-print-to-default FILE_NAME.PDF - prints a given PDF to a default printer</li>
+        <li>-print-to PRINTER_NAME FILE_NAME.PDF - prints a given PDF to a printer named PRINTER_NAME</li>
+        <li>-exit-on-print - when -print-to-default or -print-to is used, will exit after printing</li>
+      </ul>
+      <p>Note: printing is experimental and not well tested.</p>
+      
+      <h2 id="manual">Disable viewing PDF files directly in web browser (IE and
+      FireFox)</h2>
+      Adobe Acrobat also comes with Internet Explorer and FireFox plugin
+      which makes it take over PDF files downloaded via browser and display
+      them directly in the browser. This is not always a desired behaviour
+      and you can use Sumatra as the default PDF viewer in both IE and Firefox,
+      without completely uninstalling Adobe Acrobat. Here are the steps (based
+      on <a href="http://notlost.blogspot.com/2007/06/switching-to-sumatra-pdf-reader.html">
+      this blog post</a>):
+    <ul>
+        <li>Launch Sumatra PDF viewer</li>
+        <li>Select File/Make Sumatra a default PDF reader</li>
+        <li>Launch Adobe Acrobat</li>
+        <li>Select Edit/Preferences</li>
+        <li>Select Internet</li>
+        <li>Uncheck Display PDF in browser</li>
+        <li>Click OK</li>
+    </ul>
+    You generally don't have to restart your computer after the installation is complete.
+    <p>
+    After doing this, clicking on links to PDF documents will no longer open the
+    embedded viewer, but will pop up a dialog box. Check the "Always perform this
+    action..." checkbox on the dialog, and Sumatra will automatically open the next
+    time a PDF link is selected.</p>
+    <p>If those instructions don't work, you can always try <a href="http://howto.helpero.com/howto/Disable-PDF-Browser-Plugin-For-Firefox_29.html">this method.</a></p>
+    </div>
+  </div>
+  <hr/>
+  <center>Sumatra is written by <a href="/">Krzysztof Kowalczyk</a></center>
+</div> <!--container-->
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-194516-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+
+</body>
+</html>

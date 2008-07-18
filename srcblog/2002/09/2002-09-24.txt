@@ -1,0 +1,5 @@
+Date: 2002-09-24 22:10:52
+Format: wphtml
+Title: Comments need not apply.
+
+<b>Comments need not apply.</b> Ok, it's not like anyone's asking, but I'll lay it down anyway: I disabled comments on my weblog. <a href="http://www.movabletype.org">MovableType</a> doesn't care, it's just a check-box. The reason for that is that I think that comments don't work on blogs in general. On all the blogs I've read I've only seen comments on a tiny percentage of posts and only a percentage of those comments were useful. It's not worth it. The nature of the blog is that posts are dying quickly. Blog that doesn't move is a dead blog. Therefore a single post has relatively little value and by its very nature will quickly fall into obscurity. That's the way the blogs are.

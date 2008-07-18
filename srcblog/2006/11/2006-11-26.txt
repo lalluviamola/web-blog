@@ -1,0 +1,6 @@
+Date: 2006-11-26 08:12:57
+Format: wphtml
+Title: Sumatra PDF 0.3 released.
+
+I've released version 0.3 of my small and simple <a href="http://blog.kowalczyk.info/software/sumatrapdf">PDF Viewer for Windows</a>. This version has following improvements over 0.2:<br /><ul><li>added toolbar for most frequently used operations</li><li>should be more snappy because rendering is done in background
+      and it caches one page ahead</li><li>some operations are faster</li></ul><br /><br /><br />

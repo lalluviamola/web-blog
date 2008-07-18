@@ -1,0 +1,4 @@
+RewriteEngine On
+RewriteBase /
+RewriteRule ^rss.php http://forums.fofou.org/sumatrapdf/rss [r=301,L]
+RewriteRule ^ http://forums.fofou.org/sumatrapdf/ [r=301,L]

@@ -1,0 +1,10 @@
+Date: 2002-09-22 14:56:41
+Format: wphtml
+Title: Joel on social experiments.
+
+<b>Joel on social experiments.</b> <a
+href="http://www.joelonsoftware.com">Joel Spolsky</a> runs <a
+href="http://discuss.fogcreek.com/dotnetquestions/default.asp?cmd=show&ixPost=2&ixReplies=0">an
+experiment</a>. Joel explains that his (crude at first sight) forum
+software was carefuly design to be what it is. It's always interesting
+to see intelligent people challenge widely held opinions.

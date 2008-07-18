@@ -1,0 +1,9 @@
+Date: 2004-01-10 02:22:53
+Format: wphtml
+Title: How to drive VoIP business out of US.
+
+<b>How to drive VoIP business out of US.</b>
+
+According to <a href="http://news.com.com/2100-7352-5137344.html">this article</a> FBI wants telcos to allow them to wiretap VoIP calls. The problem (for US VoIP providers): you don't have to be in US to provide VoIP to US customers. FBI can't force non-US companies to do that so, with the help of a little bit of awarness campaign, non-US companies can make it very clear to US customers that they have a big advantage over US companies therefore should get more business. US looses, everyone else wins.
+<p>
+Not to mention, that this might be impossible to do. Skype, I belive, is architected with encryption so that wiretapping is simply impossible (and if it's not, someone will build fully-encrypted system). Whoever provides fully-encrypted VoIP in US will either have to add back-doors or re-implement the service without encryption in order to comply with the regulations (if FBI gets its way).

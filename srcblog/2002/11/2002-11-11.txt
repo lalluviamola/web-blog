@@ -1,0 +1,5 @@
+Date: 2002-11-11 13:18:50
+Format: wphtml
+Title: LL1 Videos.
+
+<b>LL1 Videos.</b> Accidently, a day after I watched <a href="http://ll2.ai.mit.edu">LL2 webcast</a> on-line, I got in my mail a CD with videos from <a href="http://ll1.mit.edu/">LL1</a> (which you can order from <a href="http://www.digitalriver.com/dr/v2/ec_MAIN.Entry10?xid=2823&SP=10023&PN=1&V1=387427">Dr. Dobb's</a>). Talks from LL1 actually interest me more. LL1 had talks about Arc, Rebol, Parrot, Goo. Good stuff.

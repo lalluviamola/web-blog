@@ -1,0 +1,5 @@
+Date: 2002-07-12 11:29:33
+Format: wphtml
+Title: Quote of the day
+
+<B>Quote of the day</B> &#013;&#010;<BLOCKQUOTE><I>"Most people reason dramatically, not quantitatively."</I>O.W. Homes </BLOCKQUOTE>

@@ -1,0 +1,68 @@
+Date: 2003-01-16 04:46:44
+Format: wphtml
+Title: What to do when people disagree
+
+<b>What to do when people disagree.</b>
+
+<a href="http://blog.portugalmail.pt/K/">Some people</a>
+<a href="http://blog.portugalmail.pt/K/archive/000269.html#000269">disagree</a> 
+with my claim that rich-clients are a way to go. I like when people disagree. We 
+all fall in love with what we say or write so it's good to take a critical look 
+back at what we said or wrote after the initial excitement has worn off. In this 
+case I'll stick to my guns, though. I disagree with my disagreer on two counts. 
+First I see plenty of things that cannot be implemented on top of Mozilla's 
+technologies (JS, XUL, XBL) or Flash. For example, try writing an sftp or ssh 
+terminal client. Choice of implementation technology (e.g. Flash vs. Win32 vs. 
+VB.NET vs. whatever) should be driven by pragmatic factors, among them:<ul>
+  <li>does the technology allows me to do what I want. HTML, Mozilla pack, Flash 
+  are plenty good for plenty of things but what I had in mind (which, I must 
+  admit, isn't obvious to those without mind-reading skills) i.e. an app whose a 
+  major strength is how good the UI is, just isn't enough (and I'll leave that 
+  without proof; just trust me).</li>
+  <li>how easy it is to implement X in technology Y; Once you eliminate all the 
+  technologies that do not cut it, you should choose one that'll make 
+  implementation easiest. If both win32 and HTML cut it, go with HTML.</li>
+  <li>am I fluent with the technology. That's personal: if both Win32 and Delphi 
+  are good enough, Delphi is famed to be more productive but I already know 
+  Win32 well then I might go with Win32 instead of taking a risk of learning a 
+  new technology.</li>
+  </ul>
+The major argument for using Mozilla technologies is that it's easier to write apps. If that's true then 
+great, go use it. However, I don't see that many Mozilla-based apps and I don't 
+see people running around naked around the city screaming &quot;Eureka! I took me 5 
+minutes in Mozilla to write what would otherwise be a week-long project.&quot; so as 
+far as I'm concerned those are mostly theoretical claims at this point.<p>
+As for the second disagreement:</p>
+<p>
+<blockquote><i>Going the native-client route will just get applications talking operating 
+system APIs, instead of talking network protocols. Its a ten year setback, even 
+if it seems faster, cooler and slicker. </i></blockquote>
+
+That is a strawman. If I use
+<a href="http://www.ceruleanstudios.com/trillian/index.html">Trillian</a>, does talking operating system 
+APIs prevents this app to also talk network protocols? There is no connection 
+between technology one uses to implement UI and what the app does 
+otherwise. To me the progression of state-of-the art in software looks more or 
+less like this:<ul>
+  <li>we had stand-alone apps, they were great at doing one thing at a time, 
+  computers were islands with no connection to other computers. The progress was 
+  to slowly enable apps within one computer to co-operate (OLE+COM+VB scripting 
+  on Windows, pipes/scripting on Unix, AppleScript on Macs, Rexx on Amiga). 
+  Frankly, we didn't get very far there. For business reasons software vendors 
+  defend their turf by closing their apps.</li>
+  <li>then we had networked revolution. It was a huge step forward in 
+  capabilities - suddenly when computers can talk to each other and access data 
+  on other computers, communication and collaboration happens on a scale not 
+  known before. Web is the most successful example of this new, 
+  network-dependent breed of apps. But it also is a huge step back in GUI. HTML, 
+  no matter what tricks are applied, just isn't all that powerful.</li>
+  <li>then we get more specialized, network-depended apps that combine the 
+  strength of the network with the strength of native UI. For example why people 
+  bother using IM clients? You get pretty much the same functionality with a 
+  web-based chat. Answer: because you get qualitatively different experience. 
+  It's a difference between driving Ford T and BWM - if you have a choice, 
+  you'll choose BWM. So rich-clients aren't just a fancy, unnecessary idea. They 
+  are here, they are popular, they are a natural progress. We are just getting 
+  back what we've lost (rich UI). The route to good software is to have both the 
+  best UI and best network-awareness.</li>
+</ul>

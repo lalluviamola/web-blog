@@ -1,0 +1,16 @@
+Date: 2007-07-30 04:09:47
+Format: wphtml
+Title: Sumatra PDF 0.7 released
+
+I've released version 0.7 of <a href="http://blog.kowalczyk.info/software/sumatrapdf/">Sumatra PDF</a> viewer. Changes in this release:
+<ul>
+	<li>added ability to select the text and copy it to clipboard - contributed by Tomek Weksej</li>
+	<li>made it multi-lingual (13 translations contributed by <a href="http://blog.kowalczyk.info/software/sumatrapdf/translators.html">many people</a>)</li>
+	<li>added Save As option</li>
+	<li>list of recently opened files is updated immediately</li>
+	<li>fixed .pdf extension registration on Vista</li>
+	<li>added ability to compile as DLL and C# sample application - contributed by Valery Possoz</li>
+	<li>mingw compilation fixes and project files for CodeBlocks - contributed by MrChuoi</li>
+	<li>fixed a few crashes</li>
+	<li>moved the sources to <a href="http://code.google.com/p/sumatrapdf/">Google Code project hosting</a></li>
+</ul>

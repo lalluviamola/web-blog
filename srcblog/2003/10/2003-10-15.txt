@@ -1,0 +1,5 @@
+Date: 2003-10-15 20:46:47
+Format: wphtml
+Title: Fonts for programmers.
+
+<b>Fonts for programmers.</b> A good programming font is monospaced and readable at small sizes (programmers like to see as much of the code as possible). <a href="http://keithdevens.com/wiki/ProgrammerFonts">Programmer Fonts</a> is a page that links to such fonts.

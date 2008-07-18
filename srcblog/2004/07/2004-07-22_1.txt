@@ -1,0 +1,10 @@
+Date: 2004-07-22 17:20:45
+Format: wphtml
+Title: Don't use 0 instead of NULL
+
+Linus <a href="http://lwn.net/Articles/93577/">has spoken</a>: using 0 (instead of NULL) to denote a null pointer is wrong:
+<pre>
+char * p = 0;	/* IS WRONG! DAMMIT! */
+int i = NULL;	/* THIS IS WRONG TOO! */
+</pre>
+I concur.

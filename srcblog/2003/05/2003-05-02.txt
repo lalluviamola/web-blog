@@ -1,0 +1,17 @@
+Date: 2003-05-02 15:16:17
+Format: wphtml
+Title: Zoning laws and home-based software company.
+
+<b>Zoning laws and home-based software company.</b>
+
+There was <a href="http://ask.slashdot.org/comments.pl?sid=61701&cid=0&pid=0&startat=&threshold=3&mode=flat&commentsort=0&op=Change">
+an interesting discussion</a> that started with a question about how zoning laws relate to a software company
+ran from home. Some of advice given:
+<ul>
+<li> just ignore zoning laws; nobody cares
+<li> do not ignore zoning laws; you're screwed when they get you
+<li> think a lot about business side of the business, not only about technical side
+<li> get health insurance
+<li> join <a href="http://www.nase.org">National Association for the Self-Employed</a>. Among other benefits
+they have one of the best independent health insurance plans.
+</ul>

@@ -1,0 +1,46 @@
+Date: 2003-01-25 02:28:40
+Format: wphtml
+Title: Good software design contradicts eXtreme Programming
+
+<b>Good software design contradicts eXtreme Programming.</b>
+
+I've been thinking lately about good software design. It occurred to me that good 
+design might contradict one of the <a href="http://www.extremeprogramming.org/">
+XP</a> principles: <a href="http://www.extremeprogramming.org/rules/simple.html">
+do the simplest thing possible</a>. The problem is that good design is rarely 
+the simplest thing that will work. Let me give you an example: I've been 
+thinking about writing a GUI interface to CVS (yes, I know there's plenty of 
+them; mine, you see, would be different in that it would be well designed). 
+
+<p>
+
+One rule of good design is that software should anticipate user's actions. CVS 
+viewer is useless until you define at least one CVS repository to access 
+(i.e. provide repository host, port number, username and password). Obviously 
+none is defined when you use the program for the first time so when used for the 
+first time software should present a user with a dialog that asks for CVS 
+repository information (host, port, username, password) and a visible link to help file that explains in detail the 
+meaning of options. 
+
+<p>
+
+It mustn't be so obvious because none of the existing&nbsp; CVS 
+viewers do that, they all start with the same blank, generic screen. But 
+there's more: it's reasonably to expect that user already has some CVS 
+repositories on his hard-drive that he created using command-line tool. So an 
+option to scan a hard-drive looking for those repositories and add them 
+automatically to the program would be nice (again, I don't think any existing 
+program offers that). If you ever had to wait for any program to scan the whole 
+hard-drive, you know one thing: it takes an awful lot of time. So the program 
+should offer a way to cancel (and/or pause) this operation. The simplest way to 
+implement such feature is to scan the hard-drive in whatever order is most 
+convenient for your OS/library. However this is rarely the most 
+convenient way for the user: there are directories like
+<code>c:\windows</code> or <code>c:\Program Files</code> that are big (i.e. many 
+files -&gt; take a lot of time to scan) but are unlikely to contain those 
+repositories so you could improve the feature by intelligently deciding which 
+directories to scan first. So we have a direct conflict: XP wants the simplest 
+thing possible, good design wants the best thing possible.
+<p>
+I'm not claiming that this conflict is present all the time but I think it 
+happens more often than not.

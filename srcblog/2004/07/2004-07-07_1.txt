@@ -1,0 +1,12 @@
+Date: 2004-07-07 05:11:30
+Format: wphtml
+Title: Daily reading
+
+<ul>
+
+<Li> <a href="http://www.drunkenblog.com/drunkenblog-archives/000292.html#more">SubEthaEdit coder interview</a></li>
+
+<li> <a href="http://www.ejhp.net/notcon/">notcon 2004 audio and video of talks</a> - Brewster Kahle's talk was great </li>
+<li> <a href="http://www.livejournal.com/community/seattle/1737860.html#cutid1">outdoor movies in Seattle</a>, summer 2004</li>
+
+</ul>

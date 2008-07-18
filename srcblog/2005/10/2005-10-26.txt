@@ -1,0 +1,7 @@
+Date: 2005-10-26 06:09:34
+Format: wphtml
+Title: Petzold on Visual Studio and mind corruption
+
+Interesting article by Charles Petzold (the author of THE Windows programming book) where he <a title="ruminates on Visual Studio" href="http://charlespetzold.com/etc/DoesVisualStudioRotTheMind.html">ruminates on Visual Studio</a>.<br>
+<br>
+Good article; I like his observation about IntelliSense forcing a bottom-up programming.<br>

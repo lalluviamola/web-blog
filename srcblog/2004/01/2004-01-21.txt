@@ -1,0 +1,12 @@
+Date: 2004-01-21 16:07:21
+Format: wphtml
+Title: IRC clients.
+
+<b>IRC clients.</b>
+I'm very late to the IRC game but I just found a usage scenario for IRC that makes it worthwile exploring it: keeping in touch with developers on open-source projects. Many open-source projects have dedicated IRC channels and often key developers hang out there. IRC chat is a good way to keep in touch, especially if you're contributing, in addition to e-mail or discussion groups. Therefore I decided to test a few Windows IRC clients:
+<ul>
+<li><a href="http://www.mirc.com/">mIRC</a> seems to be most popular and regarded as the best IRC client for windows. It costs $20
+<li><a href="http://www.hydrairc.com/">HydraIRC</a> is a farily new, somewhat open-source (you can get the access to the source if you ask nicely)
+<li><a href="http://xchat.org">xChat</a>is an old, open-source client that used to be Unix only but since it uses GTK it has also been ported to Windows
+</li></li></li></ul>
+I don't have fancy needs and I know next to nothing about IRC (which is very complicated when you really dig into it). I just wants something that does the basic stuff (joining few IRC channels and chatting in them) in a nice gui. All three clients seem to be adequate for the task. The winner, for me, is xChat. mIRC lost because there's no point spending money on software when there's an adequate open-source and free equivalent. HydraIRC looks quite nice. It lost mostly because channels within a given IRC network are displayed using MDI interface i.e. one window per channel. Managing those windows is a mess. I much prefer tabbing interface of xChat. I was completely happy once I figured out <a href="http://xchat.org/faq/#q23">to a channel at startup</a>.

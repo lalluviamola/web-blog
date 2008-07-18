@@ -1,0 +1,11 @@
+Date: 2004-10-15 23:31:51
+Format: wphtml
+Title: Idea for Google - Google IM
+
+Google recently launched <a href="http://www.google.com/sms/">Google SMS</a> i.e. ability to query Google services by sending an SMS message to a specific phone number. The amount of coverage (a lot) that this new service got was way more than it really deserved. SMS-powered services already stopped being cool in most parts of the world. The only reaction that Google SMS deserves is "what took you so long"?
+
+Now that they have google-via-SMS, the next logical step is google-via-IM-bot. Google used SMS because while it has disadvantage of being the lowest common denominator (i.e. it's really painful to use) it's available on almost any phone. But more and more phones have some Instant Messaging client. Google should wire their engine to IM bots on all popular networks. They already solved the hard problems, this would be insanely trivial. 
+
+While IM interface is not as good as a dedicated client could be, it would be a step up from SMS, it piggy-backs on a technology that is already quite widely used by customers, not to mention that using IM doesn't cost a thing, compared to SMS, which might cost a thing.
+
+And no, this isn't a revolutionary idea. It's so obvious that Google should have done it long time ago.

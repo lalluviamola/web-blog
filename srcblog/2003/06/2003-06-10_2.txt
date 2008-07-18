@@ -1,0 +1,14 @@
+Date: 2003-06-10 17:45:52
+Format: wphtml
+Title: Testing SharpMT.
+
+<b>Testing SharpMT.</b> I'm on a constant search for a desktop client for Movable Type weblog that is better than using notepad.exe (or FrontPage or Dreamweaver or some other foo). So I typed this post using <a href="http://www.randyrants.com/sharpmt/">ShartMT</a> to see how it works in practice. Is it good enough for me to switch? I don't think so. Here are a things that I would like to see in it:
+<ul>
+<li> a list of existing posts (not having it is a deal breaker for me)
+<li> live spell-checking (i.e. highlighting mistyped words when I type as opposed to the old approach of executing a separate spell-checking action)
+<li> when I exit the program in the middle of typing it asks me if I want to save it; don't, of course I do, just save it
+<li> while MT supports Extended Entry and Excerpt fields I don't think that many people use them; it's additional work for little gain but those fields take a lot of the screen space. It should be possible to hide them and they should be turned off by default (assuming that I'm really right about them usually not being used)
+<li> a full-text search for all my posts (which implies they should also be stored locally for speed and off-line use)
+<li> it's not easy to implement so it's no wonder that preview of the entry is done using some random, built-in template. SharpMT should download templates from the weblog and use them to do preview so that you'll really know how it'll look like.
+</ul>
+Oh, and for some reason (going against my MT 2.21 site) the main page was not rebuild after I posted my entry so I had to go to web interface and re-publish entry (which is when I added this comment).

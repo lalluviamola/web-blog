@@ -1,0 +1,26 @@
+Date: 2004-06-19 06:24:06
+Format: wphtml
+Title: sqlite 3.0 alpha released
+
+SQLite 3.0 alpha <a href="http://sqlite.org/">has been released</a>. To me software like SQLite shows the real benefit of open-source: you get high-quality chunks of code that you can re-use in your application. Developing them on your own would take ages. Now one can just focus on things related to applications functionality and use SQLite for plumbing.
+
+SQLite is an embedded SQL database. Embedded means that it's just a relatively small (around 200 kB of code) library that you can use in your programs to create databases using SQL as the interface. It differs from full SQL engines like PostgreSQL or MySQL in that it is optimized for use by one application.
+
+Main difference between SQLite and other SQL engines is that its untyped i.e. all data is stored as text. Personally, I don't like that. Types have many benefits:
+<ul>
+<li>prevent mistakes (the engine can verify that inserted data conforms to declared type of data) </li>
+<li>make databases smaller (e.g. it takes less space to store an integer as an integer vs. its text representation)</li>
+<li>makes things faster (e.g. when comparing data as integers, SQLite has to first convert it from text to an integer)</li>
+</ul>
+But I'm not complaining - SQLite is an excellent product as it is.
+
+The new 3.0 version (which is not yet production quality) goes halfway in implementing types: it implements type manifests. It means that if the value insterted matches the type of the column (e.g. when inserting "123" to an INTEGER column), it'll be stored in binary form for a given type (INTEGER in this case). If it doesn't match the type (e.g. it's "foo"), it'll be stored as text.
+
+New version is also faster than the latest 2.8 version and databases are smaller.
+
+There are a lot of applications that can benefit from a database for storing data (actually, I find it hard to think of a non-trivial app that wouldn't) and SQLite is an excellent choice for that.
+
+The code is in public domain, written in portable C (works on Unix and Windows) and has bindings for all imaginable scripting languages.
+
+
+

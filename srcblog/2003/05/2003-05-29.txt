@@ -1,0 +1,20 @@
+Date: 2003-05-29 22:43:26
+Format: wphtml
+Title: Best practices for ripping music.
+
+<b>Best practices for ripping music.</b> 
+
+As found in a <a href="http://slashdot.org/comments.pl?sid=03/05/25/0314254&amp;threshold=1&amp;commentsort=0&amp;mode=nested&amp;cid=6034443">slashdot post</a>:
+<blockquote> You should not use &#8212;r3mix. It is old and deprecated - its removal from LAME has been considered. You should use <strong>LAME 3.90.2</strong> with <strong>&#8212;alt-preset standard</strong> (aka &#8220;APS&#8221;, ~ 192kbps VBR) or possibly <strong>&#8212;alt-preset extreme</strong> (&#8220;APX&#8221;, ~ 256kbps VBR) for trickier encodes (classical, jazz, rock, experimental). Those without space concerns still wishing to use mp3 can try <strong>&#8212;alt-preset insane</strong> (&#8220;API&#8221;, 320kbps CBR).&#160;<br />
+
+&#160;<br />
+The &#8212;alt-presets are optimisations for quality and have been very thoroughly tested by <a href="http://www.hydrogenaudio.org/" title="hydrogenaudio.org">hydrogenaudio</a>. They represent the current state-of-the-art in mp3 compression.&#160;<br />
+&#160;<br />
+For a scale, quality (normally transparent up to lossless) and size (50-80MB up to 300-700MB) go roughly (Q<em>x</em> represents Vorbis 1.0 quality number): APS &lt; Q6 &lt; APX &lt; Q7 &lt; Q8 &lt; API &lt; Q9 &lt; Q10 &lt; FLAC&#160;<br />
+
+&#160;<br />
+A music sharing network for people who care about quality exists. Because the bad guys read <nobr><wbr /></nobr>/. too, I&#8217;ll leave it to you to find &#252;s, but the rules are:&#160;<br />
+&#160;<br />
+Rip with Exact Audio Copy 0.9b4 (secure mode, accurate stream, NO C2, no normalisation, no read or sync errors, only complete discs with no missing audio tracks, save a log file) and encode to MP3s (LAME 3.90.2 or 3.92), Oggs (Vorbis 1.0) or FLACs. Tag correctly - for mp3 ONLY use id3 v1.1 and id3 v2.3.0 - with year and ideally genre from <a href="http://www.allmusic.com/" title="allmusic.com">allmusic</a>, name scheme &#8221;%A - %C\%A - %C - %N - %T&#8221; normal, various artists discs - name tracks &#8220;Artist / Title&#8221; and use name scheme &#8221;%C\%C - %N - %A - %T&#8221;, add &#8221; (OST)&#8221; to album name for soundtracks. Move log into directory, rename to directory name + <nobr><wbr /></nobr>.log, add an <nobr><wbr /></nobr>.md5 md5sum for the log and audio files to complete the rip.
+</blockquote>
+There is good stuff to be found on Slashdot.

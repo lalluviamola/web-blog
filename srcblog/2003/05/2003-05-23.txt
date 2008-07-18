@@ -1,0 +1,8 @@
+Date: 2003-05-23 04:40:01
+Format: wphtml
+Title: rigate - a perfect file manager.
+
+<b>Frigate - a perfect file manager.</b> Today I found a perfect file manager 
+  - <a href="http://www.frigate3.com/index.php">Frigate</a>. Ok, it's not perfect 
+  e.g. it doesn't support sftp. But it's close to perfect and certainly the best 
+  out of those that I've tried.

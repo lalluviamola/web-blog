@@ -1,0 +1,21 @@
+Date: 2003-05-19 01:58:36
+Format: wphtml
+Title: Torrents.
+
+<b>Torrents.</b> Lifted from Slashdot: sites that provide BitTorrent files: 
+<ul>
+  <li><a href="http://f.scarywater.net/">f.scarywater.net</a>- recently Slashdotted 
+    files</li>
+  <li><a href="http://www.suprnova.org/">www.suprnova.org</a> - games, movies, 
+    tv shows, music, apps</li>
+  <li><a href="http://www.bitetorrent.com/index.php">www.bitetorrent.com</a> - 
+    tv shows, movies, music, games, apps, comics </li>
+  <li><a href="http://torrents.slash0.org/">torrents.slash0.org</a> - tv shows, 
+    movies, games, misc</li>
+  <li><a href="http://www.marksailes.uklinux.net/bt/">www.marksailes.uklinux.net/bt/</a> 
+    - tv shows</li>
+  <li><a href="http://www.tvtorrents.com/index.jsp">www.tvtorrents.com</a> - tv 
+    shows, requires sign-up</li>
+  <li><a href="http://www.torrentse.cx/">www.torrentse.cx</a> - was listed but 
+    seems to be dead</li>
+</ul>

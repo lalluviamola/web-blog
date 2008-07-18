@@ -1,0 +1,13 @@
+Date: 2003-02-15 07:49:36
+Format: wphtml
+Title: Random acts of rant
+
+<b>Random acts of rant.</b>
+Of course everything everyone sees in David Stutz's <a href="http://www.synthesist.net/writing/onleavingms.html">rant</a> is another fodder for their anti-Microsoft feelings. There's <a href="http://www.synthesist.net/bits/stutzcomputerbio.html">another thing</a> on David's site that I found as amusing as he did. To quote:
+<blockquote><i>
+I am also highly amused that my UNIX dev skills, acquired as a grad student in 1982, are still very much in demand, nearly unchanged.
+</i></blockquote>
+But according to people <a href="http://news.com.com/2009-1081-984221.html">who entertain rewriting TCP/IP in SOAP</a> the entity responsible for lack of progress in Unix for the past 20 years is... Microsoft. Well, Microsoft, Java and XML. No, really:
+<blockquote><i>
+Server side Java and XML have done more to stifle innovation than Microsoft.
+</i></blockquote>

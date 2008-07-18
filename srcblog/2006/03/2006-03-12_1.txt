@@ -1,0 +1,19 @@
+Date: 2006-03-12 21:08:37
+Format: wphtml
+Title: Bloglines and Google Groups RSS feeds
+
+What better use for blogs than as a distributed bug database?
+
+Since I'm a good boy and believe in providing feedback, here's the message I sent to Bloglines through their <a href="http://www.bloglines.com/contact">contact page</a>:
+
+<blockquote>
+As far as I can tell the way Bloglines treats Google Groups RSS/ATOM feeds is broken.
+
+I tried subscribing to various feeds (e.g. http://groups.google.com/group/webpy/feed/rss_v2_0_msgs.xml) and they work as expected in e.g. Google Reader or RSS Bandit but they don't work in Bloglines (when first subscribed I saw outdated messages and they don't seem to get updated).
+</blockquote>
+
+On a separate note, Google Groups RSS/ATOM feeds prove that Google doesn't get everything right. 
+
+First, they cut off the posts (which might be motivated by the understandable desire to make money through ads that only show up on the website, not in the feed). What's worse, sometimes you can't tell if a post was cut off or not from the text, depending on where the cut off point happened to be.
+
+I've also sent that feedback to Google Groups team.

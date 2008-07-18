@@ -1,0 +1,35 @@
+Date: 2003-12-11 05:54:25
+Format: wphtml
+Title: The battle of IMAP e-mail clients.
+
+<b>The battle of IMAP e-mail clients.</b>
+After <a href="http://blog.kowalczyk.info/archives/000525.html#000525">I complained</a> about the lack of decent IMAP e-mail clients I went searching for a perfect one. Or at least a usable one.
+<p>
+My criteria was simple: it should be better than web-based interface of my <a href="http://www.fastmail.fm">fastmail.fm</a> e-mail account. And this I will stress because shortly I will diss software that you may love dearly and use happily every day. So I'll say that upfront: all the software I'll mention might be perfect for your particular needs. For me the only important thing was: how good of an IMAP client it is. It's not an exhaustive comparison, just a personal evaluation.
+<p>
+I've tried the following programs: <a href="http://www.ritlabs.com/en/products/thebat/">The Bat! 2.0</a>, Microsoft Outlook, free <a href="http://www.pmail.com/">Pegasus Mail 4.1</a> (a terrible, terrible web page), <a href="http://www.statalabs.com/">Bloomba</a> and <a href="http://www.mozilla.org/projects/thunderbird/">Thunderbird 0.4</a>.
+<p>
+And the winner is: Thunderbird.
+<p>
+Here's a more detailed account of my struggles.
+<p>
+I've tested how Outlook handled my IMAP needs some time ago so I don't remember the details but I remember one thing: it didn't work well. It would block with stupid modal dialogs too often, it was too unresponsive and all the cool features (like virtual search folders) are not available for IMAP mailboxes.
+<p>
+Pegasus looses hard because it seems to re-download all messages every time I click on a folder (and during that time, which is quite lengthy, completely freezes). Simply unnaceptable.
+<p>
+Eudora is a disaster in the user interface department which shocks me because this is a famous e-mail client with a long history and many fans. I never used it in the past but given its reputation I was expecting something good. What I got was an app with bizarre, antiquated interface. For example, instead of using 3-panel layout like everyone else, it has MDI interface that forces me to open a new window for each folder. And the thing that killed it for me: It doesn't update message counts for all folders automatically so to really find out if I got a new message somewhere, I would have to visit each IMAP folder (and I have quite a few of them).
+<p>
+The Bat! 2.0 is an improvement over 1.6 which <a href="http://blog.kowalczyk.info/archives/000292.html">I tried in the past</a> and which handled IMAP very poorly. 2.0 kinda works but I couldn't quite get used to it. It's ugly, UI is distracting when a list of messages is updated. It's not like I can really dish it as completely unusable, but it was unpleasant enough that I would rather use web interface.
+<p>
+Bloomba would win easily if it had any kind of proper IMAP support. In current version it can fetch IMAP messages from Inbox folder but doesn't handle folder hierarchies. However, it has a very modern, designed with care user interface (for example a number of options you can change was very small compared to Eudora or The Bat! and that is always a sign of careful, user-oriented design). It also has spam filtering and one killer feature: instantaneous search (they like to call themselves "a Google of e-mail"). It's not that it's a rocket science to implement (all you need to do is index all your messages using a decent full-text indexing software like Lucene), disks are big, feature is very useful so we should rather wonder why everyone else is not doing it  given that they don't, we give accolades to Bloomba instead. They also have a very responsive support - when I sent them an e-mail asking about better IMAP support they responded within a day (saying that they do plan it). So maybe there's Bloomba in my future.
+<p>
+Thunderbird 0.4 doesn't win because it's good, it wins because it doesn't suck as much as everything else. It's good enough that I prefer using it instead of web interface and for a version 0.4 it's a promising start. It's also an improvement <a href="http://blog.kowalczyk.info/archives/000446.html#000446">over version 0.3</a> which was unusable for me. Things that I would like to see improved:
+<ul>
+<li>more responsive UI. There's a painful wait period from the time you switch to another folder to when you regain control of your mouse - UI should always take precedence over network access.
+<li>option to expunge on exit in all IMAP folders, not only Inbox (if you're wondering what expunge is - don't; it's just wierd, arcane and seemingly unnecessary IMAP thing)
+<li>multiple personalites in the same server account (i.e. ability to give a different name, from address), Bloomba has it</li>
+<li>instant, full-text search</li>
+<li>better e-mail management tools (e.g. virtual folders like in Evolution or latest Outlook). It's 2003 (2004 almost) and the best e-mail client I can find still has the implementation centric view of what an e-mail is (i.e. it's a piece of text in a given folder, unrelated to anything else) instead of helping me to manage my e-mail in an intelligent manner (for example: there's no way to get a threaded view that combines e-mail that I've sent with the one that I've received)
+<li>fixed UI glitches e.g. a count of unread messages misbehaves sometimes</li>
+</li></li></li></ul>
+So I've settled on Thunderbird but the search is not over yet. Will next Thunderbird version satisfy me? Or maybe next Bloomba version? Or maybe I'll reach my e-mail handling nirvana only when <a href="http://www.osafoundation.org/">relesed?</a></p></p></p></p></p></p></p></p></p></p>

@@ -1,0 +1,19 @@
+Date: 2008-05-29 05:28:23
+Format: wphtml
+Title: SumatraPDF 0.8.1
+
+Shipping feels good, I just shipped 0.8.1 version of SumatraPDF hence I feel good. Changes in new version:
+<ul>
+	<li>automatic reloading of changed PDFs (contributed by William Blum)</li>
+	<li>tex integration (contributed by William Blum)</li>
+	<li>updated icon for case-sensitivity selection in find (contributed by Sonke Tesch)</li>
+	<li>language change is now a separate dialog instead of a menu</li>
+	<li>remember more settings (like default view)</li>
+	<li>automatic checks for new versions</li>
+	<li>add command-line option -lang $lang</li>
+	<li>add command-line option -print-dialog (contributed by Peter Astrand)</li>
+	<li>ESC or single mouse click hides selection</li>
+	<li>fix showing boxes in table of contents tree</li>
+	<li>translation updates (contributed by <a href="http://blog.kowalczyk.info/software/sumatrapdf/translators.html">many people</a>)</li>
+</ul>
+Go <a href="http://blog.kowalczyk.info/software/sumatrapdf/index.html">get it</a>.

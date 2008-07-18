@@ -1,0 +1,18 @@
+Date: 2003-04-12 02:39:17
+Format: wphtml
+Title: Zempt - Movable Type posting tool.
+
+I really want a good tool for writing posts to my <a href="http://www.movabletype.org">MovableType</a>-powered weblog. Someone mentioned <a href="">Zempt</a> and I decided to try it out. But first what is "good"? For me it's enough that it beats the way I post currently i.e. preparing entries in Front Page or directly in the MT's web interface and posting using web interface. The bar isn't high:
+<ul>
+<li> don't do seriously stupid things
+<li> do spell-checking as you type (Front Page does it and I love it)
+<li> don't ever loose my data
+</ul>
+So is Zempt good? Not yet but let's keep the faith (it's only 0.2 release). The problems I observed so far:
+<ul>
+<li> in the "create new account" dialog the "provide XML-RPC entrypoint" is cryptic and Zempt documentation is not existent. I had to lookup MT manual to figure out that it's http://www.my-blog.org/mt/mt-xmlrpc.cgi (in my case). Having some information with a link to description and a hint of what a likely value can be directly in the dialog box would help. They could also improve it by separating the url into host/the rest and pre-populating the rest with "/mt/mt-xmlrpc.cgi" as this is going to be true for most installations
+<li> the error message that shows up when you provide invalid XML-RPC entry point/username/password isn't helpful. It can and should distinguish between "bad XML-RPC entry point"/"bad username/password" and offer the user a chance to fix just that
+<li> when logging in (which happens every time I start the application) it shows a modal dialog complaining that some XML-RPC interface isn't available but when I dismiss the dialog, it works anyway. According to Alan Cooper's classic "About Face", it's bad. I don't understand the message because it's a pure techno-speak (ok, I speculate that this is because I have fairly old MT version installed but I'm not a typical computer user). I can't fix it, program doesn't explain what are the consequences of this interface missing. Program works anyway so why should I even care? In short: this error message should go away.
+<li> I've made a test: typed an entry in the program, closed it and re-launched. As I feared what I entered was gone. No excuses - I want the program to periodically save entry-in-progress (so that my data survive even a crash) and definitely it should save it when I close it. Don't even ask me if I want to save it or not - of course I do (that's another lesson from "About Face").
+</ul>
+Let's hope that those things get fixed by the dev team and even if they don't, I can fix them myself since <a href="http://sourceforge.net/projects/zempt">the source is out there</a>.

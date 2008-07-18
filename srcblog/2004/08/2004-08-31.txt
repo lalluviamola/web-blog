@@ -1,0 +1,9 @@
+Date: 2004-08-31 18:46:49
+Format: wphtml
+Title: DocSynch - multi-editor plugin for collaborative text editing
+
+Looks like someone is reading this blog after all. Yesterday I wrote about new collaborative text editor for Windows called <a href="http://me.sphere.pl/">multi-editoro</a> and a reader pointed me to <a href="http://docsynch.sourceforge.net">DocSynch</a>.
+
+DocSynch is an interesting approach to building collaborative editor: it only implements a protocol layer based on IRC and plugs into existing editors. Currently they have a plugin for <a href="http://www.jedit.org/">jEdit</a> and are planning additional plugins for Eclipse, vim and Visual Studio. 
+
+Another day, another text editor to check out.

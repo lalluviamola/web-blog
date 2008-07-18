@@ -1,0 +1,13 @@
+Date: 2008-04-09 03:32:58
+Format: wphtml
+Title: Someone concurred
+
+Most people missed it, but not <a href="http://www.scripting.com/stories/2008/04/08/earlyNotesOnGoogleapps.html">Dave Winer</a>:
+<blockquote>What you're going to see here that you've never seen before is shrinkwrap net apps that scale that can be deployed by civillians.</blockquote>
+Exactly. I would gloat that I said it earlier, but <a href="http://www.scripting.com/stories/2008/01/22/theUgcLimbDay2.html#p12">he dreamed it in advance</a>:
+<blockquote>The next step after that will be packaged applications that deploy through Amazon that you can buy for shrinkwrap prices.</blockquote>
+Speaking of predictions: one of the Google example apps was HuddleChat, written in a couple of days by 3 people and bearing uncanny resemblance to 37Signals' paid product Campfire. <a href="http://www.readwriteweb.com/archives/huddlechat_campfire_rip.php">Bruhaha ensued</a>, the app went offline, 37Signals is "disappointed with Google".
+
+Like I wrote yesterday, they (and a host of other companies betting their business on providing hosted, specialized app for a fee) will be even more disappointed when apps written to Google's App Engine copying functionality of those hosted applications will become available (either for a one-time fee or open-sourced and free) and deploying such apps on GAE will be no harder than signing up for the service.
+
+It's all technically possible. It's not going to be too hard for Google to build a packaging system and a catalogue of applications and provide one-click deployment of any GAE app.

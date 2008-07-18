@@ -1,0 +1,82 @@
+Date: 2005-10-17 01:14:45
+Format: wphtml
+Title: Open Dylan Beta 1 - not ready for windows
+
+I'm a sucker for playing with weird languages promising increased productivity.
+I easily get excited by the possibility of writing software faster by using
+high-level languages like Lisp, Haskell or Dylan. In most cases the brutal
+reality sets in and I re-discover for the N-th time that for my particular
+programming needs (Web programming, Windows programming, Palm OS/Windows CE
+programming) I have to get down and dirty with the worst languages of all: PHP
+(web) and C/C++ (everything else). All the
+<a href="http://www.paulgraham.com/avg.html" title="promise of increased productivity">promise
+of increased productivity</a> due to a better language and interactive
+development means nothing to me if I can't build and ship a native Windows
+application. All the languages I've looked at (Perl, Python, Ruby, multiple
+Lisp/Scheme implementations, Dylan) have one of the following shortcomings, some
+specific to Windows:<br/>
+<br/>
+<ul>
+  <li>
+    they're too slow (Python, Ruby, most Lisp/Scheme)<br/></li>
+  <li>
+    they don't support Windows APIs very well which means that I'm either
+    confined to writing command-line apps or spending months just to create FFI
+    bindings for Windows APIs and then some higher-level code (e.g. a sane GUI
+    framework)</li>
+  <li>
+    they don't support creating stand-alone executables (e.g. Python's py2exe is
+    not good enough because you also need to ship the whole python runtime as
+    separate files)</li>
+  <li>
+    IDEs are very poor and iterative development is more of a tantalizing
+    possibility than a way you can write code today. Reality is that writing C
+    code in Visual Studio IDE is more iterative than writing Python code</li>
+</ul>
+<br/>
+It's possible that all those problems are fixed in commercial products like
+Franz Lisp or Allegro Lisp, but I'll never know because I can't afford them.<br/>
+<br/>
+Which is why I had higher hopes for
+<a href="http://www.opendylan.org/" title="Open Dylan">Open Dylan</a>. Dylan
+looks like a reasonable dynamic language and Open Dylan is based on a commercial
+implementation that had a good Windows support and all the nice things that I
+want. Open Dylan was open-sourced because, in general, it's not possible to make
+money on languages, especially weird ones like Dylan.<br/>
+<br/>
+Unfortunately, recently released Open Dylan beta 1 is not viable for Windows
+development because it simply doesn't work out of the box.<br/>
+<br/>
+Open Dylan compiles to C code which in turn has to be compiled by a native
+compiler. Open Dylan supports compilation via little known (but free) C
+implementation Pelles C and standard Visual Studio 6 and Visual Studio .NET. You
+can switch which tools you want to use via preferences. I have all of them
+installed so I though things will be easy. I told Open Dylan to use Visual
+Studio .NET, opened one of the examples (Scribble for Windows) and try to
+compile it from within the IDE.<br/>
+<br/>
+It failed because it couldn't find the link.exe linker executable. It's possible
+to install Visual Studio without registering all the environment variables
+(which is reasonable if you want to have different versions of Visual Studio
+installed at the same time and be able to switch between them). It makes no
+difference for the IDE itself but breaks command-line usage of the tools
+(because the tools are not in the %PATH% and some environment variables they use
+are not set). VS ships with a batch file that sets everything up so I just
+executed this script in a cmd.exe window and launched Open Dylan IDE from there.
+This time compilation succeeded but the program failed to launch because some
+Open Dylan dll was not in the %PATH% and couldn't be found.<br/>
+<br/>
+With a bit more digging I could probably have fixed that problem too, but it was
+too much.<br/>
+<br/>
+Both problems could probably be fixed quite easily but I doubt they will. Dylan
+is weird even among weird languages. Open Dylan is now maintained by the same
+project as Linux-only Gwydion Dylan and both implementation are stagnant (small
+mailing list traffic, small number of commits).<br/>
+<br/>
+I guess the best bet right now for improved productivity in writing Windows apps
+is to wait a couple of years for CLR runtime to spread more widely, the hardware
+to catch up with performance hit it adds and some dynamic language with good IDE
+to be implemented on top of it (IronPython already runs at speeds comparable to
+CPython, unfortunately it requires CLR 2.0 which didn't even ship).<br/>
+<br/>

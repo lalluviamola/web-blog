@@ -1,0 +1,5 @@
+Date: 2003-11-21 04:49:06
+Format: wphtml
+Title: More information is better.
+
+<b>More information is better.</b> I just went to <a href="http://www.typepad.com">TypePad</a> (hosted weblogs company) site to find out what kinds of statistics (hits, referrers etc.) are available for TypePad-hosted weblogs. Marketing-wise their website is good but it lacks detailed information about the capabilities of TypePad. That should be changed (a theory exists that having detailed information about products is an effective marketing technique). And if TypePad doesn't have good statistics then it should have. When running a commercial site (i.e. one that wants to generate a lot of traffic) it's essential to know how people find the site in order to find ways to improve number of hits and measure those improvements.

@@ -1,0 +1,9 @@
+Date: 2005-10-08 07:30:38
+Format: wphtml
+Title: Publish your word documents on the web with writely
+
+<a title="Writely" href="http://writely.com">Writely</a> can be used
+for easy publishing of Word documents on the web. Select "Upload"
+button at the top, find your word doc, upload, publish and voila - it's
+on the web and you can link to it. I think Writely does a good job at
+converting word to HTML. As an example, I've converted a very useful <a title="introduction to ARM assembly" href="http://www.writely.com/View.aspx?docid=a4kq8k5w7nf">introduction to ARM assembly</a> that someone wrote but only published as a word doc.<br>

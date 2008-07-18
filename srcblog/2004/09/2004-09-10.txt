@@ -1,0 +1,11 @@
+Date: 2004-09-10 05:15:43
+Format: wphtml
+Title: Of orkut and design issues.
+
+I just signed up with <a href="http://www.orkut.com">orkut</a>. The site is slow and crashes a lot- that's their biggest problem. It's especially disappointing given orkut's google affiliation - google's website is THE speed demon.
+
+But today I want to nitpick. I believe that good design is about the details. Truly awe-inspiring applications pay attention to smallest details. Orkut isn't such an application yet.
+
+1. They tell me that I'm connected to "1591247 people". Now, quick, is it 1.6 million or 159 thousand? The number should either be rounded up in a reasonable way or shown as "1.591.247".
+
+2. When you choose your username (btw: will they ever learn to simply use e-mail address as username? I already have it, it's already unique and I already remember it (as opposed to remembering which username I have on a given web site)) and this username is taken it informs you about that but fails to mention what was the username you've chosen.

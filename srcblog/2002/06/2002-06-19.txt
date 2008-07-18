@@ -1,0 +1,5 @@
+Date: 2002-06-19 12:43:32
+Format: wphtml
+Title: Can you believe it?...
+
+Can you believe it? K&amp;R classic on C is <A href="http://www.pseudorandom.org/kandr/">on-line</A>. Go and read it as I did so many years ago.

@@ -1,0 +1,13 @@
+Date: 2005-10-09 00:28:46
+Format: wphtml
+Title: First Writely snag.
+
+<P>I've encountered first serious problem with Writely. It has to do with how they do paragraphs and use &lt;p&gt; tag.</P>
+<P>In HTML to create a new paragraph without creating an empty line between paragraphs, you usually use &lt;br&gt; tag.</P>
+<P>To create a paragraph with an empty line, you use &lt;p&gt; tag.</P>
+<P>Writely does things differently: a single &lt;p&gt; behaves as &lt;br&gt; and doubled &lt;p&gt; behave as &lt;p&gt;.</P>
+<P>Now, this is a real world and things aren't as clear-cut. How the document will really look like depends on CSS file used for styling. However, a majority of blogs/HTML documents&nbsp;follow the base HTML interpretation.</P>
+<P>How does that matter? First, when I write in Writely in order to publish on my weblog I have to keep this in mind and what I type isn't how it'll look like on my blog (I discovered the problem after discovering that my weblog post created in Writely had awful double-line spacing between paragraph.</P>
+<P>The second problem is that the same document published on writely.com will look differently than when published on a weblog.</P>
+<P>Given that Writely's interpration of &lt;p&gt; is in minority, I would like to see it changed.</P>
+<P>Here's how the same article <A title="looks like" href="http://www.writely.com/View.aspx?docid=a47w9mrhfxz">looks like</A> when published on writely.</P>

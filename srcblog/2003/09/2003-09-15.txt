@@ -1,0 +1,9 @@
+Date: 2003-09-15 04:19:27
+Format: wphtml
+Title: Speek freely no more.
+
+<b>Speek freely no more.</b> <a href="http://www.fourmilab.ch/speakfree/eol/">This is why</a> Speek-Freely is no more.
+<blockquote><i>
+The code is messy, difficult to understand, and very easy to break when making even small modifications.
+</i></blockquote>
+Funny. It describes all the code I have ever seen in my life.

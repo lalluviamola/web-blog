@@ -1,0 +1,14 @@
+Date: 2003-05-21 03:59:17
+Format: wphtml
+Title: Making first steps with Chandler.
+
+<b>Making first steps with Chandler.</b> I checked out CVS sources for <a href="http://www.osafoundation.org/">Chandler</a> 
+- the PIM/e-mail client to rule them all. Some day. Chandler has teething problems. 
+My attempts to build it on Windows failed because of bugs in the build system 
+(bug <a href="http://bugzilla.osafoundation.org/show_bug.cgi?id=575">575</a>, 
+<a href="http://bugzilla.osafoundation.org/show_bug.cgi?id=576">576</a>, <a href="http://bugzilla.osafoundation.org/show_bug.cgi?id=580">580</a>). 
+Fortunately bugs were quickly fixed which is good. Unfortunately Chandler crashes 
+on startup (bug <a href="http://bugzilla.osafoundation.org/show_bug.cgi?id=582">582</a>). 
+Probably something simple but I didn't have the time to investigate more closely. 
+But that's ok, really. Chandler is clearly at a &quot;beware, developer only&quot; 
+stage. It's a very ambitious undertaking and I'll watch it closely.

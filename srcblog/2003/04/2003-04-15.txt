@@ -1,0 +1,24 @@
+Date: 2003-04-15 02:24:28
+Format: wphtml
+Title: XFree86 fork.
+
+<b>XFree86 fork.</b>
+
+So there it finally is: <a href="http://xwin.org/index.php">XFree86 fork</a>. My 
+prediction: it will run circles around the original XFree86 (or XFree86 will 
+change its ways). All I know about XFree86 development process comes from 
+reading the <a href="http://xfree86.org/pipermail/forum/2003-March/date.html#1">
+mailing list posts</a> discussing the issue after the news that Keith Packard 
+was kicked out from the XFree86 Core Team
+<a href="http://www.osnews.com/story.php?news_id=3090">first broke</a>. That's 
+enough to tell that the Core Team thinks of themselves a little bit too much and 
+that they're doing the stupidest thing an open-source&nbsp; project can do: 
+making it hard for people to participate. If you lead an open-source project and 
+don't want it to become a dead project, your highest priority should be in 
+helping and encouraging potential contributors. It's hard because ego gets in 
+the way. If someone criticizes either the program or the process it's easy to 
+take it personally and you might end up in a flame-war. Linus comes to mind as a 
+positive example of open-source leadership (and I would attribute a large 
+portion of Linux' success to that). Although he's not shy to use words like 
+&quot;stupid&quot; in reference to ideas or people, he makes the rules of engagement clear 
+and is ego-less enough to admit mistakes.

@@ -1,0 +1,11 @@
+Date: 2008-04-12 18:22:06
+Format: wphtml
+Title: Pet peeves of mine - files.
+
+<p>Files are fine, I just don&#8217;t like that programs expose me to them for no reason at all.</p>
+
+<p>Take <a href="http://macromates.com/">TextMate</a> for example. It allows you to create projects. Project is just a bunch of files so it&#8217;s really a tiny amount of information. Yet TextMate forces me manually manage projects by saving them to files. </p>
+
+<p>Instead of just remembering all projects I have ever created and giving me some simple open/create new/modify/delete interface for projects, TextMate forces me to fish them out myself from filesystem.</p>
+
+<p>This disease afflicts many, many programs. The only editor that I know that does projects right is <a href="http://www.sourceinsight.com/">Source Insight</a>.</p>

@@ -1,0 +1,6 @@
+Date: 2003-01-13 07:18:22
+Format: wphtml
+Title: Publicity 101
+
+<b>Publicity 101</b>
+Just <a href="http://www.costik.com/pub101.html">an article</a> about doing publicity.

@@ -1,0 +1,8 @@
+Date: 2004-03-10 16:55:24
+Format: wphtml
+Title: Unlocking Philips DVD727 DVD player.
+
+<b>Unlocking Philips DVD727 DVD player.</b>
+
+<a href="http://www.scarecrow.com/">Scarecrow</a> is one perks of living in Seattle. They have a lot of PAL-encoded and non-region-0 DVDs in their 60000+ collection of movies. Unfortunately in order to watch them you need region-free DVD player that can also convert from PAL (European TV standard) to NTSC (US TV standard). After some research I bought a $70 <a href="http://www.amazon.com/exec/obidos/tg/detail/-/B000093US3/103-7038974-2957448?%5Fencoding=UTF8">Philips DVD727</a>
+DVD player. By default it only plays region 1 DVDs. To region-unlock Philips DVD727 Progressive-Scan DVD Player: open the tray , press 9999 and 0 from the remote with pauses between every digit. You will see Region 0 on the screen and after that you can play all the regions. Tested with PAL, region 2 "Buffy" DVD and region 4, Brazillian version of "The Matrix".

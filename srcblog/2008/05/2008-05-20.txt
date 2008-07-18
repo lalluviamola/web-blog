@@ -1,0 +1,10 @@
+Date: 2008-05-20 05:43:58
+Format: wphtml
+Title: Extreme (size) optimization in C and C++
+
+Following the sage advice of releasing early and often, I'm releasing my magnum opus <a href="http://extremeoptimizationinc.org/">Extreme (size) optimization in C and C++</a>.
+
+It's meant to be a book about techniques to make your C, C++ and even Objective-C (it being a superset of C) code as small as possible and use as little memory as possible. All based on real-life code.
+It's certainly early (only one chapter is complete) and hopefully I'll be updating it often.
+
+So give it a look and enjoy the extremisms.

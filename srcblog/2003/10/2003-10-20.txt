@@ -1,0 +1,12 @@
+Date: 2003-10-20 12:44:39
+Format: wphtml
+Title: Marketing and sharware articles.
+
+<b>Marketing and sharware articles.</b> A few good articles:
+<ul>
+<li> <a href="http://iunctura.com/weblog/2003/09/27.html#a200"> The Online Marketer's Secret Weapon: A Site that Works</a>
+<li> <a href="http://www.hackvan.com/pub/stig/articles/why-do-people-register-shareware.html">
+Why do people register shareware</a></li>
+<li><a href="http://www.semicolon.com/ShareSuccess/Shareware1.html">Successful shareware</a></li>
+<li><a href="http://www.semicolon.com/ShareSuccess/Hookware.html">Hookware</a></li>
+</li></ul>

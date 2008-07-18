@@ -1,0 +1,24 @@
+Date: 2002-10-04 13:52:07
+Format: wphtml
+Title: Embedded failure.
+
+<b>Embedded failure.</b> Slashdot reports on <a href="http://slashdot.org/article.pl?sid=02/10/04/0244221">release 
+of wxEmbedded</a>. More information in <a href="http://www.linuxdevices.com/articles/AT4064800316.html">this 
+article.</a> I can't help thinking about how bad this approach is. Look at the 
+screenshots - they just show desktop apps squeezed into smaller resolution. Apparently 
+the authors think that this is an engineering challenge: how to shrink software 
+that uses a lot of memory so that it can fit on a device with little memory. Other 
+than that they use the same widgets, the same visual design as desktop version. 
+And they would even probably defend this approach because &quot;it makes the porting 
+easy&quot;. It's the same approach that TrollTech has chosen with their <a href="http://www.trolltech.com/products/qtopia/">QTopia</a> 
+port of Qt GUI toolkit. Microsoft already learned that lesson the hard way - you 
+can't just port a desktop GUI to a PDA. It'll be painful to use. Latest version 
+of Pocket PC OS has many enhancements that make it a better fit for a PDA device. 
+To me doing an OS for a PDA is more a design issue than implementation issue. 
+Designing something that works well in the constrained environment of a PDA is 
+hard. Implementation, on the other hand, is easy because, by definition, this 
+hardware won't run large pieces of software. People behind wxEmbedded didn't learn 
+yet what's important on mobile devices. They might keep coding away at their embedded 
+GUI but as long as they neglect the hardest problem - designing UI good for mobile 
+devices - and keep producing something that is inferior to what's already available, 
+they'll fail.

@@ -1,0 +1,32 @@
+Date: 2004-06-09 05:32:15
+Format: wphtml
+Title: Daily reading
+
+<ul>
+
+<li> <a href="http://schwarztech.us/reviews/micflex.shtml">MicFlex review</a> - I want it </li>
+
+<li> <a href="http://software.ericsink.com/item_10179.html">law #6 - law of exclusivity</a> </li>
+
+<li> <a href="http://chrisjdavis.org/index/2004/06/08/new-ui-for-the-wp-admin-area/524/">different design for WordPress admin pages</a> </li>
+
+<li> <a href="http://kegel.com/gccsummit2004.html">GCC summit notes</a> </li>
+
+<li> <a href="http://gcc.gnu.org/ml/gcc/2004-06/msg00264.html">gcc moves from cvs to ...</a>  </li>
+
+<li> <a href="http://www.lambdacs.com/debugger/debugger.html">omniscent (temporal) debugger for java</a> </li>
+
+<li> <a href="http://web.mit.edu/msalib/www/presentation.pdf">europython starkiller presentation</a> (pdf) </li>
+
+<li> <a href="http://radiofreeblogistan.com/2004/06/07/newspaper_publishes_entire_month_of_weblogging_by_brian_dear.html">from blogger to journalist</a> - it just happened </li>
+
+<li> <a href="http://fileforum.betanews.com/detail/1049831315/1">quicktime alternative</a> - see qt files without installing (annoying) quicktime </li>
+
+<li> <a href="http://www.infinityball.com/soundrec.aspx">sound recorder for Treo 600</a> </li>
+
+<li> <a href="http://www.pocket-lint.co.uk/review.php?reviewId=459">HP iPaq 4150 review</a> - just another Pocket PC device</li>
+
+<li> <a href="http://design.weblogsinc.com/entry/6067529206452720/">brand you - business cards</a> </li>
+
+<li> <a href="http://www.blogmaverick.com/entry/4732831173095828/">ruless of success #1</a> - sweat equity is best</li>
+</ul>

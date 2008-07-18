@@ -1,0 +1,8 @@
+Date: 2003-04-04 19:43:36
+Format: wphtml
+Title: Hydra - a distributed, collaborative editor
+
+<b>Hydra - a distributed, collaborative editor.</b>
+
+<a href="http://hydra.globalse.org/">Hydra</a> looks very cool. I always wanted to have have
+an editor like that.  It's Mac only. I downloaded it and played for a few minutes. Unfortunately having only one Mac machine I couldn't test the raison d'etre: collaborative editing. The authors didn't open-source the app (although they're considering) and don't seem too keen to port it to non-Mac platfrom. What they could do is to publish the protocol Hydra instances use to talk to each other. That way other people could write Hydra-compatible editors (or add collaborative support to existing editors).

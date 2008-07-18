@@ -1,0 +1,1101 @@
+# This file is used by gen-kb-html.py script to generate html files representing
+# those snippets. This file contains multiple knowledge base articles. Each
+# article has a body (written in markdown or textile markup language) and a set
+# of attributes. Each article starts by listing attributes. Attributes are
+# in lines starting with '@', followed by optional whitespaces and attribute
+# name followed by ':' and optional whitespaces e.g.: "@ Title: " 
+# Recognizable attribtes:
+#   Title   - uh, title of the knowledge article. Titles should be unique.
+#   Date    - list of dates in format YYYY-MM-DD. First date is creation date,
+#             the rest are (optional) modification dates
+#   Tags    - list of tags, tags are separated with ',', e.g. "c#, programming, code snippet"
+#
+# gen-kb-html.py scripts reads this file and generates a set of static html
+# files. The whole idea is to make it easier to maintain those pages (writing
+# markdown is easier and faster than html; manually maintaining index files
+# for tags would be a major pain) and make it easy to change the look just
+# by modyfing the script and re-generating html.
+# Another option would be to store snippets in a database and generate content
+# from that. An advantage would be that I could add content via browser.
+# The disadvantage is that it would be much more complicated to implement and
+# the source material would be in a database, not in text files under version
+# control.
+
+@Title: Sane #include hierarchy for C and C++
+@Tags: programming, C, C++
+@Date: 2007-06-25
+
+In one large C/C++ project I worked on #include files were so haphazard and complex that
+sometimes rearanging the order of #include statements would cause compilation error
+that no-one could comprehend and fix in any other way than reverting to previous order.
+
+Every now and then an ambitious soul would set out to fix the problem once and for all.
+And fail miserably shortly after.
+
+The code in this project was quite good - it's just maintaining good include
+hierarchy requires a lot of effort and once you get into bad state, its hard
+to get out of it.
+
+The best weapon is being anal-retentive from the very beginning of your project.
+
+It's important to reduce number of dependencies between header files,
+especially circular dependencies.
+
+WebKit project [spells the rules](http://webkit.org/coding/coding-style.html):
+* All C/C++ files must #include "config.h" first
+* All files must #include the primary header second, just after "config.h". So for example,
+Node.cpp should include Node.h first, before other files. This guarantees that each header's
+completeness is tested, to make sure it can be compiled without requiring any other header
+files be included first.
+* Other #include statements should be in sorted order (case sensitive, as done by the 
+command-line sort tool or the Xcode sort selection command). Don't bother to organize them
+in a logical order.
+
+File config.h
+<code c>
+#ifndef COMMON_H_
+#define COMMON_H_
+
+/* This is a header included by every single file.
+   It should include definitions of most basic types and utilities
+   (like asserts and simple templates. It usually means most common
+   header files for C standard library like <stdio.h> etc. and
+   <windows.h> on Windows.
+   Resist temptation to include too much in this file - it'll lead
+   to insanity.
+*/
+#endif
+</code>
+
+File foo.h:
+<code c>
+#ifndef FOO_H_
+#define FOO_H_
+/* To speedup compilation times avoid #include'ing header files.
+   You can use any definitions in config.h. If possible, use forward
+   declarations instead of including header file with definitions */
+
+#endif
+</code>
+
+File foo.c:
+<code c>
+#include "config.h"
+#include "foo.h"
+/* rest of include files sorted alphabetically */
+</code>
+
+@Title: valgrind basics
+@Tags: programming
+@Date: 2007-01-09
+
+**Memcheck**: `valgrind --leak-check=yes myprog arg1 arg2`. Use on code compiled with -O0.
+-O1 should work as well but -O2 might report a lot of false positives.
+
+**Call profiler**: `valgrind --tool=callgrind myprog arg1 arg2`. Generates file `callgrind.out.<pid>`
+where `<pid>` is process id of this profiler run. Use `kcachegrind` on this file to inspect the results.
+
+If you want to profile only a section of the code:
+
+* `#include <valgrind/callgrind.h>`
+* wrap the section to profile with `CALLGRIND_TOGGLE_COLLECT` macros
+* add `--collect-atstart=no` so that valgrind doesn't profile from the beginning but only the
+sections of the code within `CALLGRIND_TOGGLE_COLLECT`
+
+In other words, if your code looks like:
+<code>
+#include <valgrind/callgrind.h>
+
+CALLGRIND_TOGGLE_COLLECT
+foo();
+CALLGRIND_TOGGLE_COLLECT
+</code>
+your program is profiled only when foo() function is running.
+
+There's also an option `--instr-atstart=no` and `CALLGRIND_START_INSTRUMENTATION` and
+`CALLGRIND_STOP_INSTRUMENTATION` macros. In theory you can use this option and insert those 2
+macros into the code to speedup profiling (instrumatation slows down valgrind) but in
+practice valgrind 3.2 crashed when I was using this option.
+
+@Title: Newline standards
+@Tags: programming
+@Date: 2006-09-21
+
+* LF: 0x0a (10), Unix
+* CR: 0x0d (13), Mac
+* CRLF: Windows
+
+@Title: Gdb basics
+@Tags: gdb, unix, programming
+@Date: 2006-09-07
+
+**Customization**: File `.gdbinit` contains instructions that gdb will execute at startup. 
+Helpful for adding commonly used commands. Gdb first reads `.gdbinit` in $HOME directory, 
+then in current directory (if different than $HOME).
+
+Gdb looks for source files in `$cdir` (directory embedded in executable recorded during
+compilation) and `$cwd` (current working directory). You can add to this list via `dir`
+e.g. `dir ..\..\WebCore\platform`. See current list via `show dir`. If you need this,
+it's a perfect candidate for putting inside `.gdbinit` file.
+
+Basics:
+
+* `run [<args>]` - run the program with (optional) arguments
+* `c` (`continue`) - continue execution
+* `bt` - print a stack trace
+* `frame <n>` - switch to frame <n>
+* `info locals` - show local variables
+* `p <foo>` - print the value of a variable
+* `x /fmt addr` - show data under a given addr using a given format
+* `info breaks` - display current breakpoints
+* `break <line-no>` - set breakpoint at a line number <line-no> in current file e.g. `break 24`
+* `break *<addr>` - set a breakpoint at a given addr e.g. `break *foo + 24` (set a breakpoint 24 bytes
+   after the beginning of function foo
+* `delete <n>`, `disable <n>`, `enable <n>` - delete/disable/enable breakpoint <n>
+
+Debugging at assembly level:
+
+* `display /i $eip` so that gdb prints the next assembly instruction
+* `nexti` and `stepi` for stepping by one instruction
+* `set disassembly-flavor intel` changes assembly syntax from awful AT&T to less awful intel
+* `info regs` - show content of registers
+   
+Useful macros to define in `.gdbinit`:
+
+`dpc [<count>]` disassembles next <count> (or 24 if not given) bytes starting from current location.
+<code>
+define dpc
+  if $argc ==1
+    disass $pc $pc + $arg0
+  end
+  if $argc == 0
+    disass $pc $pc+24
+  end
+end
+</code>
+
+`pu <addr>` print Unicode string under address <addr>
+<code>
+def pu
+  set $uni = $arg0 
+  set $i = 0
+  while (*$uni && $i++<100)
+    if (*$uni < 0x80) 
+      print *(char*)$uni++
+    else
+      print /x *(short*)$uni++
+    end
+  end
+end
+</code>
+
+@Title: Installing Ubuntu
+@Tags: unix, admin
+@Date: 2006-08-29
+
+Here's a step-by-step list of useful things to do when setting up Ubuntu
+under VMWare.
+
+1) Install Ubuntu from live CD to a hard-drive
+
+2) add your account to `/etc/sudoers` using `sudo visudo` command. Add line:
+
+<code>
+%kjk     ALL=(ALL) NOPASSWD: ALL
+</code>
+
+That way you don't have to provide a password to `sudo` command.
+
+3) `sudo apt-get dist-upgrade` to make sure you have the latest stuff. It probably doesn't hurt.
+
+4) Use menu `System\Preferences\Screen Saver` to disable screen saver.
+
+5) Use menu `System\Preferences\Sound` to disable sound.
+
+6) Switch to Mist theme (`System\Preferences\Theme`)
+
+7) Change font sizes to 8
+
+8) Use `System\Administration\Synaptic Package Manager`, menu 
+`Settings\Repositories` to enable other sources of packages (all of them).
+
+9) Use `System\Preferences\Desktop Background` to set background to some gray, 
+solid background.
+
+10) Enable vnc server (`System\Preferences\Remote Desktop`)
+
+11) Install a bunch of stuff:
+
+<code>
+sudo apt-get install samba smbfs
+sudo apt-get install linux-kernel-devel linux-source linux-headers-386
+sudo apt-get install emacs21 subversion
+sudo apt-get install bison flex gperf python-dev libxml2-dev libxslt-dev 
+sudo apt-get install libgtk2.0-dev libcairo2-dev libfreetype6-dev
+sudo apt-get install libcurl3-dev sqlite3 libsqlite3-dev cmake
+sudo apt-get install most
+</code>
+
+12) Uninstall a bunch of stuff to make the vmware image smaller
+
+<code>
+sudo apt-get remove gimp gimp-data gimp-print gimp-python
+sudo apt-get remove openoffice.org* evolution* gaim
+</code>
+
+13) Install VMWare tools
+
+14) Customize emacs: `cd ~; wget http://kjk.googlecode.com/svn/trunk/.emacs`
+
+15) Customize `~/.bashrc` and add:
+
+<code>
+alias emacs='emacs -nw'
+alias tlist='ps aux'
+</code>
+
+16) To access linux directory under Windows via Samba use 
+`System\Administration\Shared Folder` menu.
+
+Select folder to share and other settings.
+
+Add a samba user/password for accessing the folder with: `sudo smbpasswd -a 
+<user>`
+
+Those user names/passwords are independent of Unix user names/passwords (I think).
+
+@Title: tar basics
+@Tags: tar, unix, admin
+@Date: 2006-03-31
+
+**Unpack an archive**: `tar xvf archive.tgz`
+
+**Create an archive**: `tar zcvf archive.tgz archive-dir`
+
+@Title: What makes a CD bootable
+@Tags: cd, info
+@Date: 2006-03-03
+
+This is a copy of [this article](http://technopedia.info/tech/2006/03/03/what-makes-a-cd-bootable.html)
+
+In order for a CD to be bootable, it must contain two files: BOOTCAT. BIN and
+BOOTIMG.BIN. BOOTCAT.BIN is a catalog file, and BOOTIMG.BIN is an image file—an
+image of a bootable floppy disk. That’s why you need an existing bootable 
+floppy in order to make a bootable CD.
+
+When you browse the contents of a bootable CD in Windows or at a command prompt, 
+you won’t see any of the files that you would find on a bootable floppy; that’s 
+because they are all stored within BOOTIMG.BIN.
+
+When you boot from the bootable CD, everything in BOOTIMG.BIN and BOOTCAT.BIN 
+shows up as being on the A: drive, while everything else on the CD shows up on 
+the regular CD drive letter. It tricks the PC into thinking that there is 
+actually a floppy in the A: drive.
+
+@Title: C portability notes
+@Tags: c, programming
+@Date: 2006-02-12
+
+Using `#ifdef` is a sad necessity for portable C\\C++ programming. This is a list
+of a few symbols that are often used for writing really portable programs (those
+that run on Unix\\Windows\\MacOS\\Palm OS etc.). This list is meant as a quick
+reference, not an in-depth explanation.
+
+`_WIN32_WCE` - defines Windows CE version (i.e. if defined, this is Windows CE)
+
+`_WIN32` and `_WINDOWS` - usually mean compilation for Windows
+
+`__CYGWIN__` - compiled by gcc under CYGWIN (Unix emulation layer for Windows)
+
+`__MINGW32__` - compiled by gcc under Mingw32 - Unix portability layer for Windows
+
+`_UNICODE` - on Windows means that TCHAR is WCHAR (or wchar_t) i.e. 16-bit unicode character. On Windows CE this is the only option.
+
+`__BORLANDC__` - set if compiled with Borland C compiler
+
+`_MSC_VER` - defines a version of Microsoft C compiler
+
+`__GNUC__` - defined when using gcc
+
+`NDEBUG` - defined if this is a release (i.e. not DEBUG) build
+
+`DEBUG` - often defined for debug builds (opposite of NDEBUG)
+
+
+`_PALM_OS` - compilation for Palm OS
+
+@Title: Regular expressions in Python
+@Tags: python, programming, hidden
+@Date: 2006-02-12
+
+A simple example that shows the basics:
+<code python>
+import re
+
+# this will match WM_FOO, WM_BAR etc. assuming it's surrounded by whitespace
+# characters
+regex = re.compile("\S(WM_\w)\s")
+str = "hello WM_BAR"
+match = regex.search(str)
+if match:
+    print match
+</code>
+
+Explanations:
+
+`re.match()` only matches at the beginning
+`re.search()` is like `re.match()`, but searches the string for the match
+
+@Title: Embedding binary resources on Windows
+@Tags: windows, c, programming
+@Date: 2006-01-30
+
+Windows binary can have resources embedded in them. Most resources are of
+predetermined type (e.g. a menu, an icon or a bitmap) but you can also
+embed arbitrary binary data (e.g. a text file). The proper syntax is hard to figure out
+just from reading msdn docs. 
+
+This snippet shows how to embed a binary resource from a file.
+
+First you need to define a resource identifier in a header file (e.g. `resource.h`)
+that will be used by both C compiler and resource compiler:
+<code c>
+#define MY_RESOURCE 300
+</code>
+
+Then you need to add to your resource file (e.g. `resource.rc`):
+<code>
+MY_RESOURCE RCDATA "file-with-data.txt"
+</code>
+
+And finally, this is how you can get to this data:
+<code c>
+void WorkOnResource(void)
+{
+    HGLOBAL     res_handle = NULL;
+    HRSRC       res;
+    char *      res_data;
+    DWORD       res_size;
+
+    // NOTE: providing g_hInstance is important, NULL might not work
+    res = FindResource(g_hInstance, MAKEINTRESOURCE(MY_RESOURCE), RT_RCDATA);
+    if (!res)
+        return;
+    res_handle = LoadResource(NULL, res);
+    if (!res_handle)
+        return;
+    res_data = (char*)LockResource(res_handle);
+    res_size = SizeofResource(NULL, res);
+    /* and now you can do what you want to your resources, you naughty boy */
+}
+</code>
+
+@Title: Disable word completion in edit control on Pocket PC
+@Tags: windows ce, pocket pc, C, programming
+@Date: 2006-01-28
+
+By default, every Pocket PC edit control has text completion enabled. In that
+mode, when Pocket PC OS sees that there is a potential completion for a text
+in the edit control, it shows a window with the suggestions. It can be selected
+either by tapping on it or using 5-way navigation up and center press.
+
+This behaviour is not always desirable since it prevents from handling 5-way
+up event inside edit control.
+
+Also, sometimes edit control is in suggestion mode but suggestion window is not
+displayed. I haven't figured out why, but this can cause a lot of head-scratching
+if suddently edit control swallows up events with no apparent reason.
+
+It's possible to control auto-completion by changing sip (soft input panel) flags
+using [SHSipInfo](http://msdn.microsoft.com/library/default.asp?url=/library/en-us/apippc/html/ppc_aygshell_dgti.asp).
+Unfortunately this is a global setting.
+
+In order to turn completion off only for a given edit control, we need to subclass
+edit control, write our own windows proc and enable/disable completion on
+`WM_KILLFOCUS`/`WM_SETFOCUS` messages, as the snippet below shows.
+
+A better implementation would remember what was the completion state was on
+`WM_SETFOCUS` and restore it on `WM_KILLFOCUS`.
+
+This jumping through hoop should not be necessary - Pocket PC should provide
+a flag to disable auto completion that could be set on edit control during its
+creation.
+
+<code c>
+#include <aygshell.h>
+
+// see http://pocketpcdn.com/articles/wordcompletion.html for details
+// edit boxes on pocket pc by default have spelling suggestion/completion.
+// Sometimes we want/need to disable that and those functions do it.
+void sip_completion_disable(void)
+{
+    SIPINFO     info;
+
+    SHSipInfo(SPI_GETSIPINFO, 0, &info, 0);
+    info.fdwFlags |= SIPF_DISABLECOMPLETION;
+    SHSipInfo(SPI_SETSIPINFO, 0, &info, 0);
+}
+
+void sip_completion_enable(void)
+{
+    SIPINFO     info;
+
+    SHSipInfo(SPI_GETSIPINFO, 0, &info, 0);
+    info.fdwFlags &= ~SIPF_DISABLECOMPLETION;
+    SHSipInfo(SPI_SETSIPINFO, 0, &info, 0);
+}
+
+LRESULT EditWinProc(HWND hwnd, UINT msg, UINT wparam, LONG lparam)
+{
+    switch (msg) {
+        case WM_KILLFOCUS:
+            sip_completion_enable();
+            break;
+        case WM_SETFOCUS:
+            sip_completion_disable();
+            break;    
+    }
+}
+</code>
+
+@Title: Make C code safe for C++
+@Tags: c, c++, programming
+@Date: 2006-01-26
+
+When C or C++ compiler compiles a function, it generates an object file that
+contains generated assembly code identified by a symbol generated from
+function name. Generating this symbol is called name mangling. C compilers
+use very simple name-mangling: they prepend single "\_" to function name i.e.
+function `int foo(int a)` is identified in object file by a symbol `_foo`.
+
+C++ name mangling are much more complicated since C++ has to support classes,
+overloaded functions etc.
+
+It's also incompatible with C compiler's name mangling. It can be a problem.
+
+If a header file for functions compiled by C compiler is included in a file
+compiled by C++ compiler, the linker won't be able to link those object
+files since the names of functions won't match due to different name mangling.
+
+There is a solution to this problem. 
+
+First thing to know is that C++ compilers
+define __cplusplus preprocessor symbol, so it's possible to use `#ifdef __cplusplus`
+statement to compile parts of the code only by C++ compiler.
+
+Second thing to know is that `extern "C" { /* block of code */ }` tells C++ compiler
+to interpret a given block of code as C compiler would i.e. use C compiler's name
+mangling for those functions.
+
+All this boring explanation means that in order to make your C code safe for C++,
+you need to wrap the code in header file with those statements:
+
+<code c>
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
+/* ... your C code ... */
+
+#ifdef __cplusplus
+}
+#endif
+</code>
+
+@Title: rpm basics
+@Tags: rpm, unix, admin
+@Date: 2006-01-15
+
+**Install a package**: `rpm -ihv *.rpm`
+
+**Upgrade a package**: `rpm -Uhv *.rpm`
+
+**List all packages matching a name**: `rpm -qa | grep -i name`
+
+**List files in a given pacakge**: `rpm -ql $package-name`
+
+**List packages dependent on a given package**: `rpm -q --whatrequires mysql-server`
+
+**Build and install a source package**: `rpm --recompile $package-name`
+
+
+@Title: Apache authentication
+@Tags: apache, unix
+@Date: 2006-01-15
+
+First, create a file with passwords e.g. by: `htpasswd -bc $pwd-file $user $pwd` (`-b` adds a password to a file, `-c` creates a new file)
+
+Create `.htaccess` file in a directory you want to protect and put there:
+<code>
+AuthType Basic
+AuthName something
+AuthUserFile $pwd-file
+Require valid-user
+</code>
+
+If you refer to `$pwd-file` via relative path, it's relative to `/etc/httpd` on Linux and `c:\program files\apache group\apache` on Windows.
+
+@Title: Benchmarking php code fragments
+@Tags: php, code snippet
+@Date: 2006-01-15
+
+Here's how to do it:
+<code php>
+function getmicrotime()
+{
+        $t = microtime();
+        $t = explode(' ',$t);
+        return (float)$t[1]+ (float)$t[0];
+}
+
+function dobench1($ITER)
+{
+        bench1();
+        $t1 = getmicrotime();
+        for ($i=$ITER; --$i >= 0;) {
+                bench1();
+        }
+        return getmicrotime() - $t1;
+}
+</code>
+
+@Title: Basics of mysql
+@Tags: sql, mysql
+@Date: 2006-01-15
+
+**Start the console**: mysql
+
+**List all databases**: `show databases;`
+
+**Switch to a database**: `use $dbname;`
+
+**List tables in a current database**: `show tables;`
+
+**List columns in a given table**: `describe $tablename;`
+
+**Setting permissions to a database**: `GRANT SELECT ON $database.* TO '$user_name'@'%' IDENTIFIED BY '$password';`
+
+**Deleting rows**: `delete from $db.$table where $condition;`
+
+**Selects**: `select count(*) from $db.$table;`
+
+**Altering a table**: 
+<code sql>
+ALTER TABLE get_cookie_log ADD COLUMN log_id INT(10) NOT NULL auto_increment, ADD PRIMARY KEY(log_id);`
+ALTER TABLE get_cookie_log ADD COLUMN log_id INT(10) NOT NULL auto_increment, ADD INDEX(log_id);`
+ALTER TABLE verify_reg_code_log ADD COLUMN log_id INT(10) NOT NULL auto_increment, ADD INDEX(log_id);`
+</code>
+
+**Backup database**: `mysqldump $database [[-all] | [$table]]s >$file-name.sql`
+
+**Import database**:
+<code>
+mysql -e "DROP DATABASE $db; CREATE DATABASE $db;"
+mysql $databasename <$file-name.sql
+</code>
+
+@Title: Basics of writing DOS .bat batch files
+@Tags: batch, windows, programming, admin
+@Date: 2006-01-14
+
+**Set a variable**: `SET FOO="bar"`
+
+**Refer to a variable**: `echo %FOO%`
+
+Command line arguments are variables `%1`, `%2` etc.
+
+**Check if a variable is defined**: `IF NOT DEFINED FOO SET FOO="bar"`. Useful
+for testing command line arguments.
+
+**Check a result code from the last executed command**: `IF ERRORLEVEL $n $CMD-TO-EXECUTE`. It
+executes the command if result code is **equal or greater** to $n, so to
+check for any failures use 1.
+
+**Do things in a loop**: `FOR /L %A IN (1,1,10) DO @echo hello`
+
+**Execute another script**: `call another.bat`
+
+Here's an example of a batch file that does a few common things:
+
+<code batch>
+@ECHO OFF
+@rem "pushd $dir" puts $dir on directory stack
+pushd .
+SET COMMENT=%1
+IF NOT DEFINED COMMENT SET COMMENT=""
+
+SET FOO="bar"
+
+IF %FOO%=="bar" goto IS_BAR
+echo The above should always be true
+goto END
+
+:IS_BAR
+nmake -f Makefile.vc
+IF ERRORLEVEL 1 goto ERR_ONE_OR_HIGHER
+echo Compilation successful!
+goto END
+
+:ERR_ONE_OR_HIGHER
+echo Compilation failed!
+goto END
+
+:END
+@rem popd pops the directory name from the stack and does cd there
+popd
+</code>
+
+@Title: Compile-time asserts in C
+@Tags: C
+@Date: 2006-01-14
+
+Asserts are good. Compile-time asserts are even  better. Here's how to define and use them in C.
+
+<code c>
+#ifndef CASSERT
+#define CASSERT( exp, name ) typedef int dummy##name [ (exp ) ? 1 : -1 ];
+#endif
+CASSERT( sizeof(int16_t) == 2, int16_t_is_two_bytes )
+</code>
+
+@Title: Get file size under windows
+@Tags: Windows, C
+@Date: 2006-01-07
+
+Windows doesn't have an API to get a file size based on file name. This small function does that. 
+
+It returns -1 if a file doesn't exist.
+
+It doesn't handle files > 2 GB (max positive number for 32 bit signed value). It's quite easy to extend it to 64-bits if you know what is the 64 bit integer type in your compiler (unfortunately there's no standard).
+
+A better design might be `BOOL GetFileSize(const TCHAR *fileName, unsigned long *fileSizeOut)` i.e. returning false if file doesn't exist and putting the file size into `fileSizeOut`.
+
+<code c>
+long GetFileSize(const TCHAR *fileName)
+{
+    BOOL                        fOk;
+    WIN32_FILE_ATTRIBUTE_DATA   fileInfo;
+
+    if (NULL == fileName)
+        return -1;
+
+    fOk = GetFileAttributesEx(fileName, GetFileExInfoStandard, (void*)&fileInfo);
+    if (!fOk)
+        return -1;
+    assert(0 == fileInfo.nFileSizeHigh);
+    return (long)fileInfo.nFileSizeLow;
+}
+</code>
+
+@Title: Subversion basics
+@Tags: subversion, svn
+@Date: 2006-01-03
+
+**Installing subversion under Apache**:
+
+* make apache a member of svn group: `usermod -G apache,svn apache`
+* give apache permissions to `/home/svn`: `chmod g+rwx /home/svn`
+
+**Backup and restore a repo:**
+
+* `svnadmin dump repo >repo_svn_dump; bzip2 -9 repo_svn_dump`
+* or: `svnadmin dump repo | bzip2 -c -9 >repo_svn_dump.bz2`
+
+**Recreate a repo:**
+
+* `svnadmin create repo`
+* `sudo -u svn bzip2 -d -d repo.bz2 | svnadmin load repo`
+* modify `/etc/httpd/conf.d/repo-svn-authzfile`
+* you might, but don't need to, restart apache with `/etc/rc.d/init.d/httpd restart`
+
+This assumes Apache2 and a particular setup found on RedHat Enterprise.
+
+**Resolve conflicts**: `svn resolved $file` (begs a question: why subversion doesn't do automatic conflict resolution?)
+
+**Update to a version in the past**: `svn update -r {2004-04-04}`
+
+**Create a tag:**
+
+`svn copy https://sumatrapdf.googlecode.com/svn/trunk/ https://sumatrapdf.googlecode.com/svn/tags/release-0.7 -m "Tagging release 0.7."`
+
+
+@ Title: Check if file exists on Windows
+@ Tags: windows, c, code snippet
+@ Date: 2006-01-02
+
+Windows doesn't have a built-in function that checks if a file with a given name
+exists. It can be trivially written using `GetFileAttributes` or `FindFirstFile`
+APIs. Version below uses `GetFileAttributes`.
+
+<code c>
+/* Return TRUE if file 'fileName' exists */
+int FileExists(const TCHAR *fileName)
+{
+    DWORD       fileAttr;
+
+    fileAttr = GetFileAttributes(fileName);
+    if (0xFFFFFFFF == fileAttr)
+        return false;
+    return true;
+}
+</code>
+
+@ Title: High-resolution timer for timing code fragments
+@ Tags: windows, c, code snippet
+@ Date: 2006-01-01
+
+Timing of code fragments is simple:
+
+* record the start time
+* execute the code
+* record the end time
+* calucate the difference between end and start
+
+For timing exuction time of pieces of code you need a high-resolution timer. On Windows, Windows CE and Pocket PC/Smartphone (which are Windows CE variations) you can use `QueryPerformanceCounter` and `QueryPerformanceFrequence` API calls.
+
+Here's a simple implementation in C:
+
+<code c>
+typedef struct prof_timer_t {
+    LARGE_INTEGER time_start;
+    LARGE_INTEGER time_stop;
+} prof_timer_t;
+
+void prof_timer_start(prof_timer_t *timer) {
+    QueryPerformanceCounter(&timer->time_start);
+}
+
+void prof_timer_stop(prof_timer_t *timer) {
+    QueryPerformanceCounter(&timer->time_stop);
+}
+
+double prof_timer_get_duration_in_secs(prof_timer_t *timer) {
+    LARGE_INTEGER freq;
+    double duration;
+    QueryPerformanceFrequency(&freq);
+    duration = (double)(timer->time_stop.QuadPart-timer->time_start.QuadPart)/(double)freq.QuadPart;
+    return duration;
+}
+</code>
+
+And in C++:
+
+<code c++>
+// very simple, high-precision (at least in theory) timer for timing API calls
+struct ProfTimer {
+    void Start(void) {
+        QueryPerformanceCounter(&mTimeStart);
+    };
+    void Stop(void) {
+        QueryPerformanceCounter(&mTimeStop);
+    };
+    double GetDurationInSecs(void)
+    {
+        LARGE_INTEGER freq;
+        QueryPerformanceFrequency(&freq);
+        double duration = (double)(mTimeStop.QuadPart-mTimeStart.QuadPart)/(double)freq.QuadPart;
+        return duration;
+    }
+
+    LARGE_INTEGER mTimeStart;
+    LARGE_INTEGER mTimeStop;
+};
+</code>
+
+And here's an example of using the C++ version:
+
+<code c++>
+    ProfTimer t;
+    t.Start();
+    foo();
+    t.Stop();
+    double dur = t.GetDurationInSecs();
+    printf("executing foo() took %f seconds\n" , dur);
+</code>
+
+@ Title: Getting user-specific application data directory for .NET WinForms apps
+@ Tags: .net, c#, windows, WinForms, code snippet
+@ Date: 2006-01-01
+
+Windows defines a number of directories for specific things. 
+
+One of those directories is a directory that a well-behaved Windows application should use to store user-specific data (e.g. a list of recently open documents by this user, customization information etc.). 
+
+Usually this is a hidden directory `C:\Documents and Settings\$UserName\Application Data`. Most applications choose to create a sub-directory named after application. Bigger companies, like Macromedia or Microsoft choose, to use 2-level hierarchy: `$CompanyName\$ApplicationName`. 
+
+In .NET framework, `Application` object (from `System.Windows.Forms` namespace) has a static property `UserAppDataPath` that returns a string naming directory for storing user-specific application data. However, designers went overboard and used 3-level hierarchy: `$CompanyName\$ApplicationName\$VersionNumber`. 
+
+Adding version number is a mistake. When user upgrades the application, he doesn't want to loose his settings and customizations.
+
+The following static function rectifies this problem. It returns a base name of the user application data directory by stripping last 3 components from `UserAppDataPath`.
+
+<code c#>
+class Util
+{
+    static string cachedUserDataPath;
+    // return a directory where we store per-user app data (like serialized settings)
+    static public string GetUserDataPath()
+    {
+        if (null != cachedUserDataPath) return cachedUserDataPath;
+        cachedUserDataPath = System.IO.Path.Combine(System.Windows.Forms.Application.UserAppDataPath, "CamViewer");
+        string[] pathParts = cachedUserDataPath.Split(System.IO.Path.DirectorySeparatorChar);
+        System.Diagnostics.Debug.Assert(pathParts.Length > 3);
+        string pathSep = System.Char.ToString(System.IO.Path.DirectorySeparatorChar);
+        if (pathParts.Length > 3)
+            cachedUserDataPath = System.String.Join(pathSep, pathParts, 0, pathParts.Length - 2);
+        return cachedUserDataPath;
+    }
+}
+</code>
+
+@ Title: Local DNS modifications on Windows (/etc/hosts equivalent) 
+@ Tags: windows
+@ Date: 2005-12-31
+
+On Unix, `/etc/hosts` file contains mappings between an IP address and a name of the host. It overrides mappings from DNS. Windows has an equivalent of this file: `c:\WINDOWS\system32\drivers\etc\hosts` (at least that's the name on Windows XP).
+
+What are possible uses for this file:
+
+* when I make changes to my blog, I develop and test the changes on my local Apache setup on windows. My config files are setup up so that they work correctly both on my local test server and deployed server. To make things easier, I use hosts file to map local loopback address 127.0.0.1 to blog.local.org
+* changing hosts file can be used to fool local computer and simulate DNS changes (e.g. for testing before making real DNS changes)
+
+Changes to hosts file take place immediately after saving the file.
+
+Here's the simplest mapping from 127.0.0.1 to localhost and blog.local.org names:
+<code>
+127.0.0.1       localhost blog.local.org
+</code>
+
+@ Title: Accurate timers on Windows
+@ Date: 2005-12-31
+@ Tags: windows, programming
+
+From [this blog post](http://ooeygui.typepad.com/ooey_gui/2005/10/animations.html) on using accurate timers on Windows.
+
+[CraeteWaitableTimer](http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dllproc/base/createwaitabletimer.asp) API is similar to [SetTimer](http://msdn.microsoft.com/library/default.asp?url=/library/en-us/winui/winui/windowsuserinterface/windowing/timers/timerreference/timerfunctions/settimer.asp). You can specify timeout and a callback function. It has the following advantages:
+
+* you can specify a delay
+* it returns a kernel handle you can wait on
+* it allows pasing context data pointer to a callback function
+* waitable timers are much more accurate as they are not calculated during idle and messages aren’t collapsed
+* you can adjust the parameters of the timer with [SetWaitableTimer](http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dllproc/base/setwaitabletimer.asp) and cancel it with [CancelWaitableTimer](http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dllproc/base/cancelwaitabletimer.asp)..
+
+@ Title: Avoiding SQL injection bugs in PHP
+@ Date: 2005-12-31
+@ Tags: php, security, sql
+
+This tip is taken from [this blog post](http://blog.ianbicking.org/php-ghetto-comment-11.html).
+
+SQL injection is a class of security problems in web applications caused by executing sql queries containing user-supplied text e.g. entered on an html form. An attacker can provide text that will do unexpected, possibly harmful, things.
+
+Unfortunately the easiest way to write SQL queries in PHP is also the dangerous way:
+
+<code php>
+mysql_query("UPDATE users SET age='$age' WHERE id = '$id'");
+</code>
+
+If the string $id is "foo' OR 'x'='x", the resulting query will be:
+
+<code php>
+mysql_query("UPDATE users SET age=$age WHERE id = 'foo' OR 'x'='x'");
+</code>
+
+This will update age of every user, clearly not a good thing.
+
+A safer way of doing this is:
+<code php>
+if (get_magic_quotes_gpc()) {
+  $age = stripslashes($age);
+}
+mysql_query("UPDATE users SET age='".mysql_real_quote_string($age)."' WHERE id = '".mysql_real_quote_string($id)."'");
+</code>
+
+For more on sql injection read [SQL Injection Attacks by Example](http://www.unixwiz.net/techtips/sql-injection.html)
+
+@ Title: Serialization in C#
+@ Date: 2005-12-28
+@ Tags: c#, .net, serialization, code snippet
+
+Serialization (known as pickling in python) is an easy way to convert an object
+to a binary representation that can then be e.g. written to disk or sent over
+a wire.
+
+It's useful e.g. for easy saving of settings to a file.
+
+You can serialize your own classes if you mark them with `[Serializable]` attribute.
+This serializes all members of a class, except those marked as `[NonSerialized]`.
+
+.NET offers 2 serializers: binary, SOAP, XML. The difference between binary and SOAP is:
+
+* binary is more efficient (time and memory used)
+* binary is completely human-unreadable. SOAP isn't much better.
+
+XML is slightly different:
+
+* it lives in `System.Xml.Serialization`
+* it uses `[XmlIgnore]` instead of `[NonSerialized]` and ignores `[Serializable]`
+* it doesn't serialize private class members
+
+An example of serialization/deserialization to a file:
+
+<code c#>
+using System.IO;
+using System.Diagnostics;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters;
+using System.Runtime.Serialization.Formatters.Binary;
+
+[Serializable]
+public class MySettings {
+    public int screenDx;
+    public ArrayList recentlyOpenedFiles;
+    [NonSerialized]public string dummy;
+}
+
+public class Settings {
+    const int VERSION = 1;
+    static void Save(MySettings settings, string fileName) {
+            Stream stream = null;
+            try {
+                IFormatter formatter = new BinaryFormatter();
+                stream = new FileStream(fileName, FileMode.Create, FileAccess.Write, FileShare.None);
+                formatter.Serialize(stream, VERSION);
+                formatter.Serialize(stream, settings);
+            } catch {
+                // do nothing, just ignore any possible errors
+            } finally {
+                if (null != stream)
+                    stream.Close();
+            }
+    }
+    
+    static MySettings Load(string fileNmae) {
+        Stream stream = null;
+        MySettings settings = null;
+        try {
+            IFormatter formatter = new BinaryFormatter();
+            stream = new FileStream(fileName, FileMode.Open, FileAccess.Read, FileShare.None);
+            int version = (ArrayList)formatter.Deserialize(stream);
+            Debug.Assert(version == VERSION);
+            settings = (MySettings)formatter.Deserialize(stream);
+        } catch {
+            // do nothing, just ignore any possible errors
+        } finally {
+            if (null != stream)
+                stream.Close();
+        }
+        return settings;
+    }
+}
+</code>
+
+@ Title: Pickling (serialization) in Python
+@ Date: 2005-12-29 2005-12-31
+@ Tags: python, serialization, code snippet
+
+Pickling is an easy way to serialize data in Python. One possible use for that is preserving the state across script executions (like saving preferences).
+
+There are few things worth knowing:
+
+* python has `pickle` and `cPickle` modules. They are almost the same (`pickle` handles more cases but `cPickle` is faster)
+* you can specify protocol parameter to `dump()` function. Use `cPickle.HIGHEST_PROTOCOL` - it's the most efficient one 
+* the simplest thing to do is to stuff everything you want to serialize in a hash and serialize the hash
+
+The code snippet below shows how to save and load some data to a file. It removes the file if unpickling fails (which can happen if e.g. file is corrupted or not in the right format). The retry logic comes from experience - I found that `os.remove()` right after `close()` might fail.
+
+<code python>
+import sys, os, string, time, cPickle
+
+DATA_FILE_NAME = "settings.dat"
+
+def saveData():
+    fo = open(DATA_FILE_NAME, "wb")
+    version = 1.0
+    aString = "some data"
+    cPickle.dump(version, fo, protocol = cPickle.HIGHEST_PROTOCOL)
+    cPickle.dump(aString, fo, protocol = cPickle.HIGHEST_PROTOCOL)
+    fo.close()
+
+def loadData():
+    try:
+        fo = open(DATA_FILE_NAME, "rb")
+    except IOError:
+        # it's ok to not have the file
+        print "didn't find file %s with data" % DATA_FILE_NAME
+        return
+    try:
+        version = cPickle.load(fo)
+        aString = cPickle.load(fo)
+    except:
+        fo.close()
+        removeRetryCount = 0
+        while removeRetryCount < 3:
+            try:
+                os.remove(filePath)
+                break
+            except:
+                time.sleep(1) # try to sleep to make the time for the file not be used anymore
+                print "exception: n  %s, n  %s, n  %s n  when trying to remove file %s" % (sys.exc_info()[0], sys.exc_info()[1], sys.exc_info()[2], filePath)
+            removeRetryCount += 1
+        return
+    fo.close()
+</code>
+
+@Title: Regular expressions in different languages
+@Tags: hidden, c#, .net, perl, python, php
+
+@Title: Hashtables in different languages
+@Tags: hidden, c#, .net, python, perl, php
+
+@Title: Unison basics
+@Tags: hidden, backup
+
+=== Backups on a PC ===
+
+<tt>f:\backup</tt> is the source of the data. It's being backed up to <tt>c:\backup</tt> and <tt>g:\backup</tt> with unison.
+
+First time run:
+<pre>
+unison f:\arslexis g:\backup\arslexis -force f:\arslexis
+unison f:\arslexis c:\backup\arslexis -force f:\arslexis
+</pre>
+
+After that upgarde script:
+<pre>
+unison -batch f:\arslexis c:\backup\arslexis -force f:\arslexis
+unison -batch f:\arslexis g:\backup\arslexis -force f:\arslexis
+</pre>
+
+The script is <tt>c:\kjk\scripts\backup_arslexis.bat</tt>
+
+=== Backups from the server ===
+
+We have server stuff (e.g. Apache logs) in <tt>/backup</tt> directory. It gets unisoned to <tt>f:\backup-rackshack</tt> via:
+<pre>
+unison -batch socket://arslexis.com:6688//backup f:\backup-rackshack -force socket://arslexis.com:6688//backup
+</pre>
+
+The script is <tt>c:\kjk\scripts\backup_rackshack.bat</tt>
+
+TODO: we should also unison <tt>f:\backup-rackshack</tt> to <tt>c:\backup\rackshack</tt> and <tt>g:\backup\rackshack</tt>
+
+=== My scripts ===
+
+<pre>
+C:\kjk\scripts>at                                                                    
+Status ID   Day                     Time          Command Line                       
+-------------------------------------------------------------------------------      
+        1   Each M T W Th F S Su    5:00 AM       g:\wikipedia\dl_wikipedia.py       
+        2   Each M T W Th F S Su    5:10 AM       C:\kjk\scripts\backup_arslexis.bat 
+        3   Each M T W Th F S Su    5:20 AM       C:\kjk\scripts\backup_rackshack.bat
+</pre>
+
+@Title: Arrays in PHP
+@Tags: hidden, php, programming
+
+<code>
+$arr = array("a", 1, FALSE);
+foreach( $arr as $el )
+{ echo "$el\n"; }
+</code>

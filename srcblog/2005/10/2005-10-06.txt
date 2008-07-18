@@ -1,0 +1,14 @@
+Date: 2005-10-06 06:54:55
+Format: wphtml
+Title: Web 2.0 AJAX Quicken, anyone?
+
+
+
+
+In this age of Web 2.0 AJAXed editors, e-mail clients and spreadsheets,
+how come no-one came up with a Web 2.0-based replacement for Quicken?
+Shouldn't be harder to write than an editor.<br>
+<br>
+Anyway, the only reason to write this post is so that I can test <a title="http://www.writely.com" href="http://www.writely.com">writely.com</a> integration with my WordPress-based weblog.<br>
+<br>
+Update: and what do you know, it worked!<br>

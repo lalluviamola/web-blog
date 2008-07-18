@@ -1,0 +1,7 @@
+Date: 2003-02-01 08:39:05
+Format: wphtml
+Title: Disappointed by The Bat!
+
+<b>Disappointed by The Bat!</b>
+
+I was looking for a decent e-mail reader that can access my IMAP4 account on <a href="http://www.fastmail.fm">fastmail.fm</a> so I tried <a href="http://www.ritlabs.com/the_bat/">The Bat!</a>. So far I've read only the best about it but its IMAP4 support is very weak. I couldn't figure out the most basic feature: setting my account so that local folders mirror my existing IMAP4 folders. I couldn't make Bat! do what I want it to do so had to uninstall it. I settled on Mozilla's e-mail client even though it has one big deficiency, as far as I'm concerned: lack of multiple "personalities" for one e-mail account.

@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type"content="text/html; charset=iso-8859-1" />
+<title>Sumatra PDF viewer</title>
+<link rel="stylesheet" href="sumatra.css" type="text/css" />
+</head>
+
+<body>
+
+<div id="container">
+
+<div id="banner">
+
+<h1>Sumatra PDF</h1>
+<h2>A PDF Viewer for Windows</h2>
+
+<div id="ddcolortabs">
+<ul>
+<li><a href="index.html" title="Home"><span>Home</span></a></li>
+<li><a href="news.html" title="News"><span>News</span></a></li>
+<li><a href="manual.html" title="Manual"><span>Manual</span></a></li>
+<li><a href="download.html" title="Download"><span>Download</span></a></li>
+<li><a href="develop.html" title="Develop"><span>Develop</span></a></li>
+<li id="current"><a href="translations.html" title="Translations"><span>Translations</span></a></li>
+<li><a href="/forum_sumatra/" title="Forums"><span>Forums</span></a></li>	
+</ul>
+</div>
+<div id="ddcolortabsline"> </div>
+
+</div> <!--banner-->
+
+<div id="center">
+<div class="content">
+
+<img align="right" src="SumatraSplash.png" hspace="4"/>
+
+<h2>How to translate Sumatra PDF</h2>
+<p>If you want to see Sumatra PDF translated to your language, you can make it happen.
+</p>
+
+<p>
+<b>First important note:</b> the file must be saved with utf8 encoding with BOM mark. If it's saved in a
+different encoding, it'll be unusable. Please use <a href="http://www.flos-freeware.ch/notepad2.html">notepad2</a>
+(menu <tt>File\Encoding\UTF-8 with signature</tt>). It's free and it's what I use for editing.
+</p>
+
+<p>
+<b>Second important note:</b> please really read the first important note. It's really that important. I've
+already had several translations submitted that were not saved in the right format.
+</p>
+
+<p>
+All strings that need to be translated are kept in one file <tt>src/strings.txt</tt>. 
+You can checkout the sources to get it or grab 
+<a href="http://sumatrapdf.googlecode.com/svn/trunk/src/strings.txt">directly from the browser</a>.
+</p>
+<p>I hope the format of the file is obvious. Here's an example showing translation of File and Open
+menu items:
+<pre>
+-
+&File
+pl:Plik
+de:&Datei
+fr:&Fichier
+-
+&Open\tCtrl-O
+pl:Otworz\tCtrl-O
+de:&Offnen\tCtrl-O
+fr:Ouvrir\tCtrl-O
+</pre>
+</p>
+
+<p>
+In order to contribute translations:
+<ul>
+<li>grab the <a href="http://sumatrapdf.googlecode.com/svn/trunk/src/strings.txt">latest version of strings.txt</a></li>
+<li>add and improve translations for the language you know well</li>
+<li><a href="../../contact.html">e-mail me</a> a modified file</li>
+</ul>
+</p>
+
+<h2>Few notes</h2>
+
+<p>Keep in mind that translation is an on-going process. During development new strings are being
+added and they'll need to be translated. Before releasing a new version I plan to
+ask for help translating new strings on the <a href="/forum_sumatra/">forum</a></p>
+
+<p>Don't worry if you don't have the time to translate all of the strings at once. Even one translated
+string is better than nothing, so do send me even incomplete translations.</p>
+
+<h2>How can you test the translations?</h2>
+<p>If you can't build Sumatra PDF from sources, then you're out of luck. You have to send
+me the translations without testing and wait for a new release.</p>
+<p>If you can build Sumatra PDF, you can rebuild program with new translations. It's very simple:
+<ul>
+<li>change <tt>strings.txt</tt></li>
+<li>run <tt>gen_c_from_strings_file.py</tt></li>
+<li>rebuild the program</li>
+</ul>
+</p>
+
+<h2>Limitations</h2>
+<p>At the moment text in dialog boxes cannot be translated. Hopefully I'll fix that some day.</p>
+
+<h2>Translators</h2>
+<p>Current translations has been contributed by <a href="translators.html">many people</a>.</p>
+</div>
+</div>
+<hr/>
+<center>Sumatra is written by <a href="/">Krzysztof Kowalczyk</a></center>
+</div> <!--container-->
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-194516-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+Date: 2003-05-01 02:06:02
+Format: wphtml
+Title: Few ideas for RSS aggregators.
+
+<b>Few ideas for RSS aggregators.</b> I was a late convert to RSS aggregation 
+but now that I know how much more news I can read now (compared to my previous 
+method of web browsing) I'm not going back. I use Syndirella which is good but 
+basic so I have a few ideas for improvements.
+<p>People who read this blog also like... We live in a networked world. Aggregators 
+  have access to great information: lists of RSS feeds that people subscribe to. 
+  It would be fairly easy to implement the Amazon-style recommendation system: 
+  for each RSS feed aggregator could mine other people's lists to find blogs that 
+  those people also like to read.</p>
+<p>One-panel view. Most aggregators use three panels: list of feeds, list of entries 
+  in a feed, feed itself. My regular usage of an aggregator is: launch, get all 
+  updates, read through them all. </p>
+<p>Automatically calculate the update interval. Syndirella by defaults checks 
+  the feeds for updates every 1 hour and enables you to change that. Why not remember 
+  when the feed has been updated and automatically re-adjust the update interval?</p>
+<p>Some feeds are better than others. I like some feeds so much that I want to 
+  read them as soon as they show up. Other feeds I would like to read only when 
+  I'm extremely bored. Syndirella doesn't allow me to make this distinction. I 
+  should be able to mark feeds as important or not and in default reading mode 
+  the non-important ones would be cached locally (so I don't loose the updates) 
+  but filtered out. Then I should be able to switch to &quot;reading everything&quot; 
+  mode where I also see the unimportant feeds.
+<p>Some entries are more interesting than others. Most of the stuff I read is 
+  of the &quot;read and forget&quot; kind but sometimes it contains information 
+  interesting enough that I would like to save it for the future. I could do it 
+  manually by copying the text somewhere but I'm too lazy. I would like to have 
+  an easy way (one mouse-click or one key-press) to mark an entry as important 
+  (and then an easy way to locate those entries).

@@ -1,0 +1,11 @@
+Date: 2003-02-21 08:34:34
+Format: wphtml
+Title: An almost accurate quote.
+
+<b>An almost accurate quote.</b>
+<blockquote><i>
+"The man who reads nothing at all is better educated than the man who reads 
+nothing but blogs."
+</i></blockquote>
+
+<A href="http://www.quotationspage.com/quotes.php3?author=Thomas+Jefferson">http://www.quotationspage.com/quotes.php3?author=Thomas+Jefferson</A></P>

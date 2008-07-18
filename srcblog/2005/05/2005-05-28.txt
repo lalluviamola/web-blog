@@ -1,0 +1,14 @@
+Date: 2005-05-28 00:17:31
+Format: wphtml
+Title: Visual Studio 2005 usability issue
+
+If a design of an app bites you again and again, it's an usability issue.
+
+Overall I like Visual Studio 2005 a lot - it almost makes C/C++ development bearable.
+
+It does have one thing that trips me a lot. It has powerfull docking design and in my main view I have editor window followed by solution explorer window. They both have [x] button for closing. In editor window [x] closes the tab with current document. In the other window it removes solution explorer window altogether.
+
+Very often I close solution explorer when I intend to close a document - somehow the [x] that is the most to the right catches my attention.
+
+The solution to this particular problem would be to have [x] close button in each tab so that there is no confusion as to what it does, just as tabs in Safari are. It would make tabs a bit larger and there's a chance that you would close [x] button when just trying to switch to a document. However, in my experience with Safari, it doesn't happen often (so far it never happened to me once).
+

@@ -1,0 +1,7 @@
+Date: 2004-03-03 00:48:42
+Format: wphtml
+Title: New SideKick.
+
+<b>New SideKick.</b>
+
+Danger <a href="http://news.com.com/2100-1041_3-5163543.html?tag=nefd_top">has revealed</a> a <a href="http://theregister.co.uk/content/68/35841.html">a new SideKick</a>. Very little information is available. The hardware is slightly improved, some new software added (e.g. Yahoo IM client) but that's pretty much all that was published.  I'm always interested in how many SideKicks have been sold so far (because this determines the size of potential market for the applications) and according to Danger it's "several hundred thousand" which is not bad (if true).

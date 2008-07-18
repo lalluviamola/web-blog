@@ -1,0 +1,19 @@
+Date: 2004-06-13 22:16:55
+Format: wphtml
+Title: Daily reading
+
+<ul>
+
+<li><a href="http://weblogs.asp.net/evanf/">new weblog to read</a></li>
+<li> <a href="http://www.tbray.org/ongoing/When/200x/2004/06/13/TDD2004">Tim Bray on TDD</a> - too close to ADD for me </li>
+<li> <a href="http://iso.hrichina.org/iso/article.adp?article_id=2887&subcategory_id=264">censorship in China</a> </li>
+
+<li> <a href="http://granule.sourceforge.net/">granule - program for learning language</a> </li>
+
+<li> <a href="http://moji.mozdev.org/">learn Japanese in Mozilla</a> </li>
+
+<li> <a href="http://staff.develop.com/candera/weblog2/PermaLink.aspx?guid=aeaf1506-0f66-4bea-8118-f01b76c71af1">WinForms Catch-All Exception Handling</a> </li>
+
+<li><a href="http://wiremine.org/BlogPost13062004216">a bliki is a bliki</a></li>
+
+</ul>

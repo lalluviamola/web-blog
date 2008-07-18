@@ -1,0 +1,10 @@
+Date: 2002-09-22 00:15:42
+Format: wphtml
+Title: Mozilla book on-line.
+
+<div style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FLOAT: left; PADDING-BOTTOM: 0px; MARGIN: 0px; WIDTH: 160px; PADDING-TOP: 0px; HEIGHT: 195px">
+  <a href="http://books.mozdev.org/chapters/index.html" target="_blank">
+  <img alt="mozillabook.gif" src="http://www.hebig.org/blogs/archives/main/mozillabook.gif" border="0" width="145" height="190"></a></div>
+  <p><b>FREE! Mozilla book on-line.</b> This is the book I was waiting to read. It 
+talks about creating apps with Mozilla. And it's
+<a href="http://books.mozdev.org/chapters/index.html">free and on-line</a>.

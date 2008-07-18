@@ -1,0 +1,13 @@
+Date: 2004-10-14 19:39:27
+Format: wphtml
+Title: Idea - plugin architecture for google desktop search
+
+This one will fly through the blogspace: Google released <a href="http://desktop.google.com/">Google desktop</a> i.e. a desktop app that indexes the content of your hard-drive and allows to search it. My only question is: what took them so long?
+
+Anyway, that's great news and it seems that they did <a href="http://www.hanselman.com/blog/PermaLink.aspx?guid=86b31198-7002-416d-a68c-3330ebc0c189">pretty good job</a> with the implementation.
+
+The problem is that while Google Desktop understands a decent number of documents (outlook e-mail, aol im conversations, ie web pages, text files, word/excel/powerpoint docs) it still doesn't understand a lot of things. How about windows help files? How about pdf, postscript files? How about Thunderbird e-mail? How about gaim files? I'm sure that they'll pregressively add support for other kinds of documents, at least those most popular ones like pdf but there are plenty of applications out there and some of them are not important enough for Google to write plugins for them.
+
+The solution: Google should provide an interface to their indexing engine so that applications authors could provide indexing of their data to Google. That's the only scalable solution (used in <a href="http://www.nat.org/dashboard/">Dashboard project</a>, I believe).
+
+Dave Winer <a href="http://archive.scripting.com/2004/10/14#When:11:55:02AM">seems to agree</a>.

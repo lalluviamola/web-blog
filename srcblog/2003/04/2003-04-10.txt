@@ -1,0 +1,5 @@
+Date: 2003-04-10 23:20:51
+Format: wphtml
+Title: Programming language 100 years from now
+
+<a href="http://www.paulgraham.com/">Paul Graham</a> <a href="http://www.paulgraham.com/hundred.html">thinks aloud</a> about how a programming language used in 100 years would look like. <a href="http://discuss.fogcreek.com/joelonsoftware/default.asp?cmd=show&ixPost=38254&ixReplies=12">A discussion</a> follows.

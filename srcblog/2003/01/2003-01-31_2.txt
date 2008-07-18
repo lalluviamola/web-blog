@@ -1,0 +1,7 @@
+Date: 2003-01-31 22:39:47
+Format: wphtml
+Title: SICP lectures available on-line
+
+<b>SICP lectures available on-line.</b>
+
+Not only <a href="http://www.amazon.com/exec/obidos/tg/detail/-/0262011530/">Structure and Interpretation of Computer Programs</a> is available <a href="http://mitpress.mit.edu/sicp/full-text/book/book.html">on-line</a> but now you can also watch the <a href="http://www.swiss.ai.mit.edu/classes/6.001/abelson-sussman-lectures/">original lectures</a> (available in AVI and MPEG formats).

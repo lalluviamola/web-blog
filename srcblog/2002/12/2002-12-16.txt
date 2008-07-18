@@ -1,0 +1,5 @@
+Date: 2002-12-16 12:55:42
+Format: wphtml
+Title: Recruitment is like dating
+
+<b>Recruitment is just like dating.</b> Forums on <a href="http://www.joelonsoftware.com">Joel On Software</a> are interesting on average but some posts are much more interesting than others, like <a href="http://discuss.fogcreek.com/joelonsoftware/default.asp?cmd=show&ixPost=22534&ixReplies=14">this one</a> on the power of endorsements.

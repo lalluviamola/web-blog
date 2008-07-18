@@ -1,0 +1,5 @@
+Date: 2002-07-09 12:08:32
+Format: wphtml
+Title: Arch is a CVS replacement...
+
+<A href="http://www.regexps.com/arch.html">Arch</A> is a CVS replacement in-the-making. It works (I've heard, I haven't used it myself). It looks like arch's future got <A href="http://www.regexps.com/pipermail/arch-dev/2002-July/000249.html">a little brighter</A> today.

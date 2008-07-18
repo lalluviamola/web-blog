@@ -1,0 +1,26 @@
+Date: 2004-06-23 02:38:34
+Format: wphtml
+Title: Spreading FUD about Skype.
+
+<a href="http://gigaom.com/">GigaOM</a> is an interesting, opinionated weblog that I follow.  However, I do have to comment on <a href="http://gigaom.com/archives/2004/06/22/skype-a-security-risk-for-corporate-networks/">this entry</a> about alleged security risk of installing Skype. Looks like pure FUD to me. The whole basis for accusing Skype of not being secure are those words (from the CEO of a company making a competing product; can you say "bias" three times fast?):
+
+<blockquote>
+When I pressed him more, he explained that Skypeâs best feature, its ability to pass calls through firewalls and Network Address Translation (NAT) systems, is also its Achilles heel. Hackers can use the voice stream (which is nothing but data) to bypass firewalls and create havoc on the corporate networks. âYou can break the whole corporate network in a matter of minutes,â he said.
+</blockquote>
+
+From the technical point of view, this is just gibberish. Corporate networks broken in minutes yet none have been broken yet (at least none that I know about)? 
+
+Using "voice stream to create havoc"? And how exactly?
+
+This is not to say that that Skype isn't potentially insecure. Any software is potentially insecure and Skype is not different. However, it is quite different to say something is potentailly insecure and say that it is, in fact, insecure. It's very easy to prove that something is insecure: write an exploit demonstrating that. Publish a vulnerability report on one of the respected sources dealing with security holes in software.
+
+This post does none of that. It's all witch-hunting and allegations without proof coming from third-party who is Skype's direct competition.
+
+The post tries to appear impartial by quoting CERN rule:
+<blockquote>
+Skype P2P telephony software is not permitted on CERNâs computing or network facilities. The privacy policy of Skype violates CERNâs Computing Rules by bypassing firewall protections and offering services to others.
+</blockquote>
+
+Too bad it has nothing to do with security. Skype vilotes CERN's <strong>privacy policy</strong>. There's nothing that implies that CERN thinks Skype is <strong>insecure</strong>.
+
+<strong>Kowalczyk's second rule of internet:</strong> always apply critical thinking when reading stuff on the internet.

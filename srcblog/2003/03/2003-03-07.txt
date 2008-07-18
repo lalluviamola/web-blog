@@ -1,0 +1,7 @@
+Date: 2003-03-07 01:35:34
+Format: wphtml
+Title: Dev tools for Symbian OS
+
+<b>Dev tools for Symbian OS</b>
+
+Metrowerks just <a href="http://www.metrowerks.com/MW/Develop/Wireless/Symbian/Nokia3650WDK.htm">announced</a> a dev kit for Symbian OS 60-based phones (e.g. Nokia 3650 or Ericsson P800). For $1150 you can get Symbian OS 60 SDK, MetroWerks' IDE and Nokia 3650 phone. Too bad there is no way to develop for Symbian OS using just free tools. Even though everyone raves about P800, Symbian is far behind Palm and Pocket PC in terms of number of users, number of available applications and number of developers. Those numbers are connected: you increase one, the other will increase as well. But none of them will increase for free. Symbian obviously doesn't work too hard to lure developers so it'll only get developers if they can sell a lot of devices. The bottom line is that Phone/PDA market is already crowded with Palm, Pocket PC, SideKick. If Symbian and its licensees want to make a dent they should be doing anything they can to attract developers and providing free developement tools is where they should start. But instead of doing a better job than Palm, Microsoft of Danger, they do worse which is not a very good strategy.

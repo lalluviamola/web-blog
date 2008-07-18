@@ -1,0 +1,18 @@
+Date: 2007-06-27 20:44:14
+Format: wphtml
+Title: Is Apple working on Flash competitor?
+
+Flash playback is missing on iPhone - even though everybody thinks it should be there and it's not hard to do (I'm sure Adobe would be happy to license Flash player to Apple).
+
+Is is just feature prioritization or another sign that Apple is working on Flash competitor?
+
+But wait, you say, what do you mean "another"?
+
+Well, the first sign is <a href="http://jobs.apple.com/index.ajs?BID=1&method=mExternal.showJob&RID=4721&CurrentPage=1">this job posting</a> for iPhone Media Engineer.
+
+The most important part is: "Join a new high powered team within IMG to develop a cross platform web browser plugin for interactive media."
+
+Hmm, cross-platform web browser plugin for interactive media - if it's not a dictionary definition of Flash then I don't know what it.
+
+It could be referring to QuickTime browser plugin, which already exists, but it's just video playback. "Interactive media" promises much more than that and the product isn't new.
+Given ubiquity of Flash and Microsoft's offensive with Silverlight one can question a wisdom of developing an also-ran but Apple has something that neither Adobe nor Microsoft has: an iPhone, soon to be owned by 10 million people, and if Apple doesn't want Flash or Silverlight on the iPhone, they won't be there.

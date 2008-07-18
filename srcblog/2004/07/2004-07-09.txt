@@ -1,0 +1,10 @@
+Date: 2004-07-09 05:45:12
+Format: wphtml
+Title: Daily reading
+
+<ul>
+
+<li> <a href="http://seattle.wifimug.org/">list of coffee shops with free wireless in Seattle</a> </li>
+<li> <a href="http://seattlepi.nwsource.com/lifestyle/180190_freewifi.asp">article on coffe shops with free wifi in Seattle</a> </li>
+
+</ul>

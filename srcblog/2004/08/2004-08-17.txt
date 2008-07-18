@@ -1,0 +1,5 @@
+Date: 2004-08-17 12:52:08
+Format: wphtml
+Title: FastMail.fm increases quotas.
+
+This is how competitive pressure works. Undoubtedly as a result of Google's free 2GB <a href="http://gmail.google.com">gmail</a>, <a href="http://www.fastmail.fm">fastmail.fm</a> just announced that they're <a href="http://www.fastmail.fm/docs/newquotas.html">increasing their quotas</a>. This is great news for me - I'm using enhanced account and my mail storage quota will go from 150 MB to 2GB. The good thing about Fastmail is that it allows POP and IMAP access. The good thing about gmail is great web interface. Fastmail's interface ain't that bad either but gmail really created something substantially better than any other web e-mail interface that I know. I'll keep using them both, for slightly different purposes.

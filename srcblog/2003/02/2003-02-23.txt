@@ -1,0 +1,20 @@
+Date: 2003-02-23 04:52:26
+Format: wphtml
+Title: Audioblogs
+
+<b>Audioblogs.</b>
+
+The idea of audioblogs (i.e. putting spoken word instead of written word on the blog) 
+is being talked about from time to time. It won't happen on any meaningful scale. 
+There are a few problems with it, some of them fixable, some of them not. A 
+current but fixable problem is that it's too hard. Acquiring audio recordings 
+and posting them to the web is too hard. None of the current weblog tools 
+supports audio posting. In time those issues could be fixed (although I don't 
+think it's going to happen anytime soon). One of the unfixable problems is that 
+for most things written text is actually superior to audio. It's much smaller so 
+faster to download. It can be scanned and skipped if not interesting. You can't 
+scan audio. Not everyone is a good speaker. What you read here looks exactly the 
+same as if it was written by Pulitzer-prize winner journalist. I wouldn't get a 
+job as a radio DJ. You can read faster than you can listen to and listening is 
+deceptively non-multi-tasking i.e. you might think that you can do something 
+else while you're listening but when you do you'll loose it.

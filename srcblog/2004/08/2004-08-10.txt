@@ -1,0 +1,19 @@
+Date: 2004-08-10 11:35:25
+Format: wphtml
+Title: Palm OS Developer Suite (PODS) 1.0 released
+
+PalmSource finally released the <a href="http://www.palmos.com/dev/dl/dl_tools/dl_pods/">final 1.0 version of PODS</a> (Palm OS Developer Suite).
+
+I'm not terribly excited - I haven't even installed it yet. This is, however, the future of Palm OS development. PODS gives everything you need for writing C/C++ code for OS 5 and earlier and is the only tool that allows writing code for OS 6. The editor is based on Eclipse 2.1 and CDT (a plugin for writing C/C++ code) although Palm is planning to move to Eclipse 3 in the future.
+
+It also have C/C++ compilers (uses open-source prc-tools for pre-OS 6 code) and Palm's in-house ARM compiler for OS 6. As a side note: it's a strange decision by Palm to develop (or license - don't know the inside details on who wrote that compiler) an in-house ARM compiler instead of just using gcc (with modifications, if any are necessary). PalmSource is cash-strapped - they clearly can't afford to hire as many programmers as they should - and it seems to me that taking gcc code and funding necessary modifications (if any) would be much cheaper than writing or licensing the whole compiler.
+
+PODS also includes debuggers and simulators.
+
+PODS is important because it's the future. Before PODS developers had a choice between CodeWarrior, which includes IDE but is expensive, and prc-tools (free but there's no IDE and it's not as good).
+
+Now PalmSource is giving IDE as good (if not better) as CodeWarrior for free so I doubt that Metrowerks is going to try to compete and sell dev tools for Palm OS in the future.
+
+At this point PODS is the only tool that allows writing code for OS 6.
+
+I'm not jumping up and down from joy because at this point there's no reason to write OS 6 apps - there are no devices that actually ship with OS 6 (despite the fact that it has been officially released at the end of 2003). Even after devices are available it'll take years for OS 6 to have significant market share and given that it can run pre-OS 6 apps just fine, there's little reason to hurry.

@@ -1,0 +1,6 @@
+Date: 2002-12-19 04:25:03
+Format: wphtml
+Title: Selling Microsoft
+
+<b>Selling Microsoft</b>.
+<a href="http://www.amazon.com/exec/obidos/tg/detail/-/1580620523/">Selling Microsoft</a> is a solid book by someone who knows what he's talking about. Doug Dayton, the author, was an Account Manager for OEM at Microsoft and in this book shares his ideas on how to be a succesful salesman. The book is a mix of sales-specific advice and generic "how to manage yourself" advice. Worth reading.

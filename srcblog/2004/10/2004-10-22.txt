@@ -1,0 +1,11 @@
+Date: 2004-10-22 20:19:45
+Format: wphtml
+Title: University of Washington on-line videos
+
+University of Washington provides some of their colloquia and courses as on-line video:
+<ul>
+<li><a href="http://norfolk.cs.washington.edu/htbin-post/unrestricted/colloq/search.cgi">colloquia</a> (make sure to change search criteria to see all previous talks)</li>
+<li> <a href="http://www.cs.washington.edu/education/dl/course_index.html">courses</a></li>
+<li> <a href="http://www.cs.washington.edu/news/colloq.info.html">main page</a></li>
+</ul>
+In the colloquia page you can access recent <a href="http://glinden.blogspot.com/2004/10/googles-kirkland-office.html">talk by Google</a> where they (supposedly - I haven't seen it yet) announced Google tech campus in Kirkland.

@@ -1,0 +1,7 @@
+Date: 2003-01-31 03:00:00
+Format: wphtml
+Title: Christopher Alexander's talk
+
+<b>Christopher Alexander's talk.</b>
+
+Mitch Kapor's <a href="http://www.stanford.edu/class/ee380/Abstracts/030129.html">talk</a> is not yet available. While you wait, you can just as well watch Christopher Alexander's <a href="http://www.stanford.edu/class/ee380/ay0001.html">talk</a>. His was the guy whose usage of the word "patterns" was so widely adopted in the software world. And check out <a href="http://www.amazon.com/exec/obidos/tg/detail/-/0195019199/">his book</a> (it took me few months to read it but it was worth it).

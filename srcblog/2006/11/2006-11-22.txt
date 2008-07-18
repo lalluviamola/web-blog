@@ -1,0 +1,5 @@
+Date: 2006-11-22 23:13:29
+Format: wphtml
+Title: Talk on designing good APIs
+
+If you're writing code, there is a <a href="http://www.infoq.com/presentations/effective-api-design">video of a good talk</a> by Joshua Bloch on designing good APIs. It has a Java slant, since Joshua is one of designers of Java APIs, but the advice is generic enough to apply to other languages.<br /><br />Beware the video: it's in flash but uses a bad player that cannot be paused (well, it can, I just couldn't unpause it) so be prepared to sit through all 70 minutes of it at once. To all video providers: please also provide a version that I can download and watch in my favorite player at my leisure.<br /><br />

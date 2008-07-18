@@ -1,0 +1,9 @@
+Date: 2002-10-02 12:17:56
+Format: wphtml
+Title: Amazed but not shaken.
+
+<b>Amazed but not shaken.</b> I'm always amazed when a serious, flashy web service makes a basic, annoying mistake. Case in point: T-Mobile. I ordered a phone through their web site, they gave me order number in the form "#ddddd", where d is a digit. They have a web page where I can enter this order number to get the order details. So I just copy-pased the number from the notification e-mail they sent me into the form, probably the way most people do it. The number was rejected with useless non-explanation ("unknown order"). After some pondering I removed the "#" from the beginning. Still no go. After some more pondering I noticed that I had a space at the end, so I removed it as well. Bingo.<p/>
+It seems like a small thing but I'm pretty sure there are many people that cannot read programmer's minds (I can, because I'm a programmer myself) and leave the site with frustration. So I'll take the opportunity to formulate 1st rule of usability:
+<blockquote>
+1st rule of usability: people are sloppy and make mistakes. Plan for that. Try to read user's minds instead of forcing them to read yours.
+</blockquote>

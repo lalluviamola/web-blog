@@ -1,0 +1,5 @@
+Date: 2003-07-23 02:50:35
+Format: wphtml
+Title: Treo 600 devleper kit available.
+
+<b>Treo 600 devleper kit available.</b> Treo 600 developer kit <a href="http://www.palminfocenter.com/view_story.asp?ID=5705">has been released</a>. The only really sucky thing about new Treo 600 is its lousy screen resolution (160x160 simply doesn't look good) but Handspring does the right thing by releasing developer information. Wireless application downloads is intriguing - that's clearly the future but we'll have to see how it'll evolve (there's a danger of monopolizing distribution channels by device maker/mobile service provider and that would be bad).

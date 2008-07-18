@@ -1,0 +1,6 @@
+Date: 2003-06-04 05:09:12
+Format: wphtml
+Title: VoodoPad - wiki-like editor for Mac.
+
+<b>VoodoPad - wiki-like editor for Mac.</b>
+<a href="http://flyingmeat.com/voodoopad.html">VoodoPad</a> - I have just been thinking about something like that: a Wiki-like editor. Ok, maybe wiki-like isn't a good description. The idea is to have a simple text editor where each document is a part of the overall "hierarchy" (just like in a wiki system a wiki page is a part of the whole wiki). Make it also a good wiki front-end (and a blog frontend) and we have a good tool.

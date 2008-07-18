@@ -1,0 +1,6 @@
+Date: 2002-10-21 10:51:18
+Format: wphtml
+Title: Corman Lisp 2.0 shipped.
+
+<b>Corman Lisp 2.0 shipped.</b> As Chris Double <a href="http://radio.weblogs.com/0102385/">reports</a>, Corman Lisp 2.0 has finally been <a href="http://groups.yahoo.com/group/cormanlisp/message/876">released</a>.
+listOfThingsI'mWaitingFor -= 1.

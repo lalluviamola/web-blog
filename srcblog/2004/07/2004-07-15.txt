@@ -1,0 +1,39 @@
+Date: 2004-07-15 06:20:19
+Format: wphtml
+Title: Review of "Hot text - web writing that works"
+
+Review of <a href="http://www.amazon.com/exec/obidos/tg/detail/-/0735711518">Hot Text - web writing that works</a>.
+
+Verdict: if you write for web, in any capacity, "Hot text" is worth reading.
+
+At first "Hot text" threw me off with their hype-filled treatment of object-orientation (as applied to writing, none the less) and XML, but when it got to the meat of their advice on writing, I quickly forgot those initial awkward moments.
+
+The book is written for those who want to improve their writing for the web. It offers both generic tips like:
+<ul>
+<Li> writing should be short, simple and clear
+<li> break up long paragraphs into short ones
+<li> make text scannable
+<li> remove hype and marketoid speak
+<li> write in active voice
+<li> write with emotions
+<li> have a personal voice
+<li> link to other sites (gives you credibility)
+</ul>
+as well as addresses specific kinds of web content:
+<ul>
+<li> home page
+<li> navigation menus
+<li> help section and FAQs
+<li> product information
+<li> privacy policy
+<li> e-mail responses to customers
+<li> web marketing copy
+<li> press release
+<li> news
+<li> webzines
+<li> e-mail newsletters
+<li> weblogs
+</ul>
+
+While not as deep and inspiring like <a href="http://www.amazon.com/exec/obidos/tg/detail/-/0060006641">"On writing well"</a>,  it's filled with practical advice. and definitely worth reading for anyone who has to write for the web (especially those that don't have prior experience in copy writing).
+

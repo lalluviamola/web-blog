@@ -1,0 +1,7 @@
+Date: 2003-02-27 06:37:23
+Format: wphtml
+Title: More info on Chandler.
+
+<b>More info on Chandler.</b>
+
+Some more information on Chandler has just become <a href="http://wiki.osafoundation.org/bin/view/Main/OSAFStatusReports">available</a>.

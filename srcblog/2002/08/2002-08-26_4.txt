@@ -1,0 +1,5 @@
+Date: 2002-08-26 10:10:52
+Format: wphtml
+Title: Temporary solution.
+
+<B>Temporary solution.</B> <A href="http://www.ericsson.com/mobilityworld/">This</A> is priceless: &#013;&#010;<BLOCKQUOTE><I>The Ericsson Mobility World website is at the moment experiencing technical difficulties. Therefore we have decided to temporary open up all our areas to all visitors. This means that our documentation and tools &amp; enablers are currently accessible to everyone. </I></BLOCKQUOTE>A rare case where technical incompetence undoes stupidity (not offering "all areas to all visitors" in the first place).

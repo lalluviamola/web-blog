@@ -1,0 +1,11 @@
+Date: 2003-04-22 04:35:19
+Format: wphtml
+Title: Are Microsoft products any good?
+
+<b>Are Microsoft products any good?</b>
+<a href=http://www.arnoldkling.com/~arnoldsk/">Arnold Kling</a> is an economist 
+who have written many interesting articles and
+<a href="http://www.arnoldkling.com/~arnoldsk/Poptarts.htm">this</a> is one of 
+them. It basically says that the popularity of Microsoft software is not, as 
+many seem to believe, pure crap that is dominant only because Microsoft's evil 
+actions and good marketing.

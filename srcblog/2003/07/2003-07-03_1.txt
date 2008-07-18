@@ -1,0 +1,20 @@
+Date: 2003-07-03 22:29:39
+Format: wphtml
+Title: Testing Zempt 0.3
+
+<b>Testing Zempt 0.3</b> Zempt, a weblog posting tools, <a href="http://www.zempt.com/">has just been released</a>. Compared to <a href="http://blog.kowalczyk.info/archives/000349.html">previous version</a>, it has many improvements:
+<ul>
+<li>setting up the account is much more friendly (Zempt tries to guess the XML-RPC end-point based on blog site URL)
+<li>you can turn off fields like excerpt, extended entry (if you're not using them)
+<li>it has spell-checking
+<li>when you quit, the app doesn't loose what you've written and silently saves your post draft (it doesn't even asks you if you want to save which is the right thing to do but unfortunately not something that is usually done)
+</ul>
+
+Now to the disadvantages:
+<ul>
+<li>there's not list of previous posts (I believe it should be possible to implement)
+<li><a href="http://blog.kowalczyk.info/archives/000440.html#000440">as I wrote</a>, spell-checking should always be inlined
+<li>editor has small glitches e.g. when I was composing this entry, I managed to make some text vanish (fortunately, not permanently)
+<li>it has a preview but the preview is not using the template stored on the server so it doesn't look the way it'll look on weblog (WYSIA(pproximately)WYG)
+</ul>
+This post has been written in Zempt.

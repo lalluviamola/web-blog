@@ -1,0 +1,5 @@
+Date: 2004-06-12 20:39:24
+Format: wphtml
+Title: Blikis - I'm not alone.
+
+Thankfully I'm not the only person thinking that wikis and blogs go together well. Bru <a href="http://www.codewitch.org/archives/000259.html">also thinks so</a> and has installed both wiki and a blog on his website.

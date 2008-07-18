@@ -1,0 +1,5 @@
+Date: 2003-09-25 03:26:28
+Format: wphtml
+Title: Leaked info about Tungsten E and Tungsten T3.
+
+<b>Leaked info about Tungsten E and Tungsten T3.</b> You can read all about it <a href="http://www.gearbits.com/archives/000231.html">here</a>. The news is that this is really not news. Just an incremental upgrade of Tungsten: a little bit more memory, a little bit faster. Nothing very interesting about those models.

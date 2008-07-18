@@ -1,0 +1,26 @@
+Date: 2003-07-08 04:43:35
+Format: wphtml
+Title: More about Zempt - MT weblog editor.
+
+<b>More about Zempt - MT weblog editor.</b>
+
+Recently I <a href="http://blog.kowalczyk.info/archives/000443.html#000443">wrote</a> about <a href="http://www.zempt.com/">Zempt</a>, a Movable Type weblog editor commenting on few things I found missing. <a href="http://kalsey.com/">Adam Kalsey</a>, one of the developers, was kind enough to comment on my comments. So here are his comments:
+<blockquote>
+# there's not list of previous posts (I believe it should be possible to implement)
+<p>
+The problem is that we aren't the master storage for the data. Movable Type is. Since users can still enter posts into the MT web interface (or other offline tools) we can't have a list of previous posts without it being incomplete. The best we can do is the "Edit Entries" screen.
+<p>
+# as I wrote, spell-checking should always be inlined
+<p>
+This is one of those things where writing our own spell checker wouldn't provide a competitive advantage. The spell checker we use doesn't do this, so we don't do it either. We have it on our list of things to do, and we're going to see how much work it is to modify the spell check component to support this.
+<p>
+# editor has small glitches e.g. when I was composing this entry, I managed to make some text vanish (fortunately, not permanently)
+<p>
+We know. It's annoying. Again, this is a flaw in the text editor component. This is something we do feel is important enough to write on our own if we can't find a fix. Either way, the next version will be there.
+<p>
+# it has a preview but the preview is not using the template stored on the server so it doesn't look the way it'll look on weblog (WYSIA(pproximately)WYG)
+<p>
+Movable Type doesn't provide any way at all of retrieving the template from the server, so we can't use it. The next version will support text filters in the preview, though. So if you use Textile, your preview will be processed by Textile in the preview.
+</blockquote>
+
+It's very nice when developers listen to users comments. And yes, this post was written in Zempt.

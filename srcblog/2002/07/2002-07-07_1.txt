@@ -1,0 +1,5 @@
+Date: 2002-07-07 16:48:56
+Format: wphtml
+Title: I've been less than...
+
+I've been less than happy with my previous, old and busted Radio theme and I just found a nice, new hotness one so I made a switch. &#013;&#010;<P>The problem: Radio isn't a dynamic thing, it pre-renders everything to static HTML files so all my previous entries were still in the old theme. &#013;&#010;<P>The solution: run Radio tool, from menu choose "Radio\Publish\All weblog pages". It seems to re-render all the pages. I'm all happy now. </P>&#013;&#010;<P>Oh, and I just found a <A href="http://radio.weblogs.com/0100059/stories/2002/03/08/forcingUpstreamingOfAllWebsiteElements.html">more complete tutorial</A>

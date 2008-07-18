@@ -1,0 +1,42 @@
+Date: 2005-09-18 07:24:16
+Format: wphtml
+Title: Hating Linux
+
+Imagine a hypothetical scenario:
+<ul>
+<li>you install Ubuntu 5.04 from an installation CD
+<li>you install all upgrades
+<li>you ignore errors about not being able to connect to security.ubuntu.org or some such
+<li>you download sources to qemacs, because you want to compile it
+<li>compilation fails because X11 headers are not installed
+<li>you try to <code>sudo apt-get install libx11-dev</code>
+</ul>
+
+It fails with a wierd error:
+<pre>
+kjk@ubuntu:~$ sudo apt-get install libx11-dev
+Reading package lists... Done
+Building dependency tree... Done
+Some packages could not be installed. This may mean that you have
+requested an impossible situation or if you are using the unstable
+distribution that some required packages have not yet been created
+or been moved out of Incoming.
+
+Since you only requested a single operation it is extremely likely that
+the package is simply not installable and a bug report against
+that package should be filed.
+The following information may help to resolve the situation:
+
+The following packages have unmet dependencies:
+  libx11-dev: Depends: libx11-6 (= 6.8.2-10) but 6.8.2-10.1 is to be installed
+              Depends: libxext-dev but it is not going to be installed
+              Depends: libxi-dev but it is not going to be installed
+              Depends: libxkbfile-dev but it is not going to be installed
+E: Broken packages
+</pre>
+
+Now you scratch your head, poke around and try to figure out what the fuck is wrong. After 30 minutes it hits you: helpful upgrade process did upgrade all x libs from 6.8.2-10 to, I'm sure very significantly different, 6.8.2-10.1. But libx11-6 package was not upgraded and has a very strong dependecy on the exact 6.8.2-10 version and won't buge.
+
+So you spend another 30 minutes manually downgrading all x packages using clunky UI.
+
+How can you not hate Linux?

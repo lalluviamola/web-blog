@@ -1,0 +1,15 @@
+Date: 2003-04-28 07:36:36
+Format: wphtml
+Title: Treo sales numbers.
+
+<b>Treo sales numbers.</b>
+
+According to 
+<a href="http://handspring.com/company/pr_q3_comments_041503.jhtml">this article</a> Handspring 
+shipped around 180.000 units of Treo in total, 71.000 in last quarter. It's good 
+to know because Treo is one of those PDA/Phone combos with GPRS (i.e. you really 
+have internet access everywhere) gadgets and there are plenty of interesting 
+applications that could be written for a platform like that. But they won't be 
+written if the platform is not big enough to sustain commercial software development 
+for it. I wonder how does that compare to 
+shipments of Sidekick.

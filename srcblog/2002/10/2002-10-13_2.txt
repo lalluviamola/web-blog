@@ -1,0 +1,5 @@
+Date: 2002-10-13 08:08:01
+Format: wphtml
+Title: Things I'm waiting for -= 2.
+
+<b>Things I'm waiting for -= 2.</b> The source code to Blender <a href="http://www.blender.org/">has been released</a>. MIT released first courses as part of their <a href="http://www.blender.org/">OpenCourseWare</a> project. So there are 2 things less for me to wait for. But the funny thing about the list of things I'm waiting for never shrinks. When will next version of Corman Lisp be released? When will Paul Graham's Arc be released? When will Subversion reach 1.0? When will I be able to buy dual-proc, 80 GB+ notebook? When will reasonably priced, 2 GB MMC flash memory be available? Etc. Every day the list gets longer.

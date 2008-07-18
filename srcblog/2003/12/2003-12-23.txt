@@ -1,0 +1,30 @@
+Date: 2003-12-23 18:35:28
+Format: wphtml
+Title: What people want?
+
+<b>What people want?</b>
+According to <a href="http://sourceforge.net/top/toplist.php?type=downloads_week">download statistics</a> at <a href="http://sf.net">SourceForge</a> people have a built-in, irresistible desire to share files. Don't believe me? Look at the list of top downloads for the past 7 days. On December 22, 2003, it looked like this:
+<table width="100%" cellpadding=0 cellspacing=0 border=0>
+<tr valign="top">
+<td><b>Rank</b></td>
+<td><b>Project Name<br>&nbsp;</b></td>
+<td align="right"><b>Downloads</b></td>
+<td align="right"><b>Last Rank</b></td>
+<td align="right"><b>Change</b>&nbsp;&nbsp;&nbsp;</td></tr>
+<tr BGCOLOR="#EAECEF"><td>&nbsp;&nbsp;1</td><td><a href="http://sourceforge.net/projects/emule/">eMule</a></td><td align="right">1213564&nbsp;&nbsp;&nbsp;</td><td align="right">1&nbsp;&nbsp;&nbsp;</td><td align="right">Same&nbsp;&nbsp;&nbsp;</td></tr>
+<tr BGCOLOR="#FFFFFF"><td>&nbsp;&nbsp;2</td><td><a href="http://sourceforge.net/projects/bittorrent/">BitTorrent</a></td><td align="right">340263&nbsp;&nbsp;&nbsp;</td><td align="right">2&nbsp;&nbsp;&nbsp;</td><td align="right">Same&nbsp;&nbsp;&nbsp;</td></tr>
+
+<tr BGCOLOR="#EAECEF"><td>&nbsp;&nbsp;3</td><td><a href="http://sourceforge.net/projects/dcplusplus/">DC++</a></td><td align="right">218712&nbsp;&nbsp;&nbsp;</td><td align="right">3&nbsp;&nbsp;&nbsp;</td><td align="right">Same&nbsp;&nbsp;&nbsp;</td></tr>
+<tr BGCOLOR="#FFFFFF"><td>&nbsp;&nbsp;4</td><td><a href="http://sourceforge.net/projects/azureus/">Azureus - BitTorrent Client</a></td><td align="right">131230&nbsp;&nbsp;&nbsp;</td><td align="right">6&nbsp;&nbsp;&nbsp;</td><td align="right"><font color="#009900">Up 2</font>&nbsp;&nbsp;&nbsp;</td></tr>
+<tr BGCOLOR="#EAECEF"><td>&nbsp;&nbsp;5</td><td><a href="http://sourceforge.net/projects/emuleplus/">eMule Plus</a></td><td align="right">103294&nbsp;&nbsp;&nbsp;</td><td align="right">4&nbsp;&nbsp;&nbsp;</td><td align="right"><font color="#CC0000">Down 1</font>&nbsp;&nbsp;&nbsp;</td></tr>
+
+<tr BGCOLOR="#FFFFFF"><td>&nbsp;&nbsp;6</td><td><a href="http://sourceforge.net/projects/virtualdub/">VirtualDub</a></td><td align="right">100261&nbsp;&nbsp;&nbsp;</td><td align="right">5&nbsp;&nbsp;&nbsp;</td><td align="right"><font color="#CC0000">Down 1</font>&nbsp;&nbsp;&nbsp;</td></tr>
+<tr BGCOLOR="#EAECEF"><td>&nbsp;&nbsp;7</td><td><a href="http://sourceforge.net/projects/cdexos/">CDex</a></td><td align="right">83987&nbsp;&nbsp;&nbsp;</td><td align="right">7&nbsp;&nbsp;&nbsp;</td><td align="right">Same&nbsp;&nbsp;&nbsp;</td></tr>
+<tr BGCOLOR="#FFFFFF"><td>&nbsp;&nbsp;8</td><td><a href="http://sourceforge.net/projects/webadmin/">Webmin</a></td><td align="right">65633&nbsp;&nbsp;&nbsp;</td><td align="right">9&nbsp;&nbsp;&nbsp;</td><td align="right"><font color="#009900">Up 1</font>&nbsp;&nbsp;&nbsp;</td></tr>
+
+<tr BGCOLOR="#EAECEF"><td>&nbsp;&nbsp;9</td><td><a href="http://sourceforge.net/projects/gordianknot/">Gordian Knot</a></td><td align="right">64971&nbsp;&nbsp;&nbsp;</td><td align="right">8&nbsp;&nbsp;&nbsp;</td><td align="right"><font color="#CC0000">Down 1</font>&nbsp;&nbsp;&nbsp;</td></tr>
+<tr BGCOLOR="#FFFFFF"><td>&nbsp;&nbsp;10</td><td><a href="http://sourceforge.net/projects/guliverkli/">guliverkli</a></td><td align="right">45325&nbsp;&nbsp;&nbsp;</td><td align="right">11&nbsp;&nbsp;&nbsp;</td><td align="right"><font color="#009900">Up 1</font>&nbsp;&nbsp;&nbsp;</td></tr>
+</table>
+
+Top 5 entries, eMule, BitTorrent, DC++, Azureus and eMule Plus are file-sharing applications. Then we have 4 apps whose purpose is mainly creating files to share. CDex rips music CDs and converts them to MP3 files that we so love to share. Gordian Knot converts movie DVDs to more easily shareable files in mpeg4 format (using xvid or divx encoders). VirtualDub is a video editing app but its required by Gordian Knot and mostly used as part of aforementioned encoding process. Also guliverkli is a set of apps to help in movie encoding process.
+<p>The only lone, non-sharing-related, ranger is Webmin.</p>

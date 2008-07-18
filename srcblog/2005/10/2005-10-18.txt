@@ -1,0 +1,40 @@
+Date: 2005-10-18 19:30:09
+Format: wphtml
+Title: TextDrive.com could use some improvements.
+
+
+For my low-end web hosting needs and hosting svn repositories I use <a title="TextDrive.com" href="http://textdrive.com">TextDrive.com</a>.
+They do have a good rep on the internet, mostly due to their
+involvement with various open-source, mostly Ruby-based, projects.<br>
+<br>
+There's one area of their hosting service that could use a lot of
+improvements: webmin interface for managing the server. To be more
+specific.<br>
+<br>
+1. It's agonizingly slow. It always has been.<br>
+<br>
+2. The UI is awful, and I mean the interaction, not being pretty. This
+is the third time I've added a new subversion repository and tried to
+setup anonymous access to it. You would think that this would be
+possible from the same page that lists the repositories but that's not
+how the mind of the brilliant designer of webmin works. It took me
+(again) 15 minutes of clicking on every possible link to figure out
+that in order to assign a given user access right to a svn repository,
+you have to:<br>
+<ul>
+  <li>go the the virtual server configuration page</li>
+  <li>click on "Edit Mail Users". Mail! How could I miss the fact that
+setting up subversion repository access is done through editing mail
+users.</li>
+  <li>click on the user</li>
+  <li>setup subversion access</li>
+</ul>
+<br>
+So if you have multiple users, you have to do it over and over again
+(as opposed to have all users listed next to repository name and being
+able to do it in one step for all users).<br>
+<br>
+And every new page takes forever to render.<br>
+<br>
+The end result being that setup changes are very frustrating.<br>
+<br>

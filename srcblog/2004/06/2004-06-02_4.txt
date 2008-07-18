@@ -1,0 +1,13 @@
+Date: 2004-06-02 23:17:45
+Format: wphtml
+Title: PHP 4.3.6 zip distro for Windows broken (?)
+
+<strong>Problem:</strong> installed <a href="http://us4.php.net/get/php-4.3.6-Win32.zip/from/a/mirror">PHP 4.3.6 ZIP package for Windows</a> according to instructions but Apache doesn't start.
+
+<strong>Solution:</strong> <b>php4ts.dll is missing</b> from <code>sapi</code> directory. Find it somewhere else (I used one from my previous 4.3.1 installation) and copy to <code>sapi</code> folder.
+
+Am I missing something or is it an amazing display of incompetence on part of the person who created this package?
+
+More info: I'm on a mission to install <a href="http://wiremine.org/">Cardboard</a> in order to play with it and maybe contribute some code. It depends on a lot of packages from <a href="http://pear.php.net/">PEAR</a> so first I need to install that. Unfortunately trying to install PEAR on my Windows dev machine with PHP 4.3.1 was a failure (and gave me an inspiration for a another post titled: "PEAR - an awful web interface if I ever saw one"). So I tried the latest and greatest "stable" PHP version which happens to be 4.3.6. I installed it but Apache didn't start despite numerous attempts to convice it to do that with <code>net start apache.</code> So I started debugging by comparing files available in 4.3.1 (which I wisely did not delete) and 4.3.6. What tipped me off was that while 4.3.6 usually has more files, <code>sapi</code> directory didn't have <code>php4ts.dll</code> and <code>install.txt</code> specifically mentions that <code>php4apache.dll</code> needs that.
+
+Where did the file go, I'll never know. So far things are humming along with 4.3.1 version of it. On to the next fight in the on-going battle of human vs. computer: installing PEAR packages.

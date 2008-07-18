@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Playing with VMWare</title>
+<link rel="stylesheet" href="/css/wp-style.css" type="text/css" />
+<link rel="stylesheet" href="/css/article.css" type="text/css" />
+
+<body>
+
+<!-- search box -->
+<div style="position: absolute;	top: 10px; right: 0; margin-right: 20px;">
+    <form method="get" id="searchForm" action="http://google.com/search">
+        <div>
+            <input type="hidden" name="IncludeBlogs" value="1" />
+            <input id="search" name="q" class="txt" size="25" tabindex="1" />
+            <input type="hidden" name="as_sitesearch" value="blog.kowalczyk.info" />
+            <input type="submit" class="btn" value="&nbsp;Search&nbsp;" />
+        </div>
+    </form>
+</div>
+<!-- end of search box -->
+
+<div id="header">
+<h1>Weblog Without Honor or Humanity</h1>
+<h2>by Krzysztof Kowalczyk</h2>
+</div>
+
+<div id="banner">
+	<ul id="tabnav">
+	<li><a href="/" title="home">Home</a></li>
+	<li><a href="/articles/" title="articles" class="current">Articles</a></li>
+ 	<li><a href="/software/" title="software">Software</a></li>
+ 	<li><a href="/contact.html" title="contact">Contact</a></li>
+	</ul>
+</div>
+
+<div id="container">
+<p>
+<a href="/">Home</a> &raquo; <a href="/articles/">Articles</a> &raquo; <strong>Playing with VMWare</strong>
+</p>
+
+<div id="article">
+<h1>Playing with VMWare</h1>
+
+<H3>Introduction</H3>
+<P><A href="http://www.vmware.com/">VMWare Workstation</A> enables you to run multiple operating systems on the same computer (think dual-booting without the mess). This article describes my experience with VMWare Workstation 3.1.1, a $299 product.</P>
+<P>There are a few reasons you might want to run many OSes on the same computer. They all have to do with saving money, time or hassle (in some cases). Let's look at possible uses of VMWare.</P><B>Software development and testing</B> 
+<P>You're a software developer writing software for Windows. Although Microsoft is very good at maintaining backwards-compatibility, things are not perfect. At the time of this writing you would probably want to support Windows 95, 98, ME, NT 4, 2000 and XP. This means that you should test your software on at least 6 OS'es. In the past that would mean 6 different machines or re-installing the OS a few times. Ouch. With VMWare you only need one computer with the OS of your choice to do the development and initial testing and a few virtual OS installations (running on the same machine under VMWare) for testing.</P>
+<P>Or you work with the bleeding-edge version of Gnome. Things are not always rosy and sometimes a snafu makes the whole system <A href="http://www.jargon.net/jargonfile/f/foo.html">fubar</A> and only a re-install from scratch can bring it back to sane state. With VMWare you could go back to a stable version (which you saved earlier in your infinite wisdom) in a few minutes. </P>
+<P>Or you're a kernel programmer working on a new file system. File corruption is your daily bread but thanks to VMWare you can now quickly revert to a stable system.</P><B>Computer geek</B> 
+<P>Yes, you mister. You like to play with all things computer related. You have Windows on one machine, RedHat Linux on another, FreeBSD on yet another (double booting with Debian installation) and wish you had one more because you're just dying to see how the latest Mandrake looks like. Enter VMWare - you can install as many OSes as your hard-drive permits and run as many&nbsp;of them at the same time as your memory permits. That's geek's heaven (although the admission price isn't low).</P>
+<P>Or you're a Windows user and you've heard those great things about Linux, Unix and open-source software. You would like to check it out but don't have a spare computer. Get VMWare and experiment to your heart's desire.</P>
+<P>Enough with this marketing spiel. VMWare is not a mass market software but it has its use for some people and if you're one of those people you have already recognized how it can help you.</P>
+<P>My personal motivation is a combination of those: 
+<UL>
+<LI>I use Windows XP but want to make sure that my software also runs on Win95 and Win98 (they are still the very popular) 
+<LI>I like to play with software that is sometimes only available on Unix 
+<LI>I like to play with different Linux/Unix distributions </LI></UL>
+<P></P>
+<H3>Necessary basics</H3>
+<P>In VMWare terminology the <B>host</B> operating system is the one you have on your computer. The <B>guest</B> OS is the one that you'll be running under VMWare's virtual machine. You can run any guest OS on any host OS (they can even be the same, e.g. you can run Linux under Linux). The crucial thing about VMWare: get a lot of memory. </P>
+<P>Get a lot of memory (just in case you were not paying attention). 1 GB should be very good, 512 MB should be bearable. You cannot cheat here: you need enough memory to run both host and guest OSes comfortably, otherwise there'll be no fun. If you run modern OS like Windows XP or latest distro of Linux, they won't run very well in less than 256 MB so you need at least double of that.</P>
+<P>VMWare can run on both Windows and Linux and supports a wide variety of guest OSes (many versions of DOS, Windows, Linux, FreeBSD). In theory it should support any possible OS but there's additional software for the officially supported OSes that makes VMWare work better (e.g. by providing faster video drivers).</P>
+<H3>My experiences</H3>
+<P>Spending $299 isn't something that I do lightly so I'm happy that VMWare provides 30-day trial version of their software. Ability to play with it risk-free was crucial to my eventual purchase. I wouldn't buy it if I wasn't convinced that VMWare helps me and I could only get convinced by trying it out. I downloaded the latest (at the time of this writing, that is) version Workstation 3.1.1. I skimmed through the documentation and decided to start with something easy: installing RedHat Linux 7.3.</P>
+<P>My computer is Dell Latitude 610 laptop with 1 GB of memory and a DSL connection (connected via 
+Ethernet cable to a wireless router which, in turn, is connected to DSL modem; using DHCP (router serves as DHCP server) to obtain dynamic IP address). I provide those networking details because being able to use internet from the guest OS is crucial. I cannot test VMWare in other network configurations but I can say how it worked with my particular setup. If yours is similar you'll know what to expect.</P>
+<H3>Installing RedHat Linux 7.3</H3>
+<P>When you create a new virtual machine, you need to decide: 
+<UL>
+<LI>which guest OS you're installing 
+<LI>how much memory you want to give it 
+<LI>how much disk space you want to give it 
+<LI>which of 3 methods of networking you're going to use </LI></UL>
+<P></P>
+<P>The memory for the virtual machine is reserved up front (and that's why you need a lot of memory). Virtual machine's hard-drive is emulated by a file on your host's hard-drive and the size of this file only grows when you actually use it in your guest OS. It doesn't matter much how big a hard-drive you give to the guest OS (so you can just as well make it big).</P>
+<P>VMWare can map a floppy drive and CD-ROM/DVD drive to either physical devices or disk images (e.g. ISO CD-ROM images). Mapping to disk images is very convenient and that's how I installed Linux. I've downloaded ISO images of RedHat 7.3 distributions (3 disks) and mapped first two disks to 2 CD-ROM drives. Since the CD-ROM is bootable, all I needed to do was to create a new virtual machine. and "power" it on. I gave it 400 MB or RAM and 4 GB hard-drive and chosen "bridging" as the networking option. The system booted from CD image and I saw a familiar installer screen (familiar because I've installed previous versions of RedHat quite a few times in the foolish past). The latest documentation only covers RedHat up to 7.2 and says that you should use text mode installer but I used the graphic mode and all went fine. I manually partitioned the drive giving 512 MB to swap space (in hindsight I should leave partitioning to installer), chosen Laptop configuration, added development tools, chosen DHCP for networking and unleashed installation process. Installer couldn't detect my video card so I had to skip X configuration. Also installation was very slow (but I blame it on the slowness of my laptop's hard drive). At the end of installation I got prompted for third CD. I changed the mapping of first CD-ROM drive to third ISO image. and the installation finished smoothly.</P>
+<P>After installation I didn't have X Windows. This problem is solved by installing VMWare tools for Linux (part of the toolset is a special X server). I modified excessive resolution of the X server in XF86Config-4 to 1024x768 (the one chosen by VMWare was a bit too big) and fired up Gnome. This worked like a charm and video performance was good enough for productivity work. I wouldn't play games under it but this is emulated graphics on a laptop video card after all. Overall performance of the "virtualized" OS was very good.</P>
+<P>Next step was networking and to my surprise it just worked. I fired up Mozilla and went to <A href="http://www.slashdot.org/">Slashdot</A> to get my fresh fix of news. <CODE>ifconfig</CODE> told me that my virtual machine got a dynamic IP address properly assigned. I could even ssh (I'm using quite wonderful <A href="">Putty</A> for my Windows SSH needs) from Windows (host OS) to Linux (guest OS). My only networking failure was inability to use samba's smbclient to browse shares on Windows (but that probably has nothing to do with VMWare - I usually fail when I try to use samba).</P>
+<P>I signed up for RedHat network, brought my system up to date with <CODE>up2date --nox -u</CODE>. That was a small mistake because I didn't have ssh server installed yet and <CODE>up2date</CODE> updated all other parts of OpenSSH to newest version. When I tried to install the <CODE>OpenSSH-server*.rpm</CODE> from the original CD, <CODE>rpm</CODE> didn't let me (even though I tried to <CODE>--force</CODE> him). I had to download the matching server RPM from the net and <CODE>rpm -ihv</CODE> it.</P>
+<H3>Installing Windows 95</H3>I also installed Windows 95. There were some speed-bumps. My Windows 95 installation CD-ROM wasn't bootable (it came with a bootable floppy disk instead). I wanted to create bootable CD to make the installation easier. What I did: 
+<UL>
+<LI>I downloaded bootable image of the floppy disk from <A href="http://www.mirrors.org/archived_software/www.bootdisk.com/original.htm">here</A>. I had to download the trial version of <A href="http://www.winimage.com/">WinImage</A> to convert bootdisk from their strange *.exe format to the raw *.ima format 
+<LI>I created a bootable CD ISO image of the installation CD </LI></UL>I found few non-free tools that could create ISO image and only one free: <A href="http://www.fokus.gmd.de/research/cc/glone/employees/joerg.schilling/private/cdrecord.html">cdrecord</A> (what an ugly page). The step-by-step process of creating bootable CD with it: 
+<UL>
+<LI>put all files found inside cdrecord package in your %PATH% 
+<LI>copy the original Windows 95 installation CD-ROM to your hard-drive 
+<LI>copy the boot image (e.g. named win95.ima) to the top directory of the copied CD 
+<LI>issue the magic command: <CODE>mkisofs -J -r -b win95.ima -o win95.iso *</CODE>. You can either read the manual on take my word for it that: 
+<UL>
+<LI><CODE>-J</CODE> means joliet extensions (I don't know what those are either but you need them for bootable CD) 
+<LI><CODE>-r</CODE> means "proper ridge extensions" (see comment above) 
+<LI><CODE>-b win95.ima</CODE> means creating a bootable CD and booting from the floppy disk whose image is in <CODE>win95.ima</CODE> file 
+<LI><CODE>-o win95.iso</CODE> means: "the resulting ISO image should be in win95.iso file" 
+<LI><CODE>*</CODE> means: add all files (recursively) to the CD image </LI></UL></LI></UL>The installation wasn't all smooth. I've chosen to install networking and for some reason during installation process Windows refused to get drivers from CD and stupidly asked for a floppy disk (whose image was in *.cab format on the CD). I managed to repair the problem after installation by reinstalling drivers. Networking still wasn't working and device manager showed device conflict (interrupt/io resources) for the network card. Somehow I managed to make it work by fiddling with driver settings. At that point I was able to connect to internet and browse the web with Internet Explorer 3. I can also map under my emulated Windows 95 directories shared on host Windows XP (although I cannot access subdirectories; not very good but not fatal). 
+<H3>Conclusion</H3>If you have a need for it, VMWare can be very useful. </p>
+ 
+</div>
+<!-- end article -->
+</div>
+<!-- end container -->
+</body>
+</html>

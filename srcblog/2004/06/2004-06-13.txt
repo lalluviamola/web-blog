@@ -1,0 +1,76 @@
+Date: 2004-06-13 14:31:19
+Format: wphtml
+Title: Of weblogs and wikis - conversation continues
+
+As it often happens, someone disagreed with me. Scott D. Merril argues <a href="http://www.skippy.net/blog/2004/06/11/blogs-and-wikis/">in this post</a> against including wiki capabilities in blogs and I can't leave that without an answer.
+
+Let's go over arguments one by one. I'll summarize them but you're well advised to read <a href="http://www.skippy.net/blog/2004/06/11/blogs-and-wikis/">the original</a> to guard against a possible bias I might have when interpreting them.
+
+Scott starts by saying that he thinks wikis are useful but should not be bundled with blogs.
+
+His first argument is that wikis are different than blogs. I agree with that and I said the same thing in <a href="http://blog.kowalczyk.info/archives/2004/06/09/of-weblogs-and-wikis/">my original post</a>, see section "why not just use blogs for that?".  I don't see how this is an argument against including wiki functionality in blogging software. 
+
+I don't advocate replacing blogs with wikis or making wikis behave like blogs. The way I think about it is <b>bundling</b>. When you buy Microsoft Office, you get multiple apps, among them Word and Excel. They serve quite different purposes yet they're bundled together because there's a large percentage of people that might find them both useful. 
+
+They're useful separately, not everyone needs both of them but neither of those two facts mean that bundling them together isn't a good idea. It is.
+
+I think that bundling wiki functionality with a blogging functionality is also a good idea. You get two tools for the price of one. And don't be mistaken: even free software like <a href="http://wordpress.org">WordPress</a> has a price. The price of free software is the time and effort spent installing and learning the software.
+
+The two tools aren't the same but they're related enough that there is a group of people that will find both of them useful.
+
+Second argument is about control of the content. To summarize the argument:
+<ul>
+<li>on a blog, only owner can post (sometimes owner can allow comments from others)</li>
+<li>on a wiki (traditionally) anyone can post and edit. Scott implies that it's bad.</li>
+<li>he acknowledges that wikis can be configured to not allow anonymous posting and editing. It's still bad because you don't get full wiki functionality.
+</ul>
+Damned if you do, damned if you don't. 
+
+It's a non-argument because it applies to wikis even if they're not included with blogs. It might be an argument against wikis in general but it's not an argument against bundling wikis and blogs in one package because it doesn't point out any problems arising specifically from bundling.
+
+As to the control of conent: I don't think one model of ownership would serve everybody. I don't even presume to know which one would be most popular. That's why I would let the users choose how they want to control it. Without going into design details, the control would be fine-grained but to eliminate complexity that goes with complex access control, I would expose the following pre-defined modes:
+<ul>
+<li>completely private wiki. Only the owner can read or edit it</li>
+<li>read-only for readers. Works like blogs i.e. only owner can post, others can read and, optionally, comment</li>
+<li>fully open: anyone can edit</li>
+</ul>
+Using one of those modes would be as simple as selecting appropriate check-box in settings. There would also be an advanced option where one can go crazy with assigning fine-grained permissions.
+
+Third argument is:  syndication feeds, trackbacks and pingbacks are good and wikis don't have them. This arguments has few holes.
+
+First, it applies to stand-alone wikis (again).
+
+Second, missing trackbacks might make wikis less useful than they possibly could be, but does it make them utterly useless? I don't think so. Scott doesn't think so - he thinks wikis are, quote, terrific, unquote, despite the fact that they might miss a feature or two. So, what's the problem again?
+
+Finally, it's not true. There are wikis that provide RSS feeds. I don't know about trackbacks and pingbacks but technically there's nothing that prohibits trackbacks and pingbacks to a wiki post. It's an implementation decision not an inherent flaw in wikis.
+
+In summary: all those arguments fall flat to me. All of them are really about perceived flaws in wikis and apply to stand-alone wikis. None of them point out a problem that is specific to bundling wikis with blogging software.
+
+I'll also question the  argumentative tactics. All those arguments are about pointing out deficiencies of wikis. There's an infinite number of things that wikis don't do, for one they don't solve world's hunger. The question is: are wikis useful despite numerous limitations? I say they are.  Scott says they are. 
+
+Let's ask constructive questions like: 
+<ul>
+<li>how can we improve wikis to be even more useful?</li>
+<li>how can we let more people know the benefits of wikis?</li>
+</ul>
+
+My point is that integrating wiki functionality with a popular software like WordPress is a good way to give more people a chance to easily experience usefulness of wikis. 
+
+Scott finishes with two short points.
+
+One: those who want wikis will be able to install them anyway therefore don't need this integration. I 
+covered this in detail in <a href="http://blog.kowalczyk.info/archives/2004/06/09/of-weblogs-and-wikis/">my originals post</a> ("Why separate wikis are not good enough?" section) so I won't repeat myself.
+
+Second, to quote directly:
+<blockquote>
+Integrating wikis within a blog package unnecessarily complicates the core package, increases support requirements from the development team, and may possibly bloat the package with features that people donât use.
+</blockquote>
+
+That's an easy argument to make because, essentially, it's true. Adding more functionality to software will cause all those things. 
+
+It's also an invalid argument that disregards the essential nature of software development. And this nature is embodied by one mantra: more features. More features is what sells the software (even if it's selling for a price of $0, as it happens in case of free software projects). More features is how one piece of software competes with another piece of software that does roughly the same thing. Features are the reason software exists. Software complexity, more bugs, so called "bloat" - those are necessary evils. 
+
+If we followed such an attitude in software development we would never get useful software. Would we get trackbacks if MovableType developers were to panic every time they had to add a new line of code? 
+
+Not to mention that the negative effects are overstated. Wikis are fairly simple to implement and have been implemented <a href="http://c2.com/cgi/wiki?WikiEngines">many times</a>. Clearly, it's not a rocket science.
+

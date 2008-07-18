@@ -1,0 +1,11 @@
+Date: 2004-07-13 06:08:09
+Format: wphtml
+Title: Marketing as skillful lying - part deux.
+
+<a href="http://www.jackito-pda.com/hardware/overview.php">Jackito</a> is a new PDA by some French startup company. Looks decent but obviously doesn't have a tiny chance in the crowded marketplace. It doesn't offer anything substantially better than Palm OS, Pocket PC or Symbian - and those are established players backed by large companies.
+
+What drew my attention was <a href="http://www.jackito-pda.com/hardware/overview.php">this marketing overview</a>. It says: "The only one with a such larger screen". While "large" might be interpreted in many ways, it's screen resolution is only 240x320 - the same as Pocket PC, two times smaller than many Palm PDAs (Tapwave Zodiac, many CLIE models and some Tungsten's have 320x480), not to mention Toshiba's Pocket PC with 800x600.
+
+So, lies, all lies, nothing but the lies.
+
+Oh, and according to some Slashdot posts it's just a thick-plotted scam. They do have a nice website, though. Which prooves that on the Internet, no one knows, that you're a dog.

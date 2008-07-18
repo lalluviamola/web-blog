@@ -1,0 +1,7 @@
+Date: 2004-03-31 13:11:19
+Format: wphtml
+Title: A question.
+
+<b>A question.</b>
+
+If there was an empirical study showing that file-sharing has negative effect on album sales, would <a href="http://www.boingboing.net/2004/03/29/empirical_data_on_fi.html">BoingBoing link to it</a>?

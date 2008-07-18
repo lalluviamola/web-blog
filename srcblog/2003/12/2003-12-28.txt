@@ -1,0 +1,7 @@
+Date: 2003-12-28 17:16:57
+Format: wphtml
+Title: Spybot - free trojan horse detector and remover for Windows.
+
+<b>Spybot - free trojan horse detector and remover for Windows.</b>
+
+I just ran <a href="http://www.safer-networking.org/">Spybot</a> (a free software that detects and removes trojans and other nasty stuff) on my Windows XP machine. It detected a bunch of things worth fixing. Most of them were benign, cookie-related things but some of them were more serious. The bottom line: I feel better about the security of my PC after running the check and fixing the problems. I plan to run Spybot in the future (evil never sleeps!).

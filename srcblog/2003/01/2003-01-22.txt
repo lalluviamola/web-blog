@@ -1,0 +1,23 @@
+Date: 2003-01-22 02:48:42
+Format: wphtml
+Title: Pretty but pathetic.
+
+<b>Pretty but pathetic.</b>
+
+I have to say that it's pretty pathetic that I have to use Front Page to write 
+updates to my weblog. It just shows how immature this field still is. Note: I 
+have nothing against Front Page but I should be able to update my blog from 
+within a tool that supports this blog natively and gives my a desktop-like 
+experience (ability to compose blog entries off-line, WYSIWYG editing, 
+spell-checking - I'm not asking for much). All the free tools were awful (of the 
+beginner's-twenty-minutes-programming-exercise variety). Out of commercial tools 
+I've tried <a href="http://radio.userland.com/">Radio</a>, in principle, does 
+that, but it crashed on me one too many times and its interface is bizarre (just 
+a nice way to say that it sucks). <a href="http://www.fogcreek.com/CityDesk/">
+CityDesk</a> looks like it would fit the bill but they only support publishing 
+in HTML and I wanted something server-based (now I question that decision but 
+it's been made and I'm not switching again).<p>
+
+So I'm stuck with preparing entries as a HTML fragment and using web-based 
+front-end of MT to merely publish the content. There's something's wrong with 
+that picture.

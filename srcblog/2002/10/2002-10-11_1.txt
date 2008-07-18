@@ -1,0 +1,9 @@
+Date: 2002-10-11 16:05:21
+Format: wphtml
+Title: Listen to tomatoes.
+
+<b>Listen to tomatoes.</b> <a href="http://www.rottentomatoes.com/">RottenTomatoes.com</a> is one of those unique services that only became possible thanks to the internet. The basic idea is: they aggregate reviews for current movies. They mark the reviews as either good and bad and calculate the percentage of good reviews. Is the score is below 60% (or so) the movie is marked as "rotten".
+<p>
+The point is: although far from perfect, this is the best way I found to judge whether I should go and see a movie or not. Single reviews are too random, you never know how compatible a given reviewer is with your taste. It's amazing how good is a predictive power of averaged reviews. I've been reminded of it lately because I went to see <a href="http://www.rottentomatoes.com/m/BallisticEcksvsSever-1116131/reviews.php">Ballistic: Ecks vs. Sever</a> (0% of good reviews, a real rarity) and <a href="http://www.rottentomatoes.com/m/TheRulesofAttraction-1116282/">The rules of attraction</a> (33% of good reviews). Both films were terrible, as predicted by rottentomatoes.com.
+<p>
+Another interesting thing is that the score doesn't predict the showbox success so this method is more than just popularity contest. Very often movies at the top of the showbox are marked as rotten.

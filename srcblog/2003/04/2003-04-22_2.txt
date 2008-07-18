@@ -1,0 +1,8 @@
+Date: 2003-04-22 04:40:32
+Format: wphtml
+Title: Chandler released.
+
+<b>Chandler released.</b>
+Chandler is finally <a href="http://www.osafoundation.org/Rel_0.1_Info.htm">out in the open</a> <a href="http://www.apple.com/trailers/fox/lxg/large.html">and the game is on.</a>
+<p>
+Downloaded, tried, nothing special. But let's keep the faith, after all <a href="http://www.joelonsoftware.com/articles/fog0000000017.html">good software takes ten years</a>. Chandler has still about 9 to go.

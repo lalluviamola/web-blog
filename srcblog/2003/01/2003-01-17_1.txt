@@ -1,0 +1,5 @@
+Date: 2003-01-17 06:15:41
+Format: wphtml
+Title: Another reason to use Mozilla.
+
+<b>Another reason to use Mozilla.</b> I just bought myself a printer and discovered advantage of Mozilla over IE: much better printing support. The default font size chosen by browser is usually way too big for my tastes (I like my prints small). As far as I can tell IE doesn't allow changing the font size while Mozilla does (and has well designed UI for that; couldn't ask for more).

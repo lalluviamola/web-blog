@@ -1,0 +1,5 @@
+Date: 2002-07-31 11:31:11
+Format: wphtml
+Title: Learn C++ in 10 minutes.
+
+<B>Learn C++ in 10 minutes.</B> While browsing the shelves at Borders I saw <A href="http://www.amazon.com/exec/obidos/ASIN/0672324253/">this amazing book</A> that promises to teach you C++ in 10 minutes. That's an improvement over 21 days, a previously held record for teaching C++ by the book, and a very sad comment about my intellectual abilities (took me years). Peter Norvig's excellent essay <A href="http://www.norvig.com/21-days.html">Teach Yourself Programming in Ten Years</A> is the best possible commentary.

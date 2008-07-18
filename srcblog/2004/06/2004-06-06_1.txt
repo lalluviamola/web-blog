@@ -1,0 +1,7 @@
+Date: 2004-06-06 07:04:50
+Format: wphtml
+Title: Wish #1
+
+Things that I wish someone would implement, issue #1.
+
+Enable <a href="http://gaim.sourceforge.net/">gaim</a> to use <a href="http://www.trillian.cc/">Trillian's</a> skins. Skins are popular, skins are cool and Trillian has lots of them. It would be great if gaim could just use them.

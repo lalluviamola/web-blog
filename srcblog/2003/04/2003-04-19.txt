@@ -1,0 +1,22 @@
+Date: 2003-04-19 04:21:48
+Format: wphtml
+Title: Solving a problem you didn't have.
+
+<b>Solving a problem you didn't have.</b>
+
+I don't remember where I saw it (except that it was on the Internet), but there was 
+this guy deriding Apple for solving problems they didn't have. One example of 
+this was when promoting OS X Apple would proudly announce that it has 
+pre-emptive multitasking and memory protection. This was certainly an 
+improvement over Mac OS but when OS X has been released it could hardly be 
+considered a technological breakthrough: at the time the concept has been known 
+for ages and for years implemented in Unix or Windows. And of course Apple would 
+never admit that not having memory protection in Mac OS was a problem. Hence 
+Apple being proud of solving a problem they didn't have. 
+
+<a href="http://www.palminfocenter.com/view_story.asp?ID=5245">This story</a> is 
+another example of solving a problem you don't have. Palm announces that they've 
+overcame 16 MB memory limitation in Palm OS. Never mind that Pocket PCs are 
+already shipping with 64 MB of RAM and the limitation in Palm is caused by their 
+own incompetence in the first place. How they're not ashamed to call it &quot;an 
+innovation&quot; is beyond me.

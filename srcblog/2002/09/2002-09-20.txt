@@ -1,0 +1,5 @@
+Date: 2002-09-20 14:28:54
+Format: wphtml
+Title: Lisp conference.
+
+<B>Lisp conference.</B> An (International) Lisp conference, <A href="http://www.international-lisp-conference.org/">is coming up</A> to San Francisco, October 27-October 31. Very tempting. Well known Lisp people will give talks. Browsing the list of speakers I found out about <A href="http://www.newlisp.org/">newLISP</A>, a Lisp interpreter that I've never heard of before (and I thought I've seen them all). Sometimes I think that a reason for Lisp's lack of popularity is frightening number of implementations, none of them quite polished enough for really serious use (I'm talking about the free ones; the commercial ones seem to be very polished but they are also so expensive, that their price isn't even published <A href="http://www.franz.com/">on the web site</A>).

@@ -1,0 +1,18 @@
+Date: 2003-12-06 15:57:23
+Format: wphtml
+Title: Still broken after all those years.
+
+<b>Still broken after all those years.</b>
+
+Here's my little rant about Outlook. I use <a href="http://www.fastmail.fm">fastmail.fm</a> for my mail account (highly recommended) and they work great. I mostly use their web-based interface because, oh irony, it's better than any desktop Windows mail client that I've found so far. And I tried quite a few of them. I had high hopes for Outlook, even though it lacks one important feature: ability to use multiple identities (i.e. From: address) on the same e-mail account. But I was hoping that it'll at least get the basics right. Guess what, it didn't. I configured IMAP e-mail account and it just doesn't work better than web-based interface. Specifically:
+<ul>
+<li>Outlook insists on having 'Personal Folders' i.e. my local storage for e-mail. It makes me nervous because it probably requires me to move all my messages from the server to this local storage. I don't want that. I want to store my e-mail on the server forever and just have a local cache of messages for fast searches and better organization. Having unused Personal Folders is counter productive.
+<li>it took me a lot of digging through menus and a lot of clicking to make Outlook automatically download whole messages from IMAP server (and it doesn't seem to work anyway). I have 300GB drive and DSL connection, why isn't that a default setting (as opposed to downloading only headers and only for folders that I click on (therefore I don't know if there a new messages in a folder until I click on it - that's super useless)).
+<li>every time Outlook downloads headers from IMAP server it pops up a dialog message interrupting my work. Why can't it do it silently - it's not that I care.
+<li>Outlook has nice feature - search folders. Except it doesn't work on IMAP accounts.
+<li>oh, and AutoArchive in Outlook-speak apparently means "delete my e-mail"
+</ul>
+My search for a good IMAP client is far from over. I tried The Bat!, I tried Eudora, I tried Thunderbird. None of them was better than web-based interface which is amazing (in a bad sort of way). You would think that after all those years someone would get it right.
+<p>
+
+Oh, it seems that <a href="http://www.ritlabs.com/en/about/press_detail.php?ID=232">The Bat! 2.0</a> has better IMAP support - time to check that one out (I only tried v1.6 or so).

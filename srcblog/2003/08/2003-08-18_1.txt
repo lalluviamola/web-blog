@@ -1,0 +1,5 @@
+Date: 2003-08-18 15:07:42
+Format: wphtml
+Title: PDA sales numbers for Q2 2003.
+
+<b>PDA sales numbers for Q2 2003</b>. The Register published <a href="http://www.theregister.co.uk/content/68/32386.html">PDA sales numbers</a> for Q2 2003. It looks like Palm's market share is slipping, Palm OS-based devices used to have market share around 90% but today it's around 50% (I've added Palm's and Sony's numbers). Pocket PC devices seem to be slowly catching up to Palm.

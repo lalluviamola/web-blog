@@ -1,0 +1,9 @@
+Date: 2003-01-22 02:49:18
+Format: wphtml
+Title: WinSCP 2.1 beta.
+
+<b>WinSCP 2.1 beta.</b>
+
+A new version of <a href="http://winscp.vse.cz/eng/about.php">WinSCP</a> has 
+been released. WinSCP is a file manager that can use ssh/sftp for file 
+transfers. It's good and free.

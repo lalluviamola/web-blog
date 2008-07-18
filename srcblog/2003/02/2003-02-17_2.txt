@@ -1,0 +1,6 @@
+Date: 2003-02-17 07:31:53
+Format: wphtml
+Title: Programs that start at boot.
+
+<b>Programs that start at boot.</b>
+I'm irritated by all those programs that start at boot but are not in the Startup folder. If you have one of those suckers, you can use regedit and modify HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run to remove them.

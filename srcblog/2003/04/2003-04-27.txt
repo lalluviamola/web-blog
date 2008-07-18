@@ -1,0 +1,9 @@
+Date: 2003-04-27 23:33:44
+Format: wphtml
+Title: Unix-haters book available on-line.
+
+<b>Unix-haters book available on-line.</b>
+
+"The UNIX-HATERS Handbook" is a classic. It's a rant but intelligent and hilarious rant.
+I've read dead-trees version few years back and now it's also <a href="http://research.microsoft.com/~daniel/unix-haters.html">
+available on-line</a>.

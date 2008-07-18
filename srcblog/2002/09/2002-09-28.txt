@@ -1,0 +1,9 @@
+Date: 2002-09-28 06:23:49
+Format: wphtml
+Title: Show me the code.
+
+<b>Show me the code.</b> <a href="http://www.advogato.org/person/raph/diary.html?start=281">Raph</a>:
+<blockquote><i>
+But opinions are damn cheap. Any idiot can have them, and many do. Even smart people are tempted by pretty ideas. We're surrounded by a flood of wrongheaded opinions. The best way to convince me that your idea is one of the few good ones is to show me the code. 
+</i></blockquote>
+Another excellent post from Raph. The proof is always in the pudding.

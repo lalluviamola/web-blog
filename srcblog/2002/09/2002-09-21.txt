@@ -1,0 +1,5 @@
+Date: 2002-09-21 08:55:43
+Format: wphtml
+Title: Moving to MovableType.
+
+<b>Moving to MovableType.</b> Nothing beats having your own server. For those who also want to move from Radio to MovableType, I've written <a href="http://blog.kowalczyk.info/articles/radioToMT.html">a short article</a>, featuring a script to convert Radio posts to a format that can be imported into MT.

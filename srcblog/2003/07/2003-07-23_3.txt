@@ -1,0 +1,5 @@
+Date: 2003-07-23 02:53:15
+Format: wphtml
+Title: How well-behaved HTTP client should work.
+
+<b>How well-behaved HTTP client should work.</b> Mark <a href="http://diveintomark.org/archives/2003/07/21/atom_aggregator_behavior_transport_level.html">has written  an article</a> on how a well-behaved HTTP client (e.g. RSS agregator) should work. Will be very handy when the day will come.

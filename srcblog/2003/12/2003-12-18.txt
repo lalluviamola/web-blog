@@ -1,0 +1,5 @@
+Date: 2003-12-18 11:11:34
+Format: wphtml
+Title: Myths Open Source Developers Tell Ourselves.
+
+<b>Myths Open Source Developers Tell Ourselves</b>. Described in <a href="http://www.onlamp.com/pub/a/onlamp/2003/12/11/myths.html">this O'Reilly article</a>.

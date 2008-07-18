@@ -1,0 +1,12 @@
+Date: 2003-04-19 18:26:14
+Format: wphtml
+Title: Visual diff and merge tool
+
+<b>Visual diff and merge tool.</b>
+
+<a href="http://meld.sourceforge.net/">Meld</a> is a visual diff and merge tool, currently for Gnome 2 only. 
+From the screenshots it looks much like commercial
+<a href="http://www.araxis.com/">Araxis Merge</a> (which is a very good and 
+polished app). Need to check it out and if it's any good, a port to Windows 
+would be in order (which shouldn't be hard given that it's written in Python 
+with GUI in GTK+ so porting to wxPython shouldn't be that hard).

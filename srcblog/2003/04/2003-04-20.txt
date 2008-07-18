@@ -1,0 +1,8 @@
+Date: 2003-04-20 22:10:34
+Format: wphtml
+Title: NNTP access for mailing lists.
+
+<b>NNTP access for mailing lists.</b>
+
+<a href="http://news.gmane.org/">Gmane</a> provides NNTP access to many mailing 
+lists. This is a great service.

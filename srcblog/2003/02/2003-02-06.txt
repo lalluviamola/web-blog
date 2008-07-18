@@ -1,0 +1,55 @@
+Date: 2003-02-06 18:17:21
+Format: wphtml
+Title: Wireless gadgets should also be pagers.
+
+<b>Wireless gadgets should also be pagers.</b>
+
+In the search of concise title I had to sacrifice the meaning so first let me explain what I mean. 
+There's no doubt that wireless, mobile devices will be a significant market. 
+They already are despite weak technology: we have Treo, SideKick, Nokia 9210, 
+Pocket PC Phone Edition, multiple Palm-based phones. Now think about the 
+popularity of pagers. It was extremely simple device that could do only one 
+thing: beep. The key here was that they were small enough so that you could 
+always carry them with you and they would beep only when someone you trust 
+wanted to contact you. But the essence of a pager is notification: you're 
+interested in knowing when something happens and you get notified (by a beep) 
+when it does happen. What was essential to the idea of a pager was its small 
+size and resulting carry-ability. Pagers were made obsolete by mobile phones - 
+they offer the same capability (if someone wants to reach you at all times, he 
+can, as long as you have your phone/pager with you) and much more. In time 
+communicators will obsolete &quot;pure&quot; mobile phones since they offer the same and 
+much more. At the same time they can take the idea of notifications to the next 
+level. Imagine that you're a network administrator and want to know when the 
+site goes down. You might have a monitoring software that can tell if the site 
+is down or not but it cannot page you or call you (ok, I don't exclude the 
+possibility of paging/calling from software but I haven't heard about such 
+thing). Those days it could send you SMS but why not something that doesn't cost 
+you money and provide more information? Ideally the operating system of wireless 
+devices would provide notification service to applications installed on phone. 
+After all they are uniquely addressable (each has a phone number) and can be 
+sent any data. SMS is a butchered and very limited implementation of this idea 
+but instead of limiting the data to short ASCII messages that are consumed 
+solely by the phone OS, application should have ability to subscribe for 
+specific messages (with a standard of composing messages so that they are 
+uniquely identifiable) and an open standard and infrastructure for sending 
+messages to phone. In the network admin example, an application running on the 
+communicator would subscribe to the messages labeled as &quot;network-admin-notifier&quot;. 
+On the other side we need a service that allows sending those messages. This 
+service would be used by network monitoring software to send a message when 
+network goes down. Message gets routed to the phone, picked up by the client 
+application that can, for example, play a sound to get user's attention. That's 
+the basic idea that neglects security (e.g. how to make sure that no-one floods 
+us with bogus messages or a malicious app running on the phone intercepts 
+messages and puts them in /dev/null) but those are solvable problems.<p>
+But we don't have this infrastructure (and I'm not holding my breath). Can we build it ourselves given technology of today? 
+Not in case of SideKick (so far the most promising combination of a mobile phone 
+and PDA) - you can't write the software for it at all. Not in case of Palm - as 
+far as I know it would not be possible to implement anything like this because 
+Palm OS doesn't multitask so once an app has control over the device, no other 
+app can do anything. It could be done on a Pocket PC and (I assume) Symbian's OS 
+although in less efficient way. Instead of being notified by the OS, the 
+application would have to run in the background and periodically poll, via 
+TCP/IP, some server asking if there are any new notifications. The rest is 
+commentary (i.e. should this app go always to just one server or should it be 
+able query any server, what protocol should be used, how to prevent malicious 
+use of notifications etc.)

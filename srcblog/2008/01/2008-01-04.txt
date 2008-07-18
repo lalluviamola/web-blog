@@ -1,0 +1,18 @@
+Date: 2008-01-04 04:57:19
+Format: wphtml
+Title: Sumatra 0.8 released
+
+I've released Sumatra 0.8. Changes in this release:
+<ul>
+	<li>added search (contributed by MrChuoi)</li>
+	<li>added table of contents (contributed by MrChuoi)</li>
+	<li>added many translation (contributed by <a href="http://blog.kowalczyk.info/software/sumatrapdf/translators.html">many people</a>)</li>
+	<li>new program icon</li>
+	<li>fixed printing</li>
+	<li>fixed some crashes</li>
+	<li>rendering speedups</li>
+	<li>fixed loading of some PDFs</li>
+	<li>add command-line option -esc-to-exit</li>
+	<li>add command-line option -bgcolor $color</li>
+</ul>
+If you find bugs, please report them in the <a href="http://code.google.com/p/sumatrapdf/issues/list">bug tracker</a>.

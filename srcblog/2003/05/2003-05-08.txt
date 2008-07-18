@@ -1,0 +1,8 @@
+Date: 2003-05-08 04:05:33
+Format: wphtml
+Title: How to emulate micropayments.
+
+<b>How to emulate micropayments.</b> <a href="http://rentzsch.com/notes/creditCardMicropayments">This 
+articles</a> talks about how to emulate micropayments using regular credit card 
+processing system. Beware: it's only a theory. Also on that site: <a href="http://rentzsch.com/engineerEntrepreneurs/">interviews 
+with engineer entrepreneurs</a>.

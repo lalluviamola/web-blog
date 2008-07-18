@@ -1,0 +1,15 @@
+Date: 2005-10-28 02:23:37
+Format: wphtml
+Title: Storage is expensive
+
+<P>As someone hosting a few web sites I'm always looking for good deals on hosting. Currently I'm using <A title=ev1.net href="http://ev1.net">ev1.net</A> (for a cheap, dedicated server) and <A title=textdrive.com href="http://textdrive.com">textdrive.com</A> for a cheap, virtual&nbsp;server (mostly using their hosted svn repositories and mailman mailing list).</P>
+<P>A mention of <A title=openhosting.com href="http://www.openhosting.com">openhosting.com</A> got my attention since they offer virtual hosted servers with unusual pricing: basically you pay for what you use, based on a very complicated formula.</P>
+<P>I've used their rate <A title=calculation href="http://www.openhosting.com/ratecalc">calculation</A> and found that the most expensive thing in hosting those days is storage and OpenHosting doesn't compete at all with ev1.net if you'll end up&nbsp;using a lot of storage. For example, 10 GB of bandwidth and 10 GB of storage on OpenHosting will cost you $80 a month. The chepest dedicated server on ev1.net is $99 but it gives you 1000 GB of bandwith and 60 GB of storage (on a 1.3 GHz/0.5 GB RAM machine). It's even worse when you compare with <a href="http://1and1.com">1and1.com</a> developer package: 20 GB storage, 750 GB bandwidth for $20/month (although it's not completely fair comparison: it seems that OpenHosting provides more freedom with SSH login and ability to install your own software which might be important for geeking out).</p>
+<P>OpenHosting might be attractive if you use little storage (1-2 GB).</P>
+<P>The worst part about the storage is that it usually doesn't drop i.e. once you put something on a hard-drive, it stays there. This is unlike bandwitch which fluctuates depending on the current popularity of your website.</P>
+<P>A lot of storage is probably not required for many people. If you host a simple weblog then 100 MB will be enough. But there are plenty of usages for which a lot of storage is required, e.g.:</P>
+<UL>
+<LI>having your own e-mail IMAP server, to be independent of various free e-mail providers
+<LI>hosting your pictures. In those days of megapixel cameras it's easy to fill up gigabates 
+<LI>using it as a backup for files</LI></UL>
+<P>Makes you wonder how storage-heavy websites (e.g. flickr) can afford that. It seems that co-location is the only affordable option in those cases: you can colocate as much storage as you want and you only pay for it once, when you buy a hard-drive. Then you just pay for bandwidth and co-location costs.</P>

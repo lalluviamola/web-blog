@@ -1,0 +1,5 @@
+Date: 2002-10-03 13:40:50
+Format: wphtml
+Title: Amazon light
+
+<b>Amazon Light.</b> <a href="http://www.kokogiak.com/amazon/default.asp">Amazon Light</a> is an interesting project - uses Amazon XML API to present less cluttered interface.

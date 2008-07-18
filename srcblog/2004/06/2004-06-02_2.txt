@@ -1,0 +1,23 @@
+Date: 2004-06-02 09:40:20
+Format: wphtml
+Title: Patterns in interaction design (web and gui design pattern)
+
+Even the smallest of web applications face the same design issues that were solved thousand of times: designing a login and registration screens, navigation scheme, searching, shopping cart etc. A person facing such problem has two options:
+<ul>
+<li>re-invent the wheel, most likely coming up with a wheel that is inferior to some of the existing wheels
+<li>research prior art and implement the best existing solution
+</ul>
+
+<a href="http://www.welie.com/index.html">Patterns in Interaction Design</a> website is immensly helpful if one chooses the "research prior art" option. It's a very good, categorized collection of solutions to such common problems (patterns) for web and gui design (web section is much bigger than gui section). The value of the site:
+<ul>
+<li>gathers all this information in one place
+<li>provides good categorization of patterns
+<li>each pattern is described in concise and regular manner; pattern description states the problem a given pattern solves as well as the solution
+</ul>
+This website is an invaluable resource to any web designer and web developer. If it was used more often we would have less broken web interfaces.
+
+Also recommended similar sites:
+<ul>
+<li> <a href="http://time-tripper.com/uipatterns/">UI patterns</a> - a decent selection of GUI patterns
+<li> <a href="http://www.cs.helsinki.fi/u/salaakso/patterns/">User Interface Design Patterns</a> - also GUI patterns
+</ul>

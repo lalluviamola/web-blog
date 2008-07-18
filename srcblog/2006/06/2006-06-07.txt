@@ -1,0 +1,23 @@
+Date: 2006-06-07 02:53:38
+Format: wphtml
+Title: Short tutorial on svn propset for svn:externals property.
+
+Subversion has a nice way of including the content of one repository into another repository. This is useful e.g. when you have a repository with with common routines that you want to use in multiple projects but you don't want to duplicate the common code in multiple repositories (for obvious reasons).
+
+Using <code>svn:externals</code> property you can tell subversion to fetch content of external repository in a given directory. However, the documentation of <code>svn:externals</code> is weak so this post hopefully will save someone time googling and figuring out how it works.
+
+You set <code>svn:externals</code> property on an existing directory. The value of this property is a list of directory/repository path values, separated by spaces.
+
+The best way to explain this is using an example. Usually you would use just one external repository, but I'll use two in the example, just to show how to create a list.
+
+Let's assume that you have external subversion repositories <code>http://svn.my.com/path/to/repo_one</code> and <code>http://svn.my.com/path/to/repo_two</code>
+
+You want <code>repo_one</code> in directory <code>dir_of_repo_one</code> and <code>repo_two</code> in <code>dir_of_repo_two.</code>  Create a text file with the value of <code>svn:externals</code> property. Each list item is in it's own line, dir name is separated from repo path by whitespace e.g.:
+<pre>$ cat >svn_ext_val.txt
+dir_of_repo_one http://svn.my.com/path/to/repo_one
+dir_of_repo_two http://svn.my.com/path/to/repo_two</pre>
+Now set the property on any directory already in subversion. In the example it's the current directory:
+<pre>svn propset svn:externals . -F svn_ext_val.txt</pre>
+Now when you do <code>svn update</code>, <code>dir_of_repo_one</code> will be created with the content of <code>repo_one</code> and <code>dir_of_repo_two</code> with the content of <code>repo_two</code>.
+
+Voila! Pretty simple but you wouldn't know that just by reading the docs.

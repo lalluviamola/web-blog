@@ -1,0 +1,102 @@
+Date: 2003-08-21 23:40:06
+Format: wphtml
+Title: Profiling in Python (short intro).
+
+<b>Profiling in Python (short intro).</b>
+
+Profiling is used to determine which part of your application takes most of the time (in order to rewrite
+this code to be faster). It is well accepted wisdom that software today
+is too complicated for human beings to predict which code is responsible for program's slowness. Because of
+that profiling is by far the best way to speed up your program since it tells you exactly which part is burning
+too much cycles. Because of that, profiling became a standard practice in mature software developement shops.
+<p>
+In Python 2.2 a new profiling module has been added. For detailed information see the
+<a href="http://www.python.org/doc/current/lib/module-hotshot.html">documentation for hotshot module</a>. Here's
+a brief usage example to get you started:
+<pre>profData = 'log2.dat'
+def mainProf():
+    import hotshot
+    global profData
+    print "doing profiling"
+    prof = hotshot.Profile(profData)
+    prof.run("Foo()")
+    prof.close()
+
+def dumpProfileStats():
+    import hotshot.stats
+    global profData
+    print "dump profiling data"
+    stats = hotshot.stats.load(profData)
+    stats.sort_stats("cumulative")
+    stats.print_stats()
+</pre>
+Function mainProf() will profile a function Foo() and write the profiling data to file "log2.dat".
+Function dumpProfileStats() will read the data from that file and display cumulative stats in human-readable form.
+You can be more fancy here by e.g. automatically re-naming the data file (so that you don't accidentaly erase data
+from previous profile run) etc. For convenience, I trigger those function from command line:
+<pre>def _isProfile():
+    return len(sys.argv)>1 and sys.argv[1] in ['prof', 'profile']
+
+def _isDumpProfile():
+    return len(sys.argv)>1 and sys.argv[1] in ['dump_prof', 'dump_profile', "dumpprof", "dumpprofile"]
+
+if __name__ == "__main__":
+    if _isProfile():
+        mainProf()
+    elif _isDumpProfile():
+        dumpProfileStats()
+    else:
+        Foo()
+
+</pre>
+
+Is profiling worth it? Here's a real-life example. A large part of my script was doing a (very simple) text compression.
+It was painfully slow even for small texts so I decided to profile it. Here are the results:
+
+<pre>C:converter>wn2pdb.py dumpprof
+dump profiling data
+         276061 function calls in 217.654 CPU seconds
+
+   Ordered by: cumulative time
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000  217.654  217.654 &lt;string&gt;:1(?)
+        1    0.002    0.002  217.654  217.654 c:kjksrcminenoah_palmconverterwn2pdb.py:599(DoDevilDict)
+        1    0.121    0.121  217.652  217.652 c:kjksrcminenoah_palmconverterwn2pdb.py:526(DoSimpleDict)
+     1802    6.723    0.004  215.549    0.120 c:kjksrcminenoah_palmconverterwn2pdb.py:283(compress)
+        1    0.071    0.071  209.825  209.825 c:kjksrcminenoah_palmconverterwn2pdb.py:478(buildDefsRecs)
+   208870  208.726    0.001  208.726    0.001 c:kjksrcminenoah_palmconverterwn2pdb.py:273(_findCodeForStr)
+        1    0.063    0.063    5.951    5.951 c:kjksrcminenoah_palmconverterwn2pdb.py:377(buildWordsRecs)
+     2706    0.862    0.000    1.506    0.001 c:kjksrcminenoah_palmconverterwn2pdb.py:128(SimpleDictEntriesGen)
+</pre>
+
+This clearly shows that almost 100% of the time (208 seconds out of 217 total) was spent in one function,
+<code>_findCodeForStr()</code>. I wasn't surprised that this function was slow - for expediency I did very simple (and,
+as it turns out, a very slow) implementation. Reason for that was that it's much cheaper to waste CPU's cycles
+than mine. I was surprised that it made the script unacceptably slow (at which point it's unavoidable to start
+wasting my cycles). In this case profiling confirmed my hunch that the function will be slow but also told me
+valuable thing: that improving this function is crucial to improving the whole program (and it could just as well
+be that different code was burning even more cycles in which case that code should have been improved first).
+<p>
+Here are profiling data after fixing the code:
+<pre>C:converter>wn2pdb.py dumpprof
+dump profiling data
+         276059 function calls in 14.697 CPU seconds
+
+   Ordered by: cumulative time
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000   14.697   14.697 &lt;string&gt;:1(?)
+        1    0.002    0.002   14.697   14.697 c:kjksrcminenoah_palmconverterwn2pdb.py:642(DoDevilDict)
+        1    0.111    0.111   14.695   14.695 c:kjksrcminenoah_palmconverterwn2pdb.py:569(DoSimpleDict)
+     1802    6.547    0.004   12.569    0.007 c:kjksrcminenoah_palmconverterwn2pdb.py:326(compress)
+        1    0.056    0.056   12.289   12.289 c:kjksrcminenoah_palmconverterwn2pdb.py:521(buildDefsRecs)
+   208870    5.926    0.000    5.926    0.000 c:kjksrcminenoah_palmconverterwn2pdb.py:311(_findCodeForStr)
+     2706    0.871    0.000    1.519    0.001 c:kjksrcminenoah_palmconverterwn2pdb.py:128(SimpleDictEntriesGen)
+        2    0.058    0.029    1.274    0.637 c:kjksrcminenoah_palmconverterwn2pdb.py:497(buildPosRecs)
+        1    0.086    0.086    0.526    0.526 c:kjksrcminenoah_palmconverterwn2pdb.py:420(buildWordsRecs)
+    21861    0.262    0.000    0.262    0.000 c:kjksrcminenoah_palmconverterwn2pdb.py:88(_isEmptyString)
+    16455    0.218    0.000    0.218    0.000 c:program filespython23libstring.py:77(strip)
+</pre>I got 15x speedup by changing one function. Thanks to profiling a knew which function to change. In real life 
+gains aren't that clear and there's much more to profiling. This little piece shows basics of profiling in Python 
+based on a real-life example.</p></p>

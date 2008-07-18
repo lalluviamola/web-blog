@@ -1,0 +1,5 @@
+Date: 2002-08-28 16:19:39
+Format: wphtml
+Title: Hard-earned PHP wisdom:...
+
+Hard-earned PHP wisdom: urldecode() doesn't decode ' and ". At least not in version 4.0.6. I had to write my own function: &#013;&#010;<BLOCKQUOTE><PRE>function myUrlDecode( $str )&#013;&#010;{&#013;&#010;  $res = urldecode( $str );&#013;&#010;  $res = str_replace( "'", "'", $res );&#013;&#010;  $res = str_replace( '"', '"', $res );&#013;&#010;  return $res;&#013;&#010;}&#013;&#010;</PRE></BLOCKQUOTE>Of course hours were wasted while debuging mysterious problems.

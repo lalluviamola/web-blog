@@ -1,0 +1,5 @@
+Date: 2002-09-11 16:29:39
+Format: wphtml
+Title: Moving on.
+
+<B>Moving on.</B> Moving from Radio to Movable Type, part 1: preparing a script that exports Radio archived entries to a format that Movable Type can import. Status: coded not tested.

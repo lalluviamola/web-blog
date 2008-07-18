@@ -1,0 +1,17 @@
+Date: 2006-09-05 03:56:01
+Format: wphtml
+Title: Writeboard hack: use Gmail for list of writeboards
+
+<a href="http://writeboard.com/">Writeboard</a> is a free service from <a href="http://www.37signals.com/">37signals</a> for creating simple (and I really mean simple) documents and collaborating on them with other people. Basically, it's a simple, one-page wiki with an ugly font (curier, that defies Windows' ClearType) for edit box and undocumented syntax. But it does work for some things.
+
+One annoyance is that it's hard to keep track of multiple Writeboards. 37signals once again show strength of their beliefs in "less feautures" mantra. Or it's a gentle way of saying: "if you want to keep track of your writeboards, pay us for our other service, that makes it easy and painless".
+
+I tried to dilligently bookmark all my writeboards but that's very tedious, especially given how broken bookmarking is on every single browser in popular usage.
+
+I found a way to use gmail as a way to automatically keep track of all my writeboards. When you create a new writeboard, you get an e-mail starting with "Your new writeboard". All you need to do is to do a search on "Your new writeboard" in Subject line and there it will be: a list of all your writeboards, automatically updated.
+
+The search query is: "subject:(Your new writeboard)"
+
+I just bookmarked the result. I had to switch to simple html view, because I have no idea how to bookmark a search in the ajaxy interface.
+
+When you delete a page, you can delete corresponding e-mail.

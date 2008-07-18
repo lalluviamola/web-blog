@@ -1,0 +1,49 @@
+Date: 2003-05-28 06:06:24
+Format: wphtml
+Title: iPod and Windows - problems, solutions.
+
+<b>iPod and Windows - problems, solutions.</b> My 10 GB <a href="http://www4.tomshardware.com/mobile/20021003/">iPod</a> 
+arrived today. Hardware is delightful but I'm using Windows so there were problems. 
+Here are a few things I learned: 
+<ul>
+  <li>iPod doesn't come with USB cable by default (thank god my laptop has FireWire 
+    interface); you have to buy FireWire-to-USB converter cable yourself if you 
+    don't have FireWire interface in your PC</li>
+  <li>when you plug iPod to PC it is also visible as an external hard-drive (and 
+    if you use Windows XP you don't even need to install any drivers) but by default 
+    iPod's hard-drive was formatted using Mac-compatible HPFS file system. Do 
+    not re-format it yourself to be FAT32, as I did, since it kills iPod</li>
+  <li>when you kill iPod you can always reset it to factory state which I managed 
+    to do it after using <a href="http://www.the-midfield.com/ipod.aspx">every</a> 
+    <a href="http://docs.info.apple.com/article.html?artnum=120119">possible</a> 
+    iPod updater I could find on the net. I did the reset multiple times but following 
+    the instructions didn't work: after update iPod just didn't want to go back 
+    to life and was stuck displaying &quot;OK to disconnect&quot; (long after 
+    I've disconnected). Finally I did the reset on iPod and it started working.</li>
+  <li>it's distressing that I was asked, twice, to enter my personal data (once 
+    for Apple once for MusicMatch) just to be able to install software that I 
+    didn't even want. Not to mention being forced to enter multi-digit numbers 
+    (iPod's serial number and MusicMatch's serial number). It's distressing given 
+    that I've already gave them my money and they still treat me like a thief, 
+    show absolute disrespect for my time and my privacy in the hope of squeezing 
+    some incremental revenue from me by means of bombarding me with spam (how 
+    else?)</li>
+  <li>in astonishing display of incompetency, software included on CD (iPod manager 
+    (whatever that is), iPod Updater (the thing that allows to reset iPod to factory 
+    settings/update firmware and MusicMatch Jukebox) failed to install correctly. 
+    After forcing me to reset every attempt to launch any of the included apps 
+    triggered installation dialog that kept asking me to point it to &quot;iPod 
+    for Windows.msi&quot; but refusing to accept it when I did. So I just uninstalled 
+    suckers.</li>
+  <li>although you do see iPod as a hard-drive, you can't just copy music to it 
+    and have it seen by iPod automatically (another example of removing useful 
+    functionality based on assumption that we're all thieves) so you have to have 
+    a special app that knows the secret handshake. On a Mac it's iTunes, on Windows 
+    it's MusicMatch Jukebox (if you manage to install it). But I use <a href="http://www.ephpod.com/">ephHod</a>.</li>
+  <li><a href="http://www.ephpod.com/">ephPod</a> rocks and is free (it's a tool 
+    that allows transferring music from a PC to iPod). BTW: transferring using 
+    FireWire is damn fast</li>
+  <li><a href="http://www.ipodlounge.com/">iPod Lounge</a> is a place to visit</li>
+</ul>
+<p>Did I mention that iPod is really cool? It's amazingly small, it's super-stylish, 
+  it works well and 10 GB is more than I'll ever need.

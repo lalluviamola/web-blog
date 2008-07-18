@@ -1,0 +1,35 @@
+Date: 2003-02-19 05:21:20
+Format: wphtml
+Title: Sidekick SDK - finally
+
+<b>Sidekick SDK - finally.</b>
+
+Finally Danger Inc. <a href="http://www.hiptop.com/forums/viewtopic.php?t=3136">announced</a> that they'll soon provide beta SDK for their Hiptop/Sidekick devices. It was long overdue but finally they did it (well, are close to doing it). SDK will be free for registered developers. Releasing SDK was really necessary for Danger's survival - the device can only become a success if there are third party apps for it. Of course, just availability of 
+SDK doesn't guarantee the success. What still remains unclear is how open the 
+system will be i.e. how easy it will be to sell/distribute applications to 
+people and how easy it will be to install third party applications. There are 
+different ways of doing things. Palm and Pocket PC are extremely open - they 
+allow anyone to write/sell/buy/use software. This is great both for developers 
+since they can easily reach potential costumers and they can try different 
+approaches both to development (i.e. create innovate products) and marketing. 
+The more open process the more applications will be created which benefits 
+customers. PC computer market showed us that such openness can create huge 
+markets. The downside of this approach is that there will be a lot of 
+application of low quality and those applications lower the overall user 
+experience. People themselves are required to separate good from the bad. There 
+is another reason to prefer closed systems: greed. Those in control of the 
+system can (or in many cases merely hope that they could) extort higher prices 
+because they have monopoly on a given service. Telco providers usually have this 
+mindset. For example SMS is a closed system and that's the only reason that 
+sending SMS messages is so ridiculously expensive (in some countries). Monopoly 
+is a good thing to have but is usually self-defeating because once the 
+competition is allowed, guardians of the closed are easily out-competed by 
+newcomers in the beginning (e.g. no-one would pay for sending measly SMS if he 
+could read/send e-mail or any other data over internet using Treo or Sidekick) 
+and they never catch up because they've lost the ability to compete.
+
+<p>If history is any guidance, all else being equal open systems will win. The 
+question is: how open will T-Mobile dare to be? It doesn't look like they're 
+going for the totally open system but there are different degrees of closeness. 
+Let's hope (for their own good) that they'll tend toward the more open than more 
+closed.

@@ -1,0 +1,7 @@
+Date: 2003-02-17 05:19:36
+Format: wphtml
+Title: Creative commons presentation.
+
+<b>Creative commons presentation.</b>
+
+This <a href="http://mirrors.creativecommons.org/">presentation</a> is simply brilliant. Good marketing applied to fighting for the public domain (well, creative commons domain).

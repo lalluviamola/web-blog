@@ -1,0 +1,7 @@
+Date: 2003-01-31 08:18:39
+Format: wphtml
+Title: Old ArsDigita content.
+
+<b>Old ArsDigita content</b>
+
+Philip Greenspun made <a href="http://philip.greenspun.com/ancient-history/">a page</a> with his old writings and Eve also has <a href="http://eveander.com/arsdigita/">a page</a> with documents related to ArsDigita (check out the mission statement, it's as interesting and inspiring as it ever was).

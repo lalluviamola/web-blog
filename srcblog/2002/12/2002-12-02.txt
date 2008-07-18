@@ -1,0 +1,13 @@
+Date: 2002-12-02 11:46:35
+Format: wphtml
+Title: How to make an app.
+
+<b>How to make an app.</b> Brent describes <a href="http://inessential.com/2002/04/10.php">his plan</a> for creating small apps. Shortened:
+<ul>
+  <li> define precisely what the app does
+  <li> sketch UI on paper
+  <li> sketch UI in Interface Builder (that's a Mac OS X RAD-type tool, for those stuck exclusively in Windows)
+  <li> write list of milestones (each milestone should be small)
+  <li> do the milestones, one by one
+</ul>
+Finishing things is the hardest things.

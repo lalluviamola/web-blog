@@ -1,0 +1,27 @@
+Date: 2004-12-31 05:55:29
+Format: wphtml
+Title: 2005 prediction - the rise of anonymous p2p
+
+<b>"So sue me" - <a href="http://www.nanocrew.net/blog/">he said</a>. And that's what they did.</b>
+
+End of 2004 was the time of legal battles. <a href="http://en.wikipedia.org/wiki/Riaa">RIAA</a> and <a href="http://en.wikipedia.org/wiki/Mpaa">MPAA</a> started suing anybody they could. Let's not kid ourselves: they had the right to sue. And they <a href="http://en.wikipedia.org/wiki/Pyrrhic_victory">will win those battles</a>. The question is: will they <a href="http://en.wikipedia.org/wiki/The_Art_of_War">win the war</a>?
+
+<b><a href="http://cryptome.org/hrcw-hear.htm">"I say to you</a> that the common man is to the American film producer and the American public as the Boston strangler is to the woman home alone."</b>
+
+Their first problem is alienating the costumers. RIAA and MPAA replaced Microsoft as the most hated corporate entity in the blogosphere. Are they right? Are they wrong? Nobody cares but everybody is pissed. And that anger is a good way to justify illigal behaviour of downloading music or movies. In the past MPAA was able to <a href="http://www.google.com/search?hl=en&lr=&q=%22Boston+strangler+is+to+the+woman+home+alone%22&btnG=Search">sput nonsense</a> to congress members without anyone noticing but today at least the weblogging and weblog-consuming part of the society is watching and they are not amused by the rethoric.
+
+<b>"One more such victory and I shall be lost!"</b>
+
+The bigger problem is that they started a war they cannot win. What we've learned from <a href="http://en.wikipedia.org/wiki/Napster">Napster</a> and <a href="http://en.wikipedia.org/wiki/Bittorrent">BitTorrent</a> is that a technology for file-sharing can be built literally by one person and its popularity skyrocket in just few months. Current protocols have flaws that enable RIAA and MPAA to use legal system to shut them down.
+
+Napster had a flaw of being centrialized. It was a matter of winning one case to shut them down forever. 
+
+BitTorrent, Kazaa and other decentralized networks cannot be killed that way but they make it trivial to track down people who upload files. That allows RIAA and MPAA to sue individuals. That's a very expensive way to fight p2p file sharing but I hear they still make lots of money. And they can always compensate by showing more ads in theaters or inserting ads in the middle of songs. Besides, this is more of a scare tactic: they don't have to sue everyone who uses p2p because in the end MPAA execs would be the only ones not being sued. They just have to convince public at large that downloading songs or movies is too dangerous, not worth the risk of being sued.
+
+<b>"It cannot be traced. It cannot be stopped."</b>
+
+Creating an anonymous p2p network that will make pin-pointing individual file shares impossible on a practical level isn't that hard. And I predict that in 2005 an anonymous p2p network will rise in popularity rivaling current popular p2p networks.
+
+This might happen as an anonymous  overlay network like <a href="http://en.wikipedia.org/wiki/The_Art_of_War">Tor</a> or as a new, specialized networked protocol. 
+
+My other prediction is that after the studios will loose ability to use lawyers to stop file sharing, it'll take them about 5 years to offer a product that is able to compete with BitTorrent.

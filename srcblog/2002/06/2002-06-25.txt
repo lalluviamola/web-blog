@@ -1,0 +1,5 @@
+Date: 2002-06-25 13:52:17
+Format: wphtml
+Title: Quote of the day ...
+
+<h5>Quote of the day </h5>&#013;&#010;<BLOCKQUOTE dir=ltr style="MARGIN-RIGHT: 0px">&#013;&#010;<P><I>"Due to circumstances beyond your control, you are master of your fate and captain of your soul."</I></P></BLOCKQUOTE>

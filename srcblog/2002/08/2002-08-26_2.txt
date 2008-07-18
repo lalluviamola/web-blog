@@ -1,0 +1,5 @@
+Date: 2002-08-26 07:26:13
+Format: wphtml
+Title: Upcoming movie.
+
+<B>Upcoming movie.</B> The <A href="http://www.apple.com/trailers/fox/the_transporter/">trailer</A> for upcoming movie "The Transporter" looks interesting. And the story was written by <A href="http://us.imdb.com/Name?Besson,+Luc">Luc</A> <A href="http://movies.yahoo.com/shop?d=hc&amp;id=1800022711&amp;cf=biog&amp;intl=us">Besson</A>, the director of unforgettable "La Femme Nikita" and "Le Grand Bleu".

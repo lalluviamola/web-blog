@@ -1,0 +1,12 @@
+Date: 2003-03-04 06:15:28
+Format: wphtml
+Title: Best mailing list archiver
+
+<b>Best mailing list archiver.</b>
+
+<a href="http://www.clearsilver.net/archive/">Archive</a> is the best mailing 
+list archiver I've seen so far. See it in action archiving
+<a href="http://archive.neotonic.com/archive/osaf-design">OSAF design list</a> 
+or <a href="http://archive.neotonic.com/archive/osaf-design/rss20/new.xml">mono 
+list</a>. It's based on language-independent
+<a href="http://www.clearsilver.net/">ClearSilver</a> templating engine.</p>

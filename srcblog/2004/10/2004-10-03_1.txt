@@ -1,0 +1,7 @@
+Date: 2004-10-03 04:50:34
+Format: wphtml
+Title: Testing rotation handling in Pocket PC emulator
+
+Press F2 if you're using Pocket PC 2003 Second Edition emulator to test how your app handles changes in screen rotation.
+
+Also, <a href="http://www.vgapocketpc.com/">vgapocketpc.com</a> is a site dedicated to Pocket PC apps that work well in VGA (640x480) resolution.

@@ -1,0 +1,5 @@
+Date: 2006-08-29 07:57:02
+Format: wphtml
+Title: Notes on installing and configuring Ubuntu on VMWare
+
+I seem to be installing Ubuntu under VMWare too many times. Since I do the same things every time, I wrote myself a <a href="/kb/installing-ubuntu.html">small cheat sheet</a>.<br />

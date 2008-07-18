@@ -1,0 +1,5 @@
+Date: 2002-07-24 00:31:42
+Format: wphtml
+Title: Old habits die hard
+
+<B>Old habits die hard</B> &#013;&#010;<P/>I noticed that I use IE more often than Mozilla. Not because its better, quite the opposite: I love some of the features of Mozilla that IE lacks, like tabbed browsing and killing pop-ups. Not because I'm unaware of it, quite the opposite: I installed Mozilla 1.0 the day it was still fresh. It's just I have both IE and Mozilla's icon on my quick-launch taskbar, they are next to each other and I guess I hit IE's icon more often because it looks more familiar to my eye. I just moved the icons apart - let's see if it'll change my default web browser launching habits. &#013;&#010;<P/>But the moral of this story is that Mozilla has an uphill battle against IE. One thing that the book "22 laws of marketing" got right is that you can't fight the leader by being just better (and it's not like Mozilla is better in every respect), you have to be different. Mozilla is a little bit different (e.g. it's a combined e-mail client, news reader, chat client, web page composer and web browser) but is it different enough?

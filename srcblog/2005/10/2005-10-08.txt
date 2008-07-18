@@ -1,0 +1,49 @@
+Date: 2005-10-08 06:42:59
+Format: wphtml
+Title: Writely-in-a-weblog
+
+
+Here are 2 things that I would like to see:<br>
+<ul>
+  <li><a title="writely.com" href="http://writely.com">writely.com</a>-like quality of weblog post editing in my weblog tool</li>
+  <li>writely-like publishing integrated with my weblog</li>
+</ul>
+<br>
+The first one is obvious: writely.com has much better editor gadget
+than e.g. WordPress so it's not surprising that I would like WP to
+improve so that it's as good as writely.<br>
+<br>
+But what I would also like is that weblog tools add some sort of
+article publishing and collaboration. A weblog is a publishing tools
+but every weblog tool maker seems to take a very narow view of what a
+weblog is i.e. a chronological list of posts.<br>
+<br>
+Not everything that I would like to publish falls into this ephemeral
+model. Some things deserve more permanent place. Currently I have a
+separate page for articles but they're just static html pages that are
+a pain to update and I had to add them manually to my site.<br>
+<br>
+In the past I've advocated integrating wiki-like features with weblogs
+but now I think that writely-like features would be better.<br>
+<br>
+Wikis are best at large-scale collaboration and that's probably not
+what most weblog users need. Writely.com focuses on making it easier to
+write documents with simple formatting (truth be told, wiki syntax
+isn't the easiest to learn and every wiki seems to have a need to
+invent its own syntax) and small-scale collaboration (with just a few,
+trusted people).<br>
+<br>
+To summarize, what I would like blogs to have:<br>
+<ul>
+  <li>an editory that matches <a title="writely.com" href="http://writely.com">writely.com</a> in quality</li>
+  <li>extending blogs with "articles" section. Don't care about the
+name, but the point is that this should be a place for non-temporal,
+more permanent writings. A lengthy review. A book. A paper. An essay. A
+programming article.</li>
+  <li>ideally, collaborative editing of articles (and maybe even blog posts) a-la-writely</li>
+</ul>
+<br>
+I'll switch to the first weblog that implements that engine. WordPress, MovableType, Blogger, Yahoo, MSN Spaces, do ya hear me?<br>
+<br>
+After all, it's crazy that I type this in writely just because editing in WordPress sucks so much.<br>
+<br>

@@ -1,0 +1,5 @@
+Date: 2002-09-01 07:51:37
+Format: wphtml
+Title: More on software demos.
+
+<B>More on software demos.</B> I have recently <A href="">wrote</A> that doing demos of your software is a great marketing technique. After some more browsing I found that some people call such demos "viewlets" and that there's a <A href="http://www.qarbon.com/">tool</A> for making viewlets. You can read other people's opinion about this tool <A href="http://jimworld.com/reviews/viewlet.html">here</A> and <A href="http://www.nwfusion.com/newsletters/web/2001/00927097.html">here</A>. There are some viewlets to be found <A href="http://www.cybermeister.net/viewlet/dw4/">here</A>.

@@ -1,0 +1,7 @@
+Date: 2004-05-31 22:51:42
+Format: wphtml
+Title: Lisp failed as a programming language.
+
+The proof is in the pudding. Despite everything nice that <a href="http://www.paulgraham.com/">Paul Graham</a> and other Lisp advocates have to say about how great Lisp is, it failed as a programming language. Ultimate proof: <a href="http://jabberwocky.sourceforge.net/">Jabberwocky</a>. It's a Lisp IDE, presumably written by people who know and love coding in Lisp.
+
+It's written in Java.

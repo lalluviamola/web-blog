@@ -1,0 +1,39 @@
+Date: 2003-06-22 22:55:57
+Format: wphtml
+Title: Business lessons from Adobe.
+
+<b>Business lessons from Adobe.</b>
+<a href="http://www.bayarea.com/mld/mercurynews/6144832.htm">This article</a> cought my
+attention. I think there are several important lessons about software business
+that can be inferred from it.
+<p>
+Lesson one: seek out new products. Adobe is most famous for Photoshop but it turns
+out that currently Acrobat makes more money for Adobe than any other product. It's
+easy to remain a one-product company, it's hard to take a risk and fund new products.
+If the new product fails, it might get you killed. But if you don't take risk, you
+might get killed anyway (history of computing is filled with dead bodies of once-succesful,
+one-product companies like Ashton Tate (dBase) or WordPerfect). If you succeed at the hard thing, you might get handsomely rewarded (Microsoft is an example of a company that perfected 
+this strategy - they try almost anything that might be profitable).
+<p>
+Lessone two: have a vision. According to the article:
+<blockquote><i>
+Warnock, who has retired from running the company, could say he told you so. From the early days when he tacked up fliers to ``sort of sell it within the organization,'' the gray-bearded intellectual was Acrobat's biggest supporter. In its earliest stages he called the project ``Camelot,'' because it envisioned a perfect world where the incompatibilities of digital documents vanished; in a 1991 memo describing the project Warnock declared that ``if this problem can be solved, then the fundamental way people work will change.''
+</i></blockquote>
+I don't think PDF/Acrobat "changed the way people work" so it failed terribly at fulfilling its vision. However, it became fairly succesfull product creating gobs of cash for Adobe. What we can tell from that is that having ambition bigger that what actually was produced didn't hurt and I do think that it helped them and that they wouldn't be here if they just set out to create a boring software for viewing 
+<p>
+Lesson three: be persistent.
+<blockquote><i>
+``In the early days we were spending quite a bit of money on Acrobat development,'' Warnock says. The project missed sales expectations every quarter for the first three years. ``The board of directors at every board meeting would question whether it would amount to anything.''
+Warnock persevered.
+</i></blockquote>
+This is a dangerous lesson (as every generalization from a one-time event is) but notice this: Microsoft became the biggest software company mostly by being persistent and funding DOS/Windows/Office as long as it took to make them the best and most popular. Same happen for Adobe and Acrobat. On the other hand, Corel also persists in competing with MS Office (Corel Office) and Adobe's Photoshop/Illustrator (Corel Draw/Corel PhotoPaint) but more and more it looks like a path of self-destruction. So let's amend that lesson.You should persist if:
+<ul>
+<li>you're deeply convinced you're right
+<li>it helps to have a unique product like Acrobat (as opposed to Corel's also-rans)
+<li>you can afford loosing (again Microsoft is a great example: they failed more times than they succeed and it works for them becaue they can afford the failures)
+</ul>
+And finally a lesson that no-one is really able to follow: avoid bias. Avoid seeing everything as a nail just because all you have is a hammer.
+<blockquote><i>
+Some at Adobe thought that Acrobat PDF should be the main language of the Web, rather than HTML (hypertext markup language), which has become standard. HTML is fickle, and will cause the same page to look differently depending on the computing platform.
+</i></blockquote>
+It's so easy to believe that they thought that even though it shows a gross misunderstanding of what makes web popular and valueable (hint: it's not about publishing documents with <b>perfect layout</b>; it's about the <b>ease of publishing</b> of documents even if they look shitty). Heavy bias is common. Microsoft had the same idea except they wanted to replace HTML with Word's file format. Netscape was telling anyone who would listen how their browser is a new platform that makes the OS irrelevant. If you want to know why you shouldn't believe your own hype and avoid bias just look who's irrelevant now.

@@ -1,0 +1,5 @@
+Date: 2003-09-18 20:20:40
+Format: wphtml
+Title: New gaming handheld.
+
+<b>New gaming handheld.</b> A bunch of ex-Palm engineers formed <a href="http://www.tapwave.com">a new company named Tapwave</a> (for some reason the name makes me think that this is an Asian company) and they've made <a href="http://www.forbes.com/home_europe/2003/09/17/cx_ah_0917tentech.html">gaming handheld</a> based on Palm OS. This isn't an easy market - it's currently dominated by Nintendo's GameBoy and there are other players entering it: Sony with their handheld playstation and Nokia's N-Gage (although this one looks like a looser from the start). I'm very curious how well will Tapwave do in the market. The fact that they're PalmOS based gives them a big advantage of having thousands of existing applications. The device itself looks like a good and fairly cheap PalmOS handheld (especially 480x320 screen resolution is tempting).

@@ -1,0 +1,14 @@
+Date: 2004-06-01 08:20:08
+Format: wphtml
+Title: Cardboard - a bliki (blog+wiki)
+
+I like the idea of combining blogs and wikis (which, I just found out, go under the name of bliki). <a href="http://sourceforge.net/projects/cardboard">Cardboard</a> looks like fairly capable (even though it's only at version 0.1b) and well designed implementation of bliki. You can see it in action at its <a href="http://wiremine.org/">author's blog</a> (blik?). It's written in PHP + MySQL, which is a plus, since that's available almost everywhere.
+
+Cardboard looks surprisingly good. Most wiki's have terrible, cluttered design. It's still a work in progress and, as far as I can tell, have only been deployed on one site, but it's a project worth keeping an eye on.
+
+My quick wish-list:
+<ul>
+<li> fix RSS feed (it has invalid characters in it and at the end it appends non-XML text which is a probably PHP debugging info about the time it took to execute the script</li>
+<li>currently the names of permalinks visible to users look like "BlogPost28052004232". Not looking good and they don't provide any value to the user. In most weblogs those are generically named as "Permalinks" (or permalink is linked to the title). I think using "Permalink" is the best solution (using title or some other element make permalink hard to find by users ).</li>
+<li>adding XML-RPC metaWeblog API is missing from the <a href="http://wiremine.org/CardboardRoadMap">Cardboard roadmap</a></li>
+</ul>

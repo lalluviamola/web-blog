@@ -1,0 +1,9 @@
+Date: 2003-03-02 04:38:22
+Format: wphtml
+Title: Why Newton failed.
+
+<b>Why Newton failed.</b>
+
+TechTV has <a href="http://www.techtv.com/print/story/0,23102,3013675,00.html">
+an article</a> about Newton and why it failed. It's written by one of the people 
+who created Newton.

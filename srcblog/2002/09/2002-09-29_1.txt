@@ -1,0 +1,5 @@
+Date: 2002-09-29 16:48:40
+Format: wphtml
+Title: Safari disappointement.
+
+<b>Safari disappointement.</b> Safari is O'Reilly's on-line books project. You pay a monthly fee to access a number of books (mostly O'Reilly books but not only) where the number depends on the size of a monthly fee. Every month you can swap books i.e. replace a book with some other book from a big catalog. I have 10 books and I just tried replacing one book with another book. To my disappointement it seems that one can only do a "swap" once per-month i.e. if I swap only one book, my swapping period gets reset and I can't swap any other book until next month. That's not how I expected it to work - each book should have its own swap date and I should be able to swap any book independently of the others. The way it works now greatly diminishes the value of Safari to me. Luckily, a recent newsletter about Safari mentioned that they plan to implement just that Real Soon TM.

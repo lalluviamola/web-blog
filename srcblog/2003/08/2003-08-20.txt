@@ -1,0 +1,5 @@
+Date: 2003-08-20 17:30:38
+Format: wphtml
+Title: Popular fallacies.
+
+<b>Popular fallacies.</b> There are times when people try to bullshit their way during an argument. In that case it's good to know the most popular bullshits, otherwise known as logical fallacies. There is a list <a href="http://www.datanation.com/fallacies/index.htm">here</a> and <a href="http://www.nizkor.org/features/fallacies/">here</a>, both with good explanations why a given fallacy is indeed a fallacy and not a legitimate argument.

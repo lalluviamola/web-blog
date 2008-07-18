@@ -1,0 +1,6 @@
+Date: 2003-01-12 04:40:17
+Format: wphtml
+Title: A good thing about Safari.
+
+<b>A good thing about Safari.</b>
+Apple's Safari is rather un-impresive browser but there is one thing that Apple does that makes a lot of sense: they'll make it into a framework called <a href=" http://developer.apple.com/darwin/projects/webcore/index.html">WebCore</a> that other people will be able to use as a HTML rendering engine. Ability to easily display HTML in one's apps seems like a no-brainer but it always amazed me how hard it actually is. Instead of just being able to say: "display this html from memory or a file" one has to go through the ActiveX hoops to embed IE (which has plenty of silly restrictions on what you can do) on Windows or probably through even bigger hoops to embed Mozilla (never tried but don't suspect it's easy). It makes a perfect sense for a platform vendor (i.e. Apple in this case) to provide high-quality solution that is easy to use. Hopefully WebCore will become that.

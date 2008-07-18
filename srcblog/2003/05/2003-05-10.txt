@@ -1,0 +1,44 @@
+Date: 2003-05-10 02:17:54
+Format: wphtml
+Title: What kind of an employee a small software company needs?
+
+<b>What kind of an employee a small software company needs?</b> According to <a href="http://software.ericsink.com/">Erick 
+Sink</a>, small software company needs flexible developers who do more than just 
+writing code. So very true, go read <a href="http://software.ericsink.com/No_Programmers.html">the 
+full article</a> for details. 
+<p> On unrelated subject: someone asked about the best way to have one's company 
+  logo designed. <a href="http://discuss.fogcreek.com/joelonsoftware/default.asp?cmd=show&ixPost=42695&ixReplies=6">Recommendations</a> 
+  included using <a href="http://www.elance.com">elance.com</a> or <a href="http://www.freelancers.net">freelancers.net</a> 
+  or <a href="http://www.1800mylogo.com/">1800mylogo.com</a> or <a href="http://www.thelogofactory.com/">thelogofactory.com</a>. 
+<p> On another unrelated subject: <a href="http://discuss.fogcreek.com/joelonsoftware/default.asp?cmd=show&ixPost=42007&ixReplies=17">this 
+  thread</a> dispels the myths of Microsoft's interviewing system. I have a different 
+  (but non-competing) theory that can be applied as an anti-argument to a large 
+  class of statements of nature &quot;Microsoft's X is crap&quot; e.g. &quot;Microsoft's 
+  software is crap&quot;, &quot;Microsoft's hiring practices are crap&quot; etc. 
+  The basis of this theory is that software business is competitive and people 
+  are not stupid and, in the long term, cannot be consistently tricked into doing 
+  something that is clearly not in their interest. Like buying crappy software. 
+  If people buy a given piece of software over long-term, then it cannot be crap 
+  (defined as &quot;significantly inferior to alternatives&quot;). Usually to 
+  defend the &quot;Microsoft's X is crap&quot; position despite staggering market 
+  success of X people use &quot;some other Microsoft's Y compensates for X's crappiness&quot; 
+  where Y usually is &quot;monopoly&quot; or &quot;marketing&quot;. In other words 
+  Microsoft's marketing is so brilliant that they can sell ice to Eskimos at 99% 
+  profit margin. Their monopoly gives them basically blank check for selling 20-line 
+  VB apps that do nothing for thousands of dollars. But as I said, my basic belief 
+  is that software industry is competitive. That, among other things, means that 
+  it's impossible to have one, single advantage that will compensate over terrible 
+  mistakes like creating clearly inferior products. Even in established categories 
+  (like Office) there is competition waiting for Microsoft to slip. It might just 
+  be that their marketing is exceptionally good and can compensate for a slightly 
+  worse product but it cannot ever be so good to compensate for clearly worse 
+  product. 
+<p>The same applies to hiring: software companies live or die by programmers. 
+  Without good programmers there is no good code, without good code there is no 
+  good money. So the best way to measure how good the hiring process is by judging 
+  how much money those hires generate and Microsoft is absolutely at the top of 
+  the hill by a large margin. So if every other aspect was the same as in other 
+  companies, their hiring practice would also be the best by a large margin. Even 
+  if we factor in the assumption that there are other things that contribute to 
+  Microsoft's success, they could never compensate for a crappy hiring process 
+  so in the worst case the hiring process must be between average and good.

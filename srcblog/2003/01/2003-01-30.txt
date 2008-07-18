@@ -1,0 +1,12 @@
+Date: 2003-01-30 02:00:36
+Format: wphtml
+Title: Kapor talks about Chandler
+
+<b>Kapor talks about Chandler.</b>
+
+Today Mitch Kapor <a href="http://www.stanford.edu/class/ee380/">will talk</a> about <a href="http://www.osafoundation.org">Chandler</a>. This is interesting for two reasons:
+<ul>
+<li>Chandler project is interesting
+<li> the talk will (hopefully) be available on-line as video web-cast
+</ul>
+In the past I watched quite a few talks from that series and they were great. Can't wait to see this one.

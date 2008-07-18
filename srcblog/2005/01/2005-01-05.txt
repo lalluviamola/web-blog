@@ -1,0 +1,30 @@
+Date: 2005-01-05 22:34:49
+Format: wphtml
+Title: The thing called abuse.
+
+There's nothing that brightens my day like being called <a href="http://www.j-bradford-delong.net/movable_type/2005-3_archives/000109.html">
+completely insane</a> by a self proclaimed "Fair, Balanced, and a Proud Member of the Reality-Based Community", also an economist, a Berkley profesor and blogger with 1,249 bloglines subscription (compared to measly 100 that I enjoy). His post consist 50% of insults, but read it anyway, for the comments.
+
+But enough about Brad, let me continue to publicly display my astonishing stupidity. 
+
+Today's topic: abuse.
+
+There's a <a href="http://www.skweezer.net/">skweezer</a>, a service created for users that have misfortune of looking at web pages on smartphones like Treo, MS Smartphones or Pocket PC based phones/PDAs. If you never did this, then let me tell you: it's painful. Most websites are not designed for small phones. Web browsers on those devices are trying to come up with ways to display them well on tiny screens, but they're severly limited by processing power and memory available. Skweezer is a service that reformats web pages in a way that is better suited for viewing on a mobile phone. It's a proxy that intelligently re-formats html, removes the ads etc. People who use seem to like (I haven't used it yet).
+
+It used to be paid service but it seems that they switched to advertising-based model i.e. they add ads to pages they serve. Apparently they also remove other ads during page reformatting. That <a href="http://calacanis.weblogsinc.com/entry/1234000450025233/">mightilly pissed</a> Jason Calacanis and a number of other people.
+
+Jason's blog bloglines count is only 243, which is very disappointing for a blog mogul owning a host of blogs, including mightily popular <a href="http://www.engadget.com">engadget</a> (7,490 bloglines subscribers).
+
+Jason makes money by selling ads that appear on weblogs he owns. His point is that skweezer, by removing his ads and putting their own ads is essentially using his content to make money and none of this money is going into Jason's pocket. It's a fair point but I'm not going to talk about that.
+
+What I find ironic, given Jason's moral indignation on skweezer's abuse, is that his <a href="http://calacanis.weblogsinc.com/entry/1234000943025236/">next weblog post</a> contains a very nice photograph of a skier. Jason didn't take this photo, he took it from <a href="http://www.skiingmag.com/skiing/feature/article/0,12910,940828,00.html">this article</a> on someone else's website.
+
+In U.S. every creative work (a novel, short story, article, sculpture, photograph) is copyrighted by default.  Unless the author of the work explicitly chooses to apply a different kind of licence for the work, you can only use it in your own creative work under the "fair use" doctrine.
+
+Somehow I doubt that republishing the photo verbatim falls under fair use.
+
+Most of Jason's blogs are filled with photos that were not taken by his staff but simply copied from other sources.
+
+Jason, being a blogger, understands the value of open and honest communication which probably explains why my sarcastic comment pointing out his less-than-sainthood in the abuse department was promptly removed from his blog. We like the truth but only if the truth likes us.
+
+Jason, a stone is in the mail. Feel free to cast it at Skweezer's headquarters.

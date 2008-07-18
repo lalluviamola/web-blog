@@ -1,0 +1,5 @@
+Date: 2002-08-27 10:05:42
+Format: wphtml
+Title: Information business as a relationship.
+
+<B>Information business as a relationship.</B> Bruce Sterling <A href="http://www.viridiandesign.org/notes/301-350/00325_open_source_speech.html">at his best</A>. His analogy of information business and relationships is great.

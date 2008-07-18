@@ -1,0 +1,9 @@
+Date: 2004-05-29 21:22:25
+Format: wphtml
+Title: Backing up WordPress database.
+
+Post about <a href="http://www.bloggingpro.com/archives/2004/05/28/backing-it-up-or-lose-it/">backing up WordPress MySQL database</a>. The magic incantation is:
+<pre>
+mysqldump &minus;user=&quot;db username&quot; &minus;password="db pwd" &minus;all "db name" | gzip > "full path to backup file"-`date +%Y%m%d`.gz
+</pre>
+

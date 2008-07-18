@@ -1,0 +1,9 @@
+Date: 2003-02-14 05:49:37
+Format: wphtml
+Title: Reading for today.
+
+<b>Reading for today.</b>
+<ul>
+<li> David Stutz's <a href="http://www.synthesist.net/writing/onleavingms.html">advice</a> to Microsoft
+<li> <a href="http://www.infosync.no/news/2002/n/3067.html">solid review</a> of Sony Ericsson P800
+</ul>

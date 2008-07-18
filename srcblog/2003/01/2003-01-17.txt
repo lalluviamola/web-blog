@@ -1,0 +1,6 @@
+Date: 2003-01-17 05:15:31
+Format: wphtml
+Title: Sidekick news.
+
+<b>Sidekick news.</b>
+According <a href="http://www.hiptop.com/forums/viewtopic.php?t=2431">to some guy</a>, SDK for Danger's Sidekick/HipTop will be released in Q2, software on the Sidekick will be updated in Q2 (mostly bugfix release) and again in Q3 (this time with additional features). A bit late, in my opinion. Anyone knows how much devices did Danger/T-Mobile sell so far? I haven't seen any numbers yet.

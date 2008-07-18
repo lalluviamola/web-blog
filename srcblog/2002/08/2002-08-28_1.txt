@@ -1,0 +1,5 @@
+Date: 2002-08-28 12:04:29
+Format: wphtml
+Title: Bookmarks out of control.
+
+<B>Bookmarks out of control.</B> My bookmarks are totally out of control. I bookmark a few sites a day, just so that I can get to them later (in an unlikely event that I'll actually need to do it). But I just add them to the very long list without trying to arrange in categories (both IE and Mozilla don't have good tools for that) and that doesn't scale. There must be a better way.

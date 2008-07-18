@@ -1,0 +1,64 @@
+Date: 2004-06-09 13:09:11
+Format: wphtml
+Title: Of weblogs and wikis.
+
+<b>Summary:</b> all weblogging tools should have a built-in wiki.
+
+Clearly, I'm not the first to suggest that weblogs and wikis should be combined. It's not that hard to come up with the idea, there's prior art. There's even a name for such a thing: <a href="http://en.wikipedia.org/wiki/Bliki">bliki</a>. So why didn't it happen yet on a large scale? Why we don't see every weblog tool shipping with a built-in wiki support. Looks like demand for that isn't there. But why? Is it because it's not something that most people want? I claim that some things need to be experienced to be appreciated. Wikis are valuable addition to weblogs but people don't ask for them because they don't know wikis could be useful for them. A classic chicken and egg problem.
+
+When we look at the history of blogging we can see that even though today it's a raging success, it didn't happen overnight. Today blogging reaps the fruits of network effects: seemingly everyone on the planet starts a blog. However, majority of people who start weblogs today didn't desire weblogging tools few years back. It took years of evangelizing and perseverance from blogging early adopters to show usefulness of weblogs. If there was no Radio or Blogger or LiveJournal, we wouldn't be here.
+
+Wikis, on their own right, are successful as well. There are plenty of free wiki implementations, plenty of deployed public wikis and even a few businesses offering wiki-like managed services for knowledge management.
+
+The question is: does adding wiki capabilities to weblogs is useful (for people).
+
+<h3>A case for blikis</h3>
+
+What a wiki is good for? To use a buzz-word: personal knowledge management. A wiki is a great tool for collecting bits of knowledge that we learn. In fact, wiki's structure (interlinked nodes) is similar to how we store information in our brains: also as a set of interconnected pieces of information. The more pieces we store on a given subject and the more connections there are between those pieces, the better we know the subject.
+
+I'm sure that you've experienced re-learning the same thing.  I do my share of Unix server management, things like installing software, configuring Apache, doing backups. Those are not things that I do every day so I forget the details like:
+<ul>
+<li> exact <code>rpm</code> flags for installing new packages </li>
+<li> location of network configuration scripts (somewhere under <code>/etc</code>) </li>
+<li> which file to modify to change DNS server 
+</ul>
+Thousand little things like that. I know I knew those things in the past. I know how to figure them out again, if the need arises. The problem is: figuring it out again is time consuming. I have to re-read man pages, ask for <code>-h</code> help, google. Finally I'll find the answer but very often it takes much more time than it should. 
+
+The solution? Every time I need to learn something new and there's a reasonable chance that I will need this information in the future, I could write it down on my personal wiki. Next time I need it I can just look it up there. The disadvantage is that there is overhead of entering this information. The immediate advantage is that I can find the information more quickly.
+
+But there are more advantages. Other people could learn from information I've collected. If they need to remember the same thing, they could either directly link to my page one the subject or copy the text to their own personal wiki (to guard against my post vanishing from the web).
+
+If I enable editing or commenting on items, I could collaborate with other people, allowing them to add more information. A win for both sides.
+
+Wikis are very flexible and with a bit of ingenuity can be used for personal to do lists or project management.
+
+Wikis provide instant gratification - the smallest first post is already something. Wikis perfectly fit the way we learn: incrementally. Wiki can grow to substantial size by small additions over a long period of time, just as our knowledge grows.
+
+<h3>Why not just use weblogs for that?</h3>
+
+While there are claims about weblogs being knowledge management tools, in reality they aren't used for storing one's knowledge. Weblogs are curious beasts: they are personal but oriented toward other people. The most popular kinds of posts are:
+<ul>
+<li>I did X
+<li>here's what I think on X
+<li>check out what that other blog says about X
+</ul>
+
+In weblogs there's an implied expectation of readership. People don't use weblogs for managing knowledge that they might need in the future, they usually post so that <b>other people</b> can learn about something. This is a self-imposed, sociological restriction but I doubt that it'll ever change. Personally, I write my weblog posts differently than I write my wiki "knowledge pieces". In a wiki I would just write: <tt>rpm -ihv file : install a package</tt>. That's all I need to see to remember how to use <code>rpm</code> to install a new package. I wouldn't litter my blog with posts like that because I don't think that people reading reading my blog will find it interesting. Many of them wouldn't even know what <code>rpm</code> is.
+
+To summarize: wiki, I write for me, weblog I write for other people.
+
+<h3>Why separate wikis are not good enough</h3>
+
+Some of you might think: ok, will he stop whining, install a wiki and be done with it? Actually, <a href="/archives/2004/06/04/wikipedia-as-a-personal-wiki/">I did</a>. It's the experience of doing this that inspired me to write this piece. <b>It's just too hard.</b> First I had to decide which wiki out of (seemingly) thousands to install. Surveying available implementations, comparing features, checking if it can be installed on my server, narrowing down the choices. Then I had to install it. I was quite lucky that the one I've tried first was simple to install and good enough for me to keep. Then I had to spend hours (literally) to create a new template matching the look of my weblog (arguably an optional step, I could just live with what came in a box).
+
+It could (and should) be as simple as checking an option "enable wiki" during weblog  setup. One might argue that this additional effort doesn't matter and if wikis were really that useful then people would gladly spend the time to integrate wikis with their blogs. One would be wrong. One of the reasons that blogging took off so well was an availability of free services that made blog publishing extremely easy (e.g. blogger).
+
+<h3>Is there hope?</h3>
+
+Each idea needs a carrier. One way would be to build the software from scratch like <a href="http://wiremine.org/">cardboard</a> is doing. I'm afraid, however, that achieving critical mass needed for long-term survival (i.e. active development) will be extremely hard for a new weblogging software, even if it offers some unique capabilities.
+
+For bliki idea the best carrier would be <a href="http://wordpress.org">WordPress</a> which is quickly becoming a leading blogging software, is actively developed and has a vibrant community.
+
+The million dollar question is: is there anyone willing to do the hard implementation work and are core developers willing to add such features to standard WordPress distro.
+
+On the former, I'm skeptical. On the latter, one can always try to argue. I think that the argument is pretty good: this is a useful feature and it can be added in such a way, that those who don't need/want it can disable it with one click (that is only until Amazon obtains a patent for one-click disable).

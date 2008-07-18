@@ -1,0 +1,36 @@
+Date: 2003-12-26 20:52:33
+Format: wphtml
+Title: PilRC 3.0 released.
+
+<b>PilRC 3.0 released</b>
+
+If you're into Palm OS programming, you should know that <a href="http://sourceforge.net/projects/pilrc">PilRC 3.0</a> <a href="http://www.palmoswerks.com/discuss/msgReader$156">has been released</a>. 
+PilRC is a tool for defining UI in Palm OS programs. As a public service here's a list of changes in 3.0 (otherwise only available in history.html file in the distribution):
+<ul>
+<li> Enhanced bitmap family support
+<ul>
+ <li> 108dpi (1.5x) and 144dpi (2x) density support
+ <li>  Handspring PalmRC bitmap syntax support
+ <li> Unified bitmap parser
+</li></li></li></ul>
+<li>ented for PBM/PGM/PPM/PNM files
+<li> .pbitm files now generate type 1 bitmaps (suitable for use in families) rather than type 0 bitmaps
+<li> Accepts #error, #line, and "linemarkers" as emitted by the GNU preprocessor
+<li> Predefines the preprocessor symbols __rcp__ and __PILRC__
+<li> Supports #defines for strings
+<li> All text strings now support line continuation
+<li> FONTFAMILY resource support
+<li> NAVIGATION resource support (useful for the PalmOne Treo 600)
+<li> Palm OS 5 "LE32" resource format support
+<li> Added GENERATEHEADER and RESETAUTOID keywords
+<li> MENU SEPARATOR now supports an ID field to allow you to match PalmRez menu formats
+<li> New Warnings
+<ul>
+ <li> resources too large
+ <li> icon bitmap sizes don't follow PalmSource specifications
+ <li> forms with edit fields lack Graffiti State Indicator
+</li></li></li></ul>
+<li>bug fixes
+</li></li></li></li></li></li></li></li></li></li></li></li></li></li></ul>
+
+This version has been long in cooking so the upgrade is recommended.

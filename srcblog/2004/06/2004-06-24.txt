@@ -1,0 +1,17 @@
+Date: 2004-06-24 05:44:27
+Format: wphtml
+Title: Daily reading
+
+<ul>
+<li> <a href="http://photoinf.com/">photography composition tutorials</a> </li>
+<li> <a href="http://blogs.msdn.com/maoni/archive/2004/06/03/148029.aspx">CLR GC perf counter</a> </li>
+<li> <a href="http://www.marathonguide.com/races/races.cfm">US marathon list</a> </li>
+<li> <a href="http://blogs.msdn.com/maoni">CLR performance blog</a> - subscribed</li>
+<li> <a href="http://www.luminous-landscape.com/reviews/cameras/p25-firstlook.shtml">review of Phase One P25- 22 megapixel camera</a> </li>
+<li><a href="http://wesnerm.blogs.com/net_undocumented/2004/06/whidbey_may_mis.html">better code editor of the future</a> - ain't gonna happen</li>
+<li><a href="http://www.boingboing.net/2004/06/23/riaa_squats_and_dump.html">RIAA evil as always</a> </li>
+<li><a href="http://www.hanselman.com/blog/PermaLink.aspx?guid=7ea31dc8-f412-4c7f-9d22-b76b653305be">transfer e-mail from Hotmail/Yahoo to Gmail</a></li>
+
+<li><a href="http://software.ericsink.com/item_10195.html">Law #17: of unpredictability</a> </li>
+
+</ul>

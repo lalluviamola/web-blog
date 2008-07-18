@@ -1,0 +1,5 @@
+Date: 2003-11-02 15:41:39
+Format: wphtml
+Title: Opportunities exist in software.
+
+<b>Opportunities exist in software.</b> <a href="http://software.ericsink.com/index.html">Erick Sink</a> has written <a href="http://msdn.microsoft.com/Longhorn/understanding/columns/default.aspx?pull=/library/en-us/dnsoftware/html/software10272003.asp">an article about oportunities in software</a>.  The summary: there are no (or extremely few) opportunities for software businesses of the Microsoft,Adobe,Macromedia size but there's plenty of opportunities for software businesses that make a few million a year. Just keep looking and keep working.

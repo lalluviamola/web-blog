@@ -1,0 +1,5 @@
+Date: 2003-09-18 22:48:24
+Format: wphtml
+Title: Borland to use wxWindows.
+
+<b>Borland to use wxWindows.</b> According <a href="http://wxwindows.org/borland01.htm">to this page</a> Borland is going to use wxWindows in their new C++ product and also help in developing wxWindows. That's another great win for wxWindows (after being adopted by <a href="http://www.osafoundation.org/">Chandler</a>).

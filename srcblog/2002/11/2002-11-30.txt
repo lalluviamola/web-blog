@@ -1,0 +1,5 @@
+Date: 2002-11-30 08:27:12
+Format: wphtml
+Title: Muppets go to Hollywood.
+
+<b>Muppets go to Hollywood.</b> Actually, <a href="http://www.us.postgresql.org/">PostgreSQL</a>, which has just <a href="http://archives.postgresql.org/pgsql-announce/2002-11/msg00004.php">became version 7.3</a> <a href="http://archives.postgresql.org/pgsql-hackers/2002-11/msg00982.php">goes Win32</a>. The idea of doing native Win32 port of PostgreSQL has been discussed many times in the past and rejected. Sometime in 2002 the attitude has changed, mostly because of multiple independent efforts of doing Win32 port. The core team decided that this indicates real demand for such thing and decided that the best approach is to integrate Win32 into the mainline code. Now the question is not "if" but "when" and "how".

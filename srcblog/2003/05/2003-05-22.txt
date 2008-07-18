@@ -1,0 +1,27 @@
+Date: 2003-05-22 00:13:54
+Format: wphtml
+Title: NY Times on Wiki.
+
+<b>NY Times on Wiki.</b> NY Times has <a href="http://www.nytimes.com/2003/05/19/technology/19NECO.html?ex=1368763200&en=b816c8c120986d88&ei=5007&partner=USERLAND">an 
+article about Wikis</a>. Doesn't say anything interesting except that <a href="http://www.socialtext.com/">SocialText</a> 
+charges $995/year/5 users for their hosted wiki service. An obvious idea (if you 
+assume that wikis are any good). 
+<p>I just wonder why no-one has written a nice GUI client for wikis. If more firms 
+  will offer hosted wikis (and that's very simple) pure wiki will quickly become 
+  a commodity and commodity is spelled &quot;thin margins&quot;. GUI client would 
+  be one way to stay ahead of a pack. And it isn't that hard to write either. 
+  It could either tightly couple with wiki backend or try to establish a de-facto 
+  standard of interfacing GUI with server backend so that other wikis could also 
+  be modified to work with it. 
+<p>I think wikis are great but I'm not going to profess love for it. To me the 
+  main (and maybe only) inherent property of wikis is the ease of creation of 
+  new pages. Wiki is truly a writeable web. The rest of what we usually associate 
+  with wikis (WikiNames, only one namespace for pages, lack of permissions) are 
+  accidental features stemming from early implementations. I'm surprised that 
+  most implementations (and there are lots of them) perpetuate so many misdesigns 
+  of original wiki (my favorite pet-peeves are: WikiNames, no comments, no &quot;Create 
+  new page&quot; link (it took me a while to figure out that in order to create 
+  a new page in wiki you have to edit some existing page, add a not-yet-existing 
+  link to the soon-to-be-created page and then click on this link so that you 
+  can finally edit it), lack of hierarchy/namespace for pages). Those are slowly 
+  popping up here and there.

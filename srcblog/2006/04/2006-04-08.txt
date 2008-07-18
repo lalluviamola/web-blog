@@ -1,0 +1,16 @@
+Date: 2006-04-08 20:38:13
+Format: wphtml
+Title: Bloglines vs. Newsgator
+
+Summary: Bloglines is better.
+
+I'm a long time <a href="http://www.bloglines.com">Bloglines</a> user but I always look for a greener grass so I decided to try <a href="http://www.newsgator.com">Newsgator</a> on-line. I imported my feed list from Bloglines and went on a reading spree.
+
+I'm not switching for two reasons.
+
+Newsgator is way too slow to be usable for reading lots of feeds. Switching to another feed takes few seconds and during that time CPU utilization shoots to 100%, both in IE and in Firefox (I'm guessing some monster JavaScript).
+
+In Bloglines feed list is in a separate frame than the content of the feed. That means that I can scroll the content of the feed but feed list stays at the same position. In Newsgator, after I scroll down the content I have to scroll up to switch to another feed. Not cool.
+
+Bloglines has its problems and Newsgator, overall, looks nice, but the slow speed of switching to another feed is a deal-breaker.
+

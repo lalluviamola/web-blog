@@ -1,0 +1,7 @@
+Date: 2004-06-03 03:55:20
+Format: wphtml
+Title: Cardboard - a first success.
+
+Woohoo! I managed to make first post in my <a href="http://www.wiremine.org/">cardboard</a> bliki.  The reason it didn't work before: I was using (default) "basic" skin. It looks like it's outdated. Things started to work when I switched to "wheel" skin (by changing <code>config.xml</code>).
+
+Cardboard is still very rough around the edges but that should be expected given the 0.1 version number. The important thing is that it (somewhat) works.

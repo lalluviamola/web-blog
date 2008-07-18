@@ -1,0 +1,5 @@
+Date: 2003-07-01 17:28:54
+Format: wphtml
+Title: cmd.exe replacement for Windows.
+
+<a href="http://sourceforge.net/projects/console">Console</a> is a cmd.exe replacement. I tried it and it doesn't yet offer a lot of things that would compel me to switch but it's a promising project. And open-source so I can hack on it myself.

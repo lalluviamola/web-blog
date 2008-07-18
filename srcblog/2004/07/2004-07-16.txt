@@ -1,0 +1,7 @@
+Date: 2004-07-16 22:27:35
+Format: wphtml
+Title: Thunderbird needs Lookout (equivalent)
+
+So what's the obvious conclusion from Microsoft's <a href="http://www.lookoutsoft.com/Lookout/lookout-msft.html">Lookout buyout</a>? Mozilla Thunderbird needs a built-in, full-text search too.
+
+Given Thunderbird's C++ nature, <a href="http://sourceforge.net/projects/clucene/">C++ port of Lucene </a> would be the best code base to integrate with my favourite e-mail client.

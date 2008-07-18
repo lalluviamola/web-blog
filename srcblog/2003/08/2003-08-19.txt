@@ -1,0 +1,5 @@
+Date: 2003-08-19 14:15:06
+Format: wphtml
+Title: Follow up to P800 to ship soon.
+
+<b>Follow up to P800 to ship soon.</b> At least according to <a href="http://www.theregister.co.uk/content/59/32400.html">this article</a>. I still can't convince myself that P800 (and other Symbian OS-based devices) have any survival chance in the market dominated by PalmOne and having hungry Microsoft heavily promoting their Smartphones. For one, there doesn't seem to be any official US distributor for those, developer tools are still not open (Java ones are but not the ones for native C++ coding that takes full advantage of the OS).

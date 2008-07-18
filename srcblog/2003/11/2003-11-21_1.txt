@@ -1,0 +1,5 @@
+Date: 2003-11-21 21:49:38
+Format: wphtml
+Title: The triumph of good.
+
+<b>The triumph of good.</b> <a href="http://www.thefeature.com/article?articleid=100213">The triumph of good</a> article is worth reading because it says what I think: convergence of mobile/PDA devices is inevitable. 5 years from now you won't buy a PDA that doesn't have one way or another of getting Internet connectivity (e.g. by wi-fi but most likely GPRS/CDMA data connections). What cell telcos should do is, in addition to selling cell phone plans with data, sell just data access over their GSM/CDMA networks for people who don't care about having phone capability but do care about having internet access for their spiffy new PDAs. Currently high-end PDAs don't have "internet everywhere" capabilities while those PDAs that do have it (like Treo 600) are usually PDA/phone combos necesserily restricted in their capabilities, mostly because of the size issues.

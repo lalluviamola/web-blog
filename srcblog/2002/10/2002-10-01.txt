@@ -1,0 +1,5 @@
+Date: 2002-10-01 05:55:05
+Format: wphtml
+Title: Tufte speaks.
+
+<b>Tufte speaks.</b> And some people <a href="http://www.oreillynet.com/~terrie/tufte/">make notes</a>. <a href="http://www.edwardtufte.com/">Edward Tufte</a> is most known for his books on information design.

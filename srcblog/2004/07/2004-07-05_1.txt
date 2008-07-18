@@ -1,0 +1,15 @@
+Date: 2004-07-05 16:59:22
+Format: wphtml
+Title: Dangers of upgrading - FireFox story
+
+My willingness to upgrade to the latest and gratest versions of software has just went down a notch.
+
+I've had a really nice setup with FireFox 0.8. Thanks to installing tab extensions and some tweaks I've had good browsing and good integration with external programs, mostly FeedDemon (i.e. clicking a link in FeedDemon would open the page in a new tab). It was quite stable (i.e. it would almost never crash but there were cases of getting into an infinite loop).
+
+Then I upgraded to FireFox 0.9 and quickly after that to 0.9.1. That was a disaster. FireFox is (at least for me) much less stable i.e. it crashes daily. I came to a point where I'm afraid to open new pages because it might crash again and I'll loose all this unread pages in other tabs.
+
+Also, the nice integration with FeedDemon is gone. I've re-installed tab extentions but now clicking on a link in external programs re-uses the current active tab. Very much something I don't want, I want a new tab! Setting DDE launch in user.js to false is supposed to change that, but it doesn't.
+
+I've searched through forums and it seems I'm not the only one having such problem but there doesn't seem to be a solution that works for everyone.
+
+Such is life of an early adopter.

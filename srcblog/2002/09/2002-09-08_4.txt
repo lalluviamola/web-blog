@@ -1,0 +1,5 @@
+Date: 2002-09-08 09:19:23
+Format: wphtml
+Title: On October 13...
+
+On October 13 source code to <A href="http://www.blender3d.com/">Blender</A> will be released under GPL license to everyone. They managed to get $100 thousand in donations to pay for the source code when the company developing Blender went out of business. Interesting. $100 k looks like a lot of money but I bet it's only a fraction of what it took to develop it ($100 k is one-year salary of a good programmer).

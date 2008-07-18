@@ -1,0 +1,11 @@
+Date: 2003-02-12 05:02:56
+Format: wphtml
+Title: Photography sites.
+
+<b>Photography sites.</b>
+Been browsing photography sites:
+<ul>
+<li> <a href="http://www.wanderlost.org/iys/">tutorials</a> on improving your shots
+<li> <a href="http://www.ephotozine.com/techniques/index.cfm">a few tips</a> from ePHOTOzine
+<li> <a href="http://www.bythom.com/">good site</a> mostly related to Nikon products
+</ul>

@@ -1,0 +1,32 @@
+Date: 2005-05-05 05:13:48
+Format: wphtml
+Title: Ubuntu - more of the same.
+
+I haven't used seriously with Linux for a few years now. But I wanted to test-drive <a href="http://linuxadvocate.org/projects/roadster/">roadster</a> (a mapping application only available under linux) so I installed myself Ubuntu.
+
+After using it for a few hours my conclusion is that despite constant Linux-Desktop bruhaha in the past few years, nothing really changed. Ubuntu is supposed to be the best that Linux on desktop has to offer and it's dissapointingly similar to how RedHat looked like 3 years ago. Without trying to be comprehensive, a few observations:
+<ul>
+<li>I don't quite get why anyone gets excited about Ubuntu's installer - I don't see much difference between RH installer from a few years back and it's certainly not yet as polished as Windows' installer
+<li>one noticeable difference were all the annoying sounds Ubuntu was so keen to share with me. Clearly copied after Windows. And also a first thing I disable on Windows (the second one is a distracting background image)
+<li>emacs by default starts with the same ugly, non-anti aliased fonts it did 10 years ago. Would it be so hard to set fonts that match the desktop? (I know this is Ubuntu rant but let me just add a side note that Emacs deserves a special mention as the only editor in the world that forces the user to learn advanced programming language just to so that he can change a font)
+<li>every time I installed additional aplication, the package manager complained that he couldn't stat some url. God knows why (I had network connection working) and what it meant (packages were installed just fine, so it was just a friendly tip about an information that the user clearly doesn't care)
+</ul>
+
+The more things change, the more they stay the same. Apple did few short years what none of the hundred of different Linux distributions couldn't do: created not only usable but also pleasant to use Unix distro. To me that means that Linux distros are doomed to mediocrity forever. It clearly is not about the amount of effort spent. The amount of coding time on Linux in general (Gnome+KDE+all the distros+other basic technologies like freetype/x and apps like openoffice/gnumeric/etc.) most likely dwarfs the amount of work that Apple did on Mac OS X. But Apple has some things that Linux community will never have:
+<ul>
+<li>they have vision where they want to go
+<li>they have years of experience in designing stuff for people
+<li>they have design taste
+<li>they have focus. One UI toolkit, one filesystem, one media player
+<li>they have ability to make unilateral changes in how things work without perpetuating into infinity all the things that Unix got wrong, and there's plenty of those
+</ul>
+
+In Linux there's abundance of everything (multiple filesystem, multiple package management systems, multiple UI toolkits, multiple media players, multiple office packages, multiple window managers and, in greatest multiplicity, a million different distributions).
+
+One theory is that existence of multiple products that do the same thing will lead to increased competition and therefore greater rate of improvements. I don't have any arguments to refute that theory. Good thing that I don't have to. Whatever mysterious reasons, the facts clearly show that this is not the case. Apple leap-frogged open-source projects on all things that matter despite (or rather because) having only one implementation of a given thing.
+
+I think that the reason for that is that Apple removes randomness from the process. Anyone can hack on open-source projects and while an average coder that tries his hand at open-source might be an above-average programmer, he probably knows about usability and writing software for people about as much as he knows about etymology.
+
+That would explain why, to use a random example, gtk+ has impressive theming engine but its standard file open widget sucked beyond comprehension for so many years. You need adult supervision to set priorities and open-source, on average, will never have that.
+
+There are exception, like FireFox, but they actually demonstrate the problem and the solution. The solution is to have a core group of developers with UI clue and a will to strongly control the developement. But that's rare.

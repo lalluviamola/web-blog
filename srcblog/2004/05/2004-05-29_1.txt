@@ -1,0 +1,9 @@
+Date: 2004-05-29 09:05:43
+Format: wphtml
+Title: Startup: A Silicon Valley Adventure - book review
+
+I'm a sucker for real-world stories of succesful high-tech companies. <a href="http://www.amazon.com/exec/obidos/ASIN/0140257314/">Startup: A Silicon Valley Adventure</a> isn't such a story because GO, company described in the book, was 
+unsuccessful but it's still a great read.
+
+The story begins with Jerry Kaplan (book's author) and <a href="http://blogs.osafoundation.org/mitch/">Mitch Kapor</a> discussing an idea of a PDA. They get excited and start the company to build it. They invite Steve Sokoman, a top Apple engineer to join them. Sokoman gets counter-offer from Apple which results in Apple producing (also 
+unsuccessful) Newton. Kapor looses the interest, doesn't want to be personally involved in this venture but encourages Kaplan to go with it alone. Alone but well funded (thanks to Kapor Kaplan gets initial VC funding). The journey of GO begins and it's a fascinating journey. Reading the book gives an insight into workings of PC business and GO, the company, did everything there is to be done: fund rising (to the tune of $75 million, and those were not dot-com days), good and bad partnerships, brutal competition (with Microsoft, among others), spinning off another company, being bought out and going bankrupt. 

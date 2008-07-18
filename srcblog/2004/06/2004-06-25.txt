@@ -1,0 +1,16 @@
+Date: 2004-06-25 05:56:01
+Format: wphtml
+Title: Daily reading
+
+<ul>
+
+<li> <a href="http://www.startribune.com/stories/562/4843840.html">police state isn't a safe state</a> - Schneier vs. U.S.</li>
+<li> <a href="http://software.ericsink.com/item_10196.html">Law #18: The Law of Success </a></li>
+<li><a href="http://www-106.ibm.com/developerworks/library/os-ecant/index.html?ca=drs-tp2604">Python and Eclipse</a> </li>
+<li><a href="http://sourceforge.net/projects/clucene/"> C++ port of lucene</a> </li>
+
+<li> <a href="http://lwn.net/Articles/89394/">Subversion <= 1.04 heap overflow</a> </li>
+
+<li> <a href="http://felinemenace.org/papers/reversing_workshop.pdf">Intro to reverse engineering</a> (pdf)</li>
+
+</ul>

@@ -1,0 +1,11 @@
+Date: 2004-06-16 06:53:35
+Format: wphtml
+Title: Daily reading
+
+<ul>
+
+
+
+<li> <a href="http://software.ericsink.com/item_10186.html">Law #11: The Law of Perspective</a> </li>
+
+</ul>

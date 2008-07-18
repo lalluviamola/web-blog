@@ -1,0 +1,25 @@
+Date: 2008-07-05 23:47:11
+Format: wphtml
+Title: Why Google should sponsor a faster Python VM.
+
+It's not very secret, and it's not little or dirty, which is why I'm not calling it a dirty, little secret.
+
+Python is slow, it's a fact.
+
+Another fact: it doesn't have to be slow.
+
+In <a href="http://en.wikipedia.org/wiki/1994">1994</a> a couple of guys who spent a lot of time investigating creating fast VMs for dynamic language in the context of Self project at Standford decided to create a super fast, commercial Smalltalk implementation. They got half-way there. Within two years they created <a href="http://en.wikipedia.org/wiki/Strongtalk">Strongtalk</a>, an almost working VM that beats in speed even today's commercial Smalltalk implementation. It was never finished because Sun bought the company in 1997 and their ideas and talent were applied to Java VM, which is why Java today is really, really fast.
+
+The techniques used to make Java and Smalltalk go really, really fast aren't secret - there are papers, Strongtalk source is <a href="http://code.google.com/p/strongtalk/">available under BSD license</a> and Java VM source is also available for inspiration.
+
+There's nothing about Python that would preclude using those techniques to make it way faster. And I'm not talking few percent faster, or even twice as fast: the speedup could be tenfold.
+
+It's all possible if few smart people apply themselves to the problem. Unfortunately those few people are apparently busy doing other stuff other than contributing to Python.
+
+This is where Google could come in and apply few dollars to hire few smart people to specifically work on writing super fast Python VM.
+
+Why would Google care? Because they could save money. Lots of money. And lots of energy so that Sergey can enjoy his dollars a few yers more before global warming kills us all.
+
+Lots of Google's software is written in Python, and it'll grow even more thanks to Python being a default language in Google App Engine. One of Google's big expenses is processor power and energy needed to power their servers. If an application becomes faster, it directly translates into using less servers which translates into paying less money for hardware and power and cooling and data center space. At Google scale making Python twice as fast surely must translate into saving megabucks. Hiring few smart people will cost way less than megabucks.
+
+What are they waiting for

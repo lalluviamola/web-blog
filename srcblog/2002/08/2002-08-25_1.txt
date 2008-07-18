@@ -1,0 +1,5 @@
+Date: 2002-08-25 11:21:43
+Format: wphtml
+Title: Spam protection.
+
+<B>Spam protection.</B> <A href="http://www.paulgraham.com/spam.html">Paul Graham's article</A> recently spurred discussions on best ways to eliminate spam. <A href="http://www-cs-faculty.stanford.edu/~knuth/">Donald Knuth</A> has <A href="http://www-cs-faculty.stanford.edu/~knuth/email.html">provably optimal solution</A>: get rid of your e-mail address. Downside: it only works for people whose role in life is to be on the bottom of things.

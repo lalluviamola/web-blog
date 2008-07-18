@@ -1,0 +1,8 @@
+Date: 2003-09-08 01:59:53
+Format: wphtml
+Title: Not as happy as you thought you will be.
+
+<b><a href="http://www.nytimes.com/2003/09/07/magazine/07HAPPINESS.html?pagewanted=all&position=">Not as happy as you thought you will be.</a></b>
+<blockquote><i>
+A large body of research on well-being seems to suggest that wealth above middle-class comfort makes little difference to our happiness, for example, or that having children does nothing to improve well-being -- even as it drives marital satisfaction dramatically down.
+</i></blockquote>

@@ -1,0 +1,5 @@
+Date: 2003-05-05 22:54:53
+Format: wphtml
+Title: Paul Graham essay.
+
+<b>Paul Graham essay.</b> Paul Graham has written <a href="http://www.paulgraham.com/hp.html">another great essay.</a> As usual excellent insight into what it really means to program. There's one thing I do not agree (writing a better word-precessor than Microsoft Word is easy) but other than that it's a great inspiration.

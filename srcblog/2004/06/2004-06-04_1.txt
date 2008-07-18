@@ -1,0 +1,21 @@
+Date: 2004-06-04 17:19:31
+Format: wphtml
+Title: Wikipedia as a personal wiki
+
+I was looking for a wiki that I could use as my personal notebook. I wanted something mature and stable but also hackable by myself. Most wikis put me off from the start with their visuals. I know that <a href="http://twiki.org/">twiki</a> is powerful and can look good but their default look isn't good and I don't want to spend endless hours customizing. Also, it's all in Perl.
+
+I've looked mostly at <a href="http://www.wakkawiki.com/WakkaForks">Wakka forks</a> (as I used Wakka in the past and it's simple (i.e. hackable) PHP script) but I dropped that idea because none of the forks were really actively developed by a community.
+
+<a href="http://wiremine.org/">Cardboard</a> looks promising but it's not yet at a point where it can be easilly installed.
+
+So I decided to check out rather unlikely candidate: wiki that powers <a href="http://wikipedia.org">WikiPedia</a>. I got the bleedeing edge 1.3.0  beta version from CVS. Had to make one change in order to install it on Windows (uncomment usage of posix_uname() function which is not available on Windows).
+
+WikiPedia was unlikely choice because it's designed to run WikiPedia and many things it does don't  make any sense on a private wiki (like discussion about pages). However it does offer a stable core with a markup language that proven to be good enough to be used to write 200+ k of articles. Also a setup process is the best I've seen so far.
+
+Setup success was a positive reinforcement so I spent next few hours changing visual side. WikiPedia uses devilishly complex template and CSS code so I just scrapped it all, started pretty much from the beginning and started using CSS code from my main website so that the visual appearance of the wiki will match the rest of the site. I spent on it more time than I would want but I achieved the result I was going for. 
+
+Next step was to install it on the server. Switching to PHP 4.1.2 and MySQL 3.23.41 discovered a few problems with the code. I fixed them, opened bugs on SourceForge and finally had a working wiki.
+
+After that I spent some time testing wiki by writing wiki posts.
+
+Bottom line? WikiPedia code is more than adequate as a personal wiki. The biggest hurdle is creating a different look (which is not a problem if you go with one of the default skins).

@@ -1,0 +1,5 @@
+Date: 2008-01-11 05:41:59
+Format: wphtml
+Title: Sumatra 0.8 released
+
+Just found in an otherwise good code:<br><br><div style="margin-left: 40px; font-family: Courier New;">class DocDecompressor {<br><br>public:<br>    DocDecompressor() {}<br>    ~DocDecompressor() {}<br><br>    size_t decompress(ZLInputStream &amp;stream, char *buffer, size_t compressedSize, size_t maxUncompressedSize);<br>};<br></div><br>Why is it a class and not just a function?<br><br>Rhetorical question, I know. But it illustrates what I've seen more than once: people get so enamored with some technique that they blindly use it even when it doesn't make any sense.<br><br>

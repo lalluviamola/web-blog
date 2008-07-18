@@ -1,0 +1,20 @@
+Date: 2003-05-20 03:00:31
+Format: wphtml
+Title: Testing Phoenix 0.6
+
+<b>Testing Phoenix 0.6</b> Phoenix is a future Mozilla Browser so I decided 
+  to give it a shot. The good thing is a new, clean theme. The bad thing is that 
+  I need to re-install all the plugins (<a href="http://googlebar.mozdev.org/">Mozilla 
+  Google Toolbar</a> being the first one) and re-enter all my saved password. 
+<p>I also have a problem I couldn't solve: by default tabs don't show if you have 
+  only one web page open. Mozilla has a preference setting to change that to always 
+  show tabs. Phoenix has a prerogative (probably a right one) to remove preferences 
+  clutter as they are usually just a sign of bad design. But I would really like 
+  to have the &quot;show-me-tabs-always&quot; behavior. I thought that I can just 
+  look into preferences file to change that so I grepped for &quot;tabs&quot; 
+  inside every &quot;*.js&quot; file and none of the options that turn out seem 
+  to be related to that. To make things worse: changing options doesn't seem to 
+  have any visible effect. And to make things even worse: settings in &quot;*.js&quot; 
+  files for Mozilla (which I also have installed) are exactly the same. Which 
+  brings up the question: where are those damn settings stored and how can I find 
+  out which setting is responsible for changing the tabs behavior?

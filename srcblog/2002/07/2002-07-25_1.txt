@@ -1,0 +1,5 @@
+Date: 2002-07-25 12:10:08
+Format: wphtml
+Title: Look Ma, what an ugly coding style.
+
+<B>Look Ma, what an ugly coding style.</B> Hope you'll never code <A href="http://www.unix-girl.com/blog/archives/000027.html#000027">like this</A>. I feel compelled to say something smart about coding style and here it is:&nbsp;coding style&nbsp;doesn't matter. Put your braces wherever you want, child, and don't worry about "rational" arguments that justify personal preference. Life's too short to worry about coding style. Life's too short to worry about anything.

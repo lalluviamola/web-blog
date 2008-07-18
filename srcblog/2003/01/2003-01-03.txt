@@ -1,0 +1,11 @@
+Date: 2003-01-03 02:32:22
+Format: wphtml
+Title: PG does it again.
+
+<b>PG does it again.</b>
+<a href="http://paulgraham.com/">Paul Graham</a> has <a href="http://paulgraham.com/desres.html">a new article</a> about the difference between desing and research. It has the same great thinking as in his other writings. Just to whet your apetite:
+<blockquote><i>
+The customer is always right in the sense that the measure of good design is how well it works for the user.
+<p>...<p>
+And yet, making what works for the user doesn't mean simply making what the user tells you to. Users don't know what all the choices are, and are often mistaken about what they really want.
+</i></blockquote>

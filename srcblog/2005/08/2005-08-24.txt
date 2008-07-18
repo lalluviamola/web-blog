@@ -1,0 +1,21 @@
+Date: 2005-08-24 04:43:45
+Format: wphtml
+Title: Google Desktop - good reinvention of the wheel
+
+Like everyone else I installed Google Desktop v2 Beta. It's quite possible I'll even keep it installed. I've uninstalled the first version because I found I wasn't using it.
+
+I like this one so far - very nice implementation of the sidebar concept. I have a few plugins installed (web clips, scratch pad, e-mail, photos, stocks, weather, todo and system monitor).
+
+There are two comments I have.
+
+First, I'm still undecided on the wisdom of taking a significant portion of the screen for not-so-important information. Screen estate is still important and staring at weather in San Francisco or stock quotes is of questionable value. I've ended up setting sidebar to auto-hide, which kind of defeats its purpose.
+
+The second comment is: yawn. 3 years ago I was using a program almost exactly like that that came from Microsoft Research called <a href="http://research.microsoft.com/adapt/sis/">Stuff I've Seen</a>. They had quite a wide internal beta inside Microsft and it was doing exactly the same thing as Google's Sidebar: indexing all the files and e-mail and providing a plugin-based sidebar. The plan, I think, was to make this part of the next Windows release but I don't think that's gonna happen. Instead it formed into Microsoft's Desktop search.
+
+How many Ph.Ds do you need to come up with something really original? Apparently more than Google has hired so far. Let's see what is Google most known for:
+<ul>
+<li>web search, a <a href="http://en.wikipedia.org/wiki/Search_engines">1993 technology</a></li>
+<li>web mail, a <a href="http://en.wikipedia.org/wiki/Hotmail">1995 technology</a></li>
+<li>and rumor has it that tommor they'll announce an exciting, hot <a href="http://en.wikipedia.org/wiki/ICQ">1996 technology</a> of Instant Messanging</li>
+</ul>
+

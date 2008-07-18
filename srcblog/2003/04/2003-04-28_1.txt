@@ -1,0 +1,11 @@
+Date: 2003-04-28 07:37:24
+Format: wphtml
+Title: Palm, Pocket PC sales numbers.
+
+<b>Palm, Pocket PC sales numbers.</b> Q1 2003
+PDA/Smartphones sales numbers for EMEA (which is Europe, Middle-East and Africa)
+<a href="http://www.canalys.com/pr/r2003041.htm">has been published</a> (I would 
+really like to know how they collect their data). According to this data 
+Symbian-based devices has 53%, Windows CE 24%, Palm 19%. The interesting number 
+is dominance of Symbian. Here I would like to know how much of it is for pure 
+phones and how much for more PDA-like devices like P800.

@@ -1,0 +1,7 @@
+Date: 2002-09-20 14:50:30
+Format: wphtml
+Title: Company that doesn't exists.
+
+<b>A company that exists.</b> Or <a
+href="http://moneycentral.msn.com/investor/research/profile.asp?Symbol=SAS">does
+it</a>?

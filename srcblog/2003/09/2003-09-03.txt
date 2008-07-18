@@ -1,0 +1,5 @@
+Date: 2003-09-03 16:06:11
+Format: wphtml
+Title: Making money from open-source software.
+
+<b>Making money from open-source software.</b> A topic that never dies has been attacked one more time in an article <a href="http://acmqueue.org/modules.php?name=Content&pa=showpage&pid=56">Commercializing Open Source Software</a> (<a href="http://slashdot.org/comments.pl?sid=77054&cid=6858080">Slashdot cache</a>).

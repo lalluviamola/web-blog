@@ -1,0 +1,144 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>MS Smartphone developement information</title>
+<link rel="stylesheet" href="/css/wp-style.css" type="text/css" />
+<link rel="stylesheet" href="/css/article.css" type="text/css" />
+
+<body>
+
+<!-- search box -->
+<div style="position: absolute;	top: 10px; right: 0; margin-right: 20px;">
+    <form method="get" id="searchForm" action="http://google.com/search">
+        <div>
+            <input type="hidden" name="IncludeBlogs" value="1" />
+            <input id="search" name="q" class="txt" size="25" tabindex="1" />
+            <input type="hidden" name="as_sitesearch" value="blog.kowalczyk.info" />
+            <input type="submit" class="btn" value="&nbsp;Search&nbsp;" />
+        </div>
+    </form>
+</div>
+<!-- end of search box -->
+
+<div id="header">
+<h1>Weblog Without Honor or Humanity</h1>
+<h2>by Krzysztof Kowalczyk</h2>
+</div>
+
+<div id="banner">
+	<ul id="tabnav">
+	<li><a href="/" title="home">Home</a></li>
+	<li><a href="/articles/" title="articles" class="current">Articles</a></li>
+	<li><a href="/software/" title="software">Software</a></li>
+	<li><a href="/contact.html" title="contact">Contact</a></li>
+	</ul>
+</div>
+
+<div id="container">
+<p>
+<a href="/">Home</a> &raquo; <a href="/articles/">Articles</a> &raquo; <strong>MS Smartphone development information</strong>
+<font color="#aaaaaa" size="-1">(started 2004-05-29, constantly updated)</font>
+</p>
+
+<div id="article">
+
+<h1>MS Smartphone development information</h1>
+
+<p><strong>Table of contents</strong>:
+<ul>
+<li><a href="#dev_tools">Development tools for Smartphone 2002/2003 development</a> <font color="#aaaaaa" size="-1">(added on 2004-05-29)</font></li>
+<li><a href="#priv_apis">Using privileged APIs in Smartphone emulator</a> <font color="#aaaaaa" size="-1">(added on 2004-05-29)</font></li>
+<li><a href="#hard_reset">Hard-reset i-mate and Orange SPV E200 Smartphone</a> <font color="#aaaaaa" size="-1">(added on 2004-05-29)</font></li>
+</ul>
+</p>
+
+<h3 id="dev_tools">Development tools</h3>
+Added on 2004-05-29.
+
+<p>Currently (May 2004) there are two versions of MS Smartphone OS: 2002 and 2003. </p>
+<p>To 
+develop for Smartphone 2002 you need eVC 3 (embedded Visual C 3) and 
+<a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=b4370bb3-0bb8-41b5-ace8-7d2b9be02ed1&displaylang=en">Smartphone 
+2002 SDK</a>. Only supports native code (i.e. C/C++). </p>
+<p>To develop for Smartphone 2003 
+you need
+<a href="http://www.microsoft.com/downloads/details.aspx?familyid=1DACDB3D-50D1-41B2-A107-FA75AE960856&displaylang=en">eVC 4</a> 
+with
+<a href="http://www.microsoft.com/downloads/details.aspx?familyid=5bb36f3e-5b3d-419a-9610-2fe53815ae3b&displaylang=en">
+Service Pack 3</a> (for native C/C++ development) or Visual Studio .NET 
+2003, Professional or higher, for managed (C#) coding. Both require 
+<a href="http://www.microsoft.com/downloads/details.aspx?FamilyId=A6C4F799-EC5C-427C-807C-4C0F96765A81&displaylang=en">Smartphone 2003 SDK</a>. </p>
+<p>There's also
+<a href="http://www.omnisoft.com/articles/spevb/default.asp">hacked, unsupported 
+version of Visual Basic</a> (eVB) for writing 2002/2003 apps.</p>
+<p>All those apps (except Visual Studio .NET 2003) are free downloads.</p>
+<p>A tip: currently (May 2004) most of the phones run 2002 OS so it's not wise 
+to develop 2003-only apps. Which means developing with eVC 3 (since 2002 apps 
+run on 2003 OS, but not vice-versa). However, eVC 4 is more stable (especially 
+the debugger) so it makes sense to use it during development and only use eVC 3 
+for final build/testing.</p>
+
+<h3 id="priv_apis">Using privileged APIs in Smartphone emulator</h3>
+Added on 2004-05-29, source of the tip: 
+<a href="http://groups.google.com/groups?q=%22In+eVC,+open+the+Project+Settings%22&hl=en&lr=&ie=UTF-8&c2coff=1&selm=Oh7o82dNEHA.1608%40TK2MSFTNGP12.phx.gbl&rnum=1">Google
+cache</a>
+or <a href="http://www.msmobiles.com/n/a.php?i=11551&g=microsoft.public.smartphone.developer">msmobiles.com
+cache</a>.
+
+<p>In eVC, open the Project Settings dialog.  In the tab control, use the
+scroll buttons on the right to scroll to the "Security" tab.
+</p>
+<p>On the Security tab:
+<ol>
+<li>check "Sign this Application".</li>
+<li>For "Signing Certificate", click "Browse" and select the "Smartphone
+Privileged Development Code Signing Certificate"</li>
+</ol>
+</p>
+
+<p>If you can get an ActiveSync connection to your emulator (see SDK help on
+how to do it.  It's different for SP 2002 and SP 2003):
+<ol>
+<li> Check "Configure device to trust signed applications".</li>
+<li> Select the "Privileged Certificate Store" radio button.</li>
+<li>For "Root Certificate", click Browse and select "Default Smartphone
+Privileged Development Root".</li> 
+<li>Create an ActiveSync connection to the emulator.</li>
+</ol>
+If you can't get an ActiveSync connection to your emulator:
+<ol>
+<li>Run <code>sp2002dps.exe</code> from <code>\Windows CE Tools\wce300\Smartphone 2002\tools</code>
+directory.  Don't give any command line parameters.</li>
+<li>In the sp2002dps dialog, select "Smartphone Privileged Development Code
+Signing Certificate".</li> 
+</ol>
+Rebuild your application and redeploy it.  It should be able to call
+privileged APIs.
+</p>
+
+<h3 id="hard_reset">Hard-reset i-mate and Orange SPV E200 Smartphone</h3>
+<p>Added on 2004-05-29, source of the tip: 
+<a href="http://www.smartphonethoughts.com/forums/viewtopic.php?t=5501">
+Smartphone thoughts post</a>.</p>
+
+<p>First of all the mandatory warning: hard reset is tricky business and you will wipe out your personal data, apps 
+and also some apps that came with the phone. In case you need more detailed instructions,
+search for E200 Hard Reset. Here it goes.. </p>
+<ul>
+<li>Switch off the phone, and make sure that you have an SD card in slot</li>
+<li>Hold down the Record/Memo button</li>
+<li>While holding that down, Hold down the Power Button</li>
+<li>The screen will show something like found SD card and then prompt you to press any key.</li>
+<li>When you see that message, quickly Push down on the Action key (Joystick - Center - Push it down) and hold it for a second.</li>
+<li>If you see a screen with a listing of numbers and number 8 with Erase IPSM, you are all set. (In case you see a screen with 
+multiple colors then you will have to repeat the process all over again)</li>
+<li>Select 8 and wait for the phone to do its job.</li>
+</ul>
+</p>
+</div>
+<!-- end article -->
+</div>
+<!-- end container -->
+</body>
+</html>

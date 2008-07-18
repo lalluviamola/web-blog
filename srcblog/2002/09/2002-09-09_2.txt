@@ -1,0 +1,5 @@
+Date: 2002-09-09 09:54:25
+Format: wphtml
+Title: An interview with Wozniak
+
+<A href="http://www.macworld.com/2002/10/macbeat/woz.html">An interview</A> with Wozniak. Most of it seems to be just a repetition of what he said <A href="/archives/000089.html">in his&nbsp;talk</A> but he also talks about his new company.

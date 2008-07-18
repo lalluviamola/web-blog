@@ -1,0 +1,22 @@
+Date: 2003-01-28 06:46:58
+Format: wphtml
+Title: Convergence is the future
+
+<b>Convergence is the future.</b>
+
+I just read <a href="http://www6.tomshardware.com/consumer/20030124/index.html">
+this review</a> of DP-450, a DVD player that can also play DivX videos, show 
+pictures stored on a CD-ROM and play MP3 files. Two things came into my mind 
+when I finished.<p><b>Bad marketing.</b> I wanted to find out more about this 
+device (especially how much does it cost) but neither of
+<a href="http://www.kiss-technology.com/">two</a>
+<a href="http://www.kissdvd.com/">sites</a> is well designed nor provides a lot 
+of useful information nor tells where one can buy this thing (probably because 
+you just can't). Aren't those guys just wasting their buzz by having reviews 
+show up when the device itself cannot be bought?</p>
+<p><b>Convergence is the future.</b> In retrospect the idea of extending 
+capabilities of home entertainment devices is brilliantly obvious. There really 
+is no reason for having a separate MP3 player and separate DVD player. What we 
+should (and hopefully will) end up is Tivo that also has DVD drive, can play 
+DVDs, MP3, DiVX, can stream the music wirelessly etc. All in one. One device to 
+rule them all.

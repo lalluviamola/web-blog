@@ -1,0 +1,7 @@
+Date: 2004-04-08 20:56:37
+Format: wphtml
+Title: Upgrade NEC-1100A DVD+RW drive firmware.
+
+<b>Upgrade NEC-1100A DVD+RW drive firmware.</b>
+
+My Dell desktop that came with NEC-1100A DVD+R/+RW writer. The problem was that it didn't work with Memoryex DVD+RW media. I could burn it, it would be recognized on some other DVD drives but not on my NEC-1100A. The solution: upgrade the firmware. I found it on <a href="http://www.dell.com">dell.com</a> site and upgraded from firmware version 108B to 10GE. Problem fixed.

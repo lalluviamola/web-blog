@@ -1,0 +1,26 @@
+Date: 2003-02-09 06:25:46
+Format: wphtml
+Title: Dictionary worth buying.
+
+<b>Dictionary worth buying.</b>
+
+I have this little obsession with languages and dictionaries. I've tried many 
+computer dictionaries (i.e. language dictionaries that are computer programs) 
+but rarely did I find one that was useful. The content is usually ok (there are 
+only a few reputable sources of language dictionaries like Webster or Oxford's 
+dictionaries and computer versions are usually based on them) but the execution 
+was usually extremely poor. Not to mention the need to use 5 different programs 
+if you have 5 different dictionaries. But today I found a fabulous program:
+<a href="http://www.ifinger.com/">iFinger</a>. At a second-hand bookstore I 
+found three (<a href="http://www.cdaccess.com/html/pc/oxspan.htm">Spanish</a>,
+<a href="http://www.cdaccess.com/html/pc/oxgerman.htm">German</a> and
+<a href="http://www.cdaccess.com/html/pc/oxfrench.htm">French</a>) bilingual 
+(i.e. to and from English) Oxford dictionaries. They all use
+<a href="http://www.ifinger.com/">iFinger</a> as their engine which has 2 
+advantages:<ul>
+  <li>iFinger is well done</li>
+  <li>you get all dictionaries in one application</li>
+</ul>
+<p>There are more dictionaries that can be bought directly from iFinger's 
+web-site (but in case of those dictionaries it's cheaper to buy them on a CD - 
+go figure).

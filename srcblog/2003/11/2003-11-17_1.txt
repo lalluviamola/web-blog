@@ -1,0 +1,5 @@
+Date: 2003-11-17 22:19:54
+Format: wphtml
+Title: Smartphone developement kit
+
+<b>Smartphone developement kit.</b> I rarely talk about Microsoft's SmartPhone but this <a href="http://microsoft.smartphonedevkit.everlinkwireless.com/additem.aspx?ProdId=GMSC1121-DK">Smartphone developement kit</a> is interesting. For $499 you get unlocked GSM phone (SC1100 Smartphone) with the latest 2003 version of Windows Mobile OS and all the tools and SDKs you need to start developing for Smartphones. It's a good example of how platform (i.e. OS) companies should support developers. [via <a href="http://www.smartphonethoughts.com/index.php?action=expand,4381">smartphonethoughts.com</a>]

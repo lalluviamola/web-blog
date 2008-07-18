@@ -1,0 +1,7 @@
+Date: 2004-01-08 21:04:28
+Format: wphtml
+Title: First VMWare disappointement.
+
+<b>First VMWare disappointement.</b>
+
+Given than my computer happily reboots when I try to run SmartPhone emulator (not a very good video driver). So I thought that I would run this under VMWare but no luck. VMWare refused with a message of something being unimplemented. Oh well.

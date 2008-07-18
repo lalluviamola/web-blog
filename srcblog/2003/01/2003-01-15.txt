@@ -1,0 +1,33 @@
+Date: 2003-01-15 03:29:31
+Format: wphtml
+Title: Somebody's reading.
+
+<b>Somebody's reading.</b>
+
+Turns out that somebody's reading this weblog. I got this e-mail from some gentle reader regarding 
+<a href="http://blog.kowalczyk.info/archives/000254.html#000254">my idea</a>:
+<blockquote><i>
+There is a commercial app called 
+<a href="http://www.relisoft.com/co_op/datasheet.html">Code Coop</a>  that at least talks up many of the same features
+that you mention in your posting. It uses email as the transport mechanism instead of the web. 
+It comes with its own rich client to manage the files like VSS as well and is supposed to be
+able to handle any type of file. 
+</i></blockquote>
+Here's pretty much my response:<p>
+<blockquote><i>
+Thanks for the info. Actually I was following Code Co-op quite frequently a few months ago (also
+learning from their C++ book and coding tutorials). The only thing that changed since the last time
+I visited their web-site is that they've released a new version. But what I had in mind is rather
+different. Code Co-op is exactly what they say it is: "Server-Less Version Control System" i.e. CVS via e-mail.
+Despite being very sympathetic to Relisoft, there are some problems:
+<ul>
+<li>in principle I think the idea is interesting but misguided: it solves a problem that no-longer exists
+(i.e. not being able to setup a server-based version control system)
+<li>it only does the version control system; my "p2p SourceForge" is supposed to do much i.e. bug-tracking,
+some sort of content-management system (think p2p wiki adopted for desktop) etc.
+</ul>
+In my original posting I forgot to mention that what I described is very close to 
+<a href="http://www.groove.net">Groove </a>, it's just I was disappointed with how Groove works
+(my main complain is that their tools are very primitive; maybe few years from now they'll improve
+their existing tools and add a few tools that would cover the needs for managing software projects).
+</blockquote></i>

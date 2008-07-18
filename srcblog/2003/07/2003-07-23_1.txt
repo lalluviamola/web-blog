@@ -1,0 +1,5 @@
+Date: 2003-07-23 02:46:06
+Format: wphtml
+Title: Hydra 1.1 released.
+
+<b>Hydra 1.1 released</b>. New version of <a href="http://www.codingmonkeys.de/">Hydra</a> (a collaborative text editor for Mac) has been released, includes live HTML preview powered by Safari. Which shows that including powerful capabilities in the base OS is important. By making WebKit Apple enalbed Hydra folks do things that they couldn't do otherwise. Apple wins, programmers wins, users wins.

@@ -1,0 +1,5 @@
+Date: 2004-05-30 12:12:23
+Format: wphtml
+Title: Apple Software Design Guidelines
+
+<a href="http://developer.apple.com/documentation/MacOSX/Conceptual/AppleSWDesign/">Apple Software Design Guidelines</a> is a short and worthwile read. Some of the sections are Mac-specific but most of it applies universally. Such is the nature of universal truths.

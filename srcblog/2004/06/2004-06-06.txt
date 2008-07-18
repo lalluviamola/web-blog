@@ -1,0 +1,28 @@
+Date: 2004-06-06 00:30:01
+Format: wphtml
+Title: Personalizing WordPress main page.
+
+In order to post entries to your <a href="http://wordpress.org">WordPress</a> blog you first have to log in. Wouldn't it be nice to have to have a "New post" link on your main page? I think it would. On the other hand, I don't want other people to see this link - they have no use for it.
+
+To generalize the problem: I want a different look of the main blog page depending on who's viewing it (me or someone else).
+
+It can be done by checking if a person who views the page is logged in or not (in most cases the only person who can be logged in is blog's author). It requires modyfing <code>index.php</code> but other than that it's very simple. First you need to call <code>get_currentuserinfo() </code> which sets variable <code>$user_login</code> to the name of the logged in user or empty string if the user is not logged in. Then in PHP code blocks you can emit different html depending on that:
+<pre>
+if ($user_login == 'my_user_name')
+{
+     echo "only blog's author sees that";
+} else {
+     echo "that's what everybody else sees";
+}
+</pre>
+
+Here's an example from my weblog. Compare the 2 screenshots.
+
+<table><tr>
+<td valign="top"><img src="/img/customizing-wp-00.gif"></td>
+<td valign="top"><img src="/img/customizing-wp-01.gif"></td>
+</tr></table>
+
+The first one is what everybody sees. It has "Login" link in About section (so it's easy for me to log in if I'm not).
+
+The second is what only I see after I log in. The "Login" link in About section is gone (I'm already logged in) but there's a whole new Admin section that has links for logging out, making a new post and going to my private wiki.

@@ -1,0 +1,5 @@
+Date: 2002-09-09 10:31:51
+Format: wphtml
+Title: I'm not the only one.
+
+<B>I'm not the only one.</B> Of course, <A href="http://jrobb.userland.com/2002/09/04.html#a2448">I'm not the only one</A>&nbsp;bothered by spam.

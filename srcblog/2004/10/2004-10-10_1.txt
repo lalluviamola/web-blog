@@ -1,0 +1,19 @@
+Date: 2004-10-10 20:22:36
+Format: wphtml
+Title: Photo camera popularity - idea for a flickr.com feature
+
+I just started using <a href="http://www.flickr.com">flickr.com</a> and I like it a lot. Here's an idea for a feature they could implement: photo camera popularity.
+
+<p>Most cameras embed meta-data information in pictures e.g. camera model that was used to take the picture, time when picture was taken etc.</p>
+
+<p><a href="http://flickr.com">http://flickr.com</a> already has a feature to show this information. What they should add is a weekly "Top cameras" stats which would show what are the most popular cameras used by peple to take pictures. I think the fairest metric would be to track cameras stats per user (as opposed e.g. to how many pictures were taken with a given camera which would tilt the stats towards what cameras are used by prolific flickr users).</p>
+
+<p>It's fun and could be valuable tool for people deciding which camera to buy.</p>
+
+<p>Besides plain "all time stats" they could show trends over time and/or "hottest camera of the week/month" (doing the same stats but only on pictures taken in the last week/month to better reflect quickly changing landscape of digital photography).</p>
+
+Is anyone at flickr listening?
+
+<b>Update:</b> apparently they do. Stewart Butterfield from <a href="http://ludicorp.com">ludicorp.com</a> (creators of flickr) e-mailed me to let me know, that this feature is planned and should be available soon.
+
+R0ck on, I say.

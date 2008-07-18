@@ -1,0 +1,5 @@
+Date: 2003-12-22 19:23:33
+Format: wphtml
+Title: Death to slides.
+
+<b>Death to slides.</b> Why would anyone <a href="http://www.pragmaticprogrammer.com/talks/HowToKeepYourJob/HTKYJ.html">do something like that</a> is beyond me. A (probably) interesting article rendered useless by delivery method: 59 slides, each of them a 10 KB+ gif. HTML markup would would take less than 200 bytes. It could be searched. It could be indexed by Google. It would download much faster. It would be so much better.

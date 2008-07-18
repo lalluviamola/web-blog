@@ -1,0 +1,10 @@
+Date: 2003-04-20 22:11:10
+Format: wphtml
+Title: Java decompiler.
+
+<b>Java decompiler.</b>
+
+If you're looking for a Java decompiler (i.e. program that reads *.class file 
+and can produce Java source code and/or byte-code) then
+<a href="http://members.fortunecity.com/neshkov/dj.html">DJ Java Decompiler</a> 
+is a tool for you (free but not open-source and only runs on Windows).

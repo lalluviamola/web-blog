@@ -1,0 +1,80 @@
+Date: 2002-09-29 00:36:23
+Format: wphtml
+Title: Deconstructing Palm.
+
+<b>Deconstructing Palm.</b>
+PalmSource (a Palm Inc. spin-off company that now drives development of Palm OS while the original
+Palm Inc. switched to only doing hardware) has a <a
+href="http://www.palmsource.com/palmos/">marketing blurb</a> which is,
+as marketing blurbs usually have it, full of half-truths and outrageous lies. 
+Let's deconstruct it.<blockquote><i>
+Today, the Palm OS runs on almost two out of every three handhelds
+</i></blockquote>
+In other words it has less than 66% of market share. What they don't tell you is 
+that they had more than 90% not so long ago and that their market
+share continues to decline, assaulted by PDAs based on Windows CE
+(Pocket PC) OS.
+<p>
+<blockquote><i>
+Why has the Palm OS achieved its remarkable leadership role? ... 
+In handheld computing, user needs vary tremendously from person to
+person, and from department to department ... The Palm OS is the only
+handheld operating system that can satisfy all these different needs
+many more. Thats because the Palm OS is built to support a wide
+variety of devices with a single, consistent software platform.
+</i></blockquote>
+This falls into "blatant lie" category. Palm OS, up until the latest
+released version 4.1 is the most inflexible OS you can imagine. Every
+hardware maker that made products that Palm OS was not designed for
+had to add its own extensions (additional APIs) to the OS. Those
+extensions are very poorly supported by existing software so they might just as 
+well not exist. For example, Palm OS is fixed to 160x160
+resolution. Sony and Handera produced PDAs based on Palm OS with
+higher resolution screens but, as stated above, they had to modify (i.e. hack) 
+the OS and add their own APIs. Did Palm learn from their past mistakes? Hardly. 
+Upcoming Palm OS 5 is fixed to 2 resolutions: 320x320 and 160x160.<blockquote><i>
+Supporting the same range of hardware as Palm OS using Microsoft
+software would mean deploying two or three different software
+platforms Pocket PC, Windows CE, and Stinger significantly
+different software compatibility, interfaces, user training, and
+custom development required for each.
+</i></blockquote>
+This statement relies heavily on the ignorance of the reader. The
+differences between Pocket PC, Windows CE and Stinger are very small,
+not "significant". Furthermore they implement a subset of Win32 APIs
+which means that any Windows programmer (and there's a lot of them) can be quickly 
+trained for programming Pocket PCs. In contrast, every programmer has to learn 
+Palm OS programming from scratch (except Mac programmers given that Palm OS is, 
+shall we say, heavily influenced by the old Mac OS).<blockquote><i>
+The huge Palm OS community has also created wide choice in add-on
+hardware, ranging from digital cameras, to MP3 players, cell phone,
+GPS, and high-speed LAN connectivity (802.11b).
+</i></blockquote>
+MP3s can be played natively by any Pocket PC. Overall, Palm
+OS-based hardware lags behind the Pocket PC-based because Pocket PCs
+have support for CF slot (which gives all those GPS and LAN
+connectivity capabilities). But that won't stop marketers from alluding
+that Palm OS is superior in that area.  
+<blockquote><i>
+From the very first Palm Pilot, the designers of Palm OS have sweated
+the details of how a mobile product actually gets used, and how to
+make that usage simple and lightning fast. 
+</i></blockquote>
+According to the book "Piloting Palm" this is actually true: Hawkins
+was obsessed (in a good way) with making a good designed. Too bad he
+doesn't work at Palm anymore.
+<blockquote><i>
+The Palm operating system software was designed just for mobile
+devices. It uses memory and battery power very efficiently, enabling
+Palm Powered hardware makers to design extremely small and lightweight
+systems.
+</i></blockquote>
+This is also true. However, the point becomes more and more
+moot. Latest Pocket PC-based devices (like Toshiba e370) rival Palm
+OS-based in terms of the size. The design decision that proved winning
+during past 7 years (first Palm devices appeared in 1996) is now
+holding Palm back and if they don't do something soon they will be
+eaten alive by an alliance of Microsoft's Pocket PC and Moore's
+law. The battle now is
+in the features. People demand more and whoever will fill that demand
+will win.

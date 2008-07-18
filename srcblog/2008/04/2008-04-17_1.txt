@@ -1,0 +1,7 @@
+Date: 2008-04-17 02:51:51
+Format: wphtml
+Title: Remapping Page Up and Page Down on Mac to move a cursor.
+
+<p>It&#8217;s probably just a matter of being used to certain ways, but being a recent Windows->Mac switcher, the fact that Page Up and Page Down in a text editor moves the text without moving the cursor was driving me nuts.</p>
+
+<p>I&#8217;m not the only and <a href="http://blog.macromates.com/2005/key-bindings-for-switchers/">this article</a> describes how to fix it. And, as an additional bonus, how to remap Home and End keys to move to beginning/end of a line, instead of beginning/end of a file.</p>

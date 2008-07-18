@@ -1,0 +1,16 @@
+Date: 2003-07-09 06:48:40
+Format: wphtml
+Title: Testing Thunderbird.
+
+<b>Testing Thunderbird</b> <a href="http://www.mozilla.org/projects/thunderbird/">Thunderbird </a>is an e-mail application build on Mozilla framework. I use <a href="http://www.fastmail.fm">fastmail.fm</a> for my e-mail needs (recommended) and their web interface, while pretty good, has few annoyances (and spam filtering isn't that good). That's why I'm in never-ending search for a good e-mail reader with IMAP support. I tried Outlook but I simply don't understand how it works with IMAP (i.e. I can make it work but I'm not happy with the way it works). I tried The Bat but its IMAP support is weak. Now I turned to Firebird. I guess I shouldn't complain too much given that it's only version 0.6 and isn't officially released yet but I have to say that: it's still far from being mature product. Things that irk me the most:
+<ul>
+<li>lack of support for multiple personalities (i.e. use multiple from address for one account). Outlook has it.
+<li>it feels unresponsive due to the way it works e.g. when you switch to another folder it insists on first checking that IMAP folder before displaying the content of the folder. This introduces visible delays for the user. The rule should be: allow me to work on locally cached data immediately, sync data in background
+<li>search has bugs i.e. I entered text that I know exists in at least one e-mail but search turned nothing
+<li>I managed to crash it once (html parsing, it seems)
+<li>it seems to occasionally dead-lock
+<li>handling of IMAP in general is acting strange - it doesn't download things the way I expect it to, frequently it responds slowly to events (e.g. marking the message as read), sometimes it looses the events etc.
+</ul>
+Let's hope it'll get better in the future (and better yet, let's hope that <a href="http://www.osafoundation.org/index.htm">Chandler</a> will be what it promises to be so that I can switch to it instead).
+<p>
+But it's rather sad that a web interface to e-mail is on par with a desktop app (i.e. it has it's own problems, but it's a different set of problems and currently I cannot say that using Thunderbird makes me more productive that using web front-end).

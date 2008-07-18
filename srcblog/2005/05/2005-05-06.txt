@@ -1,0 +1,18 @@
+Date: 2005-05-06 03:46:40
+Format: wphtml
+Title: Backpack observations.
+
+I played with Backpack and my observations so far are:
+<ul>
+<li>37signals are marketing masters - according to them 10 thousand people signed up for what is essentially an improved wiki. You've got to admire their hype-generation moves.
+<li>Basecamp is a nicely designed variation on the wiki. They dumped revision history, de-emphasized wiki links (thank god), added notes/lists/images to each page.
+<li>I like various dhtml tricks they do
+<li>I don't like that they limit the width of the visible page, resulting in plenty of white-space on my browser
+<li>the preview wiki rendering has a wierd bug: sometimes empty line didn't separate paragraphs in the preview. The problem was gone when I went to some other page and navigated back. But I only figured out that this is a temporary problem after spending 10 minutes trying to format the page the way it was supposed to be formatted
+<li>their page count limits are terribly low (seriously, $20/month for 500 wiki pages? I can have shared hosting account for that much) and, bizarelly, they don't have an option for unlimited number of pages.
+<li>their "we delete your stuff when you cancel your account" is a bit harsh and doesn't inspire warm and fuzzy feeling. Yes, I know you can (and should) export your data to XML before you cancel, but... What if you don't notice this option? What if you're one of those billions people on the planet that don't know what XML is and what can you do with it.
+</ul>
+
+So I'm in the foolish minority of people whose life was not <a href="http://backpackit.com/weblog/archives/buzzpress/backpack_has_changed_the_way_i_live.php">changed by Backpack</a>. 
+
+It's good but clearly over-hyped . Real men need more than a variation on a wiki to wet themselves from excitement and I remain dry.

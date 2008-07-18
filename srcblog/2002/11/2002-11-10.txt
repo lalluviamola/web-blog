@@ -1,0 +1,5 @@
+Date: 2002-11-10 07:46:55
+Format: wphtml
+Title: LL2 webcast.
+
+<b>LL2 webcast.</b> I love internet. What else would enable me to watch <a href="http://ll2.ai.mit.edu">Lightweight Languages Workshop 2002</a> (LL2). I liked the talk about Erlan (I don't care much about Erlang but the presenter was entertaining), talk about disruptive programming language technologies and a talk about new language called <a href="http://www.nongnu.org/needle/">Needle</a>.  Being there would be much more fun but being able to watch it is second best option.

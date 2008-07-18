@@ -1,0 +1,9 @@
+Date: 2008-07-05 21:21:52
+Format: wphtml
+Title: Google App Engine tip
+
+Don't put template files in directories marked as static dirs in app.yaml file. For whatever reason those files are not available to template.render() function.
+
+What's worse: this works locally, in dev environment and only breaks when you upload the app. I've learned that the hard way.
+
+I've opened a <a href="http://code.google.com/p/googleappengine/issues/detail?id=550">bug for this issue</a> (so go there and star it) but I wonder if Google even looks at them anymore, after all the requests to add Pascal support.

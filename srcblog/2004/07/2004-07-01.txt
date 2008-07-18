@@ -1,0 +1,15 @@
+Date: 2004-07-01 05:01:13
+Format: wphtml
+Title: Daily reading
+
+<ul>
+<li> <a href="http://www.museworld.com/archives/001433.html">weblogs, wikis, comments</a> </li>
+<li> <a href="http://www.infosyncworld.com/reviews/n/5083.html">Nokia 7610 (symbian 60 v2.0) phone review</a> </li>
+<li> <a href="http://www.gaspricewatch.com">US gas price watch</a> </li>
+<li><a href="http://www.techjapan.com/modules.php?op=modload&name=News&file=article&sid=375"> turn a phone into a remote control</a> </li>
+<li> N<a href="http://www.pdalive.com/showarticle.php?threadid=6585">avMan PiN 100</a> - Pocket PC and a GPS with mapping for only $499 </li>
+
+<li> <a href="http://www.trustedreviews.com/article.aspx?art=533">ViewSonic VP2290b super-high resolution LCD monitor review</a></li>
+
+<li> <a href="http://www.mobilemag.com/content/100/340/C2973/">MPx220 review</a> </li>
+</ul>

@@ -1,0 +1,5 @@
+Date: 2002-07-08 04:31:26
+Format: wphtml
+Title: Tufte:  people are...
+
+<a href="http://www.cs.washington.edu/homes/csk/presentations.html">Tufte</a>: <i> people are usually too preoccupied with their own problems to notice yours</i>

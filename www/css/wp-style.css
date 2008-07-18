@@ -1,0 +1,89 @@
+body { margin: 0; padding: 0; font-family: verdana, arial, sans-serif; font-size: 12px; line-height: 1.5em; }
+body { margin-left: 10px; margin-right: 10px }
+/* body { font-family: georgia, times new roman, times, serif; } */
+/* body { font-family: Avenir, "Avante Garde", "Century Gothic", sans-serif; } */
+
+blockquote { border-left: 5px solid #ccc; margin-left: 1.5em;	padding-left: 5px;}
+pre { border-left: 5px solid #ccc;	margin-left: 1.5em;	padding-left: 5px;}
+
+/* --- LINKS ------------------------------- */	
+a:link    { background-color: transparent; }
+a:visited { background-color: transparent; }
+a:hover   { background-color: #5F9EA0; color: #fff; text-decoration: none;  }
+
+/* --- DIVS IN INDEX ------------------------------- */	
+#header	{ height: 50px; background-color: #fffde3;}
+#header-blog { height: 50px; background-color: #fffde3;}
+#container	{ padding: 0; margin: 0; text-align: left; height: 100%; background: #fff;}
+#menu { float: left; width: 150px; margin: 10px 0 0 0; background-color: #fffde3; }
+#links { float: right; width: 150px; margin: 0; padding: 0; }
+#content { background-color: #fff; padding: 10px 0 0 0; margin: 10px 0 0 160px; }
+#content { border-right: 1px solid #999999; border-left: 1px solid #999999; }
+/* #content { background-color: #3ff; } */ /* awful color for testing */
+#footer { margin-right: 10px;  margin-left: 10px; clear: both; height: 50px; background-color: #399; }
+div.clearing {	clear: both; height: 1px }
+
+/* --- STYLES ------------------------------- */	
+/* p { padding: 0; margin: 10px 20px 10px 20px; }
+table { padding: 0; margin: 10px 20px 10px 20px; } */
+
+/* original settings from wordpress
+li { padding: 0; margin: 10px 20px 10px 20px; } */
+li { padding: 0; }
+h1 { padding: 0; margin: 0 20px 0 20px; font-weight: bold; } /* TODO: 1.5em */
+h2 { padding: 0; margin: 0 20px 0 20px; font-size: 120%; font-weight: bold; }
+
+#header h1 { padding-top: 6px; margin: 0 10px 0 10px; font-weight: bold; font-size: 1.5em; }
+#header h2 { padding-top: 4px; margin: 0 10px 0 10px; font-size: 100%; font-weight: bold; }
+
+#header-blog h1 { padding-top: 6px; margin: 0 10px 0 10px; font-weight: bold; font-size: 1.5em; border-bottom: none;}
+#header-blog h2 { padding-top: 4px; margin: 0 10px 0 10px; font-size: 100%; font-weight: bold; border-bottom: none;}
+
+#post { margin-left: 30px; margin-right: 20px; }
+/* #post { color: #f00; background-color: #00CCFF;  } */ /* ugly color for testing */
+.date { font-size: 100%; font-weight: bold; background: transparent; color: #000;}
+.date { margin-left: -10px; }
+
+.postbody { background-color: #fafafa; }
+.posted { font-size: smaller; color: #666; }
+.posted ul { display: inline; list-style: none; margin: 0; padding: 0; }
+.posted li { display: inline; margin: 0; padding: 0; }
+
+.storytitle { font-size: 130%; font-weight: normal; background: transparent; color: #336600; border-bottom: 1px solid #ddd; }
+.storytitle { margin-left: -10px; }
+
+/* --- MENU STYLES ------------------------------- */
+#menu ul { font-size: 100%; line-height: 2.0em; margin: 4px 20px 10px 10px; padding: 0; list-style-type: none; text-align: left; }
+#menu ul { line-height: 1.4em; margin-left: 20px; }
+#menu li { margin: 0; padding: 0; }
+#menu h2 { padding: 0; margin: 10px 20px 0 10px; font-weight: bold; }
+
+/* --- LINKS STYLES ------------------------------- */
+#links ul { font-size: 80%; line-height: 1.4em; margin: 5px 0 10px 10px; padding: 0; list-style-type: none;	}
+#links li { margin: 0; padding: 0 0 10px 0;	}
+#links h1 {	padding: 0;	margin: 10px 15px 0 10px; }
+.google { padding: 0; margin: 15px 10px 10px 20px; }                
+
+/* --- SEARCH STYLE ------------------------------- */
+.side { font-size:x-small; background:#FFF; padding:0; margin:10px; }
+
+/* --- NOT IN INDEX YET------------------------------- */
+.trackback-url {font-family:palatino, georgia, verdana, arial, sans-serif;	color:#666;	font-size:small;font-weight:normal;	background:#FFF;line-height:140%;padding:5px;border:1px dotted #999; }	
+.trackback-body {font-family:palatino, georgia, verdana, arial, sans-serif;	color:#666;	font-size:small;font-weight:normal;	background:#FFF;line-height:140%;padding-bottom:10px;padding-top:10px;	border-bottom:1px dotted #999; 		}			
+.trackback-post {font-family:verdana, arial, sans-serif;color:#666;	font-size:x-small;font-weight:normal;background:#FFF;}
+
+#banner { background-color: #fffde3; }
+
+/*----( navigation )---------*/
+#tabnav { padding: 7px 0px 18px 30px; margin: 0px; cursor: default; border-bottom: 1px solid #999999; }
+#tabnav { font-weight: bold; }
+#tabnav { font-weight: bold; }
+#tabnav li { display: inline; list-style-type: none; margin: 0px; padding: 0px;}
+#tabnav li.blah { font-weight: normal; display: inline; list-style-type: none;margin: 0px; padding: 0px;}
+#tabnav a { background: #eeeeee; border: 1px solid #999999;color: #000000;float: left;line-height: 17px;margin-right: 4px;padding: 0px 5px 0px 5px;text-decoration: none;}
+
+#tabnav a { background-color: #B9DBCE; }
+#tabnav a:hover { background: #14E493; }
+#tabnav a.current, #tabnav a.current:hover { background: #ffffff; border-bottom: 1px solid #ffffff;color: #000000;}
+
+#tabnav a.blah, #tabnav a.blah:hover { font-weight: normal; background: #fffde3; border: 0px}

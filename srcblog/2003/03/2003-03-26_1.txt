@@ -1,0 +1,15 @@
+Date: 2003-03-26 09:27:10
+Format: wphtml
+Title: Lupy - Python full-text indexer (port of Lucene)
+
+<b>Lupy - Python full-text indexer (port of Lucene)</b>
+
+Wait and someone will built it. Some time ago I was looking for a full-text 
+engine that could be used in an application (as there are many applications that 
+would benefit greatly from full-text search). I knew that Lucene had excellent 
+reputation but it was Java and I was looking for something either C or Python. 
+Since I didn't find anything I thought that the best way would be to port
+<a href="http://jakarta.apache.org/lucene/docs/index.html">Lucene</a> - it's 
+much simpler task that starting something from scratch. Luckily someone had the 
+same need and did just that, producing
+<a href="http://www.divmod.org/Lupy/index.html">Lupy</a>.

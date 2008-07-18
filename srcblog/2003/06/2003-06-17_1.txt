@@ -1,0 +1,11 @@
+Date: 2003-06-17 09:11:01
+Format: wphtml
+Title: Marketing articles.
+
+<b>Marketing articles.</b> Those cought my eyes recently:
+<ul>
+<li> <a href="http://www.dexterity.com/forums/showthread.php?s=&threadid=936&perpage=15&pagenumber=2">Thread</a> on money back guarantee
+<li> <a href="http://www.mrfire.com/0013.html">21 copywriting rules</a>
+<li> <a href="http://www.abraham.com/articles/Adding_Volume_And_Frequency_Options.html">Adding volume and frequency options</a> (to the buying process)
+<li> <a href="http://www.abraham.com/Reports.html">Other papers</a> by the author of the above article.
+</ul>

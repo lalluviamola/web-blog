@@ -1,0 +1,5 @@
+Date: 2003-11-12 07:13:26
+Format: wphtml
+Title: How to make money developing Mac apps.
+
+<b>How to make money developing Mac apps.</b> <a href="http://inessential.com/">Brent Simmons</a>, developer of <a href="http://ranchero.com/netnewswire/">NetNewsWire</a>, shares <a href="http://inessential.com/?comments=1&postid=2690">his thoughts on making money developing Mac OS X applications</a>.

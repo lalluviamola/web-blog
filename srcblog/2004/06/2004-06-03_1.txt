@@ -1,0 +1,17 @@
+Date: 2004-06-03 03:13:37
+Format: wphtml
+Title: PHP pitfall #1
+
+From my experience different versions  of PHP have subtle differences. The problem with subtle differences is that they will bite you in the ass when you're most vulnerable. As my PHP knowledge is tiny, I decided to catalog PHP pitfalls as I learn about them. To kick off the season:
+
+<pre>
+$word_list = explode(" ", "one two three");
+$wordExists = array();
+foreach ($word_list as $word) {
+  $wordExists[$word]++;
+}
+</pre>
+
+The goal is to be able to quickly find out if a given word (string) belongs to a set of words in <code>$word_list</code>. We try to use a hash (array() is really a hash)) and for all words set it to non-false value. Unfortunately <code>$wordExists[$word]++</code> doesn't work, at least not in 4.3.6 that I have installed. Instead we can use <code>$wordExists[$word]=1</code>. 
+
+It's possible that it works on some other version of PHP or, in truly perverse fashion that only PHP is capable of, works depending on some run-time setting in <code>php.ini</code> file. I'll never know and I don't care as long as there is a solution that always works.

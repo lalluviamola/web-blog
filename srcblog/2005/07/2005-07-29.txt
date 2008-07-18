@@ -1,0 +1,7 @@
+Date: 2005-07-29 23:11:10
+Format: wphtml
+Title: Longhorn/Vista fonts
+
+Probably won't last long, but you can download new fonts included with Vista (Longhorn) <a href="http://test.uxevolutions.info/zoronax/entries/10">here</a>.
+
+I took a quick look at monospaced font "Consola" (for source code editing) and it looks good (although to really make an informed opinion about a font, I would have to live with it for some time).

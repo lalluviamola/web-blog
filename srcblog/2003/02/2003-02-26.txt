@@ -1,0 +1,6 @@
+Date: 2003-02-26 06:19:21
+Format: wphtml
+Title: General Magic story.
+
+<b>General Magic story.</b>
+I love <a href=" http://www.fadell.com/fadellvs2/At_Work/Articles/Mercury/Mercury_Text/mercury_text.html">stories like this</a>.

@@ -1,0 +1,5 @@
+Date: 2002-12-15 17:43:59
+Format: wphtml
+Title: Developping for cell-phones.
+
+<b>Developping for cell-hones</b>. <a href="http://developers.slashdot.org/comments.pl?sid=47980&threshold=2&commentsort=0&tid=100&mode=flat&cid=4889420">Interesting post</a> on slashdot about differences between BREW and J2ME (2 different platforms for developping apps for cell-phones).

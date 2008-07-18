@@ -1,0 +1,5 @@
+Date: 2003-08-17 22:49:04
+Format: wphtml
+Title: Palm OS 5.3 simulator and SDK available.
+
+<b>Palm OS 5.3 simulator and SDK available.</b> I haven't been paying attention lately so I haven't noticed for a month that <a href="http://www.palmos.com/">Palm has released</a> a new SDK and simulator for Palm OS 5.3. It's only available in the seeding area (which means you have to register).

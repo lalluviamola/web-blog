@@ -1,0 +1,16 @@
+Date: 2003-01-16 04:50:45
+Format: wphtml
+Title: Ecco for free
+
+<b>Ecco for free.</b>
+How could I miss it? The latest version of Ecco is
+<a href="ftp://ftp.netmanage.com/support/pub/utilities/EC401/Ecco32/">available for free</a>. 
+Ecco is an amazing PIM/outliner. It has been abandon by its publisher 5 years 
+ago and despite not being updated since, still has an army of users and a very 
+active <a href="http://groups.yahoo.com/group/eccopro/">group at Yahoo</a>. I 
+used it for some time in the past and really liked the outlining features - 
+outlining done with great taste. Out of all other outliners that I've tried, 
+only Radio approaches the tastefulness of Ecco (but has his share of other 
+problems). I'm hoping that <a href="http://www.osafoundation.org">Chandler</a> 
+will have (someday) tasteful, well-design outlining. It's also an example of 
+exceptionally well designed software. Worth studying (and using).

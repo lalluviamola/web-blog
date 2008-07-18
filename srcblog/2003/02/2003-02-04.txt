@@ -1,0 +1,36 @@
+Date: 2003-02-04 18:22:20
+Format: wphtml
+Title: The end of Safari
+
+<b>The end of Safari.</b>
+
+<a href="http://safari.oreilly.com">Safari</a> is O'Reilly service that allows reading books on-line for a fixed monthly fee. I subscribed to Safari a few months 
+ago. I didn't unsubscribe - my credit card expired, my attempts to update the 
+information failed and I was kicked out (rightfully so). I could re-enable the 
+account but that's too much work and I didn't find the service all that useful. 
+Why? Let's start with what's good about the service: they have plenty of books 
+(almost all O'Reilly's books and many from other publishers). If you read the 
+books and rotate them on a monthly basis it's cheaper than buying (in theory you 
+can read around 8 books per month for $15). So why did I stop? First, I wasn't 
+reading the books so quickly. In a few months I skimmed one book, read half of 
+some other book and started reading 2 other books. One reason for not reading 
+more is that, despite having broadband connection, reading through the web is 
+still painful (I'm more or less ok with the quality of&nbsp; text but the speed 
+of navigation is painfully slow). Another reason is that O'Reilly books (and 
+usually computer books in general) are reference books in nature. They belong on 
+the shelf where I can reach for them when I need an answer to a question. 
+Another reason is ever-present lack of time. Another disadvantage of Safari is 
+that you basically pay for the right to read as long as you pay. When you buy a 
+book it's yours. When your Safari service is terminated, everything is gone. All 
+in all, this is not a service for me.<p>I do admire O'Reilly for launching this 
+venture - they've taken risks and did the right things e.g. books are just HTML 
+pages that you can view in your browser (and save to your hard-drive for offline 
+access, although that is, for obvious reasons, against the service agreement). 
+But a lot of value is trapped in not-good-enough technology. For example 
+inability to access books off-line, slow navigation, slow searching are results 
+of using HTML as presentation and HTTP as transport. At present those are 
+probably the best choices but it doesn't mean one couldn't imagine a better 
+technology (help system in Windows comes close as it solves the slow navigation 
+and slow searching problems). Also, it would be nice if one could keep a book or 
+two when he decides to terminate the service (the number should be proportional 
+to the total amount one spent so far on the service).

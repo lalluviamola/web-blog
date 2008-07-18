@@ -1,0 +1,5 @@
+Date: 2002-07-30 04:08:42
+Format: wphtml
+Title: Stuid coding mistake of the day.
+
+<B>Stuid coding mistake of the day.</B> Spent a day figuring out why debug build worked differently than release build. What's wrong with this code: &#013;&#010;<BLOCKQUOTE><PRE>bool FMyFunc(void) {...}&#013;&#010;...&#013;&#010;assert( FMyyFunc() );&#013;&#010;</PRE></BLOCKQUOTE><BR>In non-debug build FMyFunc() will never be called. Aaargh...

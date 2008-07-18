@@ -1,0 +1,14 @@
+Date: 2004-01-20 00:46:14
+Format: wphtml
+Title: Noah and WikiPedia bookmarklets.
+
+<b>Noah and WikiPedia bookmarklets.</b>
+
+I found <a href="http://blog.netwarriors.org/d/2003/12/29/wordnet_20_bookmarklet">a bookmarklet for WordNet dictionary</a>. I think it's a great idea so I created those bookmarklets:
+<ul>
+<li> <a href="javascript:t=document.getSelection();void(window.open('http://www.arslexis.com/dict.php?word='+escape(t),'_blank','scrollbars=yes,width=784,height=737,status=yes,resizable=yes,scrollbars=yes'))">Noah</a> (version for IE and Mozilla), <a href="javascript:t=getSelection();void(window.open('http://www.arslexis.com/dict.php?word='+escape(t),'_blank','scrollbars=yes,width=400,height=540,status=yes,resizable=yes,scrollbars=yes'))">Noah</a> (Safari version, not tested)
+<li><a href="javascript:t=document.getSelection();void(window.open('http://www.wikipedia.org/w/wiki.phtml?go=Go&search='+escape(t),'_blank','scrollbars=yes,width=784,height=737,status=yes,resizable=yes,scrollbars=yes'))">WikiPedia</a> (version for IE and Mozilla), <a href="javascript:t=getSelection();void(window.open('http://www.wikipedia.org/w/wiki.phtml?go=Go&search='+escape(t),'_blank','scrollbars=yes,width=400,height=540,status=yes,resizable=yes,scrollbars=yes'))">WikiPedia</a> (Safari version, not tested)
+</ul>
+How to use them: drag&amp;drop this link to the bookmarks bar. Once you have it, select a word on a page and click the link.
+<p>
+Those bookmarklets open new window and in Firebird 0.7 (which I use) this window is usually hidden behind the main window. It's very annoying. Maybe I should open it in a new tab?

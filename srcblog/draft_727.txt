@@ -1,0 +1,5 @@
+Date: 2006-04-11 04:46:00
+Format: wphtml
+Title: Wordpress 2.0.2 upgrade
+
+ I'm probably the last person on earth to upgrade from my very old ~1.5 WordPress version that powers this blog to the latest 2.0.2.<br><br>I was delaying the upgrade dreading the possible difficulties but I have to say I'm very impressed by how easy WP upgrade is.<br><br>It took me maybe 10 minutes by sloppily following upgrade tutorial and that includes fighting with file permissions on the server (my fault not WP's).<br><br>My custom design was untouched (I feared the most that I'll have to repeat my all-nighter stylesheet hacking session to redo the style changes but fears were unfounded).<br><br>New admin interface is much better than the old one.<br><br>If only they had live spell-checking in the editor!<br><br>

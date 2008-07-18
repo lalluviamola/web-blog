@@ -1,0 +1,7 @@
+Date: 2003-02-15 06:48:57
+Format: wphtml
+Title: The power of open-source.
+
+<b>The power of open-source.</b>
+
+Disclaimer: I'm not all that gaga about open-source (as it is overhyped). That being said, <a href="http://btplusplus.sourceforge.net/">this</a> is the power of open-source. Someone didn't like <a href="http://bitconjurer.org/BitTorrent/">windows BitTorrent client</a> so he wrote his own, improved. Closed, intelectually protected systems don't have this kind of knowledge.

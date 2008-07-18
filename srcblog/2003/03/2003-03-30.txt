@@ -1,0 +1,45 @@
+Date: 2003-03-30 00:24:20
+Format: wphtml
+Title: How to compile Plucker on cygwin
+
+<b>How to compile Plucker on cygwin.</b>
+
+<a href="http://www.plkr.org">Plucker</a> is, among other things, a document
+viewer for Palm OS. Since the binary version you can download from their website
+doesn't work on my Palm Tungsten T I tried to compile the newest version from
+CVS, the programming stud I am. Of course it took me days rather than  hours
+and the head-ache isn't gone yet. I'll summarize things I had to do.
+Note: I only built Palm OS viewer.<p>First you have to have cygwin with Palm OS dev tools
+(i.e. <a href="http://prc-tools.sf.net">prc-tools</a>, I used latest 2.2 version) 
+installed but
+I'm not going to cover that topic. </p>
+<p>
+The first obstacle was that I didn't have many tools that are required to compile
+sources (automake/autoconf/pkg-config and probably others) so I had to install them.
+<p>
+Second problem was that plucker doesn't compile if developement version of automake/autoconf
+is used (see <a href="http://cygwin.com/ml/cygwin-announce/2001/msg00177.html">this</a>
+for more info about this particular mess). Solution: add <code>AC_PREREQ(2.13)</code>
+line to <tt>configure.in</tt> in <tt>viewer</tt> directory. This trick forces 
+using stable version
+of automake/autoconf.<p>
+Third problem was that compiler was that the include path of gcc was messed up 
+and when Palm OS headers were including <tt>&lt;Font.h&gt;</tt> header file, gcc would pick up 
+<tt>Font.h</tt> file from Plucker sources. Solution: change <tt>CFLAGS</tt> 
+definition in <tt>Makefile.in</tt>
+to:
+<pre>CFLAGS          =   -Werror -Wall -O2 -isystem . -I$(srcdir)/$(ZLIBDIR) @CFLAGS@ $(SDK_CFLAGS)
+</pre>
+It's a hack, but it worked.
+<p>
+Fourth problem I had was that I installed pilrc version that came with Metrowerks IDE and it
+didn't work, so I re-compiled pilrc 2.9p5 from sources (available <a href="http://www.ardiri.com/index.php?redir=palm&cat=pilrc&subcat=patches">here</a>).
+<p>
+And that was the end of my journey. All I had to do was:
+<pre>>plucker$ cd viewer
+>viewer$ autoreconf
+>viewer$ ./configure --with-lang=en
+>viewer$ make
+</pre>
+<p>
+I'm left with <tt>viewer_en.prc</tt> and a bad taste in my mouth.

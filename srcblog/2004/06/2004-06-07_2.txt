@@ -1,0 +1,9 @@
+Date: 2004-06-07 16:55:36
+Format: wphtml
+Title: Wikis vs. spam and Kowalczyk's First Rule Of Web
+
+What was old is new again. Spammers will try to exploit any medium available to them. After all, they have no honor nor humanity. First, they polluted our inboxes. Then they polluted our blogs. It is actually strange that they didn't pollute our wikis yet (at least not on a large scale) but <a href="http://news.netcraft.com/archives/2004/06/04/wikis_the_next_frontier_for_spammers.html">it'll  happen in the future</a>.
+
+As with other kinds of spam, it'll turn into an ever-ending arms-race between spammers and anti-spamming techniques. Such is life. Wiki authors should start thinking about ways to minimize the impact of spam (I don't believe it can be eliminated).
+
+<strong>Kowalczyk's First Rule Of Web</strong>: any anonymously editable piece of web will be exploited by spammers.

@@ -1,0 +1,7 @@
+Date: 2004-04-10 13:02:56
+Format: wphtml
+Title: A manifesto for collaborative tools
+
+<b>A manifesto for collaborative tools.</b>
+
+<a href="http://www.blueoxen.org/papers/0000D/">A manifesto for collaborative tools</a> is worth reading. It points problems, shows some meta-solutions but almost none concrete solutions. Despite that, it argues the need for good collaborative tools very well and links to <a href="http://www.bootstrap.org/augdocs/friedewald030402/augmentinghumanintellect/ahi62index.html">AUGMENTING HUMAN INTELLECT: A Conceptual Framework</a>, a ground-breaking paper by Engelbart and  <a href="http://www.burningchrome.com:8000/~cdent/arts/my/1.1.wiki">The Computer as Tool: From Interaction To Augmentation</a>, paper that builds on Engelbart's work.

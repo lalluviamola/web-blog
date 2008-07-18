@@ -1,0 +1,9 @@
+Date: 2003-09-17 19:53:01
+Format: wphtml
+Title: Macromedia Flash versioning snafu.
+
+<b>Macromedia Flash versioning snafu.</b> Following a link from <a href="http://blogs.it/0100198/">Marc Canter's blog</a> I tried to watch <a href="http://www.macromedia.com/macromedia/story/">Macromedia story</a>. Unfortunately, I'll not find out what the story is about since Macromedia's site gently informs me that:
+<blockquote><i>
+Macromedia Flash Player version 7,0,14,0 was detected. To view The Story, you need the latest version, Macromedia Flash Player 6,0,29,0. You can download the free Macromedia Flash Player now.
+</i></blockquote>
+Looks like a simple case of broken detection of Flash plugin but, of all companies, Macromedia should know better than that.

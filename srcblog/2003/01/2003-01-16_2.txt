@@ -1,0 +1,40 @@
+Date: 2003-01-16 22:03:33
+Format: wphtml
+Title: Idea for a newshound.
+
+<b>Idea for newshound.</b>
+
+There is a problem with the way we look for information on the Internet. Suppose 
+that you're interested in all the news about Danger's HipTop device. It's being 
+mentioned once every couple of days here and there, sometimes less frequently. 
+Currently the best way would be to go to <a href="http://news.google.com">
+news.google.com</a> every now and then, launch the query, read all the new 
+articles that appeared since the last time you searched (if any). Another 
+problem is that you might get false positives e.g. if you look for &quot;sidekick&quot; 
+(another name for HipTop) you'll get plenty of mostly bogus hits. But imagine 
+that there is an omniscient entity that new about all the new stories published 
+on the Internet, knew what things you're interested in and would send you links 
+to all new stories about things that interest you. Enter NewsHound (or Personal 
+News Filter) TM. Google knows about new articles on the Internet. We could write 
+a program that automates the tedious: querying Google News every once in a 
+while, removing duplicate postings, deciding if the article really is on the 
+subject, notify you about new stuff. It could either be a desktop app, sitting 
+quietly in the background or a web-based app that would notify you about new 
+stuff on a regular basis via. e-mail. To better decide if a given hit is really 
+on the subject as opposed to just containing the word you're looking for,
+<a href="http://www.paulgraham.com/spam.html">statistical filtering</a> could be 
+used. It's an extremely simple app: a text box for entering new query terms, 
+ability to remove/modify/disable query terms, nice display of results, gui for 
+statistical filter (a button with &quot;on subject&quot; for hits currently classified as 
+not on subject and &quot;not on subject&quot; for hits currently classified as on 
+subject). Some HTML scrapping. Maybe cache all the hits so that you don't loose 
+them when they disappear from the web. Maybe ability to mark some as 
+&quot;interesting&quot;, for future reference (although it would be more useful in a 
+broader context of an app used for information gathering). Maybe publish 
+people's query terms on the web, just for kicks? Web version could provide a 
+web-service like functionality i.e. generate the results so that people can 
+include them in their own web pages (even static HTML pages using JavaScript 
+tricks). Maybe it should just generate RSS feed? So, do you have an evening to 
+spare? (a few hours later: damn, idea's nothing new. It's one of the &quot;program 
+ideas&quot; on Google's API <a href="http://www.google.com/apis/">site</a> 
+(&quot;auto-monitor web for new information on a subject&quot;). Gotta try harder).

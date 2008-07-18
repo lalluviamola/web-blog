@@ -1,0 +1,5 @@
+Date: 2002-07-05 18:34:10
+Format: wphtml
+Title: Quote of the day ...
+
+<h5>Quote of the day</h5> &#013;&#010;<BLOCKQUOTE><I>"Television is a medium because it is neither rare nor well done."</I> -- Fred Friendly </BLOCKQUOTE>

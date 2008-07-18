@@ -1,0 +1,26 @@
+Date: 2004-06-10 05:57:45
+Format: wphtml
+Title: Daily reading
+
+<ul>
+
+<li> <a href="http://software.ericsink.com/item_10181.html">Law #7: The Law of the Ladder</a> </li>
+
+<li> <a href="http://www.hanselman.com/blog/PermaLink.aspx?guid=8e1688ee-6936-4983-9bcf-4fcb9d67ee70">Scaling/Resizing/Resampling an Image in ASP.NET</a> - but quality not good </li>
+
+<li> <a href="http://monolith.sourceforge.net/">Monolith</a> - copyright subversion</li>
+
+<li> <a href="http://jaybe.org/pgtgm/">GMail to POP3</a> </li>
+
+<li> <a href="http://jaybe.org/pgtgm/">Visual Shell</a> - I want that but more and on Windows </li>
+
+<li> <a href="http://www.thinksecret.com/news/newdisplays.html">Apple's 30 inch LCD</a> - but you can't trust rumors </li>
+
+<li> <a href="http://jimm.sourceforge.net/">ICQ in J2ME</a> </li>
+
+<li> <a href="http://www.russellbeattie.com/notebook/1007871.html">Brew 2004</a> - I dismiss Brew but maybe there's future in it... </li>
+
+<li> <a href="http://rss.weblogsinc.com/entry/8796814257179903/">Nick Bradbury interview</a> - he wrote Feed Demon </li>
+
+<li> <a href="http://blogs.apress.com/archives/000132.html">anti-extreme programming rant</a> </li>
+</ul>

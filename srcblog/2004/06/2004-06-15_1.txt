@@ -1,0 +1,9 @@
+Date: 2004-06-15 22:50:23
+Format: wphtml
+Title: Java faster than C++ - benchmarks you can trust.
+
+<a href="http://kano.net/javabench/">This article</a> just hit Slashdot. It shows with nice graphs that Java is faster than C++. In all the following discussion no-one apparently bothered to re-run the benchmarks (and I just might, I've never been slashdotted before) so we should just trust them because they were done by a real expert:
+<blockquote>
+ Some of the C++ tests would not compile. I've never been very good at decoding GCC's error messages, so if I couldn't fix a test with a trivial modification, I didn't include it in my benchmarks.
+</blockquote>
+ 

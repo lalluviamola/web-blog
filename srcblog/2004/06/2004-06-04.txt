@@ -1,0 +1,5 @@
+Date: 2004-06-04 00:18:51
+Format: wphtml
+Title: scdiff - show diffs of local changes in CVS or Subversion repository in a GUI
+
+I just released a small program <a href="/software/scdiff/">scdiff</a>. It is a Windows program that (graphically) shows a diff of local changes in CVS  or Subversion repository. Ideal for previewing the changes before checking them in. It's clearly a tool for developers. Requires .NET Framework 1.1 and only works on Windows.

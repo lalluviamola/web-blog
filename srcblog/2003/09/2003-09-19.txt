@@ -1,0 +1,5 @@
+Date: 2003-09-19 07:08:39
+Format: wphtml
+Title: Alan Cooper on software business.
+
+<b>Alan Cooper on software business.</b> Alan Cooper <a href="http://www.ftponline.com/vsm/2003_11/magazine/departments/softwarearchitect/">argues in this article</a> that a way to win in the software business is not by cutting costs of production (i.e. number of programmers and their salaries) but by investing more in creating good software (i.e. hiring more programmers).

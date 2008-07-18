@@ -1,0 +1,8 @@
+Date: 2002-11-29 16:46:08
+Format: wphtml
+Title: If it breaks.
+
+<b>If it breaks.</b> <a href="http://www.jwz.org">jwz</a>:
+<blockquote><i>
+If it breaks, feel free to keep both pieces.
+</i></blockquote>

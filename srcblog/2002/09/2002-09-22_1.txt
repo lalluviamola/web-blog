@@ -1,0 +1,5 @@
+Date: 2002-09-22 09:09:39
+Format: wphtml
+Title: MovableType request
+
+<b>MovableType request.</b> A feature that I would like to see in MovableType: in the admin interface "Edit entries" shows a list of entries. It would be nice if entries with "draft" status were always at the top and had a "Publish with current date" (or "Publish now" or just "Public") link. Clicking this link would change the status of the entry to "Publish", set the published date to current date, save the entry and rebuild the site. Currently to do it one has to find the draft entry, manually change post status in a drop-down box, change the date to current date and press "Save" button. The way I described would provide small time savings and I use "draft" status exclusively to delay publishing a post to a later date and when I want to finally publish it, I would really like to have one-click (TM) method to do it.

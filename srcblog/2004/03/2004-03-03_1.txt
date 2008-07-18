@@ -1,0 +1,13 @@
+Date: 2004-03-03 22:25:20
+Format: wphtml
+Title: Palm OS 6 tidbits.
+
+<b>Palm OS 6 tidbits.</b>
+
+In <a href="http://www.eweek.com/print_article/0,3048,a=119076,00.asp">this interview</a> PalmSource CTO tells the story of Palm OS 6 developement.
+<p>
+In <a href="http://www.osnews.com/printer.php?news_id=6148">this interview</a> a PalmSource engineer talks about new features in Palm OS 6.
+<p>
+Ben Combee has moved <a href="http://palmos.combee.net/">his weblog.</a> Ben was working on Metrowerks CodeWarrior for Palm and has recently been hired by PalmSource. To me that means that Metrowers will stop developing CodeWarrior (it'll be hard for them to compete with PalmSource's free, Eclipse-based IDE).
+<p>
+David Fedor has <a href="http://palmosprotein.blogs.com/">started a weblog</a>. He works for PalmSource and is in charge of developer's relations so it might be a weblog worth following.</p></p></p>

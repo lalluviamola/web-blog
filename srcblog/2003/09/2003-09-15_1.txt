@@ -1,0 +1,5 @@
+Date: 2003-09-15 17:26:20
+Format: wphtml
+Title: List tricks with CSS.
+
+<b>List tricks with CSS.</b>. <a href="http://www.maxdesign.com.au/presentation/listamatic/">Listamatic tutorial</a> has an extensive list of different ways of presenting HTML lists by using CSS, with explanations. The best way to learn is by example.

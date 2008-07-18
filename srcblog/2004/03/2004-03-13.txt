@@ -1,0 +1,6 @@
+Date: 2004-03-13 23:36:39
+Format: wphtml
+Title: ISO Palm PDA with Compact Flash slot.
+
+<b>ISO Palm PDA with Compact Flash slot.</b>
+Why there is no Palm PDA with Compact Flash slot? PalmOne always uses SD/MMC cards in their PDAs. They have one advantage: they're smaller that CF cards. On the other hand CF cards are cheaper and you can find higher-capacity cards. But the biggest reason for Palm to use CF for external storage is that most digital cameras use one. Usually you can preview the photos on the camera (or you can buy a specialized gadget just for that) but a PDA with a good screen (e.g. 320x480 as in Tungsten T3 or Tapwave Zodiac) would be a perfect gadget for quick-and-dirty previewing of photos.

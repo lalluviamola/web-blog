@@ -1,0 +1,5 @@
+Date: 2003-06-19 07:12:46
+Format: wphtml
+Title: More Treo 600 news.
+
+<b>More Treo 600 news.</b> Info about new Treo 600 is now all over the place. Previously missing information: it'll have 32 MB of RAM and <a href="http://gizmodo.net/archives/002352.php#002352">ship in October</a>. According to <a href="http://www.wired.com/news/technology/0,1282,59279,00.html">this</a> Handspring shipped 330 k of Treos so far (but 100k might be unsold).

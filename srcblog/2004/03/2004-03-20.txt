@@ -1,0 +1,5 @@
+Date: 2004-03-20 14:24:35
+Format: wphtml
+Title: Affordable monthly pricing for VideoCall.
+
+<B>Affordable monthly pricing for VideoCall.</B> I just spotted a mention of Logitech's <A href="http://www.logitech.com/index.cfm/products/usertype/videotopics/US/EN,CRID=2041">VideoCalll</A> - software for video calls over internet. The interesting part is how they plan to charge for it. Currently they're in public, beta (which is free) but in their FAQ they mention "simple, affordable monthly pricing". Looks like a suicidal move - to charge monthly subscription for a service like that. Even if they're dramatically better than anyone else, my understanding is that there is free competition (AOL Instant Messenger 5.5 is free and iChatAV-compatible, iChatAV comes free with Panther or can be bought for $30). It's hard to beat free.

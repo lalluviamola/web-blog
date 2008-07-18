@@ -1,0 +1,19 @@
+Date: 2003-04-30 04:09:34
+Format: wphtml
+Title: Pepper is back.
+
+<b>Pepper is back.</b> In an interesting twist, <a href="http://www.hekkelman.com/index.html">Pepper</a> 
+  (a text editor) is back. The story with Pepper was that its author apparently 
+  got angry at Linux customers being impolite to him and at the same time not 
+  buying the program (or some such; this is just a guess based on publicly available 
+  information) and decided to stop development, there were some talks about open-sourcing 
+  it but it required $10 k to be paid which was too much to get in donations so 
+  Pepper was sold to <a href="http://www.digitalwandering.com/">someone 
+  else</a> but apparently not really because now it's back and done by the 
+  original developer. Or to be more precise: the original developer decided to 
+  continue Windows and Unix version (strangely enough given that it was supposedly 
+  Unix people that made him stop developing in the first place) and someone else 
+  will develop Mac version.
+<p> Anyway, regardless of how much I like Pepper I have to say that there's not 
+  much money in the "text editor" business those days. There's too much of a good 
+  stuff available for free.

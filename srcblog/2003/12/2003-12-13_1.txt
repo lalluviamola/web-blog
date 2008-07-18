@@ -1,0 +1,5 @@
+Date: 2003-12-13 23:56:54
+Format: wphtml
+Title: Wiki roundup.
+
+<b>Wiki roundup.</b> <a href="http://www.pcmag.com/article2/0,4149,1404069,00.asp">Short and sweet</a>, from PC Magazine. Compares 5 wikis.

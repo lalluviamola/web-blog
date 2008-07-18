@@ -1,0 +1,13 @@
+Date: 2004-08-11 22:35:33
+Format: wphtml
+Title: PostgreSQL 8 beta released.
+
+First <a href="http://www.postgresql.org/news/216.html">beta of PostgreSQL 8</a> has been released. 8 is a significant release because it's the first one to provide native Windows version. Previously only a cygwin port was available and it was simply unusable (and I tried to use - even wrote tuturials about how to do it).
+
+This was long coming. MySQL, PostgreSQL's main "competition", had Windows version for a long time. I believe they have more downloads of Windows version than of Unix versions.
+
+This is a very good change. I, for one, chose MySQL over PostgreSQL to implement one of my projects because Windows version was available. Although final deployment was on remote RedHat Linux server, I do my development on Windows. I'm much more productive in that environment. Not being able to use PostgreSQL on Windows, ruled it out as an option for me (even though I believe it's technically superior to MySQL).
+
+Out of curiosity I've installed PostgreSQL 8 on Windows. Installation process was quick and painless - setup is pretty good and and takes care of boring detalis (like creating user account that will run PostgreSQL, installing it as a service etc.)
+
+Too bad that pgAdmin III, a GUI front-end for managing PostgreSQL databses included in the package, is so poor. The version number would have you believe that it's a mature application but it's simply outclassed by what I'm used to (Workbench application in upcoming Yukon version of Microsoft SQL Server). pgAdmin III isn't even very good when considered in a vacuum but when compared to evolved MS SQL Workbench just makes you reflect on how much catching up most open-source application have to do to be of comparable quality with their commercial counterparts.

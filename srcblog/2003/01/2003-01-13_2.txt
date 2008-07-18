@@ -1,0 +1,5 @@
+Date: 2003-01-13 07:19:55
+Format: wphtml
+Title: Blog about game design
+
+<b>Blog about game design.</b> Can be found <a href="http://www.costik.com/weblog/">here</a>

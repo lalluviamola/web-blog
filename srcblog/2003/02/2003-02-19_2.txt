@@ -1,0 +1,16 @@
+Date: 2003-02-19 20:55:52
+Format: wphtml
+Title: Professional photography ain't easy.
+
+<b>Professional photography ain't easy.</b>
+
+Or at least how it seems to me after reading <a href="http://www.photo.net/bboard/ed-com-response.tcl?msg_id=004SYg&viewing_msg_id=all">
+this post</a>
+
+<blockquote><i>
+"Though I've read and re-read John Shaw's book, I sometimes think that things have changed in the short time since it was written." 
+<p>
+It is still very early for me to say, but I think that things have changed quite a bit in the nature photography industry (and the photography industry, generally), since Shaw's book. Photo magazines are struggling because online photography sites provide the content free, with more interactivity, and with the archives at your fingertips. Meanwhile, the ranks of photographers are swelling, and driving the price of stock photography down while driving the competition up. Digital photography is taking market share away from the film market, and moving many photographers from the traditional darkroom to the digital darkroom. Photofinishers are being impacted by people's ability to produce prints on their own inkjets, at home. Desktop publishing is reshaping the publishing industry. 
+</i></blockquote>
+
+For some reason my mind found it related to the (potential) influence of open-source on professional programmers. Of course today we're nowhere near this situation and maybe we'll never be.  It's all supply/demand thing: if there are enough people willing to write software for free (or just more people willing to write software than the demand for software) then the amount of money one can earn writing the software will be (on average) smaller. It's as simple as that.

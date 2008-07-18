@@ -1,0 +1,14 @@
+Date: 2004-03-20 16:14:54
+Format: wphtml
+Title: BlogJet - yet another weblog client.
+
+<b>BlogJet - yet another weblog client.</b> <a href="http://blogjet.com/">BlogJet</a> is another weblog client that I've tried and won't use unless it gets better. Currently its a free beta but it'll turn shareware. Currently, it's not yet worth paying for. Writing a simple weblog client is simple, as proved by multitude of clients available out there. Writing a good weblog client is hard, as proved by non-existence of such beast. To me, weblog client should make it easy to: <ul>
+<li>create and manage new posts i.e. writing the posts </li>
+<li>publish new posts to a weblog</li>
+ <li>search through past posts </li>
+</ul>A new tool has little chance to become the best tool for writing, existing tools like FrontPage or DreamWeaver will always have an edge. I can search my site quite well using Google. So a weblog client only makes sense if it does a good job of integrating all my weblog posting and management tasks into one place. It must make things slightly easier than composing posts in Front Page, using web frontend for posting and searching through google. I should have: 
+<ul>
+<li>fairly good text-editing capabilities, including inline spell-checking </li>
+<li>easy access to previous posts</li>
+ <li>seamless management of drafts - posts that I'm writing but not finished yet. All the tools I've tried so far resolve to the most obvious (apparently) and brain-dead solution: forcing the user to save each post separately on the disk. <li>full-text search through past posts </li>
+</li></ul>I've posted a <a href="http://blogjet.com/cgi-bin/yabb/YaBB.pl?board=features;action=display;num=1079745824">led design</a> on how to achieve that on BlogJet feature requests forum. We'll see what the developer will think about those. <p>And a fair warning: currently (v 1.0.0 build 15 BETA) BlogJet crashes like crazy. It crashed twice when I was writing this entry so I switched to a text editor to finish this post. </p>

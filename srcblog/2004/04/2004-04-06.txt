@@ -1,0 +1,55 @@
+Date: 2004-04-06 08:53:53
+Format: wphtml
+Title: Download streaming talks from murl.microsoft.com
+
+<b>Download streaming talks from <a href="http://murl.microsoft.com">murl.microsoft.com</a></b>
+
+<p>Microsoft sponsors a site with <a href="http://murl.microsoft.com/">scientific talks</a>.
+Some of the talks are interesting, so go and check them out.</p>
+
+<p>One problem with the site is that it only offers streaming videos. Providing
+only streaming version is stupid. It degrades the quality for me (if my
+connection isn't fast enough) and wastes provider's ebandwidth (if I want to
+see it again, I have to re-download it). I much prefer being able to download
+the video for offline viewing at an opportunite moment. The good thing is that
+with a bit of digging you can download those talks for off-line viewing. All
+you need is a tool to download web pages (I use
+<a href="http://www.gnu.org/software/wget/wget.html">wget</a>, you can get a Windows port
+<a href="http://unxutils.sourceforge.net/">here</a> or
+<a href="http://gnuwin32.sourceforge.net/packages.html">here</a>). Let's
+take Dave Winer's recent talk as an example. On <a href="http://murl.microsoft.com/LectureDetails.asp?1057">the main
+page</a> there's a link to
+<a href="http://murl.microsoft.com/videos/msr/msr2004/Winer&#95;Weblogs&#95;OnDemand&#95;100&#95;100K&#95;320x240.htm">on-demand
+video</a>.
+Let's look at it:</p>
+
+<pre><code>c:tmpwget http://murl.microsoft.com/videos/msr/msr2004/Winer_Weblogs_OnDemand_100_100K_320x240.htm
+...
+20:58:13 (16.92 KB/s) - `Winer_Weblogs_OnDemand_100_100K_320x240.htm' saved [4609/4609]
+C:\tmp&gt;notepad Winer_Weblogs_OnDemand_100_100K_320x240.htm
+</code></pre>
+
+<p>If you're smart like me, you'll notice the following in this file:</p>
+
+<pre><code>&lt;PARAM NAME="FileName" VALUE="Winer_Weblogs_OnDemand_100_100K_320x240.asx"&gt;
+</code></pre>
+
+<p>The .asx file describes the file to the Windows Media Player. Let's look at
+it:</p>
+
+<pre><code>C:\tmp&gt;notepad  Winer_Weblogs_OnDemand_100_100K_320x240.asx
+</code></pre>
+
+<p>The content of the file looks very simple:</p>
+
+<pre><code>ASF http://murlup.research.microsoft.com/asfroot2/videos/msr/msr2004/Winer_Weblogs_OnDemand_100_100K_320x240.asf
+</code></pre>
+
+<p>This tells us all we want to know:</p>
+
+<pre><code>c:\tmp\wget -c http://murlup.research.microsoft.com/asfroot2/videos/msr/msr2004/Winer_Weblogs_OnDemand_100_100K_320x240.asf
+</code></pre>
+
+<p>Two hours later the file is downloaded and ready to be viewed in optimal
+quality and as many times as you want. And for viewing I recommend <a href="http://sourceforge.net/projects/guliverkli/">Media
+Player Classic</a>.</p>

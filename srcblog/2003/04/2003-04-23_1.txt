@@ -1,0 +1,5 @@
+Date: 2003-04-23 06:12:09
+Format: wphtml
+Title: XFree86 - too little, too late.
+
+<b>XFree86 - too little, too late.</b> The story so far: a group controlling XFree86, one of the most important infrastructure projects in the open-source world, is a clique with no accountability to their actions. An able man from within tries to change that and open up the developement so that it's more in line with the open-source practices. The group resits. The group kicks the man out. The man threatens a fork. The group responds <a href="http://www.xfree.org/mission.html">with empty phrases</a>. Is it too little too late? Will the group <i>really</i> understand what they're not doing right? Will the fork start? Will it be successful? We don't know but stay tuned for the next episode.

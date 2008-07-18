@@ -1,0 +1,23 @@
+Date: 2003-04-17 02:41:53
+Format: wphtml
+Title: Another open-source vs. closed-source debate.
+
+<b>Another open-source vs. closed-source debate.</b>
+
+<a href="http://armedndangerous.blogspot.com/2002_07_28_armedndangerous_archive.html">This 
+article</a> by E. Raymond is rather old but I just found it today. Eric claims 
+that growing complexity of software projects (which is a fact) will favor 
+open-source because closed-source method of development doesn't scale and, to 
+quote, &quot;only development organizations that seem to 
+thrive on today's complexity regime are open-source teams&quot;. Too bad this 
+statement doesn't have a basis in reality. It is a fact that so far 
+closed-source projects are bigger and more complex that open-source projects. 
+Windows is bigger than Linux, Microsoft Office is bigger than Open Office (and 
+much better), Oracle is bigger than MySQL or PostgreSQL and so on. While one 
+will probably find an exception (I would guess that Mozilla is bigger than IE or 
+Apache+all available modules is bigger than IIS) but still number of open-source 
+projects that are really big is very small and you will undoubtedly find plenty 
+of closed-source projects that are much bigger than the biggest open-source 
+projects.
+<p>
+The assertion that open-source scales better that closed-source process has not supporting evindence whatsoever.

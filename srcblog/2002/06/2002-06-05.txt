@@ -1,0 +1,5 @@
+Date: 2002-06-05 10:36:46
+Format: wphtml
+Title: Lame Sony CLIE
+
+<STRONG>Lame Sony CLIE</STRONG></P>&#013;&#010;<P>Enfuriated with stupidity of Media Player in my iPAQ I decided to try my Sony CLIE NR70 with 128 MB Memory Stick. Guess what, it's even worse! I installed mp3 with no problem (although very slowly), media player found it just fine but when I try to play it it tells me that the format is not supported. That's mp3, you dumbass CLIE, the most widely used audio format. That's probably the result of copyright paranoia steaming from Sony's ears. Too bad that as a result they're screwing consumers by making products that can't do the simplest thing that I expect them to do.

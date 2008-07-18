@@ -1,0 +1,12 @@
+Date: 2002-10-31 14:12:08
+Format: wphtml
+Title: Vista prototype.
+
+<strong>Vista prototype</strong>. <a href="http://www.osafoundation.org">OSAF</a> 
+  just published <a href="http://www.osafoundation.org/Vista_prototype.htm">a 
+  description</a> of the prototype of their future PIM. The interesting thing 
+  is how good it looks given that the GUI has been written in TK. Most of the 
+  apps I've seen so far that used TK didn't look good, especially on Windows, 
+  where the native gadgets look much different. I guess that means that talent 
+  is more important that the tool. It's going to be interesting to see what they'll 
+  achieve in wxWindows.

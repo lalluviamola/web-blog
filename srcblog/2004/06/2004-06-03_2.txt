@@ -1,0 +1,11 @@
+Date: 2004-06-03 03:34:27
+Format: wphtml
+Title: Bait and switch?
+
+<del><a href="http://www.sinelogic.com/">Sinelogic</a> claims to offer free PDF e-book about design on a budget. In order to download it you have to provide an e-mail address and they send you a download link which, they claim, should be valid for 24 hours. However, I accessed it within 1 hour and all I got was: "Sorry, the requested download has expired."</del>
+
+<del>Sorry, indeed. That looks like dishonest business practice and I'm not sure that I should give them benefit of the doubt given that after sending them an e-mail about the problem, I didn't get any response</del>
+
+<b>Update:</b> Sinelogic folks noticed this post and sent me an e-mail explaining that they did have problems with the download system, which they fixed, and my e-mail to them was probably lost due to being flagged as spam (which happens). They've also sent me the PDF.
+
+It's nice that they took the time to address this, so kudos to them.

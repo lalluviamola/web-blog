@@ -1,0 +1,6 @@
+Date: 2003-09-09 05:10:20
+Format: wphtml
+Title: SmartPhone 2003 and .NETcf Primer
+
+<b>SmartPhone 2003 and .NETcf Primer</b>
+<a href="http://www.devbuzz.com/content/zinc_smartphone_compactframework_pg1.asp">This article</a> describes author's experience with developing apps for MS Smartphones using .NET Compact Framework. Too bad Smartphones aren't yet available in U.S.

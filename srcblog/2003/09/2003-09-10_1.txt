@@ -1,0 +1,12 @@
+Date: 2003-09-10 19:00:38
+Format: wphtml
+Title: Critical reading skills.
+
+<b>Critical reading skills.</b> Just a random note that you should be careful when you read stuff (on the Internet and otherwise). As an example read this:
+<blockquote><i>
+Building a platform doesn't pay. No single company made a fortune building the Internet. IBM
+didn't take the lions share of the design of the PC.
+</i></blockquote>
+(taken from a comment deep-down in <a href="http://www.oreillynet.com/pub/a/oreilly/ask_tim/2003/ebooks_0903.html">this article</a> about e-books, P2P and stuff).
+<p>
+Sometimes it's what they don't say that invalidates their conclusion. A thesis and 2 examples to support the thesis. Is the thesis valid? Not really. Look at Microsoft - an example of extreme wealth acquired, in great part, by <b>succesfully</b> building a platform. Or even Apple (struggling but still alive thanks to the platform they built) or Playstation or Nintendo. It's not that building a platform doesn't pay, it does and extremely well, we might add. You just have to do it right.

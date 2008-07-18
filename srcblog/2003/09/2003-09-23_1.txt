@@ -1,0 +1,11 @@
+Date: 2003-09-23 23:08:40
+Format: wphtml
+Title: Palm OS propaganda.
+
+<b>Palm OS propaganda.</b> <a href="http://news.com.com/2100-1045_3-5081032.html?tag=lh">This CNET article</a> has only one useful piece of information: next version of Palm OS 6 will be "launched" on Dec. 29.
+<p>
+The only other significant thing in this article is how low PalmSource will go to "promote" Palm OS over the competition. Lacking any real advantages PalmSource claims that "standardized API" in Palm OS is its advantage over Symbian and Pocket PC. In reality Palm OS is the most fragmented platform of them all making it a nightmare for developers to support all the available models of the hardware. For a long time there was no standard API for accessing external memory cards which resulted in at least 3 different APIs (now standard VFS, Handera's and MemPlug's APIs). Many Sony CLIE models have their own, non-standard APIs for dealing with non-standard screen resolutions and managing the virtual silk-screen area. I believe Treo has its own networking library. Tapwave's latest device has its own graphics library.
+<p>
+To be fair: those things finally got standardized but it doesn't help developers much as long as the devices with non-standard APIs are still on the market.
+<p>
+Palm OS currently is a messy platform because it wasn't designed with extensibility in mind (e.g. a big assumption was a screen of fixed 160x160 resolution, there was no multitasking at all). As a result Palm OS had to be hacked in ugly ways to support better devices (e.g. supporting all the possible screen resolutions on Palm devices is a nightmare, the power of ARM processor is mostly wasted because most of the software is still emulated 68k code and even if one would want to write purely ARM code, one can't because there is no good compiler support). I used to hope that Palm OS 6 will put an end to it and provide sane APIs for things like graphics but now I doubt it - nothing that has been said so far about it suggests that it's going to be the case. Most likely we'll see continuation of ugly hacks in the OS. But I do hope I'm wrong.</p></p></p>

@@ -1,0 +1,35 @@
+Date: 2003-03-03 01:33:00
+Format: wphtml
+Title: Remote desktop - from Windows to Mac OS X
+
+<b>Remote desktop - from Windows to Mac OS X.</b>
+
+I just tested VNC-ing from my Windows XP box to my Mac OS X. VNC is an 
+open-source (GPL-ed) multi-platform remote display application.&nbsp; VNC looks 
+like the most frequently forked application. There are:<ul>
+  <li>the original VNC from <a href="http://www.uk.research.att.com/vnc/">
+  AT&amp;T/University of Cambridge</a>, no longer developed (I think) since AT&amp;T 
+  shut down the research center</li>
+  <li><a href="http://www.realvnc.com/">realVNC</a>, maintained by original 
+  authors of VNC</li>
+  <li><a href="http://www.tightvnc.com/">tightVNC</a>, which focuses on 
+  improving compression (which improves overall quality of the software)</li>
+  <li><a href="http://www.tridiavnc.com/">tridiaVNC</a>, Just Another Version 
+  with commercial PRO version (wonder how can they do it without breaking GPL), 
+  doesn't seem to be maintained anymore</li>
+  <li><a href="http://ultravnc.sourceforge.net/">UltraVNC</a>, which focuses on 
+  Windows goodies</li>
+  <li><a href="http://www.redstonesoftware.com/osxvnc/">OSXvnc</a> is a server 
+  for Mac OS X</li>
+  <li><a href="http://ultravnc.sourceforge.net/links.html">even more links</a> 
+  for VNC-inspired software</li>
+</ul>
+<p>I used OSXvnc as the server and tried realVNC, UltraVNC and tightVNC as 
+clients on Windows XP. I'll stick with tightVNC as it seems to be most 
+responsive (I'm using it with <code>-compresslevel 9 -quality 9</code> command line 
+settings). So the question: <b>does it work?</b> Barely. The quality mostly 
+depends on the speed of your network connection. I was VNCing over my home 
+wireless network (UltraVNC reported the speed of around 2400 kbit/s) and the UI 
+redraws so slowly that working is no pleasure at all. It works but is no fun. It 
+has to be said that Microsoft did much better job with their remote desktop 
+software.

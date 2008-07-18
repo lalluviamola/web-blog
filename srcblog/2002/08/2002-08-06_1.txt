@@ -1,0 +1,5 @@
+Date: 2002-08-06 12:15:33
+Format: wphtml
+Title: Here, go and grab...
+
+<A href="http://themes.mozdev.org/skins/littlemozilla.html">Here</A>, go and grab yourself a nice Mozilla theme.

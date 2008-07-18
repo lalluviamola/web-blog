@@ -1,0 +1,5 @@
+Date: 2003-07-23 02:41:47
+Format: wphtml
+Title: Should I stay in software business.
+
+<b>Should I stay in software business.</b> This seems to be a recurring topic in <a href="http://discuss.fogcreek.com/joelonsoftware/">Joel On Software forums</a>: someone asks "IT doesn't look good. Should I stick being a programmer or switch to being a doctor/lawyer/whatever". <a href="http://mindview.net/WebLog/log-0037">This</a> should be a definitive answer.

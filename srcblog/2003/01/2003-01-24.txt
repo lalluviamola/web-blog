@@ -1,0 +1,13 @@
+Date: 2003-01-24 02:30:46
+Format: wphtml
+Title: Google loves me
+
+<b>Google loves me.</b>
+
+Of course, every blogger's dream is to become the number one "me" on Google. Last time I
+was playing this game (which was a few months ago) I was fairly high for my full name and 
+depressingly far away for parts of my name. But today's a surprise: I'm the first one 
+<a href="http://www.google.com/search?sourceid=navclient&q=krzysztof+kowalczyk">Krzysztof Kowalczyk</a>, 
+first <a href="http://www.google.com/search?hl=en&lr=&ie=ISO-8859-1&q=kowalczyk">Kowalczyk</a> and third 
+<a href="http://www.google.com/search?sourceid=navclient&q=krzysztof">Krzysztof</a>. So let me bask in the 
+glow of this newly acquired Google glory.

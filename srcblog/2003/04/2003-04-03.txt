@@ -1,0 +1,14 @@
+Date: 2003-04-03 05:52:53
+Format: wphtml
+Title: Abut Face - second edition
+
+<b>Abut Face - second edition.</b>
+
+I became a fan of Alan Cooper after reading
+<a href="http://www.amazon.com/exec/obidos/tg/detail/-/0672316498/">The Inmates 
+Are Running The Asylum</a>. I then read About Face. I was pleasantly surprised 
+when I found a
+<a href="http://www.amazon.com/exec/obidos/tg/detail/-/0764526413/">new edition 
+of About Face</a> while strolling through my local Barnes &amp; Noble. Cooper is 
+successful, opinionated and makes sense. If UI design, oops, I mean interaction 
+design, is your thing, go and read the book.

@@ -1,0 +1,8 @@
+Date: 2004-06-03 22:19:44
+Format: wphtml
+Title: ScintillaNET project launched
+
+ScintillaNET project is a .NET wrapper around excellent <a href="http://scintilla.org">scintilla editor control</a>. It's not the first .NET wrapper that has been created but this one might have a chance of actually being actively maintained given that a working code is already present. You can get all the code via <code>svn co http://svn.scide.net/scintillanet .</code>
+
+The <a href="http://scide.net/">project page</a> is still under construction so at the moment the only way to participate is by joining a <a href="http://www.freelists.org/cgi-bin/list.fcgi?list_id=4280">dev mailing list</a>.
+

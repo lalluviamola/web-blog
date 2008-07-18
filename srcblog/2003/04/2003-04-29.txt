@@ -1,0 +1,10 @@
+Date: 2003-04-29 07:30:22
+Format: wphtml
+Title: Even more PDA market data.
+
+<b>Even more PDA market data.</b> Handango sells application for PDAs and every 
+quarter they publish a very rough analysis of sale trends in <a href="http://www.handango.com/pdf/HandangoYardStick1_2003.pdf">Handango 
+YardStick</a> (pdf). <a href="http://www.pcworld.com/news/article/0,aid,110392,00.asp">This 
+PC World article</a> presents PDA sales data. The trend isn't very good: hardware 
+sales decline (21% compared to last year) but still they ship more devices per 
+quarter than the total size of PDA market at some point. PDAs are here to stay.

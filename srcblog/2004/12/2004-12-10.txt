@@ -1,0 +1,5 @@
+Date: 2004-12-10 19:54:05
+Format: wphtml
+Title: Web search innovations: A9 vs. Google Suggest
+
+I was one of those people who thought that Google is just good enough and there isn't much to improve in web searching. I'm glad to be wrong. First, <a href="http://www.a9.com">Amazon's A9</a> (which uses Google data as backend) was enough of an improvement over plain Google, that I switched to it. But Google fights back with <a href="http://www.google.com/webhp?complete=1&hl=en">Google Suggest</a> (in Beta, as most of Google). Suggest is a terrific idea - I'm in love after just a few searches.

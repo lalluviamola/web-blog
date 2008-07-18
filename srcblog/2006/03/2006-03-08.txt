@@ -1,0 +1,11 @@
+Date: 2006-03-08 04:50:06
+Format: wphtml
+Title: Pleasantly surprised by Microsoftâs documentation team
+
+I was pleasantly surprised by Microsoftâs documentation team. Writing good technical documentation (e.g. API descriptions) is very hard and rarely do I see it done well.
+
+One way to improve you documentation is by allowing readers to tell you about your mistakes and fix them. As simple as it concept seems, I donât see it implemented very often. Which is why I was positively surprised that Microsoft actually responded to the feedback Iâve sent them about lacking documentation of syntax for setting breakpoints in Platform Builder IDE.
+
+All it took was clicking on an e-mail link inside help (*.chm) file. That opened default e-mail client with subject pre-filled with the location of the section I was complaining about. I wrote my thing and sent the e-mail. I wasnât expecting any response, but it did come. I was notified that the owner of this topic was notified and even got an updated version from the writer.
+
+Looking at msdn website it seems like this feature exists but isnât consistent (e.g. thereâs a âSend comments on this topicâ link for C# docs or Windows API docs but not for Windows Mobile docs so thereâs still room for improvement.

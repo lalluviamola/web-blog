@@ -1,0 +1,18 @@
+Date: 2004-06-10 00:24:18
+Format: wphtml
+Title: Good vs. bad error messages
+
+I was running PHP software and I got the following warning: <tt>Wrong datatype for second argument in call to in_array in ...</tt>.
+
+Never mind that it works under one version of PHP and doesn't under another, this post is not about how much PHP sucks.
+
+The question is: is it a good or bad error message?
+
+While it's not bad, it's sub-optimal. A good error messages gives as much information about the problem as possible. In this case we know that there's a type mismatch for the expected and provided second argument to  function <tt>in_array</tt>. It would be even better if the error also told us:
+<ul>
+<li>what is the expected type</li>
+<li>what type was given</li>
+</ul>
+
+In other words, it should say something like this: <tt>in_array expected a second argument to be of type 'foo' but got argument of type 'bar'</tt>.
+

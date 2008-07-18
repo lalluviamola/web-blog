@@ -1,0 +1,8 @@
+Date: 2003-04-13 04:34:43
+Format: wphtml
+Title: Wireless storage
+
+<b>Wireless storage</b>
+<a href="http://www.martian.com/">NetDrive</a> looks very cool. 120 GB drive that 
+you can access via Ethernet or WiFi and serves as a storage appliance 
+(implements smb protocol).

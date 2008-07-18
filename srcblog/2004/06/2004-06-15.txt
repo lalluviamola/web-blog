@@ -1,0 +1,16 @@
+Date: 2004-06-15 05:04:39
+Format: wphtml
+Title: Daily reading
+
+<ul>
+
+<li> <a href="http://www.rollei.jp/e/pd/MiniD.html">Relleiflex MiniDigi</a> - useless but cute </li>
+<li> <a href="http://software.ericsink.com/item_10184.html">Law #10 - law of division</a></li>
+<li><a href="http://palmos.combee.net/blog/User-AgentStrings.html">user-agent field for palm browsers</a></li>
+
+<li><a href="http://www.everythinghurts.com/blog/">useful windows software</a></li>
+
+<li><a href="http://brew.qualcomm.com/brew/en/press_room/events/brew_2004/brew_2004.html">brew 2004 presentations</a></li>
+<li><a href="http://www.eyebeamresearch.org/annualdatasources.htm">sources of statistical information</a></li>
+
+</ul>

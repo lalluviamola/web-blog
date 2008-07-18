@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>wTail</title>
+<link rel="stylesheet" href="/css/wp-style.css" type="text/css" />
+<link rel="stylesheet" href="/css/article.css" type="text/css" />
+<body>
+
+<!-- search box -->
+<div style="position: absolute;	top: 10px; right: 0; margin-right: 20px;">
+    <form method="get" id="searchForm" action="http://google.com/search">
+        <div>
+            <input type="hidden" name="IncludeBlogs" value="1" />
+            <input id="search" name="q" class="txt" size="25" tabindex="1" />
+            <input type="hidden" name="as_sitesearch" value="blog.kowalczyk.info" />
+            <input type="submit" class="btn" value="&nbsp;Search&nbsp;" />
+        </div>
+    </form>
+</div>
+<!-- end of search box -->
+
+<div id="header">
+<h1>Weblog Without Honor or Humanity</h1>
+<h2>by Krzysztof Kowalczyk</h2>
+</div>
+
+<div id="banner">
+    <ul id="tabnav">
+    <li><a href="/" title="home">Home</a></li>
+    <li><a href="/articles/" title="articles">Articles</a></li>
+    <li><a href="/kb/" title="Knowledge Base">Knowledge Base</a></li>
+    <li><a href="/software/" title="software" class="current">Software</a></li>
+    <li><a href="/contact.html" title="contact">Contact</a></li>
+    </ul>
+</div>
+
+<div id="container">
+<p>
+<a href="/">Home</a> &raquo; <a href="/software/">Software I've written</a> &raquo; <strong>wTail</strong>
+</p>
+<div id="article">
+<h1 id="what_is_it">What is it?</h1>
+<p>
+  wTail does what Unix command <tt>tail</tt> does except it does it on
+  Windows and has a GUI interface. </p>
+<p>
+  To those not familiar with <tt>tail</tt>. Imagine you develop a PHP
+  app. If the app throws warnings or errors, it'll write them to
+  Apache error log. That's why you want to watch addition to error log
+  file. This app helps exactly in that: you select a file and then you
+  can see all changes made to a file in a window.</p>
+<p>
+  You can also change the font and and clear the window content with
+  a press of a button.</p>
+<p>
+  Of course you can watch any kinds of files, not only Apache logs.</p>
+
+<h3 id="download">Download</h3>
+Download <a href="wTail.zip">wTail.zip</a> (requires <a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=262d25e3-f589-4842-8157-034d1e7cf3a3&displaylang=en">.NET
+Framework 1.1</a>). Inside you'll find <tt>wTail.exe</tt> and <tt>ScintillaNET.dll</tt>.
+You can put them anywhere you like as long as <tt>ScintillaNET.dll</tt> is in
+<tt>%PATH%.</tt>
+
+<h3 id="sourcecode">Source code</h3>
+
+You can get the sources from <a href="http://code.google.com/p/wtail/source">project site</a>.
+
+<h3 id="screenshots">Screenshots</h3>
+
+Here's how it looks (watching Apache's access log file):
+<p>
+<img src="wtail-00.gif" />
+</p>
+The shortest manual in the world:
+<table>
+<tr valign="top">
+<td><img src="menu-file.gif" /></td>
+<td><img src="menu-tools.gif" /></td>
+<td><img src="menu-help.gif" /></td>
+</tr>
+</table>
+
+<p><strong>File/Open</strong> is for selecting file to watch.<br/>
+<strong>File/Close</strong> is for stoping watching the file.<br/>
+<strong>File/Exit</strong> is for exiting the app.<br/>
+<strong>Tools/Clear</strong> clears the output window.<br/>
+<strong>Tools/Wrap</strong> is for changing of wrapping of the output window.<br/>
+<strong>File/Font...</strong> is for changing the font used to display the file. Unfortunately this setting is not persisted.<br/>
+<strong>Help/About</strong> brings embarassingly ugly About dialog box.<br/>
+<strong>Help/Visit website</strong> will bring you to this page.<br/>
+
+<h3 id="version_history">Version history</h3>
+0.1 (2004-06-12):
+<ul>
+  <li>first version</li>
+</ul>
+
+<h3 id="todo">Todo </h3>
+<p>There's potential for improvements:
+<ul>
+  <li>ability to watch multiple files, use tab-based interface</li>
+  <li>remember all opened files, add the "open recent..."</li>
+  <li>add, as an option, ability to auto-scroll the view</li>
+</ul>
+
+<h3 id="feedback">Feedback</h3>
+
+As noted, this program is simple, does one thing that is useful to me. It might
+never get any better and there's not much to talk about. If you, however, have
+a burning desire to talk to me about it (you know, comments, bug reports, suggestions
+etc.), you can always <a href="/contact.html">send
+me an e-mail</a>.
+
+</div>
+<!-- end article -->
+</div>
+<!-- end container -->
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-194516-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+
+</body>
+</html>
