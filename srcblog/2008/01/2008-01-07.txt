@@ -1,6 +1,6 @@
 Date: 2008-01-07 01:57:52
 Format: wphtml
-Title: Sumatra 0.8 released
+Title: Logging in WinDBG
 
 Logging is often useful when debugging software to help understand its behavior.
 

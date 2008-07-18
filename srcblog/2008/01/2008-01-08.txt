@@ -1,5 +1,52 @@
 Date: 2008-01-08 07:19:07
-Format: wphtml
-Title: Sumatra 0.8 released
+Format: html
+Title: Thinkpad x60 - a year later
 
-<p>Reviewing consumer electronics few days after buying it isn't very useful because we're in the hopeful mode and look at it through the lenses of potential and not real life experience.</p><p><br></p>  <p>I've had my Thinkpad x60 Tablet for 8 months so I'm past the thrill of novelty and can offer opinion that also incorporates annoyances that show up in real life usage.</p><p><br></p>  <p>The bottom line is: I highly recommend it (well, you can't get x60 anymore, but there's x61, an evolutionary upgrade).</p><p><br></p>  <p>You can google for all the boring tech specs, so I won't repeat them here. Suffice to say that with 2GB of RAM the laptop is plenty fast for real work (I'm a programmer so "real work" involves running Visual Studio, VMWare etc.) and Thinkpads are my favorite laptops (I've also used Dells, Fujitsu Lifebook and Sony Vaio).</p><p><br></p>  <p>I bought tablet version because I was excited about tablet features. Turns out I'm not using them much (pretty much only when reading comic books because flipped screen has better aspect ratio for that).</p><p><br></p>  <p>I'm still happy I did it, though, despite higher price over non-tablet version. The reason is that only tablet version has an option of sxga+ (1400x1050) screen resolution.</p><p><br></p>  <p>In notebooks I value small size but I also value high resolution screen and performance. I was afraid that 12" is too small for everyday work (my previous sweet spot for notebook size was 14" Thinkpad t42 with 1600x1200 screen). Turns out I was wrong: 12" with 1400x1050 screen is comfortable enough and I do most of my working on x60. I shelved my (still perfectly good) t42.</p><p><br></p>  <p><b>Rant</b>: I hate all websites (including Lenovo's order pages) that use those SXGA, WXGA etc. acronyms and don't bother to include pixel count, something that I actually understand without googling.</p><p><br></p>  <p><b>Digression</b>: being spoiled by those resolutions I would have a hard time buying Apple laptop. Their 13" MacBook has low screen resolution and their 15" MacBook Pro is too big for my taste.</p><p><br></p>  <p>At some point the LCD broke (half of the display was garbage) but Lenovo fixed it quickly (and at no charge since I was still covered by warranty).</p>  <p>After 6 months the battery pretty much died. It used to last 6 hours, now it can barely get to 2. Doesn't bother me that much, because where I use it I have power. Besides I think 6 months is standard for batteries so can't blame Lenovo for that. I could fix the problem by buying new batter.</p><p><br></p>  <p><b>Semi-rant</b>: I hate all the Lenovo-provided pre-installed software. It's usually awfully designed, slowing down boot and sucking resources. I uninstalled most of it and saw no difference. Some of that crap I didn't uninstall (afraid of loosing some crucial functionality) and from time to time Lenovo's tvsched.exe goes for a wild ride and uses 100% of one of the CPU (which I notice because the computer slows down).</p><p><br></p>  <p>Vista is huge disappointment. I had an option to use XP but I chose Vista because it looked nice on the paper and I thought it has better tablet functionality. Today I would choose XP.</p><p><br></p>  <p>The most annoying aspect of Vista is that it's slow at some common basic tasks, like browsing folders which is such a fundamental problem that it begs the question: how could they fuck this up? Other annoyances are increased resource usage (they seem to have doubled number of processes running after boot) for no discernible value.</p><p><br></p>  <p>Security improvements are a good thing but not when they lead to breaking significant software (like Visual Studio 2005 or Visual Studio 6), lead to UI aggravations like UAC and try to kill third-party software ecosystem (the "are you sure you want to run this very untrusted application" message box).</p>  <p>At the same time some of the things that I care about and have annoyed me forever are not improved (like a dialog for editing environment variables or the fact that notepad doesn't understand Unix newlines).</p><p><br></p>  <p>The only improvement over XP I can see is a marginally nicer title bar. I still have XP on my desktop so I have a good comparison. XP wins over Vista by a large margin thanks to better performance and being less fussy and annoying.</p><p><br></p>  <p><b>A tip</b>: RAM prices at Lenovo (and Apple and most other companies) are exorbitant. I bought my laptop with 1GB in 1 SIMM (important to leave the other slot free) and bought the other 1 GB at crucial.com. It's a good saving.</p>
+<p>Reviewing consumer electronics few days after buying it isn't very useful because we're in the hopeful
+mode and look at it through the lenses of potential and not real life experience.</p><p><br></p>
+<p>I've had my Thinkpad x60 Tablet for 8 months so I'm past the thrill of novelty and can offer 
+opinion that also incorporates annoyances that show up in real life usage.</p><p><br></p>  
+<p>The bottom line is: I highly recommend it (well, you can't get x60 anymore, but there's x61, 
+an evolutionary upgrade).</p><p><br></p>  <p>You can google for all the boring tech specs, so I 
+won't repeat them here. Suffice to say that with 2GB of RAM the laptop is plenty fast for real 
+work (I'm a programmer so "real work" involves running Visual Studio, VMWare etc.) and Thinkpads 
+are my favorite laptops (I've also used Dells, Fujitsu Lifebook and Sony Vaio).</p><p><br></p>  
+<p>I bought tablet version because I was excited about tablet features. Turns out I'm not using them 
+much (pretty much only when reading comic books because flipped screen has better aspect ratio for that).
+</p><p><br></p>  <p>I'm still happy I did it, though, despite higher price over non-tablet version. 
+The reason is that only tablet version has an option of sxga+ (1400x1050) screen resolution.</p><p>
+<br></p>  
+<p>In notebooks I value small size but I also value high resolution screen and performance. I was 
+afraid that 12" is too small for everyday work (my previous sweet spot for notebook size was 14" 
+Thinkpad t42 with 1600x1200 screen). Turns out I was wrong: 12" with 1400x1050 screen is comfortable 
+enough and I do most of my working on x60. I shelved my (still perfectly good) t42.</p><p><br></p>  
+<p><b>Rant</b>: I hate all websites (including Lenovo's order pages) that use those SXGA, WXGA etc. 
+acronyms and don't bother to include pixel count, something that I actually understand without googling.</p>
+<p><br></p>  <p><b>Digression</b>: being spoiled by those resolutions I would have a hard time buying 
+Apple laptop. Their 13" MacBook has low screen resolution and their 15" MacBook Pro is too big for my 
+taste.</p><p><br></p>  <p>At some point the LCD broke (half of the display was garbage) but Lenovo 
+fixed it quickly (and at no charge since I was still covered by warranty).</p>  <p>After 6 months the 
+battery pretty much died. It used to last 6 hours, now it can barely get to 2. Doesn't bother me that 
+much, because where I use it I have power. Besides I think 6 months is standard for batteries so can't 
+blame Lenovo for that. I could fix the problem by buying new batter.</p><p><br></p>  
+<p><b>Semi-rant</b>: I hate all the Lenovo-provided pre-installed software. It's usually awfully 
+designed, slowing down boot and sucking resources. I uninstalled most of it and saw no difference. 
+Some of that crap I didn't uninstall (afraid of loosing some crucial functionality) and from time to 
+time Lenovo's tvsched.exe goes for a wild ride and uses 100% of one of the CPU (which I notice because 
+the computer slows down).</p><p><br></p>  <p>Vista is huge disappointment. I had an option to use XP but 
+I chose Vista because it looked nice on the paper and I thought it has better tablet functionality. 
+Today I would choose XP.</p><p><br></p>  <p>The most annoying aspect of Vista is that it's slow at 
+some common basic tasks, like browsing folders which is such a fundamental problem that it begs the 
+question: how could they fuck this up? Other annoyances are increased resource usage (they seem to 
+have doubled number of processes running after boot) for no discernible value.</p><p><br></p>  
+<p>Security improvements are a good thing but not when they lead to breaking significant software 
+(like Visual Studio 2005 or Visual Studio 6), lead to UI aggravations like UAC and try to kill 
+third-party software ecosystem (the "are you sure you want to run this very untrusted application" 
+message box).</p>  <p>At the same time some of the things that I care about and have annoyed me 
+forever are not improved (like a dialog for editing environment variables or the fact that notepad 
+doesn't understand Unix newlines).</p><p><br></p>  <p>The only improvement over XP I can see is a 
+marginally nicer title bar. I still have XP on my desktop so I have a good comparison. XP wins over 
+Vista by a large margin thanks to better performance and being less fussy and annoying.</p><p><br></p>  
+<p><b>A tip</b>: RAM prices at Lenovo (and Apple and most other companies) are exorbitant. I bought my 
+laptop with 1GB in 1 SIMM (important to leave the other slot free) and bought the other 1 GB at 
+crucial.com. It's a good saving.</p>

@@ -35,10 +35,7 @@ CSS_EXT_POST_TXT="""<style type="text/css" media="screen">
 </style>
 """
 
-CSS_EXT_IDX_TXT="""<style type="text/css" media="screen">
-@import url("../../css/kjk.css");
-</style>
-"""
+CSS_EXT_IDX_TXT = CSS_EXT_POST_TXT
 
 CSS_EXT_ARCHIVE_TXT="""<style type="text/css" media="screen">
 @import url("css/archive.css");
@@ -166,8 +163,19 @@ def get_post_raw_content(post):
 def get_post_html_content(post):
   filename = post["file"]
   body = get_blog_post_content(filename)
-  if post["format"] == "wphtml":
+  format = post["format"]
+  if format == "wphtml":
     body = linebreaks(body)
+  elif format == "html":
+    # do nothing, just note that we support that
+	pass
+  elif format == "textile":
+    # TODO: implement textile support
+    print("textile not supported yet")
+    assert 0
+  else:
+    print("Unsupported format: '%s'" % format)
+    assert 0
   return body
 
 def atom_feed(posts):

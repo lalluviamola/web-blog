@@ -1,5 +1,15 @@
 Date: 2008-01-09 08:09:28
-Format: wphtml
-Title: Sumatra 0.8 released
+Format: html
+Title: Rebol vs. Shoes
 
-There's no justice in the world.<br><br><a title="Rebol 3 Alpha" href="http://www.rebol.com/article/0347.html" id="f1_q">Rebol 3 Alpha</a>: 664 kB<br><a title="Shoes" href="http://hackety.org/2008/01/08/shoesCuriousReleased.html" id="mz0b">Shoes</a> (Ruby + UI framework): 25 MB<br>Capabilities: pretty similar<br><br>Ok, so Ruby probably does a little bit more, so it's a bit apples to oranges comparison, but it's one huge orange and one tiny apple.<br><br>Was there ever a better example of a gigantic difference that a thoughtful design can produce.<br><br>One data point: libcairo (which is a 2D graphic rendering library and is part of Shoes) comes in at 536 kB which is nearly the size of the whole Rebol system (which is a full blown language interpreter AND a 2D graphic rendering library with capabilities similar to libcario AND a full blown UI framework with buttons, scrollbars and what not).<br><br>
+There's no justice in the world.<br><br>
+<a title="Rebol 3 Alpha" href="http://www.rebol.com/article/0347.html" id="f1_q">Rebol 3 Alpha</a>: 664 kB<br>
+<a title="Shoes" href="http://hackety.org/2008/01/08/shoesCuriousReleased.html" id="mz0b">Shoes</a> 
+(Ruby + UI framework): 25 MB<br>Capabilities: pretty similar<br><br>
+Ok, so Ruby probably does a little bit more, so it's a bit apples to oranges comparison, but it's one 
+huge orange and one tiny apple.<br><br>
+Was there ever a better example of a gigantic difference that a thoughtful design can produce.<br><br>
+One data point: libcairo (which is a 2D graphic rendering library and is part of Shoes) comes in at 
+536 kB which is nearly the size of the whole Rebol system (which is a full blown language interpreter 
+AND a 2D graphic rendering library with capabilities similar to libcairo AND a full blown UI framework 
+with buttons, scrollbars and what not).<br><br>
