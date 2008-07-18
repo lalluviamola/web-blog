@@ -278,10 +278,10 @@ parameters = {
 
     # Class and/or id.
     'classid':  r'''(                               #
-                        (?:\(\#[\w]+\))             # (#id)
+                        (?:\(\#[\w][\w\d\.:_-]*\))             # (#id)
                         |                           #
                         (?:\((?:[\w]+(?:\s[\w]+)*)  #
-                            (?:\#[\w]+)?\))         # (class1 class2 ... classn#id) or (class1 class2 ... classn)
+                            (?:\#[\w][\w\d\.:_-]*)?\))         # (class1 class2 ... classn#id) or (class1 class2 ... classn)
                     )                               #
                     (?![^\s]*(?:\([\w#]+\)))        # must happen once
                  ''',
@@ -953,7 +953,7 @@ class Textiler:
         extending  = 0
 
         # We capture the \n's because they are important inside "pre..".
-        blocks = re.split(r'''(\n{2,})''', self.text)
+        blocks = re.split(r'''((\n\s*){2,})''', self.text)
         output = []
         for block in blocks:
             # Check for the clear signature.
@@ -1049,11 +1049,11 @@ class Textiler:
         output = {}
         
         # Match class from (class) or (class#id).
-        m = re.search(r'''\((?P<class>[\w]+(\s[\w]+)*)(\#[\w]+)?\)''', parameters)
+        m = re.search(r'''\((?P<class>[\w]+(\s[\w]+)*)(\#[\w][\w\d\.:_-]*)?\)''', parameters)
         if m: output['class'] = m.group('class')
 
         # Match id from (#id) or (class#id).
-        m = re.search(r'''\([\w]*(\s[\w]+)*\#(?P<id>[\w]+)\)''', parameters)
+        m = re.search(r'''\([\w]*(\s[\w]+)*\#(?P<id>[\w][\w\d\.:_-]*)\)''', parameters)
         if m: output['id'] = m.group('id')
 
         # Match [language].
@@ -1075,7 +1075,7 @@ class Textiler:
 
         # Remove classes, ids, langs and styles. This makes the 
         # regular expression for the positioning much easier.
-        parameters = preg_replace(r'''\([\#\w\s]+\)''', '', parameters)
+        parameters = preg_replace(r'''\([\#\w\d\.:_\s-]+\)''', '', parameters)
         parameters = preg_replace(r'''\[[\w-]+\]''', '', parameters)
         parameters = preg_replace(r'''{[\w:;#%-]+}''', '', parameters)
 
