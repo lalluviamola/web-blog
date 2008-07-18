@@ -40,7 +40,7 @@ var strEscapes = ["\\newline", "\\\\", "\\e", "\\v", "\\'", "\\f", "\\ooo", '\\"
 var bitOps = ["~x", "x ^ y", "x & y", "x | y", "x << n", "x >> n"];
 var sysModule = ["argv", "stdin", "stdout", "stderr", "version"];
 var osModule = ["listdir(dir)", "makedirs(path)", "system(cmd)", "environ"].sort();
-var osPathModule = ["join(x,y,..)", "exists(path)", "isdir(path)", "isfile(path)", "basename(path)", "realpath(path)", "expanduser(path)"].sort();
+var osPathModule = ["join(x,y,..)", "exists(path)", "isdir(path)", "isfile(path)", "basename(path)", "dirpath(path)", "realpath(path)", "expanduser(path)"].sort();
 var seqOps = ["x in s", "x not in s", "s1 + s2", "s * n", "n * s", "s[i]", "s[i:j]", "s[i:j:step]", "len(s)", "min(s)"," max(s)", "reversed(s) [2.4]"];
 var mutSeqOps = ["s[i] = x", "s[i:j [:step]] = t", "del s[i:j[:step]]", "s.append(x)","s.extend(x)", "s.count(x)", "s.index(x[, start[, stop]])", "s.insert(i, x)", "s.remove(x)", "s.pop([i])", "s.reverse()", "s.sort([cmp])"];
 var numOps = ["abs(x)", "int(x)", "long(x)", "float(x)", "-x", "+x", "x + y", "x - y", "x * y", "x / y", "x // y", "x % y", "divmod(x,y)", "x**y"];
