@@ -176,7 +176,9 @@ def atom_feed(posts):
     link = "http://blog.kowalczyk.info/feed/",
     description = "Krzysztof Kowalczyk blog")
 
-  for p in posts[-25:]:
+  posts = posts[-25:]
+  posts.reverse()
+  for p in posts:
     title = p["title"]
     link = "http://blog.kowalczyk.info/" + p["url"]
     description = get_post_html_content(p)
