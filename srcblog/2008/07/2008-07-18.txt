@@ -2,6 +2,11 @@ Date: 2008-07-18 18:46:00
 Format: textile
 Title: Minimalism is the new black
 
-It was a time for visual refresh and what is more refreshing than a dash of minialism? Minimalism is good, even if shamlessly stolen.
+It was a time for visual refresh and what is more refreshing than a dash of minialism? Minimalism is good, even when shamlessly stolen.
 
-This also marks a switch from WordPress to a completely static site - feels like going back in time.
+This also marks a switch from WordPress to a completely static site. Feels like going back in time but the upside is removal of a source of security vulnerabilities.
+
+Another switch is sponsored by the department of unnecessary tinkering: Apache is out, "nginx":http://nginx.net/ is in.
+
+Another switch is for the environment and my pocket: ditching "theplanet.com":http://theplanet.com (which does way more that my needs are at the moment and is priced accordingly) and moving to more modest and cheaper "sliecehost":http://www.slicehost.com/
+
