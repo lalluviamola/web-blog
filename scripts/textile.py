@@ -2415,7 +2415,7 @@ class Textiler:
 
         # LaTeX style quotes.
         text = text.replace('\x60\x60', '&#8220;')
-        text = text.replace('\xb4\xb4', '&#8221;')
+        #text = text.replace('\xb4\xb4', '&#8221;')
 
         # Linkify URL and emails.
         url = r'''(?=[a-zA-Z0-9./#])                          # Must start correctly

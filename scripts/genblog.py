@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import random, os.path, sys, codecs, re, datetime
 import feedgenerator
+import textile
 
 SRCDIR = os.path.join("..", "srcblog")
 
@@ -77,6 +78,12 @@ def parse_blog_post_headers(post_path):
     name = name.lower()
     vals[name] = val
   fo.close()
+  if "date" not in vals:
+	print("Invalid post '%s'" % post_path)
+	print vals
+  assert "date" in vals
+  assert "format" in vals
+  assert "title" in vals
   return vals
 
 def get_blog_post_content(post_path):
@@ -162,17 +169,16 @@ def get_post_raw_content(post):
 
 def get_post_html_content(post):
   filename = post["file"]
-  body = get_blog_post_content(filename)
   format = post["format"]
+  body = get_blog_post_content(filename)
   if format == "wphtml":
     body = linebreaks(body)
   elif format == "html":
     # do nothing, just note that we support that
 	pass
   elif format == "textile":
-    # TODO: implement textile support
-    print("textile not supported yet")
-    assert 0
+    txt = body.encode('utf-8')
+    body = textile.textile(txt, encoding='utf-8', output='utf-8')
   else:
     print("Unsupported format: '%s'" % format)
     assert 0
