@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="alternate" type="application/atom+xml" title="RSS 2.0" href="/atom.xml" />
 <title>Krzysztof Kowalczyk weblog</title>
 {{css}}
 
@@ -35,10 +36,10 @@ function toggleSearch()
     toggleEl("searchbox");
     if (!elIsHidden("searchbox"))
         $("searchFieldId").focus();
+    $("searchFieldId").value = "";
 }
 </script>
 
-<link rel="alternate" type="application/atom+xml" title="RSS 2.0" href="/atom.xml" />
 </head>
 <body>
 
@@ -57,9 +58,12 @@ function toggleSearch()
 <div id="content">
 
 <div id="searchbox" style="display:none;">
-<form method="GET" action="/search">
-<center>Search this site: <input type="text" name="searchTxt" id="searchFieldId"/>
-<button type="submit">Go</button>
+<form method="get" action="http://google.com/search">
+<input type="hidden" name="IncludeBlogs" value="1">
+<input type="hidden" name="as_sitesearch" value="http://blog.kowalczyk.info">
+
+<center><label for="searchFieldId">Search this site:</label> <input type="text" name="q" id="searchFieldId"/>
+<input class="button" value="Go" type="submit">
 </center>
 </form>
 </div>
