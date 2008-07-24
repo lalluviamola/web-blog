@@ -2,7 +2,6 @@ Date: 2003-05-05 06:03:56
 Format: wphtml
 Title: Looking for a perfect wiki.
 
-<b>Looking for a perfect wiki.</b>
   I've spent the whole weekend looking for a perfect <a href="http://www.c2.com/cgi/wiki?WikiGettingStartedFaq">wiki</a>.
   There was frustration, there were tears. I was looking for something that can
   be used as a private collaboration

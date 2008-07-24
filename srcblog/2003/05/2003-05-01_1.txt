@@ -2,18 +2,14 @@ Date: 2003-05-01 15:15:09
 Format: wphtml
 Title: Looking for a good Wiki.
 
-<b>Looking for a good Wiki.</b> I'm looking for a good Wiki system that could 
-be used as an internal collaboration tool i.e. it would not be public so a permissions 
-management is a must. There are so many Wikis out there but all of them seem to 
-stop at pretty much re-implementing the original Wiki idea. In another language. 
+I'm looking for a good Wiki system that could be used as an internal collaboration tool i.e. it would not be public so a permissions management is a must. There are so many Wikis out there but all of them seem to stop at pretty much re-implementing the original Wiki idea in another programming language. 
+
 What I'm looking for is something that is polished, has all the basic capabilities 
 and has good permissions systems. I didn't find any such beast. The most promising 
-Wiki's I found so far are <a href="http://develnet.org/">coWiki</a> and a <a href="http://wikipedia.sourceforge.net/">Wik</a>i 
-that powers <a href="http://www.wikipedia.org/">Wikipedia.org</a>. coWiki looks 
-really great, has permission and a good system for managing hierarchy of the wiki. 
-Problems: it's not yet released as a stable software and requires PHP5 (which 
-is also not yet released as stable software). Also there's a risk that the author 
-just stops developing it. Wikipedia stuff is really tuned to serving the needs 
-of Wikipedia.org (no wonder) but it's actively maintained and quite mature. And 
-there's <a href="http://twiki.org/">TWiki</a> (the oldest wiki of those 3, I think). 
+Wiki's I found so far are <a href="http://develnet.org/">coWiki</a> and a <a href="http://wikipedia.sourceforge.net/">Wiki</a>that powers <a href="http://www.wikipedia.org/">Wikipedia.org</a>. 
+
+coWiki looks really great, has permission and a good system for managing hierarchy of the wiki. Problems: it's not yet released as a stable software and requires PHP5 (which is also not yet released as stable software). Also there's a risk that the author just stops developing it. 
+
+Wikipedia stuff is really tuned to serving the needs of Wikipedia.org (no wonder) but it's actively maintained and quite mature. And there's <a href="http://twiki.org/">TWiki</a> (the oldest wiki of those 3, I think).
+ 
 The problem with TWiki is that it looks pretty awful. Am I being petty?

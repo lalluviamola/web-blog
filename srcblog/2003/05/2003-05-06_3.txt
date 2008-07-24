@@ -2,4 +2,4 @@ Date: 2003-05-06 22:55:26
 Format: wphtml
 Title: Hooked on wiki.
 
-<b>Hooked on wiki.</b> I knew about wikis for quite some time but the only way to really appreciate things is to experience them. So I installed my <a href="http://blog.kowalczyk.info/wiki/">own Wiki</a>. The idea is that I'll use it as a system for storing my knowledge and ideas about stuff. How it'll turn out in the practice - I don't really know.
+I knew about wikis for quite some time but the only way to really appreciate things is to experience them. So I installed my own Wiki. The idea is that I'll use it as a system for storing my knowledge and ideas about stuff. How it'll turn out in the practice - I don't really know.

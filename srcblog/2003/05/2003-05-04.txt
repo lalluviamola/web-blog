@@ -1,8 +1,6 @@
 Date: 2003-05-04 02:46:43
-Format: wphtml
+Format: html
 Title: Cheap bandwidth.
-
-<b>Cheap bandwidth.</b>
 
 Some info about cheap bandwidth <a href="http://slashdot.org/comments.pl?sid=62025&cid=5815568">from here</a>:
 <blockquote> <i>I pay $9.95/month for 30gb of traffic at

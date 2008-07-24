@@ -1,8 +1,6 @@
 Date: 2003-05-02 15:16:17
-Format: wphtml
+Format: html
 Title: Zoning laws and home-based software company.
-
-<b>Zoning laws and home-based software company.</b>
 
 There was <a href="http://ask.slashdot.org/comments.pl?sid=61701&cid=0&pid=0&startat=&threshold=3&mode=flat&commentsort=0&op=Change">
 an interesting discussion</a> that started with a question about how zoning laws relate to a software company

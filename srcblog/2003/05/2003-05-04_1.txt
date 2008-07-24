@@ -1,6 +1,6 @@
 Date: 2003-05-04 02:47:30
-Format: wphtml
+Format: html
 Title: Finding internet radios.
 
-<b>Finding internet radios.</b> Do you want to locate an internet radio? Use <a href="http://www.radio-locator.com"> 
+Do you want to locate an internet radio? Use <a href="http://www.radio-locator.com"> 
 www.radio-locator.com</a>.

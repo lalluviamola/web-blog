@@ -1,5 +1,5 @@
 Date: 2003-05-01 02:06:02
-Format: wphtml
+Format: html
 Title: Few ideas for RSS aggregators.
 
 <b>Few ideas for RSS aggregators.</b> I was a late convert to RSS aggregation 

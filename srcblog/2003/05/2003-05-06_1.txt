@@ -2,4 +2,4 @@ Date: 2003-05-06 06:26:27
 Format: wphtml
 Title: In-depth color SideKick review.
 
-<b>In-depth color SideKick review.</b> CNET has an in-depth <a href="http://computers.cnet.com/hardware/0-2709830-404-21169039.html?tag=subnav">review of color SideKick</a>. They have good pictures but there's not much to talk about: it's still just a slightly upgraded version of SideKick. We want more.
+CNET has an in-depth <a href="http://computers.cnet.com/hardware/0-2709830-404-21169039.html?tag=subnav">review of color SideKick</a>. They have good pictures but there's not much to talk about: it's still just a slightly upgraded version of SideKick. We want more.
