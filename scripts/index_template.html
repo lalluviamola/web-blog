@@ -4,6 +4,40 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Krzysztof Kowalczyk weblog</title>
 {{css}}
+
+<script>
+function $(id) {
+	if (document.all)
+		return document.all[id];
+	if (document.getElementById)
+		return document.getElementById(id);
+	for (var i=1; i<document.layers.length; i++) {
+	    if (document.layers[i].id==id)
+	      return document.layers[i];
+	}
+	return false;
+}
+
+function hideEl(id) { $(id).style.display="none"; }
+function elIsHidden(id) { return $(id).style.display == "none"; }
+function showEl(id) { $(id).style.display="block";}
+
+function toggleEl(id) 
+{
+    if (elIsHidden(id))
+        showEl(id);
+    else
+        hideEl(id);
+}
+
+function toggleSearch() 
+{
+    toggleEl("searchbox");
+    if (!elIsHidden("searchbox"))
+        $("searchFieldId").focus();
+}
+</script>
+
 <link rel="alternate" type="application/atom+xml" title="RSS 2.0" href="/atom.xml" />
 </head>
 <body>
@@ -13,12 +47,23 @@
   <span class="right"><a href="software/sumatrapdf/">Sumatra PDF</a> &bull; 
   <a href="software/fofou">Fofou</a> &bull; 
   <a href="archives.html">archives</a> &bull; 
-  <a href="more.html">more...</a></span>
+  <a href="more.html">more...</a> &bull;
+  <a href="javascript:toggleSearch();"><img src="gfx/search.gif"></a>
+  </span>
   <a href="me.html">Krzysztof Kowalczyk</a>
   </div>
 </div>
 
 <div id="content">
+
+<div id="searchbox" style="display:none;">
+<form method="GET" action="/search">
+<center>Search this site: <input type="text" name="searchTxt" id="searchFieldId"/>
+<button type="submit">Go</button>
+</center>
+</form>
+</div>
+
 <h1><a href={{permalink}}>{{title}}</a></h1>
 {{post}}
 <hr>
