@@ -1,5 +1,10 @@
 Date: 2002-07-14 13:18:16
-Format: wphtml
-Title: The book says: success...
+Format: html
+Title: Laws of marketing #18 (success)
 
-The book says: success often leads to arrogance, and arrogance to failure. Don't be arrogant, drop the ego, be objective.
+<a href="http://www.amazon.com/exec/obidos/ASIN/0887306667">The
+book</a> says: success often leads to arrogance, and arrogance to failure. Don't be 
+arrogant, drop the ego, be objective.
+
+<p>See also <a href="http://www.ericsink.com/laws/Law_18.html">
+Eric's take</a></p>

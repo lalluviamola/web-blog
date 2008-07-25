@@ -1,5 +1,6 @@
 Date: 2002-07-18 07:56:39
 Format: wphtml
 Title: But when it comes to...
+Draft: 1
 
 But when it comes to marketing few can match Apple. If you go to <A href="http://www.apple.com/trailers/">Apple's website</A> on 07/16/2002 you'll see this gem: <I>"The hottest games are built for Mac OS X"</I>. I can hardly imagine more bold-faced lie, maybe except "Apple - 95% of the market and counting". The only reason Apple can&nbsp; get (sort of) away with such statement is that the definition of "hot" is ambiguous (which is to say that there is none).

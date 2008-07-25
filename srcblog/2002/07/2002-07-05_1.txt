@@ -1,5 +1,8 @@
 Date: 2002-07-05 16:37:19
-Format: wphtml
-Title: The book says: it...
+Format: html
+Title: Laws of marketing #3 (mind)
 
-The book says: it's not important to be the first&nbsp;in the market but the first in the mind of consumers.
+<a href="http://www.amazon.com/exec/obidos/ASIN/0887306667">The
+book</a> says: it's not important to be the first&nbsp;in the market but the first in the mind of consumers.
+<p>See also <a href="http://www.ericsink.com/laws/Law_03.html">
+Eric's take</a></p>

@@ -1,5 +1,11 @@
 Date: 2002-07-17 12:31:20
-Format: wphtml
-Title: Even if you don't...
+Format: html
+Title: You and your research
 
-Even if you don't do any research, it's worthwhile to read <A href="http://zapata.seas.smu.edu/~gorsak/hamming.html">Richard Hamming's talk</A>. The core of his thinking, as I see it, lies in the question he used to ask his co-workers: "What is the most important research topic in your area? Are you working on it? If not, why not?". You could replace "most important research topic" with "most important thing to do in your life" and the question will still stand. In other words, think big and do big.
+Even if you don't do any research, it's worthwhile to read 
+<A href="http://zapata.seas.smu.edu/~gorsak/hamming.html">Richard Hamming's talk</A>.
+The core of his thinking, as I see it, lies in the question he used to ask his 
+co-workers: "What is the most important research topic in your area? Are you 
+working on it? If not, why not?". You could replace "most important research topic" 
+with "most important thing to do in your life" and the question will still stand. 
+In other words, think big and do big.

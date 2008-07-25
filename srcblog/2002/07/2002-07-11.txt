@@ -1,5 +1,13 @@
 Date: 2002-07-11 11:42:01
-Format: wphtml
-Title: The books says: marketing...
+Format: html
+Title: Laws of marketing #11 (perspective)
 
-The books says: marketing effects take place over an extended period of time. It's a mistake to sacrifice long-term planning with actions to improve short-term balance sheet. E.g. sales increase short-term profits but in long-term educates people not to buy for regular price, therefore decreasing long-term profits.
+<a href="http://www.amazon.com/exec/obidos/ASIN/0887306667">The
+book</a> says: marketing effects take place over an extended period 
+of time. It's a mistake to sacrifice long-term planning with actions 
+to improve short-term balance sheet. E.g. sales increase short-term 
+profits but in long-term educates people to not buy for regular 
+price, therefore decreasing long-term profits.
+
+<p>See also <a href="http://www.ericsink.com/laws/Law_11.html">
+Eric's take</a></p>

@@ -1,5 +1,12 @@
 Date: 2002-07-13 12:32:01
-Format: wphtml
-Title: The book says: in...
+Format: html
+Title: Laws of marketing #16 (singularity)
 
-The book says: in each situation, only one move will produce substantial results. People tend to think that success is the result of a lot of small efforts well executed, that working harder is a way to success. In marketing only thing that works is a single, bold stroke.
+<a href="http://www.amazon.com/exec/obidos/ASIN/0887306667">The
+book</a> says: in each situation, only one move will produce substantial results. 
+People tend to think that success is the result of a lot of small efforts well 
+executed, that working harder is a way to success. In marketing the only thing that 
+works is a single, bold stroke.
+
+<p>See also <a href="http://www.ericsink.com/laws/Law_16.html">
+Eric's take</a></p>

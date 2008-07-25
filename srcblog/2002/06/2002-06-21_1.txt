@@ -1,5 +1,16 @@
 Date: 2002-06-21 17:19:10
-Format: wphtml
-Title: CVS, Windows and binary...
+Format: html
+Title: CVS, Windows and binary files
 
-<h5>CVS, Windows and binary files</h5> &#013;&#010;<P>Today I've been bitten again by how CVS handles binary files under Windows. When you ever see a binary file being corrupted when you update your local repository on a Windows machine you should mark the file as binary, delete it locally and re-update. There are two ways to do it: &#013;&#010;<UL>&#013;&#010;<LI><CODE>cvs add -kb filename</CODE> when you add the file initially to the project &#013;&#010;<LI><CODE>cvs admin -kb filename</CODE> after the fact</LI></UL>You can learn this and much more by reading this free, on-line book <A href="http://cvsbook.red-bean.com/">Open Source Development with CVS</A> &#013;&#010;<P></P></CODE>
+Today I've been bitten again by how CVS handles binary files under 
+Windows. When you ever see a binary file being corrupted when you 
+update your local repository on a Windows machine you should mark the 
+file as binary, delete it locally and re-update. There are two ways 
+to do it:
+<UL>
+<LI><CODE>cvs add -kb filename</CODE> when you add the file initially to the project</LI>
+<LI><CODE>cvs admin -kb filename</CODE> after the fact</LI>
+</UL>
+You can learn this and much more by reading this free, on-line book 
+<A href="http://cvsbook.red-bean.com/">
+Open Source Development with CVS</A>

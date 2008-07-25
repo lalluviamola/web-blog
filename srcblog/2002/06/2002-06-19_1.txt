@@ -1,5 +1,8 @@
 Date: 2002-06-19 13:30:53
-Format: wphtml
-Title: Blogging is a seductive idea...
+Format: html
+Title: Blogging is a marathon
 
-Blogging is a seductive idea, so many people try it. It's also a lot of work, so many people stop after a week or two. I've seen that already a few times. So if you're starting a blog, remember: blogging is a marathong, not a sprint. Plan for that.
+Blogging is a seductive idea, so many people try it. It's also a lot 
+of work, so many people stop after a week or two. I've seen that 
+already a few times. So if you're starting a blog, remember: blogging 
+is a marathong, not a sprint. Plan for that.

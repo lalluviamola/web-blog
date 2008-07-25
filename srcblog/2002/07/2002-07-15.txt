@@ -1,5 +1,11 @@
 Date: 2002-07-15 03:38:27
-Format: wphtml
-Title: The book says: failure...
+Format: html
+Title: Laws of marketing #19 (failure)
 
-The book says: failure is to be expected and accepted. Drop things that don't work instead of trying to fix them. Don't punish for failures (if you do people will stop taking risks).
+<a href="http://www.amazon.com/exec/obidos/ASIN/0887306667">The
+book</a> says: failure is to be expected and accepted. Drop things that don't work 
+instead of trying to fix them. Don't punish for failures (if you do people will 
+stop taking risks).
+
+<p>See also <a href="http://www.ericsink.com/laws/Law_19.html">
+Eric's take</a></p>

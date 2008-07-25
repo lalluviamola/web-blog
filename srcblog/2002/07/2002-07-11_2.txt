@@ -1,5 +1,15 @@
 Date: 2002-07-11 22:13:38
-Format: wphtml
-Title: The book says: you...
+Format: html
+Title: Laws of marketing #13 (sacrifice)
 
-The book says: you have to give up something in order to get something. There are three things to sacrifice: &#013;&#010;<UL>&#013;&#010;<LI>product line &#013;&#010;<LI>target market &#013;&#010;<LI>constant change </LI></UL>&#013;&#010;<P>
+<a href="http://www.amazon.com/exec/obidos/ASIN/0887306667">The
+book</a> says: you have to give up something in order to get something. There are 
+three things to sacrifice: 
+<UL>
+<LI>product line</LI>
+<LI>target market</LI>
+<LI>constant change</LI>
+</UL>
+
+<p>See also <a href="http://www.ericsink.com/laws/Law_13.html">
+Eric's take</a></p>

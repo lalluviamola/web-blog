@@ -1,5 +1,11 @@
 Date: 2002-07-16 11:57:05
-Format: wphtml
-Title: The book says: the...
+Format: html
+Title: Laws of marketing #20 (hype)
 
-The book says: the situation is often the opposite of the way it appears in the press. The amount of hype isn't proportional to success, often failed products are heavily hyped.
+<a href="http://www.amazon.com/exec/obidos/ASIN/0887306667">The
+book</a> says: the situation is often the opposite of the way it appears in the 
+press. The amount of hype isn't proportional to success, failed products are often
+heavily hyped.
+
+<p>See also <a href="http://www.ericsink.com/laws/Law_20.html">
+Eric's take</a></p>

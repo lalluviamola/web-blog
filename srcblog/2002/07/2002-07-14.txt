@@ -1,5 +1,12 @@
 Date: 2002-07-14 01:01:08
-Format: wphtml
-Title: The book says: unless...
+Format: html
+Title: Laws of marketing #17 (unpredictability)
 
-The book says: unless you write your competitors' plans, you can't predict the future. You don't know the future, you don't know what your competition will do so you have to build your company and marketing strategies to be flexible, to be able to quickly respond to changing situation.
+<a href="http://www.amazon.com/exec/obidos/ASIN/0887306667">The
+book</a> says: unless you write your competitors' plans, you can't predict the 
+future. You don't know the future, you don't know what your competition will do so 
+you have to build your company and marketing strategies to be flexible, to be able 
+to quickly respond to changing situation.
+
+<p>See also <a href="http://www.ericsink.com/laws/Law_17.html">
+Eric's take</a></p>

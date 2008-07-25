@@ -1,5 +1,5 @@
 Date: 2002-07-30 13:57:36
-Format: wphtml
-Title: Programming Jabber
+Format: html
+Title: "Programming Jabber"
 
-<B>Programming Jabber</B>. Just finished reading DJ Adam's <A href="http://www.amazon.com/exec/obidos/ASIN/0596002025/">Programming Jabber</A>. Jabber is an interesting but not revolutionary (IMO) technology. It's an Instant Messaging protocol like AIM, ICQ or Microsoft Messenger. What makes it different is that unlike those proprietary protocols you can run your own Jabber server (there's both open-source server and commercial ones). Jabber also puts emphasis on being a p2p platform instead of just limited IM service. The book is a good introduction to Jabber, its protocol and kinds of applications that can be built on top of it. Good if only to stimulate your thinking.
+Just finished reading DJ Adam's <A href="http://www.amazon.com/exec/obidos/ASIN/0596002025/">Programming Jabber</A>. Jabber is an interesting but not revolutionary (IMO) technology. It's an Instant Messaging protocol like AIM, ICQ or Microsoft Messenger. What makes it different is that unlike those proprietary protocols you can run your own Jabber server (there's both open-source server and commercial ones). Jabber also puts emphasis on being a p2p platform instead of just limited IM service. The book is a good introduction to Jabber, its protocol and kinds of applications that can be built on top of it. Good if only to stimulate your thinking.

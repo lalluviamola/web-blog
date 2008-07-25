@@ -79,11 +79,12 @@ def parse_blog_post_headers(post_path):
     vals[name] = val
   fo.close()
   if "date" not in vals:
-	print("Invalid post '%s'" % post_path)
-	print vals
+    print("Invalid post '%s'" % post_path)
+    print vals
   assert "date" in vals
   assert "format" in vals
   assert "title" in vals
+  vals["title"] = vals["title"].rstrip(".")
   return vals
 
 def get_blog_post_content(post_path):
@@ -99,6 +100,12 @@ def get_blog_post_content(post_path):
   fo.close()
   return "".join(lines)
 
+def is_draft(vals):
+  if not "draft" in vals:
+    return False
+  v = vals["draft"].strip().lower()
+  return v in ["1", "yes", "true"]
+
 def scan_posts(path):
   def callback(allfiles, dirname, fnames):
     if ".svn" in dirname: return
@@ -110,8 +117,9 @@ def scan_posts(path):
         #print("dir: %s, file: %s" % (dirname, fname))
         filepath = os.path.join(dirname, fname)
         vals = parse_blog_post_headers(filepath)
-        vals["file"] = filepath
-        allfiles[filepath] = vals
+        if not is_draft(vals):
+          vals["file"] = filepath
+          allfiles[filepath] = vals
         #print vals
 
   allfiles = {}
@@ -126,30 +134,35 @@ def onlyascii(c):
   else: 
     return c
 
+def urlify(s):
+  s = s.strip().lower()
+  s = filter(onlyascii, s)
+  for c in [" ", "_", "=", ".", ";", ":", "/", "\\", "\"", "'", "(", ")", "{", "}", "?", ","]:
+    s = s.replace(c, "-")
+  # TODO: a crude way to convert two-or-more consequtive '-' into just one
+  # it's really a job for regex
+  while True:
+    new = s.replace("--", "-")
+    if new == s:
+      break
+    #print "new='%s', prev='%s'" % (new, s)
+    s = new
+  s = s.strip("-")[:48]
+  s = s.strip("-")
+  return s
+
 # generate unique, pretty url names for posts. 
 def gen_urls(posts):
   all_urls = {}
   for p in posts:
-    (y,m) = p["date"].split("-",2)[:2]
-    pretty = p["title"].strip()
-    pretty = pretty.lower()
-    pretty = filter(onlyascii, pretty)
-    for c in [" ", "_", ".", ";", ":", "/", "\\", "\"", "'", "(", ")", "?"]:
-      pretty = pretty.replace(c, "-")
-    while True:
-      new = pretty.replace("--", "-")
-      if new == pretty:
-        break
-      #print "new='%s', prev='%s'" % (new, pretty)
-      pretty = new
-    pretty = pretty.strip("-")
-    pretty = pretty[:48]
-    pretty = pretty.strip("-")
+    dateymd = p["date"].split(" ")[0]
+    (y,m,d) = dateymd.split("-")
+    pretty = urlify(p["title"])
     n = 0
-    full = "%s/%s/%s.html" % (y,m,pretty)
+    full = "blog/%s/%s/%s/%s.html" % (y,m,d,pretty)
     while full in all_urls:
       n += 1
-      full = "%s/%s/%s-%d.html" % (y,m,pretty,n)
+      full = "blog/%s/%s/%s/%s-%d.html" % (y,m,d,pretty,n)
     all_urls[full] = 1
     p["url"] = full
     #print("'%s' '%s'" % (full,p["title"]))
@@ -174,8 +187,8 @@ def get_post_html_content(post):
   if format == "wphtml":
     body = linebreaks(body)
   elif format == "html":
-    # do nothing, just note that we support that
-	pass
+    # do nothing, leave it as it is
+    pass
   elif format == "textile":
     txt = body.encode('utf-8')
     body = textile.textile(txt, encoding='utf-8', output='utf-8')
@@ -275,8 +288,8 @@ def main():
   write_feed(posts)
   for p in posts:
     url = p["url"]
-    (y,m,name) = url.split("/")
-    filename = os.path.join("..", "www", y, m, name)
+    urlparts = url.split("/")
+    filename = os.path.join("..", "www", *urlparts)
     write_one_post(p, filename)
   latest = posts[-1]
   filename = os.path.join("..", "www", "index.html")

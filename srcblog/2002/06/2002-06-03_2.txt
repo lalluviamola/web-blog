@@ -1,5 +1,6 @@
 Date: 2002-06-03 11:32:34
 Format: wphtml
 Title: My first impressions are good
+Draft: 1
 
 My first impressions are good. After creating new post it appears immediately on the public web site hosted by Userland. I don't have such luck with the template yet. I've changed it, I can see it on my local&nbsp;web server&nbsp;but it's not updated in public site. Can it be that this option doesn't work on trial copy?

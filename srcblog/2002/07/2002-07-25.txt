@@ -1,5 +1,37 @@
 Date: 2002-07-25 11:17:52
-Format: wphtml
-Title: The end of the free (LWN).
+Format: html
+Title: The end of the free
 
-<B>The end of the free (LWN).</B> An excellent site <A href="http://www.lwn.net/">Linux Weekly News</A> has just <A href="http://lwn.net/Articles/5409/">announced</A> that, barring immediate miracles, they're closing shop on August 1. Those are bad news - LWN has been an excellent site providing weekly pro-Linux, pro-open source and anti-Microsoft news with excellent, thoughtful commentary. This event, as sad as it is, illustrates a very simple economical principle: you cannot make money on something that can be obtained for free. The cost is not directly related to quality. Despite being truly best-of-the-web, popular and running on a tight budget, the people involved cannot find a way to pay the bills. The magazine has been running for some time on the dot-com wave when everybody thought that Internet was a goose laying golden eggs but when the reality kicked in the numbers says that the site cannot turn a profit. Donations have been tried but it seems that even popular site with loyal and sympathetic readers cannot make enough money that way to stay in business. And no other option seems to be in the sight. This is also a main problem of open-source when it comes to making money: by definition of open-source you effectively have to give away the software for free. If people can get the software for free, they won't pay. Tom Lord, hard-working and excellent programmer, is <A href="http://www.regexps.com/">finding this out</A> the hard way. I wish him luck, I wish LWN luck, but don't expect that they'll have it.
+An excellent site <A href="http://www.lwn.net/">Linux Weekly News</A> has just 
+<A href="http://lwn.net/Articles/5409/">announced</A> that, barring immediate 
+miracles, they're closing shop on August 1. 
+<p>Those are bad news - LWN has been an 
+excellent site providing weekly pro-Linux, pro-open source and anti-Microsoft news 
+with excellent, thoughtful commentary. </p>
+
+<p>This event, as sad as it is, illustrates a 
+very simple economical principle: you cannot make money on something that can be 
+obtained for free.</p>
+
+<p>The cost is not directly related to quality. Despite being truly 
+best-of-the-web, popular and running on a tight budget, the people involved cannot 
+find a way to pay the bills. The magazine has been running for some time on the 
+dot-com wave when everybody thought that Internet was a goose laying golden eggs 
+but when the reality kicked in the numbers says that the site cannot turn a profit. 
+</p>
+
+<p>Donations have been tried but it seems that even popular site with loyal and 
+sympathetic readers cannot make enough money that way to stay in business. And no 
+other option seems to be in the sight. </p>
+
+<p>This is also a main problem of open-source 
+when it comes to making money: by definition of open-source you effectively have to 
+give away the software for free. If people can get the software for free, they 
+won't pay. Tom Lord, hard-working and excellent programmer, is <A 
+href="http://www.regexps.com/">finding this out</A> the hard way. 
+</p>
+
+<p>I wish him luck, 
+I wish LWN luck, but don't expect that they'll have it.
+</p>
+

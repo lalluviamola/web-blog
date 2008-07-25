@@ -1,5 +1,6 @@
 Date: 2002-06-03 12:50:47
 Format: wphtml
 Title: Bad Radio
+Draft: 1
 
 <STRONG>Bad <A href="http://www.scripting.com">Radio</A></STRONG></P>&#013;&#010;<P>There we go - my first bad impression about Radio. I was using Radio's outliner. I like <A href="http://www.outliners.com">outliners</A>. I was thinking that I could use&nbsp;Radio as my primary outliner. But that's not going to happen because Radio crashed on me and I've lost about half an hour of work. That's not the way to ship software, <A href="http://www.scripting.com">Dave</A>. My confidence in feasibility of outlining in Radio is shattered and my confidence in Radio in general (as a weblog tool) rather low.</P>&#013;&#010;<P>Ironically enough, I was trying to write about the lack of commercial outliners. It's back to Ecco for me.

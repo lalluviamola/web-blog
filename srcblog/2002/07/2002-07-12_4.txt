@@ -1,5 +1,11 @@
 Date: 2002-07-12 22:33:44
-Format: wphtml
-Title: The book says: when...
+Format: html
+Title: Laws of marketing #15 (candor)
 
-The book says: when you admit a negative, the prospect will give you a positive. Candor is disarming. It's ok to admit, as Avis did, that "Avis is only No. 2 in rent-a-cars".
+<a href="http://www.amazon.com/exec/obidos/ASIN/0887306667">The
+book</a> says: when you admit a negative, the prospect will give you a positive. 
+Candor is disarming. It's ok to admit, as Avis did, that "Avis is only No. 2 in 
+rent-a-cars".
+
+<p>See also <a href="http://www.ericsink.com/laws/Law_15.html">
+Eric's take</a></p>

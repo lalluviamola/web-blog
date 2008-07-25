@@ -1,5 +1,6 @@
 Date: 2002-07-15 11:13:25
 Format: wphtml
 Title: CNET "Microsoft jockeys to...
+Draft: 1
 
 <A href="http://news.com.com/2100-1001-943693.html">CNET</A> <I>"Microsoft jockeys to curb the threat open-source MPEG-4 poses to the company's proprietary digital media formats."</I> And since when a format can be "open-source"? Especially not even very open format like MPEG-4. You would think that CNET should know better than this.

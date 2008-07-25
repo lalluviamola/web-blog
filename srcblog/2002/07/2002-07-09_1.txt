@@ -1,5 +1,6 @@
 Date: 2002-07-09 13:05:02
 Format: wphtml
 Title: And since we're talking...
+Draft: 1
 
 And since we're talking about <A href="http://www.regexps.com/arch.html">arch</A>. Here's an intro to <A href="http://radio.weblogs.com/0109158/stories/2002/07/08/competitionToCvs.html">programs competing with CVS</A>

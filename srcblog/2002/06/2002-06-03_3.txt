@@ -1,5 +1,6 @@
 Date: 2002-06-03 11:34:29
 Format: wphtml
 Title: Oh, heavens, as...
+Draft: 1
 
 Oh, heavens, as I suspected, posting a new item also updated the template. Life's good but would be even&nbsp; better if this thing had a spell-check. Too bad Microsoft didn't bundle spell-checker with the OS. You would think it would be simpler to code than a web browser.

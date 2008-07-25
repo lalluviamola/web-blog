@@ -1,5 +1,6 @@
 Date: 2002-07-16 13:58:00
 Format: wphtml
 Title: Or maybe not
+Draft: 1
 
 Or maybe not. Direct mail didn't die even though direct mailers have to pay to produce and send&nbsp;this largely ignored junk. And it still pays. I just hope that there is a difference between SPAM and direct mailing: direct mailing has at least a shadow of credibility while SPAM doesn't. SPAM crossed the line - I get more SPAM messages that legit ones (and thank god for SpamAssasin and <A href="http://www.fastmail.fm">fastmail.fm</A> for filtering them). Inboxes are flooded with crap and everyone knows (or soon will know) how bad it stinks and won't touch it even with the longest stick.
