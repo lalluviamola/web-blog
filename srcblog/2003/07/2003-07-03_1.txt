@@ -1,6 +1,7 @@
 Date: 2003-07-03 22:29:39
 Format: wphtml
 Title: Testing Zempt 0.3
+Draft: 1
 
 <b>Testing Zempt 0.3</b> Zempt, a weblog posting tools, <a href="http://www.zempt.com/">has just been released</a>. Compared to <a href="http://blog.kowalczyk.info/archives/000349.html">previous version</a>, it has many improvements:
 <ul>

@@ -1,9 +1,8 @@
 Date: 2003-06-09 02:55:29
 Format: wphtml
 Title: iEdit - another collaborative editor.
+Draft: 1
 
-<b>iEdit - another collaborative editor.</b>
-<a href="http://www.silvernetwork.net/~quiksw/othersoftware/iedit.html">iEdit</a>
-is a multi-platform (Mac OS X, Mac OS 9/Windows) <a href="http://hydra.globalse.org/">Hydra</a> clone.
-(Hydra is Mac-only). I tried it but I couldn't do anything without connecting somewhere
-and didn't know where to connect.
+<a href="http://www.silvernetwork.net/~quiksw/othersoftware/iedit.html">iEdit</a> is a multi-platform (Mac OS X, Mac OS 9/Windows) <a href="http://hydra.globalse.org/">Hydra</a> clone (Hydra is Mac-only).
+
+I tried it but I couldn't do anything without connecting somewhere and didn't know where to connect.

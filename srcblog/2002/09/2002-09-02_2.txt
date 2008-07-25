@@ -1,5 +1,6 @@
 Date: 2002-09-02 07:45:20
 Format: wphtml
 Title: Interesting tool: http:...
+Draft: 1
 
 Interesting tool: <A href="http://www.fourmilab.ch/webtools/rpmsize/">http://www.fourmilab.ch/webtools/rpmsize/</A>. It'll show which RPM packages take most of the space on your hard-drive. You can use this information to delete those that take a lot of space (and you have no need for).

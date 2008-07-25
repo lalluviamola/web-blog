@@ -1,8 +1,8 @@
 Date: 2003-12-12 15:41:28
 Format: wphtml
 Title: Better threaded view in Thunderbird.
+Draft: 1
 
-<b>Better threaded view in Thunderbird.</b>
 <a href="http://blog.kowalczyk.info/archives/000528.html#000528">I wrote</a> that in <a href="http://www.mozilla.org/projects/thunderbird/">Thunderbird</a> "there's no way to get a threaded view that combines e-mail that I've sent with the one that I've received". <a href="http://gammatron.novarese.net/">Paul</a> corrected me:
 <blockquote>
 Actually, there is.  Go to tools -> account settings -> copies &amp; folders, uncheck "place a copy in" and check "BCC these addresses" and put your own address in there.  Then everything you send shows up in your inbox instead of a sent folder, and you can sort the entire inbox by thread, with your messages in with the ones you're replying to.

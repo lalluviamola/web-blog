@@ -2,29 +2,16 @@ Date: 2003-03-19 07:43:02
 Format: wphtml
 Title: Sorry state of computing - take one
 
-<b>Sorry state of computing - take one.</b>
+I keep being amazed and the extraordinarily poor state of software. I'm running the most current MS OS (Windows XP Professional) on a brand DELL desktop computer and today I've witnessed two problems that shouldn't happen. 
 
-I keep being amazed and the extraordinarily poor state of software. I'm running the most current MS 
-OS (Windows XP Professional) on a brand DELL desktop computer and today I've 
-witnessed two problems that shouldn't happen. Today Danger released their 
-development tools SDK (so that you can build programs and run them on an 
-emulator) on their <a href="http://developer.danger.com/">developer web site</a>. 
-In order to run them I had to install Java SDK. That was the first problem: Java 
-installation (created using InstallShield) hanged at the very end. Or seemed 
-hanged - after waiting more than half an hour watching my CPU spinning at 100% 
-I've decided to restart OS (which somehow forced the installation to end 
-although I had to kill the installation process in order to restart).<p>After 
-setting up Java and Ant I compiled HelloWorld example for SideKick and ran it in 
-the emulator. Pressing ESC key caused blue-screen in ATI video driver. The good 
-thing is that Microsoft's Online Crash Analysis informed me that this was most 
-likely caused by ATI Graphics Driver and that an updated version is available at
-<a href="http://www.ati.com">www.ati.com</a> site. The bad part is that when 
-accessed with IE 6 (which is the latest, greatest version of the most popular 
-web browser) I get tons of JavaScript errors. It's one thing that every time it 
-happens IE asks me if I want to debug (as if I cared) making actually using the 
-site impossible. But what a bonehead is in charge of ATI's web site? Do they 
-ever test it? Do they ever try to access it using the most popular (currently) 
-tools? It's an amazing show of incompetence at ATI's part.</p>
-<p>Anyway, I've downloaded the drivers from Dell support site. Although the 
-driver version didn't seem to change, the problem is gone (or at least I didn't 
-hit again yet).
+Today Danger released their development tools SDK (so that you can build programs and run them on an emulator) on their <a href="http://developer.danger.com/">developer web site</a>.
+
+In order to run them I had to install Java SDK. That was the first problem: Java installation (created using InstallShield) hanged at the very end. Or seemed hanged - after waiting more than half an hour watching my CPU spinning at 100% I've decided to restart OS (which somehow forced the installation to end although I had to kill the installation process in order to restart).
+
+After setting up Java and Ant I compiled HelloWorld example for SideKick and ran it in the emulator. Pressing ESC key caused blue-screen in ATI video driver. The good thing is that Microsoft's Online Crash Analysis informed me that this was most likely caused by ATI Graphics Driver and that an updated version is available at <a href="http://www.ati.com">ati.com site</a>.
+
+The bad part is that when accessed with IE 6 (which is the latest, greatest version of the most popular web browser) I get tons of JavaScript errors. It's one thing that every time it happens IE asks me if I want to debug (as if I cared) making actually using the site impossible. 
+
+What a bonehead is in charge of ATI's web site? Do they ever test it? Do they ever try to access it using the most popular (currently) tools? It's an amazing show of incompetence at ATI's part.
+
+Anyway, I've downloaded the drivers from Dell support site. Although the driver version didn't seem to change, the problem is gone (or at least I didn't hit again yet).

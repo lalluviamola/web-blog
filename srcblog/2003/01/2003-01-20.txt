@@ -1,8 +1,8 @@
 Date: 2003-01-20 01:55:02
-Format: wphtml
+Format: html
 Title: Source Insight 3.5
 
-<b>Source Insight 3.5</b> A new version of Source Insight (3.5) 
+A new version of Source Insight (3.5) 
 <a href="http://www.sourceinsight.com">has been 
 released</a>. Source Insight is a programmer's editor. If you code on a big 
 C/C++, C# or Java projects - go check it out. I can't live without it. If only they had support for Python.

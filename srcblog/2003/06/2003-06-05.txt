@@ -1,8 +1,8 @@
 Date: 2003-06-05 04:11:20
-Format: wphtml
+Format: html
 Title: Given enough eyeballs make all bugs shallow...
 
-<b>Given enough eyeballs make all bugs shallow...</b> One famous argument made 
+One famous argument made 
   by <a href="http://armedndangerous.blogspot.com/">Eric Raymond</a> in favor 
   of open-source is "<a href="http://www.openresources.com/documents/cathedral-bazaar/node4.html">given 
   enough eyeballs, all bugs are shallow.</a>&quot; The argument goes like this: 

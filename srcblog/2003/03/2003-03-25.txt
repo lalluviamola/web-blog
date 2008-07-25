@@ -1,8 +1,7 @@
 Date: 2003-03-25 03:35:59
 Format: wphtml
 Title: The quotes
-
-<b>The quotes.</b>
+Draft: 1
 
 Oh, <a href="http://www.gumption.org/1996/quotes.htm">the quotes</a>. I love 
 them.

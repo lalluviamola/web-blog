@@ -1,8 +1,5 @@
 Date: 2003-06-11 22:11:56
 Format: wphtml
-Title: On difference between amateur and professional shareware.
+Title: On difference between amateur and professional shareware
 
-<b>On difference between amateur and professional shareware.</b> <a href="http://www.dexterity.com/articles/shareware-amateurs-vs-shareware-professionals.htm">This 
-article</a> talks about the difference between people who write professional vs. 
-amateur shareware (that's the author's spin although it's really about being market 
-driven vs. being in love with your own ideas).
+<a href="http://web.archive.org/web/20061027061204/http://www.dexterity.com/articles/shareware-amateurs-vs-shareware-professionals.htm">This article</a> talks about the difference between people who write professional vs. amateur shareware (that's the author's spin although it's really about being market driven vs. being in love with your own ideas).

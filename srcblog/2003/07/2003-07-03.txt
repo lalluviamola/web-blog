@@ -2,4 +2,4 @@ Date: 2003-07-03 20:48:22
 Format: wphtml
 Title: O'Reilly on software.
 
-<b>O'Reilly on software.</b> O'Reilly says: <a href="http://www.oreillynet.com/pub/wlg/3422">all software should be network aware</a>.
+O'Reilly says: <a href="http://www.oreillynet.com/pub/wlg/3422">all software should be network aware</a>.

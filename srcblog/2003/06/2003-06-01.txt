@@ -1,5 +1,5 @@
 Date: 2003-06-01 21:59:45
-Format: wphtml
+Format: html
 Title: Anti-perl rant.
 
 <a href="http://www.underlevel.net/jordan/erik-perl.txt">The rant</a> is not mine but entertaining.

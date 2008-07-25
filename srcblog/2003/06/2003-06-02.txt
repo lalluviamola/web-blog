@@ -1,7 +1,7 @@
 Date: 2003-06-02 11:58:33
 Format: wphtml
-Title: Linux for desktop - ha, ha..
+Title: Linux for desktop
 
-<b>Linux for desktop - ha, ha, ha ...</b>. Typical Linux experience. Using one of the most mainstream distributions (RedHat 8) I tried to run a simple application (<a href="http://meld.sourceforge.net/">meld</a>). I spent (literally) hours trying to satisfy gnome-python dependencies (which involves downloading source to multiple packages (like ORBit-2, pygtk, linc, libIDL, glib, pkgconfig), compiling them, fixing strange pkg-config issues, hacking the source because apparently the dependencies aren't correctly updated and seem to require slightly higher version of libgnomevfs). Of course, I failed - the application still doesn't run.
-<p>
+Typical Linux experience. Using one of the most mainstream distributions (RedHat 8) I tried to run a simple application (<a href="http://meld.sourceforge.net/">meld</a>). I spent (literally) hours trying to satisfy gnome-python dependencies (which involves downloading source to multiple packages (like ORBit-2, pygtk, linc, libIDL, glib, pkgconfig), compiling them, fixing strange pkg-config issues, hacking the source because apparently the dependencies aren't correctly updated and seem to require slightly higher version of libgnomevfs). Of course, I failed - the application still doesn't run.
+
 Linux for desktop - yeah, right.

@@ -2,7 +2,7 @@ Date: 2004-12-30 03:10:34
 Format: wphtml
 Title: Google - we take it all, give nothing back.
 
-I have a new hobby: <a href="http://blog.kowalczyk.info/archives/2004/12/25/google-ultimate-hypocrite/">inventing advertising slogans</a> for Google. Being the nice guy
+I have a new hobby: <a href="../../../2004/12/25/google-ultimate-hypocrite/">inventing advertising slogans</a> for Google. Being the nice guy
 that I am, I grant Google non-exclusive, non-transferable right to use
 those slogans in their marketing efforts.
 

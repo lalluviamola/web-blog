@@ -8,7 +8,7 @@ Let's go over arguments one by one. I'll summarize them but you're well advised 
 
 Scott starts by saying that he thinks wikis are useful but should not be bundled with blogs.
 
-His first argument is that wikis are different than blogs. I agree with that and I said the same thing in <a href="http://blog.kowalczyk.info/archives/2004/06/09/of-weblogs-and-wikis/">my original post</a>, see section "why not just use blogs for that?".  I don't see how this is an argument against including wiki functionality in blogging software. 
+His first argument is that wikis are different than blogs. I agree with that and I said the same thing in <a href="../../../2004/06/09/of-weblogs-and-wikis.html">my original post</a>, see section "why not just use blogs for that?".  I don't see how this is an argument against including wiki functionality in blogging software. 
 
 I don't advocate replacing blogs with wikis or making wikis behave like blogs. The way I think about it is <b>bundling</b>. When you buy Microsoft Office, you get multiple apps, among them Word and Excel. They serve quite different purposes yet they're bundled together because there's a large percentage of people that might find them both useful. 
 

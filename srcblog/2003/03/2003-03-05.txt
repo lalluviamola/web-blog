@@ -1,8 +1,6 @@
 Date: 2003-03-05 06:35:53
-Format: wphtml
+Format: html
 Title: Talk about MOP
-
-<b>Talk about MOP.</b>
 
 <a href="http://murl.microsoft.com/LectureDetails.asp?259">This</a> is a very good talk 
 about MOP (Meta-Object Protocol) by one of its inventors, Gregor Kiczales. CLOS 

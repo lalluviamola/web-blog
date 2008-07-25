@@ -1,8 +1,9 @@
 Date: 2003-01-20 01:55:47
 Format: wphtml
 Title: GForge
+Draft: 1
 
-<b>GForge.</b> When talking about my &quot;<a href="http://blog.kowalczyk.info/archives/000254.html#000254">p2p, desktop 
+When talking about my &quot;<a href="http://blog.kowalczyk.info/archives/000254.html#000254">p2p, desktop 
 Source Forge</a>&quot; idea, I spoke ill about Source Forge (because I think 
 their UI is terrible). When VA pretty much stopped working of free code (because 
 they now depend on sales of their PRO version) the idea has been picked up by 

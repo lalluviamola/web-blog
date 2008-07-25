@@ -2,7 +2,7 @@ Date: 2004-06-12 14:36:57
 Format: wphtml
 Title: More productivity tips.
 
-As you can tell from reading <a href="/archives/2004/06/10/a-tip-from-getting-things-done/">this post</a> I'm interested in increasing my productivity. <a href="http://craphound.com/lifehacks2.txt">Life Hacks</a> is a summary of approaches taken by uber-productive net personalities like jzw, GvR, Tim Bray or ESR. It's also <a href="http://www.boingboing.net/2004/06/06/danny_obriens_life_h.html">summarized here</a>.
+As you can tell from reading <a href="../../../2004/06/10/a-tip-from-getting-things-done.html">this post</a> I'm interested in increasing my productivity. <a href="http://craphound.com/lifehacks2.txt">Life Hacks</a> is a summary of approaches taken by uber-productive net personalities like jzw, GvR, Tim Bray or ESR. It's also <a href="http://www.boingboing.net/2004/06/06/danny_obriens_life_h.html">summarized here</a>.
 
 My summary: it's all about managing knowledge in a simple format that allows easy searching and is cross-platform. The format of choice seems to be plain text file and a tool of choice is a text editor.
 
@@ -16,7 +16,7 @@ Then I tried wiki-like desktop apps like FlexWiki and WikiPad. While the idea is
 
 The I tried highly polished product: Microsoft's OneNet. While looking nice it doesn't use open format and is very wasteful when it comes to using screen space. The main activity is writing and copy&paste of texts and OneNet isn't optimized for that.
 
-So what's next? I just <a href="http://blog.kowalczyk.info/archives/2004/06/04/wikipedia-as-a-personal-wiki/">installed myself a wiki</a> and started using it for my knowledge repository. Good things about wiki for knowledge managements:
+So what's next? I just <a href="../../../2004/06/04/wikipedia-as-a-personal-wiki.html">installed myself a wiki</a> and started using it for my knowledge repository. Good things about wiki for knowledge managements:
 <ul>
 <li>flexible structure (you can create any structure you want)</li>
 <li>full-text search</li>

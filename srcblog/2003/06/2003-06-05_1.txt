@@ -1,5 +1,6 @@
 Date: 2003-06-05 14:46:10
 Format: wphtml
 Title: Color SideKick to be released tomorrow.
+Draft: 1
 
-<b>Color SideKick to be released tomorrow.</b> According to <a href="http://hiptop.com/forums/viewtopic.php?t=4962">this post</a>, a <a href="http://computers.cnet.com/hardware/0-2709830-404-21169039.html?txt">color version of SideKick</a> is to be released tomorrow. Expected cost: $299. New T-Mobile plans will also be available, the most interesting one seems to be: choose any voice plan and add $20 for unlimited data. Cellular operators are finally coming to their senses.
+According to <a href="http://hiptop.com/forums/viewtopic.php?t=4962">this post</a>, a <a href="http://computers.cnet.com/hardware/0-2709830-404-21169039.html?txt">color version of SideKick</a> is to be released tomorrow. Expected cost: $299. New T-Mobile plans will also be available, the most interesting one seems to be: choose any voice plan and add $20 for unlimited data. Cellular operators are finally coming to their senses.

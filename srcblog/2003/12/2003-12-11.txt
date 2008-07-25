@@ -1,6 +1,7 @@
 Date: 2003-12-11 05:54:25
 Format: wphtml
 Title: The battle of IMAP e-mail clients.
+Draft: 1
 
 <b>The battle of IMAP e-mail clients.</b>
 After <a href="http://blog.kowalczyk.info/archives/000525.html#000525">I complained</a> about the lack of decent IMAP e-mail clients I went searching for a perfect one. Or at least a usable one.

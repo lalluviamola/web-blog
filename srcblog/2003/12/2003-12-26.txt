@@ -1,8 +1,7 @@
 Date: 2003-12-26 18:35:03
 Format: wphtml
 Title: Playing with M2, Opera's e-mail client
-
-<b>Playing with M2, Opera's e-mail client</b>
+Draft: 1
 
 I just installed Opera and curiously it comes with a bundled e-mail client called M2.
 I'm not entirely satisfied with <a href="http://blog.kowalczyk.info/archives/000528.html#000528">Thunderbird 0.4</a> so I decided to give it a try. First impression was very favourable:

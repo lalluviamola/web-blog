@@ -1,8 +1,6 @@
 Date: 2003-06-23 07:43:22
-Format: wphtml
+Format: html
 Title: My future is so bright that I'll need to wear sunglasses.
-
-<b>My future is so bright that I'll need to wear sunglasses.</b>
 
 I wonder how sympathetic people will be to Eric Kidd's plea formulated in <a href="http://www.randomhacks.net/stories/the-missing-future.html">The Missing Future</a> article. There's a little bit for everyone: a bit of Microsoft bashing, a bit of love-and-hate relationship with open-source and a bit of nostalgia for the lost days 
 of the golden era of software entrepreneurship  when you could change the world *and* make lots of money as a  small software developer. As for me, the article tickles me the wrong way.

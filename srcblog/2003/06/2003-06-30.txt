@@ -1,8 +1,6 @@
 Date: 2003-06-30 21:39:38
-Format: wphtml
+Format: html
 Title: Programmers don't steal enough.
-
-<b>Programmers don't steal enough.</b>
 
 Now that I have your attention: what I really mean is that software designer do 
 not take advantage of the Giants as much as they could.<p>It's sad that the act 

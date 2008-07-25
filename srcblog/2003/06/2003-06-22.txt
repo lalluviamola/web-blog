@@ -1,8 +1,7 @@
 Date: 2003-06-22 22:55:57
-Format: wphtml
+Format: html
 Title: Business lessons from Adobe.
 
-<b>Business lessons from Adobe.</b>
 <a href="http://www.bayarea.com/mld/mercurynews/6144832.htm">This article</a> cought my
 attention. I think there are several important lessons about software business
 that can be inferred from it.

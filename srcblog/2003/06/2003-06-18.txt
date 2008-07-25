@@ -1,5 +1,6 @@
 Date: 2003-06-18 14:01:52
 Format: wphtml
 Title: Treo 600 - more info.
+Draft: 1
 
 <b>Treo 600 - more info.</b> CNET has <a href="http://rss.com.com/2100-1041_3-1018376.html?tag=lh">more information</a> on upcoming Treo 600. On the picture looks very nice. It'll have OS 5.2, (finally) SD slot, (unfortunately only) 160x160 color screen, a keyboard and will be available through Sprint and Orange.

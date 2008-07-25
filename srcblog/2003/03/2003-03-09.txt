@@ -1,26 +1,35 @@
 Date: 2003-03-09 08:50:27
-Format: wphtml
+Format: html
 Title: A little bit of lying.
 
-<b>A little bit of lying.</b>
-In <a href="http://blog.kowalczyk.info/archives/000327.html#000327">my post</a> 
+In my post 
 about Symbian development tools I lied a bit (ignorance, not malice).
 <a href="http://radio.weblogs.com/0102385/">Chris Double</a>
 <a href="http://radio.weblogs.com/0102385/2003/03/08.html#a300">sets me straight</a>. 
-In my post I lumped together&nbsp; Symbian OS 6 (Nokia 3650) and Symbian OS 7 
+<p>
+In my post I lumped together Symbian OS 6 (Nokia 3650) and Symbian OS 7 
 (SonyEricsson P800) and I wrote that you cannot develop only using free tools. 
 That's not true: freely available SDKs for both versions of Symbian OS have 
 free, GCC-based tools that can create executables you can run directly on the 
-phone itself. You only need commercial tools (Visual C++ 6 for OS 6 and 
+phone itself. </p>
+
+<p>You only need commercial tools (Visual C++ 6 for OS 6 and 
 Metrowerks CodeWarrior for OS 7) if you want to be able to use 
-emulator/debugger. The catch here is that it's extremely hard to develop serious 
+emulator/debugger. 
+</p>
+
+<p>The catch here is that it's extremely hard to develop serious 
 applications without emulator and good debugging support. At best it's going to 
 take much more time and at worst it's going to be impossible. So one is kind of 
 forced to buy those tools and I'll stick to my conclusion that 
 Symbian/Nokia/Ericsson aren't doing nearly enough to support developers (and in 
-turn their market share). That being said CodeWarrior Personal Edition (which 
-should be good enough for efficient development) isn't that expensive ($399). To 
-finish on a positive note, a few links:<ul>
+turn their market share). </p>
+
+<p>That being said CodeWarrior Personal Edition (which 
+should be good enough for efficient development) isn't that expensive ($399). </P>
+
+<p>To finish on a positive note, a few links:
+<ul>
   <li>Series 60 SDK for Symbian OS 6 can be downloaded from
   <a href="http://www.forum.nokia.com/main/1,35452,1_36,00.html">Forum Nokia</a> 
   (free registration requires)</li>
@@ -36,3 +45,4 @@ finish on a positive note, a few links:<ul>
   with P800 phone</a> ($1150 so you don't save nothing since the phone itself is 
   $650)</li>
 </ul>
+</p>

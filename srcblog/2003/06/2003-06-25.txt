@@ -1,8 +1,6 @@
 Date: 2003-06-25 01:24:36
-Format: wphtml
+Format: html
 Title: Why consistency is important in software design.
-
-<b>Why consistency is important in software design.</b>
 
 I have a problem: none of the available file managers really meet my needs. 
 There's always something that bothers me either because a feature is missing or 

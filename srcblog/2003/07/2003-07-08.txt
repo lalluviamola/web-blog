@@ -1,8 +1,7 @@
 Date: 2003-07-08 04:43:35
 Format: wphtml
 Title: More about Zempt - MT weblog editor.
-
-<b>More about Zempt - MT weblog editor.</b>
+Draft: 1
 
 Recently I <a href="http://blog.kowalczyk.info/archives/000443.html#000443">wrote</a> about <a href="http://www.zempt.com/">Zempt</a>, a Movable Type weblog editor commenting on few things I found missing. <a href="http://kalsey.com/">Adam Kalsey</a>, one of the developers, was kind enough to comment on my comments. So here are his comments:
 <blockquote>

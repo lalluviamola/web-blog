@@ -1,5 +1,6 @@
 Date: 2002-09-08 03:17:42
 Format: wphtml
 Title: A tip for using Powermarks
+Draft: 1
 
 A tip for using <A href="http://www.kaylon.com/power.html">Powermarks</A>. Powermarks is a great bookmark manager. I'm no good when it comes to web design yet I have a few web sites that I have to "design". I can, however, appreciate a good design when I see it. The only viable approach for me is to steal other people's design (or, as some would say, "get inspired by"). So when I browse a web and see a nice design that I would like to be inspired by in the future, I it bookmark with Powermarks and add "webdesign" keyword. That way when I get to "designing" I can easily get back to interesting pages by typing "webdesign" in Powermarks's window. In other words, I use keywords to categorize links for easy retrieval. This can be extended to any category. The challenge here is twofold: &#013;&#010;<UL>&#013;&#010;<LI>do not forget keywords you're using &#013;&#010;<LI>keep adding keywords to bookmarks </LI></UL>I use Macros (a feature in Powermarks) to make sure I don't forget about keywords.

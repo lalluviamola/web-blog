@@ -1,24 +1,28 @@
 Date: 2003-06-28 05:15:03
-Format: wphtml
+Format: html
 Title: Software can always be better.
 
-<b>Software can always be better.</b>
-
 I told you that Frigate is the best file manager I know but it doesn't mean that 
-I think that it couldn't be better. Recently I wrote about the need for being 
+I think that it couldn't be better. 
+
+<p>Recently I wrote about the need for being 
 consistent. Ironically, there's another, opposite side to this story: it seems 
 that usually people just stick with the tried ideas which makes for suboptimal 
-progress in software. The best place to observe that is in a category with lots 
+progress in software.</p>
+
+<p>The best place to observe that is in a category with lots 
 of competition e.g. file manager, simple text editors or, to use a recent 
 example, Wikis or RSS aggregators. It looks like the first entrants create such 
 a strong precedent that the followers are usually content with copying them and 
 adding just a few, relatively small features. I rarely see a radical 
-improvements or a significant number of new features in any given applications. 
-They slowly grow as a whole because everyone copies other people's features 
+improvements or a significant number of new features in any given applications.</p>
+
+<p>They slowly grow as a whole because everyone copies other people's features 
 (which is good) but when I look at the difference between Frigate and Norton 
 Commander I'm really disappointed by the progress in the state-of-the-art of 
-file management apps in more than 10 years. There's probably more than one 
-reason for that:<ul>
+file management apps in more than 10 years. </p>
+
+<p>There's probably more than one reason for that:<ul>
   <li>writing software, in general, is hard</li>
   <li>there's probably not much money in the &quot;just another file manager&quot; 
   business (given the insane competition from free stuff (including Explorer 

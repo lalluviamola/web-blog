@@ -1,8 +1,7 @@
 Date: 2003-02-03 09:52:57
 Format: wphtml
 Title: Rich client is the future.
-
-<b> Rich client is the future.</b>
+Draft: 1
 
 I'm not the only one who thinks, that rich client apps are the future. I wrote 
 about it <a href="http://blog.kowalczyk.info/archives/000254.html#000254">here</a> and

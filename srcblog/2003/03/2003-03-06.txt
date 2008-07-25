@@ -1,8 +1,9 @@
 Date: 2003-03-06 06:11:32
-Format: wphtml
+Format: html
 Title: Palm OS dev newsgroups
 
-<b>Palm OS dev newsgroups.</b> There are two that I know of:<ul>
+There are two that I know of:
+<ul>
   <li>groups hosted at <a href="news://news.falch.net">news://news.falch.net</a></li>
   <li>groups hosted at <a href="news://news.palmos.com">news://news.palmos.com</a> 
   (but you have to first subscribe to each group
@@ -11,5 +12,5 @@ Title: Palm OS dev newsgroups
 </ul>
 <p>Of course my search for a good newsgroup reader continues. Just tried Windows 
 version of <a href="http://pan.rebelbase.com/">Pan</a> but it likes to crash (I 
-could live with that) and pretended that it forgotten all my newsgroups settings (that 
-was scary)
+could live with that) and pretended that it forgotten all my newsgroups settings.</p>
+

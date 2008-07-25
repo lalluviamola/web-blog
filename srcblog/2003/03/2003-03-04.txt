@@ -1,8 +1,6 @@
 Date: 2003-03-04 06:15:28
-Format: wphtml
+Format: html
 Title: Best mailing list archiver
-
-<b>Best mailing list archiver.</b>
 
 <a href="http://www.clearsilver.net/archive/">Archive</a> is the best mailing 
 list archiver I've seen so far. See it in action archiving

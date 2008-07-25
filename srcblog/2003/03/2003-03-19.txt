@@ -1,8 +1,7 @@
 Date: 2003-03-19 05:38:30
 Format: wphtml
 Title: Danger launches SDK
-
-<b>Danger launches SDK.</b>
+Draft: 1
 
 Well, almost does. API documentation is available at 
 <a href="http://developer.danger.com/">developer.danger.com</a>

@@ -2,8 +2,6 @@ Date: 2004-12-27 04:17:23
 Format: wphtml
 Title: Python 2.4, Windows and MySQL
 
-<b>Headline update:</b> I put <a href="http://blog.kowalczyk.info/software/mysql-python24/">mysql-python 1.0.0 binary for Python 2.4 on Windows</a> on my website, as a public service, so that you don't have to compile it yourself. However, read the warning.
-
 Things aren't peachy for those that like to live on the bleeding edge of technology. I just upgraded my Python Windows installation to the latest 2.4 version. As always, a few lessons have been learned.
 
 First tip: if you want SSL support (which includes ability to do HTTPS requests via built-in urllib, urllib2 and httplib modules), you need to use the binary from <a href="http://www.python.org">python.org</a>. The more popular (?) ActiveState Python install doesn't have SSL support (probably due to stupid goverment regulation banning crypto code).

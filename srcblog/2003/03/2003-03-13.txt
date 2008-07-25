@@ -1,8 +1,7 @@
 Date: 2003-03-13 03:21:50
 Format: wphtml
 Title: Vaio Z1 - notebook lust.
-
-<b>Notebook lust.</b>
+Draft: 1
 
 It's been a long time since I salivated about a notebook - my Dell Latitude C610 
 works just fine for me. But I wouldn't mind upgrading to

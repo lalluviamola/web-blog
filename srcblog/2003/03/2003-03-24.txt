@@ -2,7 +2,4 @@ Date: 2003-03-24 01:12:57
 Format: wphtml
 Title: Don't change URIs
 
-<b>Don't change URIs.</b>
-
-Just a friendly message from the Department Of Goodness: <a href="http://www.w3.org/Provider/Style/URI">don't change 
-your URIs</a> (in slightly more words but delivered by an authority).
+Just a friendly message from the Department Of Goodness: <a href="http://www.w3.org/Provider/Style/URI">don't change your URIs</a> (in slightly more words but delivered by an authority).

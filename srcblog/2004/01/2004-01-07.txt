@@ -1,9 +1,8 @@
 Date: 2004-01-07 23:10:15
-Format: wphtml
+Format: html
 Title: Zoe - google for e-mail.
+Draft: 1
 
-<b>Zoe - google for e-mail.</b>
-
-I've <a href="http://blog.kowalczyk.info/archives/000528.html">recently praised</a> e-mail search capabilities of <a href="http://www.statalabs.com/products/bloomba/overview.php">Bloomba</a>. A reader pointed me to <a href="http://zoe.nu/">Zoe</a>, an interesting, open-source project that was doing this type of e-mail googling <a href="http://zoe.nu/itstories/story.php?num=97&sec=0">before Bloomba</a>.
+A reader pointed me to <a href="http://zoe.nu/">Zoe</a>, an interesting, open-source project that was doing this type of e-mail googling <a href="http://zoe.nu/itstories/story.php?num=97&sec=0">before Bloomba</a>.
 <p>
 As an interesting note: it looks like Bloomba used to have a weblog (according to <a href="http://www.russellbeattie.com/notebook/1002062.html">this message</a>) but it doesn't anymore.</p>

@@ -1,12 +1,11 @@
 Date: 2004-03-07 21:57:53
-Format: wphtml
+Format: html
 Title: del.icio.us - bookmarks manager
 
-<b>del.icio.us - bookmarks manager</b>.
 I've seen people mentioning <a href="http://del.icio.us/">del.icio.us - social bookmarking service</a> for some time now but only today I've actually used it and it's brilliant. In the past I've used those bookmark-management methods:
 <ul>
 <li>using web browser's bookmarks. The problems with this approach is that I use multiple browser on multiple computers and there's no a good way to have the bookmarks synchronized (I'm sure there's $9.95 app somewhere out there that does bookmarks synchronization but even if there was a free one it would be too much hassle to install it). Besides, bookmark management in browsers is surprisingly weak (doesn't handle a large list of bookmarks well)
-<li><a href="http://blog.kowalczyk.info/archives/000152.html">using Powermarks</a>. I was enthusiastic at first, adding and keyword-marking a lot (1369 to be exact) of bookmarks but it turned out that long-term I wasn't using it. It only integrates with IE and I try to avoid running unnecessary software (not that I succeed at this). And it's still useless when running on multiple computers (it has a sync option via ftp but I don't have ftp account).
+<li>using Powermarks: I was enthusiastic at first, adding and keyword-marking a lot (1369 to be exact) of bookmarks but it turned out that long-term I wasn't using it. It only integrates with IE and I try to avoid running unnecessary software (not that I succeed at this). And it's still useless when running on multiple computers (it has a sync option via ftp but I don't have ftp account).
 </ul>
 
 <a href="http://del.icio.us">del.icio.us</a> solves most of those problems. It's server-based so you can use it on any computer. It integrates with IE and Mozilla/Firebird via bookmarklets - very convenient to use. It does have keyword-tagging feature. It works fast. But the killer feature is ability to browse other people's bookmarks. I got addicted to that for a few hours.

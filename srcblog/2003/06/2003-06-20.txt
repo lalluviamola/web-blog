@@ -2,4 +2,4 @@ Date: 2003-06-20 07:15:43
 Format: wphtml
 Title: Another ArsDigita story.
 
-<b>Another ArsDigita story.</b> <a href="http://michael.yoon.org/arsdigita">Another one</a> in the series.
+<a href="http://michael.yoon.org/arsdigita">Another one</a> in the series.
