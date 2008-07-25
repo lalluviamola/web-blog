@@ -2,5 +2,5 @@ Date: 2002-09-23 11:57:21
 Format: wphtml
 Title: No money in content.
 
-<b>No  money in content.</b> <a href="http://blog.kowalczyk.info/archives/000161.html">I wrote</a> that there's no money in blogging. <a href="http://www.downes.ca/cgi-bin/website/view.cgi?dbs=Article&key=1029950348&format=full">
+<a href="../../../2002/10/16/no-money-in-blogging.html">I wrote</a> that there's no money in blogging. <a href="http://www.downes.ca/cgi-bin/website/view.cgi?dbs=Article&key=1029950348&format=full">
 This article</a> is much more extensive treatise on why there isn't much money in on-line content. It features Economics 101 and shares my point of view that in order to have a business, there must be scarcity and there's hardly a scarcity in the on-line content area.

@@ -1,5 +1,21 @@
 Date: 2002-08-27 11:03:37
 Format: wphtml
-Title: A new hotness.
+Title: Clicktracks - a better log analysis
 
-<B>A new hotness.</B> <A href="http://www.clicktracks.com/">Here's an example</A> of something I strongly believe in: you can&nbsp;always do better. Furthermore, a way to make money on software is to produce better, unique apps. You would think that web server log analysis should be a solved problem by now. The market for good, useful tools is huge and the problem is old. In the past I used log analysis software and I wasn't impressed. Two leading free tools (<A href="http://www.analog.cx/">Analog</A> and <A href="http://www.mrunix.net/webalizer/">Webalizer</A>) are doing industrial-strength but very uninspired job. They are old and busted. They are Ford Ts. They don't go beyond producing basic stats and occasional graphs. (note: I haven't used commercial tools, maybe they're much better). I felt that it could be done better, that we need a Ferrari of log analysis tools, a new hotness. Unfortunately I didn't know how to build this new hotness but when I <A href="http://www.clicktracks.com/">saw it</A> I knew this is it. I'm not going to bore you with the details, just <A href="http://www.clicktracks.com/viewlets/60_second_demo_audio_viewlet_swf.html">see their 60 seconds demo</A>. I was blown away by simplicity and usefulness. It really takes analyzing logs to the next level. &#013;&#010;<P>Interesting: the author of <A href="http://www.analog.cx/">Analog</A> <A href="http://www.clicktracks.com/about_us.html">works</A> there. Is this really a 3 person company? &#013;&#010;<P>One painful thing: they use "patent pending technology". Ouch. No matter how smart they are and how great their ideas are, this software doesn't do anything a smart developer couldn't figure out. It's just extremely well executed good idea. Good but not earth-shattering. Parsing log files isn't a rocket science. I hate patent system for encouraging this land grab mentality in people.
+<A href="http://www.clicktracks.com/">Here's an example</A> of something I strongly believe in: you can always do better. 
+
+Furthermore, a way to make money on software is to produce better, unique apps. 
+
+You would think that web server log analysis should be a solved problem by now. The market for good, useful tools is huge and the problem is old. In the past I used log analysis software and I wasn't impressed. 
+
+Two leading free tools (<A href="http://www.analog.cx/">Analog</A> and <A href="http://www.mrunix.net/webalizer/">Webalizer</A>) are doing industrial-strength but very uninspired job. They are old and busted. They are Ford Ts. They don't go beyond producing basic stats and occasional graphs (note: I haven't used commercial tools, maybe they're much better). 
+
+I felt that it could be done better, that we need a Ferrari of log analysis tools, a new hotness. Unfortunately I didn't know how to build this new hotness but when I <A href="http://www.clicktracks.com/">saw it</A> I knew this is it. I
+
+'m not going to bore you with the details, just <A href="http://www.clicktracks.com/viewlets/60_second_demo_audio_viewlet_swf.html">see their 60 seconds demo</A>. 
+
+I was blown away by simplicity and usefulness. It really takes analyzing logs to the next level.
+
+Interesting: the author of <A href="http://www.analog.cx/">Analog</A> <A href="http://www.clicktracks.com/about_us.html">works</A> there. Is this really a 3 person company? 
+
+One painful thing: they use "patent pending technology". Ouch. No matter how smart they are and how great their ideas are, this software doesn't do anything a smart developer couldn't figure out. It's just extremely well executed good idea. Good but not earth-shattering. Parsing log files isn't a rocket science. I hate patent system for encouraging this land grab mentality in people.

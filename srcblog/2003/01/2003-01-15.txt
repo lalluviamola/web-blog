@@ -1,11 +1,8 @@
 Date: 2003-01-15 03:29:31
 Format: wphtml
-Title: Somebody's reading.
+Title: Somebody's reading
 
-<b>Somebody's reading.</b>
-
-Turns out that somebody's reading this weblog. I got this e-mail from some gentle reader regarding 
-<a href="http://blog.kowalczyk.info/archives/000254.html#000254">my idea</a>:
+Turns out that somebody's reading this weblog. I got this e-mail from some gentle reader regarding my idea:
 <blockquote><i>
 There is a commercial app called 
 <a href="http://www.relisoft.com/co_op/datasheet.html">Code Coop</a>  that at least talks up many of the same features

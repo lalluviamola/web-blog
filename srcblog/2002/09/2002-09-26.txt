@@ -2,7 +2,7 @@ Date: 2002-09-26 23:22:02
 Format: wphtml
 Title: Close but no cigar.
 
-<b>Close but no cigar.</b> <a href="http://blog.kowalczyk.info/archives/000185.html#000185">I wrote</a> that Sony Ericsson doesn't get it, as evidenced by the fact that they don't have any free dev tools for their upcoming P800 phone. <a href="http://www.allabouter6.com/newsdisplay2.php?id=2541">This article</a> brought the news that now you can <a href="http://www.ericsson.com/mobilityworld/sub/open/technologies/epoc/tools/7_uiq?PU=epoc&PUname=Symbian%20OS&PUCat=technologies">
+I wrote before that Sony Ericsson doesn't get it, as evidenced by the fact that they don't have any free dev tools for their upcoming P800 phone. <a href="http://www.allabouter6.com/newsdisplay2.php?id=2541">This article</a> brought the news that now you can <a href="http://www.ericsson.com/mobilityworld/sub/open/technologies/epoc/tools/7_uiq?PU=epoc&PUname=Symbian%20OS&PUCat=technologies">
 download</a> free SDK for P800/P802 phones. That's a step in the right directions but they're still far from getting it. To use the SDK you still have to purchase Metrowerk's dev tools for the <a href="http://www.ericsson.com/mobilityworld/sub/open/technologies/epoc/tools/codewarrior?PU=epoc&PUname=Symbian%20OS&PUCat=technologies
 ">low price</a> of $1395. That's the price given on Ericsson site. Metrowerk's site doesn't even post the price, instead they give you a phone number and an e-mail address. <p>
 But they don't really want to sell you the software. I sent them an e-mail asking for the price and how to purchase the software but 5 days passed and I didn't receive an answer.

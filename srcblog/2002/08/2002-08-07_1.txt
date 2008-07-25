@@ -2,4 +2,4 @@ Date: 2002-08-07 12:49:37
 Format: wphtml
 Title: Performance, profiles.
 
-<B>Performance, profiles.</B> Some info about performance (in the context of programming languages) on <A href="http://openmap.bbn.com/~kanderso/performance/">this page</A>. Main take away is that there are 3 ways to get good performance: profile, profile, profile. Sadly, I don't know any good profilers (notice "good").
+Some info about performance (in the context of programming languages) on <A href="http://openmap.bbn.com/~kanderso/performance/">this page</A>. Main take away is that there are 3 ways to get good performance: profile, profile, profile. Sadly, I don't know any good profilers (notice "good").

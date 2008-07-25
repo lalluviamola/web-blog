@@ -1,6 +1,7 @@
 Date: 2003-01-19 22:19:13
 Format: wphtml
-Title: Author lacks originality - news at eleven.
+Title: Author lacks originality - news at eleven
 
-<b>Author lacks originality - news at eleven.</b>
-Recently I <a href="http://blog.kowalczyk.info/archives/000261.html#000261">described</a> an idea for a service/program that monitors the news for things of interest. It looks like somebody <a href="http://www.newsbooster.com/">has already done that</a> (and they charge 199 euros/month for the service).
+Recently I <a href="../../../2003/01/16/idea-for-a-newshound.html">described</a> an idea for a service/program that monitors the news for things of interest. 
+
+It looks like somebody <a href="http://www.newsbooster.com/">has already done that</a> (and they charge 199 euros/month for the service).

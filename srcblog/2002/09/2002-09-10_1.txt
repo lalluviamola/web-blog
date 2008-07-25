@@ -1,5 +1,6 @@
 Date: 2002-09-10 15:23:55
 Format: wphtml
 Title: Would you like Pepper with that?
+Draft: 1
 
-<B>Would you like Pepper with that?</B> <A href="/archives/000071.html">he sheds</A> some light on reasons for abandoning it. One interesting thought from the interview: &#013;&#010;<BLOCKQUOTE><I>I am afraid that will be the future of the entire software industry. Eventually it will only be possible to sell huge software packages with lots of support; all the small apps will be open source in the end. </I></BLOCKQUOTE>
+<A href="/archives/000071.html">he sheds</A> some light on reasons for abandoning it. One interesting thought from the interview: &#013;&#010;<BLOCKQUOTE><I>I am afraid that will be the future of the entire software industry. Eventually it will only be possible to sell huge software packages with lots of support; all the small apps will be open source in the end. </I></BLOCKQUOTE>

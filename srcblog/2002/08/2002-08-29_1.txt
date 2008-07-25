@@ -1,5 +1,5 @@
 Date: 2002-08-29 13:40:15
 Format: wphtml
-Title: strongly not recommended
+Title: .htaccess tip
 
 Hard-earned Apache knowledge: .htaccess files (and RewriteRules it contains) won't work if AllowOverride is set to None for a given directory. The brute force solution (and probably <B>strongly not recommended</B>) is to set it very permissive for all directories, like this: &#013;&#010;<BLOCKQUOTE><PRE>&lt;Directory /&gt;&#013;&#010;    Options FollowSymLinks&#013;&#010;    AllowOverride All&#013;&#010;&lt;/Directory&gt;&#013;&#010;</PRE></BLOCKQUOTE>&#013;&#010;<P>This goes to httpd.conf. Of course hours were wasted while looking for elusive problems.

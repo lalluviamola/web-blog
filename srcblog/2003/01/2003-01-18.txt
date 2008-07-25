@@ -1,8 +1,23 @@
 Date: 2003-01-18 20:14:07
-Format: wphtml
-Title: Danger sells many.
+Format: html
+Title: Danger sells many
 
-<b>Danger sells many.</b>
+I've asked before: how many units of SideKick did Danger sell?
 
-I've <a href="http://blog.kowalczyk.info/archives/000262.html#000262">just asked</a> how many units of SideKick did Danger sell. We (kind of) know the answer now: <a href="http://news.bbc.co.uk/1/hi/technology/2665869.stm"><i>tens of thousands</i></a>since launch (~3 1/2 months).  Not bad but not extremely good either.  I root for Danger becase they have the best product and the best vision (as far as wireless communicators go).  I believe strongly that the only products with long-term chances for success are those that are platforms. There's still some room there, but not much. Palm, despite being a technically weak platform (OS), is still the king. They might survive long enough to do the Apple-style switch i.e. write a new, this time good, OS from scratch and provide emulation layer for their wildly succesful Palm OS. And that's what they seem to be doing in OS 6. Pocket PC is not going away. It's going to improve in the usual "we'll-stick-to-it-till-death-do-us-part"  Microsoft way. There's latest Symbian OS 6 which Nokia and Ericksson are trying hard to kill (by stupidity, not intention) by offering SDK only to rich people. And there's Danger, that hasn't yet released SDK and they really need to do. Also, they must design the system to be open: everyone should be able to write apps, sell apps to other and install bought apps on the devices. I'm not really sure if that's where their heading. From what little info is out there, Danger plans to enable people to sell apps (otherwise SDK wouldn't make much sense) but they might just as well erect a high toll gates.
-<P>They also plan to add color, which, if you think about it, is obvious: technology moves forward. SideKick will have better, bigger, color screens, faster processors and more memory. The only question is when.
+We (kind of) know the answer now: <a href="http://news.bbc.co.uk/1/hi/technology/2665869.stm"><i>tens of thousands</i></a>since launch (~3 1/2 months).  
+
+Not bad but not extremely good either. 
+
+I root for Danger becase they have the best product and the best vision (as far as wireless communicators go). I believe strongly that the only products with long-term chances for success are those that are platforms. 
+
+There's still some room there, but not much. Palm, despite being a technically weak platform (OS), is still the king. They might survive long enough to do the Apple-style switch i.e. write a new, this time good, OS from scratch and provide emulation layer for their wildly succesful Palm OS. And that's what they seem to be doing in OS 6. 
+
+Pocket PC is not going away. It's going to improve in the usual "we'll-stick-to-it-till-death-do-us-part" Microsoft way. 
+
+There's latest Symbian OS 6 which Nokia and Ericksson are trying hard to kill (by stupidity, not intention) by offering SDK only to rich people. 
+
+And there's Danger, that hasn't yet released SDK and they really need to do. Also, they must design the system to be open: everyone should be able to write apps, sell apps to other and install bought apps on the devices. 
+
+I'm not really sure if that's where their heading. From what little info is out there, Danger plans to enable people to sell apps (otherwise SDK wouldn't make much sense) but they might just as well erect a high toll gates.
+
+They also plan to add color, which, if you think about it, is obvious: technology moves forward. SideKick will have better, bigger, color screens, faster processors and more memory. The only question is when.

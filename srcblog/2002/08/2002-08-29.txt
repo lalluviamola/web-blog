@@ -2,4 +2,28 @@ Date: 2002-08-29 12:03:00
 Format: wphtml
 Title: Bootstrapping BitTorrent.
 
-<B>Bootstrapping BitTorrent.</B> <A href="http://bitconjurer.org/BitTorrent/">BitTorrent</A> is a great example of good technology born outside of a big corporation. BitTorrent solves a problem that is undeniably present. Do you remember what happened when Ken Starr's report on Clinton was released? It was only available from one place and many people wanted to read it. The end result: highway-like congestion. Everyone was fighting with everyone else for the right to download the document and because of that no-one could. The pipe wasn't fat enough. The problem is that those who provide downloadable goods pay a hefty price for their success with bandwidth costs. Those who download get lousy service. Caching proxies were an attempt to solve that problem but they are not deployed frequently enough to make a difference. If you can pay, Akamai can solve the problem for you by providing many distributed, fat pipes. BitTorrent solves the problem differently: using swarmed downloads. What that means is that those who download will share the burden of distributing the content with the original source of information. Result for the users: faster downloads. Results for providers of downloadable files: reduced bandwidth costs. &#013;&#010;<P>So there's a real problem and a real solution. Interestingly, the solution didn't originate within Apple or Microsoft. Mostly because it's not really <I>their</I> problem. They can afford to pay for their bandwidth. Their biggest problem is how to suck even more money from the costumers, user convenience is secondary. In a way it's a shame because this technology would have the greatest impact when integrated with the OS. Otherwise gaining widespread usage will be tough since such tools have acute chicken-egg-problems. Both those who provide and those who download must start using BitTorrent for the system to work. But neither has incentive to do it given that the other party is not ready. One way to bootstrap usage of BitTorrent would be through enlighten self-interest of some large-scale provider of downloadable files. There are quite a few of those e.g. <A href="http://sf.net/">SourceForge</A>, <A href="http://www.ibiblio.org/">ibiblio</A>, <A href="http://www.palmgear.com/">PalmGear</A>, many places that offer shareware/freeware software. They pay huge bandwidth bills. Why not make BitTorrent usage mandatory (or offer it as an option, promising better download speeds)? &#013;&#010;<P>My prediction is that sooner or later similar technology will be widely used. It might not be BitTorrent but it will be something. It just makes a lot of sense.
+<A href="http://bitconjurer.org/BitTorrent/">BitTorrent</A> is a great example of good technology born outside of a big corporation. 
+
+BitTorrent solves a problem that is undeniably present. Do you remember what happened when Ken Starr's report on Clinton was released? It was only available from one place and many people wanted to read it. The end result: highway-like congestion. 
+
+Everyone was fighting with everyone else for the right to download the document and because of that no-one could. The pipe wasn't fat enough. 
+
+The problem is that those who provide downloadable goods pay a hefty price for their success with bandwidth costs. Those who download get lousy service. 
+
+Caching proxies were an attempt to solve that problem but they are not deployed frequently enough to make a difference. 
+
+If you can pay, Akamai can solve the problem for you by providing many distributed, fat pipes. 
+
+BitTorrent solves the problem differently: using swarmed downloads. What that means is that those who download will share the burden of distributing the content with the original source of information. 
+
+Result for the users: faster downloads. 
+
+Results for providers of downloadable files: reduced bandwidth costs. 
+
+So there's a real problem and a real solution. Interestingly, the solution didn't originate within Apple or Microsoft. Mostly because it's not really <I>their</I> problem. They can afford to pay for their bandwidth. 
+
+In a way it's a shame because this technology would have the greatest impact when integrated with the OS. Otherwise gaining widespread usage will be tough since such tools have acute chicken-egg-problems. Both those who provide and those who download must start using BitTorrent for the system to work. But neither has incentive to do it given that the other party is not ready. 
+
+One way to bootstrap usage of BitTorrent would be through enlighten self-interest of some large-scale provider of downloadable files. There are quite a few of those e.g. <A href="http://sf.net/">SourceForge</A>, <A href="http://www.ibiblio.org/">ibiblio</A>, <A href="http://www.palmgear.com/">PalmGear</A>, many places that offer shareware/freeware software. They pay huge bandwidth bills. Why not make BitTorrent usage mandatory (or offer it as an option, promising better download speeds)? 
+
+My prediction is that sooner or later similar technology will be widely used. It might not be BitTorrent but it will be something. It just makes a lot of sense.

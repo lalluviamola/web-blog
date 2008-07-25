@@ -1,5 +1,5 @@
 Date: 2002-08-22 10:50:23
 Format: wphtml
-Title: This is so cool
+Title: Allconsuming.net
 
 This is so cool. I found <A href="http://www.allconsuming.net/">this site</A> in my referers list. You can see there which books were recently mentioned on weblogs. I think that this kind of automatic gathering interesting news is a cool concept. Need to do that more.
