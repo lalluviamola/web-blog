@@ -59,7 +59,7 @@ My point is that integrating wiki functionality with a popular software like Wor
 Scott finishes with two short points.
 
 One: those who want wikis will be able to install them anyway therefore don't need this integration. I 
-covered this in detail in <a href="http://blog.kowalczyk.info/archives/2004/06/09/of-weblogs-and-wikis/">my originals post</a> ("Why separate wikis are not good enough?" section) so I won't repeat myself.
+covered this in detail in <a href="../../../2004/06/09/of-weblogs-and-wikis.html">my originals post</a> ("Why separate wikis are not good enough?" section) so I won't repeat myself.
 
 Second, to quote directly:
 <blockquote>

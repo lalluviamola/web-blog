@@ -4,6 +4,6 @@ Title: More on linker error
 
 In a shocking proof that someone actually reads this blog, Microsoft's Gangadhar sent me the following explanation of linking problems I've seen:
 
-<blockquote>This is regarding the problem you posted <a href="../../../2006/01/debugging-adventure.html">on your blog</a>. The problem was realized a bit late during end game of Whidbey, and we could not accommodate a fix for this in whidbey RTM, This is been tracked as a bug in our database and will be fixed in the next release cycle. You can see the issue being blogged on <a href="http://blogs.msdn.com/vsdteam/archive/2005/11/16/linker_error_lnk2019_lnk2001.aspx">VSD team blog site</a>.</blockquote>
+<blockquote>This is regarding the problem you posted <a href="../../../2006/01/13/debugging-adventure.html">on your blog</a>. The problem was realized a bit late during end game of Whidbey, and we could not accommodate a fix for this in whidbey RTM, This is been tracked as a bug in our database and will be fixed in the next release cycle. You can see the issue being blogged on <a href="http://blogs.msdn.com/vsdteam/archive/2005/11/16/linker_error_lnk2019_lnk2001.aspx">VSD team blog site</a>.</blockquote>
 
 So there's hope for the future. Too bad their weblog isn't updated more often - it has really good information.

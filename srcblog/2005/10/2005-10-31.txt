@@ -2,20 +2,15 @@ Date: 2005-10-31 18:26:26
 Format: wphtml
 Title: Gmail feature request - intelligent account selection for reply
 
-Gmail feature request.<br>
-<br>
 In Gmail you can define multiple accounts i.e. different "from" e-mail
 addresses. One of those addresses is a default address also used for
-every 'reply' command.<br>
-<br>
-'Reply' should observe to which account the e-mail was sent and use the same account for reply i.e. if I have two accounts:<br>
-<ul>
-  <li>foo@bar.com</li>
-  <li>bar@bar.com</li>
-</ul>
-<br>
+every 'reply' command.
+
+'Reply' should observe to which account the e-mail was sent and use the same account for reply i.e. if I have two accounts:
+<ul><li>foo@bar.com</li><li>bar@bar.com</li></ul>
+
 If I reply to an e-mail sent to my 'foo@bar.com' account, Gmail should
 automatically use my 'foo@bar.com' account for 'from' address, and if
-it was sent to 'bar@bar.com', it should use 'bar@bar.com'.<br>
-<br>
+it was sent to 'bar@bar.com', it should use 'bar@bar.com'.
+
 Pretty please?

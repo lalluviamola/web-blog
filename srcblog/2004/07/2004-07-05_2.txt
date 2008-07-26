@@ -1,8 +1,8 @@
 Date: 2004-07-05 18:47:51
 Format: wphtml
 Title: Talks from BREW conference.
-
 BREW is just another OS/platform for smartphones (i.e. phones that can do more). I don't believe in BREW - it's a controlled platform (owned by Qualcomm) and in my opinion the future belongs to open platforms like Palm, MS Smartphone, Symbian or Java. However, Qualcomm did at least one thing very well: all talks from their developers conference are <a href="http://brew.qualcomm.com/brew/en/press_room/events/brew_2004/brew_2004.html">available on-line</a>. Technical talks about BREW aren't interesting for non-BREW developers but they also had a lot of talks about phone business in general which are worth watching.
+
 
 Just don't fall for their "close is good" propaganda as presented e.g. in "Transforming Imagination Into Profitable Services" talk (linked <a href="http://brew.qualcomm.com/brew/en/press_room/events/brew_2004/pres_video_01.html">from here</a>). The talk was given by Brazil's most succseful mobile operator Vivo. At one point the presenter talks about "openness vicious circle" by listing all the bad things that happen on Internet because it's open:
 <ul>
@@ -12,7 +12,7 @@ Just don't fall for their "close is good" propaganda as presented e.g. in "Trans
 </ul>
 And that's true: this is the price to pay for being open. Being close, however, is not an answer, because the big and really important advantage of being open is that people can innovate. Along with all the junk on the Internet, there are also plenty of wonderful services and many of them would not happen in a closed, stricly for profit environment (<a href="http://wikipedia.org">WikiPedia</a> comes to mind but I could spend hours enumerating web sites that are useful yet probably wouldn't happen on a closed platform.
 
-Remember: carriers want control because that's a way to <a href="../../../2004/06/23/the-danger-of-carrier-control.html">easy money</a>. Mind you: not the biggest amount of money, just easy, effortless money. It's a short-sighted thinking that makes them protect their SMS and ringtones revenues by blocking competitive technologies and they end up blocking the technology that would bring them even more money. They can see their current revenues, they can see the threat to those revenues but they can't see the reward of the next great thing.
+Remember: carriers want control because that's a way to <a href="../../../2004/06/24/the-danger-of-carrier-control.html">easy money</a>. Mind you: not the biggest amount of money, just easy, effortless money. It's a short-sighted thinking that makes them protect their SMS and ringtones revenues by blocking competitive technologies and they end up blocking the technology that would bring them even more money. They can see their current revenues, they can see the threat to those revenues but they can't see the reward of the next great thing.
 
 In a way it's justified: the next great thing simply isn't visible. You have to take on faith that it'll come. However, people running those companies are not idiots, they are just blinded. They should study the history a bit which gives plenty examples of the next great thing.
 

@@ -2,7 +2,7 @@ Date: 2006-02-28 03:33:32
 Format: wphtml
 Title: Gmail feature request - show unread messages first
 
-About 4 months ago <a href="../../../2005/10/30/gmail-feature-request-intelligent-account-selection-for-reply.html">I asked</a> Google to provide an option in Gmail to intelligently reply from the address to which the e-mail was addressed (awfully useful if you have multiple accounts and use gmail as aggregator). And what do you know, they recently did it.
+About 4 months ago <a href="../../../2005/10/31/gmail-feature-request-intelligent-account-select.html">I asked</a> Google to provide an option in Gmail to intelligently reply from the address to which the e-mail was addressed (awfully useful if you have multiple accounts and use gmail as aggregator). And what do you know, they recently did it.
 
 Encouraged by this 100% hit ratio, I have another request to fix a Gmail annoyance I have.
 
