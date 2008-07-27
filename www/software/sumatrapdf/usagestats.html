@@ -4,7 +4,7 @@
 td {padding-right:10px;}
 </style>
 
-<script src="http://kjkpub.s3.amazonaws.com/sumatra-downloads-stats.js" type="text/javascript"></script>
+<script src="http://kjkpub.s3.amazonaws.com/sumatra-usage-stats.js" type="text/javascript"></script>
 <script>
 function $(id) {
 	if (document.all)
@@ -60,27 +60,32 @@ function cmpMonthDesc(t1, t2) {
 }
 
 function urlForChart() {
-	monthlyStats.sort(cmpMonthDesc);
+	sumatraUsageStats.sort(cmpMonthDesc);
 	var max = 0.0;
-	var i, avg, m;
-	for (i = 0; i < monthlyStats.length; i++) {
-		m = monthlyStats[i];
-		avg = m[3];
-		if (avg > max) { max = avg; }
+	var i, perDay, m;
+	for (i = 0; i < sumatraUsageStats.length; i++) {
+		w = sumatraUsageStats[i];
+		var unique = w[1];
+		var perDay = unique / 7.0;
+		if (perDay > max) { max = perDay; }
 	}
 	max = max.toFixed(0);
 	var url = "http://chart.apis.google.com/chart?";
 	url += "cht=bvs&";
-	var sizeDx = monthlyStats.length * 14;
+	var sizeDx = sumatraUsageStats.length * 14;
+	if (sizeDx < 160.0)
+		sizeDx = 192.0;
 	url += "&chs=" + sizeDx + "x200";
-	url += "&chtt=SumatraPDF+downloads+per+day";
+	url += "&chtt=Daily+usage+(weekly)";
 	url += "&chco=4d89f9";
 	url += "&chbh=8";
 	url += "&chd=t:";
-	var last = monthlyStats.length - 1;
-	for (i = 0; i < monthlyStats.length; i++) {
-		m = monthlyStats[i];
-		url += m[3].toFixed(0);
+	var last = sumatraUsageStats.length - 1;
+	for (i = 0; i < sumatraUsageStats.length; i++) {
+		var w = sumatraUsageStats[i];
+		var unique = w[1];
+		perDay = unique / 7.0;
+		url += perDay.toFixed(0);
 		if (i != last) { url += ","; }
 	}
 	url += "&chds=0," + max;
@@ -95,37 +100,35 @@ function htmlForChart() {
 }
 
 function htmlForTable() {
-	monthlyStats.sort(cmpMonthAsc);
+	sumatraUsageStats.sort(cmpMonthAsc);
 	html = "<table>";
-	html += "<tr><th>Month</th>";
-	html += "<th>Downloads</th>";
+	html += "<tr><th>Week</th>";
+	html += "<th>Used</th>";
 	html += "<th>Per day</th>";
-	html += "<th>Downloads size</th></tr>";
-	for (var i=0; i < monthlyStats.length; i++) {
-		var m = monthlyStats[i];
-		var name = m[0];
-		var count = m[1];
-		var size = m[2];
-		var perDay = m[3];
+	html += "</tr>";
+	for (var i=0; i < sumatraUsageStats.length; i++) {
+		var w = sumatraUsageStats[i];
+		var name = w[0];
+		var unique = w[1];
+		var perDay = unique / 7.0;
+		perDay = perDay.toFixed(0);
 		html += "<tr>";
 		html += "<td>" + name + "</td>";
-		html += "<td>" + count + "</td>";
+		html += "<td>" + unique + "</td>";
 		html += "<td>" + perDay + "</td>";
-		html += "<td>" + ppSize(parseFloat(size)) + "</td>";
 		html += "</tr>";
 	}
 	html += "</table>";
 	return html;
 }
 
-function totalDls() {
+function dailyUsageLastWeek() {
 	var total = 0;
-	for (var i=0; i < monthlyStats.length; i++) {
-		var m = monthlyStats[i];
-		var count = m[1];
-		total += count;
-	}
-	return total;
+	sumatraUsageStats.sort(cmpMonthAsc);
+	var w = sumatraUsageStats[1];
+	var unique = w[1];
+	var perDay = unique / 7.0;
+	return perDay.toFixed(0);
 }
 
 function myInit() {
@@ -133,7 +136,7 @@ function myInit() {
 	$("table").innerHTML = html;
 	html = htmlForChart();
 	$("chart").innerHTML = html;
-	$("totaldls").innerHTML = totalDls();
+	$("daily").innerHTML = dailyUsageLastWeek();
 }
 window.onload = myInit;
 
@@ -141,9 +144,9 @@ window.onload = myInit;
 </head>
 <body>
 <p>
-<center><a href="index.html">SumatraPDF</a> downloads stats</center></p>
+<center><a href="index.html">SumatraPDF</a> usage stats</center></p>
 <p><center><span id=chart>This is chart</span></center></p>
-<p><center>Total downloads: <span id=totaldls></span></center></p>
+<p><center>Daily usage last week: <span id=daily></span></center></p>
 <p><center><span id=table>This is table</span></center></p>
 
 <script type="text/javascript">
