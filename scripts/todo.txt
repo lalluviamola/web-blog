@@ -8,7 +8,6 @@ TODO for kb generation:
 TODO misc:
  * remove obsolete files
  * redirect /feed/ to atom.xml
- * deploy to the server
 
 Maybe for kb generation:
  * make header/footer into one

@@ -89,8 +89,10 @@ File foo.c:
 @Tags: programming
 @Date: 2007-01-09
 
-**Memcheck**: `valgrind --leak-check=yes myprog arg1 arg2`. Use on code compiled with -O0.
+**Memcheck**: `valgrind myprog arg1 arg2`. Use on code compiled with -O0.
 -O1 should work as well but -O2 might report a lot of false positives.
+
+**Memory leaks**: `valgrind --tool=memcheck --leak-check=full --show-reachable=yes --num-callers=16 myprog arg1 arg2`
 
 **Call profiler**: `valgrind --tool=callgrind myprog arg1 arg2`. Generates file `callgrind.out.<pid>`
 where `<pid>` is process id of this profiler run. Use `kcachegrind` on this file to inspect the results.
