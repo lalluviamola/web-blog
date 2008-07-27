@@ -1,0 +1,149 @@
+<html>
+<head>
+<style type=text/css>
+td {padding-right:10px;}
+</style>
+
+<script src="http://kjkpub.s3.amazonaws.com/sumatraMonthlyStats.js" type="text/javascript"></script>
+<script>
+function $(id) {
+	if (document.all)
+		return document.all[id];
+	if (document.getElementById)
+		return document.getElementById(id);
+	for (var i=1; i<document.layers.length; i++) {
+	    if (document.layers[i].id==id)
+	      return document.layers[i];
+	}
+	return false;
+}
+
+function toFixedNoZeros(num, precision) {
+	var txt = num.toFixed(precision);
+	var toRemove = 0;
+	var lastPos = txt.length - 1;
+	while (toRemove < precision && '0' == txt.charAt(lastPos)) {
+		++toRemove;
+		--lastPos;
+	}
+	if (toRemove == precision && '.' == txt.charAt(lastPos)) {
+		++toRemove;
+	}
+	if (toRemove > 0) {
+		txt = txt.substr(0, txt.length - toRemove);
+	}
+	return txt;
+}
+
+/* Pretty-print size of 'sizeBytes' bytes to a human-readable size */
+function ppSize(sizeBytes, precision, sfx) {
+	if (precision == null) precision = 1;
+	if (sfx == null) sfx = ["bytes","kB","MB","GB","TB","PB"];
+	var idx = 0;
+	while (sizeBytes >= 1024) {
+		sizeBytes /= 1024;
+		idx++;
+	}
+	return toFixedNoZeros(sizeBytes, precision) + " " + sfx[idx];
+}
+
+function cmpMonthAsc(t2, t1) { 
+	if (t1[0] < t2[0]) { return -1; }
+	if (t1[0] > t2[0]) { return 1; }
+	return 0;
+}
+
+function cmpMonthDesc(t1, t2) { 
+	if (t1[0] < t2[0]) { return -1; }
+	if (t1[0] > t2[0]) { return 1; }
+	return 0;
+}
+
+function urlForChart() {
+	monthlyStats.sort(cmpMonthDesc);
+	var max = 0.0;
+	var i, avg, m;
+	for (i = 0; i < monthlyStats.length; i++) {
+		m = monthlyStats[i];
+		avg = m[3];
+		if (avg > max) { max = avg; }
+	}
+	max = max.toFixed(0);
+	var url = "http://chart.apis.google.com/chart?";
+	url += "cht=bvs&";
+	var sizeDx = monthlyStats.length * 14;
+	url += "&chs=" + sizeDx + "x200";
+	url += "&chtt=SumatraPDF+downloads+per+day";
+	url += "&chco=4d89f9";
+	url += "&chbh=8";
+	url += "&chd=t:";
+	var last = monthlyStats.length - 1;
+	for (i = 0; i < monthlyStats.length; i++) {
+		m = monthlyStats[i];
+		url += m[3].toFixed(0);
+		if (i != last) { url += ","; }
+	}
+	url += "&chds=0," + max
+	url += "&chxt=r&chxr=0,0," + max
+	return url;
+}
+
+function htmlForChart() {
+	var url = urlForChart();
+	var html = "<img src='" + url + "'>";
+	return html;
+}
+
+function htmlForTable() {
+	monthlyStats.sort(cmpMonthAsc);
+	html = "<table>"
+	html += "<tr><th>Month</th>"
+	html += "<th>Downloads</th>"
+	html += "<th>Per day</th>"
+	html += "<th>Downloads size</th></tr>"
+	for (var i=0; i < monthlyStats.length; i++) {
+		var m = monthlyStats[i];
+		var name = m[0];
+		var count = m[1];
+		var size = m[2];
+		var perDay = m[3];
+		html += "<tr>"
+		html += "<td>" + name + "</td>"
+		html += "<td>" + count + "</td>"
+		html += "<td>" + perDay + "</td>"
+		html += "<td>" + ppSize(parseFloat(size)) + "</td>"
+		html += "</tr>"
+	}
+	html += "</table>"
+	return html;
+}
+
+function totalDls() {
+	var total = 0;
+	for (var i=0; i < monthlyStats.length; i++) {
+		var m = monthlyStats[i];
+		var count = m[1];
+		total += count;
+	}
+	return total;
+}
+
+function myInit() {
+	var html = htmlForTable();
+	$("table").innerHTML = html;
+	html = htmlForChart();
+	$("chart").innerHTML = html;
+	$("totaldls").innerHTML = totalDls();
+}
+window.onload = myInit;
+
+</script>
+</head>
+<body>
+<p>
+<center><a href="index.html">SumatraPDF</a> downloads stats</center></p>
+<p><center><span id=chart>This is chart</span></center></p>
+<p><center>Total downloads: <span id=totaldls></span></center></p>
+<p><center><span id=table>This is table</span></center></p>
+</body>
+</html>
