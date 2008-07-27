@@ -28,10 +28,23 @@ div#content{font:normal medium 'Goudy Bookletter 1911','Gentium Basic','Liberati
 #arc th{padding:0 1.75em 0 0;vertical-align:baseline;text-align:right}
 #arc{border-collapse:collapse;width:100%}
 .year th{background:papayawhip;color:black}
+"""
+
+CSS_INDEX_TXT = CSS_TXT + """
+a#headsearch {
+background:transparent url(gfx/search2.png) no-repeat scroll 0 0;
+margin:0;
+padding:5px 0;
+text-indent:-9999px;
+width:33px;
+}
 </style>
 """
 
-CSS_EXT_POST_TXT="""<style type="text/css" media="screen">
+CSS_TXT += """</style>
+"""
+
+CSS_EXT_POST_TXT = """<style type="text/css" media="screen">
 @import url("../../css/kjk.css");
 </style>
 """
@@ -227,9 +240,7 @@ def write_index_post(post, filename):
   body = get_post_html_content(post)
   tmpl = tmpl.replace("{{post}}", body)
   tmpl = tmpl.replace("{{analytics}}", ANALYTICS_TXT)
-  css = CSS_TXT
-  #css = CSS_EXT_IDX_TXT
-  tmpl = tmpl.replace("{{css}}", css)
+  tmpl = tmpl.replace("{{css}}", CSS_INDEX_TXT)
   tmpl = tmpl.replace("{{title}}", post["title"])
   tmpl = tmpl.replace("{{permalink}}", post["url"])
   file_write_utf8(filename, tmpl)
