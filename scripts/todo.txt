@@ -1,12 +1,10 @@
 TODO for blog generation:
  * and links between pages
- * support textile
 
 TODO for kb generation:
  * use javascript code highlighting instead of pygments
 
 TODO misc:
- * remove obsolete files
  * redirect /feed/ to atom.xml
 
 Maybe for kb generation:
@@ -15,6 +13,7 @@ Maybe for kb generation:
 Maybe for blog generation:
  * support markdown
  * optimize generation by remembering (as pickled data) which files have already been processed. Only re-generate new ones
- * add google search engine
  * generate combined pages /posts/1.html, /posts/2.html etc., with N posts per page
+   (but hide them from search engines with robots.txt)
  * generate monthly archive page
+   (but hide them from search engines with robots.txt)

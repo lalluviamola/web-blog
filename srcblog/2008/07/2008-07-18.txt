@@ -8,5 +8,5 @@ This also marks a switch from WordPress to a completely static site. Feels like 
 
 Another switch is sponsored by the department of unnecessary tinkering: Apache is out, "nginx":http://nginx.net/ is in.
 
-Another switch is for the environment and my pocket: ditching "theplanet.com":http://theplanet.com (which does way more that my needs are at the moment and is priced accordingly) and moving to more modest and cheaper "sliecehost":http://www.slicehost.com/
+Another switch is for the environment and my pocket: ditching "theplanet.com":http://theplanet.com (which does way more that my needs are at the moment and is priced accordingly) and moving to more modest and cheaper "sliecehost":http://www.slicehost.com/.
 
