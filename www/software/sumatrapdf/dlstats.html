@@ -106,7 +106,7 @@ function htmlForTable() {
 		var name = m[0];
 		var count = m[1];
 		var size = m[2];
-		var perDay = m[3];
+		var perDay = m[3].toFixed(0);
 		html += "<tr>";
 		html += "<td>" + name + "</td>";
 		html += "<td>" + count + "</td>";
