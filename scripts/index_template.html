@@ -19,6 +19,11 @@ function $(id) {
 	return false;
 }
 
+String.prototype.linkify = function() {
+return this.replace(/[A-Za-z]+:\/\/[A-Za-z0-9-_]+\.[A-Za-z0-9-_:%&\?\/.=]+/g, 
+  function(m) {return m.link(m);});
+};
+
 function hideEl(id) { $(id).style.display="none"; }
 function elIsHidden(id) { return $(id).style.display == "none"; }
 function showEl(id) { $(id).style.display="block";}
@@ -38,6 +43,14 @@ function toggleSearch()
         $("searchFieldId").focus();
     $("searchFieldId").value = "";
 }
+
+function twitterCallback(twitterData)
+{
+  var info = twitterData[0];
+  var txt = info.text.linkify();
+  $("twittertxt").innerHTML = txt;
+  showEl("twitterdiv");
+}
 </script>
 
 </head>
@@ -55,9 +68,7 @@ function toggleSearch()
   </div>
 </div>
 
-<div id="content">
-
-<div id="searchbox" style="display:none;">
+<div id=searchbox style="display:none;">
 <form method="get" action="http://google.com/search">
 <input type="hidden" name="IncludeBlogs" value="1">
 <input type="hidden" name="as_sitesearch" value="http://blog.kowalczyk.info">
@@ -68,11 +79,18 @@ function toggleSearch()
 </form>
 </div>
 
+<div id=twitterdiv style="display:none;">
+I <a href="http://twitter.com/kjk">twitted</a>: <br><span id=twittertxt></span>
+</div>
+
+<div id="content">
+
 <h1><a href={{permalink}}>{{title}}</a></h1>
 {{post}}
 <hr>
 <center><a href=index.html>Krzysztof Kowalczyk</a></center>
 </div>
 {{analytics}}
+<script src="http://twitter.com/statuses/user_timeline/kjk.json?callback=twitterCallback&count=1" type="text/javascript"></script>
 </body>
 </html>

@@ -31,13 +31,12 @@ div#content{font:normal medium 'Goudy Bookletter 1911','Gentium Basic','Liberati
 """
 
 CSS_INDEX_TXT = CSS_TXT + """
-a#headsearch {
-background:transparent url(gfx/search2.png) no-repeat scroll 0 0;
-margin:0;
-padding:5px 0;
-text-indent:-9999px;
-width:33px;
-}
+div#content{margin-top:1.25em;}
+#twitterdiv {text-align: center;color:#494949;margin-top:0.75em;}
+#twittertxt {font-style: italic;}
+#searchbox {margin-top:1.25em;}
+a#headsearch { background:transparent url(gfx/search2.png) no-repeat scroll 0 0;
+margin:0;padding:5px 0;text-indent:-9999px;width:33px;}
 </style>
 """
 
