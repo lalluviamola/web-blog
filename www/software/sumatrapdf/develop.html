@@ -39,27 +39,19 @@
 <img align="right" src="SumatraSplash.png" hspace="4"/>
 
 <h2>Getting the sources</h2>
-<p>The sources are hosted on <a href="http://code.google.com/p/sumatrapdf/">Google Code</a>. 
-Browse <a href="http://code.google.com/p/sumatrapdf/source/list">latest changes</a>.</p>
-<p>Sumatra is also registered on <a href="http://www.ohloh.net/projects/4623?p=SumatraPDF">ohloh</a>.</p>
+<p>The sources are hosted on <a href="http://code.google.com/p/sumatrapdf/">Google Code</a> (<a href="http://code.google.com/p/sumatrapdf/source/list">latest checkins</a>, 
+<a href="http://code.google.com/p/sumatrapdf/issues/list">bug tracker</a>). You can also see stats by <a href="http://www.ohloh.net/projects/4623?p=SumatraPDF">ohloh</a>.</p>
 
-<p>Sumatra is composed from four parts:
+<p>Sumatra consists of:
 <ul>
-<li>my improved version of <a href="http://ccxvii.net/apparition/">mupdf</a> pdf library. It's a default engine
-in Sumatra since version 0.4, since it's much faster than poppler</li>
-<li><a href="http://code.google.com/p/poppler-kjk/">poppler-kjk</a> - my improved version of <a href="http://poppler.freedesktop.org/">poppler</a> pdf
-library (which, in turn, is a fork of <a href="http://www.foolabs.com/xpdf/">xpdf</a>)</li>
+<li>my improved version of <a href="http://krzysztofkowalczyk.pbwiki.com/mupdf">mupdf</a> pdf parsing/rendering library</li>
 <li><a href="http://code.google.com/p/baseutils/">baseutils</a> - a library of small, hopefully reusable
 components like string handling etc.</li>
-<li>Windows UI code that uses poppler for parsing and rendering</li>
+<li>Windows UI code that uses mupdf for rendering PDFs to a bitmap</li>
 </ul>
 
 <p>
-You'll need Visual Studio 2005 to build
-(or you can re-create the project using a different compiler).
-You can also use free <a href="http://msdn.microsoft.com/vstudio/express/visualc/">
-Visual C++ 2005 Express Edition</a> (make sure to follow the instructions and install
-Platform SDK and setup IDE to use it).
+You'll need Visual Studio 2005 or 2008 to build. A free <a href="http://msdn.microsoft.com/vstudio/express/visualc/">Express Edition</a> will work too.
 </p>
 
 <h2>Gettting involved</h2>
