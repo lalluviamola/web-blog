@@ -1,7 +1,9 @@
 #!/usr/bin/env python
-import random, os.path, sys, codecs, re, datetime
+import os.path, sys, re, datetime
 import feedgenerator
 import textile
+import postsparse
+import util
 
 SRCDIR = os.path.join("..", "srcblog")
 
@@ -54,89 +56,6 @@ CSS_EXT_ARCHIVE_TXT="""<style type="text/css" media="screen">
 @import url("css/archive.css");
 </style>
 """
-def dir_exists(path): return os.path.exists(path) and os.path.isdir(path)
-
-def make_dir(path):
-    if not dir_exists(path): os.makedirs(path)
-
-def file_read_utf8(filename):
-  fo = codecs.open(filename, encoding='utf-8', mode="r")
-  txt = fo.read()
-  fo.close()
-  return txt
-
-def file_write_utf8(filename, txt):
-  make_dir(os.path.dirname(filename))
-  fo = codecs.open(filename, encoding='utf-8', mode="w")
-  fo.write(txt)
-  fo.close()
-
-def file_write(filename, txt):
-  make_dir(os.path.dirname(filename))
-  fo = open(filename, mode="wb")
-  fo.write(txt)
-  fo.close()
-
-def parse_blog_post_headers(post_path):
-  vals = {}
-  fo = codecs.open(post_path, encoding='utf-8', mode="r")
-  for l in fo:
-    l = l.strip()
-    if not l:
-      break
-    if ": " not in l:
-      print("Invalid line:\n'%s'\n" % l)
-    (name, val) = l.split(": ", 1)
-    name = name.lower()
-    vals[name] = val
-  fo.close()
-  if "date" not in vals:
-    print("Invalid post '%s'" % post_path)
-    print vals
-  assert "date" in vals
-  assert "format" in vals
-  assert "title" in vals
-  vals["title"] = vals["title"].rstrip(".")
-  return vals
-
-def get_blog_post_content(post_path):
-  vals = {}
-  fo = codecs.open(post_path, encoding='utf-8', mode="r")
-  # skip headers
-  for l in fo:
-    l = l.strip()
-    if not l:
-      break
-  # the rest is post body  
-  lines = [l for l in fo]
-  fo.close()
-  return "".join(lines)
-
-def is_draft(vals):
-  if not "draft" in vals:
-    return False
-  v = vals["draft"].strip().lower()
-  return v in ["1", "yes", "true"]
-
-def scan_posts(path):
-  def callback(allfiles, dirname, fnames):
-    if ".svn" in dirname: return
-    if ".git" in dirname: return
-    for fname in fnames:
-      if "knowledge-base.txt" in fname:
-        continue
-      if fname.endswith(".txt"):
-        #print("dir: %s, file: %s" % (dirname, fname))
-        filepath = os.path.join(dirname, fname)
-        vals = parse_blog_post_headers(filepath)
-        if not is_draft(vals):
-          vals["file"] = filepath
-          allfiles[filepath] = vals
-        #print vals
-
-  allfiles = {}
-  os.path.walk(path, callback, allfiles)
-  return allfiles
 
 def onlyascii(c):
   if c in " _.;,-":
@@ -190,12 +109,12 @@ def linebreaks(value):
 
 def get_post_raw_content(post):
   filename = post["file"]
-  return get_blog_post_content(filename)
+  return postsparse.get_blog_post_content(filename)
 
 def get_post_html_content(post):
   filename = post["file"]
   format = post["format"]
-  body = get_blog_post_content(filename)
+  body = postsparse.get_blog_post_content(filename)
   if format == "wphtml":
     body = linebreaks(body)
   elif format == "html":
@@ -232,20 +151,20 @@ def write_feed(posts):
   #fo = codecs.open(feedfile, encoding='utf-8', mode="w")
   #feed.write(fo, "utf-8")
   #fo.close()
-  file_write(feedfile, feedtxt)
+  util.file_write(feedfile, feedtxt)
 
 def write_index_post(post, filename):
-  tmpl = file_read_utf8("index_template.html")
+  tmpl = util.file_read_utf8("index_template.html")
   body = get_post_html_content(post)
   tmpl = tmpl.replace("{{post}}", body)
   tmpl = tmpl.replace("{{analytics}}", ANALYTICS_TXT)
   tmpl = tmpl.replace("{{css}}", CSS_INDEX_TXT)
   tmpl = tmpl.replace("{{title}}", post["title"])
   tmpl = tmpl.replace("{{permalink}}", post["url"])
-  file_write_utf8(filename, tmpl)
+  util.file_write_utf8(filename, tmpl)
 
 def write_one_post(post, filename):
-  tmpl = file_read_utf8("one_template.html")
+  tmpl = util.file_read_utf8("one_template.html")
   body = get_post_html_content(post)
   tmpl = tmpl.replace("{{post}}", body)
   tmpl = tmpl.replace("{{analytics}}", ANALYTICS_TXT)
@@ -253,7 +172,7 @@ def write_one_post(post, filename):
   #css = CSS_EXT_POST_TXT
   tmpl = tmpl.replace("{{css}}", css)
   tmpl = tmpl.replace("{{title}}", post["title"])
-  file_write_utf8(filename, tmpl)
+  util.file_write_utf8(filename, tmpl)
 
 MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 
@@ -277,20 +196,20 @@ def write_archives(posts):
       lines.append(u"<tr><th>%s</th><td></td></tr>" % monthname)
     lines.append(u"<tr><th>%d</th><td><a href=%s>%s</a></td></tr>" % (day, url, title))
   txt = "\n".join(lines)
-  tmpl = file_read_utf8("archive_template.html")
+  tmpl = util.file_read_utf8("archive_template.html")
   tmpl = tmpl.replace("{{archives}}", txt)
   tmpl = tmpl.replace("{{analytics}}", ANALYTICS_TXT)
   css = CSS_TXT
   #css = CSS_EXT_ARCHIVE_TXT
   tmpl = tmpl.replace("{{css}}", css)
   filename = os.path.join("..", "www", "archives.html")
-  file_write_utf8(filename, tmpl)
+  util.file_write_utf8(filename, tmpl)
   
 def main():
-  if not dir_exists(SRCDIR):
+  if not util.dir_exists(SRCDIR):
     print("Dir '%s' doesn't exist" % SRCDIR)
     sys.exit(1)
-  post_files = scan_posts(SRCDIR)
+  post_files = postsparse.scan_posts(SRCDIR)
   posts = post_files.values()
   posts.sort(lambda x,y: cmp(x["date"], y["date"]))
   gen_urls(posts)
