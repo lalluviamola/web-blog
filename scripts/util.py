@@ -22,4 +22,3 @@ def file_write(filename, txt):
   fo = open(filename, mode="wb")
   fo.write(txt)
   fo.close()
-
