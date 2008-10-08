@@ -1,34 +1,52 @@
 #!/usr/bin/env python
-
 import sys, os.path
 import web, settings
 from settings import db, render
 
-options = r'(?:\.(html|xml|rdf|n3|json))'
+"""
+TODO:
+ * slurp files into a database
+ * figure out auth scheme to recognize me as logged in
+   without the need to serve different files (some JS
+   that can tell that a cookie is for a logged in user
+   but doesn't allow spoofing the cookie. anyway, that's
+   not very important because all it will do is show
+   few urls that will direct to pages that are better
+   protected anyway)
+ * /login, /logout + pwd based auth (pwd can be in a file locally)
+ * /app/regenerateall which generates all the static files
+   from the database
+ * /app/newblog form to post a new blog entry, linked from
+   main page if is logged in
+"""
 
 urls = (
   r'/app/', 'index',
   r'/app/login', 'login',
-  r'/static/foo', 'foo',
-  # when deployed, this is taken care of by the web server
-  #r'/static/(.*)', 'staticdata',
-  #r'/static/css/style.css', 'stylecss',
+  # when deployed, those are taken care of by the web server
+  r'/css/(.*)', 'cssdata',
+  r'/js/(.*)', 'jsdata',
 )
 
-class staticdata:
+class cssdata:
     def GET(self, path):
-        print("staticdata")
+        #print("cssdata path: %s" % path)
         if not web.config.debug:
             raise web.notfound
-        print("path: %s" % path)
         assert '..' not in path, 'security'
-        path2 = os.path.join("..", "www", "static", path[1:])
-        print("path2='%s'" % path2)
-        return file(path2).read()
+        path = os.path.join("..", "www", "css", path)
+        #print("path2='%s'" % path)
+        return file(path).read()
 
-class stylecss:
-    def GET(self):
-        return "foo"
+class jsdata:
+    def GET(self, path):
+        #print("jsdata path: %s" % path)
+        if not web.config.debug:
+            raise web.notfound
+        assert '..' not in path, 'security'
+        path = os.path.join("..", "www", "js", path)
+        #print("path2='%s'" % path2)
+        return file(path).read()
 
 class index:
     def GET(self):
