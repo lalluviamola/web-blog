@@ -1,0 +1,40 @@
+application: kjkblog
+version: 1
+runtime: python
+api_version: 1
+
+handlers:
+- url: /.*/
+  script: main.py
+
+- url: /articles
+  static_dir: www/articles
+
+- url: /css
+  static_dir: www/css
+
+- url: /gfx
+  static_dir: www/gfx
+
+- url: /img
+  static_dir: www/img
+
+- url: /js
+  static_dir: www/js
+
+- url: /software
+  static_dir: www/software
+
+- url: /static
+  static_dir: www/static
+
+- url: /contact.hml
+  static_files: www/contact.html
+  upload: www/contact.html
+
+- url: /me.hml
+  static_files: www/me.html
+  upload: www/me.html
+
+- url: .*
+  script: main.py
