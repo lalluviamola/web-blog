@@ -1,0 +1,4 @@
+* atom feed
+* code syntax highlighting
+* ability to add new posts through web
+* ability to edit existing posts through web
