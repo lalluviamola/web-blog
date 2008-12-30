@@ -9,6 +9,50 @@ from django.utils import feedgenerator
 from django.template import Context, Template
 import logging
 
+# HTTP codes
+HTTP_NOT_ACCEPTABLE = 406
+HTTP_NOT_FOUND = 404
+
+TYPE_ARTICLE = "article"
+TYPE_BLOG = "blog entry"
+ALL_TYPES = [TYPE_ARTICLE, TYPE_BLOG]
+
+(FORMAT_TEXT, FORMAT_HTML, FORMAT_TEXTILE, FORMAT_MARKDOWN) = ("text", "html", "textile", "markdown")
+ALL_FORMATS = [FORMAT_TEXT, FORMAT_HTML, FORMAT_TEXTILE, FORMAT_MARKDOWN]
+
+class TextContent(db.Model):
+    content = db.TextProperty(required=True)
+    published = db.DateTimeProperty(auto_now_add=True)
+    format = db.StringProperty(required=True,choices=set(ALL_FORMATS))
+
+class Article(db.Model):
+    permalink = db.StringProperty(required=True)
+    public = db.BooleanProperty(default=False)
+    title = db.StringProperty()
+    article_type = db.StringProperty(required=True, choices=set(ALL_TYPES))
+    # copy of TextContent.content
+    body = db.TextProperty(required=True)
+    excerpt = db.TextProperty()
+    html_body = db.TextProperty()
+    # copy of TextContent.published of first version
+    published = db.DateTimeProperty(auto_now_add=True)
+    # copy of TextContent.published of last version
+    updated = db.DateTimeProperty(auto_now_add=True)
+    # copy of TextContent.format
+    format = db.StringProperty(required=True,choices=set(ALL_FORMATS))
+    #assoc_dict = db.BlobProperty()
+    tags = db.StringListProperty(default=[])
+    tag_keys = db.ListProperty(db.Key, default=[])
+    embedded_code = db.StringListProperty()
+    # points to TextContent
+    previous_versions = db.ListProperty(db.Key, default=[])
+
+    def rfc3339_published(self):
+        return self.published.strftime('%Y-%m-%dT%H:%M:%SZ')
+
+    def rfc3339_updated(self):
+        return self.updated.strftime('%Y-%m-%dT%H:%M:%SZ')
+
 def redirect_from_appspot(wsgi_app):
     def redirect_if_needed(env, start_response):
         if env["HTTP_HOST"].startswith('kjkblog.appspot.com'):
@@ -32,12 +76,13 @@ def template_out(response, template_name, template_values = {}):
     response.out.write(res)
 
 # responds to /
-class Index(webapp.RequestHandler):
+class BlogHandler(webapp.RequestHandler):
     def get(self):
+        logging.info("Hello")
         template_out(self.response, "tmpl/index.html")
 
-class AddIndex(webapp.RequestHandler):
-    def get(self):
+class AddIndexHandler(webapp.RequestHandler):
+    def get(self, sub=None):
         new_url = self.request.url + "index.html"
         return self.redirect(new_url)
 
@@ -45,19 +90,68 @@ class ForumRedirect(webapp.RequestHandler):
     def get(self, path):
         new_url = "http://forums.fofou.org/sumatrapdf/" + path
         return self.redirect(new_url)
+
 class ForumRssRedirect(webapp.RequestHandler):
     def get(self):
         return self.redirect("http://forums.fofou.org/sumatrapdf/rss")
 
+(POST_URL, POST_DATE, POST_FORMAT, POST_BODY, POST_TITLE) = ("url", "date", "format", "body", "title")
+
+def uni_to_utf8(val): return unicode(val, "utf-8")
+
+# import one or more posts from old text format
+class ImportHandler(webapp.RequestHandler):
+    def post(self):
+        pickled = self.request.get("posts_to_import")
+        if not pickled:
+            logging.info("tried to import but no 'posts_to_import' field")
+            return self.error(HTTP_NOT_ACCEPTABLE)
+        fo = StringIO.StringIO(pickled)
+        posts = pickle.load(fo)
+        fo.close()
+        for post in posts:
+            self.import_post(post)
+
+    def import_post(self, post):
+        permalink = post[POST_URL]
+        permalink = uni_to_utf8(permalink)
+        article = Article.gql("WHERE permalink = :1", permalink).get()
+        if article:
+            logging.info("post with url '%s' already exists" % permalink)
+            return self.error(HTTP_NOT_ACCEPTABLE)
+        published = post[POST_DATE]
+        format = post[POST_FORMAT]
+        format = uni_to_utf8(format)
+        assert format in ALL_FORMATS
+        body = post[POST_BODY] # body comes as utf8
+        body = uni_to_utf8(body)
+        textContent = TextContent(content=body, published=published, format=format)
+        textContent.put()
+        title = post[POST_TITLE]
+        title = uni_to_utf8(title)
+        article = Article(permalink=permalink, title=title, body=body, format=format, article_type=TYPE_BLOG)
+        article.public = True
+        article.previous_versions = [textContent.key()]
+        article.published = published
+        article.updated = published
+        # TODO:
+        # article.excerpt
+        # article.html_body
+        article.put()
+        logging.info("imported post with url '%s'" % permalink)
+
 def main():
-    mappings = [  ('/', Index),
-        ('/software/', AddIndex),
-        ('/software/fofou/', AddIndex),
-        ('/software/sumatrapdf/', AddIndex),
-        ('/software/wtail/', AddIndex),
-        ('/software/scdiff/', AddIndex),
+    mappings = [  ('/', BlogHandler),
+        ('/software/', AddIndexHandler),
+        ('/software/(.+)/', AddIndexHandler),
+        #('/software/sumatrapdf/', AddIndexHandler),
+        #('/software/wtail/', AddIndexHandler),
+        #('/software/scdiff/', AddIndexHandler),
         ('/forum_sumatra/rss.php', ForumRssRedirect),
         ('/forum_sumatra/(.*)', ForumRedirect),
+        # only enable /import before importing and disable right
+        # after importing, since it's not protected
+        ('/import', ImportHandler),
     ]
     application = webapp.WSGIApplication(mappings,debug=True)
     application = redirect_from_appspot(application)
