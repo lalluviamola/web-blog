@@ -83,7 +83,18 @@ class BlogIndexHandler(webapp.RequestHandler):
 # responds to /blog/*
 class BlogHandler(webapp.RequestHandler):
     def get(self,url):
-        template_out(self.response, "tmpl/index.html")
+        permalink = "blog/" + url
+        is_admin = users.is_current_user_admin()
+        if is_admin:
+            article = Article.gql("WHERE permalink = :1", permalink).get()
+        else:
+            article = Article.gql("WHERE permalink = :1 AND public = :2", permalink, True).get()
+        if not article:
+            vals = { "url" : permalink }
+            template_out(self.response, "tmpl/blogpost_notfound.html", vals)
+            return
+        vals = { "article" : article }
+        template_out(self.response, "tmpl/blogpost.html", vals)
 
 def article_for_archive(article):
     new_article = {}
@@ -93,13 +104,6 @@ def article_for_archive(article):
 
 # responds to /blog/archive.html
 class BlogArchiveHandler(webapp.RequestHandler):
-    def get3(self):
-        articles = db.GqlQuery("SELECT * FROM Article").fetch(100)
-        #articles = db.GqlQuery("SELECT * FROM Article ORDER BY published DESC").fetch(100)
-        logging.info("BlogArchiveHandler(), len(articles)=%d" % len(articles))
-        vals = { "articles" : articles }
-        template_out(self.response, "tmpl/archive.html", vals)
-
     def get(self):
         # TODO: memcache this if turns out to be done frequently
         articlesq = db.GqlQuery("SELECT * FROM Article ORDER BY published DESC")
