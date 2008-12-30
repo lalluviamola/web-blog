@@ -1,5 +1,126 @@
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="alternate" type="application/atom+xml" title="RSS 2.0" href="/atom.xml" />
+<title>Krzysztof Kowalczyk weblog</title>
+<style type=text/css>
+body{margin:0}
+h1,h2,h3{font-size:medium}
+h1 a{color:inherit !important;}
+img{border:0}
+div#head{margin:0;width:100%;font-family:"Lucida Grande",Lucida,Verdana,sans-serif;font-size:small;background:#7f7f7f;color: #fff;padding-top:6px;padding-bottom:6px;font-weight:bold}
+div#head div#inner{margin:0 auto;width:600px;}
+div#head a {color: #fff;text-decoration: none;}
+div#head span.right {float:right;color:#b9b9b9;}
+div#content{font:normal medium 'Goudy Bookletter 1911','Gentium Basic','Liberation Serif','Hoefler Text','Goudy Old Style',Cambria,Georgia,serif;margin:1.75em auto;width:600px;line-height:1.25;word-spacing:0.1em}
+#arc th{padding:0 1.75em 0 0;vertical-align:baseline;text-align:right}
+#arc{border-collapse:collapse;width:100%}
+.year th{background:papayawhip;color:black}
+
+div#content{margin-top:1.25em;}
+#twitterdiv {text-align: center;color:#494949;margin-top:0.75em;}
+#twittertxt {font-style: italic;}
+#searchbox {margin-top:1.25em;}
+a#headsearch { background:transparent url(gfx/search2.png) no-repeat scroll 0 0;
+margin:0;padding:5px 0;text-indent:-9999px;width:33px;}
+</style>
+
+
+<script>
+function $(id) {
+	if (document.all)
+		return document.all[id];
+	if (document.getElementById)
+		return document.getElementById(id);
+	for (var i=1; i<document.layers.length; i++) {
+	    if (document.layers[i].id==id)
+	      return document.layers[i];
+	}
+	return false;
+}
+
+String.prototype.linkify = function() {
+return this.replace(/[A-Za-z]+:\/\/[A-Za-z0-9-_]+\.[A-Za-z0-9-_:%&\?\/.=]+/g, 
+  function(m) {return m.link(m);});
+};
+
+function hideEl(id) { $(id).style.display="none"; }
+function elIsHidden(id) { return $(id).style.display == "none"; }
+function showEl(id) { $(id).style.display="block";}
+
+function toggleEl(id) 
+{
+    if (elIsHidden(id))
+        showEl(id);
+    else
+        hideEl(id);
+}
+
+function toggleSearch() 
+{
+    toggleEl("searchbox");
+    if (!elIsHidden("searchbox"))
+        $("searchFieldId").focus();
+    $("searchFieldId").value = "";
+}
+
+function twitterCallback(twitterData)
+{
+  var info = twitterData[0];
+  var txt = info.text.linkify();
+  $("twittertxt").innerHTML = txt;
+  showEl("twitterdiv");
+}
+</script>
+</head>
+
 <body>
-  <a href="/archive.html">Blog archive</a>.<br>
+  <div id=head>
+    <div id=inner>
+    <span class="right"><a href="software/sumatrapdf/">Sumatra PDF</a> &bull; 
+    <a href="software/fofou/">Fofou</a> &bull; 
+    <a href="archives.html">archives</a> &bull; 
+    <a href="more.html">more...</a>
+    <a id=headsearch href="javascript:toggleSearch();">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+    </span>
+    <a href="me.html">Krzysztof Kowalczyk</a>
+    </div>
+  </div>
+
+  <div id=searchbox style="display:none;">
+  <form method="get" action="http://google.com/search">
+  <input type="hidden" name="IncludeBlogs" value="1">
+  <input type="hidden" name="as_sitesearch" value="http://blog.kowalczyk.info">
+
+  <center><label for="searchFieldId">Search this site:</label> <input type="text" name="q" id="searchFieldId"/>
+  <input class="button" value="Go" type="submit">
+  </center>
+  </form>
+  </div>
+
+  <div id=twitterdiv style="display:none;">
+  I <a href="http://twitter.com/kjk">twitted</a>: <br><span id=twittertxt></span>
+  </div>
+
+  <div id="content">
+  <h1><a href="/{{ article.permalink }}">{{ article.title }}</a></h1>
+  {{ article.body }}
+  <hr>
+  <center><a href=index.html>Krzysztof Kowalczyk</a></center>
+  </div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-194516-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+<script src="http://twitter.com/statuses/user_timeline/kjk.json?callback=twitterCallback&count=1" type="text/javascript"></script>
+</body>
+</html>
+
 </body>
 </html>

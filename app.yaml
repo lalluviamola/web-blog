@@ -4,6 +4,12 @@ runtime: python
 api_version: 1
 
 handlers:
+- url: /.*/
+  script: main.py
+
+- url: /software
+  static_dir: www/software
+
 - url: /articles
   static_dir: www/articles
 
@@ -19,9 +25,6 @@ handlers:
 - url: /js
   static_dir: www/js
 
-- url: /software
-  static_dir: www/software
-
 - url: /static
   static_dir: www/static
 
@@ -35,3 +38,4 @@ handlers:
 
 - url: .*
   script: main.py
+

@@ -78,7 +78,15 @@ def template_out(response, template_name, template_values = {}):
 # responds to /
 class BlogIndexHandler(webapp.RequestHandler):
     def get(self):
-        template_out(self.response, "tmpl/index.html")
+        is_admin = users.is_current_user_admin()
+        articlesq = db.GqlQuery("SELECT * FROM Article ORDER BY published DESC")
+        for article in articlesq:
+            if is_admin or article.public:
+                break
+        # note: it would show non public article if all of them were private,
+        # but that's not the case so we don't care
+        vals = { "article" : article }
+        template_out(self.response, "tmpl/index.html", vals)
 
 # responds to /blog/*
 class BlogHandler(webapp.RequestHandler):
@@ -173,7 +181,8 @@ class ImportHandler(webapp.RequestHandler):
 def main():
     mappings = [
         ('/', BlogIndexHandler),
-        ('/archive.html', BlogArchiveHandler),
+        ('/index.html', BlogIndexHandler),
+        ('/archives.html', BlogArchiveHandler),
         ('/blog/(.*)', BlogHandler),
         ('/software/', AddIndexHandler),
         ('/software/(.+)/', AddIndexHandler),
