@@ -76,10 +76,36 @@ def template_out(response, template_name, template_values = {}):
     response.out.write(res)
 
 # responds to /
-class BlogHandler(webapp.RequestHandler):
+class BlogIndexHandler(webapp.RequestHandler):
     def get(self):
-        logging.info("Hello")
         template_out(self.response, "tmpl/index.html")
+
+# responds to /blog/*
+class BlogHandler(webapp.RequestHandler):
+    def get(self,url):
+        template_out(self.response, "tmpl/index.html")
+
+def article_for_archive(article):
+    new_article = {}
+    new_article["permalink"] = article.permalink
+    new_article["title"] = article.title
+    return new_article
+
+# responds to /blog/archive.html
+class BlogArchiveHandler(webapp.RequestHandler):
+    def get3(self):
+        articles = db.GqlQuery("SELECT * FROM Article").fetch(100)
+        #articles = db.GqlQuery("SELECT * FROM Article ORDER BY published DESC").fetch(100)
+        logging.info("BlogArchiveHandler(), len(articles)=%d" % len(articles))
+        vals = { "articles" : articles }
+        template_out(self.response, "tmpl/archive.html", vals)
+
+    def get(self):
+        # TODO: memcache this if turns out to be done frequently
+        articlesq = db.GqlQuery("SELECT * FROM Article ORDER BY published DESC")
+        articles = [article_for_archive(a) for a in articlesq]
+        vals = { "articles" : articles }
+        template_out(self.response, "tmpl/archive.html", vals)
 
 class AddIndexHandler(webapp.RequestHandler):
     def get(self, sub=None):
@@ -141,12 +167,12 @@ class ImportHandler(webapp.RequestHandler):
         logging.info("imported post with url '%s'" % permalink)
 
 def main():
-    mappings = [  ('/', BlogHandler),
+    mappings = [
+        ('/', BlogIndexHandler),
+        ('/archive.html', BlogArchiveHandler),
+        ('/blog/(.*)', BlogHandler),
         ('/software/', AddIndexHandler),
         ('/software/(.+)/', AddIndexHandler),
-        #('/software/sumatrapdf/', AddIndexHandler),
-        #('/software/wtail/', AddIndexHandler),
-        #('/software/scdiff/', AddIndexHandler),
         ('/forum_sumatra/rss.php', ForumRssRedirect),
         ('/forum_sumatra/(.*)', ForumRedirect),
         # only enable /import before importing and disable right
@@ -154,7 +180,7 @@ def main():
         ('/import', ImportHandler),
     ]
     application = webapp.WSGIApplication(mappings,debug=True)
-    application = redirect_from_appspot(application)
+    #application = redirect_from_appspot(application)
     wsgiref.handlers.CGIHandler().run(application)
 
 if __name__ == "__main__":

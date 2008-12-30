@@ -255,5 +255,14 @@ def main():
             print("Reached max uploads")
             break
 
+def main2():
+    if not util.dir_exists(SRCDIR):
+        print("Dir '%s' doesn't exist" % SRCDIR)
+        sys.exit(1)
+    post_files = postsparse.scan_posts(SRCDIR)
+    posts = post_files.values()
+    p = posts[0]
+    print(p.keys())
+
 if __name__ == "__main__":
     main()

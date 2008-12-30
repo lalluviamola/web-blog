@@ -1,0 +1,10 @@
+<html>
+<body>
+  All posts:
+  <ul>
+    {% for a in articles %}
+    <li><a href="/{{ a.permalink }}">{{ a.title }}</li>
+    {% endfor %}
+  </ul>
+</body>
+</html>
