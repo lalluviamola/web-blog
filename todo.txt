@@ -1,4 +1,9 @@
+* better look for archives
 * atom feed
+* next/previous links between posts
 * code syntax highlighting
 * ability to add new posts through web
 * ability to edit existing posts through web
+* display text as plain/text
+* non-google search
+* tags

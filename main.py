@@ -1,5 +1,11 @@
 # This code is in Public Domain. Take all the code you want, we'll just write more.
-import os, string, Cookie, sha, time, random, cgi, urllib, datetime, StringIO, pickle
+import os
+import string
+import time
+import datetime
+import StringIO
+import pickle
+import textile
 import wsgiref.handlers
 from google.appengine.ext import db
 from google.appengine.api import users
@@ -75,6 +81,20 @@ def template_out(response, template_name, template_values = {}):
     res = template.render(path, template_values)
     response.out.write(res)
 
+def article_gen_html_body(article):
+    if article.html_body: return
+    if article.format == "textile":
+        txt = article.body.encode('utf-8')
+        body = textile.textile(txt, encoding='utf-8', output='utf-8')
+        body =  unicode(body, 'utf-8')
+        article.html_body = body
+    elif article.format == "text":
+        # TODO: probably should just send as plain/text and a
+        # separate template
+        article.html_body = article.body
+    elif article.format == "html":
+        article.html_body = article.body
+    
 # responds to /
 class BlogIndexHandler(webapp.RequestHandler):
     def get(self):
@@ -85,6 +105,7 @@ class BlogIndexHandler(webapp.RequestHandler):
                 break
         # note: it would show non public article if all of them were private,
         # but that's not the case so we don't care
+        article_gen_html_body(article)
         vals = { "article" : article }
         template_out(self.response, "tmpl/index.html", vals)
 
@@ -101,6 +122,7 @@ class BlogHandler(webapp.RequestHandler):
             vals = { "url" : permalink }
             template_out(self.response, "tmpl/blogpost_notfound.html", vals)
             return
+        article_gen_html_body(article)
         vals = { "article" : article }
         template_out(self.response, "tmpl/blogpost.html", vals)
 
