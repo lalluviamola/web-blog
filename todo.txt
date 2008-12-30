@@ -1,5 +1,4 @@
 * better look for archives
-* atom feed
 * next/previous links between posts
 * code syntax highlighting
 * ability to add new posts through web

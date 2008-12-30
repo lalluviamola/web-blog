@@ -141,6 +141,32 @@ class BlogArchiveHandler(webapp.RequestHandler):
         vals = { "articles" : articles }
         template_out(self.response, "tmpl/archive.html", vals)
 
+class AtomHandler(webapp.RequestHandler):
+    def get(self):
+        feed = feedgenerator.Atom1Feed(
+            title = "Krzysztof Kowalczyk blog",
+            link = "http://blog.kowalczyk.info/feed/",
+            description = "Krzysztof Kowalczyk blog")
+
+        articlesq = db.GqlQuery("SELECT * FROM Article WHERE public = True ORDER BY published DESC")
+        articles = []
+        max_articles = 25
+        for a in articlesq:
+            max_articles -= 1
+            if max_articles < 0:
+                break
+            articles.append(a)
+        for a in articles:
+            title = a.title
+            link = "http://blog.kowalczyk.info/" + a.permalink
+            article_gen_html_body(a)
+            description = a.html_body
+            pubdate = a.published
+            feed.add_item(title=title, link=link, description=description, pubdate=pubdate)
+        feedtxt = feed.writeString('utf-8')
+        self.response.headers['Content-Type'] = 'text/xml'
+        self.response.out.write(feedtxt)
+    
 class AddIndexHandler(webapp.RequestHandler):
     def get(self, sub=None):
         new_url = self.request.url + "index.html"
@@ -158,7 +184,7 @@ class ForumRssRedirect(webapp.RequestHandler):
 (POST_URL, POST_DATE, POST_FORMAT, POST_BODY, POST_TITLE) = ("url", "date", "format", "body", "title")
 
 def uni_to_utf8(val): return unicode(val, "utf-8")
-
+ 
 # import one or more posts from old text format
 class ImportHandler(webapp.RequestHandler):
     def post(self):
@@ -204,6 +230,7 @@ def main():
     mappings = [
         ('/', BlogIndexHandler),
         ('/index.html', BlogIndexHandler),
+        ('/atom.xml', AtomHandler),
         ('/archives.html', BlogArchiveHandler),
         ('/blog/(.*)', BlogHandler),
         ('/software/', AddIndexHandler),
