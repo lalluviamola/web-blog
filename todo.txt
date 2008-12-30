@@ -1,8 +1,14 @@
+* test that private (!public) work as expected in:
+  * archives
+  * post
+  * atom feed
+  * main page
 * better look for archives
 * next/previous links between posts
 * code syntax highlighting
 * ability to add new posts through web
 * ability to edit existing posts through web
+* ability to see previous versions
 * display text as plain/text
 * non-google search
 * tags

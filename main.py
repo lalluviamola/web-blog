@@ -99,12 +99,10 @@ def article_gen_html_body(article):
 class BlogIndexHandler(webapp.RequestHandler):
     def get(self):
         is_admin = users.is_current_user_admin()
-        articlesq = db.GqlQuery("SELECT * FROM Article ORDER BY published DESC")
-        for article in articlesq:
-            if is_admin or article.public:
-                break
-        # note: it would show non public article if all of them were private,
-        # but that's not the case so we don't care
+        if is_admin:
+            article = db.GqlQuery("SELECT * FROM Article ORDER BY published DESC").get()
+        else:
+            article = db.GqlQuery("SELECT * FROM Article WHERE public = True ORDER BY published DESC").get()
         article_gen_html_body(article)
         vals = { "article" : article }
         template_out(self.response, "tmpl/index.html", vals)
@@ -136,13 +134,18 @@ def article_for_archive(article):
 class BlogArchiveHandler(webapp.RequestHandler):
     def get(self):
         # TODO: memcache this if turns out to be done frequently
-        articlesq = db.GqlQuery("SELECT * FROM Article ORDER BY published DESC")
+        is_admin = users.is_current_user_admin()
+        if is_admin:
+            articlesq = db.GqlQuery("SELECT * FROM Article ORDER BY published DESC")
+        else:
+            articlesq = db.GqlQuery("SELECT * FROM Article WHER public = True ORDER BY published DESC")
         articles = [article_for_archive(a) for a in articlesq]
         vals = { "articles" : articles }
         template_out(self.response, "tmpl/archive.html", vals)
 
 class AtomHandler(webapp.RequestHandler):
     def get(self):
+        # TODO: memcache this if turns out to be done frequently
         feed = feedgenerator.Atom1Feed(
             title = "Krzysztof Kowalczyk blog",
             link = "http://blog.kowalczyk.info/feed/",
