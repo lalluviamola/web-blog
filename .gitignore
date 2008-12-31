@@ -1,1 +1,5 @@
 *.pyc
+www/blog/*
+www/index.html
+www/archives.html
+www/atom.xml
