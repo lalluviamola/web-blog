@@ -128,7 +128,29 @@ def article_for_archive(article):
     new_article = {}
     new_article["permalink"] = article.permalink
     new_article["title"] = article.title
+    new_article["published"] = article.published
+    new_article["day"] = article.published.day
     return new_article
+
+MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+
+class Year(object):
+    def __init__(self, year):
+        self.year = year
+        self.months = []
+    def name(self):
+        return self.year
+    def add_month(self, month):
+        self.months.append(month)
+
+class Month(object):
+    def __init__(self, month):
+        self.month = month
+        self.articles = []
+    def name(self):
+        return self.month
+    def add_article(self, article):
+        self.articles.append(article)
 
 # responds to /blog/archive.html
 class BlogArchiveHandler(webapp.RequestHandler):
@@ -138,9 +160,26 @@ class BlogArchiveHandler(webapp.RequestHandler):
         if is_admin:
             articlesq = db.GqlQuery("SELECT * FROM Article ORDER BY published DESC")
         else:
-            articlesq = db.GqlQuery("SELECT * FROM Article WHER public = True ORDER BY published DESC")
-        articles = [article_for_archive(a) for a in articlesq]
-        vals = { "articles" : articles }
+            articlesq = db.GqlQuery("SELECT * FROM Article WHERE public = True ORDER BY published DESC")
+        curr_year = None
+        curr_month = None
+        years = []
+        for a in articlesq:
+            date = a.published
+            y = date.year
+            m = date.month
+            a.day = date.day
+            monthname = MONTHS[m-1]
+            if curr_year is None or curr_year.year != y:
+                curr_month = None
+                curr_year = Year(y)
+                years.append(curr_year)
+
+            if curr_month is None or curr_month.month != monthname:
+                curr_month = Month(monthname)
+                curr_year.add_month(curr_month)
+            curr_month.add_article(a)
+        vals = { "years" : years }
         template_out(self.response, "tmpl/archive.html", vals)
 
 class AtomHandler(webapp.RequestHandler):

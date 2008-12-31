@@ -3,7 +3,6 @@
   * post
   * atom feed
   * main page
-* better look for archives
 * next/previous links between posts
 * code syntax highlighting
 * ability to add new posts through web
@@ -12,3 +11,5 @@
 * display text as plain/text
 * non-google search
 * tags
+* ability to add pictures to posts
+* ability to add attachement
