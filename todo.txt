@@ -3,6 +3,8 @@
   * post
   * atom feed
   * main page
+* show analytics if not localhost, add the logic to
+  more pages
 * next/previous links between posts
 * code syntax highlighting
 * ability to add new posts through web

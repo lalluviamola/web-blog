@@ -104,7 +104,16 @@ class BlogIndexHandler(webapp.RequestHandler):
         else:
             article = db.GqlQuery("SELECT * FROM Article WHERE public = True ORDER BY published DESC").get()
         article_gen_html_body(article)
-        vals = { "article" : article }
+        if is_admin:
+            login_out_url = users.create_logout_url("/")
+        else:
+            login_out_url = users.create_login_url("/")
+        vals = { 
+            'is_admin' : is_admin,
+            'login_out_url' : login_out_url,
+            'article' : article,
+            'show_analytics' : False,
+        }
         template_out(self.response, "tmpl/index.html", vals)
 
 # responds to /blog/*
