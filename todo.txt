@@ -16,3 +16,8 @@
 * ability to add pictures to posts
 * ability to add attachement
 * add sitemap.xml ping + ping for google
+* integrate knowledge base articles
+* on edit automatically focus edit field
+* ability to do drafts
+* ability to delete posts
+* title in edit page

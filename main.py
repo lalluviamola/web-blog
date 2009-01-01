@@ -116,20 +116,34 @@ class BlogIndexHandler(webapp.RequestHandler):
         }
         template_out(self.response, "tmpl/index.html", vals)
 
+class EditNewHandler(webapp.RequestHandler):
+    def get(self):
+        # TODO: use local copy if in local testing, google's
+        # if deployed
+        jquery_url = "/static/js/jquery.js"
+        #jquery_url = "http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.js"
+        vals = { 'jquery_url' : jquery_url}
+        template_out(self.response, "tmpl/edit_newpost.html", vals)
+
 class EditHandler(webapp.RequestHandler):
     def get(self):
         # TODO: use local copy if in local testing, google's
         # if deployed
         jquery_url = "/static/js/jquery.js"
         #jquery_url = "http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.js"
-        article = None
         article_id = self.request.get('article_id')
-        if article_id:
-            article = db.get(db.Key.from_path('Article', int(article_id)))
+        article = db.get(db.Key.from_path('Article', int(article_id)))
         vals = {
             'jquery_url' : jquery_url,
+            'format_textile_checked' : "",
+            'format_html_checked' : "",
+            'format_text_checked' : "",
+            'private_checkbox_checked' : "",
             'article' : article,
         }
+        vals['format_%s_checked' % article.format] = "checked"
+        if not article.public:
+            vals['private_checkbox_checked'] = "checked"
         template_out(self.response, "tmpl/edit.html", vals)
 
 # responds to /blog/*
@@ -308,6 +322,7 @@ def main():
         ('/forum_sumatra/rss.php', ForumRssRedirect),
         ('/forum_sumatra/(.*)', ForumRedirect),
         ('/app/edit', EditHandler),
+        ('/app/editnew', EditNewHandler),
         # only enable /import before importing and disable right
         # after importing, since it's not protected
         ('/import', ImportHandler),

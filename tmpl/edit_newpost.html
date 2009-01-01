@@ -11,13 +11,12 @@
 </head><body>
 <!--><div id="lt">Create new post</div>-->
 <div id="add">
-  Format: <input type="radio" name="format" value="textile" {{ format_textile_checked }}>textile
-  <input type="radio" name="format" value="html" {{ format_html_checked }}>html
-  <input type="radio" name="format" value="text" {{ format_text_checked }}>text
-   | <input type="checkbox" name="private" {{ private_checkbox_checked }}>Private<br>
+  Format: <input type="radio" name="format" value="textile" checked>textile
+  <input type="radio" name="format" value="html">html
+  <input type="radio" name="format" value="text">text
+   | <input type="checkbox" name="private" checked>Private<br>
    </div>
-  <input name="article_id" type="hidden" value="{{ article.key.id }}">
-  <textarea id="note" wrap="soft" rows="10" cols="80" style="background-color: #F5F5F5; color: #696969;">{{ article.body }}</textarea>
-  <input id="addbtn" type="button" value="Update post"/> or <a href="/">cancel</a>
+  <textarea id="note" wrap="soft" rows="10" cols="80" style="background-color: #F5F5F5; color: #696969;"></textarea>
+  <input id="addbtn" type="button" value="Add new post"/> or <a href="/">cancel</a>
 </body>
 </html>
