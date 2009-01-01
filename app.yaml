@@ -28,13 +28,17 @@ handlers:
 - url: /static
   static_dir: www/static
 
-- url: /contact.hml
+- url: /contact.html
   static_files: www/contact.html
   upload: www/contact.html
 
-- url: /me.hml
+- url: /me.html
   static_files: www/me.html
   upload: www/me.html
+
+- url: /more.html
+  static_files: www/more.html
+  upload: www/more.html
 
 - url: .*
   script: main.py
