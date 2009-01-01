@@ -30,7 +30,11 @@ div#content{font:normal medium 'Goudy Bookletter 1911','Gentium Basic','Liberati
     {% for month in year.months %}
     <tr><th>{{ month.name }}</th><td></td></tr>    
       {% for article in month.articles %}
-      <tr><th>{{ article.day }}</th><td><a href="/{{ article.permalink }}">{{ article.title }}</a></td></tr>
+      <tr><th>{{ article.day }}</th><td><a href="/{{ article.permalink }}">{{ article.title }}</a>
+        {% if is_admin %}
+          <a href="/app/edit?article_id={{ article.key.id }}">(edit)</a>
+        {% endif %}
+      </td></tr>
       {% endfor %}
     {% endfor %}
   {% endfor %}

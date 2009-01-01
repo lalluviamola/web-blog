@@ -98,6 +98,7 @@ function twitterCallback(twitterData)
     </span>
     <a href="me.html">Krzysztof Kowalczyk</a>
     {% if is_admin %}
+    &nbsp;<a class="visible" href="/app/edit">(new post)</a>
     &nbsp;<a class="visible" href="{{ login_out_url }}">(log out)</a>
     {% else %}
     &nbsp;<a id=login_id class="invisible" onMouseOver="showLogin();" onMouseOut="hideLogin();" href="{{ login_out_url }}">login</a>
@@ -122,7 +123,11 @@ function twitterCallback(twitterData)
   </div>
 
   <div id="content">
-  <h1><a href="/{{ article.permalink }}">{{ article.title }}</a></h1>
+  <h1><a href="/{{ article.permalink }}">{{ article.title }}</a>
+    {% if is_admin %}
+      <a href="/app/edit?article_id={{ article.key.id }}">(edit)</a>
+    {% endif %}
+    </h1>
   {{ article.html_body }}
   <hr>
   <center><a href=index.html>Krzysztof Kowalczyk</a></center>

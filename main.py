@@ -116,6 +116,22 @@ class BlogIndexHandler(webapp.RequestHandler):
         }
         template_out(self.response, "tmpl/index.html", vals)
 
+class EditHandler(webapp.RequestHandler):
+    def get(self):
+        # TODO: use local copy if in local testing, google's
+        # if deployed
+        jquery_url = "/static/js/jquery.js"
+        #jquery_url = "http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.js"
+        article = None
+        article_id = self.request.get('article_id')
+        if article_id:
+            article = db.get(db.Key.from_path('Article', int(article_id)))
+        vals = {
+            'jquery_url' : jquery_url,
+            'article' : article,
+        }
+        template_out(self.response, "tmpl/edit.html", vals)
+
 # responds to /blog/*
 class BlogHandler(webapp.RequestHandler):
     def get(self,url):
@@ -188,7 +204,10 @@ class BlogArchiveHandler(webapp.RequestHandler):
                 curr_month = Month(monthname)
                 curr_year.add_month(curr_month)
             curr_month.add_article(a)
-        vals = { "years" : years }
+        vals = {
+            'years' : years,
+            'is_admin' : is_admin,
+        }
         template_out(self.response, "tmpl/archive.html", vals)
 
 class AtomHandler(webapp.RequestHandler):
@@ -288,6 +307,7 @@ def main():
         ('/software/(.+)/', AddIndexHandler),
         ('/forum_sumatra/rss.php', ForumRssRedirect),
         ('/forum_sumatra/(.*)', ForumRedirect),
+        ('/app/edit', EditHandler),
         # only enable /import before importing and disable right
         # after importing, since it's not protected
         ('/import', ImportHandler),
