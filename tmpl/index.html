@@ -129,6 +129,12 @@ function twitterCallback(twitterData)
     {% endif %}
     </h1>
   {{ article.html_body }}
+  {% if next_article %}
+    earlier: <a href="/{{ next_article.permalink}}">{{ next_article.title }}</a>
+  {% endif %}
+  {% if prev_article %}
+  {% endif %}
+  &nbsp;later: <a href="/{{ prev_article.permalink}}">{{ prev_article.title }}</a>
   <hr>
   <center><a href=index.html>Krzysztof Kowalczyk</a></center>
   </div>

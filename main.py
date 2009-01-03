@@ -9,6 +9,7 @@ import textile
 import wsgiref.handlers
 from google.appengine.ext import db
 from google.appengine.api import users
+from google.appengine.api import memcache
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp import template
 from django.utils import feedgenerator
@@ -59,6 +60,53 @@ class Article(db.Model):
     def rfc3339_updated(self):
         return self.updated.strftime('%Y-%m-%dT%H:%M:%SZ')
 
+ARTICLES_INFO_MEMCACHE_KEY = "ak"
+
+def build_articles_summary():
+    articlesq = db.GqlQuery("SELECT * FROM Article ORDER BY published DESC")
+    articles = []
+    for article in articlesq:
+        a = {}
+        for attr in ["permalink", "public", "title", "published", "format"]:
+            a[attr] = getattr(article,attr)
+        a["key_id"] = article.key().id()
+        articles.append(a)
+    return articles
+
+def filter_private_articles(articles_summary):
+    for article_summary in articles_summary:
+        if article_summary["public"]:
+            yield article_summary
+
+def pickle_data(data):
+    fo = StringIO.StringIO()
+    pickle.dump(data, fo)
+    pickled_data = fo.getvalue()
+    #fo.close()
+    return pickled_data
+
+def unpickle_data(data_pickled):
+    fo = StringIO.StringIO(data_pickled)
+    data = pickle.load(fo)
+    fo.close()
+    return data
+
+def get_articles_summary(filter_by_permissions=True):
+    articles_pickled = memcache.get(ARTICLES_INFO_MEMCACHE_KEY)
+    #articles_pickled = None
+    if articles_pickled:
+        articles_summary = unpickle_data(articles_pickled)
+        logging.info("len(articles_summary) = %d" % len(articles_summary))
+    else:
+        articles_summary = build_articles_summary()
+        articles_pickled = pickle_data(articles_summary)
+        logging.info("len(articles_pickled) = %d" % len(articles_pickled))
+        memcache.set(ARTICLES_INFO_MEMCACHE_KEY, articles_pickled)
+    if filter_by_permissions:
+        if not users.is_current_user_admin():
+            articles_summary = filter_private_articles(articles_summary)
+    return articles_summary
+
 def redirect_from_appspot(wsgi_app):
     def redirect_if_needed(env, start_response):
         if env["HTTP_HOST"].startswith('kjkblog.appspot.com'):
@@ -94,7 +142,26 @@ def article_gen_html_body(article):
         article.html_body = article.body
     elif article.format == "html":
         article.html_body = article.body
-    
+
+def find_next_prev_article(article):
+    articles_summary = get_articles_summary()
+    key_id = article.key().id()
+    num = len(articles_summary)
+    i = 0
+    next = None
+    prev = None
+    # TODO: could bisect for (possibly) faster search
+    while i < num:
+        a = articles_summary[i]
+        if a["key_id"] == key_id:
+            if i > 0:
+                next = articles_summary[i-1]
+            if i < num-1:
+                prev = articles_summary[i+1]
+            return (next, prev)
+        i = i + 1
+    return (next, prev)
+
 # responds to /
 class BlogIndexHandler(webapp.RequestHandler):
     def get(self):
@@ -103,7 +170,11 @@ class BlogIndexHandler(webapp.RequestHandler):
             article = db.GqlQuery("SELECT * FROM Article ORDER BY published DESC").get()
         else:
             article = db.GqlQuery("SELECT * FROM Article WHERE public = True ORDER BY published DESC").get()
-        article_gen_html_body(article)
+        next = None
+        prev = None
+        if article:
+            article_gen_html_body(article)
+            (next, prev) = find_next_prev_article(article)
         if is_admin:
             login_out_url = users.create_logout_url("/")
         else:
@@ -112,18 +183,35 @@ class BlogIndexHandler(webapp.RequestHandler):
             'is_admin' : is_admin,
             'login_out_url' : login_out_url,
             'article' : article,
+            'next_article' : next,
+            'prev_article' : prev,
             'show_analytics' : False,
         }
         template_out(self.response, "tmpl/index.html", vals)
 
-class EditNewHandler(webapp.RequestHandler):
-    def get(self):
-        # TODO: use local copy if in local testing, google's
-        # if deployed
-        jquery_url = "/static/js/jquery.js"
-        #jquery_url = "http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.js"
-        vals = { 'jquery_url' : jquery_url}
-        template_out(self.response, "tmpl/edit_newpost.html", vals)
+# responds to /blog/*
+class BlogHandler(webapp.RequestHandler):
+    def get(self,url):
+        permalink = "blog/" + url
+        is_admin = users.is_current_user_admin()
+        if is_admin:
+            article = Article.gql("WHERE permalink = :1", permalink).get()
+        else:
+            article = Article.gql("WHERE permalink = :1 AND public = :2", permalink, True).get()
+        if not article:
+            vals = { "url" : permalink }
+            template_out(self.response, "tmpl/blogpost_notfound.html", vals)
+            return
+        article_gen_html_body(article)
+        (next, prev) = find_next_prev_article(article)
+        vals = { 
+            'is_admin' : is_admin,
+            'article' : article,
+            'next_article' : next,
+            'prev_article' : prev,
+            'show_analytics' : False,
+        }
+        template_out(self.response, "tmpl/blogpost.html", vals)
 
 class EditHandler(webapp.RequestHandler):
     def get(self):
@@ -146,22 +234,14 @@ class EditHandler(webapp.RequestHandler):
             vals['private_checkbox_checked'] = "checked"
         template_out(self.response, "tmpl/edit.html", vals)
 
-# responds to /blog/*
-class BlogHandler(webapp.RequestHandler):
-    def get(self,url):
-        permalink = "blog/" + url
-        is_admin = users.is_current_user_admin()
-        if is_admin:
-            article = Article.gql("WHERE permalink = :1", permalink).get()
-        else:
-            article = Article.gql("WHERE permalink = :1 AND public = :2", permalink, True).get()
-        if not article:
-            vals = { "url" : permalink }
-            template_out(self.response, "tmpl/blogpost_notfound.html", vals)
-            return
-        article_gen_html_body(article)
-        vals = { "article" : article }
-        template_out(self.response, "tmpl/blogpost.html", vals)
+class EditNewHandler(webapp.RequestHandler):
+    def get(self):
+        # TODO: use local copy if in local testing, google's
+        # if deployed
+        jquery_url = "/static/js/jquery.js"
+        #jquery_url = "http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.js"
+        vals = { 'jquery_url' : jquery_url}
+        template_out(self.response, "tmpl/edit_newpost.html", vals)
 
 def article_for_archive(article):
     new_article = {}
@@ -194,20 +274,15 @@ class Month(object):
 # responds to /blog/archive.html
 class BlogArchiveHandler(webapp.RequestHandler):
     def get(self):
-        # TODO: memcache this if turns out to be done frequently
-        is_admin = users.is_current_user_admin()
-        if is_admin:
-            articlesq = db.GqlQuery("SELECT * FROM Article ORDER BY published DESC")
-        else:
-            articlesq = db.GqlQuery("SELECT * FROM Article WHERE public = True ORDER BY published DESC")
+        articles_summary = get_articles_summary()
         curr_year = None
         curr_month = None
         years = []
-        for a in articlesq:
-            date = a.published
+        for a in articles_summary:
+            date = a["published"]
             y = date.year
             m = date.month
-            a.day = date.day
+            a["day"] = date.day
             monthname = MONTHS[m-1]
             if curr_year is None or curr_year.year != y:
                 curr_month = None
@@ -220,7 +295,7 @@ class BlogArchiveHandler(webapp.RequestHandler):
             curr_month.add_article(a)
         vals = {
             'years' : years,
-            'is_admin' : is_admin,
+            'is_admin' : users.is_current_user_admin(),
         }
         template_out(self.response, "tmpl/archive.html", vals)
 

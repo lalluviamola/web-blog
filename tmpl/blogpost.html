@@ -23,13 +23,25 @@ div#content{font:normal medium 'Goudy Bookletter 1911','Gentium Basic','Liberati
 <body>
 
 <div id="content">
-<h1><a href=../../../../index.html>home</a> &#8227; {{ article.title }}</h1>
+<h1><a href=../../../../index.html>home</a> &#8227; {{ article.title }}
+  {% if is_admin %}
+    <a href="/app/edit?article_id={{ article.key.id }}">(edit)</a>
+  {% endif %}
+</h1>
 
 {{ article.html_body }}
+
+{% if next_article %}
+  earlier: <a href="/{{ next_article.permalink}}">{{ next_article.title }}</a>
+{% endif %}
+{% if prev_article %}
+{% endif %}
+&nbsp;later: <a href="/{{ prev_article.permalink}}">{{ prev_article.title }}</a>
 
 <hr>
 <center><a href=../../../../index.html>Krzysztof Kowalczyk</a></center>
 </div>
+{% if show_analytics %}
 <script type="text/javascript">
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
 document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
@@ -39,5 +51,6 @@ var pageTracker = _gat._getTracker("UA-194516-1");
 pageTracker._initData();
 pageTracker._trackPageview();
 </script>
+{% endif %}
 </body>
 </html>
