@@ -19,7 +19,6 @@ div#content {font:normal medium 'Goudy Bookletter 1911','Gentium Basic','Liberat
 #arc th {padding:0 1.75em 0 0;vertical-align:baseline;text-align:right}
 #arc {border-collapse:collapse;width:100%}
 .year th {background:papayawhip;color:black}
-
 div#content {margin-top:1.25em;}
 #twitterdiv {text-align: center;color:#494949;margin-top:0.75em;}
 #twittertxt {font-style: italic;}
@@ -129,15 +128,25 @@ function twitterCallback(twitterData)
     {% endif %}
     </h1>
   {{ article.html_body }}
+
+  <table style="color:#b9b9b9" width="100%">
+  <tr>
+    <td>
   {% if next_article %}
-    earlier: <a href="/{{ next_article.permalink}}">{{ next_article.title }}</a>
-  {% endif %}
+  later: <a href="/{{ next_article.permalink}}">{{ next_article.title }}</a>{% endif %}
+  </td>
+  <td align="right">
   {% if prev_article %}
+  earlier: <a href="/{{ prev_article.permalink}}">{{ prev_article.title }}</a>
   {% endif %}
-  &nbsp;later: <a href="/{{ prev_article.permalink}}">{{ prev_article.title }}</a>
+  </td>
+  </tr>
+  </table>
+
   <hr>
-  <center><a href=index.html>Krzysztof Kowalczyk</a></center>
+  <center><a href=/index.html>Krzysztof Kowalczyk</a></center>
   </div>
+
   {% if show_analytics %}
 <script type="text/javascript">
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
