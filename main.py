@@ -145,6 +145,9 @@ def article_gen_html_body(article):
 
 def find_next_prev_article(article):
     articles_summary = get_articles_summary()
+    # TODO: change code below to not require this "materialization"
+    # of articles_summary generator
+    articles_summary = [a for a in articles_summary]
     key_id = article.key().id()
     num = len(articles_summary)
     i = 0
@@ -213,13 +216,141 @@ class BlogHandler(webapp.RequestHandler):
         }
         template_out(self.response, "tmpl/blogpost.html", vals)
 
+def is_empty_string(s):
+    if not s: return True
+    s = s.strip()
+    return 0 == len(s)
+
+def onlyascii(c):
+  if c in " _.;,-":
+    return c
+  if ord(c) < 48 or ord(c) > 127:
+    return ''
+  else: 
+    return c
+
+# TODO: could be simplified?
+def urlify(s):
+  s = s.strip().lower()
+  s = filter(onlyascii, s)
+  for c in [" ", "_", "=", ".", ";", ":", "/", "\\", "\"", "'", "(", ")", "{", "}", "?", ","]:
+    s = s.replace(c, "-")
+  # TODO: a crude way to convert two-or-more consequtive '-' into just one
+  # it's really a job for regex
+  while True:
+    new = s.replace("--", "-")
+    if new == s:
+      break
+    #print "new='%s', prev='%s'" % (new, s)
+    s = new
+  s = s.strip("-")[:48]
+  s = s.strip("-")
+  return s
+ 
 class EditHandler(webapp.RequestHandler):
+
+    def gen_permalink(self, title, date=None):
+        if not date: date = datetime.datetime.now()
+        iteration = 0
+        if is_empty_string(title):
+            iteration = 1
+            title_sanitized = ""
+        else:
+            title_sanitized = urlify(title)
+        url_base = "blog/%04d/%02d/%02d/%s" % (date.year, date.month, date.day, title_sanitized)
+        # TODO: maybe use some random number or article.key.id to get
+        # to a unique url faster
+        while iteration < 19:
+            if iteration == 0:
+                permalink = url_base + ".html"
+            else:
+                permalink = "%s-%d.html" % (url_base, iteration)
+            existing = Article.gql("WHERE permalink = :1", permalink).get()
+            if not existing:
+                logging.info("new_permalink: '%s'" % permalink)
+                return permalink
+            iteration += 1
+        return None
+
+    def create_new_post(self):
+        # TODO: implement me
+        pass
+
+    def create_new_text_content(self, content, format):
+        content = TextContent(content=content, format=format)
+        content.put()
+        return content
+
+    def post(self):
+        article_id = self.request.get("article_id")
+        if not article_id:
+            self.create_new_post()
+        format = self.request.get("format")
+        logging.info("format: '%s'" % format)
+        # TODO: validate format
+        private = self.request.get("private")
+        logging.info("private: '%s'" % private)
+        public = True
+        if private == "on":
+            public = False
+        title = self.request.get("title").strip()
+        logging.info("title: '%s'" % title)
+        body = self.request.get("note")
+        #logging.info("body: '%s'" % body)
+        article = db.get(db.Key.from_path("Article", int(article_id)))
+        if not article:
+            vals = { "url" : article_id }
+            template_out(self.response, "tmpl/blogpost_notfound.html", vals)
+            return
+        text_content = None
+        invalidate_articles_cache = False
+        if article.body != body:
+            text_content = self.create_new_text_content(body, format)
+            article.body = body
+            logging.info("updating body")
+        else:
+            logging.info("body is the same")
+
+        if article.title != title:
+            new_permalink = self.gen_permalink(title, article.published)
+            article.permalink = new_permalink
+            invalidate_articles_cache = True
+
+        if text_content:
+            article.updated = text_content.published
+        else:
+            article.updated = datetime.datetime.now()
+
+        if text_content:
+            article.previous_versions.append(text_content.key())
+
+        if article.public != public:
+            invalidate_articles_cache = True
+
+        article.format = format
+        article.title = title
+        article.public = public
+
+        if invalidate_articles_cache:
+            memcache.delete(ARTICLES_INFO_MEMCACHE_KEY)
+
+        # TODO: avoid put() if nothing has changed
+        article.put()
+        # show newly updated article
+        url = "/" + article.permalink
+        self.redirect(url)
+
     def get(self):
         # TODO: use local copy if in local testing, google's
         # if deployed
         jquery_url = "/static/js/jquery.js"
         #jquery_url = "http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.js"
         article_id = self.request.get('article_id')
+        if not article_id:
+            vals = { 'jquery_url' : jquery_url}
+            template_out(self.response, "tmpl/edit_newpost.html", vals)
+            return
+
         article = db.get(db.Key.from_path('Article', int(article_id)))
         vals = {
             'jquery_url' : jquery_url,
@@ -233,15 +364,6 @@ class EditHandler(webapp.RequestHandler):
         if not article.public:
             vals['private_checkbox_checked'] = "checked"
         template_out(self.response, "tmpl/edit.html", vals)
-
-class EditNewHandler(webapp.RequestHandler):
-    def get(self):
-        # TODO: use local copy if in local testing, google's
-        # if deployed
-        jquery_url = "/static/js/jquery.js"
-        #jquery_url = "http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.js"
-        vals = { 'jquery_url' : jquery_url}
-        template_out(self.response, "tmpl/edit_newpost.html", vals)
 
 def article_for_archive(article):
     new_article = {}
@@ -397,7 +519,6 @@ def main():
         ('/forum_sumatra/rss.php', ForumRssRedirect),
         ('/forum_sumatra/(.*)', ForumRedirect),
         ('/app/edit', EditHandler),
-        ('/app/editnew', EditNewHandler),
         # only enable /import before importing and disable right
         # after importing, since it's not protected
         ('/import', ImportHandler),

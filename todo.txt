@@ -1,22 +1,20 @@
+* ability to add new posts through web
+* integrate knowledge base articles
+* show analytics if not localhost, add the logic to
+  more pages
+* code syntax highlighting
+* display text as plain/text
+* ability to do drafts
+* ability to delete posts
+* ability to see previous versions
+* tags
+* ability to add pictures to posts
+* ability to add attachement
+* add sitemap.xml ping + ping for google
+* on edit automatically focus edit field
+* non-google search
 * test that private (!public) work as expected in:
   * archives
   * post
   * atom feed
   * main page
-* show analytics if not localhost, add the logic to
-  more pages
-* code syntax highlighting
-* ability to add new posts through web
-* ability to edit existing posts through web
-* ability to see previous versions
-* display text as plain/text
-* non-google search
-* tags
-* ability to add pictures to posts
-* ability to add attachement
-* add sitemap.xml ping + ping for google
-* integrate knowledge base articles
-* on edit automatically focus edit field
-* ability to do drafts
-* ability to delete posts
-* title in edit page

@@ -51,7 +51,7 @@ jQuery( function( $ )
     function _wnd_resize() {
         // TODO: figure out a better way to calculate the 32/68 magic constants
         var dx =  $(window).width() - 32 + 'px';
-        var dy = $(window).height() - 68 + 'px';
+        var dy = $(window).height() - 84 + 'px';
         var note = $('textarea#note');
         note.width(dx).height(dy);
     }
