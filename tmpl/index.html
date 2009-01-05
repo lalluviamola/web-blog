@@ -125,6 +125,9 @@ function twitterCallback(twitterData)
   <h1><a href="/{{ article.permalink }}">{{ article.title }}</a>
     {% if is_admin %}
       <a href="/app/edit?article_id={{ article.key.id }}">(edit)</a>
+      {% if article.draft %}
+      &nbsp;<i>draft</i>
+      {% endif %}
     {% endif %}
     </h1>
   {{ article.html_body }}

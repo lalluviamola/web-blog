@@ -28,6 +28,9 @@ div#content{font:normal medium 'Goudy Bookletter 1911','Gentium Basic','Liberati
 <h1><a href=../../../../index.html>home</a> &#8227; {{ article.title }}
   {% if is_admin %}
     <a href="/app/edit?article_id={{ article.key.id }}">(edit)</a>
+    {% if article.draft %}
+    &nbsp;<i>draft</i>
+    {% endif %}
   {% endif %}
 </h1>
 

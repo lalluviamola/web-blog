@@ -33,6 +33,9 @@ div#content{font:normal medium 'Goudy Bookletter 1911','Gentium Basic','Liberati
       <tr><th>{{ article.day }}</th><td><a href="/{{ article.permalink }}">{{ article.title }}</a>
         {% if is_admin %}
           <a href="/app/edit?article_id={{ article.key_id }}">(edit)</a>
+          {% if article.draft %}
+          &nbsp;<i>draft</i>
+          {% endif %}          
         {% endif %}
       </td></tr>
       {% endfor %}

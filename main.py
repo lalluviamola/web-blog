@@ -35,6 +35,7 @@ class TextContent(db.Model):
 class Article(db.Model):
     permalink = db.StringProperty(required=True)
     public = db.BooleanProperty(default=False)
+    draft = db.BooleanProperty(default=False)
     title = db.StringProperty()
     article_type = db.StringProperty(required=True, choices=set(ALL_TYPES))
     # copy of TextContent.content
@@ -67,15 +68,15 @@ def build_articles_summary():
     articles = []
     for article in articlesq:
         a = {}
-        for attr in ["permalink", "public", "title", "published", "format"]:
+        for attr in ["permalink", "public", "title", "published", "format", "draft"]:
             a[attr] = getattr(article,attr)
         a["key_id"] = article.key().id()
         articles.append(a)
     return articles
 
-def filter_private_articles(articles_summary):
+def filter_nonadmin_articles(articles_summary):
     for article_summary in articles_summary:
-        if article_summary["public"]:
+        if article_summary["public"] and not article_summary["draft"]:
             yield article_summary
 
 def pickle_data(data):
@@ -104,7 +105,7 @@ def get_articles_summary(filter_by_permissions=True):
         memcache.set(ARTICLES_INFO_MEMCACHE_KEY, articles_pickled)
     if filter_by_permissions:
         if not users.is_current_user_admin():
-            articles_summary = filter_private_articles(articles_summary)
+            articles_summary = filter_nonadmin_articles(articles_summary)
     return articles_summary
 
 def is_localhost():
@@ -181,7 +182,9 @@ class BlogIndexHandler(webapp.RequestHandler):
         if is_admin:
             article = db.GqlQuery("SELECT * FROM Article ORDER BY published DESC").get()
         else:
-            article = db.GqlQuery("SELECT * FROM Article WHERE public = True ORDER BY published DESC").get()
+            # TODO: this always returns nothing, is it because I added 'draft'
+            # after creating the posts?
+            article = db.GqlQuery("SELECT * FROM Article WHERE draft = False AND public = True ORDER BY published DESC").get()
         next = None
         prev = None
         if article:
@@ -292,6 +295,9 @@ class EditHandler(webapp.RequestHandler):
         public = True
         if private == "on":
             public = False
+        draft = True
+        if draft == "on":
+            draft = False
         title = self.request.get("title").strip()
         logging.info("title: '%s'" % title)
         body = self.request.get("note")
@@ -305,6 +311,7 @@ class EditHandler(webapp.RequestHandler):
         article.previous_versions = [text_content.key()]
         article.published = published
         article.updated = published
+        article.draft = draft
 
         # TODO:
         # article.excerpt
@@ -335,6 +342,9 @@ class EditHandler(webapp.RequestHandler):
         public = True
         if private == "on":
             public = False
+        draft = True
+        if draft == "on":
+            draft = False
         title = self.request.get("title").strip()
         logging.info("title: '%s'" % title)
         body = self.request.get("note")
@@ -369,9 +379,13 @@ class EditHandler(webapp.RequestHandler):
         if article.public != public:
             invalidate_articles_cache = True
 
+        if article.draft != draft:
+            invalidate_articles_cache = True
+
         article.format = format
         article.title = title
         article.public = public
+        article.draft = draft
 
         if invalidate_articles_cache:
             memcache.delete(ARTICLES_INFO_MEMCACHE_KEY)
@@ -408,9 +422,12 @@ class EditHandler(webapp.RequestHandler):
             'format_html_checked' : "",
             'format_text_checked' : "",
             'private_checkbox_checked' : "",
+            'draft_checkbox_checked' : "",
             'article' : article,
         }
         vals['format_%s_checked' % article.format] = "checked"
+        if article.draft:
+            vals['draft_checkbox_checked'] = "checked"
         if not article.public:
             vals['private_checkbox_checked'] = "checked"
         template_out(self.response, "tmpl/edit.html", vals)

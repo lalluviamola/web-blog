@@ -3,14 +3,16 @@
   more pages
 * code syntax highlighting
 * display text as plain/text
-* ability to do drafts
-* ability to delete posts
+* ability to delete/undelete posts
 * ability to see previous versions
 * tags
 * ability to add pictures to posts
 * ability to add attachement
 * add sitemap.xml ping + ping for google
 * on edit automatically focus edit field
+# a special view only for drafts
+# a special view only for deleted articles (combined with drafts, because
+  I don't expect to have lots of them?)
 * non-google search
 * test that private (!public) work as expected in:
   * archives
