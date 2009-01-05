@@ -107,6 +107,15 @@ def get_articles_summary(filter_by_permissions=True):
             articles_summary = filter_private_articles(articles_summary)
     return articles_summary
 
+def is_localhost():
+    return True
+    # TODO: below is wrong, probably can get this info from wsgi
+    if env["HTTP_HOST"].startswith("localhost"):
+        return True
+    if env["HTTP_HOST"].startswith("127.0.0.1"):
+        return True
+    return False
+
 def redirect_from_appspot(wsgi_app):
     def redirect_if_needed(env, start_response):
         if env["HTTP_HOST"].startswith('kjkblog.appspot.com'):
@@ -182,13 +191,14 @@ class BlogIndexHandler(webapp.RequestHandler):
             login_out_url = users.create_logout_url("/")
         else:
             login_out_url = users.create_login_url("/")
+        show_analytics = not is_localhost()
         vals = { 
             'is_admin' : is_admin,
             'login_out_url' : login_out_url,
             'article' : article,
             'next_article' : next,
             'prev_article' : prev,
-            'show_analytics' : False,
+            'show_analytics' : show_analytics,
         }
         template_out(self.response, "tmpl/index.html", vals)
 
@@ -207,12 +217,13 @@ class BlogHandler(webapp.RequestHandler):
             return
         article_gen_html_body(article)
         (next, prev) = find_next_prev_article(article)
+        show_analytics = not is_localhost()
         vals = { 
             'is_admin' : is_admin,
             'article' : article,
             'next_article' : next,
             'prev_article' : prev,
-            'show_analytics' : False,
+            'show_analytics' : show_analytics,
         }
         template_out(self.response, "tmpl/blogpost.html", vals)
 
@@ -273,8 +284,38 @@ class EditHandler(webapp.RequestHandler):
         return None
 
     def create_new_post(self):
-        # TODO: implement me
-        pass
+        format = self.request.get("format")
+        logging.info("format: '%s'" % format)
+        # TODO: validate format
+        private = self.request.get("private")
+        logging.info("private: '%s'" % private)
+        public = True
+        if private == "on":
+            public = False
+        title = self.request.get("title").strip()
+        logging.info("title: '%s'" % title)
+        body = self.request.get("note")
+
+        text_content = self.create_new_text_content(body, format)
+        published = text_content.published
+        permalink = self.gen_permalink(title, published)
+
+        article = Article(permalink=permalink, title=title, body=body, format=format, article_type=TYPE_BLOG)
+        article.public = public
+        article.previous_versions = [text_content.key()]
+        article.published = published
+        article.updated = published
+
+        # TODO:
+        # article.excerpt
+        # article.html_body
+
+        # TODO: avoid put() if nothing has changed
+        article.put()
+        memcache.delete(ARTICLES_INFO_MEMCACHE_KEY)
+        # show newly updated article
+        url = "/" + article.permalink
+        self.redirect(url)
 
     def create_new_text_content(self, content, format):
         content = TextContent(content=content, format=format)
@@ -283,8 +324,9 @@ class EditHandler(webapp.RequestHandler):
 
     def post(self):
         article_id = self.request.get("article_id")
-        if not article_id:
-            self.create_new_post()
+        logging.info("article_id: '%s'" % article_id)
+        if is_empty_string(article_id):
+            return self.create_new_post()
         format = self.request.get("format")
         logging.info("format: '%s'" % format)
         # TODO: validate format
@@ -334,6 +376,10 @@ class EditHandler(webapp.RequestHandler):
         if invalidate_articles_cache:
             memcache.delete(ARTICLES_INFO_MEMCACHE_KEY)
 
+        # TODO:
+        # article.excerpt
+        # article.html_body
+
         # TODO: avoid put() if nothing has changed
         article.put()
         # show newly updated article
@@ -347,8 +393,12 @@ class EditHandler(webapp.RequestHandler):
         #jquery_url = "http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.js"
         article_id = self.request.get('article_id')
         if not article_id:
-            vals = { 'jquery_url' : jquery_url}
-            template_out(self.response, "tmpl/edit_newpost.html", vals)
+            vals = {
+                'jquery_url' : jquery_url,
+                'format_textile_checked' : "checked",
+                'private_checkbox_checked' : "checked",
+            }
+            template_out(self.response, "tmpl/edit.html", vals)
             return
 
         article = db.get(db.Key.from_path('Article', int(article_id)))
@@ -492,13 +542,13 @@ class ImportHandler(webapp.RequestHandler):
         assert format in ALL_FORMATS
         body = post[POST_BODY] # body comes as utf8
         body = uni_to_utf8(body)
-        textContent = TextContent(content=body, published=published, format=format)
-        textContent.put()
+        text_content = TextContent(content=body, published=published, format=format)
+        text_content.put()
         title = post[POST_TITLE]
         title = uni_to_utf8(title)
         article = Article(permalink=permalink, title=title, body=body, format=format, article_type=TYPE_BLOG)
         article.public = True
-        article.previous_versions = [textContent.key()]
+        article.previous_versions = [text_content.key()]
         article.published = published
         article.updated = published
         # TODO:

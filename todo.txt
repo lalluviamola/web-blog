@@ -1,4 +1,3 @@
-* ability to add new posts through web
 * integrate knowledge base articles
 * show analytics if not localhost, add the logic to
   more pages
