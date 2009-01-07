@@ -130,8 +130,8 @@ function twitterCallback(twitterData)
       {% else %}
       &nbsp;<a href="/app/delete?article_id={{ article.key.id }}">delete</a>
       {% endif %}
-      {% if article.draft %}
-      &nbsp;<font color="blue">draft</font>
+      {% if article.is_draft %}
+      &nbsp;<font color="red">draft</font>
       {% endif %}
     {% endif %}
     </h1>

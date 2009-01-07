@@ -33,8 +33,8 @@ div#content{font:normal medium 'Goudy Bookletter 1911','Gentium Basic','Liberati
     {% else %}
     &nbsp;<a href="/app/delete?article_id={{ article.key_id }}">delete</a>
     {% endif %}
-    {% if article.draft %}
-    &nbsp;<font color="blue">draft</font>
+    {% if article.is_draft %}
+    &nbsp;<font color="red">draft</font>
     {% endif %}
   {% endif %}
 </h1>

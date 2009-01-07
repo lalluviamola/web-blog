@@ -356,14 +356,15 @@ class EditHandler(webapp.RequestHandler):
         logging.info("format: '%s'" % format)
         # TODO: validate format
         private = self.request.get("private")
-        draft = self.request.get("draft")
         logging.info("private: '%s'" % private)
         is_public = True
         if private == "on":
             is_public = False
-        is_draft = True
+        draft = self.request.get("draft")
+        logging.info("draft: '%s'" % draft)
+        is_draft = False
         if draft == "on":
-            is_draft = False
+            is_draft = True
         title = self.request.get("title").strip()
         logging.info("title: '%s'" % title)
         body = self.request.get("note")

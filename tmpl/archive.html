@@ -33,13 +33,13 @@ div#content{font:normal medium 'Goudy Bookletter 1911','Gentium Basic','Liberati
       <tr><th>{{ article.day }}</th><td><a href="/{{ article.permalink }}">{{ article.title }}</a>
         {% if is_admin %}
           <a href="/app/edit?article_id={{ article.key_id }}">edit</a>
-          {% if article.draft %}
-          &nbsp;<font color="blue">(draft)</font>
-          {% endif %}
           {% if article.is_deleted %}
           &nbsp;<a href="/app/undelete?article_id={{ article.key_id }}">undelete</a>
           {% else %}
           &nbsp;<a href="/app/delete?article_id={{ article.key_id }}">delete</a>
+          {% endif %}
+          {% if article.is_draft %}
+          &nbsp;<font color="red">draft</font>
           {% endif %}
         {% endif %}
       </td></tr>
