@@ -1,9 +1,6 @@
-# a special view (/app/listdraftanddeleted) only for deleted articles (combined with drafts, because
-  I don't expect to have lots of them?)
 * integrate knowledge base articles
-* show analytics if not localhost, add the logic to
-  more pages
 * tags
+* show analytics if not localhost, add the logic to more pages
 * code syntax highlighting
 * display text as plain/text
 * ability to see previous versions

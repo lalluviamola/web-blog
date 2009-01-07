@@ -75,11 +75,6 @@ def build_articles_summary():
         articles.append(a)
     return articles
 
-def filter_nonadmin_articles(articles_summary):
-    for article_summary in articles_summary:
-        if article_summary["is_public"] and not article_summary["is_draft"] and not article_summary["is_deleted"]:
-            yield article_summary
-
 def pickle_data(data):
     fo = StringIO.StringIO()
     pickle.dump(data, fo)
@@ -93,9 +88,22 @@ def unpickle_data(data_pickled):
     fo.close()
     return data
 
-def get_articles_summary(filter_by_permissions=True):
+def filter_nonadmin_articles(articles_summary):
+    for article_summary in articles_summary:
+        if article_summary["is_public"] and not article_summary["is_draft"] and not article_summary["is_deleted"]:
+            yield article_summary
+
+def filter_non_draft_non_deleted_articles(articles_summary):
+    for article_summary in articles_summary:
+        if article_summary["is_draft"] or article_summary["is_deleted"]:
+            yield article_summary
+
+
+(ARTICLE_SUMMARY_PUBLIC_OR_ADMIN, ARTICLE_SUMMARY_DRAFT_AND_DELETED) = range(2)
+
+def get_articles_summary(articles_type = ARTICLE_SUMMARY_PUBLIC_OR_ADMIN):
     articles_pickled = memcache.get(ARTICLES_INFO_MEMCACHE_KEY)
-    articles_pickled = None
+    #articles_pickled = None
     if articles_pickled:
         articles_summary = unpickle_data(articles_pickled)
         logging.info("len(articles_summary) = %d" % len(articles_summary))
@@ -104,9 +112,11 @@ def get_articles_summary(filter_by_permissions=True):
         articles_pickled = pickle_data(articles_summary)
         logging.info("len(articles_pickled) = %d" % len(articles_pickled))
         memcache.set(ARTICLES_INFO_MEMCACHE_KEY, articles_pickled)
-    if filter_by_permissions:
+    if articles_type == ARTICLE_SUMMARY_PUBLIC_OR_ADMIN:
         if not users.is_current_user_admin():
             articles_summary = filter_nonadmin_articles(articles_summary)
+    elif articles_type == ARTICLE_SUMMARY_DRAFT_AND_DELETED:
+        articles_summary = filter_non_draft_non_deleted_articles(articles_summary)
     return articles_summary
 
 def is_localhost():
@@ -117,6 +127,14 @@ def is_localhost():
     if env["HTTP_HOST"].startswith("127.0.0.1"):
         return True
     return False
+
+def include_analytics(): return not is_localhost()
+
+def jquery_url():
+    if is_localhost():
+        return "/static/js/jquery.js"
+    else:
+        return "http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.js"
 
 def redirect_from_appspot(wsgi_app):
     def redirect_if_needed(env, start_response):
@@ -183,8 +201,6 @@ class BlogIndexHandler(webapp.RequestHandler):
         if is_admin:
             article = db.GqlQuery("SELECT * FROM Article ORDER BY published_on DESC").get()
         else:
-            # TODO: this always returns nothing, is it because I added 'is_draft'
-            # after creating the posts?
             article = db.GqlQuery("SELECT * FROM Article WHERE is_draft = False AND is_public = True AND is_deleted = False ORDER BY published_on DESC").get()
         next = None
         prev = None
@@ -195,14 +211,13 @@ class BlogIndexHandler(webapp.RequestHandler):
             login_out_url = users.create_logout_url("/")
         else:
             login_out_url = users.create_login_url("/")
-        show_analytics = not is_localhost()
         vals = { 
             'is_admin' : is_admin,
             'login_out_url' : login_out_url,
             'article' : article,
             'next_article' : next,
             'prev_article' : prev,
-            'show_analytics' : show_analytics,
+            'include_analytics' : include_analytics(),
         }
         template_out(self.response, "tmpl/index.html", vals)
 
@@ -221,13 +236,12 @@ class BlogHandler(webapp.RequestHandler):
             return
         article_gen_html_body(article)
         (next, prev) = find_next_prev_article(article)
-        show_analytics = not is_localhost()
         vals = { 
             'is_admin' : is_admin,
             'article' : article,
             'next_article' : next,
             'prev_article' : prev,
-            'show_analytics' : show_analytics,
+            'include_analytics' : include_analytics(),
         }
         template_out(self.response, "tmpl/blogpost.html", vals)
 
@@ -421,14 +435,10 @@ class EditHandler(webapp.RequestHandler):
         self.redirect(url)
 
     def get(self):
-        # TODO: use local copy if in local testing, google's
-        # if deployed
-        jquery_url = "/static/js/jquery.js"
-        #jquery_url = "http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.js"
         article_id = self.request.get('article_id')
         if not article_id:
             vals = {
-                'jquery_url' : jquery_url,
+                'jquery_url' : jquery_url(),
                 'format_textile_checked' : "checked",
                 'private_checkbox_checked' : "checked",
             }
@@ -437,7 +447,7 @@ class EditHandler(webapp.RequestHandler):
 
         article = db.get(db.Key.from_path('Article', int(article_id)))
         vals = {
-            'jquery_url' : jquery_url,
+            'jquery_url' : jquery_url(),
             'format_textile_checked' : "",
             'format_html_checked' : "",
             'format_text_checked' : "",
@@ -508,6 +518,35 @@ class BlogArchiveHandler(webapp.RequestHandler):
         }
         template_out(self.response, "tmpl/archive.html", vals)
 
+class DraftsAndDeletedHandler(webapp.RequestHandler):
+    def get(self):
+        if not users.is_current_user_admin():
+            return self.redirect("/")
+        articles_summary = get_articles_summary(ARTICLE_SUMMARY_DRAFT_AND_DELETED)
+        curr_year = None
+        curr_month = None
+        years = []
+        for a in articles_summary:
+            date = a["published_on"]
+            y = date.year
+            m = date.month
+            a["day"] = date.day
+            monthname = MONTHS[m-1]
+            if curr_year is None or curr_year.year != y:
+                curr_month = None
+                curr_year = Year(y)
+                years.append(curr_year)
+
+            if curr_month is None or curr_month.month != monthname:
+                curr_month = Month(monthname)
+                curr_year.add_month(curr_month)
+            curr_month.add_article(a)
+        vals = {
+            'years' : years,
+            'is_admin' : users.is_current_user_admin(),
+        }
+        template_out(self.response, "tmpl/archive.html", vals)
+
 class AtomHandler(webapp.RequestHandler):
     def get(self):
         # TODO: memcache this if turns out to be done frequently
@@ -537,8 +576,7 @@ class AtomHandler(webapp.RequestHandler):
     
 class AddIndexHandler(webapp.RequestHandler):
     def get(self, sub=None):
-        new_url = self.request.url + "index.html"
-        return self.redirect(new_url)
+        return self.redirect(self.request.url + "index.html")
 
 class ForumRedirect(webapp.RequestHandler):
     def get(self, path):
@@ -608,6 +646,7 @@ def main():
         ('/app/edit', EditHandler),
         ('/app/delete', DeleteUndeleteHandler),
         ('/app/undelete', DeleteUndeleteHandler),
+        ('/app/draftsanddeleted', DraftsAndDeletedHandler),
         # only enable /import before importing and disable right
         # after importing, since it's not protected
         ('/import', ImportHandler),
