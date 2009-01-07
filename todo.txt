@@ -1,17 +1,16 @@
 * integrate knowledge base articles
 * show analytics if not localhost, add the logic to
   more pages
+* tags
 * code syntax highlighting
 * display text as plain/text
-* ability to delete/undelete posts
 * ability to see previous versions
-* tags
+* add sitemap.xml ping + ping for google
 * ability to add pictures to posts
 * ability to add attachement
-* add sitemap.xml ping + ping for google
 * on edit automatically focus edit field
 # a special view only for drafts
-# a special view only for deleted articles (combined with drafts, because
+# a special view (/app/listdraftanddeleted) only for deleted articles (combined with drafts, because
   I don't expect to have lots of them?)
 * non-google search
 * test that private (!public) work as expected in:

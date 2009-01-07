@@ -124,9 +124,14 @@ function twitterCallback(twitterData)
   <div id="content">
   <h1><a href="/{{ article.permalink }}">{{ article.title }}</a>
     {% if is_admin %}
-      <a href="/app/edit?article_id={{ article.key.id }}">(edit)</a>
+      <a href="/app/edit?article_id={{ article.key.id }}">edit</a>
+      {% if article.is_deleted %}
+      &nbsp;<a href="/app/undelete?article_id={{ article.key.id }}">undelete</a>
+      {% else %}
+      &nbsp;<a href="/app/delete?article_id={{ article.key.id }}">delete</a>
+      {% endif %}
       {% if article.draft %}
-      &nbsp;<i>draft</i>
+      &nbsp;<font color="blue">draft</font>
       {% endif %}
     {% endif %}
     </h1>

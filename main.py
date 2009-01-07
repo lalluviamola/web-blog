@@ -36,6 +36,7 @@ class Article(db.Model):
     permalink = db.StringProperty(required=True)
     public = db.BooleanProperty(default=False)
     draft = db.BooleanProperty(default=False)
+    is_deleted = db.BooleanProperty(default=False)
     title = db.StringProperty()
     article_type = db.StringProperty(required=True, choices=set(ALL_TYPES))
     # copy of TextContent.content
@@ -68,7 +69,7 @@ def build_articles_summary():
     articles = []
     for article in articlesq:
         a = {}
-        for attr in ["permalink", "public", "title", "published", "format", "draft"]:
+        for attr in ["permalink", "public", "title", "published", "format", "draft", "is_deleted"]:
             a[attr] = getattr(article,attr)
         a["key_id"] = article.key().id()
         articles.append(a)
@@ -76,7 +77,7 @@ def build_articles_summary():
 
 def filter_nonadmin_articles(articles_summary):
     for article_summary in articles_summary:
-        if article_summary["public"] and not article_summary["draft"]:
+        if article_summary["public"] and not article_summary["draft"] and not article_summary["is_deleted"]:
             yield article_summary
 
 def pickle_data(data):
@@ -94,7 +95,7 @@ def unpickle_data(data_pickled):
 
 def get_articles_summary(filter_by_permissions=True):
     articles_pickled = memcache.get(ARTICLES_INFO_MEMCACHE_KEY)
-    #articles_pickled = None
+    articles_pickled = None
     if articles_pickled:
         articles_summary = unpickle_data(articles_pickled)
         logging.info("len(articles_summary) = %d" % len(articles_summary))
@@ -184,7 +185,7 @@ class BlogIndexHandler(webapp.RequestHandler):
         else:
             # TODO: this always returns nothing, is it because I added 'draft'
             # after creating the posts?
-            article = db.GqlQuery("SELECT * FROM Article WHERE draft = False AND public = True ORDER BY published DESC").get()
+            article = db.GqlQuery("SELECT * FROM Article WHERE draft = False AND public = True AND is_deleted = False ORDER BY published DESC").get()
         next = None
         prev = None
         if article:
@@ -236,31 +237,52 @@ def is_empty_string(s):
     return 0 == len(s)
 
 def onlyascii(c):
-  if c in " _.;,-":
-    return c
-  if ord(c) < 48 or ord(c) > 127:
-    return ''
-  else: 
-    return c
+    if c in " _.;,-":
+        return c
+    if ord(c) < 48 or ord(c) > 127:
+        return ''
+    else: 
+        return c
 
 # TODO: could be simplified?
 def urlify(s):
-  s = s.strip().lower()
-  s = filter(onlyascii, s)
-  for c in [" ", "_", "=", ".", ";", ":", "/", "\\", "\"", "'", "(", ")", "{", "}", "?", ","]:
-    s = s.replace(c, "-")
-  # TODO: a crude way to convert two-or-more consequtive '-' into just one
-  # it's really a job for regex
-  while True:
-    new = s.replace("--", "-")
-    if new == s:
-      break
-    #print "new='%s', prev='%s'" % (new, s)
-    s = new
-  s = s.strip("-")[:48]
-  s = s.strip("-")
-  return s
- 
+    s = s.strip().lower()
+    s = filter(onlyascii, s)
+    for c in [" ", "_", "=", ".", ";", ":", "/", "\\", "\"", "'", "(", ")", "{", "}", "?", ","]:
+        s = s.replace(c, "-")
+    # TODO: a crude way to convert two-or-more consequtive '-' into just one
+    # it's really a job for regex
+    while True:
+        new = s.replace("--", "-")
+        if new == s:
+            break
+        #print "new='%s', prev='%s'" % (new, s)
+        s = new
+    s = s.strip("-")[:48]
+    s = s.strip("-")
+    return s
+
+class DeleteUndeleteHandler(webapp.RequestHandler):
+    def get(self):
+        if not users.is_current_user_admin():
+            return self.redirect("/")
+        article_id = self.request.get("article_id")
+        logging.info("article_id: '%s'" % article_id)
+        if is_empty_string(article_id):
+            return self.redirect("/")
+        article = db.get(db.Key.from_path("Article", int(article_id)))
+        if not article:
+            vals = { "url" : article_id }
+            return template_out(self.response, "tmpl/blogpost_notfound.html", vals)
+        if article.is_deleted:
+            article.is_deleted = False
+        else:
+            article.is_deleted = True
+        article.put()
+        memcache.delete(ARTICLES_INFO_MEMCACHE_KEY)
+        url = "/" + article.permalink
+        self.redirect(url)
+
 class EditHandler(webapp.RequestHandler):
 
     def gen_permalink(self, title, date=None):
@@ -586,6 +608,8 @@ def main():
         ('/forum_sumatra/rss.php', ForumRssRedirect),
         ('/forum_sumatra/(.*)', ForumRedirect),
         ('/app/edit', EditHandler),
+        ('/app/delete', DeleteUndeleteHandler),
+        ('/app/undelete', DeleteUndeleteHandler),
         # only enable /import before importing and disable right
         # after importing, since it's not protected
         ('/import', ImportHandler),
