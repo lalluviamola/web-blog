@@ -29,13 +29,13 @@ ALL_FORMATS = [FORMAT_TEXT, FORMAT_HTML, FORMAT_TEXTILE, FORMAT_MARKDOWN]
 
 class TextContent(db.Model):
     content = db.TextProperty(required=True)
-    published = db.DateTimeProperty(auto_now_add=True)
+    published_on = db.DateTimeProperty(auto_now_add=True)
     format = db.StringProperty(required=True,choices=set(ALL_FORMATS))
 
 class Article(db.Model):
     permalink = db.StringProperty(required=True)
-    public = db.BooleanProperty(default=False)
-    draft = db.BooleanProperty(default=False)
+    is_public = db.BooleanProperty(default=False)
+    is_draft = db.BooleanProperty(default=False)
     is_deleted = db.BooleanProperty(default=False)
     title = db.StringProperty()
     article_type = db.StringProperty(required=True, choices=set(ALL_TYPES))
@@ -43,10 +43,10 @@ class Article(db.Model):
     body = db.TextProperty(required=True)
     excerpt = db.TextProperty()
     html_body = db.TextProperty()
-    # copy of TextContent.published of first version
-    published = db.DateTimeProperty(auto_now_add=True)
-    # copy of TextContent.published of last version
-    updated = db.DateTimeProperty(auto_now_add=True)
+    # copy of TextContent.published_on of first version
+    published_on = db.DateTimeProperty(auto_now_add=True)
+    # copy of TextContent.published_on of last version
+    updated_on = db.DateTimeProperty(auto_now_add=True)
     # copy of TextContent.format
     format = db.StringProperty(required=True,choices=set(ALL_FORMATS))
     #assoc_dict = db.BlobProperty()
@@ -56,20 +56,20 @@ class Article(db.Model):
     # points to TextContent
     previous_versions = db.ListProperty(db.Key, default=[])
 
-    def rfc3339_published(self):
-        return self.published.strftime('%Y-%m-%dT%H:%M:%SZ')
+    def rfc3339_published_on(self):
+        return self.published_on.strftime('%Y-%m-%dT%H:%M:%SZ')
 
-    def rfc3339_updated(self):
-        return self.updated.strftime('%Y-%m-%dT%H:%M:%SZ')
+    def rfc3339_updated_on(self):
+        return self.updated_on.strftime('%Y-%m-%dT%H:%M:%SZ')
 
 ARTICLES_INFO_MEMCACHE_KEY = "ak"
 
 def build_articles_summary():
-    articlesq = db.GqlQuery("SELECT * FROM Article ORDER BY published DESC")
+    articlesq = db.GqlQuery("SELECT * FROM Article ORDER BY published_on DESC")
     articles = []
     for article in articlesq:
         a = {}
-        for attr in ["permalink", "public", "title", "published", "format", "draft", "is_deleted"]:
+        for attr in ["permalink", "is_public", "title", "published_on", "format", "is_draft", "is_deleted"]:
             a[attr] = getattr(article,attr)
         a["key_id"] = article.key().id()
         articles.append(a)
@@ -77,7 +77,7 @@ def build_articles_summary():
 
 def filter_nonadmin_articles(articles_summary):
     for article_summary in articles_summary:
-        if article_summary["public"] and not article_summary["draft"] and not article_summary["is_deleted"]:
+        if article_summary["is_public"] and not article_summary["is_draft"] and not article_summary["is_deleted"]:
             yield article_summary
 
 def pickle_data(data):
@@ -181,11 +181,11 @@ class BlogIndexHandler(webapp.RequestHandler):
     def get(self):
         is_admin = users.is_current_user_admin()
         if is_admin:
-            article = db.GqlQuery("SELECT * FROM Article ORDER BY published DESC").get()
+            article = db.GqlQuery("SELECT * FROM Article ORDER BY published_on DESC").get()
         else:
-            # TODO: this always returns nothing, is it because I added 'draft'
+            # TODO: this always returns nothing, is it because I added 'is_draft'
             # after creating the posts?
-            article = db.GqlQuery("SELECT * FROM Article WHERE draft = False AND public = True AND is_deleted = False ORDER BY published DESC").get()
+            article = db.GqlQuery("SELECT * FROM Article WHERE is_draft = False AND is_public = True AND is_deleted = False ORDER BY published_on DESC").get()
         next = None
         prev = None
         if article:
@@ -214,7 +214,7 @@ class BlogHandler(webapp.RequestHandler):
         if is_admin:
             article = Article.gql("WHERE permalink = :1", permalink).get()
         else:
-            article = Article.gql("WHERE permalink = :1 AND public = :2", permalink, True).get()
+            article = Article.gql("WHERE permalink = :1 AND is_public = :2", permalink, True).get()
         if not article:
             vals = { "url" : permalink }
             template_out(self.response, "tmpl/blogpost_notfound.html", vals)
@@ -314,26 +314,22 @@ class EditHandler(webapp.RequestHandler):
         # TODO: validate format
         private = self.request.get("private")
         logging.info("private: '%s'" % private)
-        public = True
+        is_public = True
         if private == "on":
-            public = False
-        draft = True
-        if draft == "on":
-            draft = False
+            is_public = False
         title = self.request.get("title").strip()
         logging.info("title: '%s'" % title)
         body = self.request.get("note")
 
         text_content = self.create_new_text_content(body, format)
-        published = text_content.published
-        permalink = self.gen_permalink(title, published)
+        published_on = text_content.published_on
+        permalink = self.gen_permalink(title, published_on)
 
         article = Article(permalink=permalink, title=title, body=body, format=format, article_type=TYPE_BLOG)
-        article.public = public
+        article.is_public = is_public
         article.previous_versions = [text_content.key()]
-        article.published = published
-        article.updated = published
-        article.draft = draft
+        article.published_on = published_on
+        article.updated_on = published_on
 
         # TODO:
         # article.excerpt
@@ -360,13 +356,14 @@ class EditHandler(webapp.RequestHandler):
         logging.info("format: '%s'" % format)
         # TODO: validate format
         private = self.request.get("private")
+        draft = self.request.get("draft")
         logging.info("private: '%s'" % private)
-        public = True
+        is_public = True
         if private == "on":
-            public = False
-        draft = True
+            is_public = False
+        is_draft = True
         if draft == "on":
-            draft = False
+            is_draft = False
         title = self.request.get("title").strip()
         logging.info("title: '%s'" % title)
         body = self.request.get("note")
@@ -386,28 +383,28 @@ class EditHandler(webapp.RequestHandler):
             logging.info("body is the same")
 
         if article.title != title:
-            new_permalink = self.gen_permalink(title, article.published)
+            new_permalink = self.gen_permalink(title, article.published_on)
             article.permalink = new_permalink
             invalidate_articles_cache = True
 
         if text_content:
-            article.updated = text_content.published
+            article.updated_on = text_content.published_on
         else:
-            article.updated = datetime.datetime.now()
+            article.updated_on = datetime.datetime.now()
 
         if text_content:
             article.previous_versions.append(text_content.key())
 
-        if article.public != public:
+        if article.is_public != is_public:
             invalidate_articles_cache = True
 
-        if article.draft != draft:
+        if article.is_draft != is_draft:
             invalidate_articles_cache = True
 
         article.format = format
         article.title = title
-        article.public = public
-        article.draft = draft
+        article.is_public = is_public
+        article.is_draft = is_draft
 
         if invalidate_articles_cache:
             memcache.delete(ARTICLES_INFO_MEMCACHE_KEY)
@@ -448,9 +445,9 @@ class EditHandler(webapp.RequestHandler):
             'article' : article,
         }
         vals['format_%s_checked' % article.format] = "checked"
-        if article.draft:
+        if article.is_draft:
             vals['draft_checkbox_checked'] = "checked"
-        if not article.public:
+        if not article.is_public:
             vals['private_checkbox_checked'] = "checked"
         template_out(self.response, "tmpl/edit.html", vals)
 
@@ -458,8 +455,8 @@ def article_for_archive(article):
     new_article = {}
     new_article["permalink"] = article.permalink
     new_article["title"] = article.title
-    new_article["published"] = article.published
-    new_article["day"] = article.published.day
+    new_article["published_on"] = article.published_on
+    new_article["day"] = article.published_on.day
     return new_article
 
 MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
@@ -490,7 +487,7 @@ class BlogArchiveHandler(webapp.RequestHandler):
         curr_month = None
         years = []
         for a in articles_summary:
-            date = a["published"]
+            date = a["published_on"]
             y = date.year
             m = date.month
             a["day"] = date.day
@@ -518,7 +515,7 @@ class AtomHandler(webapp.RequestHandler):
             link = "http://blog.kowalczyk.info/feed/",
             description = "Krzysztof Kowalczyk blog")
 
-        articlesq = db.GqlQuery("SELECT * FROM Article WHERE public = True ORDER BY published DESC")
+        articlesq = db.GqlQuery("SELECT * FROM Article WHERE is_public = True ORDER BY published_on DESC")
         articles = []
         max_articles = 25
         for a in articlesq:
@@ -531,7 +528,7 @@ class AtomHandler(webapp.RequestHandler):
             link = "http://blog.kowalczyk.info/" + a.permalink
             article_gen_html_body(a)
             description = a.html_body
-            pubdate = a.published
+            pubdate = a.published_on
             feed.add_item(title=title, link=link, description=description, pubdate=pubdate)
         feedtxt = feed.writeString('utf-8')
         self.response.headers['Content-Type'] = 'text/xml'
@@ -575,21 +572,21 @@ class ImportHandler(webapp.RequestHandler):
         if article:
             logging.info("post with url '%s' already exists" % permalink)
             return self.error(HTTP_NOT_ACCEPTABLE)
-        published = post[POST_DATE]
+        published_on = post[POST_DATE]
         format = post[POST_FORMAT]
         format = uni_to_utf8(format)
         assert format in ALL_FORMATS
         body = post[POST_BODY] # body comes as utf8
         body = uni_to_utf8(body)
-        text_content = TextContent(content=body, published=published, format=format)
+        text_content = TextContent(content=body, published_on=published_on, format=format)
         text_content.put()
         title = post[POST_TITLE]
         title = uni_to_utf8(title)
         article = Article(permalink=permalink, title=title, body=body, format=format, article_type=TYPE_BLOG)
-        article.public = True
+        article.is_public = True
         article.previous_versions = [text_content.key()]
-        article.published = published
-        article.updated = published
+        article.published_on = published_on
+        article.updated_on = published_on
         # TODO:
         # article.excerpt
         # article.html_body
