@@ -54,7 +54,7 @@ skip_files: |
   (.*\.py[co])|
   (.*/RCS/.*)|
   (\..*)|
-  (srcblog\*)|
-  (www\blog\*)|
-  (scripts\*)|
+  (srcblog/.*)|
+  (www/blog/.*)|
+  (scripts/.*)|
   )$
