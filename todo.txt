@@ -3,12 +3,13 @@
 * show analytics if not localhost, add the logic to more pages
 * code syntax highlighting
 * display text as plain/text
+* excerpts
+* html_body
 * ability to see previous versions
 * add sitemap.xml ping + ping for google
 * ability to add pictures to posts
 * ability to add attachement
 * on edit automatically focus edit field
-# a special view only for drafts
 * non-google search
 * test that private (!public) work as expected in:
   * archives
