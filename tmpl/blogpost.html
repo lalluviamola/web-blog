@@ -45,11 +45,11 @@ div#content{font:normal medium 'Goudy Bookletter 1911','Gentium Basic','Liberati
 <tr>
   <td>
 {% if next_article %}
-later: <a href="/{{ next_article.permalink}}">{{ next_article.title }}</a>{% endif %}
+newer: <a href="/{{ next_article.permalink}}">{{ next_article.title }}</a>{% endif %}
 </td>
 <td align="right">
 {% if prev_article %}
-earlier: <a href="/{{ prev_article.permalink}}">{{ prev_article.title }}</a>
+older: <a href="/{{ prev_article.permalink}}">{{ prev_article.title }}</a>
 {% endif %}
 </td>
 </tr>

@@ -5,6 +5,7 @@
 * display text as plain/text
 * excerpts
 * html_body
+* generic blobs (blob + mime type, for storing images, plain-text files etc.)
 * ability to see previous versions
 * add sitemap.xml ping + ping for google
 * ability to add pictures to posts
