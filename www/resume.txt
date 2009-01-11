@@ -61,7 +61,7 @@ http://web.archive.org/web/20060205175212/arslexis.com/palm/thes/overview.html
 
 Noah Lite, Noah Pro - english dictionary for Palm OS.
 Technology used: C, Palm OS API, Lisp, custom-designed compression scheme for dictionary data.
-http://www.noahpro.org/
+http://blog.kowalczyk.info/software/noahpro/
 
 AOL Server - ported AOL Server (HTTP server like Apache) from Unix to Windows, 
 including an libxml-based nsxml module and PostgreSQL drivers.

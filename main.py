@@ -20,9 +20,10 @@ import logging
 HTTP_NOT_ACCEPTABLE = 406
 HTTP_NOT_FOUND = 404
 
-TYPE_ARTICLE = "article"
-TYPE_BLOG = "blog entry"
-ALL_TYPES = [TYPE_ARTICLE, TYPE_BLOG]
+# 'kb' is knowledge base, kind of like wiki
+TYPE_KB = "kb"
+TYPE_BLOG = "blog"
+ALL_TYPES = [TYPE_KB, TYPE_BLOG]
 
 (FORMAT_TEXT, FORMAT_HTML, FORMAT_TEXTILE, FORMAT_MARKDOWN) = ("text", "html", "textile", "markdown")
 ALL_FORMATS = [FORMAT_TEXT, FORMAT_HTML, FORMAT_TEXTILE, FORMAT_MARKDOWN]
@@ -69,7 +70,9 @@ def build_articles_summary():
     articles = []
     for article in articlesq:
         a = {}
-        for attr in ["permalink", "is_public", "title", "published_on", "format", "is_draft", "is_deleted"]:
+        # TODO: make attributes with shorter names to make pickled data smaller
+        # and make pickling/unpickling faster
+        for attr in ["permalink", "article_type", "is_public", "title", "published_on", "format", "is_draft", "is_deleted"]:
             a[attr] = getattr(article,attr)
         a["key_id"] = article.key().id()
         articles.append(a)
@@ -201,7 +204,7 @@ class BlogIndexHandler(webapp.RequestHandler):
         if is_admin:
             article = db.GqlQuery("SELECT * FROM Article ORDER BY published_on DESC").get()
         else:
-            article = db.GqlQuery("SELECT * FROM Article WHERE is_draft = False AND is_public = True AND is_deleted = False ORDER BY published_on DESC").get()
+            article = db.GqlQuery("SELECT * FROM Article WHERE is_public = True AND is_draft = False AND is_deleted = False ORDER BY published_on DESC").get()
         next = None
         prev = None
         if article:
@@ -229,7 +232,7 @@ class BlogHandler(webapp.RequestHandler):
         if is_admin:
             article = Article.gql("WHERE permalink = :1", permalink).get()
         else:
-            article = Article.gql("WHERE permalink = :1 AND is_public = :2", permalink, True).get()
+            article = Article.gql("WHERE permalink = :1 AND is_public = True AND is_draft = FALSE AND is_deleted = False", permalink).get()
         if not article:
             vals = { "url" : permalink }
             template_out(self.response, "tmpl/blogpost_notfound.html", vals)
@@ -262,7 +265,7 @@ def onlyascii(c):
 def urlify(s):
     s = s.strip().lower()
     s = filter(onlyascii, s)
-    for c in [" ", "_", "=", ".", ";", ":", "/", "\\", "\"", "'", "(", ")", "{", "}", "?", ","]:
+    for c in [" ", "_", "=", ".", ";", ":", "/", "\\", "\"", "'", "(", ")", "{", "}", "?", ",", "~"]:
         s = s.replace(c, "-")
     # TODO: a crude way to convert two-or-more consequtive '-' into just one
     # it's really a job for regex
@@ -555,7 +558,7 @@ class AtomHandler(webapp.RequestHandler):
             link = "http://blog.kowalczyk.info/feed/",
             description = "Krzysztof Kowalczyk blog")
 
-        articlesq = db.GqlQuery("SELECT * FROM Article WHERE is_public = True ORDER BY published_on DESC")
+        articlesq = db.GqlQuery("SELECT * FROM Article WHERE is_public = True AND is_draft = False AND is_deleted = False ORDER BY published_on DESC")
         articles = []
         max_articles = 25
         for a in articlesq:

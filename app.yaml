@@ -57,4 +57,5 @@ skip_files: |
   (srcblog/.*)|
   (www/blog/.*)|
   (scripts/.*)|
+  (todo\.txt)|
   )$
