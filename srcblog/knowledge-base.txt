@@ -972,13 +972,13 @@ public class Settings {
             }
     }
     
-    static MySettings Load(string fileNmae) {
+    static MySettings Load(string fileName) {
         Stream stream = null;
         MySettings settings = null;
         try {
             IFormatter formatter = new BinaryFormatter();
             stream = new FileStream(fileName, FileMode.Open, FileAccess.Read, FileShare.None);
-            int version = (ArrayList)formatter.Deserialize(stream);
+            int version = (int)formatter.Deserialize(stream);
             Debug.Assert(version == VERSION);
             settings = (MySettings)formatter.Deserialize(stream);
         } catch {
