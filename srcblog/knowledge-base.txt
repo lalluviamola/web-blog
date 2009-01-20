@@ -125,7 +125,7 @@ practice valgrind 3.2 crashed when I was using this option.
 
 * LF: 0x0a (10), Unix
 * CR: 0x0d (13), Mac
-* CRLF: Windows
+* CRLF: (0x0d, 0x0a) (13, 10) Windows
 
 @Title: Gdb basics
 @Tags: gdb, unix, programming
@@ -281,12 +281,12 @@ Those user names/passwords are independent of Unix user names/passwords (I think
 This is a copy of [this article](http://technopedia.info/tech/2006/03/03/what-makes-a-cd-bootable.html)
 
 In order for a CD to be bootable, it must contain two files: BOOTCAT. BIN and
-BOOTIMG.BIN. BOOTCAT.BIN is a catalog file, and BOOTIMG.BIN is an image file—an
-image of a bootable floppy disk. That’s why you need an existing bootable 
+BOOTIMG.BIN. BOOTCAT.BIN is a catalog file, and BOOTIMG.BIN is an image file an
+image of a bootable floppy disk. That's why you need an existing bootable 
 floppy in order to make a bootable CD.
 
 When you browse the contents of a bootable CD in Windows or at a command prompt, 
-you won’t see any of the files that you would find on a bootable floppy; that’s 
+you won't see any of the files that you would find on a bootable floppy; that's 
 because they are all stored within BOOTIMG.BIN.
 
 When you boot from the bootable CD, everything in BOOTIMG.BIN and BOOTCAT.BIN 
@@ -880,7 +880,7 @@ From [this blog post](http://ooeygui.typepad.com/ooey_gui/2005/10/animations.htm
 * you can specify a delay
 * it returns a kernel handle you can wait on
 * it allows pasing context data pointer to a callback function
-* waitable timers are much more accurate as they are not calculated during idle and messages aren’t collapsed
+* waitable timers are much more accurate as they are not calculated during idle and messages aren't collapsed
 * you can adjust the parameters of the timer with [SetWaitableTimer](http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dllproc/base/setwaitabletimer.asp) and cancel it with [CancelWaitableTimer](http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dllproc/base/cancelwaitabletimer.asp)..
 
 @ Title: Avoiding SQL injection bugs in PHP
