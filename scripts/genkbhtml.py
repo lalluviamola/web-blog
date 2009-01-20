@@ -554,7 +554,7 @@ def gen_html(articles):
         write_to_file(os.path.join(OUTDIR, file_name), html_txt)
 
 def usage_and_exit():
-    print "Usage: gen-kb-html.py [dir] [file-to-process]"
+    print "Usage: genkbhtml.py [dir] [file-to-process]"
     sys.exit(0)
 
 def main():
