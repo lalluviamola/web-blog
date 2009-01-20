@@ -4,7 +4,7 @@
 # not given) and generates a set of static html pages.
 
 import sys, string, os, os.path, urllib, re, time, tempfile, md5
-import markdown, textile, markdown2
+import markdown2
 from pygments import highlight
 from pygments.lexers import *
 from pygments.formatters import HtmlFormatter
@@ -75,13 +75,14 @@ valid_attrs = [TITLE_TXT, DATE_TXT, TAGS_TXT]
 HIDDEN_TXT = "hidden".lower()
 
 def markup2(txt):
-    return markdown2.markdown(txt)
-
-def markup(txt):
-    return markdown.markdown(txt)
-
-def textile(txt):
-    return textile.textile(txt)
+    #txt = txt.decode('ascii').encode('utf-8')
+    try:
+        res = markdown2.markdown(txt)
+    except:
+        print(txt)
+        raise
+    #res = res.decode('utf-8').encode('iso-8859-1')
+    return res
 
 def empty_str(str):
     return 0 == len(str.strip())
@@ -158,6 +159,13 @@ class Article(object):
     
     def _get_body_txt(self):
         return string.join(self.get_body_parts())
+
+    def get_raw_txt(self):
+        raw = []
+        for parts in self.get_body_parts():
+            txt = parts[0]
+            raw.append(txt)
+        return string.join(raw)
 
     def add_attr(self, attr, val):
         attr = attr.lower()
@@ -398,6 +406,8 @@ def gen_html(articles):
         if urls.has_key(url):
             assert not urls.has_key(url), "title '%s' creates a duplicate url" % article.title
         urls[url] = True
+
+    for article in all_articles:
         build_tag_article_map(article)
         build_date_article_map(article)
 
