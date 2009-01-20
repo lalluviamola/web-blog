@@ -1,1 +1,1 @@
-python gen-kb-html.py ..\www\kb ..\srcblog\knowledge-base.txt
+python genkbhtml.py ..\www\kb ..\srcblog\knowledge-base.txt

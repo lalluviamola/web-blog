@@ -1,4 +1,4 @@
-# This file is used by gen-kb-html.py script to generate html files representing
+# This file is used by genkbhtml.py script to generate html files representing
 # those snippets. This file contains multiple knowledge base articles. Each
 # article has a body (written in markdown or textile markup language) and a set
 # of attributes. Each article starts by listing attributes. Attributes are
@@ -10,7 +10,7 @@
 #             the rest are (optional) modification dates
 #   Tags    - list of tags, tags are separated with ',', e.g. "c#, programming, code snippet"
 #
-# gen-kb-html.py scripts reads this file and generates a set of static html
+# genkbhtml.py scripts reads this file and generates a set of static html
 # files. The whole idea is to make it easier to maintain those pages (writing
 # markdown is easier and faster than html; manually maintaining index files
 # for tags would be a major pain) and make it easy to change the look just
