@@ -11,8 +11,11 @@ import textile
 import postsparse
 import util
 import pickle
+import genkbhtml
 
-SRCDIR = os.path.join("..", "srcblog")
+SCRIPT_DIR = os.path.dirname(__file__)
+SRCDIR = os.path.join(SCRIPT_DIR, "..", "srcblog")
+KB_SRC_FILE = os.path.join(SCRIPT_DIR, "..", "srcblog", "knowledge-base.txt")
 
 (POST_URL, POST_FORMAT, POST_DATE, POST_BODY, POST_TITLE) = ("url", "format", "date", "body", "title")
 
@@ -231,7 +234,7 @@ def itern(seq, n):
     if len(res) > 0:
         yield res
 
-def main():
+def upload_blog():
     if not util.dir_exists(SRCDIR):
         print("Dir '%s' doesn't exist" % SRCDIR)
         sys.exit(1)
@@ -254,6 +257,14 @@ def main():
         if MAX_TO_UPLOAD < 1:
             print("Reached max uploads")
             break
+    
+def upload_kb():
+    articles = genkbhtml.process_file(KB_SRC_FILE)
+    print("len(articles)=%d" % len(articles))
+
+def main():
+    #upload_blog()
+    upload_kb()
 
 def main2():
     if not util.dir_exists(SRCDIR):

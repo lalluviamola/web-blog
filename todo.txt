@@ -1,8 +1,8 @@
+* code syntax highlighting for kb/blog using google-code-prettify
 * integrate knowledge base articles
 * tags
 * integrate evernote article
 * show analytics if not localhost, add the logic to more pages
-* code syntax highlighting
 * display text as plain/text
 * excerpts
 * html_body

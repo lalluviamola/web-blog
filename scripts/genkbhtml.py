@@ -9,6 +9,41 @@ from pygments import highlight
 from pygments.lexers import *
 from pygments.formatters import HtmlFormatter
 
+HEADER_HTML = """<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+ <meta http-equiv="Content-Language" content="en-us">
+ <meta name="description" content="$title">
+ <link rel="stylesheet" href="../css/wp-style.css" type="text/css">
+ <link rel="stylesheet" href="../css/article.css" type="text/css">
+ <link rel="stylesheet" href="../css/pygments.css" type="text/css">
+ <title>$title</title>
+</head>
+
+<body>
+<div id="container">
+
+<p><a href="../index.html">home</a> &raquo; <a href="index.html">knowledge base</a> &raquo; <strong>$title</strong> <font color="#aaaaaa" size="-1">($creation-date)</font></p>
+"""
+
+FOOTER_HTML = """<hr>
+<center><a href=../../index.html>Krzysztof Kowalczyk</a></center>
+</div>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-194516-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+
+  </body>
+</html>
+"""
+
 # directory where we'll generate the files
 OUTDIR = "."
 
@@ -336,20 +371,7 @@ def write_to_file(file_name, txt):
     fo.write(txt)
     fo.close()
 
-def get_file(file_name):
-    fo = open(file_name)
-    txt = fo.read()
-    fo.close()
-    return txt
-
-_files_cache = {}
-def get_file_replace_vars(file_name, title, creation_date):
-    if not _files_cache.has_key(file_name):
-        fo = open(file_name)
-        txt = fo.read()
-        fo.close()
-        _files_cache[file_name] = txt
-    txt = _files_cache[file_name]
+def txt_replace_vars(txt, title, creation_date):
     txt = txt.replace("$title", title)
     txt = txt.replace("$creation-date", creation_date)
     return txt
@@ -421,7 +443,7 @@ def gen_html(articles):
     all_articles_count = len(all_articles)
     pages_count = (all_articles_count +  links_per_page - 1) / links_per_page
 
-    html_footer_txt = get_file("footer.html.txt")
+    html_footer_txt = FOOTER_HTML
 
     def gen_tags(txt, tags, tag_to_unlink=None):
         txt = ['<div class="tags">', txt]
@@ -448,7 +470,7 @@ def gen_html(articles):
     for page_no in range(pages_count):
         title = "Index of all articles"
         creation_date = today_as_yyyy_mm_dd()
-        html_header_txt = get_file_replace_vars("header.html.txt", title=title, creation_date=creation_date)
+        html_header_txt = txt_replace_vars(HEADER_HTML, title=title, creation_date=creation_date)
         html = [html_header_txt]
 
         tags_txt = gen_tags("Tags: ", all_tags_sorted)
@@ -503,7 +525,7 @@ def gen_html(articles):
     for article in all_articles:
         title = article.title
         creation_date = article.dates[0]
-        html_header_txt = get_file_replace_vars("header.html.txt", title=title, creation_date=creation_date)
+        html_header_txt = txt_replace_vars(HEADER_HTML, title=title, creation_date=creation_date)
         html = [html_header_txt]
 
         tags = article.tags
@@ -535,7 +557,7 @@ def gen_html(articles):
     for tag in tag_article_map.keys():
         title = "Articles tagged with <b>%s</b> tag:" % tag
         creation_date = today_as_yyyy_mm_dd()
-        html_header_txt = get_file_replace_vars("header.html.txt", title=title, creation_date=creation_date)
+        html_header_txt = txt_replace_vars(HEADER_HTML, title=title, creation_date=creation_date)
         html = [html_header_txt]
 
         tags_txt = gen_tags("Tags: ", all_tags_sorted, tag)
