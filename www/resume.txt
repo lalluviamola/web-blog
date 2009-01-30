@@ -9,7 +9,9 @@ San Francisco, CA, 94110
 e-mail: kkowalczyk@gmail.com
 web:    http://blog.kowalczyk.info
 
-* Software I wrote or contributed to, chronological order
+* My open-source projects: http://github.com/kjk and http://code.google.com/u/kkowalczyk/
+
+* Software I wrote or contributed to, chronological order:
 
 uTorrent for Mac - took over unfinished code from a contractor, completed and shipped the product.
 Technologies used: C++, Objective-C, Cocoa (Mac native UI framework).
@@ -22,14 +24,14 @@ Technologies used: C++, HTML+JavaScript for web front-end.
 
 SumatraPDF - PDF viewer for Windows. GUI part (around 10k lines of C++ code) designed
 and written from scratch by myself. Performance improvements to existing pdf rendering
-engines (http://blog.kowalczyk.info/archives/2006/09/02/on-how-i-improved-sumatra-performance-by-60/).
+engines (http://blog.kowalczyk.info/blog/2006/09/03/on-how-i-improved-sumatra-performance-by-~60.html).
 Open-source, hobby effort.
 http://blog.kowalczyk.info/software/sumatrapdf/
-http://www.ohloh.net/projects/4623/contributors/25775
+https://www.ohloh.net/p/4623/contributors/19855633811562
 Technologies used: C++, Windows API.
 
 WebKit - core engine behind Apple's Safari browser. Contributed Windows and Linux/Gtk fixes 
-(http://www.ohloh.net/projects/3266/contributors/25775). Received commit rights and reivew 
+(https://www.ohloh.net/p/WebKit/contributors/14027363190890). Received commit rights and reivew 
 rights for the Gtk part (http://webkit.org/blog/?p=95).
 Technologies used: C++, Linux/GTK+ API.
 
@@ -136,6 +138,8 @@ Expert Palm OS and Windows Mobile (Pocket PC) programming.
 
 Advanced Windows OS programming.
 
+Mac OS X programming.
+
 Used to be expert in Amiga OS programming.
 
 Experience programming on Unix.
@@ -144,7 +148,7 @@ Used to be expert in 680x0 assembler (when programming for Amiga OS).
 
 Advanced in Python.
 
-Programmed in: Java, C#, SQL, Perl, PHP, x86 assember, Lisp, Scheme.
+Programmed in: JavaScript, Java, C#, SQL, Perl, PHP, x86 assember, Lisp, Scheme.
 
 Know about: TCP/IP, XML, networking protocols (HTTP, POP3, TELNET, FTP, SMTP), HTML, 
 web technologies, Unix administration, databases (MySQL, SQL Server, Postgress), 
