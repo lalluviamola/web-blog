@@ -11,6 +11,15 @@ web:    http://blog.kowalczyk.info
 
 * Software I wrote or contributed to, chronological order
 
+BitTorrent SDK - created BitTorrent SDK product. 
+Technologies used: C++, HTML+JavaScript for web front-end.
+
+uTorrent for Mac - took over unfinished code from a contractor, completed and shipped the product.
+Technologies used: C++, Objective-C, Cocoa (Mac native UI framework).
+
+uTorrent for Windows - contributed enhancements to windows code and to mac/unix port of the codebase.
+Technologies used: C++.
+
 SumatraPDF - PDF viewer for Windows. GUI part (around 10k lines of C++ code) designed
 and written from scratch by myself. Performance improvements to existing pdf rendering
 engines (http://blog.kowalczyk.info/archives/2006/09/02/on-how-i-improved-sumatra-performance-by-60/).
@@ -24,7 +33,8 @@ WebKit - core engine behind Apple's Safari browser. Contributed Windows and Linu
 rights for the Gtk part (http://webkit.org/blog/?p=95).
 Technologies used: C++, Linux/GTK+ API.
 
-Yet unreleased application - written from scratch by me at Palm.
+PDF viewer for Foleo - written from scratch by me at Palm. Not released because Foleo has been
+cancelled before shipping.
 Technologies used: C++.
 
 Messaging - SMS/MMS messaging application for Windows Mobile-based smartphones, shipped on
@@ -91,12 +101,16 @@ Technology used: Amiga OS, 68000 assembly.
 
 * Employment history
 
-2004/12 - present
+2007/04 - present
+BitTorrent - Senior Software Engineer.
+
+2004/12 - 2007/04
 
 Palm, Inc. - Software Design Engineer.
 Part of 3 person team that wrote, from scratch, SMS client that shipped 
 on Treo 750w (Windows Mobile version).
-Designed and implemented from scratch (yet) unreleased application.
+Designed and implemented from scratch PDF Viewer for Foleo (unreleased because
+Foleo has been cancelled).
 Fixed bugs and stability issues in overall system software on Treo 700w/wx.
 
 2003/05 - 2004/11
