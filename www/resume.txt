@@ -11,14 +11,14 @@ web:    http://blog.kowalczyk.info
 
 * Software I wrote or contributed to, chronological order
 
-BitTorrent SDK - created BitTorrent SDK product. 
-Technologies used: C++, HTML+JavaScript for web front-end.
-
 uTorrent for Mac - took over unfinished code from a contractor, completed and shipped the product.
 Technologies used: C++, Objective-C, Cocoa (Mac native UI framework).
 
 uTorrent for Windows - contributed enhancements to windows code and to mac/unix port of the codebase.
 Technologies used: C++.
+
+BitTorrent SDK - created BitTorrent SDK product. 
+Technologies used: C++, HTML+JavaScript for web front-end.
 
 SumatraPDF - PDF viewer for Windows. GUI part (around 10k lines of C++ code) designed
 and written from scratch by myself. Performance improvements to existing pdf rendering
