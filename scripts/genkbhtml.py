@@ -5,26 +5,32 @@
 
 import sys, string, os, os.path, urllib, re, time, tempfile, md5
 import markdown2
-from pygments import highlight
-from pygments.lexers import *
-from pygments.formatters import HtmlFormatter
 
 HEADER_HTML = """<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
  <meta http-equiv="Content-Language" content="en-us">
- <meta name="description" content="$title">
+ <meta name="description" content="{{title}}">
  <link rel="stylesheet" href="../css/wp-style.css" type="text/css">
  <link rel="stylesheet" href="../css/article.css" type="text/css">
- <link rel="stylesheet" href="../css/pygments.css" type="text/css">
- <title>$title</title>
+ {{prettify-links}}
+ <title>{{title}}</title>
 </head>
 
-<body>
+<body {{prettify-onload}}>
 <div id="container">
 
-<p><a href="../index.html">home</a> &raquo; <a href="index.html">knowledge base</a> &raquo; <strong>$title</strong> <font color="#aaaaaa" size="-1">($creation-date)</font></p>
+<p><a href="../index.html">home</a> &raquo; <a href="index.html">knowledge base</a> &raquo; <strong>{{title}}</strong> <font color="#aaaaaa" size="-1">({{creation-date}})</font></p>
 """
+
+PRETTIFY_LINKS_VAR = "{{prettify-links}}"
+PRETTIFY_ONLOAD_VAR = "{{prettify-onload}}"
+
+PRETTIFY_LINKS="""<link href="../js/prettify.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="../js/prettify.js"></script>
+"""
+
+PRETTIFY_ONLOAD=' onload="prettyPrint()"'
 
 FOOTER_HTML = """<hr>
 <center><a href=../../index.html>Krzysztof Kowalczyk</a></center>
@@ -52,41 +58,34 @@ KNOWN_LANGUAGES = ["c", "c++", "cpp", "c#", "python", "java", "diff", "diffu", "
 def known_lang(lang):
     return lang in KNOWN_LANGUAGES
 
-lang_to_lex = {
-    "python" : PythonLexer,
-    "c" : CLexer,
-    "c++" : CppLexer,
-    "cpp" : CppLexer,
-    "java" : JavaLexer,
-}
-
-def lexer_from_lang(lang):
-    if lang == "python": return PythonLexer()
-    if lang == "c": return CLexer()
-    if lang in ["c++", "cpp"]: return CppLexer()
-    if lang == "java": return JavaLexer()
-    if lang == "c#": return CSharpLexer()
-    if lang == "sh": return BashLexer()
-    if lang == "batch": return BatchLexer()
-    if lang == "sql": return SqlLexer()
-    if lang in ["diff", "diffu"]: return DiffLexer()
-    if lang == "makefile": return MakefileLexer()
-    if lang == "html": return HtmlLexer()
-    if lang == "javascript": return JavascriptLexer()
-    if lang == "php": return PhpLexer()
-    if lang == "xml": return XmlLexer()
-    if lang in ["elisp", "lisp", "scheme"]: return SchemeLexer()
-    if lang == "lua": return LuaLexer()
-    if lang == "perl": return PerlLexer()
+def lang_to_prettify_lang(lang):
+    #from http://google-code-prettify.googlecode.com/svn/trunk/README.html
+    #"bsh", "c", "cc", "cpp", "cs", "csh", "cyc", "cv", "htm", "html",
+    #"java", "js", "m", "mxml", "perl", "pl", "pm", "py", "rb", "sh",
+    #"xhtml", "xml", "xsl".
+    LANG_TO_PRETTIFY_LANG_MAP = { 
+        "c" : "c", 
+        "c++" : "cc", 
+        "cpp" : "cpp", 
+        "python" : "py",
+        "html" : "html",
+        "xml" : "xml",
+        "perl" : "pl",
+        "c#" : "cs",
+        "javascript" : "js",
+        "java" : "java"
+    }
+    if lang in LANG_TO_PRETTIFY_LANG_MAP:
+        return "lang-%s" % LANG_TO_PRETTIFY_LANG_MAP[lang]
     return None
 
 # convert 'content' text to html using enscript
 def code_to_html(code, lang):
-    lexer = lexer_from_lang(lang)
-    if lexer:
-        odata = highlight(code, PythonLexer(), HtmlFormatter())
+    lang = lang_to_prettify_lang(lang)
+    if lang is not None:
+        odata = '<pre class="prettyprint %s">\n%s</pre>' % (lang, encode_code(code))
     else:
-        odata = "<pre>\n" + encode_code(code) + "</pre>"
+        odata = '<pre class="prettyprint">\n%s</pre>' % encode_code(code)
 
     # Strip header and footer
 #    beg = odata.find('<PRE>')
@@ -180,6 +179,7 @@ class Article(object):
         self.title = None # calculated from 'Title' attribute
         self.url = None # calculated from 'Title' attribute
         self.html_file_name = None # calculated from 'Title' attribute
+        self.has_code = False
 
     def _current_body_part(self):
         cur_txt = string.join(self.cur_list, "")
@@ -235,6 +235,7 @@ class Article(object):
         self.cur_list = []
         self.cur_type = Article.CODE
         self.cur_lang = lang
+        self.has_code = True
 
     def add_to_body(self,l):  self.cur_list.append(l)
 
@@ -371,9 +372,9 @@ def write_to_file(file_name, txt):
     fo.write(txt)
     fo.close()
 
-def txt_replace_vars(txt, title, creation_date):
-    txt = txt.replace("$title", title)
-    txt = txt.replace("$creation-date", creation_date)
+def txt_replace_vars(txt, vars_values):
+    for (var, value) in vars_values:
+        txt = txt.replace(var, value)
     return txt
 
 def today_as_yyyy_mm_dd(): return time.strftime("%Y-%m-%d", time.localtime())
@@ -470,7 +471,7 @@ def gen_html(articles):
     for page_no in range(pages_count):
         title = "Index of all articles"
         creation_date = today_as_yyyy_mm_dd()
-        html_header_txt = txt_replace_vars(HEADER_HTML, title=title, creation_date=creation_date)
+        html_header_txt = txt_replace_vars(HEADER_HTML, [["{{title}}", title], ["{{creation-date}}", creation_date], [PRETTIFY_LINKS_VAR, ""], [PRETTIFY_ONLOAD_VAR, ""]])
         html = [html_header_txt]
 
         tags_txt = gen_tags("Tags: ", all_tags_sorted)
@@ -525,7 +526,14 @@ def gen_html(articles):
     for article in all_articles:
         title = article.title
         creation_date = article.dates[0]
-        html_header_txt = txt_replace_vars(HEADER_HTML, title=title, creation_date=creation_date)
+        html_header_txt = txt_replace_vars(HEADER_HTML, [["{{title}}", title], ["{{creation-date}}", creation_date]])
+        if article.has_code:
+            html_header_txt = html_header_txt.replace(PRETTIFY_LINKS_VAR, PRETTIFY_LINKS)
+            html_header_txt = html_header_txt.replace(PRETTIFY_ONLOAD_VAR, PRETTIFY_ONLOAD)
+        else:
+            html_header_txt = html_header_txt.replace(PRETTIFY_LINKS_VAR, "")
+            html_header_txt = html_header_txt.replace(PRETTIFY_ONLOAD_VAR, "")
+            
         html = [html_header_txt]
 
         tags = article.tags
@@ -544,6 +552,7 @@ def gen_html(articles):
             else:
                 assert Article.CODE == part_type
                 body_html = code_to_html(txt, lang)
+                assert(article.has_code)
             html.append(body_html)
 
         html.append('</div>')
@@ -557,7 +566,7 @@ def gen_html(articles):
     for tag in tag_article_map.keys():
         title = "Articles tagged with <b>%s</b> tag:" % tag
         creation_date = today_as_yyyy_mm_dd()
-        html_header_txt = txt_replace_vars(HEADER_HTML, title=title, creation_date=creation_date)
+        html_header_txt = txt_replace_vars(HEADER_HTML, [["{{title}}", title], ["{{creation-date}}", creation_date], [PRETTIFY_LINKS_VAR, ""], [PRETTIFY_ONLOAD_VAR, ""]])
         html = [html_header_txt]
 
         tags_txt = gen_tags("Tags: ", all_tags_sorted, tag)
