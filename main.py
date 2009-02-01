@@ -135,9 +135,9 @@ def include_analytics(): return not is_localhost()
 
 def jquery_url():
     if is_localhost():
-        return "/static/js/jquery.js"
+        return "/www/js/jquery-1.3.1.js"
     else:
-        return "http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.js"
+        return "http://ajax.googleapis.com/ajax/libs/jquery/1.3.1/jquery.min.js"
 
 def redirect_from_appspot(wsgi_app):
     def redirect_if_needed(env, start_response):
