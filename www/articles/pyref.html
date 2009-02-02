@@ -76,7 +76,7 @@ var statModule = ["ST_MODE", "ST_INO", "ST_DEV", "ST_NLINK", "ST_UID", "ST_GID",
 	"ST_SIZE", "ST_ATIME", "ST_ATIME", "ST_MTIME", "ST_CTIME"].sort()
 
 var reModule = ["compile(regex[, flags]) <span class=light>(returns RegExp object)</span>", "match(regexp, str) <span class=light>(returns RegExp object)</span>"].sort()
-var regExpObj = ["search(str) <span class=light>(returns Match object)</span>", "match(str) <span class=light>(returns Match object)</span>", "find(str)", "findall(str)"].sort()
+var regExpObj = ["search(str) <span class=light>(returns Match object)</span>", "match(str) <span class=light>(returns Match object)</span>", "find(str)", "findall(str)", "split(str)", "sub(replacement, string[, count=0])", "subn(replacement, string[, count=0])"].sort()
 var regexpMatchObj = ["group()", "start()", "end()", "span()"].sort()
 var reSpecialSeqs = [
 	".&nbsp;", "any character",
@@ -126,7 +126,7 @@ var reSpecialSeqs = [
 </code></p>
 <p id="regexps"><code>
 	<ct>Regular expressions: (<a href="http://www.amk.ca/python/howto/regex/">more detailed info</a>)</ct><br>
-	<span class=bold>re.search(regexp, string)</span> returns None or Match object if a regular expression matches the beginning of the string. <span class=bold>re.match(regexp, string)</span> returns None or Match object if regular expression matches anywhere in  the string.<br>
+	<span class=bold>re.match(regexp, string)</span> returns None or Match object if a regular expression matches the beginning of the string. <span class=bold>re.search(regexp, string)</span> returns None or Match object if regular expression matches anywhere in  the string.<br>
 	Alternatively you can compile regular expression with: <span class=bold>regexpObj = re.compile(regexp[,flags])</span> and use <span class=bold>regexpObj.search(string)</span> and <span class=bold>regexpObj.match(string)</span>.<br><br>
 	Match object <span class=bold>group()</span> returns part of the string that matched. <span class=bold>start()</span> and <span class=bold>end()</span> return start/end position of a match within string. <span class=bold>span()</span> returns a tuple (start, end) position of a match.
 
