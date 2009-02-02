@@ -3,7 +3,7 @@
 # This script reads the file given as first argument (knowledge-base.txt if
 # not given) and generates a set of static html pages.
 
-import sys, string, os, os.path, urllib, re, time, tempfile, md5
+import sys, string, os, os.path, urllib, re, time, md5
 import markdown2
 
 HEADER_HTML = """<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -17,7 +17,7 @@ HEADER_HTML = """<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
  <title>{{title}}</title>
 </head>
 
-<body {{prettify-onload}}>
+<body{{prettify-onload}}>
 <div id="container">
 
 <p><a href="../index.html">home</a> &raquo; <a href="index.html">knowledge base</a> &raquo; <strong>{{title}}</strong> <font color="#aaaaaa" size="-1">({{creation-date}})</font></p>
@@ -118,8 +118,7 @@ def markup2(txt):
     #res = res.decode('utf-8').encode('iso-8859-1')
     return res
 
-def empty_str(str):
-    return 0 == len(str.strip())
+def empty_str(txt): return not len(txt.strip())
 
 # create a sane file name out of arbitray text
 def sanitize_for_filename(txt):
@@ -156,99 +155,106 @@ def get_attr_value(str):
 
 def is_attr_tags(str): return str == TAGS_TXT
 
+def txt_cookie(txt):
+    txt_md5 = md5.new(txt)
+    return txt_md5.hexdigest()
+
+def markdown_with_code_to_html(txt):
+    code_parts = {}
+    while True:
+        code_start = txt.find("<code", 0)
+        if -1 == code_start: break
+        lang_start = code_start + len("<code")
+        lang_end = txt.find(">", lang_start)
+        if -1 == lang_end: break
+        code_end_start = txt.find("</code>", lang_end)
+        if -1 == code_end_start: break
+        code_end_end = code_end_start + len("</code>")
+        lang = txt[lang_start:lang_end].strip()
+        code = txt[lang_end+1:code_end_start].strip()
+        #print("-------------\n'%s'\n--------------" % code)
+        prettify_lang = None
+        if lang:
+            #print("lang=%s" % lang)
+            prettify_lang = lang_to_prettify_lang(lang)
+        if prettify_lang:
+            new_code = '<pre class="prettyprint %s">\n%s</pre>' % (prettify_lang, encode_code(code))
+        else:
+            new_code = '<pre class="prettyprint">\n%s</pre>' % encode_code(code)
+        new_code_cookie = txt_cookie(new_code)
+        assert(new_code_cookie not in code_parts)
+        code_parts[new_code_cookie] = new_code
+        to_replace = txt[code_start:code_end_end]
+        txt = txt.replace(to_replace, new_code_cookie)
+
+    html = markup2(txt)
+    has_code = False
+    for (code_replacement_cookie, code_html) in code_parts.items():
+        html = html.replace(code_replacement_cookie, code_html)
+        has_code = True
+    return (html, has_code)
+
 class Article(object):
-    MARKUP = 1
-    CODE = 2
     def __init__(self):
         self.attrs = {}
-        # we support code embedded inside text. We need to do some pre-processing
-        # on code (e.g. in order to implement syntax highlighting) so when we
-        # parse the document, we construct a list of body parts, each part
-        # is either Article.MARKUP or ARTICLE.CODE. 
-        self.body_parts = [] # list of (txt, list_type [, language])
-        # we need to keep temporary date during parsing, cur_list is a list of
-        # lines of text for a currently parsed body part, cur_type its type and
-        # cur_lang is langugage tag for CODE types
-        self.cur_list = []
-        self.cur_type = None # MARKUP or CODE
-        self.cur_lang = None
+        # we need to keep temporary date during parsing, _body_lines is a list of
+        # lines of text for a currently parsed body
+        self._body_lines = []
+        self._body = None
+        self._html = None
 
         # those are build during parsing from attributes of an article
         self.dates = None # list of dates, calculated for 'Date' attribute
-        self.tags = None # list of tags, calculated from 'Tags' attribute
+        self.tags = [] # list of tags, calculated from 'Tags' attribute
         self.title = None # calculated from 'Title' attribute
         self.url = None # calculated from 'Title' attribute
         self.html_file_name = None # calculated from 'Title' attribute
         self.has_code = False
 
-    def _current_body_part(self):
-        cur_txt = string.join(self.cur_list, "")
-        #if Article.CODE == self.cur_type:
-        #    print "*%s*" % cur_txt
-        return (cur_txt, self.cur_type, self.cur_lang)
-
-    def get_body_parts(self):
-        parts = self.body_parts
-        parts.append(self._current_body_part())
-        return parts
-    
-    def _get_body_txt(self):
-        return string.join(self.get_body_parts())
-
-    def get_raw_txt(self):
-        raw = []
-        for parts in self.get_body_parts():
-            txt = parts[0]
-            raw.append(txt)
-        return string.join(raw)
+    def get_body(self):
+        assert(self._body)
+        return self._body
 
     def add_attr(self, attr, val):
         attr = attr.lower()
-        assert not self.attrs.has_key(attr)
+        assert(valid_attr(attr))
+        assert not attr in self.attrs
+        val = val.strip()
         if TAGS_TXT == attr:
-            val = val.lower().strip()
+            val = val.strip()
             self.tags = [t.lower().strip() for t in val.split(",")]
         elif DATE_TXT == attr:
-            val = val.strip()
             self.dates = val.split()
         elif TITLE_TXT == attr:
-            val = val.strip()
-            self.title = val.strip()
+            self.title = val
             self.url = txt_to_url(self.title) + ".html"
             self.html_file_name = sanitize_for_filename(self.title) + ".html"            
-        else:
-            print "unsupported attr '%s'" % attr
-            assert False, "unsupported attr"
         self.attrs[attr] = val
     
-    def start_markup(self):
-        if 0 != len(self.cur_list):
-            assert self.cur_type != None
-            self.body_parts.append(self._current_body_part())
-        self.cur_list = []
-        self.cur_type = Article.MARKUP
+    def start_body(self):
+        assert(not self._body_lines)
+        pass
 
-    def start_code(self, lang = None):
-        if 0 != self.cur_list:
-            assert self.cur_type != None
-            self.body_parts.append(self._current_body_part())
-        self.cur_list = []
-        self.cur_type = Article.CODE
-        self.cur_lang = lang
-        self.has_code = True
+    def finish_body(self):
+        assert(self._body_lines)
+        self._body = "".join(self._body_lines).strip()
+        (html, has_code) = markdown_with_code_to_html(self._body)
+        self._html = html
+        self.has_code = has_code
 
-    def add_to_body(self,l):  self.cur_list.append(l)
+    def get_html(self):
+        assert(self._html)
+        return self._html
 
-    def is_hidden(self):
-        if None == self.tags:
-            return False
-        return HIDDEN_TXT in self.tags
+    def add_to_body(self,l): self._body_lines.append(l)
+
+    def is_hidden(self): return HIDDEN_TXT in self.tags
 
     # for debugging, dump your state
     def dump(self):
         for (attr, val) in self.attrs.items():
             print "'%s': %s" % (attr, val)
-        print "'Body': %s" % self._get_body_txt()
+        print "'Body': %s" % self.get_body()
         print "is_hidden: %s" % str(self.is_hidden())
 
     def assert_if_invalid(self):
@@ -260,71 +266,56 @@ class Article(object):
             self.dump()
             assert valid_article_dates(self.dates)
 
-        if None == self.tags:
+        if not self.tags:
             self.dump()
-            assert None != self.tags
+            assert self.tags
             
         if None == self.title:
             self.dump()
-            assert None != self.title
+            assert self.title
 
         if None == self.url:
             self.dump()
-            assert None != self.url
+            assert self.url
 
-CODE_START_TXT = "<code"
-CODE_END_TXT = "</code>"
 
 # states for parsing state machine
-ST_START, ST_PARSING_ATTRS, ST_IN_TEXT, ST_IN_CODE = range(4)
-
-articles = []
-state = ST_START
-cur_article = None
+ST_START, ST_PARSING_ATTRS, ST_IN_TEXT = range(3)
 
 def process_file(file_name):
-    global articles, state, cur_article
-
     articles = []
     state = ST_START
     cur_article = None
-
+    was_prev_empty = True
     fo = open(file_name, "rb")
 
-    def parse_lang(l):
-        global cur_article
-        l = l.strip()
-        lang = l[5:-1].strip()
-        if empty_str(lang):
-            cur_article.cur_lang = None
-        else:
-            if not known_lang(lang):
-                print "Unknown language '%s' in line '%s'" % (lang, l)
-                assert False
-            cur_article.cur_lang = lang
-
-    def do_first_attribute(l):
-        global cur_article, articles, state
-        cur_article = Article()
-        articles.append(cur_article)
+    def do_first_attribute(l, articles):
+        if cur_article:
+            cur_article.finish_body()
+            articles.append(cur_article)
+        new_cur_article = Article()
         (attr, value) = get_attr_value(l)
-        cur_article.add_attr(attr, value);
-        state = ST_PARSING_ATTRS
+        new_cur_article.add_attr(attr, value);
+        return new_cur_article
 
     for l in fo.readlines():
-        #print l.strip()
+        #print("'%s'" % l.strip())
+        is_empty = empty_str(l)
         if ST_START == state:
             # this is the initial state and lasts until finding beggining of
             # a first article (first attribute). It skips comments and empty lines
             #print " state: ST_START"
-            if l.startswith("#"):  # skip comments
-                continue
-            if empty_str(l): # skip empty lines
-                continue
-            if l.startswith("@"):
+            if l.startswith("#"):
+                # skip comments
+                pass
+            elif l.startswith("@"):
                 assert None == cur_article
-                do_first_attribute(l)
+                cur_article = do_first_attribute(l, articles)
+                state = ST_PARSING_ATTRS
+            elif is_empty: # skip empty lines
+                continue
             else:
+                print("line: '%s'" % l.strip())
                 assert False, "unexpected text"
         elif ST_PARSING_ATTRS == state:
             # parsing attributes of a given article
@@ -333,37 +324,21 @@ def process_file(file_name):
                 assert None != cur_article
                 (attr, value) = get_attr_value(l)
                 cur_article.add_attr(attr, value)
-            elif l.startswith(CODE_START_TXT):
-                state = ST_IN_CODE
-                cur_article.start_code()
-                parse_lang(l)
             else:
                 state = ST_IN_TEXT
-                cur_article.start_markup()
-                cur_article.add_to_body(l)
-        elif ST_IN_CODE == state:
-            # we are parsing block of text enclosed in <code ...> </code> tags
-            #print " state: ST_IN_CODE"
-            #print "_%s_" % l
-            if l.startswith(CODE_END_TXT):
-                state = ST_IN_TEXT
-                cur_article.start_markup()
-            else:
+                cur_article.start_body()
                 cur_article.add_to_body(l)
         elif ST_IN_TEXT == state:
             # parsing the text of the article in a markup language
             #print " state: ST_IN_TEXT"
-            if l.startswith("@"):
-                do_first_attribute(l)
-            elif l.startswith(CODE_START_TXT):
-                state = ST_IN_CODE
-                cur_article.start_code()
-                parse_lang(l)
+            if l.startswith("@") and was_prev_empty:
+                cur_article = do_first_attribute(l, articles)
+                state = ST_PARSING_ATTRS
             else:
                 cur_article.add_to_body(l)
         else:
-            assert False    
-    assert state != ST_IN_CODE, "<code ...> tag without enclosing </code>"
+            assert False
+        was_prev_empty = is_empty
     fo.close()
     return articles
 
@@ -392,13 +367,11 @@ def in_font_color(txt, color):
 def in_gray(txt): return in_font_color(txt, "gray")
 
 def encode_code(text):
-    text = text.replace("&","&amp;")
-    text = text.replace("<","&lt;")
-    text = text.replace(">","&gt;")
+    for (txt,replacement) in [("&","&amp;"), ("<","&lt;"), (">","&gt;")]:
+        text = text.replace(txt, replacement)
     return text
 
 def gen_html(articles):
-    global OUTDIR
     hidden_count = 0
 
     tag_article_map = {} # maps tags to a list of articles
@@ -543,18 +516,7 @@ def gen_html(articles):
         html.append('<div id="kb">')
 
         html.append('<p><center><font size="+1"><b>%s</b></font></center></p>' % title)
-        for parts in article.get_body_parts():
-            txt = parts[0]
-            part_type = parts[1]
-            lang = parts[2]
-            if Article.MARKUP == part_type:
-                body_html = markup2(txt)
-            else:
-                assert Article.CODE == part_type
-                body_html = code_to_html(txt, lang)
-                assert(article.has_code)
-            html.append(body_html)
-
+        html.append(article.get_html())
         html.append('</div>')
         html.append(tags_txt)
         html.append("<p> </p>")
