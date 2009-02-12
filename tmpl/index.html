@@ -3,6 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="alternate" type="application/atom+xml" title="RSS 2.0" href="/atom.xml" />
+<script type="text/javascript" src="{{ jquery_url }}"></script>
 <title>Krzysztof Kowalczyk weblog</title>
 <style type=text/css>
 body {margin:0}
@@ -29,23 +30,6 @@ margin:0;padding:5px 0;text-indent:-9999px;width:33px;}
 
 
 <script>
-function $(id) {
-	if (document.all)
-		return document.all[id];
-	if (document.getElementById)
-		return document.getElementById(id);
-	for (var i=1; i<document.layers.length; i++) {
-	    if (document.layers[i].id==id)
-	      return document.layers[i];
-	}
-	return false;
-}
-
-String.prototype.linkify = function() {
-return this.replace(/[A-Za-z]+:\/\/[A-Za-z0-9-_]+\.[A-Za-z0-9-_:%&\?\/.=]+/g, 
-  function(m) {return m.link(m);});
-};
-
 function hideEl(id) { $(id).style.display="none"; }
 function elIsHidden(id) { return $(id).style.display == "none"; }
 function showEl(id) { $(id).style.display="block";}
@@ -66,23 +50,8 @@ function toggleSearch()
     $("searchFieldId").value = "";
 }
 
-function showLogin()
-{
-  $('login_id').className = "visible";
-}
-
-function hideLogin()
-{
-  $('login_id').className = "invisible";
-}
-
-function twitterCallback(twitterData)
-{
-  var info = twitterData[0];
-  var txt = info.text.linkify();
-  $("twittertxt").innerHTML = txt;
-  showEl("twitterdiv");
-}
+function showLogin() { $('login_id').className = "visible"; }
+function hideLogin() { $('login_id').className = "invisible"; }
 </script>
 </head>
 
@@ -115,10 +84,6 @@ function twitterCallback(twitterData)
   <input class="button" value="Go" type="submit">
   </center>
   </form>
-  </div>
-
-  <div id=twitterdiv style="display:none;">
-  I <a href="http://twitter.com/kjk">twitted</a>: <br><span id=twittertxt></span>
   </div>
 
   <div id="content">
@@ -165,7 +130,6 @@ var pageTracker = _gat._getTracker("UA-194516-1");
 pageTracker._initData();
 pageTracker._trackPageview();
 </script>
-<script src="http://twitter.com/statuses/user_timeline/kjk.json?callback=twitterCallback&count=1" type="text/javascript"></script>
   {% endif %}
 </body>
 </html>

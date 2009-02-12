@@ -215,6 +215,7 @@ class BlogIndexHandler(webapp.RequestHandler):
         else:
             login_out_url = users.create_login_url("/")
         vals = { 
+            'jquery_url' : jquery_url(),
             'is_admin' : is_admin,
             'login_out_url' : login_out_url,
             'article' : article,
