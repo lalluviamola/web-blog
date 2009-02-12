@@ -127,7 +127,7 @@ def include_analytics(): return not is_localhost()
 
 def jquery_url():
     if is_localhost():
-        return "/www/js/jquery-1.3.1.js"
+        return "/js/jquery-1.3.1.js"
     else:
         return "http://ajax.googleapis.com/ajax/libs/jquery/1.3.1/jquery.min.js"
 
