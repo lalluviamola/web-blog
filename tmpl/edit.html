@@ -17,7 +17,8 @@
   <br>
   <input name="article_id" type="hidden" value="{{ article.key.id }}">
 
-  Title: <input id="title" type="text" maxlength="1024" name="title" style="width:80%" value = "{{ article.title|escape }}"/>
+  Title: <input id="title" type="text" maxlength="1024" name="title" style="width:80%" value = "{{ article.title|escape }}"/><br>
+  Tags: <input id="tags" type="text" maxlength="1024" name="tags" style="width:80%" value = "{{ tags|escape }}"/>
   <textarea id="note" name="note" wrap="soft" rows="10" cols="80" style="background-color: #F5F5F5; color: #696969;">{{ article.body|escape }}</textarea>
   <input type="submit" value="Update post"/> or <a href="/">cancel</a>
   </form>

@@ -26,6 +26,9 @@ div#content{font:normal medium 'Goudy Bookletter 1911','Gentium Basic','Liberati
 
 <div id="content">
 <h1><a href=../../../../index.html>home</a> &#8227; {{ article.title }}
+	{% if tags_display %}
+		({{ tags_display }})
+	{% endif %}
   {% if is_admin %}
     <a href="/app/edit?article_id={{ article.key.id }}">edit</a>
     {% if article.is_deleted %}

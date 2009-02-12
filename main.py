@@ -16,6 +16,8 @@ from django.utils import feedgenerator
 from django.template import Context, Template
 import logging
 
+NEVER_MEMCACHE_ARTICLES = True
+
 # HTTP codes
 HTTP_NOT_ACCEPTABLE = 406
 HTTP_NOT_FOUND = 404
@@ -69,7 +71,7 @@ def build_articles_summary():
     articles = []
     for article in articlesq:
         a = { "key_id" : article.key().id() }
-        for attr in ["permalink", "article_type", "is_public", "title", "published_on", "format", "is_draft", "is_deleted"]:
+        for attr in ["permalink", "article_type", "is_public", "title", "published_on", "format", "is_draft", "is_deleted", "tags"]:
             a[attr] = getattr(article,attr)
         articles.append(a)
     return articles
@@ -102,7 +104,7 @@ def filter_non_draft_non_deleted_articles(articles_summary):
 
 def get_articles_summary(articles_type = ARTICLE_SUMMARY_PUBLIC_OR_ADMIN):
     articles_pickled = memcache.get(ARTICLES_INFO_MEMCACHE_KEY)
-    #articles_pickled = None
+    if NEVER_MEMCACHE_ARTICLES: articles_pickled = None
     if articles_pickled:
         articles_summary = unpickle_data(articles_pickled)
         logging.info("len(articles_summary) = %d" % len(articles_summary))
@@ -240,12 +242,14 @@ class BlogHandler(webapp.RequestHandler):
             return
         article_gen_html_body(article)
         (next, prev) = find_next_prev_article(article)
+        tags_urls = ['<a href="/tag/%s">%s</a>' % (tag, tag) for tag in article.tags]
         vals = { 
             'is_admin' : is_admin,
             'article' : article,
             'next_article' : next,
             'prev_article' : prev,
             'include_analytics' : include_analytics(),
+            'tags_display' : ", ".join(tags_urls)
         }
         template_out(self.response, "tmpl/blogpost.html", vals)
 
@@ -301,6 +305,24 @@ class DeleteUndeleteHandler(webapp.RequestHandler):
         url = "/" + article.permalink
         self.redirect(url)
 
+def iter_split_by(txt, splitter):
+    for t in txt.split(splitter):
+        t = t.strip()
+        if t:
+            yield t
+
+def article_tags_from_string_iter(tags_string):
+    for a in iter_split_by(tags_string, ","):
+        for b in iter_split_by(a, " "):
+            yield b
+
+# given e.g. "a, b  c , ho", returns ["a", "b", "c", "ho"]
+def article_tags_from_string(tags_string):
+    return [t for t in article_tags_from_string_iter(tags_string)]
+
+def checkbox_to_bool(checkbox_val):
+    return "on" == checkbox_val
+
 class EditHandler(webapp.RequestHandler):
 
     def gen_permalink(self, title, date=None):
@@ -330,24 +352,27 @@ class EditHandler(webapp.RequestHandler):
         format = self.request.get("format")
         logging.info("format: '%s'" % format)
         # TODO: validate format
-        private = self.request.get("private")
         logging.info("private: '%s'" % private)
-        is_public = True
-        if private == "on":
-            is_public = False
         title = self.request.get("title").strip()
         logging.info("title: '%s'" % title)
         body = self.request.get("note")
 
         text_content = self.create_new_text_content(body, format)
-        published_on = text_content.published_on
-        permalink = self.gen_permalink(title, published_on)
 
+        permalink = self.gen_permalink(title, published_on)
         article = Article(permalink=permalink, title=title, body=body, format=format, article_type=TYPE_BLOG)
+
+        is_public = not checkbox_to_bool(self.request.get("private"))
         article.is_public = is_public
+
         article.previous_versions = [text_content.key()]
+
+        published_on = text_content.published_on
         article.published_on = published_on
         article.updated_on = published_on
+
+        tags = article_tags_from_string(self.request.get("tags"))
+        article.tags = tags
 
         # TODO:
         # article.excerpt
@@ -373,16 +398,8 @@ class EditHandler(webapp.RequestHandler):
         format = self.request.get("format")
         logging.info("format: '%s'" % format)
         # TODO: validate format
-        private = self.request.get("private")
-        logging.info("private: '%s'" % private)
-        is_public = True
-        if private == "on":
-            is_public = False
-        draft = self.request.get("draft")
-        logging.info("draft: '%s'" % draft)
-        is_draft = False
-        if draft == "on":
-            is_draft = True
+        is_public = not checkbox_to_bool(self.request.get("private"))
+        is_draft = checkbox_to_bool(self.request.get("draft"))
         title = self.request.get("title").strip()
         logging.info("title: '%s'" % title)
         body = self.request.get("note")
@@ -392,6 +409,8 @@ class EditHandler(webapp.RequestHandler):
             vals = { "url" : article_id }
             template_out(self.response, "tmpl/blogpost_notfound.html", vals)
             return
+        tags = article_tags_from_string(self.request.get("tags"))
+
         text_content = None
         invalidate_articles_cache = False
         if article.body != body:
@@ -414,16 +433,15 @@ class EditHandler(webapp.RequestHandler):
         if text_content:
             article.previous_versions.append(text_content.key())
 
-        if article.is_public != is_public:
-            invalidate_articles_cache = True
-
-        if article.is_draft != is_draft:
-            invalidate_articles_cache = True
-
+        if article.is_public != is_public: invalidate_articles_cache = True
+        if article.is_draft != is_draft: invalidate_articles_cache = True
+        if article.tags != tags: invalidate_articles_cache = True
+            
         article.format = format
         article.title = title
         article.is_public = is_public
         article.is_draft = is_draft
+        article.tags = tags
 
         if invalidate_articles_cache:
             memcache.delete(ARTICLES_INFO_MEMCACHE_KEY)
@@ -458,6 +476,7 @@ class EditHandler(webapp.RequestHandler):
             'private_checkbox_checked' : "",
             'draft_checkbox_checked' : "",
             'article' : article,
+            'tags' : ", ".join(article.tags),
         }
         vals['format_%s_checked' % article.format] = "checked"
         if article.is_draft:
