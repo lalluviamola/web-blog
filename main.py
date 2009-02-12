@@ -52,7 +52,6 @@ class Article(db.Model):
     format = db.StringProperty(required=True,choices=set(ALL_FORMATS))
     #assoc_dict = db.BlobProperty()
     tags = db.StringListProperty(default=[])
-    tag_keys = db.ListProperty(db.Key, default=[])
     embedded_code = db.StringListProperty()
     # points to TextContent
     previous_versions = db.ListProperty(db.Key, default=[])
@@ -69,12 +68,9 @@ def build_articles_summary():
     articlesq = db.GqlQuery("SELECT * FROM Article ORDER BY published_on DESC")
     articles = []
     for article in articlesq:
-        a = {}
-        # TODO: make attributes with shorter names to make pickled data smaller
-        # and make pickling/unpickling faster
+        a = { "key_id" : article.key().id() }
         for attr in ["permalink", "article_type", "is_public", "title", "published_on", "format", "is_draft", "is_deleted"]:
             a[attr] = getattr(article,attr)
-        a["key_id"] = article.key().id()
         articles.append(a)
     return articles
 
@@ -122,14 +118,10 @@ def get_articles_summary(articles_type = ARTICLE_SUMMARY_PUBLIC_OR_ADMIN):
         articles_summary = filter_non_draft_non_deleted_articles(articles_summary)
     return articles_summary
 
+g_is_localhost = True
+
 def is_localhost():
-    return True
-    # TODO: below is wrong, probably can get this info from wsgi
-    if env["HTTP_HOST"].startswith("localhost"):
-        return True
-    if env["HTTP_HOST"].startswith("127.0.0.1"):
-        return True
-    return False
+    return g_is_localhost
 
 def include_analytics(): return not is_localhost()
 
@@ -138,6 +130,14 @@ def jquery_url():
         return "/www/js/jquery-1.3.1.js"
     else:
         return "http://ajax.googleapis.com/ajax/libs/jquery/1.3.1/jquery.min.js"
+
+def dectect_localhost(wsgi_app):
+    def check_if_localhost(env, start_response):
+        global g_is_localhost
+        host = env["HTTP_HOST"]
+        g_is_localhost = host.startswith("localhost") or host.startswith("127.0.0.1")
+        return wsgi_app(env, start_response)
+    return check_if_localhost
 
 def redirect_from_appspot(wsgi_app):
     def redirect_if_needed(env, start_response):
@@ -465,14 +465,6 @@ class EditHandler(webapp.RequestHandler):
             vals['private_checkbox_checked'] = "checked"
         template_out(self.response, "tmpl/edit.html", vals)
 
-def article_for_archive(article):
-    new_article = {}
-    new_article["permalink"] = article.permalink
-    new_article["title"] = article.title
-    new_article["published_on"] = article.published_on
-    new_article["day"] = article.published_on.day
-    return new_article
-
 MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 
 class Year(object):
@@ -654,9 +646,10 @@ def main():
         # after importing, since it's not protected
         ('/import', ImportHandler),
     ]
-    application = webapp.WSGIApplication(mappings,debug=True)
-    #application = redirect_from_appspot(application)
-    wsgiref.handlers.CGIHandler().run(application)
+    app = webapp.WSGIApplication(mappings,debug=True)
+    #app = redirect_from_appspot(app)
+    app = dectect_localhost(app)
+    wsgiref.handlers.CGIHandler().run(app)
 
 if __name__ == "__main__":
   main()
