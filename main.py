@@ -8,6 +8,7 @@ import pickle
 import textile
 import wsgiref.handlers
 import bz2
+import markdown2
 from google.appengine.ext import db
 from google.appengine.api import users
 from google.appengine.api import memcache
@@ -17,9 +18,10 @@ from django.utils import feedgenerator
 from django.template import Context, Template
 import logging
 
-COMPRESS_PICKLED = True
+COMPRESS_PICKLED = False
 
-NEVER_MEMCACHE_ARTICLES = True
+#DONT_MEMCACHE_ARTICLES = True
+DONT_MEMCACHE_ARTICLES = False
 
 #BLOG_URL = "blog.kowalczyk.info"
 BLOG_URL = "blog2.kowalczyk.info"
@@ -111,12 +113,16 @@ def filter_non_draft_non_deleted_articles(articles_summary):
         if article_summary["is_draft"] or article_summary["is_deleted"]:
             yield article_summary
 
+def filter_by_tag(articles_summary, tag):
+    for article_summary in articles_summary:
+        if tag in article_summary["tags"]:
+            yield article_summary
 
 (ARTICLE_SUMMARY_PUBLIC_OR_ADMIN, ARTICLE_SUMMARY_DRAFT_AND_DELETED) = range(2)
 
 def get_articles_summary(articles_type = ARTICLE_SUMMARY_PUBLIC_OR_ADMIN):
     articles_pickled = memcache.get(articles_info_memcache_key())
-    if NEVER_MEMCACHE_ARTICLES: articles_pickled = None
+    if DONT_MEMCACHE_ARTICLES: articles_pickled = None
     if articles_pickled:
         articles_summary = unpickle_data(articles_pickled)
         logging.info("len(articles_summary) = %d" % len(articles_summary))
@@ -304,6 +310,13 @@ class BlogIndexHandler(webapp.RequestHandler):
             'tags_display' : ", ".join(tags_urls)
         }
         template_out(self.response, "tmpl/index.html", vals)
+
+# responds to /tag/*
+class TagHandler(webapp.RequestHandler):
+    def get(self, tag):
+        articles_summary = get_articles_summary()
+        articles_summary = filter_by_tag(articles_summary, tag)
+        do_archives(self.response, articles_summary, tag)
 
 # responds to /kb/*
 class KbHandler(webapp.RequestHandler):
@@ -615,7 +628,7 @@ class Month(object):
         self.articles.append(article)
 
 # reused by archives and archives-limited-by-tag pages
-def do_archives(response, articles_summary):
+def do_archives(response, articles_summary, tag_to_display=None):
     curr_year = None
     curr_month = None
     years = []
@@ -643,6 +656,7 @@ def do_archives(response, articles_summary):
     vals = {
         'years' : years,
         'is_admin' : users.is_current_user_admin(),
+        'tag' : tag_to_display,
     }
     template_out(response, "tmpl/archive.html", vals)
 
@@ -782,6 +796,7 @@ def main():
         ('/archives.html', BlogArchiveHandler),
         ('/blog/(.*)', BlogHandler),
         ('/kb/(.*)', KbHandler),
+        ('/tag/(.*)', TagHandler),
         ('/software/', AddIndexHandler),
         ('/software/(.+)/', AddIndexHandler),
         ('/forum_sumatra/rss.php', ForumRssRedirect),
