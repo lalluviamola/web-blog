@@ -20,7 +20,7 @@ SCRIPT_DIR = os.path.dirname(__file__)
 SRCDIR = os.path.join(SCRIPT_DIR, "..", "srcblog")
 KB_SRC_FILE = os.path.join(SCRIPT_DIR, "..", "srcblog", "knowledge-base.txt")
 
-(POST_TYPE, POST_URL, POST_FORMAT, POST_DATE, POST_BODY, POST_TITLE, POST_TAGS) = ("type", "url", "format", "date", "body", "title", "tags")
+(POST_TYPE, POST_FORMAT, POST_DATE, POST_BODY, POST_TITLE, POST_TAGS) = ("type", "format", "date", "body", "title", "tags")
 
 def get_content_type(filename):
     return "plain/text"
@@ -254,10 +254,10 @@ def upload_posts(posts):
     MAX_TO_UPLOAD = 100
     for to_upload in itern(posts, 10):
         for p in to_upload:
-            url = p[POST_URL]
+            title = p[POST_TITLE]
             format = p[POST_FORMAT]
             date = p[POST_DATE]
-            print("uploading %s, %s, %s" % (url, format, date))
+            print("uploading %s, %s, %s" % (title, format, date))
         upload_to_gae(to_upload)
         MAX_TO_UPLOAD -= 1
         if MAX_TO_UPLOAD < 1:
@@ -283,7 +283,7 @@ def upload_kb():
     upload_posts(articles)
 
 def main():
-    #upload_blog()
+    upload_blog()
     upload_kb()
 
 def main2():

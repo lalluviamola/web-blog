@@ -5,10 +5,11 @@ import time
 import datetime
 import StringIO
 import pickle
-import textile
-import wsgiref.handlers
 import bz2
+import md5
+import textile
 import markdown2
+import wsgiref.handlers
 from google.appengine.ext import db
 from google.appengine.api import users
 from google.appengine.api import memcache
@@ -18,7 +19,7 @@ from django.utils import feedgenerator
 from django.template import Context, Template
 import logging
 
-COMPRESS_PICKLED = False
+COMPRESS_PICKLED = True
 
 #DONT_MEMCACHE_ARTICLES = True
 DONT_MEMCACHE_ARTICLES = False
@@ -33,7 +34,7 @@ HTTP_NOT_FOUND = 404
 # 'kb' is knowledge base, kind of like wiki
 ALL_TYPES = (TYPE_KB, TYPE_BLOG) = ("kb", "blog")
 
-(POST_TYPE, POST_URL, POST_DATE, POST_FORMAT, POST_BODY, POST_TITLE, POST_TAGS) = ("type", "url", "date", "format", "body", "title", "tags")
+(POST_TYPE, POST_DATE, POST_FORMAT, POST_BODY, POST_TITLE, POST_TAGS) = ("type", "date", "format", "body", "title", "tags")
 
 ALL_FORMATS = (FORMAT_TEXT, FORMAT_HTML, FORMAT_TEXTILE, FORMAT_MARKDOWN) = ("text", "html", "textile", "markdown")
 
@@ -71,6 +72,15 @@ class Article(db.Model):
     def rfc3339_updated_on(self):
         return self.updated_on.strftime('%Y-%m-%dT%H:%M:%SZ')
 
+def encode_code(text):
+    for (txt,replacement) in [("&","&amp;"), ("<","&lt;"), (">","&gt;")]:
+        text = text.replace(txt, replacement)
+    return text
+
+def txt_cookie(txt):
+    txt_md5 = md5.new(txt)
+    return txt_md5.hexdigest()
+
 def articles_info_memcache_key():
     if COMPRESS_PICKLED:
         return "akc"
@@ -96,11 +106,11 @@ def pickle_data(data):
     return pickled_data
 
 def unpickle_data(data_pickled):
+    if COMPRESS_PICKLED:
+        data_pickled = bz2.decompress(data_pickled)
     fo = StringIO.StringIO(data_pickled)
     data = pickle.load(fo)
     fo.close()
-    if COMPRESS_PICKLED:
-        data = bz2.decompress(data)
     return data
 
 def filter_nonadmin_articles(articles_summary):
@@ -125,7 +135,7 @@ def get_articles_summary(articles_type = ARTICLE_SUMMARY_PUBLIC_OR_ADMIN):
     if DONT_MEMCACHE_ARTICLES: articles_pickled = None
     if articles_pickled:
         articles_summary = unpickle_data(articles_pickled)
-        logging.info("len(articles_summary) = %d" % len(articles_summary))
+        #logging.info("len(articles_summary) = %d" % len(articles_summary))
     else:
         articles_summary = build_articles_summary()
         articles_pickled = pickle_data(articles_summary)
@@ -249,7 +259,6 @@ def article_gen_html_body(article):
     elif article.format == "markdown":
         txt = article.body.encode('utf-8')
         (body, has_code) = markdown_with_code_to_html(txt)
-        body = unicode(body, 'utf-8')
         article.html_body = body
     elif article.format == "text":
         # TODO: probably should just send as plain/text and a
@@ -660,12 +669,6 @@ def do_archives(response, articles_summary, tag_to_display=None):
     }
     template_out(response, "tmpl/archive.html", vals)
 
-# responds to /archive/tags.html
-# TODO: write me
-class BlogArchiveTagsHandler(webapp.RequestHandler):
-    def get(self):
-        articles_summary = get_articles_summary()
-
 # responds to /archives.html
 class BlogArchiveHandler(webapp.RequestHandler):
     def get(self):
@@ -765,7 +768,6 @@ class ImportHandler(webapp.RequestHandler):
         if not permalink:
             logging.info("post with url '%s' already exists" % permalink)
             return self.error(HTTP_NOT_ACCEPTABLE)
-        permalink = uni_to_utf8(permalink)
         format = uni_to_utf8(post[POST_FORMAT])
         assert format in ALL_FORMATS
         body = post[POST_BODY] # body comes as utf8
@@ -792,7 +794,6 @@ def main():
         ('/', BlogIndexHandler),
         ('/index.html', BlogIndexHandler),
         ('/atom.xml', AtomHandler),
-        ('/archive/tags.html', BlogArchiveTagsHandler),
         ('/archives.html', BlogArchiveHandler),
         ('/blog/(.*)', BlogHandler),
         ('/kb/(.*)', KbHandler),

@@ -1,10 +1,7 @@
 Needed to switch:
-* integrate knowledge base articles
+* code high-lighting
 * finish tags
  * page with tag cloud (/archive/tags.html)
- * page with posts per tag (/archive/tag/${tag}.html)
- * show tags in index page
- * show tags in the archive listing of all posts
 
 Maybe needed to switch:
 * on edit automatically focus edit field
