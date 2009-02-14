@@ -175,6 +175,9 @@ def to_utf8(val):
 def str_to_datetime(val):
     return datetime.datetime.strptime(val, "%Y-%m-%d %H:%M:%S")
 
+def str_kb_to_datetime(val):
+    return datetime.datetime.strptime(val, "%Y-%m-%d")
+
 def get_post_raw_content(post):
     filename = post["file"]
     return postsparse.get_blog_post_content(filename)
@@ -218,8 +221,8 @@ def convert_blog_post(post):
 def convert_kb_article(article):
     np = {}
     np[POST_TYPE] = to_utf8("kb")
-    article_date = article.dates[0]
-    np[POST_DATE] = str_to_datetime(article_date)
+    article_date_str = article.dates[0]
+    np[POST_DATE] = str_kb_to_datetime(article_date_str)
     np[POST_BODY] = to_utf8(article.get_body())
     np[POST_TITLE] = to_utf8(article.title)
     np[POST_URL] = to_utf8(article.url)
@@ -227,7 +230,7 @@ def convert_kb_article(article):
     np[POST_TAGS] = to_utf8(", ".join(article.tags))
     return np
 
-def upload_posts(posts):
+def upload_to_gae(posts):
     fo = StringIO.StringIO()
     pickle.dump(posts, fo)
     pickled = fo.getvalue()
@@ -256,7 +259,7 @@ def upload_posts(posts):
             format = p[POST_FORMAT]
             date = p[POST_DATE]
             print("uploading %s, %s, %s" % (url, format, date))
-        upload_posts(to_upload)
+        upload_to_gae(to_upload)
         MAX_TO_UPLOAD -= 1
         if MAX_TO_UPLOAD < 1:
             print("Reached max uploads")
@@ -276,8 +279,8 @@ def upload_blog():
 
 def upload_kb():
     articles = genkbhtml.process_file(KB_SRC_FILE)
+    articles = [convert_kb_article(article) for article in articles if not article.is_hidden()]
     print("len(articles)=%d" % len(articles))
-    articles = [convert_kb_article(article) for article in articles]
     upload_posts(articles)
 
 def main():
