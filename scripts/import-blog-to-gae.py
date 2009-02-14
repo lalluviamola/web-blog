@@ -13,11 +13,14 @@ import util
 import pickle
 import genkbhtml
 
+SERVER = "http://127.0.0.1:8081/import"
+#SERVER = "http://blog2.kowalczyk.info"
+
 SCRIPT_DIR = os.path.dirname(__file__)
 SRCDIR = os.path.join(SCRIPT_DIR, "..", "srcblog")
 KB_SRC_FILE = os.path.join(SCRIPT_DIR, "..", "srcblog", "knowledge-base.txt")
 
-(POST_URL, POST_FORMAT, POST_DATE, POST_BODY, POST_TITLE) = ("url", "format", "date", "body", "title")
+(POST_TYPE, POST_URL, POST_FORMAT, POST_DATE, POST_BODY, POST_TITLE, POST_TAGS) = ("type", "url", "format", "date", "body", "title", "tags")
 
 def get_content_type(filename):
     return "plain/text"
@@ -198,8 +201,9 @@ def get_post_html_content(post):
 # * body to utf8
 # * wphtml format to html
 # * strip all unnecessary data
-def convert_post(post):
+def convert_blog_post(post):
     np = {}
+    np[POST_TYPE] = to_utf8("blog")
     np[POST_DATE] = str_to_datetime(post[POST_DATE])
     post[POST_BODY] = get_post_raw_content(post)
     body = post[POST_BODY]
@@ -211,7 +215,17 @@ def convert_post(post):
         np[item] = to_utf8(post[item])
     return np
 
-SERVER = "http://127.0.0.1:8081/import"
+def convert_kb_article(article):
+    np = {}
+    np[POST_TYPE] = to_utf8("kb")
+    article_date = article.dates[0]
+    np[POST_DATE] = str_to_datetime(article_date)
+    np[POST_BODY] = to_utf8(article.get_body())
+    np[POST_TITLE] = to_utf8(article.title)
+    np[POST_URL] = to_utf8(article.url)
+    np[POST_FORMAT] = to_utf8("markdown")
+    np[POST_TAGS] = to_utf8(", ".join(article.tags))
+    return np
 
 def upload_posts(posts):
     fo = StringIO.StringIO()
@@ -234,18 +248,8 @@ def itern(seq, n):
     if len(res) > 0:
         yield res
 
-def upload_blog():
-    if not util.dir_exists(SRCDIR):
-        print("Dir '%s' doesn't exist" % SRCDIR)
-        sys.exit(1)
-    post_files = postsparse.scan_posts(SRCDIR)
-    posts = post_files.values()
-    posts.sort(lambda x,y: cmp(x[POST_DATE], y[POST_DATE]))
-    gen_urls(posts)
-    print("posts: %d" % len(posts))
+def upload_posts(posts):
     MAX_TO_UPLOAD = 100
-    # TODO: tags
-    posts = [convert_post(p) for p in posts]
     for to_upload in itern(posts, 10):
         for p in to_upload:
             url = p[POST_URL]
@@ -257,10 +261,24 @@ def upload_blog():
         if MAX_TO_UPLOAD < 1:
             print("Reached max uploads")
             break
-    
+
+def upload_blog():
+    if not util.dir_exists(SRCDIR):
+        print("Dir '%s' doesn't exist" % SRCDIR)
+        sys.exit(1)
+    post_files = postsparse.scan_posts(SRCDIR)
+    posts = post_files.values()
+    posts.sort(lambda x,y: cmp(x[POST_DATE], y[POST_DATE]))
+    gen_urls(posts)
+    print("posts: %d" % len(posts))
+    posts = [convert_blog_post(p) for p in posts]
+    upload_posts(posts)
+
 def upload_kb():
     articles = genkbhtml.process_file(KB_SRC_FILE)
     print("len(articles)=%d" % len(articles))
+    articles = [convert_kb_article(article) for article in articles]
+    upload_posts(articles)
 
 def main():
     #upload_blog()

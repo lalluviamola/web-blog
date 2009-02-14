@@ -108,16 +108,6 @@ valid_attrs = [TITLE_TXT, DATE_TXT, TAGS_TXT]
 # if article has a "hidden" tag, then we shouldn't show it. Those are like drafts
 HIDDEN_TXT = "hidden".lower()
 
-def markup2(txt):
-    #txt = txt.decode('ascii').encode('utf-8')
-    try:
-        res = markdown2.markdown(txt)
-    except:
-        print(txt)
-        raise
-    #res = res.decode('utf-8').encode('iso-8859-1')
-    return res
-
 def empty_str(txt): return not len(txt.strip())
 
 # create a sane file name out of arbitray text
@@ -159,6 +149,16 @@ def txt_cookie(txt):
     txt_md5 = md5.new(txt)
     return txt_md5.hexdigest()
 
+def markdown(txt):
+    #txt = txt.decode('ascii').encode('utf-8')
+    try:
+        res = markdown2.markdown(txt)
+    except:
+        print(txt)
+        raise
+    #res = res.decode('utf-8').encode('iso-8859-1')
+    return res
+
 def markdown_with_code_to_html(txt):
     code_parts = {}
     while True:
@@ -187,7 +187,7 @@ def markdown_with_code_to_html(txt):
         to_replace = txt[code_start:code_end_end]
         txt = txt.replace(to_replace, new_code_cookie)
 
-    html = markup2(txt)
+    html = markdown(txt)
     has_code = False
     for (code_replacement_cookie, code_html) in code_parts.items():
         html = html.replace(code_replacement_cookie, code_html)
@@ -382,14 +382,6 @@ def gen_html(articles):
             else:
                 tag_article_map[tag] = [article]
 
-    date_article_map = {}
-    def build_date_article_map(article):
-        for dt in article.dates:
-            if date_article_map.has_key(dt):
-                date_article_map[dt].append(article)
-            else:
-                date_article_map[dt] = [article]
-
     urls = {} # for finding titles that would end-up in duplicate urls
     all_articles_count = len(articles)
     all_articles = [article for article in articles if not article.is_hidden()]
@@ -399,13 +391,12 @@ def gen_html(articles):
         article.assert_if_invalid()
         url = article.url
         # print "__%s__" % url
-        if urls.has_key(url):
-            assert not urls.has_key(url), "title '%s' creates a duplicate url" % article.title
+        if url in urls:
+            assert not url in urls, "title '%s' creates a duplicate url" % article.title
         urls[url] = True
 
     for article in all_articles:
         build_tag_article_map(article)
-        build_date_article_map(article)
 
     print "Finished processing"
     print "Number of articles: %d (hidden: %d)" % (len(articles), hidden_count)
@@ -495,7 +486,7 @@ def gen_html(articles):
             file_name = "index.html"
         write_to_file(os.path.join(OUTDIR, file_name), html_txt)
 
-    # for each article, generate "$url.html" file
+    # for each article, generate "${url}.html" file
     for article in all_articles:
         title = article.title
         creation_date = article.dates[0]

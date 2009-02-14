@@ -7,6 +7,7 @@ import StringIO
 import pickle
 import textile
 import wsgiref.handlers
+import bz2
 from google.appengine.ext import db
 from google.appengine.api import users
 from google.appengine.api import memcache
@@ -16,19 +17,23 @@ from django.utils import feedgenerator
 from django.template import Context, Template
 import logging
 
+COMPRESS_PICKLED = True
+
 NEVER_MEMCACHE_ARTICLES = True
+
+#BLOG_URL = "blog.kowalczyk.info"
+BLOG_URL = "blog2.kowalczyk.info"
 
 # HTTP codes
 HTTP_NOT_ACCEPTABLE = 406
 HTTP_NOT_FOUND = 404
 
 # 'kb' is knowledge base, kind of like wiki
-TYPE_KB = "kb"
-TYPE_BLOG = "blog"
-ALL_TYPES = [TYPE_KB, TYPE_BLOG]
+ALL_TYPES = (TYPE_KB, TYPE_BLOG) = ("kb", "blog")
 
-(FORMAT_TEXT, FORMAT_HTML, FORMAT_TEXTILE, FORMAT_MARKDOWN) = ("text", "html", "textile", "markdown")
-ALL_FORMATS = [FORMAT_TEXT, FORMAT_HTML, FORMAT_TEXTILE, FORMAT_MARKDOWN]
+(POST_TYPE, POST_URL, POST_DATE, POST_FORMAT, POST_BODY, POST_TITLE, POST_TAGS) = ("type", "url", "date", "format", "body", "title", "tags")
+
+ALL_FORMATS = (FORMAT_TEXT, FORMAT_HTML, FORMAT_TEXTILE, FORMAT_MARKDOWN) = ("text", "html", "textile", "markdown")
 
 class TextContent(db.Model):
     content = db.TextProperty(required=True)
@@ -64,7 +69,10 @@ class Article(db.Model):
     def rfc3339_updated_on(self):
         return self.updated_on.strftime('%Y-%m-%dT%H:%M:%SZ')
 
-ARTICLES_INFO_MEMCACHE_KEY = "ak"
+def articles_info_memcache_key():
+    if COMPRESS_PICKLED:
+        return "akc"
+    return "ak"
 
 def build_articles_summary():
     articlesq = db.GqlQuery("SELECT * FROM Article ORDER BY published_on DESC")
@@ -78,8 +86,10 @@ def build_articles_summary():
 
 def pickle_data(data):
     fo = StringIO.StringIO()
-    pickle.dump(data, fo)
+    pickle.dump(data, fo, pickle.HIGHEST_PROTOCOL)
     pickled_data = fo.getvalue()
+    if COMPRESS_PICKLED:
+        pickled_data = bz2.compress(pickled_data)
     #fo.close()
     return pickled_data
 
@@ -87,6 +97,8 @@ def unpickle_data(data_pickled):
     fo = StringIO.StringIO(data_pickled)
     data = pickle.load(fo)
     fo.close()
+    if COMPRESS_PICKLED:
+        data = bz2.decompress(data)
     return data
 
 def filter_nonadmin_articles(articles_summary):
@@ -103,7 +115,7 @@ def filter_non_draft_non_deleted_articles(articles_summary):
 (ARTICLE_SUMMARY_PUBLIC_OR_ADMIN, ARTICLE_SUMMARY_DRAFT_AND_DELETED) = range(2)
 
 def get_articles_summary(articles_type = ARTICLE_SUMMARY_PUBLIC_OR_ADMIN):
-    articles_pickled = memcache.get(ARTICLES_INFO_MEMCACHE_KEY)
+    articles_pickled = memcache.get(articles_info_memcache_key())
     if NEVER_MEMCACHE_ARTICLES: articles_pickled = None
     if articles_pickled:
         articles_summary = unpickle_data(articles_pickled)
@@ -112,7 +124,7 @@ def get_articles_summary(articles_type = ARTICLE_SUMMARY_PUBLIC_OR_ADMIN):
         articles_summary = build_articles_summary()
         articles_pickled = pickle_data(articles_summary)
         logging.info("len(articles_pickled) = %d" % len(articles_pickled))
-        memcache.set(ARTICLES_INFO_MEMCACHE_KEY, articles_pickled)
+        memcache.set(articles_info_memcache_key(), articles_pickled)
     if articles_type == ARTICLE_SUMMARY_PUBLIC_OR_ADMIN:
         if not users.is_current_user_admin():
             articles_summary = filter_nonadmin_articles(articles_summary)
@@ -128,10 +140,10 @@ def is_localhost():
 def include_analytics(): return not is_localhost()
 
 def jquery_url():
+    url = "http://ajax.googleapis.com/ajax/libs/jquery/1.3.1/jquery.min.js"
     if is_localhost():
-        return "/js/jquery-1.3.1.js"
-    else:
-        return "http://ajax.googleapis.com/ajax/libs/jquery/1.3.1/jquery.min.js"
+        url = "/js/jquery-1.3.1.js"
+    return url
 
 def dectect_localhost(wsgi_app):
     def check_if_localhost(env, start_response):
@@ -147,7 +159,7 @@ def redirect_from_appspot(wsgi_app):
             import webob, urlparse
             request = webob.Request(env)
             scheme, netloc, path, query, fragment = urlparse.urlsplit(request.url)
-            url = urlparse.urlunsplit([scheme, 'blog.kowalczyk.info', path, query, fragment])
+            url = urlparse.urlunsplit([scheme, BLOG_URL, path, query, fragment])
             start_response('301 Moved Permanently', [('Location', url)])
             return ["301 Moved Peramanently",
                   "Click Here" % url]
@@ -301,7 +313,7 @@ class DeleteUndeleteHandler(webapp.RequestHandler):
         else:
             article.is_deleted = True
         article.put()
-        memcache.delete(ARTICLES_INFO_MEMCACHE_KEY)
+        memcache.delete(articles_info_memcache_key())
         url = "/" + article.permalink
         self.redirect(url)
 
@@ -380,7 +392,7 @@ class EditHandler(webapp.RequestHandler):
 
         # TODO: avoid put() if nothing has changed
         article.put()
-        memcache.delete(ARTICLES_INFO_MEMCACHE_KEY)
+        memcache.delete(articles_info_memcache_key())
         # show newly updated article
         url = "/" + article.permalink
         self.redirect(url)
@@ -444,7 +456,7 @@ class EditHandler(webapp.RequestHandler):
         article.tags = tags
 
         if invalidate_articles_cache:
-            memcache.delete(ARTICLES_INFO_MEMCACHE_KEY)
+            memcache.delete(articles_info_memcache_key())
 
         # TODO:
         # article.excerpt
@@ -505,33 +517,43 @@ class Month(object):
     def add_article(self, article):
         self.articles.append(article)
 
-# responds to /blog/archive.html
+# reused by archives and archives-limited-by-tag pages
+def do_archives(response, articles_summary):
+    curr_year = None
+    curr_month = None
+    years = []
+    for a in articles_summary:
+        date = a["published_on"]
+        y = date.year
+        m = date.month
+        a["day"] = date.day
+        monthname = MONTHS[m-1]
+        if curr_year is None or curr_year.year != y:
+            curr_month = None
+            curr_year = Year(y)
+            years.append(curr_year)
+
+        if curr_month is None or curr_month.month != monthname:
+            curr_month = Month(monthname)
+            curr_year.add_month(curr_month)
+        curr_month.add_article(a)
+    vals = {
+        'years' : years,
+        'is_admin' : users.is_current_user_admin(),
+    }
+    template_out(response, "tmpl/archive.html", vals)
+
+# responds to /archive/tags.html
+# TODO: write me
+class BlogArchiveTagsHandler(webapp.RequestHandler):
+    def get(self):
+        articles_summary = get_articles_summary()
+
+# responds to /archives.html
 class BlogArchiveHandler(webapp.RequestHandler):
     def get(self):
         articles_summary = get_articles_summary()
-        curr_year = None
-        curr_month = None
-        years = []
-        for a in articles_summary:
-            date = a["published_on"]
-            y = date.year
-            m = date.month
-            a["day"] = date.day
-            monthname = MONTHS[m-1]
-            if curr_year is None or curr_year.year != y:
-                curr_month = None
-                curr_year = Year(y)
-                years.append(curr_year)
-
-            if curr_month is None or curr_month.month != monthname:
-                curr_month = Month(monthname)
-                curr_year.add_month(curr_month)
-            curr_month.add_article(a)
-        vals = {
-            'years' : years,
-            'is_admin' : users.is_current_user_admin(),
-        }
-        template_out(self.response, "tmpl/archive.html", vals)
+        do_archives(self.response, articles_summary)
 
 class DraftsAndDeletedHandler(webapp.RequestHandler):
     def get(self):
@@ -602,8 +624,6 @@ class ForumRssRedirect(webapp.RequestHandler):
     def get(self):
         return self.redirect("http://forums.fofou.org/sumatrapdf/rss")
 
-(POST_URL, POST_DATE, POST_FORMAT, POST_BODY, POST_TITLE) = ("url", "date", "format", "body", "title")
-
 def uni_to_utf8(val): return unicode(val, "utf-8")
  
 # import one or more posts from old text format
@@ -620,6 +640,8 @@ class ImportHandler(webapp.RequestHandler):
             self.import_post(post)
 
     def import_post(self, post):
+        article_type = post[POST_TYPE]
+        assert article_type in ALL_TYPES
         permalink = post[POST_URL]
         permalink = uni_to_utf8(permalink)
         article = Article.gql("WHERE permalink = :1", permalink).get()
@@ -632,11 +654,15 @@ class ImportHandler(webapp.RequestHandler):
         assert format in ALL_FORMATS
         body = post[POST_BODY] # body comes as utf8
         body = uni_to_utf8(body)
+        tags = []
+        if POST_TAGS in post:
+            tags = article_tags_from_string(post[POST_TAGS])
         text_content = TextContent(content=body, published_on=published_on, format=format)
         text_content.put()
         title = post[POST_TITLE]
         title = uni_to_utf8(title)
-        article = Article(permalink=permalink, title=title, body=body, format=format, article_type=TYPE_BLOG)
+        article = Article(permalink=permalink, title=title, body=body, format=format, article_type=article_type)
+        article.tags = tags
         article.is_public = True
         article.previous_versions = [text_content.key()]
         article.published_on = published_on
@@ -652,6 +678,7 @@ def main():
         ('/', BlogIndexHandler),
         ('/index.html', BlogIndexHandler),
         ('/atom.xml', AtomHandler),
+        ('/archive/tags.html', BlogArchiveTagsHandler),
         ('/archives.html', BlogArchiveHandler),
         ('/blog/(.*)', BlogHandler),
         ('/software/', AddIndexHandler),
@@ -667,7 +694,7 @@ def main():
         ('/import', ImportHandler),
     ]
     app = webapp.WSGIApplication(mappings,debug=True)
-    #app = redirect_from_appspot(app)
+    app = redirect_from_appspot(app)
     app = dectect_localhost(app)
     wsgiref.handlers.CGIHandler().run(app)
 

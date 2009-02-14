@@ -3,8 +3,32 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="alternate" type="application/atom+xml" title="RSS 2.0" href="/atom.xml" />
-<script type="text/javascript" src="{{ jquery_url }}"></script>
 <title>Krzysztof Kowalczyk weblog</title>
+
+<script type="text/javascript" src="{{ jquery_url }}"></script>
+
+<script type="text/javascript">
+
+function toggleSearch() 
+{
+	$("#searchbox").toggle();
+	//$("#searchbox").val("");
+	//$("#searchbox").focus();
+	if ( $("#searchbox").is(':visible') ) {
+	  $("#searchbox").val("");
+	}
+}
+
+function showLogin() {
+	$('#login_id').removeClass("invisible").addClass("visible");
+}
+
+function hideLogin() { 
+	$('#login_id').removeClass("visible").addClass("invisible");
+}
+
+</script>
+
 <style type=text/css>
 body {margin:0}
 h1,h2,h3 {font-size:medium}
@@ -28,37 +52,14 @@ a#headsearch { background:transparent url(gfx/search2.png) no-repeat scroll 0 0;
 margin:0;padding:5px 0;text-indent:-9999px;width:33px;}
 </style>
 
-
-<script>
-function hideEl(id) { $(id).style.display="none"; }
-function elIsHidden(id) { return $(id).style.display == "none"; }
-function showEl(id) { $(id).style.display="block";}
-
-function toggleEl(id) 
-{
-    if (elIsHidden(id))
-        showEl(id);
-    else
-        hideEl(id);
-}
-
-function toggleSearch() 
-{
-    toggleEl("searchbox");
-    if (!elIsHidden("searchbox"))
-        $("searchFieldId").focus();
-    $("searchFieldId").value = "";
-}
-
-function showLogin() { $('login_id').className = "visible"; }
-function hideLogin() { $('login_id').className = "invisible"; }
-</script>
 </head>
 
 <body>
+
   <div id=head>
     <div id=inner>
-    <span class="right"><a href="software/sumatrapdf/">Sumatra PDF</a> &bull; 
+    <span class="right">
+    <a href="software/sumatrapdf/">Sumatra PDF</a> &bull; 
     <a href="software/fofou/">Fofou</a> &bull; 
     <a href="archives.html">archives</a> &bull; 
     <a href="more.html">more...</a>
@@ -69,9 +70,8 @@ function hideLogin() { $('login_id').className = "invisible"; }
     &nbsp;<a class="visible" href="/app/edit">(new post)</a>
     &nbsp;<a class="visible" href="{{ login_out_url }}">(log out)</a>
     {% else %}
-    &nbsp;<a id=login_id class="invisible" onMouseOver="showLogin();" onMouseOut="hideLogin();" href="{{ login_out_url }}">login</a>
+    &nbsp<a id="login_id" class="invisible" onMouseOver="showLogin();" onMouseOut="hideLogin();" href="{{ login_out_url }}">login</a>
     {% endif %}
-    <a href=>
     </div>
   </div>
 
@@ -80,8 +80,9 @@ function hideLogin() { $('login_id').className = "invisible"; }
   <input type="hidden" name="IncludeBlogs" value="1">
   <input type="hidden" name="as_sitesearch" value="http://blog.kowalczyk.info">
 
-  <center><label for="searchFieldId">Search this site:</label> <input type="text" name="q" id="searchFieldId"/>
-  <input class="button" value="Go" type="submit">
+  <center>
+    <label for="searchFieldId">Search this site:</label> <input type="text" name="q" id="searchFieldId"/>
+    <input class="button" value="Go" type="submit">
   </center>
   </form>
   </div>
@@ -131,8 +132,5 @@ pageTracker._initData();
 pageTracker._trackPageview();
 </script>
   {% endif %}
-</body>
-</html>
-
 </body>
 </html>
