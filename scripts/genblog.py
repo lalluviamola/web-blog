@@ -45,13 +45,6 @@ margin:0;padding:5px 0;text-indent:-9999px;width:33px;}
 CSS_TXT += """</style>
 """
 
-CSS_EXT_POST_TXT = """<style type="text/css" media="screen">
-@import url("../../css/kjk.css");
-</style>
-"""
-
-CSS_EXT_IDX_TXT = CSS_EXT_POST_TXT
-
 CSS_EXT_ARCHIVE_TXT="""<style type="text/css" media="screen">
 @import url("css/archive.css");
 </style>
@@ -311,7 +304,6 @@ def write_one_post(post, filename):
   tmpl = tmpl.replace("{{post}}", body)
   tmpl = tmpl.replace("{{analytics}}", ANALYTICS_TXT)
   css = CSS_TXT
-  #css = CSS_EXT_POST_TXT
   tmpl = tmpl.replace("{{css}}", css)
   tmpl = tmpl.replace("{{title}}", post["title"])
   util.file_write_utf8(filename, tmpl)

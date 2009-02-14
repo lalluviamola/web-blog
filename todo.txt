@@ -12,6 +12,7 @@ Maybe needed to switch:
   * post
   * atom feed
   * main page
+* add sitemap.xml ping + ping for google
 
 Rest:
 * integrate evernote articles
@@ -19,7 +20,6 @@ Rest:
 * display text as plain/text
 * generic blobs (blob + mime type, for storing images, plain-text files etc.)
 * ability to see previous versions
-* add sitemap.xml ping + ping for google
 * ability to add pictures to posts
 * ability to add attachement
 * non-google search
