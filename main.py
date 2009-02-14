@@ -175,12 +175,75 @@ def template_out(response, template_name, template_values = {}):
     res = template.render(path, template_values)
     response.out.write(res)
 
+def lang_to_prettify_lang(lang):
+    #from http://google-code-prettify.googlecode.com/svn/trunk/README.html
+    #"bsh", "c", "cc", "cpp", "cs", "csh", "cyc", "cv", "htm", "html",
+    #"java", "js", "m", "mxml", "perl", "pl", "pm", "py", "rb", "sh",
+    #"xhtml", "xml", "xsl".
+    LANG_TO_PRETTIFY_LANG_MAP = { 
+        "c" : "c", 
+        "c++" : "cc", 
+        "cpp" : "cpp", 
+        "python" : "py",
+        "html" : "html",
+        "xml" : "xml",
+        "perl" : "pl",
+        "c#" : "cs",
+        "javascript" : "js",
+        "java" : "java"
+    }
+    if lang in LANG_TO_PRETTIFY_LANG_MAP:
+        return "lang-%s" % LANG_TO_PRETTIFY_LANG_MAP[lang]
+    return None
+
+def markdown(txt): return markdown2.markdown(txt)
+
+def markdown_with_code_to_html(txt):
+    code_parts = {}
+    while True:
+        code_start = txt.find("<code", 0)
+        if -1 == code_start: break
+        lang_start = code_start + len("<code")
+        lang_end = txt.find(">", lang_start)
+        if -1 == lang_end: break
+        code_end_start = txt.find("</code>", lang_end)
+        if -1 == code_end_start: break
+        code_end_end = code_end_start + len("</code>")
+        lang = txt[lang_start:lang_end].strip()
+        code = txt[lang_end+1:code_end_start].strip()
+        #print("-------------\n'%s'\n--------------" % code)
+        prettify_lang = None
+        if lang:
+            #print("lang=%s" % lang)
+            prettify_lang = lang_to_prettify_lang(lang)
+        if prettify_lang:
+            new_code = '<pre class="prettyprint %s">\n%s</pre>' % (prettify_lang, encode_code(code))
+        else:
+            new_code = '<pre class="prettyprint">\n%s</pre>' % encode_code(code)
+        new_code_cookie = txt_cookie(new_code)
+        assert(new_code_cookie not in code_parts)
+        code_parts[new_code_cookie] = new_code
+        to_replace = txt[code_start:code_end_end]
+        txt = txt.replace(to_replace, new_code_cookie)
+
+    html = markdown(txt)
+    has_code = False
+    for (code_replacement_cookie, code_html) in code_parts.items():
+        html = html.replace(code_replacement_cookie, code_html)
+        has_code = True
+    return (html, has_code)
+
 def article_gen_html_body(article):
     if article.html_body: return
     if article.format == "textile":
         txt = article.body.encode('utf-8')
         body = textile.textile(txt, encoding='utf-8', output='utf-8')
         body =  unicode(body, 'utf-8')
+        article.html_body = body
+    elif article.format == "markdown":
+        txt = article.body.encode('utf-8')
+        (body, has_code) = markdown_with_code_to_html(txt)
+        body = unicode(body, 'utf-8')
         article.html_body = body
     elif article.format == "text":
         # TODO: probably should just send as plain/text and a
@@ -221,9 +284,11 @@ class BlogIndexHandler(webapp.RequestHandler):
             article = db.GqlQuery("SELECT * FROM Article WHERE is_public = True AND is_draft = False AND is_deleted = False ORDER BY published_on DESC").get()
         next = None
         prev = None
+        tags_urls = []
         if article:
             article_gen_html_body(article)
             (next, prev) = find_next_prev_article(article)
+            tags_urls = ['<a href="/tag/%s">%s</a>' % (tag, tag) for tag in article.tags]
         if is_admin:
             login_out_url = users.create_logout_url("/")
         else:
@@ -236,8 +301,35 @@ class BlogIndexHandler(webapp.RequestHandler):
             'next_article' : next,
             'prev_article' : prev,
             'include_analytics' : include_analytics(),
+            'tags_display' : ", ".join(tags_urls)
         }
         template_out(self.response, "tmpl/index.html", vals)
+
+# responds to /kb/*
+class KbHandler(webapp.RequestHandler):
+    def get(self,url):
+        permalink = "kb/" + url
+        is_admin = users.is_current_user_admin()
+        if is_admin:
+            article = Article.gql("WHERE permalink = :1", permalink).get()
+        else:
+            article = Article.gql("WHERE permalink = :1 AND is_public = True AND is_draft = FALSE AND is_deleted = False", permalink).get()
+        if not article:
+            vals = { "url" : permalink }
+            template_out(self.response, "tmpl/blogpost_notfound.html", vals)
+            return
+        article_gen_html_body(article)
+        (next, prev) = find_next_prev_article(article)
+        tags_urls = ['<a href="/tag/%s">%s</a>' % (tag, tag) for tag in article.tags]
+        vals = { 
+            'is_admin' : is_admin,
+            'article' : article,
+            'next_article' : next,
+            'prev_article' : prev,
+            'include_analytics' : include_analytics(),
+            'tags_display' : ", ".join(tags_urls)
+        }
+        template_out(self.response, "tmpl/blogpost.html", vals)
 
 # responds to /blog/*
 class BlogHandler(webapp.RequestHandler):
@@ -335,30 +427,35 @@ def article_tags_from_string(tags_string):
 def checkbox_to_bool(checkbox_val):
     return "on" == checkbox_val
 
-class EditHandler(webapp.RequestHandler):
-
-    def gen_permalink(self, title, date=None):
-        if not date: date = datetime.datetime.now()
-        iteration = 0
-        if is_empty_string(title):
-            iteration = 1
-            title_sanitized = ""
-        else:
-            title_sanitized = urlify(title)
+def gen_permalink(title, date, article_type, allow_dups = True):
+    iteration = 0
+    if is_empty_string(title):
+        iteration = 1
+        title_sanitized = ""
+    else:
+        title_sanitized = urlify(title)
+    assert article_type in ALL_TYPES
+    if article_type == TYPE_KB:
+        url_base = "kb/%04d/%02d/%02d/%s" % (date.year, date.month, date.day, title_sanitized)
+    else:
         url_base = "blog/%04d/%02d/%02d/%s" % (date.year, date.month, date.day, title_sanitized)
-        # TODO: maybe use some random number or article.key.id to get
-        # to a unique url faster
-        while iteration < 19:
-            if iteration == 0:
-                permalink = url_base + ".html"
-            else:
-                permalink = "%s-%d.html" % (url_base, iteration)
-            existing = Article.gql("WHERE permalink = :1", permalink).get()
-            if not existing:
-                logging.info("new_permalink: '%s'" % permalink)
-                return permalink
-            iteration += 1
-        return None
+    # TODO: maybe use some random number or article.key.id to get
+    # to a unique url faster
+    while iteration < 19:
+        if iteration == 0:
+            permalink = url_base + ".html"
+        else:
+            permalink = "%s-%d.html" % (url_base, iteration)
+        existing = Article.gql("WHERE permalink = :1", permalink).get()
+        if existing and not allow_dups:
+            return None
+        if not existing:
+            logging.info("new_permalink: '%s'" % permalink)
+            return permalink
+        iteration += 1
+    return None
+
+class EditHandler(webapp.RequestHandler):
 
     def create_new_post(self):
         format = self.request.get("format")
@@ -371,7 +468,7 @@ class EditHandler(webapp.RequestHandler):
 
         text_content = self.create_new_text_content(body, format)
 
-        permalink = self.gen_permalink(title, published_on)
+        permalink = gen_permalink(title, published_on, TYPE_BLOG)
         article = Article(permalink=permalink, title=title, body=body, format=format, article_type=TYPE_BLOG)
 
         is_public = not checkbox_to_bool(self.request.get("private"))
@@ -433,7 +530,7 @@ class EditHandler(webapp.RequestHandler):
             logging.info("body is the same")
 
         if article.title != title:
-            new_permalink = self.gen_permalink(title, article.published_on)
+            new_permalink = gen_permalink(title, article.published_on, TYPE_BLOG)
             article.permalink = new_permalink
             invalidate_articles_cache = True
 
@@ -527,6 +624,12 @@ def do_archives(response, articles_summary):
         y = date.year
         m = date.month
         a["day"] = date.day
+        tags = a["tags"]
+        if tags:
+            tags_urls = ['<a href="/tag/%s">%s</a>' % (tag, tag) for tag in tags]
+            a['tags_display'] = ", ".join(tags_urls)
+        else:
+            a['tags_display'] = False
         monthname = MONTHS[m-1]
         if curr_year is None or curr_year.year != y:
             curr_month = None
@@ -640,17 +743,16 @@ class ImportHandler(webapp.RequestHandler):
             self.import_post(post)
 
     def import_post(self, post):
-        article_type = post[POST_TYPE]
+        title = uni_to_utf8(post[POST_TITLE])
+        published_on = post[POST_DATE]
+        article_type = uni_to_utf8(post[POST_TYPE])
         assert article_type in ALL_TYPES
-        permalink = post[POST_URL]
-        permalink = uni_to_utf8(permalink)
-        article = Article.gql("WHERE permalink = :1", permalink).get()
-        if article:
+        permalink = gen_permalink(title, published_on, article_type, allow_dups = False)
+        if not permalink:
             logging.info("post with url '%s' already exists" % permalink)
             return self.error(HTTP_NOT_ACCEPTABLE)
-        published_on = post[POST_DATE]
-        format = post[POST_FORMAT]
-        format = uni_to_utf8(format)
+        permalink = uni_to_utf8(permalink)
+        format = uni_to_utf8(post[POST_FORMAT])
         assert format in ALL_FORMATS
         body = post[POST_BODY] # body comes as utf8
         body = uni_to_utf8(body)
@@ -659,8 +761,6 @@ class ImportHandler(webapp.RequestHandler):
             tags = article_tags_from_string(post[POST_TAGS])
         text_content = TextContent(content=body, published_on=published_on, format=format)
         text_content.put()
-        title = post[POST_TITLE]
-        title = uni_to_utf8(title)
         article = Article(permalink=permalink, title=title, body=body, format=format, article_type=article_type)
         article.tags = tags
         article.is_public = True
@@ -681,6 +781,7 @@ def main():
         ('/archive/tags.html', BlogArchiveTagsHandler),
         ('/archives.html', BlogArchiveHandler),
         ('/blog/(.*)', BlogHandler),
+        ('/kb/(.*)', KbHandler),
         ('/software/', AddIndexHandler),
         ('/software/(.+)/', AddIndexHandler),
         ('/forum_sumatra/rss.php', ForumRssRedirect),

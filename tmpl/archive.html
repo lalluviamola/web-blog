@@ -31,6 +31,9 @@ div#content{font:normal medium 'Goudy Bookletter 1911','Gentium Basic','Liberati
     <tr><th>{{ month.name }}</th><td></td></tr>    
       {% for article in month.articles %}
       <tr><th>{{ article.day }}</th><td><a href="/{{ article.permalink }}">{{ article.title }}</a>
+        {% if article.tags_display %}
+          ({{ article.tags_display }})
+        {% endif %}
         {% if is_admin %}
           <a href="/app/edit?article_id={{ article.key_id }}">edit</a>
           {% if article.is_deleted %}

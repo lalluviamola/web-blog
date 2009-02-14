@@ -79,25 +79,6 @@ def lang_to_prettify_lang(lang):
         return "lang-%s" % LANG_TO_PRETTIFY_LANG_MAP[lang]
     return None
 
-# convert 'content' text to html using enscript
-def code_to_html(code, lang):
-    lang = lang_to_prettify_lang(lang)
-    if lang is not None:
-        odata = '<pre class="prettyprint %s">\n%s</pre>' % (lang, encode_code(code))
-    else:
-        odata = '<pre class="prettyprint">\n%s</pre>' % encode_code(code)
-
-    # Strip header and footer
-#    beg = odata.find('<PRE>')
-#    if beg < 0: beg = 0
-#    end = odata.rfind('</PRE>')
-#    if end < 0:
-#        end = len(odata)
-#    else:
-#        end = end + 6
-#    odata = odata[beg:end]
-    return odata
-
 TAGS_TXT = "Tags".lower()
 TITLE_TXT = "Title".lower()
 DATE_TXT = "Date".lower()

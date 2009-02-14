@@ -214,7 +214,7 @@ def convert_blog_post(post):
         post[POST_FORMAT] = "html"
         body = linebreaks(body)
     np[POST_BODY] = to_utf8(body)
-    for item in [POST_TITLE, POST_URL, POST_FORMAT]:
+    for item in [POST_TITLE, POST_FORMAT]:
         np[item] = to_utf8(post[item])
     return np
 
@@ -225,7 +225,6 @@ def convert_kb_article(article):
     np[POST_DATE] = str_kb_to_datetime(article_date_str)
     np[POST_BODY] = to_utf8(article.get_body())
     np[POST_TITLE] = to_utf8(article.title)
-    np[POST_URL] = to_utf8(article.url)
     np[POST_FORMAT] = to_utf8("markdown")
     np[POST_TAGS] = to_utf8(", ".join(article.tags))
     return np

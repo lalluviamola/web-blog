@@ -89,6 +89,9 @@ margin:0;padding:5px 0;text-indent:-9999px;width:33px;}
 
   <div id="content">
   <h1><a href="/{{ article.permalink }}">{{ article.title }}</a>
+		{% if tags_display %}
+			({{ tags_display }})
+		{% endif %}
     {% if is_admin %}
       <a href="/app/edit?article_id={{ article.key.id }}">edit</a>
       {% if article.is_deleted %}
