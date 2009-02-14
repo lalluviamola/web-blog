@@ -1,7 +1,9 @@
 Needed to switch:
 * code high-lighting
 * finish tags
- * page with tag cloud (/archive/tags.html)
+ * page with tag cloud (/archive/tags.html) with counts for each tag
+* support for markdown in /edit
+* maybe a quick access to tags from everywhere (drop-down box)
 
 Maybe needed to switch:
 * on edit automatically focus edit field

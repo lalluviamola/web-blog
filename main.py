@@ -6,6 +6,7 @@ import datetime
 import StringIO
 import pickle
 import bz2
+import urllib
 import md5
 import textile
 import markdown2
@@ -323,6 +324,8 @@ class BlogIndexHandler(webapp.RequestHandler):
 # responds to /tag/*
 class TagHandler(webapp.RequestHandler):
     def get(self, tag):
+        tag = urllib.unquote(tag)
+        logging.info("tag: '%s'" % tag)
         articles_summary = get_articles_summary()
         articles_summary = filter_by_tag(articles_summary, tag)
         do_archives(self.response, articles_summary, tag)
