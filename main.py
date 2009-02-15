@@ -43,7 +43,6 @@ class TextContent(db.Model):
 class Article(db.Model):
     permalink = db.StringProperty(required=True)
     is_public = db.BooleanProperty(default=False)
-    is_draft = db.BooleanProperty(default=False)
     is_deleted = db.BooleanProperty(default=False)
     title = db.StringProperty()
     # copy of TextContent.content
@@ -96,7 +95,7 @@ def build_articles_summary():
     articles = []
     for article in articlesq:
         a = {}
-        for attr in ["title", "permalink", "published_on", "format", "tags", "is_public", "is_draft", "is_deleted"]:
+        for attr in ["title", "permalink", "published_on", "format", "tags", "is_public", "is_deleted"]:
             a[attr] = getattr(article,attr)
         articles.append(a)
     return articles
@@ -120,12 +119,12 @@ def unpickle_data(data_pickled):
 
 def filter_nonadmin_articles(articles_summary):
     for article_summary in articles_summary:
-        if article_summary["is_public"] and not article_summary["is_draft"] and not article_summary["is_deleted"]:
+        if article_summary["is_public"] and not article_summary["is_deleted"]:
             yield article_summary
 
-def filter_non_draft_non_deleted_articles(articles_summary):
+def filter_non_deleted_articles(articles_summary):
     for article_summary in articles_summary:
-        if article_summary["is_draft"] or article_summary["is_deleted"]:
+        if article_summary["is_deleted"]:
             yield article_summary
 
 def filter_by_tag(articles_summary, tag):
@@ -133,7 +132,7 @@ def filter_by_tag(articles_summary, tag):
         if tag in article_summary["tags"]:
             yield article_summary
 
-(ARTICLE_SUMMARY_PUBLIC_OR_ADMIN, ARTICLE_SUMMARY_DRAFT_AND_DELETED) = range(2)
+(ARTICLE_SUMMARY_PUBLIC_OR_ADMIN, ARTICLE_SUMMARY_DELETED) = range(2)
 
 def get_articles_summary(articles_type = ARTICLE_SUMMARY_PUBLIC_OR_ADMIN):
     articles_pickled = memcache.get(articles_info_memcache_key())
@@ -149,16 +148,25 @@ def get_articles_summary(articles_type = ARTICLE_SUMMARY_PUBLIC_OR_ADMIN):
     if articles_type == ARTICLE_SUMMARY_PUBLIC_OR_ADMIN:
         if not users.is_current_user_admin():
             articles_summary = filter_nonadmin_articles(articles_summary)
-    elif articles_type == ARTICLE_SUMMARY_DRAFT_AND_DELETED:
-        articles_summary = filter_non_draft_non_deleted_articles(articles_summary)
+    elif articles_type == ARTICLE_SUMMARY_DELETED:
+        articles_summary = filter_non_deleted_articles(articles_summary)
     return articles_summary
 
 def show_analytics(): return not is_localhost()
 
 def jquery_url():
     url = "http://ajax.googleapis.com/ajax/libs/jquery/1.3.1/jquery.min.js"
-    if is_localhost():
-        url = "/js/jquery-1.3.1.js"
+    if is_localhost(): url = "/js/jquery-1.3.1.js"
+    return url
+
+def prettify_js_url():
+    url = "http://google-code-prettify.googlecode.com/svn-history/r61/trunk/src/prettify.js"
+    if is_localhost(): url = "/js/prettify.js"
+    return url
+
+def prettify_css_url():
+    url = "http://google-code-prettify.googlecode.com/svn-history/r61/trunk/src/prettify.css"
+    if is_localhost(): url = "/js/prettify.css"
     return url
 
 def is_empty_string(s):
@@ -373,7 +381,7 @@ class IndexHandler(webapp.RequestHandler):
         if is_admin:
             article = db.GqlQuery("SELECT * FROM Article ORDER BY published_on DESC").get()
         else:
-            article = db.GqlQuery("SELECT * FROM Article WHERE is_public = True AND is_draft = False AND is_deleted = False ORDER BY published_on DESC").get()
+            article = db.GqlQuery("SELECT * FROM Article WHERE is_public = True AND is_deleted = False ORDER BY published_on DESC").get()
         if not article:
             vals = { "url" : "/" }
             template_out(self.response, "tmpl/404.html", vals)
@@ -387,8 +395,10 @@ class IndexHandler(webapp.RequestHandler):
         article_gen_html_body(article)
         (next, prev) = find_next_prev_article(article)
         tags_urls = ['<a href="/tag/%s">%s</a>' % (tag, tag) for tag in article.tags]
-        vals = { 
+        vals = {
             'jquery_url' : jquery_url(),
+            'prettify_js_url' : prettify_js_url(),
+            'prettify_css_url' : prettify_css_url(),
             'is_admin' : is_admin,
             'login_out_url' : login_out_url,
             'article' : article,
@@ -417,7 +427,7 @@ class ArticleHandler(webapp.RequestHandler):
         if is_admin:
             article = Article.gql("WHERE permalink = :1", permalink).get()
         else:
-            article = Article.gql("WHERE permalink = :1 AND is_public = True AND is_draft = FALSE AND is_deleted = False", permalink).get()
+            article = Article.gql("WHERE permalink = :1 AND is_public = True AND is_deleted = False", permalink).get()
         if not article:
             vals = { "url" : permalink }
             template_out(self.response, "tmpl/404.html", vals)
@@ -433,6 +443,8 @@ class ArticleHandler(webapp.RequestHandler):
         tags_urls = ['<a href="/tag/%s">%s</a>' % (tag, tag) for tag in article.tags]
         vals = { 
             'jquery_url' : jquery_url(),
+            'prettify_js_url' : prettify_js_url(),
+            'prettify_css_url' : prettify_css_url(),
             'is_admin' : is_admin,
             'login_out_url' : login_out_url,
             'article' : article,
@@ -528,7 +540,6 @@ class EditHandler(webapp.RequestHandler):
         format = self.request.get("format")
         assert format in ALL_FORMATS
         is_public = not checkbox_to_bool(self.request.get("private"))
-        is_draft = checkbox_to_bool(self.request.get("draft"))
         title = self.request.get("title").strip()
         body = self.request.get("note")
         article = db.get(db.Key.from_path("Article", int(article_id)))
@@ -561,13 +572,11 @@ class EditHandler(webapp.RequestHandler):
             article.previous_versions.append(text_content.key())
 
         if article.is_public != is_public: invalidate_articles_cache = True
-        if article.is_draft != is_draft: invalidate_articles_cache = True
         if article.tags != tags: invalidate_articles_cache = True
             
         article.format = format
         article.title = title
         article.is_public = is_public
-        article.is_draft = is_draft
         article.tags = tags
 
         if invalidate_articles_cache: clear_memcache()
@@ -596,13 +605,10 @@ class EditHandler(webapp.RequestHandler):
             'format_html_checked' : "",
             'format_text_checked' : "",
             'private_checkbox_checked' : "",
-            'draft_checkbox_checked' : "",
             'article' : article,
             'tags' : ", ".join(article.tags),
         }
         vals['format_%s_checked' % article.format] = "checked"
-        if article.is_draft:
-            vals['draft_checkbox_checked'] = "checked"
         if not article.is_public:
             vals['private_checkbox_checked'] = "checked"
         template_out(self.response, "tmpl/edit.html", vals)
@@ -687,14 +693,14 @@ class SitemapHandler(webapp.RequestHandler):
         }
         template_out(self.response, "tmpl/sitemap.xml", vals)
 
-class DraftsAndDeletedHandler(webapp.RequestHandler):
+class MineHandler(webapp.RequestHandler):
     def get(self):
         if not users.is_current_user_admin():
             return self.redirect("/")
-        articles_summary = get_articles_summary(ARTICLE_SUMMARY_DRAFT_AND_DELETED)
-        curr_year = None
-        curr_month = None
+        articles_summary = get_articles_summary(ARTICLE_SUMMARY_DELETED)
+        (curr_year, curr_month) = (None, None)
         years = []
+        posts_count = 0
         for a in articles_summary:
             date = a["published_on"]
             y = date.year
@@ -710,8 +716,10 @@ class DraftsAndDeletedHandler(webapp.RequestHandler):
                 curr_month = Month(monthname)
                 curr_year.add_month(curr_month)
             curr_month.add_article(a)
+            posts_count += 1
         vals = {
             'years' : years,
+            'posts_count' : posts_count,
             'is_admin' : users.is_current_user_admin(),
         }
         template_out(self.response, "tmpl/archive.html", vals)
@@ -724,7 +732,7 @@ class AtomHandler(webapp.RequestHandler):
             link = ROOT_URL + "/atom.xml",
             description = "Krzysztof Kowalczyk blog")
 
-        articles = db.GqlQuery("SELECT * FROM Article WHERE is_public = True AND is_draft = False AND is_deleted = False ORDER BY published_on DESC").fetch(25)
+        articles = db.GqlQuery("SELECT * FROM Article WHERE is_public = True AND is_deleted = False ORDER BY published_on DESC").fetch(25)
         for a in articles:
             title = a.title
             link = ROOT_URL + "/" + a.permalink
@@ -739,11 +747,8 @@ class AtomHandler(webapp.RequestHandler):
         # TODO: should I compress it?
         feedtxt = memcache.get(ATOM_MEMCACHE_KEY)
         if not feedtxt:
-            #logging.info("generating new atom feed")
             feedtxt = self.gen_atom_feed()
             memcache.set(ATOM_MEMCACHE_KEY, feedtxt)
-        else:
-            #logging.info("got cached atom feed")
 
         self.response.headers['Content-Type'] = 'text/xml'
         self.response.out.write(feedtxt)
@@ -803,11 +808,11 @@ def main():
     mappings = [
         ('/', IndexHandler),
         ('/index.html', IndexHandler),
-        ('/atom.xml', AtomHandler),
-        ('/sitemap.xml', SitemapHandler),
         ('/archives.html', ArchivesHandler),
         ('/article/(.*)', ArticleHandler),
         ('/tag/(.*)', TagHandler),
+        ('/atom.xml', AtomHandler),
+        ('/sitemap.xml', SitemapHandler),
         ('/software/', AddIndexHandler),
         ('/software/(.+)/', AddIndexHandler),
         ('/forum_sumatra/rss.php', ForumRssRedirect),
@@ -815,7 +820,7 @@ def main():
         ('/app/edit', EditHandler),
         ('/app/delete', DeleteUndeleteHandler),
         ('/app/undelete', DeleteUndeleteHandler),
-        ('/app/draftsanddeleted', DraftsAndDeletedHandler),
+        ('/app/mine', MineHandler),
         # only enable /import before importing and disable right
         # after importing, since it's not protected
         ('/import', ImportHandler),

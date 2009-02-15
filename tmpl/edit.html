@@ -5,6 +5,11 @@
   <title>Create or edit a post</title>
   <script type="text/javascript" src="{{ jquery_url }}"></script>
   <script type="text/javascript" src="/js/editor.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function() {
+    $("#title").focus();
+  })
+  </script>
 </head><body>
 <!--><div id="lt">Create new post</div>-->
   <form action="/app/edit" method="post">
@@ -14,7 +19,6 @@
   <input type="radio" name="format" value="html" {{ format_html_checked }}>html
   <input type="radio" name="format" value="text" {{ format_text_checked }}>text
    | <input type="checkbox" name="private" {{ private_checkbox_checked }}>Private
-   | <input type="checkbox" name="draft" {{ draft_checkbox_checked }}>Draft
   <br>
   <input name="article_id" type="hidden" value="{{ article.key.id }}">
 

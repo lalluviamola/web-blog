@@ -1,16 +1,18 @@
 Needed to switch:
+* integrate evernote articles
 * dup content detection via sha1 (must also work for editing when reverting to
   an older version)
-* remove is_draft (will just use not public to mark drafts)
+* disable import url after importing articles
 
 Maybe needed to switch:
 * install redirects from older urls
 * page with tag cloud (/tags.html) with counts for each tag
+* use minified version of code-higlighter js
 
 Rest:
 * preview in the editor (by going to the server to render html)
 * month links at the bottom like in http://blog.quinthar.com
 * a quick access to tags from everywhere (drop-down box)
-* on edit automatically focus edit field
-* integrate evernote articles
 * ability to see previous versions
+* a better way to show tags (not inside h1)
+* only load prettify js/css if there's code in the post
