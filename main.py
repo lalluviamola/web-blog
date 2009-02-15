@@ -23,16 +23,13 @@ from django.template import Context, Template
 import logging
 
 COMPRESS_PICKLED = True
-
-#DONT_MEMCACHE_ARTICLES = True
 DONT_MEMCACHE_ARTICLES = False
 
-#BLOG_URL = "blog.kowalczyk.info"
-BLOG_URL = "blog2.kowalczyk.info"
+#ROOT_URL_NO_SCHEME = "blog.kowalczyk.info"
+ROOT_URL_NO_SCHEME = "blog2.kowalczyk.info"
+ROOT_URL = "http://" + ROOT_URL_NO_SCHEME
 
-# HTTP codes
 HTTP_NOT_ACCEPTABLE = 406
-HTTP_NOT_FOUND = 404
 
 (POST_DATE, POST_FORMAT, POST_BODY, POST_TITLE, POST_TAGS) = ("date", "format", "body", "title", "tags")
 
@@ -61,11 +58,16 @@ class Article(db.Model):
     # points to TextContent
     previous_versions = db.ListProperty(db.Key, default=[])
 
+    def full_permalink(self):
+        return ROOT_URL + '/' + self.permalink
+    
     def rfc3339_published_on(self):
-        return self.published_on.strftime('%Y-%m-%dT%H:%M:%SZ')
+        return to_rfc339(self.published_on)
 
     def rfc3339_updated_on(self):
-        return self.updated_on.strftime('%Y-%m-%dT%H:%M:%SZ')
+        return to_rfc339(self.updated_on)
+
+def to_rfc339(dt): return dt.strftime('%Y-%m-%dT%H:%M:%SZ')
 
 def encode_code(text):
     for (txt,replacement) in [("&","&amp;"), ("<","&lt;"), (">","&gt;")]:
@@ -85,8 +87,8 @@ def build_articles_summary():
     articlesq = db.GqlQuery("SELECT * FROM Article ORDER BY published_on DESC")
     articles = []
     for article in articlesq:
-        a = { "key_id" : article.key().id() }
-        for attr in ["permalink", "is_public", "title", "published_on", "format", "is_draft", "is_deleted", "tags"]:
+        a = {}
+        for attr in ["title", "permalink", "published_on", "format", "tags", "is_public", "is_draft", "is_deleted"]:
             a[attr] = getattr(article,attr)
         articles.append(a)
     return articles
@@ -156,6 +158,35 @@ def jquery_url():
         url = "/js/jquery-1.3.1.js"
     return url
 
+def is_empty_string(s):
+    if not s: return True
+    s = s.strip()
+    return 0 == len(s)
+
+def urlify(title):
+    url = re.sub('-+', '-', 
+                  re.sub('[^\w-]', '', 
+                         re.sub('\s+', '-', title.strip())))
+    return url[:48]
+
+def iter_split_by(txt, splitter):
+    for t in txt.split(splitter):
+        t = t.strip()
+        if t:
+            yield t
+
+def article_tags_from_string_iter(tags_string):
+    for a in iter_split_by(tags_string, ","):
+        for b in iter_split_by(a, " "):
+            yield b
+
+# given e.g. "a, b  c , ho", returns ["a", "b", "c", "ho"]
+def article_tags_from_string(tags_string):
+    return [t for t in article_tags_from_string_iter(tags_string)]
+
+def checkbox_to_bool(checkbox_val):
+    return "on" == checkbox_val
+
 def dectect_localhost(wsgi_app):
     def check_if_localhost(env, start_response):
         global g_is_localhost
@@ -170,7 +201,7 @@ def redirect_from_appspot(wsgi_app):
             import webob, urlparse
             request = webob.Request(env)
             scheme, netloc, path, query, fragment = urlparse.urlsplit(request.url)
-            url = urlparse.urlunsplit([scheme, BLOG_URL, path, query, fragment])
+            url = urlparse.urlunsplit([scheme, ROOT_URL_NO_SCHEME, path, query, fragment])
             start_response('301 Moved Permanently', [('Location', url)])
             return ["301 Moved Peramanently",
                   "Click Here" % url]
@@ -298,12 +329,19 @@ def article_gen_html_body(article):
         html = article.body
     article.html_body = html
 
+def do_sitemap_ping():
+    if is_localhost(): return
+    form_fields = { "sitemap": "%s/sitemap.xml" % ROOT_URL }
+    urlfetch.fetch(url="http://www.google.com/webmasters/tools/ping",
+                   payload=urllib.urlencode(form_fields),
+                   method=urlfetch.GET)
+
 def find_next_prev_article(article):
     articles_summary = get_articles_summary()
     # TODO: change code below to not require this "materialization"
     # of articles_summary generator
     articles_summary = [a for a in articles_summary]
-    key_id = article.key().id()
+    permalink = article.permalink
     num = len(articles_summary)
     i = 0
     next = None
@@ -311,7 +349,7 @@ def find_next_prev_article(article):
     # TODO: could bisect for (possibly) faster search
     while i < num:
         a = articles_summary[i]
-        if a["key_id"] == key_id:
+        if a["permalink"] == permalink:
             if i > 0:
                 next = articles_summary[i-1]
             if i < num-1:
@@ -399,17 +437,6 @@ class ArticleHandler(webapp.RequestHandler):
         }
         template_out(self.response, "tmpl/article.html", vals)
 
-def is_empty_string(s):
-    if not s: return True
-    s = s.strip()
-    return 0 == len(s)
-
-def urlify(title):
-    url = re.sub('-+', '-', 
-                  re.sub('[^\w-]', '', 
-                         re.sub('\s+', '-', title.strip())))
-    return url[:48]
-
 class DeleteUndeleteHandler(webapp.RequestHandler):
     def get(self):
         if not users.is_current_user_admin():
@@ -428,24 +455,6 @@ class DeleteUndeleteHandler(webapp.RequestHandler):
         memcache.delete(articles_info_memcache_key())
         url = "/" + article.permalink
         self.redirect(url)
-
-def iter_split_by(txt, splitter):
-    for t in txt.split(splitter):
-        t = t.strip()
-        if t:
-            yield t
-
-def article_tags_from_string_iter(tags_string):
-    for a in iter_split_by(tags_string, ","):
-        for b in iter_split_by(a, " "):
-            yield b
-
-# given e.g. "a, b  c , ho", returns ["a", "b", "c", "ho"]
-def article_tags_from_string(tags_string):
-    return [t for t in article_tags_from_string_iter(tags_string)]
-
-def checkbox_to_bool(checkbox_val):
-    return "on" == checkbox_val
 
 def gen_permalink(title, date, allow_dups = True):
     title_sanitized = urlify(title)
@@ -500,19 +509,20 @@ class EditHandler(webapp.RequestHandler):
         return content
 
     def post(self):
+        #logging.info("article_id: '%s'" % self.request.get("article_id"))
+        #logging.info("format: '%s'" % self.request.get("format"))
+        #logging.info("title: '%s'" % self.request.get("title"))
+        #logging.info("body: '%s'" % self.request.get("note"))
+
         article_id = self.request.get("article_id")
-        logging.info("article_id: '%s'" % article_id)
         if is_empty_string(article_id):
             return self.create_new_article()
         format = self.request.get("format")
-        logging.info("format: '%s'" % format)
-        # TODO: validate format
+        assert format in ALL_FORMATS
         is_public = not checkbox_to_bool(self.request.get("private"))
         is_draft = checkbox_to_bool(self.request.get("draft"))
         title = self.request.get("title").strip()
-        logging.info("title: '%s'" % title)
         body = self.request.get("note")
-        #logging.info("body: '%s'" % body)
         article = db.get(db.Key.from_path("Article", int(article_id)))
         if not article:
             vals = { "url" : article_id }
@@ -652,6 +662,23 @@ class ArchivesHandler(webapp.RequestHandler):
         articles_summary = get_articles_summary()
         do_archives(self.response, articles_summary)
 
+class SitemapHandler(webapp.RequestHandler):
+    def get(self):
+        articles = [a for a in get_articles_summary()]
+        if not articles:
+            return
+
+        for article in articles[:1000]:
+            article["full_permalink"] = ROOT_URL + "/" + article["permalink"]
+            article["rfc3339_published"] = to_rfc339(article["published_on"])
+
+        self.response.headers['Content-Type'] = 'text/xml'
+        vals = { 
+            'articles' : articles,
+            'root_url' : ROOT_URL,
+        }
+        template_out(self.response, "tmpl/sitemap.xml", vals)
+
 class DraftsAndDeletedHandler(webapp.RequestHandler):
     def get(self):
         if not users.is_current_user_admin():
@@ -758,9 +785,6 @@ class ImportHandler(webapp.RequestHandler):
         article.previous_versions = [text_content.key()]
         article.published_on = published_on
         article.updated_on = published_on
-        # TODO:
-        # article.excerpt
-        # article.html_body
         article.put()
         logging.info("imported article, url: '%s'" % permalink)
 
@@ -769,6 +793,7 @@ def main():
         ('/', IndexHandler),
         ('/index.html', IndexHandler),
         ('/atom.xml', AtomHandler),
+        ('/sitemap.xml', SitemapHandler),
         ('/archives.html', ArchivesHandler),
         ('/article/(.*)', ArticleHandler),
         ('/tag/(.*)', TagHandler),
