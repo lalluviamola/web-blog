@@ -13,7 +13,7 @@
   Posts tagged with: {{ tag }}
   {% else %}
   Archives
-  {% endif %} ({{ posts_count }} posts)</h1>
+  {% endif %} ({{ posts_count }} articles)</h1>
 
 <table id=arc>
   {% for year in years %}
@@ -25,16 +25,15 @@
         {% if article.tags_display %}
           ({{ article.tags_display }})
         {% endif %}
-        {% if is_admin %}
-          <a href="/app/edit?article_id={{ article.key_id }}">edit</a>
-          {% if article.is_deleted %}
-          &nbsp;<a href="/app/undelete?article_id={{ article.key_id }}">undelete</a>
-          {% else %}
-          &nbsp;<a href="/app/delete?article_id={{ article.key_id }}">delete</a>
-          {% endif %}
-          {% if article.is_draft %}
-          &nbsp;<font color="red">draft</font>
-          {% endif %}
+
+        {% if article.is_deleted %}
+        &nbsp;<font color="red">deleted</font>
+        {% endif %}
+        {% if article.is_draft %}
+        &nbsp;<font color="red">draft</font>
+        {% endif %}
+        {% if not article.is_public %}
+        &nbsp;<font color="red">private</font>
         {% endif %}
       </td></tr>
       {% endfor %}

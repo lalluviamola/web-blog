@@ -1,8 +1,8 @@
 Needed to switch:
-* source-code support in textile and text
 * add sitemap.xml ping + ping for google
 * dup content detection via sha1 (must also work for editing when reverting to
   an older version)
+* caching of atom feed
 
 Maybe needed to switch:
 * install redirects from older urls

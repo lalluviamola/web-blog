@@ -207,9 +207,7 @@ def lang_to_prettify_lang(lang):
         return "lang-%s" % LANG_TO_PRETTIFY_LANG_MAP[lang]
     return None
 
-def markdown(txt): return markdown2.markdown(txt)
-
-def markdown_with_code_to_html(txt):
+def txt_with_code_parts(txt):
     code_parts = {}
     while True:
         code_start = txt.find("<code", 0)
@@ -222,10 +220,8 @@ def markdown_with_code_to_html(txt):
         code_end_end = code_end_start + len("</code>")
         lang = txt[lang_start:lang_end].strip()
         code = txt[lang_end+1:code_end_start].strip()
-        #print("-------------\n'%s'\n--------------" % code)
         prettify_lang = None
         if lang:
-            #print("lang=%s" % lang)
             prettify_lang = lang_to_prettify_lang(lang)
         if prettify_lang:
             new_code = '<pre class="prettyprint %s">\n%s</pre>' % (prettify_lang, encode_code(code))
@@ -236,13 +232,30 @@ def markdown_with_code_to_html(txt):
         code_parts[new_code_cookie] = new_code
         to_replace = txt[code_start:code_end_end]
         txt = txt.replace(to_replace, new_code_cookie)
+    return (txt, code_parts)
 
-    html = markdown(txt)
-    has_code = False
+def markdown_with_code_to_html(txt):
+    (txt, code_parts) = txt_with_code_parts(txt)
+    html = markdown2.markdown(txt)
     for (code_replacement_cookie, code_html) in code_parts.items():
         html = html.replace(code_replacement_cookie, code_html)
-        has_code = True
-    return (html, has_code)
+    return html
+
+def textile_with_code_to_html(txt):
+    (txt, code_parts) = txt_with_code_parts(txt)
+    txt = txt.encode('utf-8')
+    html = textile.textile(txt, encoding='utf-8', output='utf-8')
+    html =  unicode(html, 'utf-8')
+    for (code_replacement_cookie, code_html) in code_parts.items():
+        html = html.replace(code_replacement_cookie, code_html)
+    return html
+
+def text_with_code_to_html(txt):
+    (txt, code_parts) = txt_with_code_parts(txt)
+    html = plaintext2html(txt)
+    for (code_replacement_cookie, code_html) in code_parts.items():
+        html = html.replace(code_replacement_cookie, code_html)
+    return html
 
 # from http://www.djangosnippets.org/snippets/19/
 re_string = re.compile(r'(?P<htmlchars>[<&>])|(?P<space>^[ \t]+)|(?P<lineend>\r\n|\r|\n)|(?P<protocal>(^|\s)((http|ftp)://.*?))(\s|$)', re.S|re.M|re.I)
@@ -273,19 +286,17 @@ def plaintext2html(text, tabstop=4):
     return re.sub(re_string, do_sub, text)
 
 def article_gen_html_body(article):
+    txt = article.body
     if article.format == "textile":
-        txt = article.body.encode('utf-8')
-        body = textile.textile(txt, encoding='utf-8', output='utf-8')
-        body =  unicode(body, 'utf-8')
-        article.html_body = body
+        html = textile_with_code_to_html(txt)
     elif article.format == "markdown":
-        txt = article.body.encode('utf-8')
-        (body, has_code) = markdown_with_code_to_html(txt)
-        article.html_body = body
+        html = markdown_with_code_to_html(txt)
     elif article.format == "text":
-        article.html_body = plaintext2html(article.body)
+        html = text_with_code_to_html(txt)
     elif article.format == "html":
-        article.html_body = article.body
+        # TODO: code highlighting for html
+        html = article.body
+    article.html_body = html
 
 def find_next_prev_article(article):
     articles_summary = get_articles_summary()
@@ -366,12 +377,19 @@ class ArticleHandler(webapp.RequestHandler):
             vals = { "url" : permalink }
             template_out(self.response, "tmpl/404.html", vals)
             return
+
+        if is_admin:
+            login_out_url = users.create_logout_url("/")
+        else:
+            login_out_url = users.create_login_url("/")
+
         article_gen_html_body(article)
         (next, prev) = find_next_prev_article(article)
         tags_urls = ['<a href="/tag/%s">%s</a>' % (tag, tag) for tag in article.tags]
         vals = { 
             'jquery_url' : jquery_url(),
             'is_admin' : is_admin,
+            'login_out_url' : login_out_url,
             'article' : article,
             'next_article' : next,
             'prev_article' : prev,

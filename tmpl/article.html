@@ -49,7 +49,7 @@ function hideLogin() {
     <span class="right">
     <a href="software/sumatrapdf/">Sumatra PDF</a> &bull; 
     <a href="software/fofou/">Fofou</a> &bull; 
-    <a href="archives.html">archives</a> &bull; 
+    <a href="/archives.html">archives</a> &bull; 
     <a href="more.html">more...</a>
     <a id=headsearch href="javascript:toggleSearch();">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
     </span>
@@ -91,12 +91,15 @@ function hideLogin() {
   {% if is_admin %}
     <a href="/app/edit?article_id={{ article.key.id }}">edit</a>
     {% if article.is_deleted %}
-      &nbsp;<a href="/app/undelete?article_id={{ article.key_id }}">undelete</a>
+      &nbsp;<a href="/app/undelete?article_id={{ article.key.id }}">undelete</a>
     {% else %}
-      &nbsp;<a href="/app/delete?article_id={{ article.key_id }}">delete</a>
+      &nbsp;<a href="/app/delete?article_id={{ article.key.id }}">delete</a>
     {% endif %}
     {% if article.is_draft %}
       &nbsp;<font color="red">draft</font>
+    {% endif %}
+    {% if not article.is_public %}
+      &nbsp;<font color="red">private</font>
     {% endif %}
   {% endif %}
 </h1>
