@@ -1,7 +1,6 @@
 Needed to switch:
 * dup content detection via sha1 (must also work for editing when reverting to
   an older version)
-* caching of atom feed
 * remove is_draft (will just use not public to mark drafts)
 
 Maybe needed to switch:

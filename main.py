@@ -23,7 +23,7 @@ from django.template import Context, Template
 import logging
 
 COMPRESS_PICKLED = True
-DONT_MEMCACHE_ARTICLES = False
+NO_MEMCACHE = False
 
 #ROOT_URL_NO_SCHEME = "blog.kowalczyk.info"
 ROOT_URL_NO_SCHEME = "blog2.kowalczyk.info"
@@ -69,6 +69,8 @@ class Article(db.Model):
 
 def to_rfc339(dt): return dt.strftime('%Y-%m-%dT%H:%M:%SZ')
 
+def uni_to_utf8(val): return unicode(val, "utf-8")
+
 def encode_code(text):
     for (txt,replacement) in [("&","&amp;"), ("<","&lt;"), (">","&gt;")]:
         text = text.replace(txt, replacement)
@@ -82,6 +84,12 @@ def articles_info_memcache_key():
     if COMPRESS_PICKLED:
         return "akc"
     return "ak"
+
+ATOM_MEMCACHE_KEY = "at"
+
+def clear_memcache():
+    memcache.delete(articles_info_memcache_key())
+    memcache.delete(ATOM_MEMCACHE_KEY)
 
 def build_articles_summary():
     articlesq = db.GqlQuery("SELECT * FROM Article ORDER BY published_on DESC")
@@ -129,7 +137,7 @@ def filter_by_tag(articles_summary, tag):
 
 def get_articles_summary(articles_type = ARTICLE_SUMMARY_PUBLIC_OR_ADMIN):
     articles_pickled = memcache.get(articles_info_memcache_key())
-    if DONT_MEMCACHE_ARTICLES: articles_pickled = None
+    if NO_MEMCACHE: articles_pickled = None
     if articles_pickled:
         articles_summary = unpickle_data(articles_pickled)
         #logging.info("len(articles_summary) = %d" % len(articles_summary))
@@ -144,11 +152,6 @@ def get_articles_summary(articles_type = ARTICLE_SUMMARY_PUBLIC_OR_ADMIN):
     elif articles_type == ARTICLE_SUMMARY_DRAFT_AND_DELETED:
         articles_summary = filter_non_draft_non_deleted_articles(articles_summary)
     return articles_summary
-
-g_is_localhost = True
-
-def is_localhost():
-    return g_is_localhost
 
 def show_analytics(): return not is_localhost()
 
@@ -175,17 +178,21 @@ def iter_split_by(txt, splitter):
         if t:
             yield t
 
-def article_tags_from_string_iter(tags_string):
+def tags_from_string_iter(tags_string):
     for a in iter_split_by(tags_string, ","):
         for b in iter_split_by(a, " "):
             yield b
 
 # given e.g. "a, b  c , ho", returns ["a", "b", "c", "ho"]
-def article_tags_from_string(tags_string):
-    return [t for t in article_tags_from_string_iter(tags_string)]
+def tags_from_string(tags_string):
+    return [t for t in tags_from_string_iter(tags_string)]
 
 def checkbox_to_bool(checkbox_val):
     return "on" == checkbox_val
+
+g_is_localhost = True
+def is_localhost():
+    return g_is_localhost
 
 def dectect_localhost(wsgi_app):
     def check_if_localhost(env, start_response):
@@ -452,7 +459,7 @@ class DeleteUndeleteHandler(webapp.RequestHandler):
         else:
             article.is_deleted = True
         article.put()
-        memcache.delete(articles_info_memcache_key())
+        clear_memcache()
         url = "/" + article.permalink
         self.redirect(url)
 
@@ -496,10 +503,11 @@ class EditHandler(webapp.RequestHandler):
         article.previous_versions = [text_content.key()]
         article.published_on = published_on
         article.updated_on = published_on
-        article.tags = article_tags_from_string(self.request.get("tags"))
+        article.tags = tags_from_string(self.request.get("tags"))
 
         article.put()
-        memcache.delete(articles_info_memcache_key())
+        clear_memcache()
+        do_sitemap_ping()
         url = "/" + article.permalink
         self.redirect(url)
 
@@ -528,7 +536,7 @@ class EditHandler(webapp.RequestHandler):
             vals = { "url" : article_id }
             template_out(self.response, "tmpl/404.html", vals)
             return
-        tags = article_tags_from_string(self.request.get("tags"))
+        tags = tags_from_string(self.request.get("tags"))
 
         text_content = None
         invalidate_articles_cache = False
@@ -562,10 +570,10 @@ class EditHandler(webapp.RequestHandler):
         article.is_draft = is_draft
         article.tags = tags
 
-        if invalidate_articles_cache:
-            memcache.delete(articles_info_memcache_key())
+        if invalidate_articles_cache: clear_memcache()
 
         article.put()
+        do_sitemap_ping()
         url = "/" + article.permalink
         self.redirect(url)
 
@@ -709,29 +717,34 @@ class DraftsAndDeletedHandler(webapp.RequestHandler):
         template_out(self.response, "tmpl/archive.html", vals)
 
 class AtomHandler(webapp.RequestHandler):
-    def get(self):
-        # TODO: memcache this if turns out to be done frequently
+
+    def gen_atom_feed(self):
         feed = feedgenerator.Atom1Feed(
             title = "Krzysztof Kowalczyk blog",
-            link = "http://blog.kowalczyk.info/feed/",
+            link = ROOT_URL + "/atom.xml",
             description = "Krzysztof Kowalczyk blog")
 
-        articlesq = db.GqlQuery("SELECT * FROM Article WHERE is_public = True AND is_draft = False AND is_deleted = False ORDER BY published_on DESC")
-        articles = []
-        max_articles = 25
-        for a in articlesq:
-            max_articles -= 1
-            if max_articles < 0:
-                break
-            articles.append(a)
+        articles = db.GqlQuery("SELECT * FROM Article WHERE is_public = True AND is_draft = False AND is_deleted = False ORDER BY published_on DESC").fetch(25)
         for a in articles:
             title = a.title
-            link = "http://blog.kowalczyk.info/" + a.permalink
+            link = ROOT_URL + "/" + a.permalink
             article_gen_html_body(a)
             description = a.html_body
             pubdate = a.published_on
             feed.add_item(title=title, link=link, description=description, pubdate=pubdate)
         feedtxt = feed.writeString('utf-8')
+        return feedtxt
+
+    def get(self):
+        # TODO: should I compress it?
+        feedtxt = memcache.get(ATOM_MEMCACHE_KEY)
+        if not feedtxt:
+            #logging.info("generating new atom feed")
+            feedtxt = self.gen_atom_feed()
+            memcache.set(ATOM_MEMCACHE_KEY, feedtxt)
+        else:
+            #logging.info("got cached atom feed")
+
         self.response.headers['Content-Type'] = 'text/xml'
         self.response.out.write(feedtxt)
     
@@ -748,8 +761,6 @@ class ForumRssRedirect(webapp.RequestHandler):
     def get(self):
         return self.redirect("http://forums.fofou.org/sumatrapdf/rss")
 
-def uni_to_utf8(val): return unicode(val, "utf-8")
- 
 # import one or more articles from old text format
 class ImportHandler(webapp.RequestHandler):
     def post(self):
@@ -776,7 +787,7 @@ class ImportHandler(webapp.RequestHandler):
         body = uni_to_utf8(body)
         tags = []
         if POST_TAGS in post:
-            tags = article_tags_from_string(post[POST_TAGS])
+            tags = tags_from_string(post[POST_TAGS])
         text_content = TextContent(content=body, published_on=published_on, format=format)
         text_content.put()
         article = Article(permalink=permalink, title=title, body=body, format=format)
