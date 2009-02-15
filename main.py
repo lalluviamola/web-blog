@@ -485,7 +485,7 @@ class EditHandler(webapp.RequestHandler):
     def create_new_post(self):
         format = self.request.get("format")
         logging.info("format: '%s'" % format)
-        # TODO: validate format
+        assert format in ALL_FORMATS
         logging.info("private: '%s'" % private)
         title = self.request.get("title").strip()
         logging.info("title: '%s'" % title)
@@ -605,6 +605,7 @@ class EditHandler(webapp.RequestHandler):
         vals = {
             'jquery_url' : jquery_url(),
             'format_textile_checked' : "",
+            'format_markdown_checked' : "",
             'format_html_checked' : "",
             'format_text_checked' : "",
             'private_checkbox_checked' : "",
