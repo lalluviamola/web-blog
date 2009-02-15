@@ -317,7 +317,7 @@ class BlogIndexHandler(webapp.RequestHandler):
             'next_article' : next,
             'prev_article' : prev,
             'include_analytics' : include_analytics(),
-            'tags_display' : ", ".join(tags_urls)
+            'tags_display' : ", ".join(tags_urls),
         }
         template_out(self.response, "tmpl/index.html", vals)
 
@@ -644,6 +644,7 @@ def do_archives(response, articles_summary, tag_to_display=None):
     curr_year = None
     curr_month = None
     years = []
+    posts_count = 0
     for a in articles_summary:
         date = a["published_on"]
         y = date.year
@@ -665,10 +666,13 @@ def do_archives(response, articles_summary, tag_to_display=None):
             curr_month = Month(monthname)
             curr_year.add_month(curr_month)
         curr_month.add_article(a)
+        posts_count += 1
+
     vals = {
         'years' : years,
         'is_admin' : users.is_current_user_admin(),
         'tag' : tag_to_display,
+        'posts_count' : posts_count,
     }
     template_out(response, "tmpl/archive.html", vals)
 

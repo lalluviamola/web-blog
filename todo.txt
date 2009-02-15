@@ -15,6 +15,9 @@ Maybe needed to switch:
   * atom feed
   * main page
 * add sitemap.xml ping + ping for google
+* month links at the bottom like in http://blog.quinthar.com
+* preview in the editor (by going to the server to render html)
+* source-code support in textile
 
 Rest:
 * integrate evernote articles
