@@ -4,6 +4,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="alternate" type="application/atom+xml" title="RSS 2.0" href="/atom.xml" />
 
+{% if index_page %}
+<title>Krzysztof Kowalczyk's website</title>
+{% else %}
+<title>{{ article.title }}</title>
+{% endif %}
+
 {% if index_page or is_admin %}
 <title>Krzysztof Kowalczyk's website</title>
 <script type="text/javascript" src="{{ jquery_url }}"></script>
@@ -19,7 +25,6 @@ function toggleSearch()
   }
 }
 
-
 function showLogin() {
 	$('#login_id').removeClass("invisible").addClass("visible");
 }
@@ -28,14 +33,15 @@ function hideLogin() {
 	$('#login_id').removeClass("visible").addClass("invisible");
 }
 </script>
-{% else %}
-<title>{{ article.title }}</title>
 {% endif %}
+
+<link href="/js/prettify.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="/js/prettify.js"></script>
 
 {% include "inline_css.html" %}
 </head>
 
-<body>
+<body onload="prettyPrint()">
 
 {% if index_page or is_admin %}
   <div id=head>

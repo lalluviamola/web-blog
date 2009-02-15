@@ -473,7 +473,6 @@ class EditHandler(webapp.RequestHandler):
 
         article.put()
         memcache.delete(articles_info_memcache_key())
-        # show newly updated article
         url = "/" + article.permalink
         self.redirect(url)
 

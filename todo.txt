@@ -1,19 +1,17 @@
 Needed to switch:
-* code high-lighting
 * source-code support in textile and text
-* finish tags
- * page with tag cloud (/archive/tags.html) with counts for each tag
-
-Maybe needed to switch:
+* add sitemap.xml ping + ping for google
 * dup content detection via sha1 (must also work for editing when reverting to
   an older version)
-* on edit automatically focus edit field
-* add sitemap.xml ping + ping for google
-* month links at the bottom like in http://blog.quinthar.com
-* preview in the editor (by going to the server to render html)
+
+Maybe needed to switch:
 * install redirects from older urls
+* page with tag cloud (/tags.html) with counts for each tag
 
 Rest:
+* preview in the editor (by going to the server to render html)
+* month links at the bottom like in http://blog.quinthar.com
 * a quick access to tags from everywhere (drop-down box)
+* on edit automatically focus edit field
 * integrate evernote articles
 * ability to see previous versions
