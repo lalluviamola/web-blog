@@ -11,6 +11,7 @@ import urllib
 import md5
 import textile
 import markdown2
+import cgi
 import wsgiref.handlers
 from google.appengine.ext import db
 from google.appengine.api import users
@@ -50,8 +51,6 @@ class Article(db.Model):
     title = db.StringProperty()
     # copy of TextContent.content
     body = db.TextProperty(required=True)
-    excerpt = db.TextProperty()
-    html_body = db.TextProperty()
     # copy of TextContent.published_on of first version
     published_on = db.DateTimeProperty(auto_now_add=True)
     # copy of TextContent.published_on of last version
@@ -245,8 +244,35 @@ def markdown_with_code_to_html(txt):
         has_code = True
     return (html, has_code)
 
+# from http://www.djangosnippets.org/snippets/19/
+re_string = re.compile(r'(?P<htmlchars>[<&>])|(?P<space>^[ \t]+)|(?P<lineend>\r\n|\r|\n)|(?P<protocal>(^|\s)((http|ftp)://.*?))(\s|$)', re.S|re.M|re.I)
+def plaintext2html(text, tabstop=4):
+    def do_sub(m):
+        c = m.groupdict()
+        if c['htmlchars']:
+            return cgi.escape(c['htmlchars'])
+        if c['lineend']:
+            return '<br>'
+        elif c['space']:
+            t = m.group().replace('\t', '&nbsp;'*tabstop)
+            t = t.replace(' ', '&nbsp;')
+            return t
+        elif c['space'] == '\t':
+            return ' '*tabstop;
+        else:
+            url = m.group('protocal')
+            if url.startswith(' '):
+                prefix = ' '
+                url = url[1:]
+            else:
+                prefix = ''
+            last = m.groups()[-1]
+            if last in ['\n', '\r', '\r\n']:
+                last = '<br>'
+            return '%s<a href="%s">%s</a>%s' % (prefix, url, url, last)
+    return re.sub(re_string, do_sub, text)
+
 def article_gen_html_body(article):
-    if article.html_body: return
     if article.format == "textile":
         txt = article.body.encode('utf-8')
         body = textile.textile(txt, encoding='utf-8', output='utf-8')
@@ -257,9 +283,7 @@ def article_gen_html_body(article):
         (body, has_code) = markdown_with_code_to_html(txt)
         article.html_body = body
     elif article.format == "text":
-        # TODO: probably should just send as plain/text and a
-        # separate template
-        article.html_body = article.body
+        article.html_body = plaintext2html(article.body)
     elif article.format == "html":
         article.html_body = article.body
 
@@ -296,7 +320,7 @@ class IndexHandler(webapp.RequestHandler):
             article = db.GqlQuery("SELECT * FROM Article WHERE is_public = True AND is_draft = False AND is_deleted = False ORDER BY published_on DESC").get()
         if not article:
             vals = { "url" : "/" }
-            template_out(self.response, "tmpl/blogpost_notfound.html", vals)
+            template_out(self.response, "tmpl/404.html", vals)
             return
 
         if is_admin:
@@ -318,7 +342,7 @@ class IndexHandler(webapp.RequestHandler):
             'tags_display' : ", ".join(tags_urls),
             'index_page' : True,
         }
-        template_out(self.response, "tmpl/blogpost.html", vals)
+        template_out(self.response, "tmpl/article.html", vals)
 
 # responds to /tag/*
 class TagHandler(webapp.RequestHandler):
@@ -340,7 +364,7 @@ class ArticleHandler(webapp.RequestHandler):
             article = Article.gql("WHERE permalink = :1 AND is_public = True AND is_draft = FALSE AND is_deleted = False", permalink).get()
         if not article:
             vals = { "url" : permalink }
-            template_out(self.response, "tmpl/blogpost_notfound.html", vals)
+            template_out(self.response, "tmpl/404.html", vals)
             return
         article_gen_html_body(article)
         (next, prev) = find_next_prev_article(article)
@@ -355,20 +379,12 @@ class ArticleHandler(webapp.RequestHandler):
             'tags_display' : ", ".join(tags_urls),
             'index_page' : False,
         }
-        template_out(self.response, "tmpl/blogpost.html", vals)
+        template_out(self.response, "tmpl/article.html", vals)
 
 def is_empty_string(s):
     if not s: return True
     s = s.strip()
     return 0 == len(s)
-
-def onlyascii(c):
-    if c in " _.;,-":
-        return c
-    if ord(c) < 48 or ord(c) > 127:
-        return ''
-    else: 
-        return c
 
 def urlify(title):
     url = re.sub('-+', '-', 
@@ -376,36 +392,16 @@ def urlify(title):
                          re.sub('\s+', '-', title.strip())))
     return url[:48]
 
-# TODO: could be simplified?
-def urlify2(s):
-    s = s.strip().lower()
-    s = filter(onlyascii, s)
-    for c in [" ", "_", "=", ".", ";", ":", "/", "\\", "\"", "'", "(", ")", "{", "}", "?", ",", "~"]:
-        s = s.replace(c, "-")
-    # TODO: a crude way to convert two-or-more consequtive '-' into just one
-    # it's really a job for regex
-    while True:
-        new = s.replace("--", "-")
-        if new == s:
-            break
-        #print "new='%s', prev='%s'" % (new, s)
-        s = new
-    s = s.strip("-")[:48]
-    s = s.strip("-")
-    return s
-
 class DeleteUndeleteHandler(webapp.RequestHandler):
     def get(self):
         if not users.is_current_user_admin():
             return self.redirect("/")
         article_id = self.request.get("article_id")
         logging.info("article_id: '%s'" % article_id)
-        if is_empty_string(article_id):
-            return self.redirect("/")
         article = db.get(db.Key.from_path("Article", int(article_id)))
         if not article:
             vals = { "url" : article_id }
-            return template_out(self.response, "tmpl/blogpost_notfound.html", vals)
+            return template_out(self.response, "tmpl/404.html", vals)
         if article.is_deleted:
             article.is_deleted = False
         else:
@@ -466,17 +462,14 @@ class EditHandler(webapp.RequestHandler):
         body = self.request.get("note")
         text_content = self.create_new_text_content(body, format)
 
+        published_on = text_content.published_on
         permalink = gen_permalink(title, published_on)
         article = Article(permalink=permalink, title=title, body=body, format=format)
         article.is_public = not checkbox_to_bool(self.request.get("private"))
         article.previous_versions = [text_content.key()]
-        article.published_on = text_content.published_on
-        article.updated_on = text_content.published_on
+        article.published_on = published_on
+        article.updated_on = published_on
         article.tags = article_tags_from_string(self.request.get("tags"))
-
-        # TODO:
-        # article.excerpt
-        # article.html_body
 
         article.put()
         memcache.delete(articles_info_memcache_key())
@@ -506,7 +499,7 @@ class EditHandler(webapp.RequestHandler):
         article = db.get(db.Key.from_path("Article", int(article_id)))
         if not article:
             vals = { "url" : article_id }
-            template_out(self.response, "tmpl/blogpost_notfound.html", vals)
+            template_out(self.response, "tmpl/404.html", vals)
             return
         tags = article_tags_from_string(self.request.get("tags"))
 
@@ -544,10 +537,6 @@ class EditHandler(webapp.RequestHandler):
 
         if invalidate_articles_cache:
             memcache.delete(articles_info_memcache_key())
-
-        # TODO:
-        # article.excerpt
-        # article.html_body
 
         article.put()
         url = "/" + article.permalink
