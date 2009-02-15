@@ -461,7 +461,7 @@ def gen_permalink(title, date, article_type, allow_dups = True):
         title_sanitized = urlify(title)
     assert article_type in ALL_TYPES
     if article_type == TYPE_KB:
-        url_base = "kb/%04d/%02d/%02d/%s" % (date.year, date.month, date.day, title_sanitized)
+        url_base = "kb/%s" % (title_sanitized)
     else:
         url_base = "blog/%04d/%02d/%02d/%s" % (date.year, date.month, date.day, title_sanitized)
     # TODO: maybe use some random number or article.key.id to get
@@ -774,8 +774,8 @@ class ImportHandler(webapp.RequestHandler):
         assert article_type in ALL_TYPES
         permalink = gen_permalink(title, published_on, article_type, allow_dups = False)
         if not permalink:
-            logging.info("post with url '%s' already exists" % permalink)
-            return self.error(HTTP_NOT_ACCEPTABLE)
+            logging.info("post for title '%s' already exists" % title)
+            return
         format = uni_to_utf8(post[POST_FORMAT])
         assert format in ALL_FORMATS
         body = post[POST_BODY] # body comes as utf8
