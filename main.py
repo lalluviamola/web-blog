@@ -3,6 +3,7 @@ import os
 import string
 import time
 import datetime
+import re
 import StringIO
 import pickle
 import bz2
@@ -32,10 +33,7 @@ BLOG_URL = "blog2.kowalczyk.info"
 HTTP_NOT_ACCEPTABLE = 406
 HTTP_NOT_FOUND = 404
 
-# 'kb' is knowledge base, kind of like wiki
-ALL_TYPES = (TYPE_KB, TYPE_BLOG) = ("kb", "blog")
-
-(POST_TYPE, POST_DATE, POST_FORMAT, POST_BODY, POST_TITLE, POST_TAGS) = ("type", "date", "format", "body", "title", "tags")
+(POST_DATE, POST_FORMAT, POST_BODY, POST_TITLE, POST_TAGS) = ("date", "format", "body", "title", "tags")
 
 ALL_FORMATS = (FORMAT_TEXT, FORMAT_HTML, FORMAT_TEXTILE, FORMAT_MARKDOWN) = ("text", "html", "textile", "markdown")
 
@@ -50,7 +48,6 @@ class Article(db.Model):
     is_draft = db.BooleanProperty(default=False)
     is_deleted = db.BooleanProperty(default=False)
     title = db.StringProperty()
-    article_type = db.StringProperty(required=True, choices=set(ALL_TYPES))
     # copy of TextContent.content
     body = db.TextProperty(required=True)
     excerpt = db.TextProperty()
@@ -61,9 +58,7 @@ class Article(db.Model):
     updated_on = db.DateTimeProperty(auto_now_add=True)
     # copy of TextContent.format
     format = db.StringProperty(required=True,choices=set(ALL_FORMATS))
-    #assoc_dict = db.BlobProperty()
     tags = db.StringListProperty(default=[])
-    embedded_code = db.StringListProperty()
     # points to TextContent
     previous_versions = db.ListProperty(db.Key, default=[])
 
@@ -92,7 +87,7 @@ def build_articles_summary():
     articles = []
     for article in articlesq:
         a = { "key_id" : article.key().id() }
-        for attr in ["permalink", "article_type", "is_public", "title", "published_on", "format", "is_draft", "is_deleted", "tags"]:
+        for attr in ["permalink", "is_public", "title", "published_on", "format", "is_draft", "is_deleted", "tags"]:
             a[attr] = getattr(article,attr)
         articles.append(a)
     return articles
@@ -154,7 +149,7 @@ g_is_localhost = True
 def is_localhost():
     return g_is_localhost
 
-def include_analytics(): return not is_localhost()
+def show_analytics(): return not is_localhost()
 
 def jquery_url():
     url = "http://ajax.googleapis.com/ajax/libs/jquery/1.3.1/jquery.min.js"
@@ -291,24 +286,27 @@ def find_next_prev_article(article):
     return (next, prev)
 
 # responds to /
-class BlogIndexHandler(webapp.RequestHandler):
+# TODO: combine this with ArticleHandler
+class IndexHandler(webapp.RequestHandler):
     def get(self):
         is_admin = users.is_current_user_admin()
         if is_admin:
             article = db.GqlQuery("SELECT * FROM Article ORDER BY published_on DESC").get()
         else:
             article = db.GqlQuery("SELECT * FROM Article WHERE is_public = True AND is_draft = False AND is_deleted = False ORDER BY published_on DESC").get()
-        next = None
-        prev = None
-        tags_urls = []
-        if article:
-            article_gen_html_body(article)
-            (next, prev) = find_next_prev_article(article)
-            tags_urls = ['<a href="/tag/%s">%s</a>' % (tag, tag) for tag in article.tags]
+        if not article:
+            vals = { "url" : "/" }
+            template_out(self.response, "tmpl/blogpost_notfound.html", vals)
+            return
+
         if is_admin:
             login_out_url = users.create_logout_url("/")
         else:
             login_out_url = users.create_login_url("/")
+
+        article_gen_html_body(article)
+        (next, prev) = find_next_prev_article(article)
+        tags_urls = ['<a href="/tag/%s">%s</a>' % (tag, tag) for tag in article.tags]
         vals = { 
             'jquery_url' : jquery_url(),
             'is_admin' : is_admin,
@@ -316,7 +314,7 @@ class BlogIndexHandler(webapp.RequestHandler):
             'article' : article,
             'next_article' : next,
             'prev_article' : prev,
-            'include_analytics' : include_analytics(),
+            'show_analytics' : show_analytics(),
             'tags_display' : ", ".join(tags_urls),
             'index_page' : True,
         }
@@ -331,10 +329,10 @@ class TagHandler(webapp.RequestHandler):
         articles_summary = filter_by_tag(articles_summary, tag)
         do_archives(self.response, articles_summary, tag)
 
-# responds to /kb/*
-class KbHandler(webapp.RequestHandler):
+# responds to /article/*
+class ArticleHandler(webapp.RequestHandler):
     def get(self,url):
-        permalink = "kb/" + url
+        permalink = "article/" + url
         is_admin = users.is_current_user_admin()
         if is_admin:
             article = Article.gql("WHERE permalink = :1", permalink).get()
@@ -348,39 +346,14 @@ class KbHandler(webapp.RequestHandler):
         (next, prev) = find_next_prev_article(article)
         tags_urls = ['<a href="/tag/%s">%s</a>' % (tag, tag) for tag in article.tags]
         vals = { 
+            'jquery_url' : jquery_url(),
             'is_admin' : is_admin,
             'article' : article,
             'next_article' : next,
             'prev_article' : prev,
-            'include_analytics' : include_analytics(),
+            'show_analytics' : show_analytics(),
             'tags_display' : ", ".join(tags_urls),
             'index_page' : False,
-        }
-        template_out(self.response, "tmpl/blogpost.html", vals)
-
-# responds to /blog/*
-class BlogHandler(webapp.RequestHandler):
-    def get(self,url):
-        permalink = "blog/" + url
-        is_admin = users.is_current_user_admin()
-        if is_admin:
-            article = Article.gql("WHERE permalink = :1", permalink).get()
-        else:
-            article = Article.gql("WHERE permalink = :1 AND is_public = True AND is_draft = FALSE AND is_deleted = False", permalink).get()
-        if not article:
-            vals = { "url" : permalink }
-            template_out(self.response, "tmpl/blogpost_notfound.html", vals)
-            return
-        article_gen_html_body(article)
-        (next, prev) = find_next_prev_article(article)
-        tags_urls = ['<a href="/tag/%s">%s</a>' % (tag, tag) for tag in article.tags]
-        vals = { 
-            'is_admin' : is_admin,
-            'article' : article,
-            'next_article' : next,
-            'prev_article' : prev,
-            'include_analytics' : include_analytics(),
-            'tags_display' : ", ".join(tags_urls)
         }
         template_out(self.response, "tmpl/blogpost.html", vals)
 
@@ -397,8 +370,14 @@ def onlyascii(c):
     else: 
         return c
 
+def urlify(title):
+    url = re.sub('-+', '-', 
+                  re.sub('[^\w-]', '', 
+                         re.sub('\s+', '-', title.strip())))
+    return url[:48]
+
 # TODO: could be simplified?
-def urlify(s):
+def urlify2(s):
     s = s.strip().lower()
     s = filter(onlyascii, s)
     for c in [" ", "_", "=", ".", ";", ":", "/", "\\", "\"", "'", "(", ")", "{", "}", "?", ",", "~"]:
@@ -454,20 +433,12 @@ def article_tags_from_string(tags_string):
 def checkbox_to_bool(checkbox_val):
     return "on" == checkbox_val
 
-def gen_permalink(title, date, article_type, allow_dups = True):
-    iteration = 0
-    if is_empty_string(title):
-        iteration = 1
-        title_sanitized = ""
-    else:
-        title_sanitized = urlify(title)
-    assert article_type in ALL_TYPES
-    if article_type == TYPE_KB:
-        url_base = "kb/%s" % (title_sanitized)
-    else:
-        url_base = "blog/%04d/%02d/%02d/%s" % (date.year, date.month, date.day, title_sanitized)
+def gen_permalink(title, date, allow_dups = True):
+    title_sanitized = urlify(title)
+    url_base = "article/%s" % (title_sanitized)
     # TODO: maybe use some random number or article.key.id to get
     # to a unique url faster
+    iteration = 0
     while iteration < 19:
         if iteration == 0:
             permalink = url_base + ".html"
@@ -477,44 +448,36 @@ def gen_permalink(title, date, article_type, allow_dups = True):
         if existing and not allow_dups:
             return None
         if not existing:
-            logging.info("new_permalink: '%s'" % permalink)
+            #logging.info("new_permalink: '%s'" % permalink)
             return permalink
         iteration += 1
     return None
 
 class EditHandler(webapp.RequestHandler):
 
-    def create_new_post(self):
-        format = self.request.get("format")
-        logging.info("format: '%s'" % format)
-        assert format in ALL_FORMATS
-        logging.info("private: '%s'" % private)
-        title = self.request.get("title").strip()
-        logging.info("title: '%s'" % title)
-        body = self.request.get("note")
+    def create_new_article(self):
+        #logging.info("private: '%s'" % self.request.get("private"))
+        #logging.info("format: '%s'" % self.request.get("format"))
+        #logging.info("title: '%s'" % self.request.get("title"))
 
+        format = self.request.get("format")
+        assert format in ALL_FORMATS
+        title = self.request.get("title").strip()
+        body = self.request.get("note")
         text_content = self.create_new_text_content(body, format)
 
-        permalink = gen_permalink(title, published_on, TYPE_BLOG)
-        article = Article(permalink=permalink, title=title, body=body, format=format, article_type=TYPE_BLOG)
-
-        is_public = not checkbox_to_bool(self.request.get("private"))
-        article.is_public = is_public
-
+        permalink = gen_permalink(title, published_on)
+        article = Article(permalink=permalink, title=title, body=body, format=format)
+        article.is_public = not checkbox_to_bool(self.request.get("private"))
         article.previous_versions = [text_content.key()]
-
-        published_on = text_content.published_on
-        article.published_on = published_on
-        article.updated_on = published_on
-
-        tags = article_tags_from_string(self.request.get("tags"))
-        article.tags = tags
+        article.published_on = text_content.published_on
+        article.updated_on = text_content.published_on
+        article.tags = article_tags_from_string(self.request.get("tags"))
 
         # TODO:
         # article.excerpt
         # article.html_body
 
-        # TODO: avoid put() if nothing has changed
         article.put()
         memcache.delete(articles_info_memcache_key())
         # show newly updated article
@@ -530,7 +493,7 @@ class EditHandler(webapp.RequestHandler):
         article_id = self.request.get("article_id")
         logging.info("article_id: '%s'" % article_id)
         if is_empty_string(article_id):
-            return self.create_new_post()
+            return self.create_new_article()
         format = self.request.get("format")
         logging.info("format: '%s'" % format)
         # TODO: validate format
@@ -557,7 +520,7 @@ class EditHandler(webapp.RequestHandler):
             logging.info("body is the same")
 
         if article.title != title:
-            new_permalink = gen_permalink(title, article.published_on, TYPE_BLOG)
+            new_permalink = gen_permalink(title, article.published_on)
             article.permalink = new_permalink
             invalidate_articles_cache = True
 
@@ -586,9 +549,7 @@ class EditHandler(webapp.RequestHandler):
         # article.excerpt
         # article.html_body
 
-        # TODO: avoid put() if nothing has changed
         article.put()
-        # show newly updated article
         url = "/" + article.permalink
         self.redirect(url)
 
@@ -680,7 +641,7 @@ def do_archives(response, articles_summary, tag_to_display=None):
     template_out(response, "tmpl/archive.html", vals)
 
 # responds to /archives.html
-class BlogArchiveHandler(webapp.RequestHandler):
+class ArchivesHandler(webapp.RequestHandler):
     def get(self):
         articles_summary = get_articles_summary()
         do_archives(self.response, articles_summary)
@@ -756,7 +717,7 @@ class ForumRssRedirect(webapp.RequestHandler):
 
 def uni_to_utf8(val): return unicode(val, "utf-8")
  
-# import one or more posts from old text format
+# import one or more articles from old text format
 class ImportHandler(webapp.RequestHandler):
     def post(self):
         pickled = self.request.get("posts_to_import")
@@ -772,9 +733,7 @@ class ImportHandler(webapp.RequestHandler):
     def import_post(self, post):
         title = uni_to_utf8(post[POST_TITLE])
         published_on = post[POST_DATE]
-        article_type = uni_to_utf8(post[POST_TYPE])
-        assert article_type in ALL_TYPES
-        permalink = gen_permalink(title, published_on, article_type, allow_dups = False)
+        permalink = gen_permalink(title, published_on, allow_dups = False)
         if not permalink:
             logging.info("post for title '%s' already exists" % title)
             return
@@ -787,7 +746,7 @@ class ImportHandler(webapp.RequestHandler):
             tags = article_tags_from_string(post[POST_TAGS])
         text_content = TextContent(content=body, published_on=published_on, format=format)
         text_content.put()
-        article = Article(permalink=permalink, title=title, body=body, format=format, article_type=article_type)
+        article = Article(permalink=permalink, title=title, body=body, format=format)
         article.tags = tags
         article.is_public = True
         article.previous_versions = [text_content.key()]
@@ -797,16 +756,15 @@ class ImportHandler(webapp.RequestHandler):
         # article.excerpt
         # article.html_body
         article.put()
-        logging.info("imported post with url '%s'" % permalink)
+        logging.info("imported article, url: '%s'" % permalink)
 
 def main():
     mappings = [
-        ('/', BlogIndexHandler),
-        ('/index.html', BlogIndexHandler),
+        ('/', IndexHandler),
+        ('/index.html', IndexHandler),
         ('/atom.xml', AtomHandler),
-        ('/archives.html', BlogArchiveHandler),
-        ('/blog/(.*)', BlogHandler),
-        ('/kb/(.*)', KbHandler),
+        ('/archives.html', ArchivesHandler),
+        ('/article/(.*)', ArticleHandler),
         ('/tag/(.*)', TagHandler),
         ('/software/', AddIndexHandler),
         ('/software/(.+)/', AddIndexHandler),

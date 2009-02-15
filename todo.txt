@@ -2,9 +2,11 @@ Needed to switch:
 * code high-lighting
 * finish tags
  * page with tag cloud (/archive/tags.html) with counts for each tag
-* maybe a quick access to tags from everywhere (drop-down box)
 
 Maybe needed to switch:
+* dup content detection via sha1 (must also work for editing when reverting to
+  an older version)
+* a quick access to tags from everywhere (drop-down box)
 * on edit automatically focus edit field
 * excerpts
 * html_body
@@ -17,10 +19,10 @@ Maybe needed to switch:
 * month links at the bottom like in http://blog.quinthar.com
 * preview in the editor (by going to the server to render html)
 * source-code support in textile
+* install redirects from older urls
 
 Rest:
 * integrate evernote articles
-* show analytics if not localhost, add the logic to more pages
 * display text as plain/text
 * generic blobs (blob + mime type, for storing images, plain-text files etc.)
 * ability to see previous versions
