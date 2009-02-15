@@ -318,8 +318,9 @@ class BlogIndexHandler(webapp.RequestHandler):
             'prev_article' : prev,
             'include_analytics' : include_analytics(),
             'tags_display' : ", ".join(tags_urls),
+            'index_page' : True,
         }
-        template_out(self.response, "tmpl/index.html", vals)
+        template_out(self.response, "tmpl/blogpost.html", vals)
 
 # responds to /tag/*
 class TagHandler(webapp.RequestHandler):
@@ -352,7 +353,8 @@ class KbHandler(webapp.RequestHandler):
             'next_article' : next,
             'prev_article' : prev,
             'include_analytics' : include_analytics(),
-            'tags_display' : ", ".join(tags_urls)
+            'tags_display' : ", ".join(tags_urls),
+            'index_page' : False,
         }
         template_out(self.response, "tmpl/blogpost.html", vals)
 

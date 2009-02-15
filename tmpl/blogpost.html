@@ -3,7 +3,35 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="alternate" type="application/atom+xml" title="RSS 2.0" href="/atom.xml" />
+
+{% if index_page %}
+<title>Krzysztof Kowalczyk's website</title>
+<script type="text/javascript" src="{{ jquery_url }}"></script>
+
+<script type="text/javascript">
+function toggleSearch() 
+{
+  $("#searchbox").toggle();
+  if ( $("#searchbox").is(':visible') ) {
+    // TODO: doesn't work
+    $("#searchbox").focus();
+    //$("#searchbox").val("a");
+  }
+}
+
+
+function showLogin() {
+	$('#login_id').removeClass("invisible").addClass("visible");
+}
+
+function hideLogin() { 
+	$('#login_id').removeClass("visible").addClass("invisible");
+}
+</script>
+{% else %}
 <title>{{ article.title }}</title>
+{% endif %}
+
 <style type=text/css>
 body{margin:0}
 h1,h2,h3{font-size:medium}
@@ -22,22 +50,63 @@ div#content{font:normal medium 'Goudy Bookletter 1911','Gentium Basic','Liberati
 </style>
 
 </head>
+
 <body>
 
+{% if index_page %}
+  <div id=head>
+    <div id=inner>
+    <span class="right">
+    <a href="software/sumatrapdf/">Sumatra PDF</a> &bull; 
+    <a href="software/fofou/">Fofou</a> &bull; 
+    <a href="archives.html">archives</a> &bull; 
+    <a href="more.html">more...</a>
+    <a id=headsearch href="javascript:toggleSearch();">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+    </span>
+    <a href="me.html">Krzysztof Kowalczyk</a>
+    {% if is_admin %}
+    &nbsp;<a class="visible" href="/app/edit">(new post)</a>
+    &nbsp;<a class="visible" href="{{ login_out_url }}">(log out)</a>
+    {% else %}
+    &nbsp<a id="login_id" class="invisible" onMouseOver="showLogin();" onMouseOut="hideLogin();" href="{{ login_out_url }}">login</a>
+    {% endif %}
+    </div>
+  </div>
+
+  <div id=searchbox style="display:none;">
+  <form method="get" action="http://google.com/search">
+  <input type="hidden" name="IncludeBlogs" value="1">
+  <input type="hidden" name="as_sitesearch" value="http://blog.kowalczyk.info">
+
+  <center>
+    <label for="searchFieldId">Search this site:</label> <input type="text" name="q" id="searchFieldId"/>
+    <input class="button" value="Go" type="submit">
+  </center>
+  </form>
+  </div>
+{% endif %}
+
 <div id="content">
-<h1><a href=../../../../index.html>home</a> &#8227; {{ article.title }}
-	{% if tags_display %}
-		({{ tags_display }})
-	{% endif %}
+<h1>
+  {% if index_page %}
+    <a href="/{{ article.permalink }}">{{ article.title }}</a>
+  {% else %}
+    <a href=/index.html>home</a> &#8227; {{ article.title }}
+  {% endif %}
+
+  {% if tags_display %}
+    ({{ tags_display }})
+  {% endif %}
+
   {% if is_admin %}
     <a href="/app/edit?article_id={{ article.key.id }}">edit</a>
     {% if article.is_deleted %}
-    &nbsp;<a href="/app/undelete?article_id={{ article.key_id }}">undelete</a>
+      &nbsp;<a href="/app/undelete?article_id={{ article.key_id }}">undelete</a>
     {% else %}
-    &nbsp;<a href="/app/delete?article_id={{ article.key_id }}">delete</a>
+      &nbsp;<a href="/app/delete?article_id={{ article.key_id }}">delete</a>
     {% endif %}
     {% if article.is_draft %}
-    &nbsp;<font color="red">draft</font>
+      &nbsp;<font color="red">draft</font>
     {% endif %}
   {% endif %}
 </h1>
@@ -48,13 +117,13 @@ div#content{font:normal medium 'Goudy Bookletter 1911','Gentium Basic','Liberati
 <tr>
   <td>
 {% if next_article %}
-newer: <a href="/{{ next_article.permalink}}">{{ next_article.title }}</a>{% endif %}
-</td>
-<td align="right">
+  newer: <a href="/{{ next_article.permalink}}">{{ next_article.title }}</a>{% endif %}
+  </td>
+  <td align="right">
 {% if prev_article %}
-older: <a href="/{{ prev_article.permalink}}">{{ prev_article.title }}</a>
+  older: <a href="/{{ prev_article.permalink}}">{{ prev_article.title }}</a>
 {% endif %}
-</td>
+  </td>
 </tr>
 </table>
 
@@ -63,15 +132,15 @@ older: <a href="/{{ prev_article.permalink}}">{{ prev_article.title }}</a>
 </div>
 
 {% if show_analytics %}
-<script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-var pageTracker = _gat._getTracker("UA-194516-1");
-pageTracker._initData();
-pageTracker._trackPageview();
-</script>
+  <script type="text/javascript">
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+  </script>
+  <script type="text/javascript">
+  var pageTracker = _gat._getTracker("UA-194516-1");
+  pageTracker._initData();
+  pageTracker._trackPageview();
+  </script>
 {% endif %}
 </body>
 </html>
