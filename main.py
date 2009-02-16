@@ -438,9 +438,9 @@ class ArticleHandler(webapp.RequestHandler):
         is_admin = users.is_current_user_admin()
         article = Article.gql("WHERE permalink = :1", permalink).get()
         if not article:
-            logging.info("No article with permalink: '%s'" % permalink)
+            #logging.info("No article with permalink: '%s'" % permalink)
             url = self.request.path_info[1:]
-            logging.info("path: '%s'" % url)
+            #logging.info("path: '%s'" % url)
             article = Article.gql("WHERE permalink2 = :1", url).get()
             if article:
                 self.redirect(g_root_url + "/" + article.permalink, True)
@@ -482,7 +482,7 @@ class DeleteUndeleteHandler(webapp.RequestHandler):
         if not users.is_current_user_admin():
             return self.redirect("/")
         article_id = self.request.get("article_id")
-        logging.info("article_id: '%s'" % article_id)
+        #logging.info("article_id: '%s'" % article_id)
         article = db.get(db.Key.from_path("Article", int(article_id)))
         if not article:
             vals = { "url" : article_id }
@@ -571,9 +571,10 @@ class EditHandler(webapp.RequestHandler):
         if article.body != body:
             (text_content, is_dup) = new_or_dup_text_content(body, format)
             article.body = body
-            logging.info("updating body")
+            #logging.info("updating body")
         else:
-            logging.info("body is the same")
+            #logging.info("body is the same")
+            pass
 
         if article.title != title:
             new_permalink = gen_permalink(title, article.published_on)
