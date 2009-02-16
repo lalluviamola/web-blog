@@ -11,6 +11,7 @@ import postsparse
 import util
 import pickle
 import genkbhtml
+import genblog
 
 SCRIPT_DIR = os.path.dirname(os.path.realpath(__file__))
 sys.path.append(os.path.join(SCRIPT_DIR, ".."))
@@ -22,8 +23,9 @@ SERVER = "http://127.0.0.1:8081/import"
 SCRIPT_DIR = os.path.dirname(__file__)
 SRCDIR = os.path.join(SCRIPT_DIR, "..", "srcblog")
 KB_SRC_FILE = os.path.join(SCRIPT_DIR, "..", "srcblog", "knowledge-base.txt")
+EVERNOTE_SRC_FILE = os.path.join(SCRIPT_DIR, "..", "srcblog", "evernote-utf8.txt")
 
-(POST_TYPE, POST_FORMAT, POST_DATE, POST_BODY, POST_TITLE, POST_TAGS) = ("type", "format", "date", "body", "title", "tags")
+(POST_FORMAT, POST_DATE, POST_BODY, POST_TITLE, POST_TAGS, POST_PRIVATE, POST_URL) = ("format", "date", "body", "title", "tags", "private", "url")
 
 def get_content_type(filename):
     return "plain/text"
@@ -106,48 +108,6 @@ def upload_post(url, posts):
   fields = [('posts_to_import', posts)]
   do_http_post_fields(url, fields)
 
-def onlyascii(c):
-  if c in " _.;,-":
-    return c
-  if ord(c) < 48 or ord(c) > 127:
-    return ''
-  else: 
-    return c
-
-def urlify(s):
-  s = s.strip().lower()
-  s = filter(onlyascii, s)
-  for c in [" ", "_", "=", ".", ";", ":", "/", "\\", "\"", "'", "(", ")", "{", "}", "?", ","]:
-    s = s.replace(c, "-")
-  # TODO: a crude way to convert two-or-more consequtive '-' into just one
-  # it's really a job for regex
-  while True:
-    new = s.replace("--", "-")
-    if new == s:
-      break
-    #print "new='%s', prev='%s'" % (new, s)
-    s = new
-  s = s.strip("-")[:48]
-  s = s.strip("-")
-  return s
-
-# generate unique, pretty url names for posts. 
-def gen_urls(posts):
-  all_urls = {}
-  for p in posts:
-    dateymd = p["date"].split(" ")[0]
-    (y,m,d) = dateymd.split("-")
-    pretty = urlify(p[POST_TITLE])
-    n = 0
-    full = "blog/%s/%s/%s/%s.html" % (y,m,d,pretty)
-    while full in all_urls:
-      n += 1
-      full = "blog/%s/%s/%s/%s-%d.html" % (y,m,d,pretty,n)
-    all_urls[full] = 1
-    p["url"] = full
-    #print("'%s' '%s'" % (full,p[POST_TITLE]))
-    #print(full)
-
 # from django
 def linebreaks(value):
     "Converts newlines into <p> and <br />s"
@@ -209,7 +169,6 @@ def get_post_html_content(post):
 # * strip all unnecessary data
 def convert_blog_post(post):
     np = {}
-    np[POST_TYPE] = to_utf8("blog")
     np[POST_DATE] = str_to_datetime(post[POST_DATE])
     post[POST_BODY] = get_post_raw_content(post)
     body = post[POST_BODY]
@@ -217,19 +176,28 @@ def convert_blog_post(post):
         post[POST_FORMAT] = "html"
         body = linebreaks(body)
     np[POST_BODY] = to_utf8(body)
-    for item in [POST_TITLE, POST_FORMAT]:
+    for item in [POST_TITLE, POST_FORMAT, POST_URL]:
         np[item] = to_utf8(post[item])
     return np
 
 def convert_kb_article(article):
     np = {}
-    np[POST_TYPE] = to_utf8("kb")
-    article_date_str = article.dates[0]
-    np[POST_DATE] = str_kb_to_datetime(article_date_str)
+    np[POST_DATE] = article.date
     np[POST_BODY] = to_utf8(article.get_body())
     np[POST_TITLE] = to_utf8(article.title)
     np[POST_FORMAT] = to_utf8("markdown")
     np[POST_TAGS] = to_utf8(", ".join(article.tags))
+    np[POST_URL] = to_utf8("kb/" + article.url)
+    return np
+
+def convert_evernote_article(article):
+    np = {}
+    np[POST_DATE] = article.date
+    np[POST_BODY] = to_utf8(article.get_body())
+    np[POST_TITLE] = to_utf8(article.title)
+    np[POST_FORMAT] = to_utf8("html")
+    np[POST_TAGS] = to_utf8(", ".join(article.tags))
+    np[POST_PRIVATE] = True
     return np
 
 def upload_to_gae(posts):
@@ -274,7 +242,7 @@ def upload_blog():
     post_files = postsparse.scan_posts(SRCDIR)
     posts = post_files.values()
     posts.sort(lambda x,y: cmp(x[POST_DATE], y[POST_DATE]))
-    gen_urls(posts)
+    genblog.gen_urls(posts)
     print("posts: %d" % len(posts))
     posts = [convert_blog_post(p) for p in posts]
     upload_posts(posts)
@@ -285,9 +253,16 @@ def upload_kb():
     print("len(articles)=%d" % len(articles))
     upload_posts(articles)
 
+def upload_evernote():
+    articles = genkbhtml.process_file(EVERNOTE_SRC_FILE)
+    articles = [convert_evernote_article(article) for article in articles if not article.is_hidden()]
+    print("len(articles)=%d" % len(articles))
+    upload_posts(articles)
+
 def main():
-    upload_blog()
+    upload_evernote()
     upload_kb()
+    upload_blog()
 
 def main2():
     if not util.dir_exists(SRCDIR):
