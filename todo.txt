@@ -1,13 +1,13 @@
 Needed to switch:
 * disable import url after importing articles
-* consolidate all blog posts into one file and clean them up with html2txt
 
 Maybe needed to switch:
+* preview in the editor (by going to the server to render html)
+* one-click "cleanup with html2txt" in the editor
 * page with tag cloud (/tags.html) with counts for each tag
 * use minified version of code-higlighter js
 
 Rest:
-* preview in the editor (by going to the server to render html)
 * month links at the bottom like in http://blog.quinthar.com
 * a quick access to tags from everywhere (drop-down box)
 * ability to see previous versions
