@@ -1,11 +1,14 @@
 #!/usr/bin/env python
 import os.path, sys, re, datetime
 import feedgenerator
-import textile
 import postsparse
 import util
 
-SRCDIR = os.path.join("..", "srcblog")
+SCRIPT_DIR = os.path.dirname(os.path.realpath(__file__))
+sys.path.append(os.path.join(SCRIPT_DIR, ".."))
+import textile
+
+SRCDIR = os.path.join(SCRIPT_DIR, "..", "srcblog")
 
 ANALYTICS_TXT = """<script type="text/javascript">
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");

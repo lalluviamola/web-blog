@@ -7,11 +7,14 @@ import urlparse
 import StringIO
 import httplib
 import traceback
-import textile
 import postsparse
 import util
 import pickle
 import genkbhtml
+
+SCRIPT_DIR = os.path.dirname(os.path.realpath(__file__))
+sys.path.append(os.path.join(SCRIPT_DIR, ".."))
+import textile
 
 SERVER = "http://127.0.0.1:8081/import"
 #SERVER = "http://blog2.kowalczyk.info"

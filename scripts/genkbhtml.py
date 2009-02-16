@@ -1,9 +1,14 @@
+#!/usr/bin/env python
+
 # Author: Krzysztof Kowalczyk
 # Dates: 2005-12-28 started
 # This script reads the file given as first argument (knowledge-base.txt if
 # not given) and generates a set of static html pages.
 
 import sys, string, os, os.path, urllib, re, time, md5
+
+SCRIPT_DIR = os.path.dirname(os.path.realpath(__file__))
+sys.path.append(os.path.join(SCRIPT_DIR, ".."))
 import markdown2
 
 HEADER_HTML = """<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
