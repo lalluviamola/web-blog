@@ -125,6 +125,7 @@ def extract_articles():
         if tags_line_utf8:
             txt_lines.append(tags_line_utf8)
         txt_lines.append(content_utf8)
+        txt_lines.append("")
 
     txt_utf8 = "\n".join(txt_lines)
     open(OUT_FILE, "w").write(txt_utf8)
