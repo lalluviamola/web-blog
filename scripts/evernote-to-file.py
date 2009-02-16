@@ -112,7 +112,11 @@ def extract_articles():
             tags_line_utf8 = tags_line.encode("utf-8")
             print(tags_line)
         content_enml_path = os.path.join(EVERNOTE_CONTENT_DIR, "p%s" % article_id, "content.enml")
-        content_utf8 = get_content(content_enml_path)
+        content_utf8 = get_content(content_enml_path).strip()
+        if 0 == len(content_utf8):
+            print("\n!!Skipping '%s'\n" % title)
+            continue
+            
         #print(content_utf8)
         #print("")
 
