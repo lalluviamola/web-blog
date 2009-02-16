@@ -27,9 +27,8 @@ import logging
 COMPRESS_PICKLED = True
 NO_MEMCACHE = False
 
-#ROOT_URL_NO_SCHEME = "blog.kowalczyk.info"
-ROOT_URL_NO_SCHEME = "blog2.kowalczyk.info"
-ROOT_URL = "http://" + ROOT_URL_NO_SCHEME
+# e.g. "http://localhost:8081" or "http://blog.kowalczyk.info"
+g_root_url = None
 
 HTTP_NOT_ACCEPTABLE = 406
 
@@ -46,6 +45,8 @@ class TextContent(db.Model):
 
 class Article(db.Model):
     permalink = db.StringProperty(required=True)
+    # for redirections
+    permalink2 = db.StringProperty(required=False)
     is_public = db.BooleanProperty(default=False)
     is_deleted = db.BooleanProperty(default=False)
     title = db.StringProperty()
@@ -62,7 +63,7 @@ class Article(db.Model):
     previous_versions = db.ListProperty(db.Key, default=[])
 
     def full_permalink(self):
-        return ROOT_URL + '/' + self.permalink
+        return g_root_url + '/' + self.permalink
     
     def rfc3339_published_on(self):
         return to_rfc339(self.published_on)
@@ -72,7 +73,7 @@ class Article(db.Model):
 
 def to_rfc339(dt): return dt.strftime('%Y-%m-%dT%H:%M:%SZ')
 
-def uni_to_utf8(val): return unicode(val, "utf-8")
+def utf8_to_uni(val): return unicode(val, "utf-8")
 
 def encode_code(text):
     for (txt,replacement) in [("&","&amp;"), ("<","&lt;"), (">","&gt;")]:
@@ -210,17 +211,15 @@ def tags_from_string(tags_string):
 def checkbox_to_bool(checkbox_val):
     return "on" == checkbox_val
 
-g_is_localhost = True
 def is_localhost():
-    return g_is_localhost
+    return "://localhost" in g_root_url or "://127.0.0.1" in g_root_url
 
-def dectect_localhost(wsgi_app):
-    def check_if_localhost(env, start_response):
-        global g_is_localhost
-        host = env["HTTP_HOST"]
-        g_is_localhost = host.startswith("localhost") or host.startswith("127.0.0.1")
+def remember_root_url(wsgi_app):
+    def helper(env, start_response):
+        global g_root_url
+        g_root_url = env["wsgi.url_scheme"] + "://" + env["HTTP_HOST"]
         return wsgi_app(env, start_response)
-    return check_if_localhost
+    return helper
 
 def redirect_from_appspot(wsgi_app):
     def redirect_if_needed(env, start_response):
@@ -228,7 +227,7 @@ def redirect_from_appspot(wsgi_app):
             import webob, urlparse
             request = webob.Request(env)
             scheme, netloc, path, query, fragment = urlparse.urlsplit(request.url)
-            url = urlparse.urlunsplit([scheme, ROOT_URL_NO_SCHEME, path, query, fragment])
+            url = urlparse.urlunsplit([scheme, HOST, path, query, fragment])
             start_response('301 Moved Permanently', [('Location', url)])
             return ["301 Moved Peramanently",
                   "Click Here" % url]
@@ -358,7 +357,7 @@ def article_gen_html_body(article):
 
 def do_sitemap_ping():
     if is_localhost(): return
-    form_fields = { "sitemap": "%s/sitemap.xml" % ROOT_URL }
+    form_fields = { "sitemap": "%s/sitemap.xml" % g_root_url }
     urlfetch.fetch(url="http://www.google.com/webmasters/tools/ping",
                    payload=urllib.urlencode(form_fields),
                    method=urlfetch.GET)
@@ -391,7 +390,7 @@ class IndexHandler(webapp.RequestHandler):
     def get(self):
         is_admin = users.is_current_user_admin()
         if is_admin:
-            article = db.GqlQuery("SELECT * FROM Article ORDER BY published_on DESC").get()
+            article = db.GqlQuery("SELECT * FROM Article ORDER BY published_on DESC").get()                
         else:
             article = db.GqlQuery("SELECT * FROM Article WHERE is_public = True AND is_deleted = False ORDER BY published_on DESC").get()
         if not article:
@@ -431,15 +430,25 @@ class TagHandler(webapp.RequestHandler):
         articles_summary = filter_by_tag(articles_summary, tag)
         do_archives(self.response, articles_summary, tag)
 
-# responds to /article/*
+# responds to /article/* and /kb/* and /blog/* (/kb and /blog for redirects
+# for links from old website)
 class ArticleHandler(webapp.RequestHandler):
-    def get(self,url):
+    def get(self, url):
         permalink = "article/" + url
         is_admin = users.is_current_user_admin()
-        if is_admin:
-            article = Article.gql("WHERE permalink = :1", permalink).get()
-        else:
-            article = Article.gql("WHERE permalink = :1 AND is_public = True AND is_deleted = False", permalink).get()
+        article = Article.gql("WHERE permalink = :1", permalink).get()
+        if not article:
+            logging.info("No article with permalink: '%s'" % permalink)
+            url = self.request.path_info[1:]
+            logging.info("path: '%s'" % url)
+            article = Article.gql("WHERE permalink2 = :1", url).get()
+            if article:
+                self.redirect(g_root_url + "/" + article.permalink, True)
+
+        if article and not is_admin:
+            if article.is_deleted or not article.is_public:
+                article = None
+
         if not article:
             vals = { "url" : permalink }
             template_out(self.response, "tmpl/404.html", vals)
@@ -521,6 +530,7 @@ class EditHandler(webapp.RequestHandler):
 
         published_on = text_content.published_on
         permalink = gen_permalink(title, published_on)
+        assert permalink
         article = Article(permalink=permalink, title=title, body=body, format=format)
         article.is_public = not checkbox_to_bool(self.request.get("private"))
         article.previous_versions = [text_content.key()]
@@ -567,6 +577,7 @@ class EditHandler(webapp.RequestHandler):
 
         if article.title != title:
             new_permalink = gen_permalink(title, article.published_on)
+            assert new_permalink
             article.permalink = new_permalink
             invalidate_articles_cache = True
 
@@ -690,13 +701,13 @@ class SitemapHandler(webapp.RequestHandler):
             return
 
         for article in articles[:1000]:
-            article["full_permalink"] = ROOT_URL + "/" + article["permalink"]
+            article["full_permalink"] = self.request.host_url + "/" + article["permalink"]
             article["rfc3339_published"] = to_rfc339(article["published_on"])
 
         self.response.headers['Content-Type'] = 'text/xml'
         vals = { 
             'articles' : articles,
-            'root_url' : ROOT_URL,
+            'root_url' : self.request.host_url,
         }
         template_out(self.response, "tmpl/sitemap.xml", vals)
 
@@ -736,13 +747,13 @@ class AtomHandler(webapp.RequestHandler):
     def gen_atom_feed(self):
         feed = feedgenerator.Atom1Feed(
             title = "Krzysztof Kowalczyk blog",
-            link = ROOT_URL + "/atom.xml",
+            link = self.request.host_url + "/atom.xml",
             description = "Krzysztof Kowalczyk blog")
 
         articles = db.GqlQuery("SELECT * FROM Article WHERE is_public = True AND is_deleted = False ORDER BY published_on DESC").fetch(25)
         for a in articles:
             title = a.title
-            link = ROOT_URL + "/" + a.permalink
+            link = self.request.host_url + "/" + a.permalink
             article_gen_html_body(a)
             description = a.html_body
             pubdate = a.published_on
@@ -791,16 +802,15 @@ class ImportHandler(webapp.RequestHandler):
                 logging.info(s)
 
     def import_post(self, post):
-        title = uni_to_utf8(post[POST_TITLE])
+        title = utf8_to_uni(post[POST_TITLE])
         published_on = post[POST_DATE]
         permalink = gen_permalink(title, published_on)
-        if not permalink:
-            logging.info("post for title '%s' already exists" % title)
-            return
-        format = uni_to_utf8(post[POST_FORMAT])
+        assert permalink
+
+        format = utf8_to_uni(post[POST_FORMAT])
         assert format in ALL_FORMATS
         body = post[POST_BODY] # body comes as utf8
-        body = uni_to_utf8(body)
+        body = utf8_to_uni(body)
         tags = []
         if POST_TAGS in post:
             tags = tags_from_string(post[POST_TAGS])
@@ -809,16 +819,17 @@ class ImportHandler(webapp.RequestHandler):
         assert not is_dup
 
         article = Article(permalink=permalink, title=title, body=body, format=format)
+        if POST_URL in post:
+            article.permalink2 = utf8_to_uni(post[POST_URL])
         article.tags = tags
         article.is_public = True
         if POST_PRIVATE in post and post[POST_PRIVATE]:
-          article.is_public = False
+            article.is_public = False
         article.previous_versions = [text_content.key()]
         article.published_on = published_on
         article.updated_on = published_on
         article.put()
         logging.info("imported article, url: '%s'" % permalink)
-        # TODO: install redirect from post[POST_URL] to article.url
 
 def main():
     mappings = [
@@ -826,6 +837,9 @@ def main():
         ('/index.html', IndexHandler),
         ('/archives.html', ArchivesHandler),
         ('/article/(.*)', ArticleHandler),
+        # /kb/ and /blog/ are for redirects from old website
+        ('/kb/(.*)', ArticleHandler),
+        ('/blog/(.*)', ArticleHandler),
         ('/tag/(.*)', TagHandler),
         ('/atom.xml', AtomHandler),
         ('/sitemap.xml', SitemapHandler),
@@ -843,7 +857,7 @@ def main():
     ]
     app = webapp.WSGIApplication(mappings,debug=True)
     app = redirect_from_appspot(app)
-    app = dectect_localhost(app)
+    app = remember_root_url(app)
     wsgiref.handlers.CGIHandler().run(app)
 
 if __name__ == "__main__":

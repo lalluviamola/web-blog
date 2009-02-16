@@ -234,7 +234,10 @@ def upload_posts(posts):
             title = p[POST_TITLE]
             format = p[POST_FORMAT]
             date = p[POST_DATE]
-            print("uploading %s, %s, %s" % (title, format, date))
+            url = "<no url>"
+            if POST_URL in p:
+                url = p[POST_URL]
+            print("uploading: %s, %s, %s, %s" % (title, format, date, url))
             g_total_uploaded += 1
         upload_to_gae(to_upload)
 

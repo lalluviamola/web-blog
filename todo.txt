@@ -1,7 +1,6 @@
 Needed to switch:
 * disable import url after importing articles
 * consolidate all blog posts into one file and clean them up with html2txt
-* install redirects from older urls
 
 Maybe needed to switch:
 * page with tag cloud (/tags.html) with counts for each tag
