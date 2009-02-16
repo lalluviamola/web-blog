@@ -12,6 +12,8 @@ import md5
 import textile
 import markdown2
 import cgi
+import sha
+import traceback
 import wsgiref.handlers
 from google.appengine.ext import db
 from google.appengine.api import users
@@ -39,6 +41,8 @@ class TextContent(db.Model):
     content = db.TextProperty(required=True)
     published_on = db.DateTimeProperty(auto_now_add=True)
     format = db.StringProperty(required=True,choices=set(ALL_FORMATS))
+    # sha1 of content + format
+    sha1_digest = db.StringProperty(required=True)
 
 class Article(db.Model):
     permalink = db.StringProperty(required=True)
@@ -132,6 +136,18 @@ def filter_by_tag(articles_summary, tag):
     for article_summary in articles_summary:
         if tag in article_summary["tags"]:
             yield article_summary
+
+def new_or_dup_text_content(body, format):
+    assert isinstance(body, unicode)
+    assert isinstance(format, unicode)
+    full = body + format
+    sha1_digest = sha.new(full.encode("utf-8")).hexdigest()
+    existing = TextContent.gql("WHERE sha1_digest = :1", sha1_digest).get()
+    if existing: 
+        return (existing, True)
+    text_content = TextContent(content=body, format=format, sha1_digest=sha1_digest)
+    text_content.put()
+    return (text_content, False)
 
 (ARTICLE_SUMMARY_PUBLIC_OR_ADMIN, ARTICLE_PRIVATE) = range(2)
 
@@ -471,7 +487,7 @@ class DeleteUndeleteHandler(webapp.RequestHandler):
         url = "/" + article.permalink
         self.redirect(url)
 
-def gen_permalink(title, date, allow_dups = True):
+def gen_permalink(title, date):
     title_sanitized = urlify(title)
     url_base = "article/%s" % (title_sanitized)
     # TODO: maybe use some random number or article.key.id to get
@@ -483,8 +499,6 @@ def gen_permalink(title, date, allow_dups = True):
         else:
             permalink = "%s-%d.html" % (url_base, iteration)
         existing = Article.gql("WHERE permalink = :1", permalink).get()
-        if existing and not allow_dups:
-            return None
         if not existing:
             #logging.info("new_permalink: '%s'" % permalink)
             return permalink
@@ -502,7 +516,8 @@ class EditHandler(webapp.RequestHandler):
         assert format in ALL_FORMATS
         title = self.request.get("title").strip()
         body = self.request.get("note")
-        text_content = self.create_new_text_content(body, format)
+        (text_content, is_dup) = new_or_dup_text_content(body, format)
+        assert not is_dup
 
         published_on = text_content.published_on
         permalink = gen_permalink(title, published_on)
@@ -519,11 +534,6 @@ class EditHandler(webapp.RequestHandler):
         url = "/" + article.permalink
         self.redirect(url)
 
-    def create_new_text_content(self, content, format):
-        content = TextContent(content=content, format=format)
-        content.put()
-        return content
-
     def post(self):
         #logging.info("article_id: '%s'" % self.request.get("article_id"))
         #logging.info("format: '%s'" % self.request.get("format"))
@@ -533,6 +543,7 @@ class EditHandler(webapp.RequestHandler):
         article_id = self.request.get("article_id")
         if is_empty_string(article_id):
             return self.create_new_article()
+
         format = self.request.get("format")
         assert format in ALL_FORMATS
         is_public = not checkbox_to_bool(self.request.get("private"))
@@ -548,7 +559,7 @@ class EditHandler(webapp.RequestHandler):
         text_content = None
         invalidate_articles_cache = False
         if article.body != body:
-            text_content = self.create_new_text_content(body, format)
+            (text_content, is_dup) = new_or_dup_text_content(body, format)
             article.body = body
             logging.info("updating body")
         else:
@@ -773,12 +784,16 @@ class ImportHandler(webapp.RequestHandler):
         posts = pickle.load(fo)
         fo.close()
         for post in posts:
-            self.import_post(post)
+            try:
+                self.import_post(post)
+            except:
+                s = traceback.format_exc()
+                logging.info(s)
 
     def import_post(self, post):
         title = uni_to_utf8(post[POST_TITLE])
         published_on = post[POST_DATE]
-        permalink = gen_permalink(title, published_on, allow_dups = False)
+        permalink = gen_permalink(title, published_on)
         if not permalink:
             logging.info("post for title '%s' already exists" % title)
             return
@@ -789,8 +804,10 @@ class ImportHandler(webapp.RequestHandler):
         tags = []
         if POST_TAGS in post:
             tags = tags_from_string(post[POST_TAGS])
-        text_content = TextContent(content=body, published_on=published_on, format=format)
-        text_content.put()
+
+        (text_content, is_dup) = new_or_dup_text_content(body, format)
+        assert not is_dup
+
         article = Article(permalink=permalink, title=title, body=body, format=format)
         article.tags = tags
         article.is_public = True

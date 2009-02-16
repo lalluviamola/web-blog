@@ -17,6 +17,8 @@ SCRIPT_DIR = os.path.dirname(os.path.realpath(__file__))
 sys.path.append(os.path.join(SCRIPT_DIR, ".."))
 import textile
 
+MAX_TO_UPLOAD = 9999999 # set to smaller value when testing
+
 SERVER = "http://127.0.0.1:8081/import"
 #SERVER = "http://blog2.kowalczyk.info"
 
@@ -221,19 +223,20 @@ def itern(seq, n):
     if len(res) > 0:
         yield res
 
+g_total_uploaded = 0
 def upload_posts(posts):
-    MAX_TO_UPLOAD = 100
+    global g_total_uploaded
     for to_upload in itern(posts, 10):
+        if g_total_uploaded > MAX_TO_UPLOAD:
+            print("Reached max uploads")
+            return
         for p in to_upload:
             title = p[POST_TITLE]
             format = p[POST_FORMAT]
             date = p[POST_DATE]
             print("uploading %s, %s, %s" % (title, format, date))
+            g_total_uploaded += 1
         upload_to_gae(to_upload)
-        MAX_TO_UPLOAD -= 1
-        if MAX_TO_UPLOAD < 1:
-            print("Reached max uploads")
-            break
 
 def upload_blog():
     if not util.dir_exists(SRCDIR):

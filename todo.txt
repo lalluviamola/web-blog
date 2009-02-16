@@ -1,8 +1,6 @@
 Needed to switch:
-* dup content detection via sha1 (must also work for editing when reverting to
-  an older version)
 * disable import url after importing articles
-* consolidate all blog posts into one file
+* consolidate all blog posts into one file and clean them up with html2txt
 * install redirects from older urls
 
 Maybe needed to switch:
