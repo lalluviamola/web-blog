@@ -31,7 +31,7 @@ ROOT_URL = "http://" + ROOT_URL_NO_SCHEME
 
 HTTP_NOT_ACCEPTABLE = 406
 
-(POST_DATE, POST_FORMAT, POST_BODY, POST_TITLE, POST_TAGS) = ("date", "format", "body", "title", "tags")
+(POST_DATE, POST_FORMAT, POST_BODY, POST_TITLE, POST_TAGS, POST_URL, POST_PRIVATE) = ("date", "format", "body", "title", "tags", "url", "private")
 
 ALL_FORMATS = (FORMAT_TEXT, FORMAT_HTML, FORMAT_TEXTILE, FORMAT_MARKDOWN) = ("text", "html", "textile", "markdown")
 
@@ -180,16 +180,11 @@ def urlify(title):
                          re.sub('\s+', '-', title.strip())))
     return url[:48]
 
-def iter_split_by(txt, splitter):
-    for t in txt.split(splitter):
-        t = t.strip()
-        if t:
-            yield t
-
 def tags_from_string_iter(tags_string):
-    for a in iter_split_by(tags_string, ","):
-        for b in iter_split_by(a, " "):
-            yield b
+  for t in tags_string.split(","):
+      t = t.strip()
+      if t:
+          yield t
 
 # given e.g. "a, b  c , ho", returns ["a", "b", "c", "ho"]
 def tags_from_string(tags_string):
@@ -798,11 +793,14 @@ class ImportHandler(webapp.RequestHandler):
         article = Article(permalink=permalink, title=title, body=body, format=format)
         article.tags = tags
         article.is_public = True
+        if POST_PRIVATE in post and post[POST_PRIVATE]:
+          article.is_public = False
         article.previous_versions = [text_content.key()]
         article.published_on = published_on
         article.updated_on = published_on
         article.put()
         logging.info("imported article, url: '%s'" % permalink)
+        # TODO: install redirect from post[POST_URL] to article.url
 
 def main():
     mappings = [
