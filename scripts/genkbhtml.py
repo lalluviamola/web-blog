@@ -5,13 +5,14 @@
 # This script reads the file given as first argument (knowledge-base.txt if
 # not given) and generates a set of static html pages.
 
-import sys, string, os, os.path, urllib, re, time, md5
+import sys, string, os, os.path, urllib, re, time, md5, datetime, codecs
+import util
 
 SCRIPT_DIR = os.path.dirname(os.path.realpath(__file__))
 sys.path.append(os.path.join(SCRIPT_DIR, ".."))
 import markdown2
 
-HEADER_HTML = """<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+HEADER_HTML = u"""<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
  <meta http-equiv="Content-Language" content="en-us">
@@ -28,16 +29,16 @@ HEADER_HTML = """<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
 <p><a href="../index.html">home</a> &raquo; <a href="index.html">knowledge base</a> &raquo; <strong>{{title}}</strong> <font color="#aaaaaa" size="-1">({{creation-date}})</font></p>
 """
 
-PRETTIFY_LINKS_VAR = "{{prettify-links}}"
-PRETTIFY_ONLOAD_VAR = "{{prettify-onload}}"
+PRETTIFY_LINKS_VAR = u"{{prettify-links}}"
+PRETTIFY_ONLOAD_VAR = u"{{prettify-onload}}"
 
-PRETTIFY_LINKS="""<link href="../js/prettify.css" type="text/css" rel="stylesheet" />
+PRETTIFY_LINKS=u"""<link href="../js/prettify.css" type="text/css" rel="stylesheet" />
 <script type="text/javascript" src="../js/prettify.js"></script>
 """
 
-PRETTIFY_ONLOAD=' onload="prettyPrint()"'
+PRETTIFY_ONLOAD=u' onload="prettyPrint()"'
 
-FOOTER_HTML = """<hr>
+FOOTER_HTML = u"""<hr>
 <center><a href=../../index.html>Krzysztof Kowalczyk</a></center>
 </div>
 
@@ -96,9 +97,25 @@ HIDDEN_TXT = "hidden".lower()
 
 def empty_str(txt): return not len(txt.strip())
 
+def to_unicode(val):
+  if isinstance(val, unicode): return val
+  try:
+    return unicode(val, 'utf-8')
+  except:
+    pass
+  try:
+    return unicode(val, 'latin-1')
+  except:
+    pass
+  try:
+    return unicode(val, 'ascii')
+  except:
+    raise
+
 # create a sane file name out of arbitray text
 def sanitize_for_filename(txt):
-     # characters invalid in a filename are replaced with "-"
+    # characters invalid in a filename are replaced with "-"
+    txt = filter(util.onlyascii, txt)
     to_replace = [" ", "/", "\\", "\"", "'", "(", ")"]
     for c in to_replace:
         txt = txt.replace(c, "-")
@@ -110,18 +127,6 @@ def txt_to_url(txt):
 
 def valid_attr(attr):
     return attr.lower() in valid_attrs
-
-# article 'Date' tag must be in YYYY-MM-DD format so that they can be sorted as strings
-_valid_article_date_rx = re.compile("^\d\d\d\d-\d\d-\d\d$")
-
-def valid_article_dates(article_dates):
-    if 0 == len(article_dates):
-        return False
-    for article_date in article_dates:
-        re_match = _valid_article_date_rx.search(article_date)
-        if None == re_match:
-            return False
-    return True
 
 # given a string in the format of "@[\*]+$attr:[\w]*$value", return (attr, value)
 def get_attr_value(str):
@@ -180,6 +185,21 @@ def markdown_with_code_to_html(txt):
         has_code = True
     return (html, has_code)
 
+def dt_to_str(dt):
+    return dt.strftime('%Y-%m-%d')
+
+def str_to_datetime(val):
+    try:
+        return datetime.datetime.strptime(val, "%Y-%m-%d %H:%M:%S")
+    except:
+        pass
+
+    try:
+        return datetime.datetime.strptime(val, "%Y-%m-%d")
+    except:
+        print("'%s'" % val)
+        raise
+
 class Article(object):
     def __init__(self):
         self.attrs = {}
@@ -190,7 +210,7 @@ class Article(object):
         self._html = None
 
         # those are build during parsing from attributes of an article
-        self.dates = None # list of dates, calculated for 'Date' attribute
+        self.date = None # 'Date' attribute
         self.tags = [] # list of tags, calculated from 'Tags' attribute
         self.title = None # calculated from 'Title' attribute
         self.url = None # calculated from 'Title' attribute
@@ -210,11 +230,12 @@ class Article(object):
             val = val.strip()
             self.tags = [t.lower().strip() for t in val.split(",")]
         elif DATE_TXT == attr:
-            self.dates = val.split()
+            date_txt = val.strip()
+            self.date = str_to_datetime(date_txt)
         elif TITLE_TXT == attr:
             self.title = val
-            self.url = txt_to_url(self.title) + ".html"
-            self.html_file_name = sanitize_for_filename(self.title) + ".html"            
+            self.url = txt_to_url(self.title) + u".html"
+            self.html_file_name = sanitize_for_filename(self.title) + u".html"
         self.attrs[attr] = val
     
     def start_body(self):
@@ -244,17 +265,9 @@ class Article(object):
         print "is_hidden: %s" % str(self.is_hidden())
 
     def assert_if_invalid(self):
-        if None == self.dates:
+        if None == self.date:
             self.dump()
-            assert None != self.dates
-
-        if not valid_article_dates(self.dates):
-            self.dump()
-            assert valid_article_dates(self.dates)
-
-        if not self.tags:
-            self.dump()
-            assert self.tags
+            assert None != self.date
             
         if None == self.title:
             self.dump()
@@ -264,6 +277,9 @@ class Article(object):
             self.dump()
             assert self.url
 
+        if not self._body:
+            self.dump()
+            assert(self._body)
 
 # states for parsing state machine
 ST_START, ST_PARSING_ATTRS, ST_IN_TEXT = range(3)
@@ -273,7 +289,7 @@ def process_file(file_name):
     state = ST_START
     cur_article = None
     was_prev_empty = True
-    fo = open(file_name, "rb")
+    fo = codecs.open(file_name, "r", "utf-8")
 
     def do_first_attribute(l, articles):
         if cur_article:
@@ -291,10 +307,10 @@ def process_file(file_name):
             # this is the initial state and lasts until finding beggining of
             # a first article (first attribute). It skips comments and empty lines
             #print " state: ST_START"
-            if l.startswith("#"):
+            if l.startswith(u"#"):
                 # skip comments
                 pass
-            elif l.startswith("@"):
+            elif l.startswith(u"@"):
                 assert None == cur_article
                 cur_article = do_first_attribute(l, articles)
                 state = ST_PARSING_ATTRS
@@ -306,7 +322,7 @@ def process_file(file_name):
         elif ST_PARSING_ATTRS == state:
             # parsing attributes of a given article
             #print " state: ST_PARSING_ATTRS"
-            if l.startswith("@"):
+            if l.startswith(u"@"):
                 assert None != cur_article
                 (attr, value) = get_attr_value(l)
                 cur_article.add_attr(attr, value)
@@ -317,7 +333,7 @@ def process_file(file_name):
         elif ST_IN_TEXT == state:
             # parsing the text of the article in a markup language
             #print " state: ST_IN_TEXT"
-            if l.startswith("@") and was_prev_empty:
+            if l.startswith(u"@") and was_prev_empty:
                 cur_article = do_first_attribute(l, articles)
                 state = ST_PARSING_ATTRS
             else:
@@ -329,8 +345,9 @@ def process_file(file_name):
     return articles
 
 def write_to_file(file_name, txt):
-    fo = open(file_name, "wb")
-    fo.write(txt)
+    txt_utf8 = txt.encode("utf-8")
+    fo = open(file_name, "w")
+    fo.write(txt_utf8)
     fo.close()
 
 def txt_replace_vars(txt, vars_values):
@@ -340,17 +357,17 @@ def txt_replace_vars(txt, vars_values):
 
 def today_as_yyyy_mm_dd(): return time.strftime("%Y-%m-%d", time.localtime())
 
-def in_tag(tag, txt):return '<%s>%s</%s>' % (tag, txt, tag)
+def in_tag(tag, txt):return u'<%s>%s</%s>' % (tag, txt, tag)
 
-def in_link(url, title): return '<a href="%s">%s</a>' % (url, title)
+def in_link(url, title): return u'<a href="%s">%s</a>' % (url, title)
 
 def in_font_size(txt, size="-1"): 
-    return '<font size="%s">%s</font>' % (size, txt)
+    return u'<font size="%s">%s</font>' % (size, txt)
 
 def in_font_color(txt, color):
-    return '<font color="%s">%s</font>' % (color, txt)
+    return u'<font color="%s">%s</font>' % (color, txt)
 
-def in_gray(txt): return in_font_color(txt, "gray")
+def in_gray(txt): return in_font_color(txt, u"gray")
 
 def encode_code(text):
     for (txt,replacement) in [("&","&amp;"), ("<","&lt;"), (">","&gt;")]:
@@ -359,6 +376,11 @@ def encode_code(text):
 
 def gen_html(articles):
     hidden_count = 0
+    all_articles = [article for article in articles if not article.is_hidden()]
+    hidden_count = len(articles) - len(all_articles)
+
+    for a in all_articles:
+        a.assert_if_invalid()
 
     tag_article_map = {} # maps tags to a list of articles
     def build_tag_article_map(article):
@@ -369,16 +391,13 @@ def gen_html(articles):
                 tag_article_map[tag] = [article]
 
     urls = {} # for finding titles that would end-up in duplicate urls
-    all_articles_count = len(articles)
-    all_articles = [article for article in articles if not article.is_hidden()]
-    filtered_articles_count = len(articles)
-    hidden_count = all_articles_count - filtered_articles_count
     for article in all_articles:
         article.assert_if_invalid()
         url = article.url
         # print "__%s__" % url
         if url in urls:
-            assert not url in urls, "title '%s' creates a duplicate url" % article.title
+            print("title '%s' creates a duplicate url" % article.title)
+            #assert not url in urls, "title '%s' creates a duplicate url" % article.title
         urls[url] = True
 
     for article in all_articles:
@@ -390,7 +409,7 @@ def gen_html(articles):
 
     links_per_page = 25
 
-    all_articles.sort(lambda x,y: cmp(y.dates[0], x.dates[0]))
+    all_articles.sort(lambda x,y: cmp(y.date, x.date))
     all_articles_count = len(all_articles)
     pages_count = (all_articles_count +  links_per_page - 1) / links_per_page
 
@@ -419,54 +438,56 @@ def gen_html(articles):
     all_tags_sorted.sort()
 
     for page_no in range(pages_count):
-        title = "Index of all articles"
+        title = u"Index of all articles"
         creation_date = today_as_yyyy_mm_dd()
-        html_header_txt = txt_replace_vars(HEADER_HTML, [["{{title}}", title], ["{{creation-date}}", creation_date], [PRETTIFY_LINKS_VAR, ""], [PRETTIFY_ONLOAD_VAR, ""]])
+        html_header_txt = txt_replace_vars(HEADER_HTML, [["{{title}}", title], ["{{creation-date}}", creation_date], [PRETTIFY_LINKS_VAR, u""], [PRETTIFY_ONLOAD_VAR, u""]])
         html = [html_header_txt]
 
-        tags_txt = gen_tags("Tags: ", all_tags_sorted)
+        tags_txt = gen_tags(u"Tags: ", all_tags_sorted)
         html.append(tags_txt)
     
-        html.append('<div id="kb">')
+        html.append(u'<div id="kb">')
         first_article_no = page_no * links_per_page + 1
         last_article_no = (page_no + 1) * links_per_page
         if last_article_no > all_articles_count:
             last_article_no = all_articles_count
 
-        html.append("<p>Recent articles (%d - %d):</p>" % (first_article_no, last_article_no))
+        html.append(u"<p>Recent articles (%d - %d):</p>" % (first_article_no, last_article_no))
 
-        html.append("<ul>")
+        html.append(u"<ul>")
         articles_on_page = all_articles[first_article_no-1 : last_article_no]
         for article in articles_on_page:
-            date_txt = in_font_size(in_gray("(%s)" % article.dates[0]))
+            date_txt = in_font_size(in_gray("(%s)" % article.date))
             link_txt = in_link(article.url, article.title)
-            html.append("<li>%s %s</li>" % (link_txt, date_txt))
-        html.append("</ul>")
-        
+            txt = u"<li>%s %s</li>" % (link_txt, date_txt)
+            html.append(txt)
+        html.append(u"</ul>")
+
         if pages_count > 1:
-            html.append("<p/><center>")
-            txt = "previous"
+            html.append(u"<p/><center>")
+            txt = u"previous"
             if page_no > 0:
-                page_name = "index.html"
+                page_name = u"index.html"
                 if page_no > 1:
-                    page_name = "index-%d.html" % (page_no-1)
+                    page_name = u"index-%d.html" % (page_no-1)
                 txt = in_link(page_name, txt)
             html.append(txt)
 
-            html.append(" &deg; ")
+            html.append(u" &deg; ")
 
-            txt = "next"
+            txt = u"next"
             if page_no != pages_count -1:
-                txt = in_link("index-%d.html" % (page_no + 1), txt)
+                txt = in_link(u"index-%d.html" % (page_no + 1), txt)
             html.append(txt)
-            html.append("</center>")
+            html.append(u"</center>")
 
-        html.append('</div>')
+        html.append(u'</div>')
         html.append(tags_txt)
-        html.append("<p> </p>")
+        html.append(u"<p> </p>")
         html.append(html_footer_txt)
 
-        html_txt = string.join(html, "\n")
+        html_txt = u"\n".join(html)
+        html_txt = to_unicode(html_txt)
         file_name = "index-%d.html" % page_no
         if 0 == page_no:
             file_name = "index.html"
@@ -475,7 +496,7 @@ def gen_html(articles):
     # for each article, generate "${url}.html" file
     for article in all_articles:
         title = article.title
-        creation_date = article.dates[0]
+        creation_date = dt_to_str(article.date)
         html_header_txt = txt_replace_vars(HEADER_HTML, [["{{title}}", title], ["{{creation-date}}", creation_date]])
         if article.has_code:
             html_header_txt = html_header_txt.replace(PRETTIFY_LINKS_VAR, PRETTIFY_LINKS)
@@ -513,14 +534,14 @@ def gen_html(articles):
         html.append('<div id="kb">')
 
         articles_with_tag = tag_article_map[tag]
-        articles_with_tag.sort(lambda x,y: cmp(y.dates[0], x.dates[0]))
+        articles_with_tag.sort(lambda x,y: cmp(y.date, x.date))
 
         # TODO: should probably break up into page is a number of articles is large
         # (same limit as for index page)
         html.append("<p>%s</p>" % title)
         html.append("<ul>")
         for article in articles_with_tag:
-            date_txt = in_font_size(in_gray("(%s)" % article.dates[0]))
+            date_txt = in_font_size(in_gray("(%s)" % article.date))
             link_txt = in_link(article.url, article.title)
             html.append("<li>%s %s</li>" % (link_txt, date_txt))
         html.append("</ul>")
@@ -533,22 +554,21 @@ def gen_html(articles):
         file_name = "tag-%s.html" % sanitize_for_filename(tag)
         write_to_file(os.path.join(OUTDIR, file_name), html_txt)
 
-def usage_and_exit():
-    print "Usage: genkbhtml.py [dir] [file-to-process]"
-    sys.exit(0)
-
 def main():
     global OUTDIR
-    if len(sys.argv) != 3:
-        usage_and_exit()
-    OUTDIR = sys.argv[1]
+    OUTDIR = os.path.join(SCRIPT_DIR, "..", "www", "kb")
     try:
         os.mkdir(OUTDIR)
     except OSError:
         # directory already exists
         pass
 
-    file_to_process = sys.argv[2]
+    file_to_process = os.path.join(SCRIPT_DIR, "..", "srcblog", "evernote-utf8.txt")
+    articles = process_file(file_to_process)
+    print("Articles: %d" % len(articles))
+    gen_html(articles)
+
+    file_to_process = os.path.join(SCRIPT_DIR, "..", "srcblog", "knowledge-base.txt")
     articles = process_file(file_to_process)
     gen_html(articles)
 

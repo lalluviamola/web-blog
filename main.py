@@ -122,9 +122,10 @@ def filter_nonadmin_articles(articles_summary):
         if article_summary["is_public"] and not article_summary["is_deleted"]:
             yield article_summary
 
-def filter_non_deleted_articles(articles_summary):
+# not private: not public and not deleted
+def filter_nonprivate_articles(articles_summary):
     for article_summary in articles_summary:
-        if article_summary["is_deleted"]:
+        if not article_summary["is_public"] and not article_summary["is_deleted"]:
             yield article_summary
 
 def filter_by_tag(articles_summary, tag):
@@ -132,7 +133,7 @@ def filter_by_tag(articles_summary, tag):
         if tag in article_summary["tags"]:
             yield article_summary
 
-(ARTICLE_SUMMARY_PUBLIC_OR_ADMIN, ARTICLE_SUMMARY_DELETED) = range(2)
+(ARTICLE_SUMMARY_PUBLIC_OR_ADMIN, ARTICLE_PRIVATE) = range(2)
 
 def get_articles_summary(articles_type = ARTICLE_SUMMARY_PUBLIC_OR_ADMIN):
     articles_pickled = memcache.get(articles_info_memcache_key())
@@ -148,8 +149,8 @@ def get_articles_summary(articles_type = ARTICLE_SUMMARY_PUBLIC_OR_ADMIN):
     if articles_type == ARTICLE_SUMMARY_PUBLIC_OR_ADMIN:
         if not users.is_current_user_admin():
             articles_summary = filter_nonadmin_articles(articles_summary)
-    elif articles_type == ARTICLE_SUMMARY_DELETED:
-        articles_summary = filter_non_deleted_articles(articles_summary)
+    elif articles_type == ARTICLE_PRIVATE:
+        articles_summary = filter_nonprivate_articles(articles_summary)
     return articles_summary
 
 def show_analytics(): return not is_localhost()
@@ -692,7 +693,7 @@ class MineHandler(webapp.RequestHandler):
     def get(self):
         if not users.is_current_user_admin():
             return self.redirect("/")
-        articles_summary = get_articles_summary(ARTICLE_SUMMARY_DELETED)
+        articles_summary = get_articles_summary(ARTICLE_PRIVATE)
         (curr_year, curr_month) = (None, None)
         years = []
         posts_count = 0

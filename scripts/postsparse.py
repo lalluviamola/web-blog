@@ -40,12 +40,15 @@ def is_draft(vals):
   v = vals["draft"].strip().lower()
   return v in ["1", "yes", "true"]
 
+def skip_file(fname):
+  return fname in ["evernote-utf8.txt", "knowledge-base.txt"]
+
 def scan_posts(path):
   def callback(allfiles, dirname, fnames):
     if ".svn" in dirname: return
     if ".git" in dirname: return
     for fname in fnames:
-      if "knowledge-base.txt" in fname:
+      if skip_file(fname):
         continue
       if fname.endswith(".txt"):
         #print("dir: %s, file: %s" % (dirname, fname))

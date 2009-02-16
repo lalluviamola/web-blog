@@ -1,5 +1,4 @@
 Needed to switch:
-* integrate evernote articles
 * dup content detection via sha1 (must also work for editing when reverting to
   an older version)
 * disable import url after importing articles
