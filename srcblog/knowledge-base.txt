@@ -993,7 +993,7 @@ public class Settings {
 </code>
 
 @ Title: Pickling (serialization) in Python
-@ Date: 2005-12-29 2005-12-31
+@ Date: 2005-12-31
 @ Tags: python, serialization, code snippet
 
 Pickling is an easy way to serialize data in Python. One possible use for that is preserving the state across script executions (like saving preferences).
