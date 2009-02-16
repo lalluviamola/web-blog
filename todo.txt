@@ -3,6 +3,7 @@ Needed to switch:
 * dup content detection via sha1 (must also work for editing when reverting to
   an older version)
 * disable import url after importing articles
+* consolidate all blog posts into one file
 
 Maybe needed to switch:
 * install redirects from older urls
@@ -16,3 +17,4 @@ Rest:
 * ability to see previous versions
 * a better way to show tags (not inside h1)
 * only load prettify js/css if there's code in the post
+* try design inspired by http://beej.us/guide/bgc/output/html/singlepage/bgc.html
