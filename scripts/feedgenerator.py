@@ -18,9 +18,23 @@ For definitions of the different versions of RSS, see:
 http://diveintomark.org/archives/2004/02/04/incompatible-rss
 """
 
-from xmlutils import SimplerXMLGenerator
 import datetime, re, time
 import email.Utils
+
+"""
+Utilities for XML generation/parsing.
+"""
+
+from xml.sax.saxutils import XMLGenerator
+
+class SimplerXMLGenerator(XMLGenerator):
+    def addQuickElement(self, name, contents=None, attrs=None):
+        "Convenience method for adding an element with no children"
+        if attrs is None: attrs = {}
+        self.startElement(name, attrs)
+        if contents is not None:
+            self.characters(contents)
+        self.endElement(name)
 
 def rfc2822_date(date):
     return email.Utils.formatdate(time.mktime(date.timetuple()))

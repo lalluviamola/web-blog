@@ -4,9 +4,9 @@ Needed to switch:
   an older version)
 * disable import url after importing articles
 * consolidate all blog posts into one file
+* install redirects from older urls
 
 Maybe needed to switch:
-* install redirects from older urls
 * page with tag cloud (/tags.html) with counts for each tag
 * use minified version of code-higlighter js
 
