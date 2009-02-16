@@ -22,3 +22,28 @@ def file_write(filename, txt):
   fo = open(filename, mode="wb")
   fo.write(txt)
   fo.close()
+
+def onlyascii(c):
+  if c in " _.;,-":
+    return c
+  if ord(c) < 48 or ord(c) > 127:
+    return ''
+  else: 
+    return c
+
+def urlify(s):
+  s = s.strip().lower()
+  s = filter(onlyascii, s)
+  for c in [" ", "_", "=", ".", ";", ":", "/", "\\", "\"", "'", "(", ")", "{", "}", "?", ","]:
+    s = s.replace(c, "-")
+  # TODO: a crude way to convert two-or-more consequtive '-' into just one
+  # it's really a job for regex
+  while True:
+    new = s.replace("--", "-")
+    if new == s:
+      break
+    #print "new='%s', prev='%s'" % (new, s)
+    s = new
+  s = s.strip("-")[:48]
+  s = s.strip("-")
+  return s

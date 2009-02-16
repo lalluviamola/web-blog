@@ -195,38 +195,13 @@ I <a href="http://twitter.com/kjk">twitted</a>: <br><span id=twittertxt></span>
 </html>
 """
 
-def onlyascii(c):
-  if c in " _.;,-":
-    return c
-  if ord(c) < 48 or ord(c) > 127:
-    return ''
-  else: 
-    return c
-
-def urlify(s):
-  s = s.strip().lower()
-  s = filter(onlyascii, s)
-  for c in [" ", "_", "=", ".", ";", ":", "/", "\\", "\"", "'", "(", ")", "{", "}", "?", ","]:
-    s = s.replace(c, "-")
-  # TODO: a crude way to convert two-or-more consequtive '-' into just one
-  # it's really a job for regex
-  while True:
-    new = s.replace("--", "-")
-    if new == s:
-      break
-    #print "new='%s', prev='%s'" % (new, s)
-    s = new
-  s = s.strip("-")[:48]
-  s = s.strip("-")
-  return s
-
 # generate unique, pretty url names for posts. 
 def gen_urls(posts):
   all_urls = {}
   for p in posts:
     dateymd = p["date"].split(" ")[0]
     (y,m,d) = dateymd.split("-")
-    pretty = urlify(p["title"])
+    pretty = util.urlify(p["title"])
     n = 0
     full = "blog/%s/%s/%s/%s.html" % (y,m,d,pretty)
     while full in all_urls:
