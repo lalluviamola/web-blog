@@ -408,6 +408,7 @@ def find_next_prev_article(article):
 class NotFoundHandler(webapp.RequestHandler):
     def get(self, url):
         vals = { "url" : url }
+        self.response.set_status(404)
         template_out(self.response, "tmpl/404.html", vals)
 
 def get_login_logut_url():
