@@ -342,17 +342,20 @@ def plaintext2html(text, tabstop=4):
             return '%s<a href="%s">%s</a>%s' % (prefix, url, url, last)
     return re.sub(re_string, do_sub, text)
 
-def article_gen_html_body(article):
-    txt = article.body
-    if article.format == "textile":
+def gen_html_body(format, txt):
+    if format == "textile":
         html = textile_with_code_to_html(txt)
-    elif article.format == "markdown":
+    elif format == "markdown":
         html = markdown_with_code_to_html(txt)
-    elif article.format == "text":
+    elif format == "text":
         html = text_with_code_to_html(txt)
-    elif article.format == "html":
+    elif format == "html":
         # TODO: code highlighting for html
-        html = article.body
+        html = txt
+    return html
+
+def article_gen_html_body(article):
+    html = gen_html_body(article.format, article.body)
     article.html_body = html
 
 def do_sitemap_ping():
@@ -513,6 +516,16 @@ def gen_permalink(title, date):
             return permalink
         iteration += 1
     return None
+
+class PreviewHandler(webapp.RequestHandler):
+
+    def post(self):
+        format = self.request.get("format")
+        body = self.request.get("note")
+        assert format in ALL_FORMATS
+        html = gen_html_body(format, body)
+        self.response.headers['Content-Type'] = 'text/html' # does it matter?
+        self.response.out.write(html)
 
 class EditHandler(webapp.RequestHandler):
 
@@ -852,6 +865,7 @@ def main():
         ('/app/delete', DeleteUndeleteHandler),
         ('/app/undelete', DeleteUndeleteHandler),
         ('/app/mine', MineHandler),
+        ('/app/preview', PreviewHandler),
         # only enable /import before importing and disable right
         # after importing, since it's not protected
         ('/import', ImportHandler),
