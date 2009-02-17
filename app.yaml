@@ -10,6 +10,9 @@ handlers:
 - url: /software/sumatra
   script: main.py
 
+- url: /software/sumatrapdf
+  script: main.py
+
 - url: /software
   static_dir: www/software
 

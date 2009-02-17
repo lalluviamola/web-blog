@@ -463,7 +463,6 @@ class ArticleHandler(webapp.RequestHandler):
     def get(self, url):
         permalink = "article/" + url
         is_admin = users.is_current_user_admin()
-        # TODO: should I use index?
         article = Article.gql("WHERE permalink = :1", permalink).get()
         if not article:
             #logging.info("No article with permalink: '%s'" % permalink)
@@ -894,6 +893,7 @@ def main():
         ('/atom.xml', AtomHandler),
         ('/sitemap.xml', SitemapHandler),
         ('/software/sumatra', SumatraRedirectHandler),
+        ('/software/sumatrapdf', SumatraRedirectHandler),
         ('/software/', AddIndexHandler),
         ('/software/(.+)/', AddIndexHandler),
         ('/forum_sumatra/rss.php', ForumRssRedirect),
