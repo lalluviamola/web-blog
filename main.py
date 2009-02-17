@@ -24,7 +24,7 @@ from django.utils import feedgenerator
 from django.template import Context, Template
 import logging
 
-COMPRESS_PICKLED = True
+COMPRESS_PICKLED = False
 NO_MEMCACHE = False
 
 # e.g. "http://localhost:8081" or "http://blog.kowalczyk.info"
@@ -96,13 +96,21 @@ def clear_memcache():
     memcache.delete(ATOM_MEMCACHE_KEY)
 
 def build_articles_summary():
-    articlesq = db.GqlQuery("SELECT * FROM Article ORDER BY published_on DESC")
+    ATTRS_TO_COPY = ["title", "permalink", "published_on", "format", "tags", "is_public", "is_deleted"]
+    query = Article.gql('ORDER BY __key__')
     articles = []
-    for article in articlesq:
-        a = {}
-        for attr in ["title", "permalink", "published_on", "format", "tags", "is_public", "is_deleted"]:
-            a[attr] = getattr(article,attr)
-        articles.append(a)
+    while True:
+        got = query.fetch(201)
+        logging.info("got %d articles" % len(got))
+        for article in got[:200]:
+            a = {}
+            for attr in ATTRS_TO_COPY:
+                a[attr] = getattr(article,attr)
+            articles.append(a)
+        if len(got) <= 200:
+            break
+        query = Article.gql('WHERE __key__ > :1 ORDER BY __key__', got[199].key())
+    articles.sort(lambda x, y: cmp(y["published_on"], x["published_on"]))
     return articles
 
 def pickle_data(data):
