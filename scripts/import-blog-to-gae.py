@@ -20,7 +20,7 @@ import textile
 MAX_TO_UPLOAD = 9999999 # set to smaller value when testing
 
 SERVER = "http://127.0.0.1:8081/import"
-#SERVER = "http://blog2.kowalczyk.info"
+#SERVER = "http://blog2.kowalczyk.info/import"
 
 SCRIPT_DIR = os.path.dirname(__file__)
 SRCDIR = os.path.join(SCRIPT_DIR, "..", "srcblog")
@@ -249,26 +249,27 @@ def upload_blog():
     posts = post_files.values()
     posts.sort(lambda x,y: cmp(x[POST_DATE], y[POST_DATE]))
     genblog.gen_urls(posts)
-    print("posts: %d" % len(posts))
+    #print("posts: %d" % len(posts))
     posts = [convert_blog_post(p) for p in posts]
     upload_posts(posts)
 
 def upload_kb():
     articles = genkbhtml.process_file(KB_SRC_FILE)
     articles = [convert_kb_article(article) for article in articles if not article.is_hidden()]
-    print("len(articles)=%d" % len(articles))
+    #print("len(articles)=%d" % len(articles))
     upload_posts(articles)
 
 def upload_evernote():
     articles = genkbhtml.process_file(EVERNOTE_SRC_FILE)
     articles = [convert_evernote_article(article) for article in articles if not article.is_hidden()]
-    print("len(articles)=%d" % len(articles))
+    #print("len(articles)=%d" % len(articles))
     upload_posts(articles)
 
 def main():
     upload_evernote()
     upload_kb()
     upload_blog()
+    print("uploaded %d" % g_total_uploaded)
 
 def main2():
     if not util.dir_exists(SRCDIR):

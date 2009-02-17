@@ -16,8 +16,9 @@ import sha
 import traceback
 import wsgiref.handlers
 from google.appengine.ext import db
-from google.appengine.api import users
 from google.appengine.api import memcache
+from google.appengine.api import urlfetch
+from google.appengine.api import users
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp import template
 from django.utils import feedgenerator
@@ -407,6 +408,12 @@ class NotFoundHandler(webapp.RequestHandler):
         vals = { "url" : url }
         template_out(self.response, "tmpl/404.html", vals)
 
+def get_login_logut_url():
+    if users.is_current_user_admin():
+        return users.create_logout_url("/")
+    else:
+        return users.create_login_url("/")
+    
 # responds to /
 # TODO: combine this with ArticleHandler
 class IndexHandler(webapp.RequestHandler):
@@ -421,11 +428,6 @@ class IndexHandler(webapp.RequestHandler):
             template_out(self.response, "tmpl/404.html", vals)
             return
 
-        if is_admin:
-            login_out_url = users.create_logout_url("/")
-        else:
-            login_out_url = users.create_login_url("/")
-
         article_gen_html_body(article)
         (next, prev) = find_next_prev_article(article)
         tags_urls = ['<a href="/tag/%s">%s</a>' % (tag, tag) for tag in article.tags]
@@ -434,7 +436,7 @@ class IndexHandler(webapp.RequestHandler):
             'prettify_js_url' : prettify_js_url(),
             'prettify_css_url' : prettify_css_url(),
             'is_admin' : is_admin,
-            'login_out_url' : login_out_url,
+            'login_out_url' : get_login_logut_url(),
             'article' : article,
             'next_article' : next,
             'prev_article' : prev,
@@ -478,11 +480,6 @@ class ArticleHandler(webapp.RequestHandler):
             template_out(self.response, "tmpl/404.html", vals)
             return
 
-        if is_admin:
-            login_out_url = users.create_logout_url("/")
-        else:
-            login_out_url = users.create_login_url("/")
-
         article_gen_html_body(article)
         (next, prev) = find_next_prev_article(article)
         tags_urls = ['<a href="/tag/%s">%s</a>' % (tag, tag) for tag in article.tags]
@@ -491,7 +488,7 @@ class ArticleHandler(webapp.RequestHandler):
             'prettify_js_url' : prettify_js_url(),
             'prettify_css_url' : prettify_css_url(),
             'is_admin' : is_admin,
-            'login_out_url' : login_out_url,
+            'login_out_url' : get_login_logut_url(),
             'article' : article,
             'next_article' : next,
             'prev_article' : prev,
@@ -537,6 +534,14 @@ def gen_permalink(title, date):
             return permalink
         iteration += 1
     return None
+
+class ClearMemcacheHandler(webapp.RequestHandler):
+    def get(self):
+        if not users.is_current_user_admin():
+            return self.redirect("/404.html")
+        clear_memcache()
+        self.response.headers['Content-Type'] = 'text/plain'
+        self.response.out.write("memcache cleared")
 
 class PreviewHandler(webapp.RequestHandler):
 
@@ -724,6 +729,7 @@ def do_archives(response, articles_summary, tag_to_display=None):
     vals = {
         'years' : years,
         'is_admin' : users.is_current_user_admin(),
+        'login_out_url' : get_login_logut_url(),
         'tag' : tag_to_display,
         'posts_count' : posts_count,
     }
@@ -880,9 +886,10 @@ def main():
         ('/app/showprivate', ShowPrivateHandler),
         ('/app/showdeleted', ShowDeletedHandler),
         ('/app/preview', PreviewHandler),
+        ('/app/clearmemcache', ClearMemcacheHandler),
         # only enable /import before importing and disable right
         # after importing, since it's not protected
-        ('/import', ImportHandler),
+        #('/import', ImportHandler),
         ('/(.*)', NotFoundHandler)
     ]
     app = webapp.WSGIApplication(mappings,debug=True)
