@@ -133,6 +133,11 @@ def filter_nonprivate_articles(articles_summary):
         if not article_summary["is_public"] and not article_summary["is_deleted"]:
             yield article_summary
 
+def filter_nondeleted_articles(articles_summary):
+    for article_summary in articles_summary:
+        if article_summary["is_deleted"]:
+            yield article_summary
+
 def filter_by_tag(articles_summary, tag):
     for article_summary in articles_summary:
         if tag in article_summary["tags"]:
@@ -150,7 +155,7 @@ def new_or_dup_text_content(body, format):
     text_content.put()
     return (text_content, False)
 
-(ARTICLE_SUMMARY_PUBLIC_OR_ADMIN, ARTICLE_PRIVATE) = range(2)
+(ARTICLE_SUMMARY_PUBLIC_OR_ADMIN, ARTICLE_PRIVATE, ARTICLE_DELETED) = range(3)
 
 def get_articles_summary(articles_type = ARTICLE_SUMMARY_PUBLIC_OR_ADMIN):
     articles_pickled = memcache.get(articles_info_memcache_key())
@@ -168,6 +173,8 @@ def get_articles_summary(articles_type = ARTICLE_SUMMARY_PUBLIC_OR_ADMIN):
             articles_summary = filter_nonadmin_articles(articles_summary)
     elif articles_type == ARTICLE_PRIVATE:
         articles_summary = filter_nonprivate_articles(articles_summary)
+    elif articles_type == ARTICLE_DELETED:
+        articles_summary = filter_nondeleted_articles(articles_summary)
     return articles_summary
 
 def show_analytics(): return not is_localhost()
@@ -736,37 +743,23 @@ class SitemapHandler(webapp.RequestHandler):
         }
         template_out(self.response, "tmpl/sitemap.xml", vals)
 
-class MineHandler(webapp.RequestHandler):
+# responds to /app/showdeleted
+class ShowDeletedHandler(webapp.RequestHandler):
+    def get(self):
+        if not users.is_current_user_admin():
+            return self.redirect("/404.html")
+        articles_summary = get_articles_summary(ARTICLE_DELETED)
+        do_archives(self.response, articles_summary)
+
+# responds to /app/showprivate
+class ShowPrivateHandler(webapp.RequestHandler):
     def get(self):
         if not users.is_current_user_admin():
             return self.redirect("/")
         articles_summary = get_articles_summary(ARTICLE_PRIVATE)
-        (curr_year, curr_month) = (None, None)
-        years = []
-        posts_count = 0
-        for a in articles_summary:
-            date = a["published_on"]
-            y = date.year
-            m = date.month
-            a["day"] = date.day
-            monthname = MONTHS[m-1]
-            if curr_year is None or curr_year.year != y:
-                curr_month = None
-                curr_year = Year(y)
-                years.append(curr_year)
+        do_archives(self.response, articles_summary)
 
-            if curr_month is None or curr_month.month != monthname:
-                curr_month = Month(monthname)
-                curr_year.add_month(curr_month)
-            curr_month.add_article(a)
-            posts_count += 1
-        vals = {
-            'years' : years,
-            'posts_count' : posts_count,
-            'is_admin' : users.is_current_user_admin(),
-        }
-        template_out(self.response, "tmpl/archive.html", vals)
-
+# responds to /atom.xml
 class AtomHandler(webapp.RequestHandler):
 
     def gen_atom_feed(self):
@@ -875,7 +868,8 @@ def main():
         ('/app/edit', EditHandler),
         ('/app/delete', DeleteUndeleteHandler),
         ('/app/undelete', DeleteUndeleteHandler),
-        ('/app/mine', MineHandler),
+        ('/app/showprivate', ShowPrivateHandler),
+        ('/app/showdeleted', ShowDeletedHandler),
         ('/app/preview', PreviewHandler),
         # only enable /import before importing and disable right
         # after importing, since it's not protected
