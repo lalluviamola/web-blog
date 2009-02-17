@@ -68,19 +68,18 @@ function hideLogin() {$('#login_id').removeClass("visible").addClass("invisible"
 <table style="color:#b9b9b9" width="100%">
 <tr>
   <td>
-{% if next_article %}
-  newer: <a href="/{{ next_article.permalink}}">{{ next_article.title }}</a>{% endif %}
+    {% if next_article %}
+      <span style="font-size: 80%">newer: <a href="/{{ next_article.permalink}}">{{ next_article.title }}</a></span>
+    {% endif %}
   </td>
   <td align="right">
-{% if prev_article %}
-  older: <a href="/{{ prev_article.permalink}}">{{ prev_article.title }}</a>
-{% endif %}
+    {% if prev_article %}
+      <span style="font-size: 80%">older: <a href="/{{ prev_article.permalink}}">{{ prev_article.title }}</a></span>
+    {% endif %}
   </td>
 </tr>
 </table>
 
-<hr>
-<center><a href=/index.html>Krzysztof Kowalczyk</a></center>
 </div>
 
 {% include "analytics.html" %}
