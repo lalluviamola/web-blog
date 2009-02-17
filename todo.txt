@@ -1,8 +1,4 @@
-Needed to switch:
-* disable import url after importing articles
-
-Maybe needed to switch:
-* one-click "cleanup with html2txt" in the editor
+Todo next:
 * page with tag cloud (/tags.html) with counts for each tag
 * month links at the bottom like in http://blog.quinthar.com
 * a quick access to tags from everywhere (drop-down box)
@@ -12,7 +8,7 @@ Maybe needed to switch:
 * provide long expires header for /gfx/search2.png and use /gfx/search2.png?$sha1(search2.png)
   (or md5) in code, so that we'll be fine if it ever changes
 
-Rest:
+Maybe todo someday:
 * comments
 * ability to see previous versions
 * only load prettify js/css if there's code in the post

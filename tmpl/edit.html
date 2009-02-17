@@ -98,6 +98,19 @@
     return false;
   }
 
+  function clean_html() {
+    var format = $("input[@name='format']:checked").val();
+    if (format == "html") {
+      function clean_callback(data, status) {
+        $("#note").val(data);
+      }
+      var data = { "note" : $("#note").val() };
+      $.post("/app/cleanhtml", data, clean_callback, "html");
+    } else {
+      alert("Only html can be cleaned up, not " + format)
+    }
+    return false;
+  }
   $(document).ready(function() {
     $("#title").focus();
     $(window).wresize(_wnd_resize);
@@ -115,6 +128,7 @@
   <input type="radio" name="format" value="text" {{ format_text_checked }}>text
    | <input type="checkbox" name="private" {{ private_checkbox_checked }}>Private
    &nbsp;&nbsp;<a onclick="return preview();" href="/invalid">preview</a>
+   &nbsp;&nbsp;<a onclick="return clean_html();" href="/invalid">clean html</a>
   <br>
   <input name="article_id" type="hidden" value="{{ article.key.id }}">
 

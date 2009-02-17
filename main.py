@@ -9,11 +9,12 @@ import pickle
 import bz2
 import urllib
 import md5
-import textile
-import markdown2
 import cgi
 import sha
 import traceback
+import textile
+import markdown2
+import html2text
 import wsgiref.handlers
 from google.appengine.ext import db
 from google.appengine.api import memcache
@@ -538,6 +539,11 @@ def gen_permalink(title, date):
         iteration += 1
     return None
 
+def clean_html(html):
+    html = html2text.html2text(html)
+    assert isinstance(html, unicode)
+    return html
+    
 class ClearMemcacheHandler(webapp.RequestHandler):
     def get(self):
         if not users.is_current_user_admin():
@@ -545,6 +551,14 @@ class ClearMemcacheHandler(webapp.RequestHandler):
         clear_memcache()
         self.response.headers['Content-Type'] = 'text/plain'
         self.response.out.write("memcache cleared")
+
+class CleanHtmlHandler(webapp.RequestHandler):
+
+    def post(self):
+        html = self.request.get("note")
+        html = clean_html(html)
+        self.response.headers['Content-Type'] = 'text/html' # does it matter?
+        self.response.out.write(html)
 
 class PreviewHandler(webapp.RequestHandler):
 
@@ -893,6 +907,7 @@ def main():
         ('/app/showprivate', ShowPrivateHandler),
         ('/app/showdeleted', ShowDeletedHandler),
         ('/app/preview', PreviewHandler),
+        ('/app/cleanhtml', CleanHtmlHandler),
         ('/app/clearmemcache', ClearMemcacheHandler),
         ('/feed/rss2/atom.xml', OldAtomRedirectHandler),
         # only enable /import before importing and disable right
