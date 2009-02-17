@@ -916,6 +916,7 @@ def main():
         ('/app/clearmemcache', ClearMemcacheHandler),
         ('/feed/rss2/atom.xml', OldAtomRedirectHandler),
         ('/feed/rss2/', OldAtomRedirectHandler),
+        ('/feed/rss2', OldAtomRedirectHandler),
         # only enable /import before importing and disable right
         # after importing, since it's not protected
         #('/import', ImportHandler),
