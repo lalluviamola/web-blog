@@ -1,4 +1,4 @@
-html version: http://blog.kowalczyk.info/resume.html
+html version: http://blog.kowalczyk.info/static/resume.html
 
 Krzysztof Kowalczyk
 
@@ -103,7 +103,11 @@ Technology used: Amiga OS, 68000 assembly.
 
 * Employment history
 
-2007/04 - present
+2009/02 - present
+
+OpenDNS - Software Engineer.
+
+2007/04 - 2009/02
 BitTorrent - Senior Software Engineer.
 
 2004/12 - 2007/04

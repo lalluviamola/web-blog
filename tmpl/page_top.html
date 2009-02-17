@@ -5,17 +5,17 @@
         <a href="/software/sumatrapdf/">Sumatra PDF</a> &bull; 
         <a href="/software/fofou/">Fofou</a> &bull; 
         <a href="/archives.html">archives</a> &bull; 
-        <a href="/more.html">more...</a>
+        <a href="/static/more.html">more...</a>
         <a id=headsearch href="javascript:toggleSearch();">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
       </span>
 
       {% if is_admin %}
-      <a href="/me.html">me</a>
+      <a href="/static/me.html">me</a>
       &nbsp;<a class="visible" href="/app/edit">(new post)</a>
       &nbsp;<a class="visible" href="{{ login_out_url }}">(log out)</a>
       &nbsp;<a class="visible" href="/app/mine">private posts</a>
       {% else %}
-      <a href="me.html">Krzysztof Kowalczyk</a>
+      <a href="/static/me.html">Krzysztof Kowalczyk</a>
       &nbsp<a id="login_id" class="invisible" onMouseOver="showLogin();" onMouseOut="hideLogin();" href="{{ login_out_url }}">login</a>
       {% endif %}
     </div>

@@ -10,13 +10,22 @@ indexes:
 # automatically uploaded to the admin console when you next deploy
 # your application using appcfg.py.
 
-# Used 9 times in query history.
+# Unused in query history -- copied from input.
+- kind: Article
+  properties:
+  - name: is_deleted
+  - name: is_draft
+  - name: is_public
+  - name: published_on
+    direction: desc
+
+# Unused in query history -- copied from input.
 - kind: Article
   properties:
   - name: posted
     direction: desc
 
-# Used 13 times in query history.
+# Unused in query history -- copied from input.
 - kind: Article
   properties:
   - name: published
