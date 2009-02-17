@@ -387,6 +387,11 @@ def find_next_prev_article(article):
         i = i + 1
     return (next, prev)
 
+class NotFoundHandler(webapp.RequestHandler):
+    def get(self, url):
+        vals = { "url" : url }
+        template_out(self.response, "tmpl/404.html", vals)
+
 # responds to /
 # TODO: combine this with ArticleHandler
 class IndexHandler(webapp.RequestHandler):
@@ -483,7 +488,7 @@ class ArticleHandler(webapp.RequestHandler):
 class DeleteUndeleteHandler(webapp.RequestHandler):
     def get(self):
         if not users.is_current_user_admin():
-            return self.redirect("/")
+            return self.redirect("/404.html")
         article_id = self.request.get("article_id")
         #logging.info("article_id: '%s'" % article_id)
         article = db.get(db.Key.from_path("Article", int(article_id)))
@@ -563,6 +568,9 @@ class EditHandler(webapp.RequestHandler):
         #logging.info("title: '%s'" % self.request.get("title"))
         #logging.info("body: '%s'" % self.request.get("note"))
 
+        if not users.is_current_user_admin():
+            return self.redirect("/404.html")
+
         article_id = self.request.get("article_id")
         if is_empty_string(article_id):
             return self.create_new_article()
@@ -619,6 +627,9 @@ class EditHandler(webapp.RequestHandler):
         self.redirect(url)
 
     def get(self):
+        if not users.is_current_user_admin():
+            return self.redirect("/404.html")
+
         article_id = self.request.get('article_id')
         if not article_id:
             vals = {
@@ -869,6 +880,7 @@ def main():
         # only enable /import before importing and disable right
         # after importing, since it's not protected
         ('/import', ImportHandler),
+        ('/(.*)', NotFoundHandler)
     ]
     app = webapp.WSGIApplication(mappings,debug=True)
     app = redirect_from_appspot(app)

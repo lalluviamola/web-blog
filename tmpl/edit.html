@@ -69,9 +69,31 @@
       $('#preview').width(preview_dx + 'px').height(dy);        
   }
 
+  function preview_html() {
+    var txt = $("#note").val();
+    $("#preview").html(txt);
+    //alert(txt);
+  }
+  function preview_all_but_html() {
+    function preview_callback(data, status) {
+      $("#preview").html(data);
+    }
+
+    var note = $("#note").val();
+    var format = $("input[@name='format']:checked").val();
+    var data = { "format" : format, "note" : note };
+    $.post("/app/preview", data, preview_callback, "html");
+  }
+
   function preview()  {
+    var format = $("input[@name='format']:checked").val();
+    if (format == "html") {
+      preview_html();
+    } else {
+      preview_all_but_html();
+    }
+
     has_preview = true;
-    // TODO: launch ajax to get preview data
     _wnd_resize();
     return false;
   }
@@ -85,7 +107,7 @@
   </script>
 </head><body>
 <!--><div id="lt">Create new post</div>-->
-  <form action="/app/edit" method="post">
+  <form action="/app/edit" method="post" id="myform">
   Format:
   <input type="radio" name="format" value="textile" {{ format_textile_checked }}>textile
   <input type="radio" name="format" value="markdown" {{ format_markdown_checked }}>markdown

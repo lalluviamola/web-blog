@@ -1,16 +1,17 @@
 Needed to switch:
 * disable import url after importing articles
-* preview in the editor (by going to the server to render html, needs ajax)
 
 Maybe needed to switch:
 * one-click "cleanup with html2txt" in the editor
-* use minified version of code-higlighter js
-
-Rest:
+* page with tag cloud (/tags.html) with counts for each tag
 * month links at the bottom like in http://blog.quinthar.com
 * a quick access to tags from everywhere (drop-down box)
-* ability to see previous versions
 * a better way to show tags (not inside h1)
+* better 404 handling
+
+Rest:
+* comments
+* ability to see previous versions
 * only load prettify js/css if there's code in the post
 * try design inspired by http://beej.us/guide/bgc/output/html/singlepage/bgc.html
-* page with tag cloud (/tags.html) with counts for each tag
+* use minified version of code-higlighter js
