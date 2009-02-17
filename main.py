@@ -413,9 +413,9 @@ class IndexHandler(webapp.RequestHandler):
     def get(self):
         is_admin = users.is_current_user_admin()
         if is_admin:
-            article = db.GqlQuery("SELECT * FROM Article ORDER BY published_on DESC").get()                
+            article = Article.gql("ORDER BY published_on DESC").get()                
         else:
-            article = db.GqlQuery("SELECT * FROM Article WHERE is_public = True AND is_deleted = False ORDER BY published_on DESC").get()
+            article = Article.gql("WHERE is_public = True AND is_deleted = False ORDER BY published_on DESC").get()
         if not article:
             vals = { "url" : "/" }
             template_out(self.response, "tmpl/404.html", vals)
@@ -459,6 +459,7 @@ class ArticleHandler(webapp.RequestHandler):
     def get(self, url):
         permalink = "article/" + url
         is_admin = users.is_current_user_admin()
+        # TODO: should I use index?
         article = Article.gql("WHERE permalink = :1", permalink).get()
         if not article:
             #logging.info("No article with permalink: '%s'" % permalink)
@@ -776,7 +777,7 @@ class AtomHandler(webapp.RequestHandler):
             link = self.request.host_url + "/atom.xml",
             description = "Krzysztof Kowalczyk blog")
 
-        articles = db.GqlQuery("SELECT * FROM Article WHERE is_public = True AND is_deleted = False ORDER BY published_on DESC").fetch(25)
+        articles = Article.gql("WHERE is_public = True AND is_deleted = False ORDER BY published_on DESC").fetch(25)
         for a in articles:
             title = a.title
             link = self.request.host_url + "/" + a.permalink
