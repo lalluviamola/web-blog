@@ -29,7 +29,7 @@ COMPRESS_PICKLED = False
 NO_MEMCACHE = False
 
 # deployed name of the server. Only for redirection from *.appspot.com 
-SERVER = "blog2.kowalczyk.info"
+SERVER = "blog.kowalczyk.info"
 
 # e.g. "http://localhost:8081" or "http://blog.kowalczyk.info"
 g_root_url = None
