@@ -262,6 +262,10 @@ def template_out(response, template_name, template_values = {}):
     res = template.render(path, template_values)
     response.out.write(res)
 
+def do_404(response, url):
+    response.set_status(404)
+    template_out(response, "tmpl/404.html", { "url" : url })
+
 def lang_to_prettify_lang(lang):
     #from http://google-code-prettify.googlecode.com/svn/trunk/README.html
     #"bsh", "c", "cc", "cpp", "cs", "csh", "cyc", "cv", "htm", "html",
@@ -408,9 +412,7 @@ def find_next_prev_article(article):
 
 class NotFoundHandler(webapp.RequestHandler):
     def get(self, url):
-        vals = { "url" : url }
-        self.response.set_status(404)
-        template_out(self.response, "tmpl/404.html", vals)
+        do_404(self.response, url)
 
 def get_login_logut_url():
     if users.is_current_user_admin():
@@ -427,10 +429,6 @@ class IndexHandler(webapp.RequestHandler):
             article = Article.gql("ORDER BY published_on DESC").get()                
         else:
             article = Article.gql("WHERE is_public = True AND is_deleted = False ORDER BY published_on DESC").get()
-        if not article:
-            vals = { "url" : "/" }
-            template_out(self.response, "tmpl/404.html", vals)
-            return
 
         article_gen_html_body(article)
         (next, prev) = find_next_prev_article(article)
@@ -479,10 +477,7 @@ class ArticleHandler(webapp.RequestHandler):
             if article.is_deleted or not article.is_public:
                 article = None
 
-        if not article:
-            vals = { "url" : permalink }
-            template_out(self.response, "tmpl/404.html", vals)
-            return
+        if not article: return do_404(self.response, url)
 
         article_gen_html_body(article)
         (next, prev) = find_next_prev_article(article)
@@ -509,9 +504,8 @@ class DeleteUndeleteHandler(webapp.RequestHandler):
         article_id = self.request.get("article_id")
         #logging.info("article_id: '%s'" % article_id)
         article = db.get(db.Key.from_path("Article", int(article_id)))
-        if not article:
-            vals = { "url" : article_id }
-            return template_out(self.response, "tmpl/404.html", vals)
+        assert article
+
         if article.is_deleted:
             article.is_deleted = False
         else:
@@ -619,10 +613,8 @@ class EditHandler(webapp.RequestHandler):
         title = self.request.get("title").strip()
         body = self.request.get("note")
         article = db.get(db.Key.from_path("Article", int(article_id)))
-        if not article:
-            vals = { "url" : article_id }
-            template_out(self.response, "tmpl/404.html", vals)
-            return
+        assert article
+
         tags = tags_from_string(self.request.get("tags"))
 
         text_content = None
