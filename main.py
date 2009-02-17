@@ -805,7 +805,11 @@ class AtomHandler(webapp.RequestHandler):
 
         self.response.headers['Content-Type'] = 'text/xml'
         self.response.out.write(feedtxt)
-    
+
+class OldAtomRedirectHandler(webapp.RequestHandler):
+    def get(self):
+        return self.redirect("/atom.xml", True)
+
 class AddIndexHandler(webapp.RequestHandler):
     def get(self, sub=None):
         return self.redirect(self.request.url + "index.html")
@@ -817,7 +821,7 @@ class ForumRedirect(webapp.RequestHandler):
 
 class ForumRssRedirect(webapp.RequestHandler):
     def get(self):
-        return self.redirect("http://forums.fofou.org/sumatrapdf/rss")
+        return self.redirect("http://forums.fofou.org/sumatrapdf/rss", True)
 
 # import one or more articles from old text format
 class ImportHandler(webapp.RequestHandler):
@@ -889,6 +893,7 @@ def main():
         ('/app/showdeleted', ShowDeletedHandler),
         ('/app/preview', PreviewHandler),
         ('/app/clearmemcache', ClearMemcacheHandler),
+        ('/feed/rss2/atom.xml', OldAtomRedirectHandler),
         # only enable /import before importing and disable right
         # after importing, since it's not protected
         #('/import', ImportHandler),
