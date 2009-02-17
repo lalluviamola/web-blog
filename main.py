@@ -816,7 +816,7 @@ class SumatraRedirectHandler(webapp.RequestHandler):
     def get(self):
         return self.redirect("/software/sumatrapdf/", True)
 
-class OldAtomRedirectHandler(webapp.RequestHandler):
+class FeedRedirectHandler(webapp.RequestHandler):
     def get(self):
         return self.redirect("/atom.xml", True)
 
@@ -906,9 +906,10 @@ def main():
         ('/app/preview', PreviewHandler),
         ('/app/cleanhtml', CleanHtmlHandler),
         ('/app/clearmemcache', ClearMemcacheHandler),
-        ('/feed/rss2/atom.xml', OldAtomRedirectHandler),
-        ('/feed/rss2/', OldAtomRedirectHandler),
-        ('/feed/rss2', OldAtomRedirectHandler),
+        ('/feed/rss2/atom.xml', FeedRedirectHandler),
+        ('/feed/rss2/', FeedRedirectHandler),
+        ('/feed/rss2', FeedRedirectHandler),
+        ('/feed/', FeedRedirectHandler),
         # only enable /import before importing and disable right
         # after importing, since it's not protected
         #('/import', ImportHandler),
