@@ -821,6 +821,10 @@ class AtomHandler(webapp.RequestHandler):
         self.response.headers['Content-Type'] = 'text/xml'
         self.response.out.write(feedtxt)
 
+class SumatraRedirectHandler(webapp.RequestHandler):
+    def get(self):
+        return self.redirect("/software/sumatrapdf/", True)
+
 class OldAtomRedirectHandler(webapp.RequestHandler):
     def get(self):
         return self.redirect("/atom.xml", True)
@@ -897,6 +901,7 @@ def main():
         ('/tag/(.*)', TagHandler),
         ('/atom.xml', AtomHandler),
         ('/sitemap.xml', SitemapHandler),
+        ('/software/sumatra', SumatraRedirectHandler),
         ('/software/', AddIndexHandler),
         ('/software/(.+)/', AddIndexHandler),
         ('/forum_sumatra/rss.php', ForumRssRedirect),

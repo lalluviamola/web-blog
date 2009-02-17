@@ -7,6 +7,9 @@ handlers:
 - url: /.*/
   script: main.py
 
+- url: /software/sumatra
+  script: main.py
+
 - url: /software
   static_dir: www/software
 
@@ -27,6 +30,10 @@ handlers:
 
 - url: /static
   static_dir: www/static
+
+- url: /robots.txt
+  static_files: www/robots.txt
+  upload: www/robots.txt
 
 - url: .*
   script: main.py
