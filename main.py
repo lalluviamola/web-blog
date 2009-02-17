@@ -28,6 +28,9 @@ import logging
 COMPRESS_PICKLED = False
 NO_MEMCACHE = False
 
+# deployed name of the server. Only for redirection from *.appspot.com 
+SERVER = "blog2.kowalczyk.info"
+
 # e.g. "http://localhost:8081" or "http://blog.kowalczyk.info"
 g_root_url = None
 
@@ -243,10 +246,9 @@ def redirect_from_appspot(wsgi_app):
             import webob, urlparse
             request = webob.Request(env)
             scheme, netloc, path, query, fragment = urlparse.urlsplit(request.url)
-            url = urlparse.urlunsplit([scheme, HOST, path, query, fragment])
+            url = urlparse.urlunsplit([scheme, SERVER, path, query, fragment])
             start_response('301 Moved Permanently', [('Location', url)])
-            return ["301 Moved Peramanently",
-                  "Click Here" % url]
+            return ["301 Moved Peramanently", "Click Here %s" % url]
         else:
             return wsgi_app(env, start_response)
     return redirect_if_needed
