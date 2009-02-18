@@ -8,7 +8,6 @@ import StringIO
 import pickle
 import bz2
 import urllib
-import md5
 import cgi
 import sha
 import traceback
@@ -31,6 +30,9 @@ NO_MEMCACHE = False
 
 # deployed name of the server. Only for redirection from *.appspot.com 
 SERVER = "blog.kowalczyk.info"
+
+# memcache key for caching atom.xml
+ATOM_MEMCACHE_KEY = "at"
 
 # e.g. "http://localhost:8081" or "http://blog.kowalczyk.info"
 g_root_url = None
@@ -85,16 +87,12 @@ def encode_code(text):
         text = text.replace(txt, replacement)
     return text
 
-def txt_cookie(txt):
-    txt_md5 = md5.new(txt)
-    return txt_md5.hexdigest()
+def txt_cookie(txt): return sha.new(txt.encode("utf-8")).hexdigest()
 
 def articles_info_memcache_key():
     if COMPRESS_PICKLED:
         return "akc"
     return "ak"
-
-ATOM_MEMCACHE_KEY = "at"
 
 def clear_memcache():
     memcache.delete(articles_info_memcache_key())
