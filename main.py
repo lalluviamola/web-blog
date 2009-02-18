@@ -381,10 +381,12 @@ def article_gen_html_body(article):
 
 def do_sitemap_ping():
     if is_localhost(): return
-    form_fields = { "sitemap": "%s/sitemap.xml" % g_root_url }
+    sitemap_url = "%s/sitemap.xml" % g_root_url
+    form_fields = { "sitemap" : sitemap_url }
     urlfetch.fetch(url="http://www.google.com/webmasters/tools/ping",
                    payload=urllib.urlencode(form_fields),
                    method=urlfetch.GET)
+    logging.info("Pinged http://www.google.com/webmasters/tools/ping with %s" % sitemap_url)
 
 def find_next_prev_article(article):
     articles_summary = get_articles_summary()
@@ -587,7 +589,8 @@ class EditHandler(webapp.RequestHandler):
 
         article.put()
         clear_memcache()
-        do_sitemap_ping()
+        if article.is_public:
+            do_sitemap_ping()
         url = "/" + article.permalink
         self.redirect(url)
 

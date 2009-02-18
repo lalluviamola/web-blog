@@ -14,7 +14,6 @@ Todo next:
 * ability to update published_on date when updating. This is useful for blog drafts (when I make a draft
   marked as private and when I publish I make it public, but I would like the published date to
   be when I published, not when it was first created)
-* don't ping google if it's a private post
 * show either "Create new post" or "Update post" in edit.html, depending on context
 
 Which can kill atom.xml generation.
