@@ -7,8 +7,6 @@ Todo next:
 * permanent delete
 * provide long expires header for /gfx/search2.png and use /gfx/search2.png?$sha1(search2.png)
   (or md5) in code, so that we'll be fine if it ever changes
-* don't show deleted posts in archives.html 
-* doleted posts should not be part of navigation at the bottom
 
 Maybe todo someday:
 * show that preview failed. That is sometimes indication that posting will fail as well

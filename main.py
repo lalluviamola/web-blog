@@ -138,6 +138,11 @@ def filter_nonadmin_articles(articles_summary):
         if article_summary["is_public"] and not article_summary["is_deleted"]:
             yield article_summary
 
+def filter_deleted_articles(articles_summary):
+    for article_summary in articles_summary:
+        if not article_summary["is_deleted"]:
+            yield article_summary
+
 # not private: not public and not deleted
 def filter_nonprivate_articles(articles_summary):
     for article_summary in articles_summary:
@@ -180,7 +185,9 @@ def get_articles_summary(articles_type = ARTICLE_SUMMARY_PUBLIC_OR_ADMIN):
         logging.info("len(articles_pickled) = %d" % len(articles_pickled))
         memcache.set(articles_info_memcache_key(), articles_pickled)
     if articles_type == ARTICLE_SUMMARY_PUBLIC_OR_ADMIN:
-        if not users.is_current_user_admin():
+        if users.is_current_user_admin():
+            articles_summary = filter_deleted_articles(articles_summary)
+        else:
             articles_summary = filter_nonadmin_articles(articles_summary)
     elif articles_type == ARTICLE_PRIVATE:
         articles_summary = filter_nonprivate_articles(articles_summary)
