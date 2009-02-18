@@ -5,10 +5,15 @@ Todo next:
 * better 404 handling (all should redirect to 404.html?${orig_url})
 
 Maybe todo someday:
+* comments (using disquss?)
+* better 404 page (show possible destinations, add manual redirects based on
+  data from dashboard)
 * show that preview failed. That is sometimes indication that posting will fail as well
   because the post is malformed
-* comments
 * ability to see previous versions
 * only load prettify js/css if there's code in the post
 * try design inspired by http://beej.us/guide/bgc/output/html/singlepage/bgc.html
 * use minified version of code-higlighter js
+* design with tabs on the left side (a sidebar)
+* design where clicking on a tag shows overlayed window with articles with this
+  tag (to make browsing more efficient)

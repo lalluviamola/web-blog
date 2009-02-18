@@ -45,36 +45,45 @@ function hideLogin() {$('#login_id').removeClass("visible").addClass("invisible"
   {% else %}
     <a href=/index.html>home</a> &#8227; {{ article.title }}
   {% endif %}
-</h1>
 
-{% if is_admin %}
-  {% if tags_display %}
-    <span style="color:#5e5e5e; font-size: 85%">Tags:
-    {{ tags_display }}
-    </span>
-  {% endif %}
-
-  <span style="color:#ee3e3e; font-size: 85%">Ops:
-  <a href="/app/edit?article_id={{ article.key.id }}">edit</a>
-  {% if article.is_deleted %}
-    &nbsp;<a href="/app/undelete?article_id={{ article.key.id }}">undelete</a>
-    &nbsp;<a href="/app/permanentdelete?article_id={{ article.key.id }}">permanent delete</a>
-  {% else %}
-    &nbsp;<a href="/app/delete?article_id={{ article.key.id }}">delete</a>
-  {% endif %}
   {% if not article.is_public %}
     &nbsp;<font color="red">private</font>
   {% endif %}
-</span>
+</h1>
 
-{% endif %}
+<table width=100%>
+ <tr>
+  <td style="color:#5e5e5e; font-size: 85%">
+    {% if tags_display %}
+      Tags: {{ tags_display }}
+    {% endif %}
+  </td>
+
+  <td style="color:#ee3e3e; font-size: 85%; text-align: right">
+    {% if is_admin %}
+    Ops:
+    <a class="visible" href="/app/edit">new post</a>
+    <a href="/app/edit?article_id={{ article.key.id }}">edit</a>
+    {% if article.is_deleted %}
+      <a href="/app/undelete?article_id={{ article.key.id }}">undelete</a>
+      <a href="/app/permanentdelete?article_id={{ article.key.id }}">permanent delete</a>
+    {% else %}
+      <a href="/app/delete?article_id={{ article.key.id }}">delete</a>
+    {% endif %}
+    &bull;
+    <a class="visible" href="/app/showprivate">private posts</a>
+    <a class="visible" href="/app/showdeleted">deleted posts</a>
+    &bull;
+    <a class="visible" href="{{ login_out_url }}">log out</a>
+    {% endif %}
+  </td>
+ </tr>
+</table>
 
 {{ article.html_body }}
 
 {% if tags_display %}
-  <span style="color:#5e5e5e; font-size: 85%">Tags:
-    {{ tags_display }}
-  </span>
+  <span style="color:#5e5e5e; font-size: 85%">Tags: {{ tags_display }}</span>
 {% endif %}
 
 <table style="color:#b9b9b9" width="100%">
