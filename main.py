@@ -514,7 +514,7 @@ class DeleteUndeleteHandler(webapp.RequestHandler):
         url = "/" + article.permalink
         self.redirect(url)
 
-def gen_permalink(title, date):
+def gen_permalink(title):
     title_sanitized = urlify(title)
     url_base = "article/%s" % (title_sanitized)
     # TODO: maybe use some random number or article.key.id to get
@@ -578,7 +578,7 @@ class EditHandler(webapp.RequestHandler):
         assert not is_dup
 
         published_on = text_content.published_on
-        permalink = gen_permalink(title, published_on)
+        permalink = gen_permalink(title)
         assert permalink
         article = Article(permalink=permalink, title=title, body=body, format=format)
         article.is_public = not checkbox_to_bool(self.request.get("private"))
@@ -610,6 +610,7 @@ class EditHandler(webapp.RequestHandler):
         format = self.request.get("format")
         assert format in ALL_FORMATS
         is_public = not checkbox_to_bool(self.request.get("private"))
+        update_published_on = checkbox_to_bool(self.request.get("update_published_on"))
         title = self.request.get("title").strip()
         body = self.request.get("note")
         article = db.get(db.Key.from_path("Article", int(article_id)))
@@ -628,7 +629,7 @@ class EditHandler(webapp.RequestHandler):
             pass
 
         if article.title != title:
-            new_permalink = gen_permalink(title, article.published_on)
+            new_permalink = gen_permalink(title)
             assert new_permalink
             article.permalink = new_permalink
             invalidate_articles_cache = True
@@ -638,6 +639,10 @@ class EditHandler(webapp.RequestHandler):
         else:
             article.updated_on = datetime.datetime.now()
 
+        if update_published_on:
+            article.published_on = article.updated_on
+            invalidate_articles_cache = True
+    
         if text_content:
             article.previous_versions.append(text_content.key())
 
@@ -678,6 +683,7 @@ class EditHandler(webapp.RequestHandler):
             'format_markdown_checked' : "",
             'format_html_checked' : "",
             'format_text_checked' : "",
+            'update_published_on_checkbox_checked' : "",
             'private_checkbox_checked' : "",
             'article' : article,
             'tags' : ", ".join(article.tags),
@@ -855,7 +861,7 @@ class ImportHandler(webapp.RequestHandler):
     def import_post(self, post):
         title = utf8_to_uni(post[POST_TITLE])
         published_on = post[POST_DATE]
-        permalink = gen_permalink(title, published_on)
+        permalink = gen_permalink(title)
         assert permalink
 
         format = utf8_to_uni(post[POST_FORMAT])

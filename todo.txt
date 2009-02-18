@@ -9,16 +9,11 @@ Todo next:
   (or md5) in code, so that we'll be fine if it ever changes
 * don't show deleted posts in archives.html 
 * doleted posts should not be part of navigation at the bottom
-* show that preview failed. That is sometimes indication that posting will fail as well
-  because the post is malformed
-* ability to update published_on date when updating. This is useful for blog drafts (when I make a draft
-  marked as private and when I publish I make it public, but I would like the published date to
-  be when I published, not when it was first created)
 * show either "Create new post" or "Update post" in edit.html, depending on context
 
-Which can kill atom.xml generation.
-
 Maybe todo someday:
+* show that preview failed. That is sometimes indication that posting will fail as well
+  because the post is malformed
 * comments
 * ability to see previous versions
 * only load prettify js/css if there's code in the post
