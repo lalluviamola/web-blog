@@ -11,9 +11,6 @@ import urllib
 import cgi
 import sha
 import traceback
-import textile
-import markdown2
-import html2text
 import wsgiref.handlers
 from google.appengine.ext import db
 from google.appengine.api import memcache
@@ -320,16 +317,18 @@ def txt_with_code_parts(txt):
     return (txt, code_parts)
 
 def markdown_with_code_to_html(txt):
+    from markdown2 import markdown
     (txt, code_parts) = txt_with_code_parts(txt)
-    html = markdown2.markdown(txt)
+    html = markdown(txt)
     for (code_replacement_cookie, code_html) in code_parts.items():
         html = html.replace(code_replacement_cookie, code_html)
     return html
 
 def textile_with_code_to_html(txt):
+    from textile import textile
     (txt, code_parts) = txt_with_code_parts(txt)
     txt = txt.encode('utf-8')
-    html = textile.textile(txt, encoding='utf-8', output='utf-8')
+    html = textile(txt, encoding='utf-8', output='utf-8')
     html =  unicode(html, 'utf-8')
     for (code_replacement_cookie, code_html) in code_parts.items():
         html = html.replace(code_replacement_cookie, code_html)
@@ -553,7 +552,8 @@ def gen_permalink(title):
     return None
 
 def clean_html(html):
-    html = html2text.html2text(html)
+    from html2text import html2text
+    html = html2text(html)
     assert isinstance(html, unicode)
     return html
     
