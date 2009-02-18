@@ -24,6 +24,7 @@ handlers:
 
 - url: /gfx
   static_dir: www/gfx
+  expiration: "365d"
 
 - url: /img
   static_dir: www/img

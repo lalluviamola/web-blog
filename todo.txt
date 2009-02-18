@@ -3,8 +3,6 @@ Todo next:
 * month links at the bottom like in http://blog.quinthar.com
 * a quick access to tags from everywhere (drop-down box)
 * better 404 handling (all should redirect to 404.html?${orig_url})
-* provide long expires header for /gfx/search2.png and use /gfx/search2.png?$sha1(search2.png)
-  (or md5) in code, so that we'll be fine if it ever changes
 
 Maybe todo someday:
 * show that preview failed. That is sometimes indication that posting will fail as well
