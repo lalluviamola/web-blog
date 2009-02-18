@@ -652,7 +652,8 @@ class EditHandler(webapp.RequestHandler):
         if invalidate_articles_cache: clear_memcache()
 
         article.put()
-        do_sitemap_ping()
+        if article.is_public:
+            do_sitemap_ping()
         url = "/" + article.permalink
         self.redirect(url)
 
