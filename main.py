@@ -672,6 +672,7 @@ class EditHandler(webapp.RequestHandler):
                 'jquery_url' : jquery_url(),
                 'format_textile_checked' : "checked",
                 'private_checkbox_checked' : "checked",
+                'submit_button_text' : "Create new post",
             }
             template_out(self.response, "tmpl/edit.html", vals)
             return
@@ -686,6 +687,7 @@ class EditHandler(webapp.RequestHandler):
             'update_published_on_checkbox_checked' : "",
             'private_checkbox_checked' : "",
             'article' : article,
+            'submit_button_text' : "Update post",            
             'tags' : ", ".join(article.tags),
         }
         vals['format_%s_checked' % article.format] = "checked"
