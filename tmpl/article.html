@@ -45,26 +45,37 @@ function hideLogin() {$('#login_id').removeClass("visible").addClass("invisible"
   {% else %}
     <a href=/index.html>home</a> &#8227; {{ article.title }}
   {% endif %}
-
-  {% if tags_display %}
-    ({{ tags_display }})
-  {% endif %}
-
-  {% if is_admin %}
-    <a href="/app/edit?article_id={{ article.key.id }}">edit</a>
-    {% if article.is_deleted %}
-      &nbsp;<a href="/app/undelete?article_id={{ article.key.id }}">undelete</a>
-      &nbsp;<a href="/app/permanentdelete?article_id={{ article.key.id }}">permanent delete</a>
-    {% else %}
-      &nbsp;<a href="/app/delete?article_id={{ article.key.id }}">delete</a>
-    {% endif %}
-    {% if not article.is_public %}
-      &nbsp;<font color="red">private</font>
-    {% endif %}
-  {% endif %}
 </h1>
 
+{% if is_admin %}
+  {% if tags_display %}
+    <span style="color:#5e5e5e; font-size: 85%">Tags:
+    {{ tags_display }}
+    </span>
+  {% endif %}
+
+  <span style="color:#ee3e3e; font-size: 85%">Ops:
+  <a href="/app/edit?article_id={{ article.key.id }}">edit</a>
+  {% if article.is_deleted %}
+    &nbsp;<a href="/app/undelete?article_id={{ article.key.id }}">undelete</a>
+    &nbsp;<a href="/app/permanentdelete?article_id={{ article.key.id }}">permanent delete</a>
+  {% else %}
+    &nbsp;<a href="/app/delete?article_id={{ article.key.id }}">delete</a>
+  {% endif %}
+  {% if not article.is_public %}
+    &nbsp;<font color="red">private</font>
+  {% endif %}
+</span>
+
+{% endif %}
+
 {{ article.html_body }}
+
+{% if tags_display %}
+  <span style="color:#5e5e5e; font-size: 85%">Tags:
+    {{ tags_display }}
+  </span>
+{% endif %}
 
 <table style="color:#b9b9b9" width="100%">
 <tr>
