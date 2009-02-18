@@ -503,10 +503,23 @@ class ArticleHandler(webapp.RequestHandler):
         }
         template_out(self.response, "tmpl/article.html", vals)
 
+class PermanentDeleteHandler(webapp.RequestHandler):
+    def get(self):
+        assert users.is_current_user_admin()
+        article_id = self.request.get("article_id")
+        article = db.get(db.Key.from_path("Article", int(article_id)))
+        # only allow permanent deletion of articles only marked as deleted
+        # forcing this two step process is to make sure user doesn't deletes
+        # by accident
+        assert article.is_deleted
+        article.delete()
+        clear_memcache()
+        logging.info("Permanently deleted article with id %s" % article_id)
+        return self.redirect("/app/showdeleted")
+
 class DeleteUndeleteHandler(webapp.RequestHandler):
     def get(self):
-        if not users.is_current_user_admin():
-            return self.redirect("/404.html")
+        assert users.is_current_user_admin()
         article_id = self.request.get("article_id")
         #logging.info("article_id: '%s'" % article_id)
         article = db.get(db.Key.from_path("Article", int(article_id)))
@@ -916,8 +929,9 @@ def main():
         ('/forum_sumatra/rss.php', ForumRssRedirect),
         ('/forum_sumatra/(.*)', ForumRedirect),
         ('/app/edit', EditHandler),
-        ('/app/delete', DeleteUndeleteHandler),
         ('/app/undelete', DeleteUndeleteHandler),
+        ('/app/delete', DeleteUndeleteHandler),
+        ('/app/permanentdelete', PermanentDeleteHandler),
         ('/app/showprivate', ShowPrivateHandler),
         ('/app/showdeleted', ShowDeletedHandler),
         ('/app/preview', PreviewHandler),

@@ -54,6 +54,7 @@ function hideLogin() {$('#login_id').removeClass("visible").addClass("invisible"
     <a href="/app/edit?article_id={{ article.key.id }}">edit</a>
     {% if article.is_deleted %}
       &nbsp;<a href="/app/undelete?article_id={{ article.key.id }}">undelete</a>
+      &nbsp;<a href="/app/permanentdelete?article_id={{ article.key.id }}">permanent delete</a>
     {% else %}
       &nbsp;<a href="/app/delete?article_id={{ article.key.id }}">delete</a>
     {% endif %}
