@@ -17,3 +17,5 @@ Maybe todo someday:
 * design with tabs on the left side (a sidebar)
 * design where clicking on a tag shows overlayed window with articles with this
   tag (to make browsing more efficient)
+* IndexHandler could be optimized if we memcache article_id of the first
+  admin/non-admin article and use Article.get() on that key instead of a query

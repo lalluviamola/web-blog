@@ -425,9 +425,27 @@ def get_login_logut_url():
         return users.create_logout_url("/")
     else:
         return users.create_login_url("/")
-    
+
+def render_article(response, article):
+    article_gen_html_body(article)
+    (next, prev) = find_next_prev_article(article)
+    tags_urls = ['<a href="/tag/%s">%s</a>' % (tag, tag) for tag in article.tags]
+    vals = {
+        'jquery_url' : jquery_url(),
+        'prettify_js_url' : prettify_js_url(),
+        'prettify_css_url' : prettify_css_url(),
+        'is_admin' : users.is_current_user_admin(),
+        'login_out_url' : get_login_logut_url(),
+        'article' : article,
+        'next_article' : next,
+        'prev_article' : prev,
+        'show_analytics' : show_analytics(),
+        'tags_display' : ", ".join(tags_urls),
+        'index_page' : True,
+    }
+    template_out(response, "tmpl/article.html", vals)
+
 # responds to /
-# TODO: combine this with ArticleHandler
 class IndexHandler(webapp.RequestHandler):
     def get(self):
         is_admin = users.is_current_user_admin()
@@ -435,24 +453,7 @@ class IndexHandler(webapp.RequestHandler):
             article = Article.gql("ORDER BY published_on DESC").get()                
         else:
             article = Article.gql("WHERE is_public = True AND is_deleted = False ORDER BY published_on DESC").get()
-
-        article_gen_html_body(article)
-        (next, prev) = find_next_prev_article(article)
-        tags_urls = ['<a href="/tag/%s">%s</a>' % (tag, tag) for tag in article.tags]
-        vals = {
-            'jquery_url' : jquery_url(),
-            'prettify_js_url' : prettify_js_url(),
-            'prettify_css_url' : prettify_css_url(),
-            'is_admin' : is_admin,
-            'login_out_url' : get_login_logut_url(),
-            'article' : article,
-            'next_article' : next,
-            'prev_article' : prev,
-            'show_analytics' : show_analytics(),
-            'tags_display' : ", ".join(tags_urls),
-            'index_page' : True,
-        }
-        template_out(self.response, "tmpl/article.html", vals)
+        render_article(self.response, article)
 
 # responds to /tag/*
 class TagHandler(webapp.RequestHandler):
@@ -483,24 +484,7 @@ class ArticleHandler(webapp.RequestHandler):
                 article = None
 
         if not article: return do_404(self.response, url)
-
-        article_gen_html_body(article)
-        (next, prev) = find_next_prev_article(article)
-        tags_urls = ['<a href="/tag/%s">%s</a>' % (tag, tag) for tag in article.tags]
-        vals = { 
-            'jquery_url' : jquery_url(),
-            'prettify_js_url' : prettify_js_url(),
-            'prettify_css_url' : prettify_css_url(),
-            'is_admin' : is_admin,
-            'login_out_url' : get_login_logut_url(),
-            'article' : article,
-            'next_article' : next,
-            'prev_article' : prev,
-            'show_analytics' : show_analytics(),
-            'tags_display' : ", ".join(tags_urls),
-            'index_page' : False,
-        }
-        template_out(self.response, "tmpl/article.html", vals)
+        render_article(self.response, article)
 
 class PermanentDeleteHandler(webapp.RequestHandler):
     def get(self):
