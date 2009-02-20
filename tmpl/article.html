@@ -5,7 +5,7 @@
 <link rel="alternate" type="application/atom+xml" title="RSS 2.0" href="/atom.xml" />
 
 {% if index_page %}
-<title>Krzysztof Kowalczyk's website</title>
+<title>Krzysztof Kowalczyk's notebook</title>
 {% else %}
 <title>{{ article.title }}</title>
 {% endif %}
@@ -101,9 +101,13 @@ function hideLogin() {$('#login_id').removeClass("visible").addClass("invisible"
 </tr>
 </table>
 
+<p>
+<div id="disqus_thread"></div><script type="text/javascript" src="http://disqus.com/forums/krzysztofkowalczyknotebook/embed.js"></script><noscript><a href="http://krzysztofkowalczyknotebook.disqus.com/?url={{ full_permalink|urlencode }}">View the discussion thread.</a></noscript><a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+</p>
+
 </div>
 
 {% include "analytics.html" %}
-
+{% include "disqus-js.html" %}
 </body>
 </html>

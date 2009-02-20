@@ -426,7 +426,7 @@ def get_login_logut_url():
     else:
         return users.create_login_url("/")
 
-def render_article(response, article):
+def render_article(response, article, index_page):
     article_gen_html_body(article)
     (next, prev) = find_next_prev_article(article)
     tags_urls = ['<a href="/tag/%s">%s</a>' % (tag, tag) for tag in article.tags]
@@ -441,7 +441,8 @@ def render_article(response, article):
         'prev_article' : prev,
         'show_analytics' : show_analytics(),
         'tags_display' : ", ".join(tags_urls),
-        'index_page' : True,
+        'full_permalink' : g_root_url + "/" + article.permalink,
+        'index_page' : index_page,
     }
     template_out(response, "tmpl/article.html", vals)
 
@@ -453,7 +454,7 @@ class IndexHandler(webapp.RequestHandler):
             article = Article.gql("ORDER BY published_on DESC").get()                
         else:
             article = Article.gql("WHERE is_public = True AND is_deleted = False ORDER BY published_on DESC").get()
-        render_article(self.response, article)
+        render_article(self.response, article, index_page = True)
 
 # responds to /tag/*
 class TagHandler(webapp.RequestHandler):
@@ -484,7 +485,7 @@ class ArticleHandler(webapp.RequestHandler):
                 article = None
 
         if not article: return do_404(self.response, url)
-        render_article(self.response, article)
+        render_article(self.response, article, index_page = False)
 
 class PermanentDeleteHandler(webapp.RequestHandler):
     def get(self):
