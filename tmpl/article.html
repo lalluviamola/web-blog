@@ -6,15 +6,12 @@
 
 <title>{{ article.title }}</title>
 
-{% if is_admin %}
 <script type="text/javascript" src="{{ jquery_url }}"></script>
 
 <script type="text/javascript">
-
 function showLogin() { $('#login_id').removeClass("invisible").addClass("visible"); }
 function hideLogin() {$('#login_id').removeClass("visible").addClass("invisible"); }
 </script>
-{% endif %}
 
 <link  href="{{ prettify_css_url }}" type="text/css" rel="stylesheet" />
 <script src="{{ prettify_js_url }}" type="text/javascript"></script>
@@ -32,6 +29,11 @@ function hideLogin() {$('#login_id').removeClass("visible").addClass("invisible"
   {% if not article.is_public %}
     &nbsp;<font color="red">private</font>
   {% endif %}
+
+  {% if not is_admin %}
+    &nbsp;<a id="login_id" class="invisible" onMouseOver="showLogin();" onMouseOut="hideLogin();" href="{{ login_out_url }}">login</a>
+    {% endif %}
+  </h1>
 </h1>
 
 <p>
@@ -41,12 +43,34 @@ function hideLogin() {$('#login_id').removeClass("visible").addClass("invisible"
   {% if tags_display %}
    · Tags: {{ tags_display }}
   {% endif %}
+
+  {% if is_admin %}
+  <span style="color:#ee3e3e;">
+  &nbsp;&nbsp;Ops:
+  <a class="visible" href="/app/edit">new post</a>
+  <a href="/app/edit?article_id={{ article.key.id }}">edit</a>
+  {% if article.is_deleted %}
+    <a href="/app/undelete?article_id={{ article.key.id }}">undelete</a>
+    <a href="/app/permanentdelete?article_id={{ article.key.id }}">permanent delete</a>
+  {% else %}
+    <a href="/app/delete?article_id={{ article.key.id }}">delete</a>
+  {% endif %}
+  &bull;
+  <a class="visible" href="/app/showprivate">private posts</a>
+  <a class="visible" href="/app/showdeleted">deleted posts</a>
+  &bull;
+  <a class="visible" href="{{ login_out_url }}">log out</a>
+  {% endif %}
+  </span>
+
   </td><td style="text-align:right">
     {% if next_article %}
     <a title="{{ next_article.title }}" href="/{{ next_article.permalink}}">← newer</a>
     {% else %}
     ← newer
     {% endif %}
+    &bull;
+    <a href="/archives.html">{{ article_no }} / {{ articles_count }}</a>
     &bull;
     {% if prev_article %}
     <a title="{{ prev_article.title }}" href="/{{ prev_article.permalink}}">older →</a>
@@ -55,27 +79,6 @@ function hideLogin() {$('#login_id').removeClass("visible").addClass("invisible"
     {% endif %}
   </td></tr></table>
 </p>
-
-{% if is_admin %}
-  <div style="color:#ee3e3e; font-size: 85%;">
-    {% if is_admin %}
-    Ops:
-    <a class="visible" href="/app/edit">new post</a>
-    <a href="/app/edit?article_id={{ article.key.id }}">edit</a>
-    {% if article.is_deleted %}
-      <a href="/app/undelete?article_id={{ article.key.id }}">undelete</a>
-      <a href="/app/permanentdelete?article_id={{ article.key.id }}">permanent delete</a>
-    {% else %}
-      <a href="/app/delete?article_id={{ article.key.id }}">delete</a>
-    {% endif %}
-    &bull;
-    <a class="visible" href="/app/showprivate">private posts</a>
-    <a class="visible" href="/app/showdeleted">deleted posts</a>
-    &bull;
-    <a class="visible" href="{{ login_out_url }}">log out</a>
-    {% endif %}
-  </div>
-{% endif %}
 
 {{ article.html_body }}
 

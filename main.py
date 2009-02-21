@@ -412,9 +412,9 @@ def find_next_prev_article(article):
                 next = articles_summary[i-1]
             if i < num-1:
                 prev = articles_summary[i+1]
-            return (next, prev)
+            return (next, prev, i, num)
         i = i + 1
-    return (next, prev)
+    return (next, prev, i, num)
 
 class NotFoundHandler(webapp.RequestHandler):
     def get(self, url):
@@ -428,7 +428,7 @@ def get_login_logut_url():
 
 def render_article(response, article):
     article_gen_html_body(article)
-    (next, prev) = find_next_prev_article(article)
+    (next, prev, article_no, articles_count) = find_next_prev_article(article)
     tags_urls = ['<a href="/tag/%s">%s</a>' % (tag, tag) for tag in article.tags]
     vals = {
         'jquery_url' : jquery_url(),
@@ -441,6 +441,8 @@ def render_article(response, article):
         'prev_article' : prev,
         'show_analytics' : show_analytics(),
         'tags_display' : ", ".join(tags_urls),
+        'article_no' : article_no + 1,
+        'articles_count' : articles_count,
         'full_permalink' : g_root_url + "/" + article.permalink,
     }
     template_out(response, "tmpl/article.html", vals)

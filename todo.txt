@@ -3,7 +3,6 @@ Todo next:
 * month links at the bottom like in http://blog.quinthar.com
 * a quick access to tags from everywhere (drop-down box)
 * better 404 handling (all should redirect to 404.html?${orig_url})
-* in article.html, show that this is a post N out of M (between navigation links)
 * on index.html, add tag cloud at the bottom
 * add links to my articles and other stuff that is currently unlined
 * update /static/me.html to match the style of the rest of the site
