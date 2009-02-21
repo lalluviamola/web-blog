@@ -50,29 +50,29 @@ function hideLogin() {$('#login_id').removeClass("visible").addClass("invisible"
   {% if not article.is_public %}
     &nbsp;<font color="red">private</font>
   {% endif %}
+</h1>
 
-{% if not_true %}
-  <span style="font-size: 80%; font-weight: normal; color: #6d6d6d; text-align: right;">
-    &nbsp; &nbsp;
+<p>
+  <table class="postmeta" width=100%>
+  <tr><td >
+  {{ article.published_on|date:"d M Y" }}
+  {% if tags_display %}
+   · Tags: {{ tags_display }}
+  {% endif %}
+  </td><td style="text-align:right">
     {% if next_article %}
-    <a href="/{{ next_article.permalink}}">← newer</a>
+    <a title="{{ next_article.title }}" href="/{{ next_article.permalink}}">← newer</a>
     {% else %}
     ← newer
     {% endif %}
     &bull;
     {% if prev_article %}
-    <a href="/{{ prev_article.permalink}}">older →</a>
+    <a title="{{ prev_article.title }}" href="/{{ prev_article.permalink}}">older →</a>
     {% else %}
     older →
     {% endif %}
-  </span>
-{% endif %}
-</h1>
-<p class="postmeta">{{ article.published_on|date:"d M Y" }}
-  {% if tags_display %}
-   · Tags: {{ tags_display }}
-  {% endif %}
-  </p>
+  </td></tr></table>
+</p>
 
 {% if is_admin %}
   <div style="color:#ee3e3e; font-size: 85%;">
@@ -96,21 +96,6 @@ function hideLogin() {$('#login_id').removeClass("visible").addClass("invisible"
 {% endif %}
 
 {{ article.html_body }}
-
-<table style="color:#b9b9b9" width="100%">
-<tr>
-  <td>
-    {% if next_article %}
-      <span style="font-size: 80%">newer: <a href="/{{ next_article.permalink}}">{{ next_article.title }}</a></span>
-    {% endif %}
-  </td>
-  <td align="right">
-    {% if prev_article %}
-      <span style="font-size: 80%">older: <a href="/{{ prev_article.permalink}}">{{ prev_article.title }}</a></span>
-    {% endif %}
-  </td>
-</tr>
-</table>
 
 {% if article.is_public %}
 <p>
