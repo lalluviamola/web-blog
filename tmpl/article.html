@@ -50,11 +50,6 @@ function hideLogin() {$('#login_id').removeClass("visible").addClass("invisible"
   {% if not article.is_public %}
     &nbsp;<font color="red">private</font>
   {% endif %}
-  <span style="font-size: 80%; font-weight: normal; color: #6d6d6d;">
-    {% if tags_display %}
-        {{ tags_display }}
-    {% endif %}
-  </span>
 
 {% if not_true %}
   <span style="font-size: 80%; font-weight: normal; color: #6d6d6d; text-align: right;">
@@ -73,6 +68,11 @@ function hideLogin() {$('#login_id').removeClass("visible").addClass("invisible"
   </span>
 {% endif %}
 </h1>
+<p class="postmeta">{{ article.published_on|date:"d M Y" }}
+  {% if tags_display %}
+   · Tags: {{ tags_display }}
+  {% endif %}
+  </p>
 
 {% if is_admin %}
   <div style="color:#ee3e3e; font-size: 85%;">
