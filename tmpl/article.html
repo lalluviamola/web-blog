@@ -39,6 +39,7 @@ function hideLogin() {$('#login_id').removeClass("visible").addClass("invisible"
 {% include "page_top.html" %}
 
 <div id="content">
+
 <h1>
   {% if index_page %}
     <a href="/{{ article.permalink }}">{{ article.title }}</a>
@@ -49,17 +50,32 @@ function hideLogin() {$('#login_id').removeClass("visible").addClass("invisible"
   {% if not article.is_public %}
     &nbsp;<font color="red">private</font>
   {% endif %}
+  <span style="font-size: 80%; font-weight: normal; color: #6d6d6d;">
+    {% if tags_display %}
+        {{ tags_display }}
+    {% endif %}
+  </span>
+
+{% if not_true %}
+  <span style="font-size: 80%; font-weight: normal; color: #6d6d6d; text-align: right;">
+    &nbsp; &nbsp;
+    {% if next_article %}
+    <a href="/{{ next_article.permalink}}">← newer</a>
+    {% else %}
+    ← newer
+    {% endif %}
+    &bull;
+    {% if prev_article %}
+    <a href="/{{ prev_article.permalink}}">older →</a>
+    {% else %}
+    older →
+    {% endif %}
+  </span>
+{% endif %}
 </h1>
 
-<table width=100%>
- <tr>
-  <td style="color:#5e5e5e; font-size: 85%">
-    {% if tags_display %}
-      Tags: {{ tags_display }}
-    {% endif %}
-  </td>
-
-  <td style="color:#ee3e3e; font-size: 85%; text-align: right">
+{% if is_admin %}
+  <div style="color:#ee3e3e; font-size: 85%;">
     {% if is_admin %}
     Ops:
     <a class="visible" href="/app/edit">new post</a>
@@ -76,15 +92,10 @@ function hideLogin() {$('#login_id').removeClass("visible").addClass("invisible"
     &bull;
     <a class="visible" href="{{ login_out_url }}">log out</a>
     {% endif %}
-  </td>
- </tr>
-</table>
+  </div>
+{% endif %}
 
 {{ article.html_body }}
-
-{% if tags_display %}
-  <span style="color:#5e5e5e; font-size: 85%">Tags: {{ tags_display }}</span>
-{% endif %}
 
 <table style="color:#b9b9b9" width="100%">
 <tr>
