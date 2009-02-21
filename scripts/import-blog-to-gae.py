@@ -20,7 +20,7 @@ import textile
 MAX_TO_UPLOAD = 9999999 # set to smaller value when testing
 
 SERVER = "http://127.0.0.1:8081/import"
-#SERVER = "http://blog2.kowalczyk.info/import"
+#SERVER = "http://blog.kowalczyk.info/import"
 
 SCRIPT_DIR = os.path.dirname(__file__)
 SRCDIR = os.path.join(SCRIPT_DIR, "..", "srcblog")
@@ -190,6 +190,7 @@ def convert_kb_article(article):
     np[POST_FORMAT] = to_utf8("markdown")
     np[POST_TAGS] = to_utf8(", ".join(article.tags))
     np[POST_URL] = to_utf8("kb/" + article.url)
+    #print("'%s'" % np[POST_URL])
     return np
 
 def convert_evernote_article(article):
