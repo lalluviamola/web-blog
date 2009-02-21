@@ -6,6 +6,8 @@ Todo next:
 * on index.html, add tag cloud at the bottom
 * add links to my articles and other stuff that is currently unlined
 * update /static/me.html to match the style of the rest of the site
+* when showing posts tagged, also tell how many total there are 
+  ("11 articles out of 256")
 
 Maybe todo someday:
 * automatically tweet my posts
