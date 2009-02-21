@@ -4,25 +4,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="alternate" type="application/atom+xml" title="RSS 2.0" href="/atom.xml" />
 
-{% if index_page %}
-<title>Krzysztof J. Kowalczyk's notebook</title>
-{% else %}
 <title>{{ article.title }}</title>
-{% endif %}
 
-{% if index_page or is_admin %}
+{% if is_admin %}
 <script type="text/javascript" src="{{ jquery_url }}"></script>
 
 <script type="text/javascript">
-function toggleSearch() 
-{
-  if ( $("#searchbox").is(':visible') ) {
-    $("#searchbox").hide();
-  } else {
-    $("#searchbox").show();
-    $("#searchFieldId").focus().val("");
-  }
-}
+
 function showLogin() { $('#login_id').removeClass("invisible").addClass("visible"); }
 function hideLogin() {$('#login_id').removeClass("visible").addClass("invisible"); }
 </script>
@@ -36,16 +24,10 @@ function hideLogin() {$('#login_id').removeClass("visible").addClass("invisible"
 
 <body onload="prettyPrint()">
 
-{% include "page_top.html" %}
-
 <div id="content">
 
 <h1>
-  {% if index_page %}
-    <a href="/{{ article.permalink }}">{{ article.title }}</a>
-  {% else %}
-    <a href=/index.html>home</a> &#8227; {{ article.title }}
-  {% endif %}
+  <a href=/index.html>home</a> &#8227; {{ article.title }}
 
   {% if not article.is_public %}
     &nbsp;<font color="red">private</font>

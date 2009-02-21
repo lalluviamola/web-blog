@@ -426,7 +426,7 @@ def get_login_logut_url():
     else:
         return users.create_login_url("/")
 
-def render_article(response, article, index_page):
+def render_article(response, article):
     article_gen_html_body(article)
     (next, prev) = find_next_prev_article(article)
     tags_urls = ['<a href="/tag/%s">%s</a>' % (tag, tag) for tag in article.tags]
@@ -442,7 +442,6 @@ def render_article(response, article, index_page):
         'show_analytics' : show_analytics(),
         'tags_display' : ", ".join(tags_urls),
         'full_permalink' : g_root_url + "/" + article.permalink,
-        'index_page' : index_page,
     }
     template_out(response, "tmpl/article.html", vals)
 
@@ -450,11 +449,17 @@ def render_article(response, article, index_page):
 class IndexHandler(webapp.RequestHandler):
     def get(self):
         is_admin = users.is_current_user_admin()
-        if is_admin:
-            article = Article.gql("ORDER BY published_on DESC").get()                
-        else:
-            article = Article.gql("WHERE is_public = True AND is_deleted = False ORDER BY published_on DESC").get()
-        render_article(self.response, article, index_page = True)
+        articles_summary = get_articles_summary()
+        articles_summary = [a for a in articles_summary][:5]
+        articles_summary_set_tags_display(articles_summary)
+        vals = {
+            'jquery_url' : jquery_url(),
+            'is_admin' : users.is_current_user_admin(),
+            'login_out_url' : get_login_logut_url(),
+            'articles_summary' : articles_summary,
+            'show_analytics' : show_analytics(),
+        }
+        template_out(self.response, "tmpl/index.html", vals)
 
 # responds to /tag/*
 class TagHandler(webapp.RequestHandler):
@@ -485,7 +490,7 @@ class ArticleHandler(webapp.RequestHandler):
                 article = None
 
         if not article: return do_404(self.response, url)
-        render_article(self.response, article, index_page = False)
+        render_article(self.response, article)
 
 class PermanentDeleteHandler(webapp.RequestHandler):
     def get(self):
@@ -720,6 +725,15 @@ class Month(object):
     def add_article(self, article):
         self.articles.append(article)
 
+def articles_summary_set_tags_display(articles_summary):
+    for a in articles_summary:
+        tags = a["tags"]
+        if tags:
+            tags_urls = ['<a href="/tag/%s">%s</a>' % (tag, tag) for tag in tags]
+            a['tags_display'] = ", ".join(tags_urls)
+        else:
+            a['tags_display'] = False
+        
 # reused by archives and archives-limited-by-tag pages
 def do_archives(response, articles_summary, tag_to_display=None):
     curr_year = None

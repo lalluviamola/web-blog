@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="alternate" type="application/atom+xml" title="RSS 2.0" href="/atom.xml" />
+
+<title>Krzysztof J. Kowalczyk's notebook</title>
+
+<script type="text/javascript" src="{{ jquery_url }}"></script>
+<script type="text/javascript">
+function showLogin() { $('#login_id').removeClass("invisible").addClass("visible"); }
+function hideLogin() {$('#login_id').removeClass("visible").addClass("invisible"); }
+</script>
+
+{% include "inline_css.html" %}
+<style>
+
+table {
+}
+th {
+  padding: 2px 15px 2px 2px;
+}
+td {
+  padding: 2px 15px 2px 2px;
+}
+.date {
+  font-family: Monaco,"Courier New",monospace;
+  font-size: 90%;
+  color: #999999;;
+}
+</style>
+</head>
+
+<body>
+
+<div id="content">
+<h1>Krzysztof J. Kowalczyk's notebook 
+{% if not is_admin %}
+  &nbsp;<a id="login_id" class="invisible" onMouseOver="showLogin();" onMouseOut="hideLogin();" href="{{ login_out_url }}">login</a>
+  {% endif %}
+</h1>
+
+  <div style="position: absolute; right:20px; top:10px">
+  <form style="font-size: 80%;" method="get" action="http://google.com/search">
+  <input type="hidden" name="IncludeBlogs" value="1">
+  <input type="hidden" name="as_sitesearch" value="http://blog.kowalczyk.info">
+
+  <center>
+    <label for="searchFieldId">Search this site:</label> 
+    <input  style="font-size: 80%;" type="text" name="q" id="searchFieldId"/>
+    <input class="button" style="font-size: 80%;" value="Go" type="submit">
+  </center>
+  </form>
+  </div>
+
+<script>
+$("#searchFieldId").val("");
+</script>
+
+<p></p>
+<center>
+<table>
+  <tr>
+    <th>Me</th>
+    <th>On this site</th></tr>
+  <tr>
+    <td><b>kkowalczyk</b> at <b>gmail.com</b></td>
+    <td><a href="/software/sumatrapdf/">SumatraPDF</a> - PDF Reader for Windows</td>
+  </tr>
+  <tr>
+    <td><a href="http://github.com/kjk">github.com/kjk</a></td>
+    <td><a href="/software/fofou/">fofou</a> - forum software for App Engine</td>
+  </tr>
+  <tr>
+    <td><a href="http://flickr.com/photos/kjk">flickr.com/photos/kjk</a></td>
+    <td><a href="/software/noahpro/">Noah Pro</a> - dictionary for Palm OS</td>
+  </tr>
+  <tr>
+    <td><a href="http://del.icio.us/kjk/">del.icio.us/kjk</a></td>
+    <td style="text-align: right;"><a href="/static/me.html">more</a></td>
+  </tr>
+
+  <tr>
+    <td><a href="http://twitter.com/kjk">twitter.com/kjk</a></td>
+  </tr>
+</table>
+</center>
+<p></p>
+<table>
+{% for article in articles_summary %}
+<tr>
+  <td class="date">{{ article.published_on|date:"d M Y" }}</td>
+  <td><a href="{{ article.permalink }}">{{ article.title }}</a>
+  </td>
+</tr>
+{% endfor %}
+<tr><td></td><td style="text-align: right;"><a href="/archives.html">see all</td></tr>
+</table>
+</div>
+<hr>
+{% include "analytics.html" %}
+
+</body>
+</html>
