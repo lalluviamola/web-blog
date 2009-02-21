@@ -112,7 +112,7 @@ function hideLogin() {$('#login_id').removeClass("visible").addClass("invisible"
 </tr>
 </table>
 
-{% if not is_admin %}
+{% if article.is_public %}
 <p>
 <div id="disqus_thread"></div><script type="text/javascript" src="http://disqus.com/forums/krzysztofkowalczyknotebook/embed.js"></script><noscript><a href="http://krzysztofkowalczyknotebook.disqus.com/?url={{ full_permalink|urlencode }}">View the discussion thread.</a></noscript><a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
 </p>
@@ -122,7 +122,7 @@ function hideLogin() {$('#login_id').removeClass("visible").addClass("invisible"
 
 {% include "analytics.html" %}
 
-{% if not is_admin %}
+{% if article.is_public %}
 {% include "disqus-js.html" %}
 {% endif %}
 </body>
