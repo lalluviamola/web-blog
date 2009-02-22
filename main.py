@@ -81,35 +81,7 @@ def to_rfc339(dt): return dt.strftime('%Y-%m-%dT%H:%M:%SZ')
 
 def to_simple_date(dt): return dt.strftime('%Y-%m-%d')
 
-weekdayname = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
-monthname = [None, "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
-
-class UTC(datetime.tzinfo):
-    def utcoffset(self, dt):
-        return datetime.timedelta(0)
-    def dst(self, dt):
-        return datetime.timedelta(0)
-    def tzname(self, dt):
-        return "UTC"
-
-utc = UTC()
-
-def getnow(): return datetime.datetime.utcnow().replace(tzinfo=utc)
-
-
-def httpdate(dt):
-    """
-    Return a string suitable for a "Last-Modified" and "Expires" header.
-
-    :var:`dt` is a :class:`datetime.datetime` object. If ``:var:`dt`.tzinfo`` is
-    :const:`None` :var:`dt` is assumed to be in the local timezone (using the
-    current UTC offset which might be different from the one used by :var:`dt`).
-    """
-    if dt.tzinfo is None:
-        dt += datetime.timedelta(seconds=[time.timezone, time.altzone][time.daylight])
-    else:
-        dt -= dt.tzinfo.utcoffset(dt)
-    return "%s, %02d %3s %4d %02d:%02d:%02d GMT" % (weekdayname[dt.weekday()], dt.day, monthname[dt.month], dt.year, dt.hour, dt.minute, dt.second)
+def httpdate(dt): return dt.strftime('%a, %d %b %Y %H:%M:%S GMT')
 
 def utf8_to_uni(val): return unicode(val, "utf-8")
 
@@ -574,7 +546,7 @@ class JsHandler(webapp.RequestHandler):
             # must over-ride Cache-Control (is 'no-cache' by default)
             self.response.headers['Cache-Control'] = 'public, max-age=31536000'
             self.response.headers['Content-Type'] = 'text/plain'
-            now = getnow()
+            now = datetime.datetime.now()
             expires_date_txt = httpdate(now + datetime.timedelta(days=365))
             self.response.headers.add_header("Expires", expires_date_txt)
             self.response.out.write(json_txt)

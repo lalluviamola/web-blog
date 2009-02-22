@@ -48,18 +48,16 @@ td {
   {% endif %}
 </h1>
 
-  <div style="position: absolute; right:20px; top:10px">
+<div style="position: absolute; right:20px; top:10px">
   <form method="get" action="http://google.com/search">
   <input type="hidden" name="IncludeBlogs" value="1">
   <input type="hidden" name="as_sitesearch" value="http://blog.kowalczyk.info">
 
-  <center>
     <label for="searchFieldId">Search this site:</label> 
-    <input  style="font-size: 80%;" type="text" name="q" id="searchFieldId"/>
+    <input type="text" name="q" id="searchFieldId"/>
     <input class="button" style="font-size: 80%;" value="Go" type="submit">
-  </center>
   </form>
-  </div>
+</div>
 
 <script>
 $("#searchFieldId").val("");
@@ -73,14 +71,14 @@ $("#searchFieldId").val("");
     <th>On this site:</th></tr>
   <tr>
     <td>  <script>
-  	var email = "";
-  	email += "kkowalczyk";
-  	email += "@";
-  	email += "gmail.com"
-  	hyperlink = "<a href='mailto:email'>email</a>";
-  	hyperlink = hyperlink.replace(/email/g, email);
-  	document.write(hyperlink);
-      </script></td>
+      var email = "";
+      email += "kkowalczyk";
+      email += "@";
+      email += "gmail.com"
+      hyperlink = "<a href='mailto:email'>email</a>";
+      hyperlink = hyperlink.replace(/email/g, email);
+      document.write(hyperlink);
+    </script></td>
     <td><a href="/software/sumatrapdf/">SumatraPDF</a> - PDF Reader for Windows</td>
   </tr>
   <tr>
@@ -121,8 +119,10 @@ $("#searchFieldId").val("");
 </table>
 
 <p></p>
+<hr>
 <div id="tagCloud">
 </div>
+<hr>
 
 </div>
 

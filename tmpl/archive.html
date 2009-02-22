@@ -24,12 +24,25 @@ function articlesJsonLoaded(articlesJson) {
 <body>
 
 <div id="content" style="line-height:1.50">
+
 <h1><a href=/index.html>home</a> &#8227; 
   {% if tag %}
   Posts tagged with: {{ tag }} ({{ posts_count }} articles)
   {% else %}
   All {{ posts_count }} articles
-  {% endif %} </h1>
+  {% endif %} 
+</h1>
+
+<div style="position: absolute; right:20px; top:10px">
+  <form method="get" action="http://google.com/search">
+  <input type="hidden" name="IncludeBlogs" value="1">
+  <input type="hidden" name="as_sitesearch" value="http://blog.kowalczyk.info">
+
+    <label for="searchFieldId">Search this site:</label> 
+    <input type="text" name="q" id="searchFieldId"/>
+    <input class="button" style="font-size: 80%;" value="Go" type="submit">
+  </form>
+</div>
 
 <table id=arc>
   {% for year in years %}
@@ -56,6 +69,7 @@ function articlesJsonLoaded(articlesJson) {
 </table>
 
 <p></p>
+<hr>
 <div id="tagCloud">
 </div>
 
