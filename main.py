@@ -30,6 +30,8 @@ SERVER = "blog.kowalczyk.info"
 
 # memcache key for caching atom.xml
 ATOM_MEMCACHE_KEY = "at"
+JSON_ADMIN_MEMCACHE_KEY = "jsa"
+JSON_NON_ADMIN_MEMCACHE_KEY = "jsna"
 
 # e.g. "http://localhost:8081" or "http://blog.kowalczyk.info"
 g_root_url = None
@@ -77,6 +79,8 @@ class Article(db.Model):
 
 def to_rfc339(dt): return dt.strftime('%Y-%m-%dT%H:%M:%SZ')
 
+def to_simple_date(dt): return dt.strftime('%Y-%m-%d')
+
 def utf8_to_uni(val): return unicode(val, "utf-8")
 
 def encode_code(text):
@@ -94,6 +98,8 @@ def articles_info_memcache_key():
 def clear_memcache():
     memcache.delete(articles_info_memcache_key())
     memcache.delete(ATOM_MEMCACHE_KEY)
+    memcache.delete(JSON_ADMIN_MEMCACHE_KEY)
+    memcache.delete(JSON_NON_ADMIN_MEMCACHE_KEY)
 
 def build_articles_summary():
     ATTRS_TO_COPY = ["title", "permalink", "published_on", "format", "tags", "is_public", "is_deleted"]
@@ -112,6 +118,36 @@ def build_articles_summary():
         query = Article.gql('WHERE __key__ > :1 ORDER BY __key__', got[199].key())
     articles.sort(lambda x, y: cmp(y["published_on"], x["published_on"]))
     return articles
+
+def build_articles_json(for_admin):
+    import simplejson as json
+    ATTRS_TO_COPY = ["title", "permalink", "published_on", "tags", "is_public", "is_deleted"]
+    query = Article.gql('ORDER BY __key__')
+    articles = []
+    while True:
+        got = query.fetch(201)
+        logging.info("got %d articles" % len(got))
+        for article in got[:200]:
+            if article.is_deleted or not article.is_public and not for_admin:
+                continue
+            a = []
+            a.append(getattr(article, "published_on"))
+            a.append(getattr(article, "permalink"))
+            a.append(getattr(article, "title"))
+            a.append(getattr(article, "tags"))
+            a.append(getattr(article, "is_public"))
+            a.append(getattr(article, "is_deleted"))
+            articles.append(a)
+        if len(got) <= 200:
+            break
+        query = Article.gql('WHERE __key__ > :1 ORDER BY __key__', got[199].key())
+    articles.sort(lambda x, y: cmp(y[0], x[0]))
+    for a in articles:
+        a[0] = to_simple_date(a[0])
+    #json_txt = json.dumps(articles, indent=4) # pretty-printed version
+    #json_txt = json.dumps(articles) # regular version
+    json_txt = json.dumps(articles, separators=(',',':')) # compact version
+    return "var __articles_json = %s; articlesJsonLoaded(__articles_json);" % json_txt
 
 def pickle_data(data):
     fo = StringIO.StringIO()
@@ -171,16 +207,16 @@ def new_or_dup_text_content(body, format):
 (ARTICLE_SUMMARY_PUBLIC_OR_ADMIN, ARTICLE_PRIVATE, ARTICLE_DELETED) = range(3)
 
 def get_articles_summary(articles_type = ARTICLE_SUMMARY_PUBLIC_OR_ADMIN):
-    articles_pickled = memcache.get(articles_info_memcache_key())
-    if NO_MEMCACHE: articles_pickled = None
-    if articles_pickled:
-        articles_summary = unpickle_data(articles_pickled)
+    pickled = memcache.get(articles_info_memcache_key())
+    if NO_MEMCACHE: pickled = None
+    if pickled:
+        articles_summary = unpickle_data(pickled)
         #logging.info("len(articles_summary) = %d" % len(articles_summary))
     else:
         articles_summary = build_articles_summary()
-        articles_pickled = pickle_data(articles_summary)
-        logging.info("len(articles_pickled) = %d" % len(articles_pickled))
-        memcache.set(articles_info_memcache_key(), articles_pickled)
+        pickled = pickle_data(articles_summary)
+        logging.info("len(articles_pickled) = %d" % len(pickled))
+        memcache.set(articles_info_memcache_key(), pickled)
     if articles_type == ARTICLE_SUMMARY_PUBLIC_OR_ADMIN:
         if users.is_current_user_admin():
             articles_summary = filter_deleted_articles(articles_summary)
@@ -192,21 +228,37 @@ def get_articles_summary(articles_type = ARTICLE_SUMMARY_PUBLIC_OR_ADMIN):
         articles_summary = filter_nondeleted_articles(articles_summary)
     return articles_summary
 
+def get_articles_json():
+    memcache_key = JSON_NON_ADMIN_MEMCACHE_KEY
+    if users.is_current_user_admin():
+        memcache_key = JSON_ADMIN_MEMCACHE_KEY
+    articles_json = memcache.get(memcache_key)
+    if NO_MEMCACHE: articles_json = None
+    if not articles_json:
+        #logging.info("re-generating articles_json")
+        for_admin = users.is_current_user_admin()
+        articles_json = build_articles_json(for_admin)
+        memcache.set(memcache_key, articles_json)
+    else:
+        #logging.info("articles_json in cache")
+        pass
+    return articles_json
+
 def show_analytics(): return not is_localhost()
 
 def jquery_url():
     url = "http://ajax.googleapis.com/ajax/libs/jquery/1.3.1/jquery.min.js"
-    if is_localhost(): url = "/js/jquery-1.3.1.js"
+    if is_localhost(): url = "/static/js/jquery-1.3.1.js"
     return url
 
 def prettify_js_url():
     url = "http://google-code-prettify.googlecode.com/svn-history/r61/trunk/src/prettify.js"
-    if is_localhost(): url = "/js/prettify.js"
+    if is_localhost(): url = "/static/js/prettify.js"
     return url
 
 def prettify_css_url():
     url = "http://google-code-prettify.googlecode.com/svn-history/r61/trunk/src/prettify.css"
-    if is_localhost(): url = "/js/prettify.css"
+    if is_localhost(): url = "/static/js/prettify.css"
     return url
 
 def is_empty_string(s):
@@ -420,13 +472,14 @@ class NotFoundHandler(webapp.RequestHandler):
     def get(self, url):
         do_404(self.response, url)
 
-def get_login_logut_url():
+def get_login_logut_url(url):
     if users.is_current_user_admin():
-        return users.create_logout_url("/")
+        return users.create_logout_url(url)
     else:
-        return users.create_login_url("/")
+        return users.create_login_url(url)
 
 def render_article(response, article):
+    full_permalink = g_root_url + "/" + article.permalink
     article_gen_html_body(article)
     (next, prev, article_no, articles_count) = find_next_prev_article(article)
     tags_urls = ['<a href="/tag/%s">%s</a>' % (tag, tag) for tag in article.tags]
@@ -435,7 +488,7 @@ def render_article(response, article):
         'prettify_js_url' : prettify_js_url(),
         'prettify_css_url' : prettify_css_url(),
         'is_admin' : users.is_current_user_admin(),
-        'login_out_url' : get_login_logut_url(),
+        'login_out_url' : get_login_logut_url(full_permalink),
         'article' : article,
         'next_article' : next,
         'prev_article' : prev,
@@ -443,7 +496,7 @@ def render_article(response, article):
         'tags_display' : ", ".join(tags_urls),
         'article_no' : article_no + 1,
         'articles_count' : articles_count,
-        'full_permalink' : g_root_url + "/" + article.permalink,
+        'full_permalink' : full_permalink,
     }
     template_out(response, "tmpl/article.html", vals)
 
@@ -459,14 +512,14 @@ class IndexHandler(webapp.RequestHandler):
         vals = {
             'jquery_url' : jquery_url(),
             'is_admin' : users.is_current_user_admin(),
-            'login_out_url' : get_login_logut_url(),
+            'login_out_url' : get_login_logut_url("/"),
             'articles_summary' : articles_summary,
             'articles_count' : articles_count,
             'show_analytics' : show_analytics(),
         }
         template_out(self.response, "tmpl/index.html", vals)
 
-# responds to /tag/*
+# responds to /tag/${tag}
 class TagHandler(webapp.RequestHandler):
     def get(self, tag):
         tag = urllib.unquote(tag)
@@ -474,6 +527,15 @@ class TagHandler(webapp.RequestHandler):
         articles_summary = get_articles_summary()
         articles_summary = filter_by_tag(articles_summary, tag)
         do_archives(self.response, articles_summary, tag)
+
+# responds to /js/${url}
+class JsHandler(webapp.RequestHandler):
+    def get(self, url):
+        #logging.info("JsHandler, asking for '%s'" % url)
+        if url == "articles.js":
+            json_txt = get_articles_json()
+            self.response.headers['Content-Type'] = 'text/plain'
+            self.response.out.write(json_txt)
 
 # responds to /article/* and /kb/* and /blog/* (/kb and /blog for redirects
 # for links from old website)
@@ -769,9 +831,8 @@ def do_archives(response, articles_summary, tag_to_display=None):
         posts_count += 1
 
     vals = {
+        'jquery_url' : jquery_url(),
         'years' : years,
-        'is_admin' : users.is_current_user_admin(),
-        'login_out_url' : get_login_logut_url(),
         'tag' : tag_to_display,
         'posts_count' : posts_count,
     }
@@ -799,6 +860,14 @@ class SitemapHandler(webapp.RequestHandler):
             'root_url' : self.request.host_url,
         }
         template_out(self.response, "tmpl/sitemap.xml", vals)
+
+# responds to /app/articlesjson and /js/
+class ArticlesJsonHandler(webapp.RequestHandler):
+    def get(self):
+        articles_json = get_articles_json()
+        #logging.info("len(articles_json)=%d" % len(articles_json))
+        vals = { 'json' : articles_json }
+        template_out(self.response, "tmpl/articlesjson.html", vals)
 
 # responds to /app/showdeleted
 class ShowDeletedHandler(webapp.RequestHandler):
@@ -924,6 +993,7 @@ def main():
         ('/kb/(.*)', ArticleHandler),
         ('/blog/(.*)', ArticleHandler),
         ('/tag/(.*)', TagHandler),
+        ('/js/(.*)', JsHandler),
         ('/atom.xml', AtomHandler),
         ('/sitemap.xml', SitemapHandler),
         ('/software/sumatra', SumatraRedirectHandler),
@@ -938,6 +1008,7 @@ def main():
         ('/app/permanentdelete', PermanentDeleteHandler),
         ('/app/showprivate', ShowPrivateHandler),
         ('/app/showdeleted', ShowDeletedHandler),
+        #('/app/articlesjson', ArticlesJsonHandler), # for testing
         ('/app/preview', PreviewHandler),
         ('/app/cleanhtml', CleanHtmlHandler),
         ('/app/clearmemcache', ClearMemcacheHandler),

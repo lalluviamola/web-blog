@@ -2,18 +2,34 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>All articles </title>
+<link rel="alternate" type="application/atom+xml" title="RSS 2.0" href="/atom.xml" />
+
+<title>All articles</title>
+
+<script type="text/javascript" src="{{ jquery_url }}"></script>
+
+{% include "tagcloud.js" %}
+
+<script type="text/javascript">
+function articlesJsonLoaded(articlesJson) {
+  articles_json = articlesJson;
+  var html = genTagCloudHtml();
+  $('#tagCloud').html(html);
+}
+</script>
+
 {% include "inline_css.html" %}
+
 </head>
 <body>
 
 <div id="content" style="line-height:1.50">
 <h1><a href=/index.html>home</a> &#8227; 
   {% if tag %}
-  Posts tagged with: {{ tag }}
+  Posts tagged with: {{ tag }} ({{ posts_count }} articles)
   {% else %}
-  Archives
-  {% endif %} ({{ posts_count }} articles)</h1>
+  All {{ posts_count }} articles
+  {% endif %} </h1>
 
 <table id=arc>
   {% for year in years %}
@@ -38,11 +54,18 @@
   {% endfor %}
 
 </table>
+
+<p></p>
+<div id="tagCloud">
+  Here goes the tag cloud.
+</div>
+
 <hr>
 <center><a href=/index.html>Krzysztof Kowalczyk</a></center>
 </div>
 
 {% include "analytics.html" %}
+<script charset="utf-8" type="text/javascript" src="/js/articles.js"></script>
 
 </body>
 </html>

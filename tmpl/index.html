@@ -7,9 +7,15 @@
 <title>Krzysztof J. Kowalczyk's notebook</title>
 
 <script type="text/javascript" src="{{ jquery_url }}"></script>
+
+{% include "tagcloud.js" %}
+
 <script type="text/javascript">
-function showLogin() { $('#login_id').removeClass("invisible").addClass("visible"); }
-function hideLogin() {$('#login_id').removeClass("visible").addClass("invisible"); }
+function articlesJsonLoaded(articlesJson) {
+  articles_json = articlesJson;
+  var html = genTagCloudHtml();
+  $('#tagCloud').html(html);
+}
 </script>
 
 {% include "inline_css.html" %}
@@ -43,7 +49,7 @@ td {
 </h1>
 
   <div style="position: absolute; right:20px; top:10px">
-  <form style="font-size: 80%;" method="get" action="http://google.com/search">
+  <form method="get" action="http://google.com/search">
   <input type="hidden" name="IncludeBlogs" value="1">
   <input type="hidden" name="as_sitesearch" value="http://blog.kowalczyk.info">
 
@@ -113,9 +119,16 @@ $("#searchFieldId").val("");
 {% endfor %}
 <tr><td></td><td style="text-align: right;"><a href="/archives.html">see all {{ articles_count }}</td></tr>
 </table>
+
+<p></p>
+<div id="tagCloud">
+  Here goes the tag cloud.
 </div>
+
+</div>
+
 <hr>
 {% include "analytics.html" %}
-
+<script charset="utf-8" type="text/javascript" src="/js/articles.js"></script>
 </body>
 </html>

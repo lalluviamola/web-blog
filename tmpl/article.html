@@ -8,15 +8,21 @@
 
 <script type="text/javascript" src="{{ jquery_url }}"></script>
 
+{% include "tagcloud.js" %}
+
 <script type="text/javascript">
-function showLogin() { $('#login_id').removeClass("invisible").addClass("visible"); }
-function hideLogin() {$('#login_id').removeClass("visible").addClass("invisible"); }
+function articlesJsonLoaded(articlesJson) {
+  articles_json = articlesJson;
+  var html = genTagCloudHtml();
+  $('#tagCloud').val(html);
+}
 </script>
 
 <link  href="{{ prettify_css_url }}" type="text/css" rel="stylesheet" />
 <script src="{{ prettify_js_url }}" type="text/javascript"></script>
 
 {% include "inline_css.html" %}
+
 </head>
 
 <body onload="prettyPrint()">
@@ -90,9 +96,11 @@ function hideLogin() {$('#login_id').removeClass("visible").addClass("invisible"
 </div>
 
 {% include "analytics.html" %}
-
 {% if article.is_public %}
 {% include "disqus-js.html" %}
 {% endif %}
+
+<script charset="utf-8" type="text/javascript" src="/js/articles.js"></script>
+
 </body>
 </html>

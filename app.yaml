@@ -22,14 +22,14 @@ handlers:
 - url: /css
   static_dir: www/css
 
-- url: /gfx
+- url: /static/gfx
   static_dir: www/gfx
   expiration: "365d"
 
-- url: /img
+- url: /static/img
   static_dir: www/img
 
-- url: /js
+- url: /static/js
   static_dir: www/js
 
 - url: /static
