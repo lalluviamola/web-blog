@@ -1,5 +1,4 @@
 Todo next:
-* after clean html, switch type to markdown
 * archives.html should use articles_json, instead of us using another memcache data
 * a quick access to tags from everywhere (drop-down box)
 * better 404 handling (all should redirect to 404.html?${orig_url})
