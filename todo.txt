@@ -4,12 +4,14 @@ Todo next:
 * a quick access to tags from everywhere (drop-down box)
 * better 404 handling (all should redirect to 404.html?${orig_url})
 * on index.html, add tag cloud at the bottom
-* add links to my articles and other stuff that is currently unlined
-* update /static/me.html to match the style of the rest of the site
-* when showing posts tagged, also tell how many total there are 
-  ("11 articles out of 256")
 
 Maybe todo someday:
+* rename me.html to more.html and all the places that link to it
+* move 22-markeging-laws.html to be a blog post
+* move engineerign-school.html to be a blog post
+* move learned-gold-rush.html to be a blog post
+* move software-engineering.html to be a blog post
+* delete sourceOfBugs.html and make that blog post public
 * automatically tweet my posts
 * better 404 page (show possible destinations, add manual redirects based on
   data from dashboard)
@@ -19,3 +21,4 @@ Maybe todo someday:
 * design where clicking on a tag shows overlayed window with articles with this
   tag (to make browsing more efficient)
 * ability to tweet from my blog
+* somehow integrate my del.icio.us tags into index page

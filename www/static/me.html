@@ -5,49 +5,126 @@
 <link rel="alternate" type="application/atom+xml" title="RSS 2.0" href="/atom.xml" />
 <title>About Krzysztof Kowalczyk</title>
 <style type=text/css>
-body{margin:0}
-h1,h2,h3{font-size:medium}
-h1 a{color:inherit !important;}
-img{border:0}
-div#head{margin:0;width:100%;font-family:"Lucida Grande",Lucida,Verdana,sans-serif;font-size:small;background:#7f7f7f;color: #fff;padding-top:6px;padding-bottom:6px;font-weight:bold}
-div#head div#inner{margin:0 auto;width:600px;}
-div#head a {color: #fff;text-decoration: none;}
-div#head span.right {float:right;color:#b9b9b9;}
-div#content{font:normal medium 'Goudy Bookletter 1911','Gentium Basic','Liberation Serif','Hoefler Text','Goudy Old Style',Cambria,Georgia,serif;margin:1.75em auto;width:600px;line-height:1.25;word-spacing:0.1em}
-#arc th{padding:0 1.75em 0 0;vertical-align:baseline;text-align:right}
-#arc{border-collapse:collapse;width:100%}
-.year th{background:papayawhip;color:black}
+body {
+  margin:0
+}
+
+h1,h2,h3 {
+  font-size:medium
+}
+
+h1 {
+  margin-bottom: 2px;
+  padding: 0;
+}
+
+.postmeta {
+  border-top: 1px solid #D0D0D0;
+  clear: both;
+  color: #999999;
+  font-size: 7pt;
+  margin-top: 0;
+  padding-top: 1px;
+}
+
+img {
+  border:0
+}
+
+div#head {
+  margin: 0;
+  width: 100%;
+  font-family: "lucida grande",geneva,helvetica,arial,sans-serif;
+  font-size: small;
+  background: #7f7f7f;
+  color: #fff;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  font-weight: bold
+}
+
+div#head div#inner {
+  margin: 0 auto;
+  width: 600px;
+}
+
+div#head a {color: #fff;}
+div#head span.right {
+  float: right; 
+  color: #b9b9b9;
+  }
+
+.invisible { color: #fff }
+.visible { color: #000 }
+
+div#content {
+  font-family: "lucida grande",geneva,helvetica,arial,sans-serif;
+  font-size: 12px;
+  font-size-adjust: none;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: normal;
+  margin: 1.75em auto;
+  width: 600px;
+}
+
+#arc th {
+  padding:0 1.75em 0 0;
+  vertical-align:baseline;
+  text-align:right
+}
+
+#arc {
+  border-collapse:collapse;
+  width:100%
+}
+
+.year th {
+  background: #dfdfdf;
+  color: black;
+}
+.light {
+  color: #5a5a5a;
+}
 </style>
+
 </head>
 <body>
 
 <div id="content">
-<h1><a href=/index.html>home</a> &#8227; About me</h1>
+<h1><a href=/index.html>home</a> &#8227; All the things on this site</h1>
 
-<p>To e-mail me: <strong>kkowalczyk</strong> at <strong>gmail.com</strong>.</p>
+<h2>Software</h2>
 
-<p>
-Software I wrote include: 
-<a href=/software/sumatrapdf/>Sumatra PDF</a>,
-<a href=/software/fofou/>Fofou</a>,
-<a href="/software/noahpro/">Noah Pro</a>,
-<a href=/software/scdiff/>scdiff</a>,
-<a href=/software/wtail/>wTail</a>.
-</p>
+<ul>
+<li><a href=/software/sumatrapdf/>Sumatra PDF</a>
+  <span class="light">- a PDF viewer for Windows</span></li>
+<li><a href=/software/fofou/>Fofou</a>
+  <span class="light">- forum software for Google App Engine</span></li>
+<li><a href="/software/noahpro/">Noah Pro</a>
+  <span class="light">- an English dictionary for Palm OS</span></li>
+<li><a href=/software/scdiff/>scdiff</a>
+  <span class="light">- subversion checkin preview, for Windows</span></li>
+<li><a href=/software/wtail/>wTail</a>
+  <span class="light"></span></li>
+</ul>
 
-<p>
-<a href="http://extremeoptimizationinc.org/">Extreme (size) optimization in C and C++</a> is a book very much in progress that I'm writing.
-</p>
-<p><a href=/articles/pyref.html>Python quick reference</a> (work in progress)</p>
+<h2>Documents</h2>
 
-Services I use: 
-<a href="http://github.com/kjk">github</a>,
-<a href="http://flickr.com/photos/kjk">flickr</a>,
-<a href="http://del.icio.us/kjk/">del.icio.us</a>,
-<a href="http://twitter.com/kjk">twitter</a>.
-<a href="http://friendfeed.com/kjk">FriendFeed</a>,
-</p>
+<ul>
+  <li>
+    <a href="http://extremeoptimizationinc.org/">Extreme (size) optimization in C and C++</a>
+    <span class="light">- a book very much in progress that I'm writing.</span>
+  </li>
+  <li><a href=/articles/pyref.html>Python quick reference</a>
+    <span class="light">(work in progress)</span></li>
+  <li><a href=/articles/aomg/index.html>Art Of Money Getting</a>
+    <span class="light">- a book really, by P.T Barnum</span></li>
+  <li><a href=/articles/index.html>the rest...</a></li>
+</ul>
 
+<!-->
 <h1>About me - extended edition</h1>
 
 <p>We are what we make.</p>
@@ -73,7 +150,7 @@ I also contribute to open-source projects. My patches found their way into:
 <li><a href="http://cgit.freedesktop.org/poppler/poppler/log/?qt=author&q=kowalczyk">poppler</a> (received commit access)</li>
 <li><a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/wishlist/large-files.html">putty</a></li>
 </ul>
-
+-->
 <p></p>
 <hr>
 <center><a href=/index.html>Krzysztof Kowalczyk</a></center>

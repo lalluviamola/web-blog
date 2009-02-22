@@ -64,7 +64,15 @@ $("#searchFieldId").val("");
     <th>Me</th>
     <th>On this site</th></tr>
   <tr>
-    <td><b>kkowalczyk</b> at <b>gmail.com</b></td>
+    <td>  <script>
+  	var email = "";
+  	email += "kkowalczyk";
+  	email += "@";
+  	email += "gmail.com"
+  	hyperlink = "<a href='mailto:email'>email</a>";
+  	hyperlink = hyperlink.replace(/email/g, email);
+  	document.write(hyperlink);
+      </script></td>
     <td><a href="/software/sumatrapdf/">SumatraPDF</a> - PDF Reader for Windows</td>
   </tr>
   <tr>
