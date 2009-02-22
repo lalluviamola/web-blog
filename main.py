@@ -452,13 +452,16 @@ class IndexHandler(webapp.RequestHandler):
     def get(self):
         is_admin = users.is_current_user_admin()
         articles_summary = get_articles_summary()
-        articles_summary = [a for a in articles_summary][:5]
+        articles_summary = [a for a in articles_summary]
+        articles_count = len(articles_summary)
+        articles_summary = articles_summary[:5]
         articles_summary_set_tags_display(articles_summary)
         vals = {
             'jquery_url' : jquery_url(),
             'is_admin' : users.is_current_user_admin(),
             'login_out_url' : get_login_logut_url(),
             'articles_summary' : articles_summary,
+            'articles_count' : articles_count,
             'show_analytics' : show_analytics(),
         }
         template_out(self.response, "tmpl/index.html", vals)

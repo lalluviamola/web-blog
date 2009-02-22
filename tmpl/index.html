@@ -61,8 +61,8 @@ $("#searchFieldId").val("");
 <center>
 <table>
   <tr>
-    <th>Me</th>
-    <th>On this site</th></tr>
+    <th>Me:</th>
+    <th>On this site:</th></tr>
   <tr>
     <td>  <script>
   	var email = "";
@@ -94,15 +94,22 @@ $("#searchFieldId").val("");
 </table>
 </center>
 <p></p>
+
 <table>
+  <tr>
+    <th colspan=2>Recent posts:</th>
+  </tr>
 {% for article in articles_summary %}
 <tr>
   <td class="date">{{ article.published_on|date:"d M Y" }}</td>
   <td><a href="{{ article.permalink }}">{{ article.title }}</a>
+    {% if not article.is_public %}
+    <font color=red>private</font>
+    {% endif %}
   </td>
 </tr>
 {% endfor %}
-<tr><td></td><td style="text-align: right;"><a href="/archives.html">see all</td></tr>
+<tr><td></td><td style="text-align: right;"><a href="/archives.html">see all {{ articles_count }}</td></tr>
 </table>
 </div>
 <hr>

@@ -4,6 +4,7 @@ Todo next:
 * a quick access to tags from everywhere (drop-down box)
 * better 404 handling (all should redirect to 404.html?${orig_url})
 * on index.html, add tag cloud at the bottom
+* implement micro-blogging aggregator like http://dotat.at/:/
 
 Maybe todo someday:
 * rename me.html to more.html and all the places that link to it

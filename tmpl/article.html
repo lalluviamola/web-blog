@@ -70,7 +70,7 @@ function hideLogin() {$('#login_id').removeClass("visible").addClass("invisible"
     ← newer
     {% endif %}
     &bull;
-    <a href="/archives.html">{{ article_no }} / {{ articles_count }}</a>
+    {{ article_no }} of <a href="/archives.html">{{ articles_count }}</a>
     &bull;
     {% if prev_article %}
     <a title="{{ prev_article.title }}" href="/{{ prev_article.permalink}}">older →</a>
