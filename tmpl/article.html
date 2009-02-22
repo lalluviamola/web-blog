@@ -49,8 +49,17 @@ function articlesJsonLoaded(articlesJson) {
   {% else %}
   &nbsp;<a id="login_id" class="invisible" onMouseOver="showLogin();" onMouseOut="hideLogin();" href="{{ login_out_url }}">login</a>
   {% endif %}
-  </h1>
 </h1>
+
+<div style="position: absolute; right:20px; top:10px; font-size: 80%">
+  <form method="get" action="http://google.com/search" >
+  <input type="hidden" name="IncludeBlogs" value="1">
+  <input type="hidden" name="as_sitesearch" value="http://blog.kowalczyk.info">
+  <label for="searchFieldId">Search:</label> 
+  <input size=12 type="text" name="q" id="searchFieldId" />
+  <input class="button" value="Go" type="submit">
+  </form>
+</div>
 
 <p>
   <table class="postmeta" width=100%>
