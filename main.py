@@ -81,6 +81,36 @@ def to_rfc339(dt): return dt.strftime('%Y-%m-%dT%H:%M:%SZ')
 
 def to_simple_date(dt): return dt.strftime('%Y-%m-%d')
 
+weekdayname = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+monthname = [None, "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+
+class UTC(datetime.tzinfo):
+    def utcoffset(self, dt):
+        return datetime.timedelta(0)
+    def dst(self, dt):
+        return datetime.timedelta(0)
+    def tzname(self, dt):
+        return "UTC"
+
+utc = UTC()
+
+def getnow(): return datetime.datetime.utcnow().replace(tzinfo=utc)
+
+
+def httpdate(dt):
+    """
+    Return a string suitable for a "Last-Modified" and "Expires" header.
+
+    :var:`dt` is a :class:`datetime.datetime` object. If ``:var:`dt`.tzinfo`` is
+    :const:`None` :var:`dt` is assumed to be in the local timezone (using the
+    current UTC offset which might be different from the one used by :var:`dt`).
+    """
+    if dt.tzinfo is None:
+        dt += datetime.timedelta(seconds=[time.timezone, time.altzone][time.daylight])
+    else:
+        dt -= dt.tzinfo.utcoffset(dt)
+    return "%s, %02d %3s %4d %02d:%02d:%02d GMT" % (weekdayname[dt.weekday()], dt.day, monthname[dt.month], dt.year, dt.hour, dt.minute, dt.second)
+
 def utf8_to_uni(val): return unicode(val, "utf-8")
 
 def encode_code(text):
@@ -242,7 +272,12 @@ def get_articles_json():
     else:
         #logging.info("articles_json in cache")
         pass
-    return articles_json
+    sha1 = sha.new(articles_json).hexdigest()
+    return (articles_json, sha1)
+
+def get_article_json_url():
+    (json, sha1) = get_articles_json()
+    return "/js/articles.js?%s" % sha1
 
 def show_analytics(): return not is_localhost()
 
@@ -485,6 +520,7 @@ def render_article(response, article):
     tags_urls = ['<a href="/tag/%s">%s</a>' % (tag, tag) for tag in article.tags]
     vals = {
         'jquery_url' : jquery_url(),
+        'articles_js_url' : get_article_json_url(),
         'prettify_js_url' : prettify_js_url(),
         'prettify_css_url' : prettify_css_url(),
         'is_admin' : users.is_current_user_admin(),
@@ -511,6 +547,7 @@ class IndexHandler(webapp.RequestHandler):
         articles_summary_set_tags_display(articles_summary)
         vals = {
             'jquery_url' : jquery_url(),
+            'articles_js_url' : get_article_json_url(),
             'is_admin' : users.is_current_user_admin(),
             'login_out_url' : get_login_logut_url("/"),
             'articles_summary' : articles_summary,
@@ -531,10 +568,15 @@ class TagHandler(webapp.RequestHandler):
 # responds to /js/${url}
 class JsHandler(webapp.RequestHandler):
     def get(self, url):
-        #logging.info("JsHandler, asking for '%s'" % url)
+        logging.info("JsHandler, asking for '%s'" % url)
         if url == "articles.js":
-            json_txt = get_articles_json()
+            (json_txt, sha1) = get_articles_json()
+            # must over-ride Cache-Control (is 'no-cache' by default)
+            self.response.headers['Cache-Control'] = 'public, max-age=31536000'
             self.response.headers['Content-Type'] = 'text/plain'
+            now = getnow()
+            expires_date_txt = httpdate(now + datetime.timedelta(days=365))
+            self.response.headers.add_header("Expires", expires_date_txt)
             self.response.out.write(json_txt)
 
 # responds to /article/* and /kb/* and /blog/* (/kb and /blog for redirects
@@ -800,7 +842,7 @@ def articles_summary_set_tags_display(articles_summary):
             a['tags_display'] = ", ".join(tags_urls)
         else:
             a['tags_display'] = False
-        
+
 # reused by archives and archives-limited-by-tag pages
 def do_archives(response, articles_summary, tag_to_display=None):
     curr_year = None
@@ -832,11 +874,13 @@ def do_archives(response, articles_summary, tag_to_display=None):
 
     vals = {
         'jquery_url' : jquery_url(),
+        'articles_js_url' : get_article_json_url(),
         'years' : years,
         'tag' : tag_to_display,
         'posts_count' : posts_count,
     }
     template_out(response, "tmpl/archive.html", vals)
+
 
 # responds to /archives.html
 class ArchivesHandler(webapp.RequestHandler):
@@ -864,9 +908,9 @@ class SitemapHandler(webapp.RequestHandler):
 # responds to /app/articlesjson and /js/
 class ArticlesJsonHandler(webapp.RequestHandler):
     def get(self):
-        articles_json = get_articles_json()
+        (articles_json, sha1) = get_articles_json()
         #logging.info("len(articles_json)=%d" % len(articles_json))
-        vals = { 'json' : articles_json }
+        vals = { 'json' : articles_json, "articles_js_url" : sha1 }
         template_out(self.response, "tmpl/articlesjson.html", vals)
 
 # responds to /app/showdeleted
