@@ -30,9 +30,19 @@ function hideLogin() {$('#login_id').removeClass("visible").addClass("invisible"
     &nbsp;<font color="red">private</font>
   {% endif %}
 
-  {% if not is_admin %}
-    &nbsp;<a id="login_id" class="invisible" onMouseOver="showLogin();" onMouseOut="hideLogin();" href="{{ login_out_url }}">login</a>
-    {% endif %}
+  {% if is_admin %}
+  &nbsp;<a id="login_id" href="{{ login_out_url }}">Log out</a>
+  &nbsp;<a href="/app/edit?article_id={{ article.key.id }}">Edit</a>
+  &nbsp;<a href="/app/edit">New</a>
+  {% if article.is_deleted %}
+    &nbsp;<a href="/app/undelete?article_id={{ article.key.id }}">Undelete</a>
+    &nbsp;<a href="/app/permanentdelete?article_id={{ article.key.id }}">Permanent delete</a>
+  {% else %}
+    &nbsp;<a href="/app/delete?article_id={{ article.key.id }}">Delete</a>
+  {% endif %}
+  {% else %}
+  &nbsp;<a id="login_id" class="invisible" onMouseOver="showLogin();" onMouseOut="hideLogin();" href="{{ login_out_url }}">login</a>
+  {% endif %}
   </h1>
 </h1>
 
@@ -46,20 +56,9 @@ function hideLogin() {$('#login_id').removeClass("visible").addClass("invisible"
 
   {% if is_admin %}
   <span style="color:#ee3e3e;">
-  &nbsp;&nbsp;Ops:
-  <a class="visible" href="/app/edit">new post</a>
-  <a href="/app/edit?article_id={{ article.key.id }}">edit</a>
-  {% if article.is_deleted %}
-    <a href="/app/undelete?article_id={{ article.key.id }}">undelete</a>
-    <a href="/app/permanentdelete?article_id={{ article.key.id }}">permanent delete</a>
-  {% else %}
-    <a href="/app/delete?article_id={{ article.key.id }}">delete</a>
-  {% endif %}
-  &bull;
+  &nbsp;&nbsp;Show:
   <a class="visible" href="/app/showprivate">private posts</a>
   <a class="visible" href="/app/showdeleted">deleted posts</a>
-  &bull;
-  <a class="visible" href="{{ login_out_url }}">log out</a>
   {% endif %}
   </span>
 
