@@ -1,15 +1,14 @@
 Todo next:
 * archives.html should use articles_json, instead of us using another memcache data
-* a quick access to tags from everywhere (drop-down box)
 * better 404 handling (all should redirect to 404.html?${orig_url})
 * implement micro-blogging aggregator like http://dotat.at/:/
-* steal http://www.codylindley.com/Archive/ design
 * use http://jquery.com/demo/thickbox/ for even less intrusive admin interface
 * use http://jquery.com/demo/thickbox/ for pop-up tags page
 * preview in a separate tab, instead of taking half of the screen space
   (or maybe in a pop-up, using thickbox)
 
 Maybe todo someday:
+* steal http://www.codylindley.com/Archive/ design
 * rename me.html to more.html and all the places that link to it
 * move 22-markeging-laws.html to be a blog post
 * move engineerign-school.html to be a blog post
