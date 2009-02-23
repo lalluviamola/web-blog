@@ -26,3 +26,4 @@ Maybe todo someday:
 * ability to tweet from my blog
 * somehow integrate my del.icio.us tags into index page
 * month links at the bottom like in http://blog.quinthar.com
+

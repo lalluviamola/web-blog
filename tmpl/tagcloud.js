@@ -43,7 +43,7 @@ function genTagCloudHtml() {
   for (i = 0; i < all_tags_arr.length; i++) {
     tag = all_tags_arr[i];
     tag_count = all_tags[tag];
-    txt = '<a href="/tag/' + tag + '">' + tag + '</a> <span class="light">(' + tag_count + ')</span> ';
+    txt = '<a href="/tag/' + encodeURIComponent(tag) + '">' + tag + '</a> <span class="light">(' + tag_count + ')</span> ';
     lines.push(txt);
   }
   txt = lines.join("");

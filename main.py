@@ -485,11 +485,14 @@ def get_login_logut_url(url):
     else:
         return users.create_login_url(url)
 
+def url_for_tag(tag):
+    return '<a href="/tag/%s">%s</a>' % (urllib.quote(tag), tag)
+
 def render_article(response, article):
     full_permalink = g_root_url + "/" + article.permalink
     article_gen_html_body(article)
     (next, prev, article_no, articles_count) = find_next_prev_article(article)
-    tags_urls = ['<a href="/tag/%s">%s</a>' % (tag, tag) for tag in article.tags]
+    tags_urls = [url_for_tag(tag) for tag in article.tags]
     vals = {
         'jquery_url' : jquery_url(),
         'articles_js_url' : get_article_json_url(),
@@ -810,7 +813,7 @@ def articles_summary_set_tags_display(articles_summary):
     for a in articles_summary:
         tags = a["tags"]
         if tags:
-            tags_urls = ['<a href="/tag/%s">%s</a>' % (tag, tag) for tag in tags]
+            tags_urls = [url_for_tag(tag) for tag in tags]
             a['tags_display'] = ", ".join(tags_urls)
         else:
             a['tags_display'] = False
@@ -828,7 +831,7 @@ def do_archives(response, articles_summary, tag_to_display=None):
         a["day"] = date.day
         tags = a["tags"]
         if tags:
-            tags_urls = ['<a href="/tag/%s">%s</a>' % (tag, tag) for tag in tags]
+            tags_urls = [url_for_tag(tag) for tag in tags]
             a['tags_display'] = ", ".join(tags_urls)
         else:
             a['tags_display'] = False
