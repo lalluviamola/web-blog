@@ -8,6 +8,9 @@ Todo next:
   (or maybe in a pop-up, using thickbox)
 
 Maybe todo someday:
+* add per-tag atom feeds (/atom.xml?tag=tag) so that I can e.g. easily add feeds
+  for sumatra-only announcements just by tagging announcement posts with unique
+  tag
 * steal http://www.codylindley.com/Archive/ design
 * rename me.html to more.html and all the places that link to it
 * move 22-markeging-laws.html to be a blog post

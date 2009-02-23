@@ -22,7 +22,11 @@ function articlesJsonLoaded(articlesJson) {
 <script src="{{ prettify_js_url }}" type="text/javascript"></script>
 
 {% include "inline_css.html" %}
-
+<style>
+#adminList li {
+  list-style: none;
+}
+</style>
 </head>
 
 <body onload="prettyPrint()">
@@ -35,21 +39,27 @@ function articlesJsonLoaded(articlesJson) {
   {% if not article.is_public %}
     &nbsp;<font color="red">private</font>
   {% endif %}
-
-  {% if is_admin %}
-  &nbsp;<a id="login_id" href="{{ login_out_url }}">Log out</a>
-  &nbsp;<a href="/app/edit?article_id={{ article.key.id }}">Edit</a>
-  &nbsp;<a href="/app/edit">New</a>
-  {% if article.is_deleted %}
-    &nbsp;<a href="/app/undelete?article_id={{ article.key.id }}">Undelete</a>
-    &nbsp;<a href="/app/permanentdelete?article_id={{ article.key.id }}">Permanent delete</a>
-  {% else %}
-    &nbsp;<a href="/app/delete?article_id={{ article.key.id }}">Delete</a>
-  {% endif %}
-  {% else %}
-  &nbsp;<a id="login_id" class="invisible" onMouseOver="showLogin();" onMouseOut="hideLogin();" href="{{ login_out_url }}">login</a>
-  {% endif %}
 </h1>
+
+<div id="adminList" style="position: absolute; left:10px; top:10px; font-size: 90%;">
+{% if is_admin %}
+<ul>
+<li><a id="login_id" href="{{ login_out_url }}">Log out</a>
+<li><a href="/app/edit?article_id={{ article.key.id }}">Edit</a>
+<li><a href="/app/edit">New</a>
+{% if article.is_deleted %}
+  <li><a href="/app/undelete?article_id={{ article.key.id }}">Undelete</a></li>
+  {% else %}
+  <li><a href="/app/delete?article_id={{ article.key.id }}">Delete</a></li>
+{% endif %}
+<li><a href="/app/permanentdelete?article_id={{ article.key.id }}">Permanent delete</a></li>
+<li><a href="/app/showprivate">Show private</a></li>
+<li><a href="/app/showdeleted">Show deleted</a></li>
+</ul>
+{% else %}
+<a id="login_id" class="invisible" onMouseOver="showLogin();" onMouseOut="hideLogin();" href="{{ login_out_url }}">login</a>
+{% endif %}
+</div>
 
 <div style="position: absolute; right:20px; top:10px; font-size: 80%">
   <form method="get" action="http://google.com/search" >
@@ -67,13 +77,6 @@ function articlesJsonLoaded(articlesJson) {
   {{ article.published_on|date:"d M Y" }}
   {% if tags_display %}
    · Tags: {{ tags_display }}
-  {% endif %}
-
-  {% if is_admin %}
-  <span style="color:#ee3e3e;">
-  &nbsp;&nbsp;Show:
-  <a class="visible" href="/app/showprivate">private</a>
-  &nbsp;<a class="visible" href="/app/showdeleted">deleted</a>
   {% endif %}
   </span>
 

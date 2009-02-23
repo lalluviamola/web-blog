@@ -595,10 +595,6 @@ class PermanentDeleteHandler(webapp.RequestHandler):
         assert users.is_current_user_admin()
         article_id = self.request.get("article_id")
         article = db.get(db.Key.from_path("Article", int(article_id)))
-        # only allow permanent deletion of articles only marked as deleted
-        # forcing this two step process is to make sure user doesn't deletes
-        # by accident
-        assert article.is_deleted
         article.delete()
         clear_memcache()
         logging.info("Permanently deleted article with id %s" % article_id)
