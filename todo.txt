@@ -1,4 +1,5 @@
 Todo next:
+* automatically post about new blog entries to twitter
 * archives.html should use articles_json, instead of us using another memcache data
 * better 404 handling (all should redirect to 404.html?${orig_url})
 * implement micro-blogging aggregator like http://dotat.at/:/
@@ -6,6 +7,18 @@ Todo next:
 * use http://jquery.com/demo/thickbox/ for pop-up tags page
 * preview in a separate tab, instead of taking half of the screen space
   (or maybe in a pop-up, using thickbox)
+
+Twitter posting:
+Basic auth
+curl -u username:password -d status="your message here" http://twitter.com/statuses/update.json
+username: registered username or email
+
+Bitly:
+login=login&apiKey=apiKey
+version=2.0.1
+format=json
+e.g.:
+http://api.bit.ly/shorten?version=2.0.1&longUrl=http://cnn.com&login=bitlyapidemo&apiKey=R_0da49e0a9118ff35f52f629d2d71bf07
 
 Maybe todo someday:
 * add per-tag atom feeds (/atom.xml?tag=tag) so that I can e.g. easily add feeds
