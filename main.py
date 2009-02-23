@@ -595,10 +595,15 @@ class PermanentDeleteHandler(webapp.RequestHandler):
         assert users.is_current_user_admin()
         article_id = self.request.get("article_id")
         article = db.get(db.Key.from_path("Article", int(article_id)))
+        url = article.permalink
         article.delete()
         clear_memcache()
-        logging.info("Permanently deleted article with id %s" % article_id)
-        return self.redirect("/app/showdeleted")
+        #logging.info("Permanently deleted article with id %s" % article_id)
+        vals = {
+            'article_id' : article_id,
+            'url' : url,
+        }
+        template_out(self.response, "tmpl/articledeleted.html", vals)
 
 class DeleteUndeleteHandler(webapp.RequestHandler):
     def get(self):
