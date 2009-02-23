@@ -327,6 +327,15 @@ def do_404(response, url):
     response.set_status(404)
     template_out(response, "tmpl/404.html", { "url" : url })
 
+def get_redirect(url):
+    import redirects
+    if url in redirects.redirects:
+        redirect_url = redirects.redirects[url]
+        #logging.info("get_redirect(%s), found: %s" % (url, redirect_url))
+        return redirect_url
+    #logging.info("get_redirect(%s), not found" % url)
+    return None
+
 def lang_to_prettify_lang(lang):
     #from http://google-code-prettify.googlecode.com/svn/trunk/README.html
     #"bsh", "c", "cc", "cpp", "cs", "csh", "cyc", "cv", "htm", "html",
@@ -568,12 +577,17 @@ class ArticleHandler(webapp.RequestHandler):
             article = Article.gql("WHERE permalink2 = :1", url).get()
             if article:
                 self.redirect(g_root_url + "/" + article.permalink, True)
+                return
 
         if article and not is_admin:
             if article.is_deleted or not article.is_public:
                 article = None
-
-        if not article: return do_404(self.response, url)
+        if not article:
+            redirect_url = get_redirect(self.request.path_info)
+            if redirect_url:
+                self.redirect(redirect_url, True)
+                return
+            return do_404(self.response, url)
         render_article(self.response, article)
 
 class PermanentDeleteHandler(webapp.RequestHandler):
