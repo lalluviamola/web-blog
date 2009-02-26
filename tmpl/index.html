@@ -21,8 +21,6 @@ function articlesJsonLoaded(articlesJson) {
 {% include "inline_css.html" %}
 <style>
 
-table {
-}
 th {
   padding: 2px 15px 2px 2px;
 }
@@ -34,19 +32,15 @@ td {
   font-size: 90%;
   color: #999999;;
 }
-#adminList li {
-  list-style: none;
-}
 </style>
 </head>
 
 <body>
 
 <div id="content">
-<h1>Krzysztof J. Kowalczyk's notebook 
-</h1>
+<h1>Krzysztof J. Kowalczyk's notebook</h1>
 
-<div id="adminList" style="position: absolute; left:10px; top:10px; font-size: 90%;">
+<div id="adminList" style="position: absolute; left:10px; top:0px; font-size: 90%;">
   {% if is_admin %}
   <ul>
   <li><a id="login_id" href="{{ login_out_url }}">log out</a></li>

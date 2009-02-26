@@ -863,6 +863,7 @@ def do_archives(response, articles_summary, tag_to_display=None):
         posts_count += 1
 
     vals = {
+        'is_admin' : users.is_current_user_admin(),
         'jquery_url' : jquery_url(),
         'articles_js_url' : get_article_json_url(),
         'years' : years,

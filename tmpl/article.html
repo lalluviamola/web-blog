@@ -22,11 +22,6 @@ function articlesJsonLoaded(articlesJson) {
 <script src="{{ prettify_js_url }}" type="text/javascript"></script>
 
 {% include "inline_css.html" %}
-<style>
-#adminList li {
-  list-style: none;
-}
-</style>
 </head>
 
 <body onload="prettyPrint()">
@@ -41,7 +36,7 @@ function articlesJsonLoaded(articlesJson) {
   {% endif %}
 </h1>
 
-<div id="adminList" style="position: absolute; left:10px; top:10px; font-size: 90%;">
+<div id="adminList" style="position: absolute; left:10px; top:0px; font-size: 90%;">
 {% if is_admin %}
 <ul>
 <li><a id="login_id" href="{{ login_out_url }}">Log out</a>

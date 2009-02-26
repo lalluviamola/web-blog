@@ -33,6 +33,17 @@ function articlesJsonLoaded(articlesJson) {
   {% endif %} 
 </h1>
 
+<div id="adminList" style="position: absolute; left:10px; top:0px; font-size: 90%;">
+  {% if is_admin %}
+  <ul>
+  <li><a id="login_id" href="{{ login_out_url }}">log out</a></li>
+  <li><a id="login_id" href="/app/edit">new post</a></li>
+  </ul>
+  {% else %}
+  &nbsp;<a id="login_id" class="invisible" onMouseOver="showLogin();" onMouseOut="hideLogin();" href="{{ login_out_url }}">login</a>
+  {% endif %}
+</div>
+
 <div style="position: absolute; right:20px; top:10px; font-size: 80%">
   <form method="get" action="http://google.com/search" >
   <input type="hidden" name="IncludeBlogs" value="1">
