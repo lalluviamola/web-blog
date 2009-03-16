@@ -43,8 +43,9 @@ td {
 <div id="adminList" style="position: absolute; left:10px; top:0px; font-size: 90%;">
   {% if is_admin %}
   <ul>
-  <li><a id="login_id" href="{{ login_out_url }}">log out</a></li>
-  <li><a id="login_id" href="/app/edit">new post</a></li>
+  <li><a href="{{ login_out_url }}">log out</a></li>
+  <li><a href="/app/edit">new post</a></li>
+  <li><a href="/app/showprivate">private</a></li>
   </ul>
   {% else %}
   &nbsp;<a id="login_id" class="invisible" onMouseOver="showLogin();" onMouseOut="hideLogin();" href="{{ login_out_url }}">login</a>
@@ -60,6 +61,10 @@ td {
   <input class="button" value="Go" type="submit">
   </form>
 </div>
+
+<p></p>
+<br/>
+<br/>
 
 <table>
   <tr>
@@ -115,7 +120,11 @@ td {
   </td>
 </tr>
 {% endfor %}
-<tr><td></td><td style="text-align: right;"><a href="/archives.html">see all {{ articles_count }}</td></tr>
+<tr><td></td>
+  <td style="text-align: right;">
+    <a href="/archives.html">see all {{ articles_count }}</a>
+    </td>
+</tr>
 </table>
 
 <p></p>

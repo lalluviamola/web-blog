@@ -39,7 +39,7 @@ function articlesJsonLoaded(articlesJson) {
 <div id="adminList" style="position: absolute; left:10px; top:0px; font-size: 90%;">
 {% if is_admin %}
 <ul>
-<li><a id="login_id" href="{{ login_out_url }}">Log out</a>
+<li><a href="{{ login_out_url }}">Log out</a>
 <li><a href="/app/edit?article_id={{ article.key.id }}">Edit</a>
 <li><a href="/app/edit">New</a>
 {% if article.is_deleted %}

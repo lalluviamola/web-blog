@@ -36,8 +36,9 @@ function articlesJsonLoaded(articlesJson) {
 <div id="adminList" style="position: absolute; left:10px; top:0px; font-size: 90%;">
   {% if is_admin %}
   <ul>
-  <li><a id="login_id" href="{{ login_out_url }}">log out</a></li>
-  <li><a id="login_id" href="/app/edit">new post</a></li>
+  <li><a href="{{ login_out_url }}">log out</a></li>
+  <li><a href="/app/edit">new post</a></li>
+  <li><a href="/app/showprivate">private</a></li>
   </ul>
   {% else %}
   &nbsp;<a id="login_id" class="invisible" onMouseOver="showLogin();" onMouseOut="hideLogin();" href="{{ login_out_url }}">login</a>
