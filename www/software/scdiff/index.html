@@ -16,8 +16,9 @@
 <h1 id="what_is_it">What is it?</h1>
 <p>
   Imagine this: you've just
-  made changes to code kept in <a href="http://www.cvshome.org/">CVS</a> or 
-  <a href="http://subversion.tigris.org/">Subversion</a> repository.
+  made changes to code kept in <a href="http://www.cvshome.org/">CVS</a>,
+  <a href="http://subversion.tigris.org/">Subversion</a> or
+  <a href="http://git-scm.com/">Git</a> repository.
   You're ready to check them in but you want to take a last look at the changes.
   Usually you would do <code>cvs diff -u</code> or <code>svn diff</code>. This
   program allows you to see the changes with an external gui diff
@@ -48,14 +49,22 @@
 defaults to "-u -N". In theory you shouldn't need to change them.
 
 <h3 id="download">Download</h3>
-Download <a href="http://kjkpub.s3.amazonaws.com/files/scdiff.exe">scdiff.exe</a>. Requires <a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=262d25e3-f589-4842-8157-034d1e7cf3a3&displaylang=en">.NET
-Framework 1.1</a>.
+Download <a href="http://kjkpub.s3.amazonaws.com/files/scdiff.exe">scdiff.exe</a>. 
+Requires .NET Framework 2.0</a>.
 
 <h3 id="sourcecode">Source code</h3>
 
-You can get the sources from <a href="http://code.google.com/p/vctools/source">project site</a>.
+You can get the sources from 
+<a href="http://code.google.com/p/kjk/source/browse/#svn/trunk/vctools/scdiff">project site</a>.
 
 <h3 id="version_history">Version history</h3>
+
+<p>0.5 (2009-03-11):
+<ul>
+ <li>added Git support</li>
+</ul>
+</p>
+
 <p>0.4 (2004-12-08):
 <ul>
   <li>add <code>-cvs</code> parameter to provide the name of cvs executable.
@@ -64,7 +73,8 @@ You can get the sources from <a href="http://code.google.com/p/vctools/source">p
   is "-u -N"
   <li>fixes for handling new and deleted files in cvs
 </ul>
-All 0.4 changes provided by <a href="http://www.dblock.org">dB</a>. 
+All 0.4 changes provided by <a href="http://www.dblock.org">dB</a>.
+</p>
 
 <p>0.3 (2004-10-02):
 <ul>
@@ -72,7 +82,9 @@ All 0.4 changes provided by <a href="http://www.dblock.org">dB</a>.
   <li>no longer crash when handling <tt>svn remove</tt>. Still, handling of deleting files
   is far from perfect (currently they are silently ignored while we should show apropriate diff)</li>
   <li>properly handle file names with spaces. Fix suggested by Raman Gupta</li>
-</ul></p>
+</ul>
+</p>
+
 <p>0.2 (2004-06-08):
 <ul>
   <li>now also shows files that only exists locally and are not present in <tt>cvs</tt> repository. If that 
