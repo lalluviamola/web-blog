@@ -2,7 +2,10 @@ Todo next:
 * automatically post about new blog entries to twitter
 * archives.html should use articles_json, instead of us using another memcache data
 * better 404 handling (all should redirect to 404.html?${orig_url})
-* implement micro-blogging aggregator like http://dotat.at/:/
+* implement micro-blogging aggregator like http://dotat.at/:/ (automatically sync
+  del.icio.us bookmarks every day)
+* show articles tagged e.g. with 'fav' as another list on index page if in
+  admin mode
 * use http://jquery.com/demo/thickbox/ for even less intrusive admin interface
 * use http://jquery.com/demo/thickbox/ for pop-up tags page
 * preview in a separate tab, instead of taking half of the screen space
