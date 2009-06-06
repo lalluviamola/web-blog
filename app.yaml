@@ -13,6 +13,9 @@ handlers:
 - url: /software/sumatrapdf
   script: main.py
 
+- url: /software/fofou
+  script: main.py
+
 - url: /software
   static_dir: www/software
 

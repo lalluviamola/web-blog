@@ -954,6 +954,10 @@ class SumatraRedirectHandler(webapp.RequestHandler):
     def get(self):
         return self.redirect("/software/sumatrapdf/", True)
 
+class FofouRedirectHandler(webapp.RequestHandler):
+    def get(self):
+        return self.redirect("/software/fofou/", True)
+
 class FeedRedirectHandler(webapp.RequestHandler):
     def get(self):
         return self.redirect("/atom.xml", True)
@@ -1031,6 +1035,7 @@ def main():
         ('/js/(.*)', JsHandler),
         ('/atom.xml', AtomHandler),
         ('/sitemap.xml', SitemapHandler),
+        ('/software/fofou', FofouRedirectHandler),
         ('/software/sumatra', SumatraRedirectHandler),
         ('/software/sumatrapdf', SumatraRedirectHandler),
         ('/software/', AddIndexHandler),
