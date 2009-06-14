@@ -3,72 +3,76 @@
 <title>Cocoa/Objective-C reference</title>
 
 <style type="text/css">
-<!--
 body {  font-family: Arial, Helvetica, sans-serif; font-size: 12px}
 td { font-family: Arial, Helvetica, sans-serif; font-size: 12px }
-.title {  border-style: dashed; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px; font-weight: bold}
-a {  color: #000088; text-decoration: none}
-a:hover {  text-decoration: underline}
-.methods {  word-spacing: 0.25em; font-size: 10px}
--->
+a { color: #000088; text-decoration: none}
+a:hover {  text-decoration: underline }
+.methodslist {font-size: 10px; }
+.methods { 
+  word-spacing: 0.25em;
+  font-size: 10px;
+  padding-left: 15px;
+  padding-top: 0px;
+}
+.className {
+  font-size: 120%;
+  font-weight: bold;
+}
+
 </style>
+
 <script>
 var appleDocsStartUrl = "http://developer.apple.com/documentation/Cocoa/Reference/";
 var cocoaDevStartUrl = "http://www.cocoadev.com/index.pl?";
-var appleRefUrl = "#//apple_ref/occ/instm/NSArray/objectAtIndex:";
-
-//#//apple_ref/occ/instm/NSProcessInfo/processName
-
-//http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/NSString_Class/index.html
-//http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/NSDictionary_Class/index.html
+// "#//apple_ref/occ/instm/NSArray/objectAtIndex:";
 
 var methods = [
   ["NSString",
-    ["-(BOOL) isEqualToString:(NSString*)"],
-    ["-(NSString*) stringByReplacingOccurencesOfString:(NSString*) withString:(NString*)"],
-    ["+(NSString*) stringWithFormat:(NSString*)"],
-    ["+(NSString*) stringByReplacingOccurrencesOfString:(NSString*) withString:(NSString*)"],
-    ["-(NSRange) rangeOfString:(NSString*)"],
-    ["-(NSArray*) componentsSeparatedByString:(NSString*)"],
+    "-(BOOL) isEqualToString:(NSString*)",
+    "-(NSString*) stringByReplacingOccurencesOfString:(NSString*) withString:(NString*)",
+    "+(NSString*) stringWithFormat:(NSString*)",
+    "+(NSString*) stringByReplacingOccurrencesOfString:(NSString*) withString:(NSString*)",
+    "-(NSRange) rangeOfString:(NSString*)",
+    "-(NSArray*) componentsSeparatedByString:(NSString*)",
   ],
   ["NSArray",
-    ["+(NSArray*) arrayWithObjects:(...)"],
-    ["+(NSArray*) arrayWithObject:(id)"],
-    ["-(id) objectAtIndex:(int)"],
+    "+(NSArray*) arrayWithObjects:(...)",
+    "+(NSArray*) arrayWithObject:(id)",
+    "-(id) objectAtIndex:(int)",
   ],
-  ["NSRange", "Miscellaneous/Foundation_DataTypes/Reference/reference.html#//apple_ref/doc/c_ref/NSRange",
-    ["NSRange NSMakeRange(NSUInteger loc, NSUInteger len)"],
-    ["BOOL NSEqualRanges(NSRange range1, NSRange range2)"],
+  ["NSRange",
+    "NSRange NSMakeRange(NSUInteger loc, NSUInteger len)",
+    "BOOL NSEqualRanges(NSRange range1, NSRange range2)",
   ],
   ["NSDictionary",
-    ["-(id) objectForKey:(NSString*)"],
+    "-(id) objectForKey:(NSString*)",
   ],
   [ "NSDate",
-    ["+(NSDate*) date"],
+    "+(NSDate*) date",
   ],
   [ "NSCalendarDate",
-    ["+(NSCalenderDate*) dateWithString:(NSString*)"],
-    ["-(NSCalendarDate*) addTimeInterval:(NSInterval)"],
+    "+(NSCalenderDate*) dateWithString:(NSString*)",
+    "-(NSCalendarDate*) addTimeInterval:(NSInterval)",
   ],
   [ "NSBundle",
-    ["+(NSBundle*) mainBundle"],
-    ["-(NSDictionary*) infoDictionary"],
+    "+(NSBundle*) mainBundle",
+    "-(NSDictionary*) infoDictionary",
   ],
   [ "NSNotificationCenter",
-    ["+(NSNotificationCenter*) defaultCenter"],
-    ["-(void) addObserver:(id) selector:(NSSelector*) name:(NSString*) object:(id)"],
+    "+(NSNotificationCenter*) defaultCenter",
+    "-(void) addObserver:(id) selector:(NSSelector*) name:(NSString*) object:(id)",
   ],
   [ "NSNotification",
-    ["-(id)object"],
+    "-(id) object",
   ],
   [ "NSApplication",
-    ["+(NSApplication*) sharedApplication"]
-    ["-(void) terminate:(id)sender"],
+    "+(NSApplication*) sharedApplication",
+    "-(void) terminate:(id)sender",
   ],
   ["NSProcessInfo",
-    ["+(NSProcessInfo*) processInfo"],
-    ["-(NSString*) processName"],
-    ["-(NSInteger)runModalForWindow:(NSWindow *)"],
+    "+(NSProcessInfo*) processInfo",
+    "-(NSString*) processName",
+    "-(NSInteger) runModalForWindow:(NSWindow*)",
   ]
 ];
 
@@ -76,38 +80,36 @@ function inArray(arr, o) {
   return -1 == arr.indexOf(o) ? false : true;
 };
 
-function buildClassUrls(methods) {
-  var map = {};
+function infoForClass(className) {
   for (var i = 0; i < methods.length; i++) {
     var classDesc = methods[i];
-    var className = classDesc[0];
-    var maybeUrlPart = classDesc[1];
-    var type = typeof maybeUrlPart;
-    if (type == 'string') {
-      var url = appleDocsStartUrl + maybeUrlPart;
-      map[className] = url;
-    }
-
+    var className2 = classDesc[0];
+    if (className == className2)
+      return classDesc;
   }
-  return map;
+  return undefined;
 };
-
-var classToUrl = buildClassUrls(methods);
-
-function appleUrlForClass(className) {
-  return "http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/" + className + "_Class/index.html";
-}
 
 function hasAppleUrlForClass(className) {
   var exceptions = ["NSRange"];
   return !inArray(exceptions, className);
 }
 
+function appleUrlForClass(className) {
+  return "http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/" + className + "_Class/index.html";
+}
+
+function appleUrlPartForMethod(className, methodName) {
+  return "#//apple_ref/occ/instm/" + className + "/" + methodName;
+}
+
+function appleUrlForMethod(className, methodName) {
+  return hasAppleUrlForClass(className) ? appleUrlForClass(className) + appleUrlPartForMethod(className, methodName) : undefined;
+}
 </script>
 
-
 <script>
-function isObjCName(s) {
+function isObjectiveCName(s) {
   var c = s.charAt(0);
   return ((c == '-') || (c == '+'));
 }
@@ -137,18 +139,7 @@ function shortNameC(s) {
 }
 
 function shortName(s) {
-  return isObjCName(s) ? shortNameObjectiveC(s) : shortNameC(s);
-}
-
-function appleMethodRef(className, methodName) {
-  return "#//apple_ref/occ/instm/" + className + "/" + methodName;
-}
-
-function appleUrlForMethod(className, methodName) {
-  if (hasAppleUrlForClass(className)) {
-    return appleUrlForClass(className) + appleMethodRef(className, methodName);
-  }
-  return undefined;
+  return isObjectiveCName(s) ? shortNameObjectiveC(s) : shortNameC(s);
 }
 
 </script>
@@ -162,8 +153,7 @@ var classes = [];
 var classesLeft = [];
 var classesRight = [];
 for (var i = 0; i < methods.length; i++) {
-  var classInfo = methods[i];
-  var className = classInfo[0];
+  var className = methods[i][0];
   classes.push(className);
   if (i % 2 == 0)
     classesLeft.push(className);
@@ -171,54 +161,45 @@ for (var i = 0; i < methods.length; i++) {
     classesRight.push(className);
 }
 
-document.write("<p class=methods>" + classes.join(" &bull; ") + "</p>");
-
-/*
-var tests = [
-  "BOOL NSEqualRanges(NSRange range1, NSRange range2)",
-  "-(NSString*) processName",
-  "-(void) terminate:(id)sender",
-  "-(NSNotificationCenter*) defaultCenter",
-  "addObserver:selector:name:object", "-(void) addObserver:(id) selector:(NSSelector*) name:(NSString*) object:(id)",
-  "+(NSCalenderDate*) dateWithString:(NSString*)",
-  "+(NSString*) stringByReplacingOccurrencesOfString:(NSString*) withString:(NSString*)"
-]
-
-var shortNames = [];
-for (var i = 0; i < tests.length; i++) {
-  var r = shortName(tests[i]);
-  shortNames.push(r);
-}
-var s = shortNames.join("<br/>");
-document.write(s);
-*/
+document.write("<p class=methodslist>" + classes.join(" &bull; ") + "</p>");
 
 function headerRow(className) {
   var s = '';
   s += '<tr valign="top">';
-  s += ' <td class="title" valign="middle" align="center">';
-  s += '  <b>';
-  s += '  <font size="+1">';
+  s += ' <td align="left" valign="middle">';
+  s += ' <span class="className">'
   if (hasAppleUrlForClass(className)) {
     url = appleUrlForClass(className);
     s += '  <a href="' + url + '">' + className + '</a>';
   } else {
     s += className;
   }
-  s += '  </font>';
-  s += '  </b>';
+  s += ' </span>'
   s += ' </td>';
 
-  s += ' <td></td>';
   s += '</tr>';
   return s;
 }
 
 function contentRow(className) {
+  var hasUrl = hasAppleUrlForClass(className);
+  hasUrl = false;
   var s = '';
   s += '<tr valign="top">';
-  s += ' <td></td>';
-  s += ' <td></td>';
+  s += ' <td valign="middle" class="methods">';
+  var info = infoForClass(className);
+  for (var i = 1; i < info.length; i++) {
+    var methodName = info[i];
+    var name = shortName(methodName);
+    if (hasUrl) {
+      var url = appleUrlForMethod(className, name);
+      s += ' <a href="' + url + '">' + name + "</a>";
+    } else {
+      s += name;
+    }
+    s += "<br>"
+  }
+  s += '</td>';
   s += '</tr>';
   return s;
 }
