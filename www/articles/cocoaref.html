@@ -1,0 +1,269 @@
+<html>
+<head>
+<title>Cocoa/Objective-C reference</title>
+
+<style type="text/css">
+<!--
+body {  font-family: Arial, Helvetica, sans-serif; font-size: 12px}
+td { font-family: Arial, Helvetica, sans-serif; font-size: 12px }
+.title {  border-style: dashed; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-left-width: 0px; font-weight: bold}
+a {  color: #000088; text-decoration: none}
+a:hover {  text-decoration: underline}
+.methods {  word-spacing: 0.25em; font-size: 10px}
+-->
+</style>
+<script>
+var appleDocsStartUrl = "http://developer.apple.com/documentation/Cocoa/Reference/";
+var cocoaDevStartUrl = "http://www.cocoadev.com/index.pl?";
+var appleRefUrl = "#//apple_ref/occ/instm/NSArray/objectAtIndex:";
+
+//#//apple_ref/occ/instm/NSProcessInfo/processName
+
+//http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/NSString_Class/index.html
+//http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/NSDictionary_Class/index.html
+
+var methods = [
+  ["NSString",
+    ["-(BOOL) isEqualToString:(NSString*)"],
+    ["-(NSString*) stringByReplacingOccurencesOfString:(NSString*) withString:(NString*)"],
+    ["+(NSString*) stringWithFormat:(NSString*)"],
+    ["+(NSString*) stringByReplacingOccurrencesOfString:(NSString*) withString:(NSString*)"],
+    ["-(NSRange) rangeOfString:(NSString*)"],
+    ["-(NSArray*) componentsSeparatedByString:(NSString*)"],
+  ],
+  ["NSArray",
+    ["+(NSArray*) arrayWithObjects:(...)"],
+    ["+(NSArray*) arrayWithObject:(id)"],
+    ["-(id) objectAtIndex:(int)"],
+  ],
+  ["NSRange", "Miscellaneous/Foundation_DataTypes/Reference/reference.html#//apple_ref/doc/c_ref/NSRange",
+    ["NSRange NSMakeRange(NSUInteger loc, NSUInteger len)"],
+    ["BOOL NSEqualRanges(NSRange range1, NSRange range2)"],
+  ],
+  ["NSDictionary",
+    ["-(id) objectForKey:(NSString*)"],
+  ],
+  [ "NSDate",
+    ["+(NSDate*) date"],
+  ],
+  [ "NSCalendarDate",
+    ["+(NSCalenderDate*) dateWithString:(NSString*)"],
+    ["-(NSCalendarDate*) addTimeInterval:(NSInterval)"],
+  ],
+  [ "NSBundle",
+    ["+(NSBundle*) mainBundle"],
+    ["-(NSDictionary*) infoDictionary"],
+  ],
+  [ "NSNotificationCenter",
+    ["+(NSNotificationCenter*) defaultCenter"],
+    ["-(void) addObserver:(id) selector:(NSSelector*) name:(NSString*) object:(id)"],
+  ],
+  [ "NSNotification",
+    ["-(id)object"],
+  ],
+  [ "NSApplication",
+    ["+(NSApplication*) sharedApplication"]
+    ["-(void) terminate:(id)sender"],
+  ],
+  ["NSProcessInfo",
+    ["+(NSProcessInfo*) processInfo"],
+    ["-(NSString*) processName"],
+    ["-(NSInteger)runModalForWindow:(NSWindow *)"],
+  ]
+];
+
+function inArray(arr, o) {
+  return -1 == arr.indexOf(o) ? false : true;
+};
+
+function buildClassUrls(methods) {
+  var map = {};
+  for (var i = 0; i < methods.length; i++) {
+    var classDesc = methods[i];
+    var className = classDesc[0];
+    var maybeUrlPart = classDesc[1];
+    var type = typeof maybeUrlPart;
+    if (type == 'string') {
+      var url = appleDocsStartUrl + maybeUrlPart;
+      map[className] = url;
+    }
+
+  }
+  return map;
+};
+
+var classToUrl = buildClassUrls(methods);
+
+function appleUrlForClass(className) {
+  return "http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/" + className + "_Class/index.html";
+}
+
+function hasAppleUrlForClass(className) {
+  var exceptions = ["NSRange"];
+  return !inArray(exceptions, className);
+}
+
+</script>
+
+
+<script>
+function isObjCName(s) {
+  var c = s.charAt(0);
+  return ((c == '-') || (c == '+'));
+}
+
+function shortNameObjectiveC(s) {
+  var parts = s.split(' ');
+  if (1 == parts.length)
+    return parts[0];
+  var res = [];
+  for (var i = 1; i < parts.length; i++) {
+    var s = parts[i];
+    res.push(s.split(':')[0]);
+  }
+  var r = res.join(":");
+  if (1 == res.length)
+    return r;
+  else
+    return r + ":";
+}
+
+function shortNameC(s) {
+  var parts = s.split(' ');
+  if (1 == parts.length)
+    return parts[0];
+  var parts2 = parts[1].split('(');
+  return parts2[0];
+}
+
+function shortName(s) {
+  return isObjCName(s) ? shortNameObjectiveC(s) : shortNameC(s);
+}
+
+function appleMethodRef(className, methodName) {
+  return "#//apple_ref/occ/instm/" + className + "/" + methodName;
+}
+
+function appleUrlForMethod(className, methodName) {
+  if (hasAppleUrlForClass(className)) {
+    return appleUrlForClass(className) + appleMethodRef(className, methodName);
+  }
+  return undefined;
+}
+
+</script>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="10" marginheight="10">
+
+<script>
+var classes = [];
+var classesLeft = [];
+var classesRight = [];
+for (var i = 0; i < methods.length; i++) {
+  var classInfo = methods[i];
+  var className = classInfo[0];
+  classes.push(className);
+  if (i % 2 == 0)
+    classesLeft.push(className);
+  else
+    classesRight.push(className);
+}
+
+document.write("<p class=methods>" + classes.join(" &bull; ") + "</p>");
+
+/*
+var tests = [
+  "BOOL NSEqualRanges(NSRange range1, NSRange range2)",
+  "-(NSString*) processName",
+  "-(void) terminate:(id)sender",
+  "-(NSNotificationCenter*) defaultCenter",
+  "addObserver:selector:name:object", "-(void) addObserver:(id) selector:(NSSelector*) name:(NSString*) object:(id)",
+  "+(NSCalenderDate*) dateWithString:(NSString*)",
+  "+(NSString*) stringByReplacingOccurrencesOfString:(NSString*) withString:(NSString*)"
+]
+
+var shortNames = [];
+for (var i = 0; i < tests.length; i++) {
+  var r = shortName(tests[i]);
+  shortNames.push(r);
+}
+var s = shortNames.join("<br/>");
+document.write(s);
+*/
+
+function headerRow(className) {
+  var s = '';
+  s += '<tr valign="top">';
+  s += ' <td class="title" valign="middle" align="center">';
+  s += '  <b>';
+  s += '  <font size="+1">';
+  if (hasAppleUrlForClass(className)) {
+    url = appleUrlForClass(className);
+    s += '  <a href="' + url + '">' + className + '</a>';
+  } else {
+    s += className;
+  }
+  s += '  </font>';
+  s += '  </b>';
+  s += ' </td>';
+
+  s += ' <td></td>';
+  s += '</tr>';
+  return s;
+}
+
+function contentRow(className) {
+  var s = '';
+  s += '<tr valign="top">';
+  s += ' <td></td>';
+  s += ' <td></td>';
+  s += '</tr>';
+  return s;
+}
+
+function writeClasses(classes) {
+  for (var i = 0; i < classes.length; i++) {
+    className = classes[i];
+    document.write(headerRow(className));
+    document.write(contentRow(className));    
+  }
+}
+
+</script>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+  <tr valign="top">
+    <td width="50%">
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <script>writeClasses(classesLeft)</script>
+      </table>
+    </td>
+
+    <td width="50%">
+      <table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <script>writeClasses(classesRight)</script>
+      </table>
+    </td>
+  </tr>
+
+</table>
+
+<hr>
+<center>Cocoa and Objective-C reference by <a href="/">Krzysztof Kowalczyk</a></center>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-194516-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+  
+</body>
+</html>
+
