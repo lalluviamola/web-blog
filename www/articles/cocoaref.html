@@ -28,6 +28,25 @@ a:hover {  text-decoration: underline }
 </style>
 
 <script type="text/javascript">
+/*
+String.prototype.replaceAll = function(from, to)
+{
+	var idxPrev = 0;
+	var lenDiff = from.length - to.length;
+	var res = "";
+	var s = this;
+	var idx = s.indexOf(from, idxPrev);
+	while (idx != -1)
+	{
+		res += s.substring(idx, idxPrev);
+		res += to;
+		idxPrev = idx + lenDiff;
+		idx = s.indexOf(from, idxPrev);
+	}
+	res += s.substring(idxPrev, s.length);
+	return res;
+}*/
+
 var appleDocsStartUrl = "http://developer.apple.com/documentation/Cocoa/Reference/";
 var cocoaDevStartUrl = "http://www.cocoadev.com/index.pl?";
 // #//apple_ref/occ/instm/NSArray/objectAtIndex:
@@ -42,6 +61,7 @@ http://developer.apple.com/documentation/Cocoa/Reference/ApplicationKit/Classes/
 var methods = [
   ["NSString",
     "+(NSString*) stringWithFormat:(NSString*)",
+		"-(NSUInteger) length",
     "-(NSString*) stringByReplacingOccurrencesOfString:(NSString*) withString:(NSString*)",
     "-(BOOL) isEqualToString:(NSString*)",
     "-(NSRange) rangeOfString:(NSString*)",
@@ -53,10 +73,6 @@ var methods = [
     "-(id) objectAtIndex:(int)",
     "-(NSString*) componentsJoinedByString:(NSString*)separator"
   ],
-  ["NSRange",
-    "NSRange NSMakeRange(NSUInteger loc, NSUInteger len)",
-    "BOOL NSEqualRanges(NSRange range1, NSRange range2)",
-  ],
   ["NSDictionary",
     "+(id) dictionaryWithObject:(id)anObject forKey:(id)aKey",
     "+(id) dictionaryWithObjects:(NSArray*)objects forKeys:(NSArray*)keys",
@@ -65,8 +81,22 @@ var methods = [
     "-(NSArray*) allValues",
     "-(id) objectForKey:(id)",
   ],
+	["NSData",
+		"-(NSUInteger) length",
+		"-(const_void*) bytes",
+	],
+	["NSComparisonResult",
+		"NSOrderedAscending",
+		"NSOrderedSame",
+		"NSOrderedDescending",
+	],
+  ["NSRange",
+    "NSRange NSMakeRange(NSUInteger loc, NSUInteger len)",
+    "BOOL NSEqualRanges(NSRange range1, NSRange range2)",
+  ],
   [ "NSDate",
     "+(NSDate*) date",
+		"-(NSComparisonResult) compare:(NSDate*)anotherDate",
   ],
   [ "NSCalendarDate",
     "+(NSCalenderDate*) dateWithString:(NSString*)",
@@ -89,6 +119,10 @@ var methods = [
 		"-(NSString*) stringForKey:(NSString*)defaultName",
 		"-(NSDictionary*) dictionaryForKey:(NSString*)defaultName",
 		"-(NSArray*) arrayForKey:(NSString*)defaultName",
+		"-(void) removeObjectForKey:(NSString*)defaultName",
+		"-(void) setObject:(id)value forKey:(NSString*)defaultName",
+		"-(void) setBool:(BOOL)value forKey:(NSString*)defaultName",
+		"-(void) registerDefaults:(NSDictionary*)dictionary",
 	],
   [ "NSApplication",
     "+(NSApplication*) sharedApplication",
@@ -96,14 +130,49 @@ var methods = [
   ],
   [ "NSBundle",
     "+(NSBundle*) mainBundle",
+		"+(NSBundle*) bundleForClass:(Class)aClass",
+		"-(NSString*) pathForResource:(NSString*)name ofType:(NSString*)extension",
     "-(NSDictionary*) infoDictionary",
   ],
+	["NSControl",
+		"-(NSString*) stringValue",
+		"-(void) setEnabled:(BOOL)flag",
+		"-(BOOL) isEnabled",
+	],
+	["NSView",
+		"-(void) setHidden:(BOOL)flag",
+		"-(BOOL) isHidden",
+	],
+	["NSWindow",
+	 	"-(void) orderFront:(id)sender",
+	],
+	["NSButton",
+		"-(void) setTitle:(NSString *)aString",
+		"-(NSString*) title",
+	],
+	["NSProgressIndicator",
+		"-(void) startAnimation:(id)sender",
+		"-(void) stopAnimation:(id)sender",
+	],
+	["NSImage",
+		"-(id) initWithContentsOfFile:(NSString*)filename",
+	],
   ["NSProcessInfo",
     "+(NSProcessInfo*) processInfo",
     "-(NSString*) processName",
     "-(NSInteger) runModalForWindow:(NSWindow*)",
-  ]
+  ],
+	["NSNibAwaking",
+		"-(void) awakeFromNib",
+	]
 ];
+
+// different types require different ways of constructing url to apple docs
+var appKitClasses = ["NSApplication", "NSWindow", "NSImage", "NSProgressIndicator", "NSControl", "NSButton"];
+var appKitClasses2 = ["NSView"]
+var appKitProtocols = ["NSNibAwaking"];
+var foundationClasses1 = ["NSString"];
+var foundationClasses2 = ["NSData", "NSNotification", "NSUserDefaults", "NSProcessInfo", "NSArray", "NSDictionary", "NSCalendarDate", "NSNotificationCenter", "NSDate", "NSBundle"];
 
 function inArray(arr, o) {
   return -1 == arr.indexOf(o) ? false : true;
@@ -164,23 +233,23 @@ function shortMethodName(s) {
 }
 
 function hasAppleUrlForClass(className) {
-  var exceptions = ["NSRange"];
+  var exceptions = ["NSRange", "NSComparisonResult"];
   return !inArray(exceptions, className);
 }
 
 function appleUrlForClass(className) {
-  var appKitClasses = ["NSApplication"];
-  var foundationClasses1 = ["NSString"];
-  // var foundationClasses2 = ["NSArray", "NSDictionary", "NSCalendarDate", "NSNotificationCenter", "NSDate", "NSBundle"]
-
   if (inArray(appKitClasses, className))
-    return "http://developer.apple.com/documentation/Cocoa/Reference/ApplicationKit/Classes/" + className + "_Class/Reference/Reference.html"
-  else if (inArray(foundationClasses1, className)) {
+    return "http://developer.apple.com/documentation/Cocoa/Reference/ApplicationKit/Classes/" + className + "_Class/Reference/Reference.html";
+	else if (inArray(appKitClasses2, className))
+  	return "http://developer.apple.com/documentation/Cocoa/Reference/ApplicationKit/Classes/" + className + "_Class/Reference/" + className + ".html";
+	else if (inArray(appKitProtocols, className))
+		return "http://developer.apple.com/documentation/Cocoa/Reference/ApplicationKit/Protocols/" + className + "_Protocol/Reference/Reference.html";
+	else if (inArray(foundationClasses1, className))
     return "http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/" + className + "_Class/Reference/" + className + ".html";
-  } else {
-    // assume this is foundation class in the most common format
-    return "http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/" + className + "_Class/Reference/Reference.html";
-  }
+	else if (inArray(foundationClasses2, className))
+  	return "http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/" + className + "_Class/Reference/Reference.html";
+  else
+		return undefined;
 }
 
 function appleUrlPartForMethod(className, methodName) {
@@ -244,6 +313,18 @@ function headerRow(className) {
   return s;
 }
 
+function methodNamePrettify(s) {
+	// hack: because my tokenization in shortMethodName is weak, I have to
+	// sometimes substitute spaces with "_" so now I have to undo it
+	s = s.replace("_", " ");
+	if (s.charAt(0) == '-' || s.charAt(0) == '+' && s.charAt(0) != ' ') {
+		s = s.charAt(0) + " " + s.substring(1);
+	}
+	// TODO: use replaceAll when it works
+	s = s.replace("*)", " *)");
+	return s;
+}
+
 function contentRow(className) {
   var hasUrl = hasAppleUrlForClass(className);
   var s = '';
@@ -255,7 +336,7 @@ function contentRow(className) {
     var name = shortMethodName(methodName);
     if (hasUrl) {
       var url = appleUrlForMethod(className, methodName);
-      s += ' <a title="' + methodName + '" href="' + url + '">' + name + "</a>";
+      s += ' <a title="' + methodNamePrettify(methodName) + '" href="' + url + '">' + name + "</a>";
     } else {
       s += name;
     }
