@@ -179,19 +179,23 @@ function appleUrlForMethod(className, methodName) {
 <body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" marginwidth="10" marginheight="10">
 
 <script>
-var classes = [];
-var classesLeft = [];
-var classesRight = [];
-for (var i = 0; i < methods.length; i++) {
-  var className = methods[i][0];
-  classes.push(className);
-  if (i % 2 == 0)
-    classesLeft.push(className);
-  else
-    classesRight.push(className);
+var columns = 3;
+var allClasses = [];
+var classesForColumn = [];
+for (var i = 0; i < columns; i++) {
+  classesForColumn[i] = [];
 }
 
-document.write("<p class=methodslist>" + classes.join(" &bull; ") + "</p>");
+for (var i = 0; i < methods.length; i++) {
+  var className = methods[i][0];
+  allClasses.push(className);
+  for (var col = 0; col < columns; col++) {
+    if (i % columns == col)
+      classesForColumn[col].push(className);
+  }
+}
+
+document.write("<p class=methodslist>" + allClasses.join(" &bull; ") + "</p>");
 
 function headerRow(className) {
   var s = '';
@@ -233,12 +237,34 @@ function contentRow(className) {
   return s;
 }
 
-function writeClasses(classes) {
+function classesHtml(classes) {
+  var s = '';
   for (var i = 0; i < classes.length; i++) {
     className = classes[i];
-    document.write(headerRow(className));
-    document.write(contentRow(className));    
+    s += headerRow(className);
+    s += contentRow(className);
   }
+  return s;
+}
+
+function columnHtml(classes) {
+  var columnWidth = 100 / columns;
+  var s = '';
+  s += '<td width="' + columnWidth + '%">';
+  s += '<table width="100%" border="0" cellspacing="0" cellpadding="5">';
+  s += classesHtml(classes);
+  s += '</table>';
+  s += '</td>';
+  return s;
+}
+
+function columnsHtml() {
+  var s = '';
+  for (var i = 0; i < columns; i++) {
+    var classes = classesForColumn[i];
+    s += columnHtml(classes);
+  }
+  return s;
 }
 
 </script>
@@ -246,17 +272,10 @@ function writeClasses(classes) {
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
 
   <tr valign="top">
-    <td width="50%">
-      <table width="100%" border="0" cellspacing="0" cellpadding="5">
-        <script>writeClasses(classesLeft)</script>
-      </table>
-    </td>
-
-    <td width="50%">
-      <table width="100%" border="0" cellspacing="0" cellpadding="5">
-        <script>writeClasses(classesRight)</script>
-      </table>
-    </td>
+      <script>
+        var s = columnsHtml();
+        document.write(s);
+      </script>
   </tr>
 
 </table>
