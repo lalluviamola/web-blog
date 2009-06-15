@@ -35,10 +35,10 @@ http://developer.apple.com/documentation/Cocoa/Reference/ApplicationKit/Classes/
 
 var methods = [
   ["NSString",
-    "-(BOOL) isEqualToString:(NSString*)",
-    "-(NSString*) stringByReplacingOccurencesOfString:(NSString*) withString:(NString*)",
     "+(NSString*) stringWithFormat:(NSString*)",
+    "-(NSString*) stringByReplacingOccurrencesOfString:(NSString*) withString:(NString*)",
     "+(NSString*) stringByReplacingOccurrencesOfString:(NSString*) withString:(NSString*)",
+    "-(BOOL) isEqualToString:(NSString*)",
     "-(NSRange) rangeOfString:(NSString*)",
     "-(NSArray*) componentsSeparatedByString:(NSString*)",
   ],
@@ -46,13 +46,19 @@ var methods = [
     "+(NSArray*) arrayWithObjects:(...)",
     "+(NSArray*) arrayWithObject:(id)",
     "-(id) objectAtIndex:(int)",
+    "-(NSString*) componentsJoinedByString:(NSString*)separator"
   ],
   ["NSRange",
     "NSRange NSMakeRange(NSUInteger loc, NSUInteger len)",
     "BOOL NSEqualRanges(NSRange range1, NSRange range2)",
   ],
   ["NSDictionary",
-    "-(id) objectForKey:(NSString*)",
+    "+(id) dictionaryWithObject:(id)anObject forKey:(id)aKey",
+    "+(id) dictionaryWithObjects:(NSArray*)objects forKeys:(NSArray*)keys",
+    "-(NSUInteger) count",
+    "-(NSArray*) allKeys",
+    "-(NSArray*) allValues",
+    "-(id) objectForKey:(id)",
   ],
   [ "NSDate",
     "+(NSDate*) date",
@@ -71,6 +77,8 @@ var methods = [
   ],
   [ "NSNotification",
     "-(id) object",
+    "-(NSString*) name",
+    "-(NSDictionary*) userInfo",
   ],
   [ "NSApplication",
     "+(NSApplication*) sharedApplication",
@@ -195,7 +203,7 @@ for (var i = 0; i < methods.length; i++) {
   }
 }
 
-document.write("<p class=methodslist>" + allClasses.join(" &bull; ") + "</p>");
+document.write("<p class=methodslist>" + allClasses.sort().join(" &bull; ") + "</p>");
 
 function headerRow(className) {
   var s = '';
