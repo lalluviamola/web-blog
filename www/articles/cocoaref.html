@@ -24,7 +24,14 @@ a:hover {  text-decoration: underline }
 <script>
 var appleDocsStartUrl = "http://developer.apple.com/documentation/Cocoa/Reference/";
 var cocoaDevStartUrl = "http://www.cocoadev.com/index.pl?";
-// "#//apple_ref/occ/instm/NSArray/objectAtIndex:";
+// #//apple_ref/occ/instm/NSArray/objectAtIndex:
+// #//apple_ref/occ/clm/NSNotificationCenter/defaultCenter
+
+/* Styles of class reference urls:
+http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/NSArray_Class/Reference/Reference.html
+http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/NSString_Class/Reference/NSString.html
+http://developer.apple.com/documentation/Cocoa/Reference/ApplicationKit/Classes/NSApplication_Class/Reference/Reference.html
+*/
 
 var methods = [
   ["NSString",
@@ -90,44 +97,36 @@ function infoForClass(className) {
   return undefined;
 };
 
-function hasAppleUrlForClass(className) {
-  var exceptions = ["NSRange"];
-  return !inArray(exceptions, className);
+function isClassMethodName(s) {
+  return s.charAt(0) == '+';
 }
 
-function appleUrlForClass(className) {
-  return "http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/" + className + "_Class/index.html";
+function isInstanceMethodName(s) {
+  return s.charAt(0) == '-';
 }
 
-function appleUrlPartForMethod(className, methodName) {
-  return "#//apple_ref/occ/instm/" + className + "/" + methodName;
+function methodHasArgs(s) {
+  return -1 != s.indexOf(':');
 }
 
-function appleUrlForMethod(className, methodName) {
-  return hasAppleUrlForClass(className) ? appleUrlForClass(className) + appleUrlPartForMethod(className, methodName) : undefined;
-}
-</script>
-
-<script>
 function isObjectiveCName(s) {
-  var c = s.charAt(0);
-  return ((c == '-') || (c == '+'));
+  return isClassMethodName(s) || isInstanceMethodName(s);
 }
 
 function shortNameObjectiveC(s) {
   var parts = s.split(' ');
   if (1 == parts.length)
     return parts[0];
+
   var res = [];
   for (var i = 1; i < parts.length; i++) {
     var s = parts[i];
     res.push(s.split(':')[0]);
   }
   var r = res.join(":");
-  if (1 == res.length)
-    return r;
-  else
-    return r + ":";
+  if (methodHasArgs(s))
+    r += ":";
+  return r;
 }
 
 function shortNameC(s) {
@@ -138,10 +137,41 @@ function shortNameC(s) {
   return parts2[0];
 }
 
-function shortName(s) {
+function shortMethodName(s) {
   return isObjectiveCName(s) ? shortNameObjectiveC(s) : shortNameC(s);
 }
 
+function hasAppleUrlForClass(className) {
+  var exceptions = ["NSRange"];
+  return !inArray(exceptions, className);
+}
+
+function appleUrlForClass(className) {
+  var appKitClasses = ["NSApplication"];
+  var foundationClasses1 = ["NSString"];
+  // var foundationClasses2 = ["NSArray", "NSDictionary", "NSCalendarDate", "NSNotificationCenter", "NSDate", "NSBundle"]
+
+  if (inArray(appKitClasses, className))
+    return "http://developer.apple.com/documentation/Cocoa/Reference/ApplicationKit/Classes/" + className + "_Class/Reference/Reference.html"
+  else if (inArray(foundationClasses1, className)) {
+    return "http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/" + className + "_Class/Reference/" + className + ".html";
+  } else {
+    // assume this is foundation class in the most common format
+    return "http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/" + className + "_Class/Reference/Reference.html";
+  }
+}
+
+function appleUrlPartForMethod(className, methodName) {
+  var shortName = shortMethodName(methodName);
+  if (isClassMethodName(methodName))
+    return "#//apple_ref/occ/clm/" + className + "/" + shortName;
+  else
+    return "#//apple_ref/occ/instm/" + className + "/" + shortName;
+}
+
+function appleUrlForMethod(className, methodName) {
+  return hasAppleUrlForClass(className) ? appleUrlForClass(className) + appleUrlPartForMethod(className, methodName) : undefined;
+}
 </script>
 
 </head>
@@ -183,16 +213,15 @@ function headerRow(className) {
 
 function contentRow(className) {
   var hasUrl = hasAppleUrlForClass(className);
-  hasUrl = false;
   var s = '';
   s += '<tr valign="top">';
   s += ' <td valign="middle" class="methods">';
   var info = infoForClass(className);
   for (var i = 1; i < info.length; i++) {
     var methodName = info[i];
-    var name = shortName(methodName);
+    var name = shortMethodName(methodName);
     if (hasUrl) {
-      var url = appleUrlForMethod(className, name);
+      var url = appleUrlForMethod(className, methodName);
       s += ' <a href="' + url + '">' + name + "</a>";
     } else {
       s += name;
