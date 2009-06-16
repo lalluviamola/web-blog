@@ -94,6 +94,8 @@ var methods = [
     "NSRange NSMakeRange(NSUInteger loc, NSUInteger len)",
     "BOOL NSEqualRanges(NSRange range1, NSRange range2)",
   ],
+	["NSRect"
+	],
   [ "NSDate",
     "+(NSDate*) date",
 		"-(NSComparisonResult) compare:(NSDate*)anotherDate",
@@ -111,6 +113,19 @@ var methods = [
     "-(NSString*) name",
     "-(NSDictionary*) userInfo",
   ],
+	[ "NSFileManager",
+		"+(NSFileManager*) defaultManager",
+		"-(BOOL) movePath:(NSString*)source toPath:(NSString*)destination handler:(id)handler",
+		"-(BOOL) moveItemAtPath:(NSString*)srcPath toPath:(NSString*)dstPath error:(NSError**)error",
+		"-(BOOL) copyPath:(NSString*)source toPath:(NSString*)destination handler:(id)handle",
+		"-(BOOL) removeFileAtPath:(NSString*)path handler:(id)handler",
+		"-(BOOL) createDirectoryAtPath:(NSString*)path attributes:(NSDictionary*)attributes",
+		"-(NSArray*) directoryContentsAtPath:(NSString*)path",
+		"-(BOOL) fileExistsAtPath:(NSString*)path",
+		"-(BOOL) fileExistsAtPath:(NSString*)path isDirectory:(BOOL*)isDirectory",
+		"-(BOOL) changeCurrentDirectoryPath:(NSString*)path",
+		"-(NSString*) currentDirectoryPath",
+	],
 	[ "NSUserDefaults",
 		"+(NSUserDefaults*) standardUserDefaults",
 		"-(id) objectForKey:(NSString*)defaultName",
@@ -127,6 +142,12 @@ var methods = [
   [ "NSApplication",
     "+(NSApplication*) sharedApplication",
     "-(void) terminate:(id)sender",
+		"-(void) applicationDidFinishLaunching:(NSNotification*)aNotification",
+		"-(NSApplicationTerminateReply) applicationShouldTerminate:(NSApplication*)sender",
+		"-(BOOL) applicationShouldTerminateAfterLastWindowClosed:(NSApplication*)theApplication",
+		"-(BOOL) application:(NSApplication*)theApplication openFile:(NSString*)filename",
+		"-(void) application:(NSApplication*)sender openFiles:(NSArray*)filenames",
+		"-(NSMenu*) applicationDockMenu:(NSApplication*)sender",
   ],
   [ "NSBundle",
     "+(NSBundle*) mainBundle",
@@ -142,9 +163,15 @@ var methods = [
 	["NSView",
 		"-(void) setHidden:(BOOL)flag",
 		"-(BOOL) isHidden",
+		"-(NSRect) bounds",
+		"-(NSRect) frame",
+		"-(NSWindow*) window",
+		"-(void) setNeedsDisplay:(BOOL)flag",
+		"-(void) drawRect:(NSRect)dirtyRect",
 	],
 	["NSWindow",
 	 	"-(void) orderFront:(id)sender",
+		"-(id) contentView",
 	],
 	["NSButton",
 		"-(void) setTitle:(NSString *)aString",
@@ -172,7 +199,7 @@ var appKitClasses = ["NSApplication", "NSWindow", "NSImage", "NSProgressIndicato
 var appKitClasses2 = ["NSView"]
 var appKitProtocols = ["NSNibAwaking"];
 var foundationClasses1 = ["NSString"];
-var foundationClasses2 = ["NSData", "NSNotification", "NSUserDefaults", "NSProcessInfo", "NSArray", "NSDictionary", "NSCalendarDate", "NSNotificationCenter", "NSDate", "NSBundle"];
+var foundationClasses2 = ["NSFileManager", "NSData", "NSNotification", "NSUserDefaults", "NSProcessInfo", "NSArray", "NSDictionary", "NSCalendarDate", "NSNotificationCenter", "NSDate", "NSBundle"];
 
 function inArray(arr, o) {
   return -1 == arr.indexOf(o) ? false : true;
@@ -233,7 +260,7 @@ function shortMethodName(s) {
 }
 
 function hasAppleUrlForClass(className) {
-  var exceptions = ["NSRange", "NSComparisonResult"];
+  var exceptions = ["NSRange", "NSRect", "NSComparisonResult"];
   return !inArray(exceptions, className);
 }
 
