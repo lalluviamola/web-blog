@@ -59,6 +59,9 @@ http://developer.apple.com/documentation/Cocoa/Reference/ApplicationKit/Classes/
 */
 
 var methods = [
+	["NSObject",
+		"-(void) performSelectorOnMainThread:(SEL)aSelector withObject:(id)arg waitUntilDone:(BOOL)wait",
+	],
   ["NSString",
     "+(NSString*) stringWithFormat:(NSString*)",
 		"-(NSUInteger) length",
@@ -139,6 +142,11 @@ var methods = [
 		"-(void) setBool:(BOOL)value forKey:(NSString*)defaultName",
 		"-(void) registerDefaults:(NSDictionary*)dictionary",
 	],
+	["NSThread",
+		"+(void) detachNewThreadSelector:(SEL)aSelector toTarget:(id)aTarget withObject:(id)anArgument",
+		"+(void) sleepUntilDate:(NSDate*)aDate",
+		"+(void) sleepForTimeInterval:(NSTimeInterval)ti",
+	],
   [ "NSApplication",
     "+(NSApplication*) sharedApplication",
     "-(void) terminate:(id)sender",
@@ -199,7 +207,7 @@ var appKitClasses = ["NSApplication", "NSWindow", "NSImage", "NSProgressIndicato
 var appKitClasses2 = ["NSView"]
 var appKitProtocols = ["NSNibAwaking"];
 var foundationClasses1 = ["NSString"];
-var foundationClasses2 = ["NSFileManager", "NSData", "NSNotification", "NSUserDefaults", "NSProcessInfo", "NSArray", "NSDictionary", "NSCalendarDate", "NSNotificationCenter", "NSDate", "NSBundle"];
+var foundationClasses2 = ["NSObject", "NSThread", "NSFileManager", "NSData", "NSNotification", "NSUserDefaults", "NSProcessInfo", "NSArray", "NSDictionary", "NSCalendarDate", "NSNotificationCenter", "NSDate", "NSBundle"];
 
 function inArray(arr, o) {
   return -1 == arr.indexOf(o) ? false : true;
