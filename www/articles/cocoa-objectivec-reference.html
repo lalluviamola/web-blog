@@ -365,21 +365,6 @@ function headerRow(className) {
   return s;
 }
 
-<<<<<<< HEAD:www/articles/cocoa-objectivec-reference.html
-=======
-function methodNamePrettify(s) {
-  // hack: because my tokenization in shortMethodName is weak, I have to
-  // sometimes substitute spaces with "_" so now I have to undo it
-  s = s.replace("_", " ");
-  if (s.charAt(0) == '-' || s.charAt(0) == '+' && s.charAt(0) != ' ') {
-    s = s.charAt(0) + " " + s.substring(1);
-  }
-  // TODO: use replaceAll when it works
-  s = s.replace("*)", " *)");
-  return s;
-}
-
->>>>>>> 8b6fd845a4bc99732796e0af42d68f9eaff10697:www/articles/cocoaref.html
 function contentRow(className) {
   var hasUrl = hasAppleUrlForClass(className);
   var s = '';
