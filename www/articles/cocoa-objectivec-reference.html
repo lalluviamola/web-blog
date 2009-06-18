@@ -93,6 +93,11 @@ var methods = [
   ["NSData",
     "-(NSUInteger) length",
     "-(const void*) bytes",
+    "+(id) dataWithContentsOfFile:(NSString*)path",
+    "+(id) dataWithContentsOfURL:(NSURL*)aURL",
+    "-(void) getBytes:(void*)buffer length:(NSUInteger)length",
+    "-(void) getBytes:(void*)buffer range:(NSRange)range",
+    "-(BOOL) writeToFile:(NSString*)path atomically:(BOOL)flag",
   ],
   ["NSComparisonResult",
     "NSOrderedAscending",
@@ -156,9 +161,9 @@ var methods = [
   [ "NSApplication",
     "+(NSApplication*) sharedApplication",
     "-(void) applicationDidFinishLaunching:(NSNotification*)aNotification",
-    "-(NSApplicationTerminateReply) applicationShouldTerminate:(NSApplication*)sender",
     "-(void) terminate:(id)sender",
     "-(BOOL) applicationShouldTerminateAfterLastWindowClosed:(NSApplication*)theApplication",
+    "-(NSApplicationTerminateReply) applicationShouldTerminate:(NSApplication*)sender",
     "-(void) applicationWillTerminate:(NSNotification*)aNotification",
     "-(BOOL) application:(NSApplication*)theApplication openFile:(NSString*)filename",
     "-(void) application:(NSApplication*)sender openFiles:(NSArray*)filenames",
@@ -360,6 +365,21 @@ function headerRow(className) {
   return s;
 }
 
+<<<<<<< HEAD:www/articles/cocoa-objectivec-reference.html
+=======
+function methodNamePrettify(s) {
+  // hack: because my tokenization in shortMethodName is weak, I have to
+  // sometimes substitute spaces with "_" so now I have to undo it
+  s = s.replace("_", " ");
+  if (s.charAt(0) == '-' || s.charAt(0) == '+' && s.charAt(0) != ' ') {
+    s = s.charAt(0) + " " + s.substring(1);
+  }
+  // TODO: use replaceAll when it works
+  s = s.replace("*)", " *)");
+  return s;
+}
+
+>>>>>>> 8b6fd845a4bc99732796e0af42d68f9eaff10697:www/articles/cocoaref.html
 function contentRow(className) {
   var hasUrl = hasAppleUrlForClass(className);
   var s = '';
