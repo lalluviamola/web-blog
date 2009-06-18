@@ -1,7 +1,8 @@
 <html>
 <head>
-<title>Cocoa/Objective-C reference</title>
-
+<title>Cocoa and Objective-C reference</title>
+<meta name="keywords" content="cocoa, objective-c, reference, programming" />
+<meta name="description" content"Cocoa and Objective-C quick reference guide" />
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
 <link rel="stylesheet" href="/static/js/jquery.tooltip.css" /> 
 <script src="/static/js/lib/jquery.bgiframe.js" type="text/javascript"></script>
@@ -31,20 +32,20 @@ a:hover {  text-decoration: underline }
 /*
 String.prototype.replaceAll = function(from, to)
 {
-	var idxPrev = 0;
-	var lenDiff = from.length - to.length;
-	var res = "";
-	var s = this;
-	var idx = s.indexOf(from, idxPrev);
-	while (idx != -1)
-	{
-		res += s.substring(idx, idxPrev);
-		res += to;
-		idxPrev = idx + lenDiff;
-		idx = s.indexOf(from, idxPrev);
-	}
-	res += s.substring(idxPrev, s.length);
-	return res;
+  var idxPrev = 0;
+  var lenDiff = from.length - to.length;
+  var res = "";
+  var s = this;
+  var idx = s.indexOf(from, idxPrev);
+  while (idx != -1)
+  {
+    res += s.substring(idx, idxPrev);
+    res += to;
+    idxPrev = idx + lenDiff;
+    idx = s.indexOf(from, idxPrev);
+  }
+  res += s.substring(idxPrev, s.length);
+  return res;
 }*/
 
 var appleDocsStartUrl = "http://developer.apple.com/documentation/Cocoa/Reference/";
@@ -59,16 +60,21 @@ http://developer.apple.com/documentation/Cocoa/Reference/ApplicationKit/Classes/
 */
 
 var methods = [
-	["NSObject",
-		"-(void) performSelectorOnMainThread:(SEL)aSelector withObject:(id)arg waitUntilDone:(BOOL)wait",
-	],
+  ["NSObject",
+    "-(void) performSelectorOnMainThread:(SEL)aSelector withObject:(id)arg waitUntilDone:(BOOL)wait",
+  ],
   ["NSString",
     "+(NSString*) stringWithFormat:(NSString*)",
-		"-(NSUInteger) length",
+    "-(NSUInteger) length",
     "-(NSString*) stringByReplacingOccurrencesOfString:(NSString*) withString:(NSString*)",
     "-(BOOL) isEqualToString:(NSString*)",
     "-(NSRange) rangeOfString:(NSString*)",
     "-(NSArray*) componentsSeparatedByString:(NSString*)",
+  ],
+  ["NSMutableString",
+    "- (void)appendString:(NSString *)aString",
+    "- (void)appendFormat:(NSString *)format ...",
+    "- (void)deleteCharactersInRange:(NSRange)aRange",
   ],
   ["NSArray",
     "+(NSArray*) arrayWithObjects:(...)",
@@ -84,24 +90,24 @@ var methods = [
     "-(NSArray*) allValues",
     "-(id) objectForKey:(id)",
   ],
-	["NSData",
-		"-(NSUInteger) length",
-		"-(const_void*) bytes",
-	],
-	["NSComparisonResult",
-		"NSOrderedAscending",
-		"NSOrderedSame",
-		"NSOrderedDescending",
-	],
+  ["NSData",
+    "-(NSUInteger) length",
+    "-(const void*) bytes",
+  ],
+  ["NSComparisonResult",
+    "NSOrderedAscending",
+    "NSOrderedSame",
+    "NSOrderedDescending",
+  ],
   ["NSRange",
     "NSRange NSMakeRange(NSUInteger loc, NSUInteger len)",
     "BOOL NSEqualRanges(NSRange range1, NSRange range2)",
   ],
-	["NSRect"
-	],
+  ["NSRect"
+  ],
   [ "NSDate",
     "+(NSDate*) date",
-		"-(NSComparisonResult) compare:(NSDate*)anotherDate",
+    "-(NSComparisonResult) compare:(NSDate*)anotherDate",
   ],
   [ "NSCalendarDate",
     "+(NSCalenderDate*) dateWithString:(NSString*)",
@@ -116,90 +122,91 @@ var methods = [
     "-(NSString*) name",
     "-(NSDictionary*) userInfo",
   ],
-	[ "NSFileManager",
-		"+(NSFileManager*) defaultManager",
-		"-(BOOL) movePath:(NSString*)source toPath:(NSString*)destination handler:(id)handler",
-		"-(BOOL) moveItemAtPath:(NSString*)srcPath toPath:(NSString*)dstPath error:(NSError**)error",
-		"-(BOOL) copyPath:(NSString*)source toPath:(NSString*)destination handler:(id)handle",
-		"-(BOOL) removeFileAtPath:(NSString*)path handler:(id)handler",
-		"-(BOOL) createDirectoryAtPath:(NSString*)path attributes:(NSDictionary*)attributes",
-		"-(NSArray*) directoryContentsAtPath:(NSString*)path",
-		"-(BOOL) fileExistsAtPath:(NSString*)path",
-		"-(BOOL) fileExistsAtPath:(NSString*)path isDirectory:(BOOL*)isDirectory",
-		"-(BOOL) changeCurrentDirectoryPath:(NSString*)path",
-		"-(NSString*) currentDirectoryPath",
-	],
-	[ "NSUserDefaults",
-		"+(NSUserDefaults*) standardUserDefaults",
-		"-(id) objectForKey:(NSString*)defaultName",
-		"-(BOOL) boolForKey:(NSString*)defaultName",
-		"-(NSInteger) integerForKey:(NSString*)defaultName",
-		"-(NSString*) stringForKey:(NSString*)defaultName",
-		"-(NSDictionary*) dictionaryForKey:(NSString*)defaultName",
-		"-(NSArray*) arrayForKey:(NSString*)defaultName",
-		"-(void) removeObjectForKey:(NSString*)defaultName",
-		"-(void) setObject:(id)value forKey:(NSString*)defaultName",
-		"-(void) setBool:(BOOL)value forKey:(NSString*)defaultName",
-		"-(void) registerDefaults:(NSDictionary*)dictionary",
-	],
-	["NSThread",
-		"+(void) detachNewThreadSelector:(SEL)aSelector toTarget:(id)aTarget withObject:(id)anArgument",
-		"+(void) sleepUntilDate:(NSDate*)aDate",
-		"+(void) sleepForTimeInterval:(NSTimeInterval)ti",
-	],
+  [ "NSFileManager",
+    "+(NSFileManager*) defaultManager",
+    "-(BOOL) movePath:(NSString*)source toPath:(NSString*)destination handler:(id)handler",
+    "-(BOOL) moveItemAtPath:(NSString*)srcPath toPath:(NSString*)dstPath error:(NSError**)error",
+    "-(BOOL) copyPath:(NSString*)source toPath:(NSString*)destination handler:(id)handle",
+    "-(BOOL) removeFileAtPath:(NSString*)path handler:(id)handler",
+    "-(BOOL) createDirectoryAtPath:(NSString*)path attributes:(NSDictionary*)attributes",
+    "-(NSArray*) directoryContentsAtPath:(NSString*)path",
+    "-(BOOL) fileExistsAtPath:(NSString*)path",
+    "-(BOOL) fileExistsAtPath:(NSString*)path isDirectory:(BOOL*)isDirectory",
+    "-(BOOL) changeCurrentDirectoryPath:(NSString*)path",
+    "-(NSString*) currentDirectoryPath",
+  ],
+  [ "NSUserDefaults",
+    "+(NSUserDefaults*) standardUserDefaults",
+    "-(id) objectForKey:(NSString*)defaultName",
+    "-(BOOL) boolForKey:(NSString*)defaultName",
+    "-(NSInteger) integerForKey:(NSString*)defaultName",
+    "-(NSString*) stringForKey:(NSString*)defaultName",
+    "-(NSDictionary*) dictionaryForKey:(NSString*)defaultName",
+    "-(NSArray*) arrayForKey:(NSString*)defaultName",
+    "-(void) removeObjectForKey:(NSString*)defaultName",
+    "-(void) setObject:(id)value forKey:(NSString*)defaultName",
+    "-(void) setBool:(BOOL)value forKey:(NSString*)defaultName",
+    "-(void) registerDefaults:(NSDictionary*)dictionary",
+  ],
+  ["NSThread",
+    "+(void) detachNewThreadSelector:(SEL)aSelector toTarget:(id)aTarget withObject:(id)anArgument",
+    "+(void) sleepUntilDate:(NSDate*)aDate",
+    "+(void) sleepForTimeInterval:(NSTimeInterval)ti",
+  ],
   [ "NSApplication",
     "+(NSApplication*) sharedApplication",
+    "-(void) applicationDidFinishLaunching:(NSNotification*)aNotification",
+    "-(NSApplicationTerminateReply) applicationShouldTerminate:(NSApplication*)sender",
     "-(void) terminate:(id)sender",
-		"-(void) applicationDidFinishLaunching:(NSNotification*)aNotification",
-		"-(NSApplicationTerminateReply) applicationShouldTerminate:(NSApplication*)sender",
-		"-(BOOL) applicationShouldTerminateAfterLastWindowClosed:(NSApplication*)theApplication",
-		"-(BOOL) application:(NSApplication*)theApplication openFile:(NSString*)filename",
-		"-(void) application:(NSApplication*)sender openFiles:(NSArray*)filenames",
-		"-(NSMenu*) applicationDockMenu:(NSApplication*)sender",
+    "-(BOOL) applicationShouldTerminateAfterLastWindowClosed:(NSApplication*)theApplication",
+    "-(void) applicationWillTerminate:(NSNotification*)aNotification",
+    "-(BOOL) application:(NSApplication*)theApplication openFile:(NSString*)filename",
+    "-(void) application:(NSApplication*)sender openFiles:(NSArray*)filenames",
+    "-(NSMenu*) applicationDockMenu:(NSApplication*)sender",
   ],
   [ "NSBundle",
     "+(NSBundle*) mainBundle",
-		"+(NSBundle*) bundleForClass:(Class)aClass",
-		"-(NSString*) pathForResource:(NSString*)name ofType:(NSString*)extension",
+    "+(NSBundle*) bundleForClass:(Class)aClass",
+    "-(NSString*) pathForResource:(NSString*)name ofType:(NSString*)extension",
     "-(NSDictionary*) infoDictionary",
   ],
-	["NSControl",
-		"-(NSString*) stringValue",
-		"-(void) setEnabled:(BOOL)flag",
-		"-(BOOL) isEnabled",
-	],
-	["NSView",
-		"-(void) setHidden:(BOOL)flag",
-		"-(BOOL) isHidden",
-		"-(NSRect) bounds",
-		"-(NSRect) frame",
-		"-(NSWindow*) window",
-		"-(void) setNeedsDisplay:(BOOL)flag",
-		"-(void) drawRect:(NSRect)dirtyRect",
-	],
-	["NSWindow",
-	 	"-(void) orderFront:(id)sender",
-		"-(id) contentView",
-	],
-	["NSButton",
-		"-(void) setTitle:(NSString *)aString",
-		"-(NSString*) title",
-	],
-	["NSProgressIndicator",
-		"-(void) startAnimation:(id)sender",
-		"-(void) stopAnimation:(id)sender",
-	],
-	["NSImage",
-		"-(id) initWithContentsOfFile:(NSString*)filename",
-	],
+  ["NSControl",
+    "-(NSString*) stringValue",
+    "-(void) setEnabled:(BOOL)flag",
+    "-(BOOL) isEnabled",
+  ],
+  ["NSView",
+    "-(void) setHidden:(BOOL)flag",
+    "-(BOOL) isHidden",
+    "-(NSRect) bounds",
+    "-(NSRect) frame",
+    "-(NSWindow*) window",
+    "-(void) setNeedsDisplay:(BOOL)flag",
+    "-(void) drawRect:(NSRect)dirtyRect",
+  ],
+  ["NSWindow",
+    "-(void) orderFront:(id)sender",
+    "-(id) contentView",
+  ],
+  ["NSButton",
+    "-(void) setTitle:(NSString *)aString",
+    "-(NSString*) title",
+  ],
+  ["NSProgressIndicator",
+    "-(void) startAnimation:(id)sender",
+    "-(void) stopAnimation:(id)sender",
+  ],
+  ["NSImage",
+    "-(id) initWithContentsOfFile:(NSString*)filename",
+  ],
   ["NSProcessInfo",
     "+(NSProcessInfo*) processInfo",
     "-(NSString*) processName",
     "-(NSInteger) runModalForWindow:(NSWindow*)",
   ],
-	["NSNibAwaking",
-		"-(void) awakeFromNib",
-	]
+  ["NSNibAwaking",
+    "-(void) awakeFromNib",
+  ]
 ];
 
 // different types require different ways of constructing url to apple docs
@@ -207,7 +214,7 @@ var appKitClasses = ["NSApplication", "NSWindow", "NSImage", "NSProgressIndicato
 var appKitClasses2 = ["NSView"]
 var appKitProtocols = ["NSNibAwaking"];
 var foundationClasses1 = ["NSString"];
-var foundationClasses2 = ["NSObject", "NSThread", "NSFileManager", "NSData", "NSNotification", "NSUserDefaults", "NSProcessInfo", "NSArray", "NSDictionary", "NSCalendarDate", "NSNotificationCenter", "NSDate", "NSBundle"];
+var foundationClasses2 = [ "NSMutableString", "NSObject", "NSThread", "NSFileManager", "NSData", "NSNotification", "NSUserDefaults", "NSProcessInfo", "NSArray", "NSDictionary", "NSCalendarDate", "NSNotificationCenter", "NSDate", "NSBundle"];
 
 function inArray(arr, o) {
   return -1 == arr.indexOf(o) ? false : true;
@@ -240,17 +247,22 @@ function isObjectiveCName(s) {
 }
 
 function shortNameObjectiveC(s) {
-  var parts = s.split(' ');
-  if (1 == parts.length)
-    return parts[0];
-
+  var parts = s.split(':');
   var res = [];
-  for (var i = 1; i < parts.length; i++) {
-    var s = parts[i];
-    res.push(s.split(':')[0]);
+  var hasArgs = methodHasArgs(s);
+  var len = parts.length;
+  if (hasArgs)
+    len -= 1;
+  for (var i = 0; i < len; i++) {
+    var s2 = parts[i];
+    var parts2 = s2.split(')');
+    s2 = parts2[parts2.length - 1];
+    parts2 = s2.split(' ');
+    s2 = parts2[parts2.length - 1];
+    res.push(s2);
   }
   var r = res.join(":");
-  if (methodHasArgs(s))
+  if (hasArgs)
     r += ":";
   return r;
 }
@@ -275,16 +287,16 @@ function hasAppleUrlForClass(className) {
 function appleUrlForClass(className) {
   if (inArray(appKitClasses, className))
     return "http://developer.apple.com/documentation/Cocoa/Reference/ApplicationKit/Classes/" + className + "_Class/Reference/Reference.html";
-	else if (inArray(appKitClasses2, className))
-  	return "http://developer.apple.com/documentation/Cocoa/Reference/ApplicationKit/Classes/" + className + "_Class/Reference/" + className + ".html";
-	else if (inArray(appKitProtocols, className))
-		return "http://developer.apple.com/documentation/Cocoa/Reference/ApplicationKit/Protocols/" + className + "_Protocol/Reference/Reference.html";
-	else if (inArray(foundationClasses1, className))
+  else if (inArray(appKitClasses2, className))
+    return "http://developer.apple.com/documentation/Cocoa/Reference/ApplicationKit/Classes/" + className + "_Class/Reference/" + className + ".html";
+  else if (inArray(appKitProtocols, className))
+    return "http://developer.apple.com/documentation/Cocoa/Reference/ApplicationKit/Protocols/" + className + "_Protocol/Reference/Reference.html";
+  else if (inArray(foundationClasses1, className))
     return "http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/" + className + "_Class/Reference/" + className + ".html";
-	else if (inArray(foundationClasses2, className))
-  	return "http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/" + className + "_Class/Reference/Reference.html";
+  else if (inArray(foundationClasses2, className))
+    return "http://developer.apple.com/documentation/Cocoa/Reference/Foundation/Classes/" + className + "_Class/Reference/Reference.html";
   else
-		return undefined;
+    return undefined;
 }
 
 function appleUrlPartForMethod(className, methodName) {
@@ -300,9 +312,9 @@ function appleUrlForMethod(className, methodName) {
 }
 
 $(document).ready(function() {
-	$("a").tooltip({
-		showURL: false
-	});
+  $("a").tooltip({
+    showURL: false
+  });
 });
 
 </script>
@@ -348,18 +360,6 @@ function headerRow(className) {
   return s;
 }
 
-function methodNamePrettify(s) {
-	// hack: because my tokenization in shortMethodName is weak, I have to
-	// sometimes substitute spaces with "_" so now I have to undo it
-	s = s.replace("_", " ");
-	if (s.charAt(0) == '-' || s.charAt(0) == '+' && s.charAt(0) != ' ') {
-		s = s.charAt(0) + " " + s.substring(1);
-	}
-	// TODO: use replaceAll when it works
-	s = s.replace("*)", " *)");
-	return s;
-}
-
 function contentRow(className) {
   var hasUrl = hasAppleUrlForClass(className);
   var s = '';
@@ -371,7 +371,7 @@ function contentRow(className) {
     var name = shortMethodName(methodName);
     if (hasUrl) {
       var url = appleUrlForMethod(className, methodName);
-      s += ' <a title="' + methodNamePrettify(methodName) + '" href="' + url + '">' + name + "</a>";
+      s += ' <a title="' + methodName + '" href="' + url + '">' + name + "</a>";
     } else {
       s += name;
     }
