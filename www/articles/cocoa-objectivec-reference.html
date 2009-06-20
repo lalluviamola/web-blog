@@ -204,6 +204,12 @@ var methods = [
     "- (void)setNeedsDisplay:(BOOL)flag",
     "- (void)drawRect:(NSRect)dirtyRect",
   ],
+  ["NSTableView",
+    "- (void)setDataSource:(id)anObject",
+    "- (id)dataSource",
+    "- (void)reloadData",
+    "- (NSInteger)clickedRow",
+  ],
   ["NSWindow",
     "- (void)orderFront:(id)sender",
     "- (void)orderBack:(id)sender",
@@ -232,7 +238,7 @@ var methods = [
 ];
 
 // different types require different ways of constructing url to apple docs
-var appKitClasses = ["NSApplication", "NSWindow", "NSImage", "NSProgressIndicator", "NSControl", "NSButton"];
+var appKitClasses = ["NSApplication", "NSWindow", "NSImage", "NSProgressIndicator", "NSControl", "NSButton", "NSTableView"];
 var appKitClasses2 = ["NSView"]
 var appKitProtocols = ["NSNibAwaking"];
 var foundationClasses1 = ["NSString"];
