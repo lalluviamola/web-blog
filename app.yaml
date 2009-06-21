@@ -16,6 +16,9 @@ handlers:
 - url: /software/fofou
   script: main.py
 
+- url: /articles/cocoa-objectivec-reference.html
+  script: main.py
+
 - url: /software
   static_dir: www/software
 

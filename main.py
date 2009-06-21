@@ -950,17 +950,24 @@ class AtomHandler(webapp.RequestHandler):
         self.response.headers['Content-Type'] = 'text/xml'
         self.response.out.write(feedtxt)
 
-class SumatraRedirectHandler(webapp.RequestHandler):
-    def get(self):
-        return self.redirect("/software/sumatrapdf/", True)
+redirects = {
+    '/software/fofou' : '/software/fofou/',
+    '/software/sumatra' : '/software/sumatrapdf/',
+    '/software/sumatrapdf' : '/software/sumatrapdf/',
+    '/feed/rss2/atom.xml' : '/atom.xml',
+    '/feed/rss2/' : '/atom.xml',
+    '/feed/rss2' : '/atom.xml',
+    '/feed/' : '/atom.xml',
+    '/articles/cocoa-objectivec-reference.html' : '/articles/cocoa-reference.html',
+    '/forum_sumatra/rss.php' : 'http://forums.fofou.org/sumatrapdf/rss',
+}
 
-class FofouRedirectHandler(webapp.RequestHandler):
+class RedirectHandler(webapp.RequestHandler):
     def get(self):
-        return self.redirect("/software/fofou/", True)
-
-class FeedRedirectHandler(webapp.RequestHandler):
-    def get(self):
-        return self.redirect("/atom.xml", True)
+        path = self.request.path
+        if path in redirects:
+            return self.redirect(redirects[path])
+        self.response.out.write("<html><body>Unknown redirect for %s</body></html>" % path)
 
 class AddIndexHandler(webapp.RequestHandler):
     def get(self, sub=None):
@@ -973,7 +980,7 @@ class ForumRedirect(webapp.RequestHandler):
 
 class ForumRssRedirect(webapp.RequestHandler):
     def get(self):
-        return self.redirect("http://forums.fofou.org/sumatrapdf/rss", True)
+        return self.redirect("", True)
 
 # import one or more articles from old text format
 class ImportHandler(webapp.RequestHandler):
@@ -1024,6 +1031,17 @@ class ImportHandler(webapp.RequestHandler):
 
 def main():
     mappings = [
+        # redirects should go first
+        ('/software/fofou', RedirectHandler),
+        ('/software/sumatra', RedirectHandler),
+        ('/software/sumatrapdf', RedirectHandler),
+        ('/feed/rss2/atom.xml', RedirectHandler),
+        ('/feed/rss2/', RedirectHandler),
+        ('/feed/rss2', RedirectHandler),
+        ('/feed/', RedirectHandler),
+        ('/articles/cocoa-objectivec-reference.html', RedirectHandler),
+        ('/forum_sumatra/rss.php', RedirectHandler),
+        # non-redirects
         ('/', IndexHandler),
         ('/index.html', IndexHandler),
         ('/archives.html', ArchivesHandler),
@@ -1035,12 +1053,8 @@ def main():
         ('/js/(.*)', JsHandler),
         ('/atom.xml', AtomHandler),
         ('/sitemap.xml', SitemapHandler),
-        ('/software/fofou', FofouRedirectHandler),
-        ('/software/sumatra', SumatraRedirectHandler),
-        ('/software/sumatrapdf', SumatraRedirectHandler),
         ('/software/', AddIndexHandler),
         ('/software/(.+)/', AddIndexHandler),
-        ('/forum_sumatra/rss.php', ForumRssRedirect),
         ('/forum_sumatra/(.*)', ForumRedirect),
         ('/app/edit', EditHandler),
         ('/app/undelete', DeleteUndeleteHandler),
@@ -1052,10 +1066,6 @@ def main():
         ('/app/preview', PreviewHandler),
         ('/app/cleanhtml', CleanHtmlHandler),
         ('/app/clearmemcache', ClearMemcacheHandler),
-        ('/feed/rss2/atom.xml', FeedRedirectHandler),
-        ('/feed/rss2/', FeedRedirectHandler),
-        ('/feed/rss2', FeedRedirectHandler),
-        ('/feed/', FeedRedirectHandler),
         # only enable /import before importing and disable right
         # after importing, since it's not protected
         #('/import', ImportHandler),
