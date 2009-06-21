@@ -128,6 +128,7 @@ var methods = [
   [ "NSDate",
     "+ (NSDate *)date",
     "- (NSComparisonResult) compare:(NSDate *)anotherDate",
+    "- (NSTimeInterval)timeIntervalSinceDate:(NSDate *)anotherDate",
   ],
   [ "NSCalendarDate",
     "+ (NSCalenderDate *) dateWithString:(NSString *)",
@@ -172,6 +173,11 @@ var methods = [
     "+ (void)detachNewThreadSelector:(SEL)aSelector toTarget:(id)aTarget withObject:(id)anArgument",
     "+ (void)sleepUntilDate:(NSDate *)aDate",
     "+ (void)sleepForTimeInterval:(NSTimeInterval)ti",
+  ],
+  ["NSRunLoop",
+    "+ (NSRunLoop *)currentRunLoop",
+    "+ (NSRunLoop *)mainRunLoop",
+    "- (void)addTimer:(NSTimer *)aTimer forMode:(NSString *)mode",
   ],
   [ "NSApplication",
     "+ (NSApplication *)sharedApplication",
@@ -250,7 +256,7 @@ var appKitClasses = ["NSApplication", "NSWindow", "NSImage", "NSProgressIndicato
 var appKitClasses2 = ["NSView"]
 var appKitProtocols = ["NSNibAwaking"];
 var foundationClasses1 = ["NSString"];
-var foundationClasses2 = [ "NSMutableString", "NSObject", "NSThread", "NSFileManager", "NSData", "NSNotification", "NSUserDefaults", "NSProcessInfo", "NSArray", "NSDictionary", "NSCalendarDate", "NSNotificationCenter", "NSDate", "NSBundle"];
+var foundationClasses2 = [ "NSMutableString", "NSObject", "NSThread", "NSRunLoop", "NSFileManager", "NSData", "NSNotification", "NSUserDefaults", "NSProcessInfo", "NSArray", "NSDictionary", "NSCalendarDate", "NSNotificationCenter", "NSDate", "NSBundle"];
 
 array_indexOf = function(arr, elt /*, from*/)
 {
