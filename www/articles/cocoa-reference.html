@@ -170,6 +170,7 @@ var methods = [
     "- (BOOL)application:(NSApplication *)theApplication openFile:(NSString *)filename",
     "- (void)application:(NSApplication *)sender openFiles:(NSArray *)filenames",
     "- (NSMenu *)applicationDockMenu:(NSApplication *)sender",
+    "- (void)arrangeInFront:(id)sender",
   ],
   [ "NSBundle",
     "+ (NSBundle *)mainBundle",
@@ -203,6 +204,8 @@ var methods = [
     "- (void)orderOut:(id)sender",
     "- (void)makeKeyAndOrderFront:(id)sender",
     "- (id)contentView",
+    "- (BOOL)isMiniaturized",
+    "- (void)deminiaturize:(id)sender,"
   ],
   ["NSButton",
     "- (void)setTitle:(NSString *)aString",
