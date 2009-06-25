@@ -44,6 +44,17 @@ var methods = [
     "- (BOOL)isKindOfClass:(Class)aClass",
     "- (void)performSelectorOnMainThread:(SEL)aSelector withObject:(id)arg waitUntilDone:(BOOL)wait",
   ],
+  ["NSNumber",
+    "+ (NSNumber *)numberWithInt:(int)value",
+    "+ (NSNumber *)numberWithInteger:(NSInteger)value",
+    "- (int)intValue",
+    "- (long)longValue",
+    "- (long long)longLongValue",
+    "- (NSString *)stringValue",
+    "- (NSComparisonResult)compare:(NSNumber *)aNumber",
+    "- (BOOL)isEqualToNumber:(NSNumber *)aNumber",
+    "- (const char *)objCType",
+  ],
   ["NSString",
     "- (id)initWithData:(NSData *)data encoding:(NSStringEncoding)encoding",
     "+ (NSString *)stringWithFormat:(NSString *)",
@@ -253,7 +264,7 @@ var appKitClasses = ["NSApplication", "NSWindow", "NSImage", "NSProgressIndicato
 var appKitClasses2 = ["NSView"]
 var appKitProtocols = ["NSNibAwaking"];
 var foundationClasses1 = ["NSString"];
-var foundationClasses2 = [ "NSMutableString", "NSObject", "NSThread", "NSRunLoop", "NSFileManager", "NSData", "NSNotification", "NSUserDefaults", "NSProcessInfo", "NSArray", "NSDictionary", "NSCalendarDate", "NSNotificationCenter", "NSDate", "NSBundle"];
+var foundationClasses2 = [ "NSNumber", "NSMutableString", "NSObject", "NSThread", "NSRunLoop", "NSFileManager", "NSData", "NSNotification", "NSUserDefaults", "NSProcessInfo", "NSArray", "NSDictionary", "NSCalendarDate", "NSNotificationCenter", "NSDate", "NSBundle"];
 
 array_indexOf = function(arr, elt /*, from*/)
 {
