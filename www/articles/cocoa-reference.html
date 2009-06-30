@@ -257,15 +257,24 @@ var methods = [
   ],
   ["NSNibAwaking",
     "- (void)awakeFromNib",
+  ],
+  ["NSWorkspace",
+    "+ (NSWorkspace *)sharedWorkspace",
+    "- (BOOL)openFile:(NSString *)fullPath",
+    "- (BOOL)openURL:(NSURL *)url",
+    "- (NSImage *)iconForFile:(NSString *)fullPath",
+    "- (NSDictionary *)activeApplication",
+    "- (NSArray *)launchedApplications",
+    "- (NSArray *)mountedRemovableMedia",
   ]
 ];
 
 // different types require different ways of constructing url to apple docs
-var appKitClasses = ["NSApplication", "NSWindow", "NSImage", "NSProgressIndicator", "NSControl", "NSButton", "NSTableView"];
+var appKitClasses = ["NSWorkspace","NSApplication", "NSWindow", "NSImage", "NSProgressIndicator", "NSControl", "NSButton", "NSTableView"];
 var appKitClasses2 = ["NSView"]
 var appKitProtocols = ["NSNibAwaking"];
 var foundationClasses1 = ["NSString"];
-var foundationClasses2 = [ "NSNumber", "NSMutableString", "NSObject", "NSThread", "NSRunLoop", "NSFileManager", "NSData", "NSNotification", "NSUserDefaults", "NSProcessInfo", "NSArray", "NSDictionary", "NSCalendarDate", "NSNotificationCenter", "NSDate", "NSBundle"];
+var foundationClasses2 = ["NSNumber", "NSMutableString", "NSObject", "NSThread", "NSRunLoop", "NSFileManager", "NSData", "NSNotification", "NSUserDefaults", "NSProcessInfo", "NSArray", "NSDictionary", "NSCalendarDate", "NSNotificationCenter", "NSDate", "NSBundle"];
 
 array_indexOf = function(arr, elt /*, from*/)
 {
