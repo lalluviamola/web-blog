@@ -266,6 +266,13 @@ var methods = [
     "- (NSDictionary *)activeApplication",
     "- (NSArray *)launchedApplications",
     "- (NSArray *)mountedRemovableMedia",
+  ],
+  ["NSFileManager",
+    "+ (NSFileManager *)defaultManager",
+    "- (BOOL)movePath:(NSString *)source toPath:(NSString *)destination handler:(id)handler",
+    "- (BOOL)createDirectoryAtPath:(NSString *)path attributes:(NSDictionary *)attributes",
+    "- (BOOL)changeCurrentDirectoryPath:(NSString *)path",
+    "- (NSString *)currentDirectoryPath",
   ]
 ];
 
@@ -274,7 +281,7 @@ var appKitClasses = ["NSWorkspace","NSApplication", "NSWindow", "NSImage", "NSPr
 var appKitClasses2 = ["NSView"]
 var appKitProtocols = ["NSNibAwaking"];
 var foundationClasses1 = ["NSString"];
-var foundationClasses2 = ["NSNumber", "NSMutableString", "NSObject", "NSThread", "NSRunLoop", "NSFileManager", "NSData", "NSNotification", "NSUserDefaults", "NSProcessInfo", "NSArray", "NSDictionary", "NSCalendarDate", "NSNotificationCenter", "NSDate", "NSBundle"];
+var foundationClasses2 = ["NSFileManager", "NSNumber", "NSMutableString", "NSObject", "NSThread", "NSRunLoop", "NSFileManager", "NSData", "NSNotification", "NSUserDefaults", "NSProcessInfo", "NSArray", "NSDictionary", "NSCalendarDate", "NSNotificationCenter", "NSDate", "NSBundle"];
 
 array_indexOf = function(arr, elt /*, from*/)
 {
