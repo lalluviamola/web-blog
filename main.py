@@ -960,6 +960,7 @@ redirects = {
     '/feed/' : '/atom.xml',
     '/articles/cocoa-objectivec-reference.html' : '/articles/cocoa-reference.html',
     '/forum_sumatra/rss.php' : 'http://forums.fofou.org/sumatrapdf/rss',
+    '/forum_sumatra' : 'http://forums.fofou.org/sumatrapdf',
 }
 
 class RedirectHandler(webapp.RequestHandler):
@@ -1035,6 +1036,7 @@ def main():
         ('/software/fofou', RedirectHandler),
         ('/software/sumatra', RedirectHandler),
         ('/software/sumatrapdf', RedirectHandler),
+        ('/forum_sumatra', RedirectHandler),
         ('/feed/rss2/atom.xml', RedirectHandler),
         ('/feed/rss2/', RedirectHandler),
         ('/feed/rss2', RedirectHandler),
