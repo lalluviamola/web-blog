@@ -62,5 +62,6 @@ skip_files: |
   (srcblog/.*)|
   (www/blog/.*)|
   (scripts/.*)|
+  (extremeoptimizations/.*)|
   (todo\.txt)|
   )$
