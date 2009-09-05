@@ -19,6 +19,12 @@ handlers:
 - url: /articles/cocoa-objectivec-reference.html
   script: main.py
 
+- url: /extremeoptimizations
+  script: main.py
+
+- url: /extremeoptimizations/
+  script: main.py
+
 - url: /software
   static_dir: www/software
 
@@ -27,6 +33,9 @@ handlers:
 
 - url: /css
   static_dir: www/css
+
+- url: /extremeoptimizations
+  static_dir: www/extremeoptimizations
 
 - url: /static/gfx
   static_dir: www/gfx
