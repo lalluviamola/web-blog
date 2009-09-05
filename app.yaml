@@ -57,20 +57,19 @@ handlers:
 - url: .*
   script: main.py
 
-skip_files: |
-  ^(.*/)?(
-  (app\.yaml)|
-  (app\.yml)|
-  (index\.yaml)|
-  (index\.yml)|
-  (#.*#)|
-  (.*~)|
-  (.*\.py[co])|
-  (.*/RCS/.*)|
-  (\..*)|
-  (srcblog/.*)|
-  (www/blog/.*)|
-  (scripts/.*)|
-  (extremeoptimizations/.*)|
-  (todo\.txt)|
-  )$
+skip_files:
+- ^(.*/)?app\.yaml
+- ^(.*/)?app\.yml
+- ^(.*/)?index\.yaml
+- ^(.*/)?index\.yml
+- ^(.*/)?#.*#
+- ^(.*/)?.*~
+- ^(.*/)?.*\.py[co]
+- ^(.*/)?.*/RCS/.*
+- ^(.*/)?\..*
+- ^(.*/)?.*\.bak$
+- ^srcblog/.*
+- ^www/blog/.*
+- ^scripts/.*
+- ^extremeoptimizations/.*
+- ^(.*/)?todo\.txt
