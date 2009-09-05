@@ -1,13 +1,16 @@
 #!/usr/bin/env python
-import os.path, sys, string, shutil
+import os.path
+import sys
+import string
+import shutil
 import textile
 
 SCRIPT_DIR = os.path.dirname(__file__)
 BASE_DIR = os.path.realpath(os.path.join(SCRIPT_DIR, ".."))
 TXTSRCDIR = os.path.join(BASE_DIR, "txtsrc")
 SRCDIR = os.path.join(BASE_DIR, "src")
-OUTDIR = os.path.join(BASE_DIR, "www")
-OUTSRCDIR = os.path.join(BASE_DIR, "www", "src")
+OUTDIR = os.path.realpath(os.path.join(BASE_DIR, "..", "www", "extremeoptimizations"))
+OUTSRCDIR = os.path.join(OUTDIR, "src")
 
 def read(path):
     fo = open(path, "rb")
@@ -252,7 +255,7 @@ def dosrcfile(srcpath):
 def main():
     verify_dir_exists(TXTSRCDIR)
     verify_dir_exists(SRCDIR)
-    ensure_dir(OUTDIR)
+    verify_dir_exists(OUTDIR)
     ensure_dir(OUTSRCDIR)
     files = [os.path.join(TXTSRCDIR, f) for f in os.listdir(TXTSRCDIR)]
     map(dofile, [f for f in files if os.path.isfile(f)])
