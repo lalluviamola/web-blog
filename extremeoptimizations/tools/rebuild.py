@@ -196,6 +196,7 @@ def htmlify(text):
 def code_for_filename(filename):
     ext_to_classname = { 
         ".cpp" : "cpp",
+        ".cc" : "cpp",
         ".h" : "cpp",
         ".c" : "cpp"}
     for ext in ext_to_classname.keys():
@@ -234,7 +235,7 @@ def dofile(srcpath):
     write(dstpath, hdr + html + ftr)
 
 def issourcecodefile(path):
-    for ext in [".cpp", ".c", ".h", "makefile"]:
+    for ext in [".cpp", ".cc", ".c", ".h", "makefile"]:
         if path.endswith(ext): return True
     return False
 
