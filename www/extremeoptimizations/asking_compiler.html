@@ -1,0 +1,42 @@
+<html>
+<head>
+ <meta http-equiv="Content-Language" content="en-us">
+ <meta name="keywords" conent="c c++ objective-c programming optimization">
+ <meta name="description" content="">
+ <link rel="stylesheet" href="stylesheet.css" type="text/css">
+ <link rel="stylesheet" title="Default" href="styles/idea.css">
+ <title></title>
+</head>
+
+<body>
+<h1>Asking the compiler to optimize for you.</h1>
+
+<p>There are only two C/C++ compilers that matter: gcc and Visual Studio. Both have command-line options to optimize for the size of generated code.</p>
+
+<p>For gcc it&#8217;s <code>-Os</code> option. It&#8217;s an aggregate options which means that it enables few out of the million gcc optimization flags, those that aim at reducing the code size.</p>
+
+<p>For Visual Studio&#8217;s <code>cl.exe</code>, it&#8217;s <code>/Os</code>.</p>
+
+<p>The most common practice when building C/C++ software is to either build debug version (<code>-O0</code> in gcc, <code>/Od</code> in Visual C++) or optimized for speed release version (<code>-O2</code> or <code>-O3</code> in gcc, <code>/O2</code> in <code>cl.exe</code>) and optimization for size is rarely used.</p>
+
+<p><span class="caps">TODO</span>: compile some largish program with various optimizations and report the differences.</p>
+
+<p><span class="caps">TODO</span>: mention thumb on <span class="caps">ARM</span> (saves 30% of code space, makes programs 30% slower)</p><hr>
+<center>
+Comments, corrections, suggestions? Send them to <a href="http://blog.kowalczyk.info/static/me.html">Krzysztof Kowalczyk</a>
+</center>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-194516-2");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+<script type="text/javascript" src="highlight.js"></script>
+<script type="text/javascript">
+  initHighlightingOnLoad();
+</script>
+</body>
+</html>

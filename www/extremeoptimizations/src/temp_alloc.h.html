@@ -1,0 +1,51 @@
+<html>
+<head>
+ <meta http-equiv="Content-Language" content="en-us">
+ <meta name="keywords" conent="c c++ objective-c programming optimization">
+ <meta name="description" content="temp_alloc.h">
+ <link rel="stylesheet" href="../stylesheet.css" type="text/css">
+ <link rel="stylesheet" title="Default" href="../styles/idea.css">
+ <title>temp_alloc.h</title>
+</head>
+
+<body>
+<pre><code class="cpp">
+/* Public domain code. Take all the code you want, we'll just write more. */
+#ifndef TEMP_ALLOC_H__
+#define TEMP_ALLOC_H__
+
+#include &lt;stdlib.h&gt;
+#include &lt;assert.h&gt;
+#include &lt;string.h&gt;
+#include &lt;stdio.h&gt;
+
+/* core APIs */
+int temp_alloc(size_t size, void **key);
+int temp_realloc(size_t size, void **key);
+void temp_freeall_helper(char *currstacktop);
+
+#define temp_freeall() { \
+    char dummy; \
+    temp_freeall_helper(&amp;dummy); \
+   }
+
+#include "temp_alloc_helpers.h"
+
+#endif
+
+</code></pre>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-194516-2");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+<script type="text/javascript" src="../highlight.js"></script>
+<script type="text/javascript">
+  initHighlightingOnLoad();
+</script>
+</body>
+</html>

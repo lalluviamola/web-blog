@@ -19,6 +19,12 @@ handlers:
 - url: /articles/cocoa-objectivec-reference.html
   script: main.py
 
+- url: /extremeoptimizations
+  script: main.py
+
+- url: /extremeoptimizations/
+  script: main.py
+
 - url: /software
   static_dir: www/software
 
@@ -27,6 +33,9 @@ handlers:
 
 - url: /css
   static_dir: www/css
+
+- url: /extremeoptimizations
+  static_dir: www/extremeoptimizations
 
 - url: /static/gfx
   static_dir: www/gfx
@@ -48,19 +57,19 @@ handlers:
 - url: .*
   script: main.py
 
-skip_files: |
-  ^(.*/)?(
-  (app\.yaml)|
-  (app\.yml)|
-  (index\.yaml)|
-  (index\.yml)|
-  (#.*#)|
-  (.*~)|
-  (.*\.py[co])|
-  (.*/RCS/.*)|
-  (\..*)|
-  (srcblog/.*)|
-  (www/blog/.*)|
-  (scripts/.*)|
-  (todo\.txt)|
-  )$
+skip_files:
+- ^(.*/)?app\.yaml
+- ^(.*/)?app\.yml
+- ^(.*/)?index\.yaml
+- ^(.*/)?index\.yml
+- ^(.*/)?#.*#
+- ^(.*/)?.*~
+- ^(.*/)?.*\.py[co]
+- ^(.*/)?.*/RCS/.*
+- ^(.*/)?\..*
+- ^(.*/)?.*\.bak$
+- ^srcblog/.*
+- ^www/blog/.*
+- ^scripts/.*
+- ^extremeoptimizations/.*
+- ^(.*/)?todo\.txt
