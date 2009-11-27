@@ -12,7 +12,9 @@ import cgi
 import sha
 import traceback
 import wsgiref.handlers
+import logging
 from google.appengine.ext import db
+from google.appengine.api import mail
 from google.appengine.api import memcache
 from google.appengine.api import urlfetch
 from google.appengine.api import users
@@ -20,7 +22,6 @@ from google.appengine.ext import webapp
 from google.appengine.ext.webapp import template
 from django.utils import feedgenerator
 from django.template import Context, Template
-import logging
 
 COMPRESS_PICKLED = False
 NO_MEMCACHE = False
