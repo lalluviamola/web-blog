@@ -92,6 +92,13 @@ def encode_code(text):
 
 def txt_cookie(txt): return sha.new(txt.encode("utf-8")).hexdigest()
 
+def my_hostname():
+    h = "http://" + os.environ["SERVER_NAME"];
+    port = os.environ["SERVER_PORT"]
+    if port != "80":
+        h += ":%s" % port
+    return h
+
 def articles_info_memcache_key():
     if COMPRESS_PICKLED:
         return "akc"
@@ -1031,6 +1038,117 @@ class ImportHandler(webapp.RequestHandler):
         article.put()
         logging.info("imported article, url: '%s'" % permalink)
 
+def user_is_admin():
+    user = users.get_current_user()
+    if user is None: return False
+    if users.is_current_user_admin(): return True
+    return False
+
+def can_view_crash_reports(): return user_is_admin()
+
+def require_login(handler):
+    handler.response.headers['Content-Type'] = 'text/html'
+    user = users.get_current_user()
+    url = handler.request.url
+    ip_addr = os.environ['REMOTE_ADDR']
+    if user:
+        assert not can_view_crash_reports()
+        handler.response.out.write("<html><body>You're logged in as %s but this account doesn't have access. <a href=\"%s\">relogin</a></body></html>" % (user.nickname(), users.create_logout_url(url)))
+    else:
+        handler.response.out.write("<html><body>You need to <a href=\"%s\">log in</a>. </body></html>" % users.create_login_url(url))
+
+# Stores crash reports from mac apps
+class CrashReports(db.Model):
+    created_on = db.DateTimeProperty(required=True, auto_now_add=True)
+    ip_addr = db.StringProperty(required=True)
+    app_name = db.StringProperty(required=True)
+    data = db.BlobProperty(required=True)
+
+CRASH_REPORT_HTML_START = """
+<html>
+<head>
+  <title>Crash reports</title>
+  <style type="text/css">
+    body {
+        font-family: verdana, arial, sans-serif;
+        font-size: 11px;
+        color: #2c3034;
+        background: #eee;
+        margin: 0;
+        padding: 30px;
+        border-top: 5px solid #117700;
+    }
+  </style>
+</head>
+
+<body>
+"""
+
+EMAIL_FROM = "kkowalczyk@gmail.com"
+CRASH_REPORT_NOTIFICATION_EMAIL_TO = ["kkowalczyk@gmail.com"]
+
+class CrashSubmit(webapp.RequestHandler):
+    def post(self):
+        ip_addr = os.environ['REMOTE_ADDR']
+        app_name = self.request.get("appname")
+        crash_report = self.request.get("file")
+        crashreport = CrashReports(ip_addr=ip_addr, app_name=app_name, data=crash_report)
+        crashreport.put()
+        report_url = my_hostname() + "/app/crashes/" + str(crashreport.key().id())
+        self.response.out.write(report_url)
+        s = unicode(diagnosticData, 'utf-8-sig')
+        body = report_url + "\n" + s
+        subject = "New crash report"
+        mail.send_mail(sender=EMAIL_FROM,
+            to=CRASH_REPORT_NOTIFICATION_EMAIL_TO,
+            subject=subject,
+            body=body)
+
+class CrashDelete(webapp.RequestHandler):
+    def get(self, key):
+        if not can_view_crash_reports():
+            return require_login(self)
+        report = db.get(db.Key.from_path('CrashReports', int(key)))
+        report.delete()
+        self.redirect("/app/crashes/")
+
+class Crashes(webapp.RequestHandler):
+    def list_recent(self, template):
+        if not can_view_crash_reports():
+            return require_login(self)
+        MAX = 25
+        reports = CrashReports.gql("ORDER BY created_on DESC").fetch(MAX)
+        user_email = None
+        user = users.get_current_user()
+        if user: user_email = user.email()
+        tvals = {
+            'reports' : reports,
+            'user_email' : user_email,
+            'logout_url' : users.create_logout_url(self.request.url)
+        }
+        template_out(self.response, template, tvals)
+
+    def show_report(self, report):
+        self.response.headers['Content-Type'] = 'text/html'
+        self.response.out.write(CRASH_REPORT_HTML_START)
+        s = unicode(report.data, 'utf-8-sig')
+        self.response.out.write("<h1>Crash report from %s</h1>" % report.app_name)
+        self.response.out.write('\n<pre>\n')
+        s = cgi.escape(s.strip())
+        self.response.out.write(s)
+        self.response.out.write("\n</pre>")
+        self.response.out.write("</body></html>")
+
+    def get(self, key):
+        if 0 == len(key):
+            return self.list_recent("tmpl/recent_crash_reports.html")
+
+        report = db.get(db.Key.from_path('CrashReports', int(key)))
+        ip_addr = os.environ['REMOTE_ADDR']
+        if ip_addr != report.ip_addr and not can_view_crash_reports():
+            return require_login(self)
+        self.show_report(report)
+
 def main():
     mappings = [
         # redirects should go first
@@ -1071,6 +1189,9 @@ def main():
         ('/app/preview', PreviewHandler),
         ('/app/cleanhtml', CleanHtmlHandler),
         ('/app/clearmemcache', ClearMemcacheHandler),
+        ('/app/crashsubmit', CrashSubmit),
+        ('/app/crashes/(.*)', Crashes),
+        ('/app/crashdelete/(.*)', CrashDelete),
         # only enable /import before importing and disable right
         # after importing, since it's not protected
         #('/import', ImportHandler),

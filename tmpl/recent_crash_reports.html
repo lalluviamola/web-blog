@@ -1,0 +1,30 @@
+<html>
+<head>
+  <title>Recent diagnostic reports</title>
+  <style type="text/css">
+    a {
+        font-family: monospace;
+    }
+  </style>
+</head>
+
+<body>
+  {% if user_email %}
+  	<p>Logged in as {{ user_email }}. <a href="{{ logout_url }}">Log out</a>.</p>
+	{% endif %}
+  {% if reports %}
+  Recent diagnostic reports:
+  <ul>
+    {% for r in reports %}
+      <li> <a href="/app/crashes/{{ r.key.id }}">{{ r.key.id }}</a>, 
+      submitted on
+      {{ r.created_on|date:"Y, F jS, g:ia" }} from {{ r.ip_addr }}
+      <a href="/app/crashdelete/{{ r.key.id }}">delete</a>
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    There are no recent crash reports.
+  {% endif %}
+</body>
+</html>
