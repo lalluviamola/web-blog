@@ -30,7 +30,12 @@ td {
 .date {
   font-family: Monaco,"Courier New",monospace;
   font-size: 90%;
-  color: #999999;;
+  color: #999999;
+}
+.h1smaller {
+	color: gray;
+	font-size: 65%;
+	font-weight: normal;
 }
 </style>
 </head>
@@ -38,7 +43,7 @@ td {
 <body>
 
 <div id="content">
-<h1>Krzysztof J. Kowalczyk's notebook</h1>
+<h1>Krzysztof J. Kowalczyk's notebook <span class="h1smaller">(saying n'importe quoi since 2002)</span></h1> 
 
 <div id="adminList" style="position: absolute; left:10px; top:0px; font-size: 90%;">
   {% if is_admin %}

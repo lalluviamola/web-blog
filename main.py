@@ -555,7 +555,7 @@ class TagHandler(webapp.RequestHandler):
         logging.info("tag: '%s'" % tag)
         articles_summary = get_articles_summary()
         articles_summary = filter_by_tag(articles_summary, tag)
-        do_archives(self.response, articles_summary, tag)
+        do_archives(self.response, articles_summary, self.request.path, tag)
 
 # responds to /js/${url}
 class JsHandler(webapp.RequestHandler):
@@ -842,7 +842,7 @@ def articles_summary_set_tags_display(articles_summary):
             a['tags_display'] = False
 
 # reused by archives and archives-limited-by-tag pages
-def do_archives(response, articles_summary, tag_to_display=None):
+def do_archives(response, articles_summary, url, tag_to_display=None):
     curr_year = None
     curr_month = None
     years = []
@@ -871,6 +871,7 @@ def do_archives(response, articles_summary, tag_to_display=None):
         posts_count += 1
 
     vals = {
+	'login_out_url' : get_login_logut_url(url),
         'is_admin' : users.is_current_user_admin(),
         'jquery_url' : jquery_url(),
         'articles_js_url' : get_article_json_url(),
@@ -885,7 +886,7 @@ def do_archives(response, articles_summary, tag_to_display=None):
 class ArchivesHandler(webapp.RequestHandler):
     def get(self):
         articles_summary = get_articles_summary()
-        do_archives(self.response, articles_summary)
+        do_archives(self.response, articles_summary, self.request.path)
 
 class SitemapHandler(webapp.RequestHandler):
     def get(self):
@@ -918,7 +919,7 @@ class ShowDeletedHandler(webapp.RequestHandler):
         if not users.is_current_user_admin():
             return self.redirect("/404.html")
         articles_summary = get_articles_summary(ARTICLE_DELETED)
-        do_archives(self.response, articles_summary)
+        do_archives(self.response, articles_summary, self.request.path)
 
 # responds to /app/showprivate
 class ShowPrivateHandler(webapp.RequestHandler):
@@ -926,7 +927,7 @@ class ShowPrivateHandler(webapp.RequestHandler):
         if not users.is_current_user_admin():
             return self.redirect("/")
         articles_summary = get_articles_summary(ARTICLE_PRIVATE)
-        do_archives(self.response, articles_summary)
+        do_archives(self.response, articles_summary, self.request.path)
 
 # responds to /atom.xml
 class AtomHandler(webapp.RequestHandler):
