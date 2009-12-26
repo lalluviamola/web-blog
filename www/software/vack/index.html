@@ -57,9 +57,7 @@ function selectResult() {
 function myInit() {
 	var html = "<a class=dl href='" + vackLatestUrl + "'>Download</a>";
 	$("url").innerHTML = html;
-	/*
-	$("ver").innerHTML = "(version 0.2.5)";
-	*/
+	$("ver").innerHTML = "(version " + vackLatestVer + ")";
 	$("buildtime").innerHTML = vackBuiltOn;
 }
 window.onload = myInit;
