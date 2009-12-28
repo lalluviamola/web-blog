@@ -16,6 +16,19 @@ function articlesJsonLoaded(articlesJson) {
   var html = genTagCloudHtml();
   $('#tagCloud').html(html);
 }
+
+$(document).ready(function(){
+  $("#searchFieldId").val("Search").addClass("inactiveSearch");
+
+  $("#searchFieldId").focus(function(){
+    $(this).val("").removeClass("inactiveSearch");
+  });
+  $("#searchFieldId").blur(function(){
+    $(this).val("Search").addClass("inactiveSearch");
+  });
+
+});
+
 </script>
 
 {% include "inline_css.html" %}
@@ -32,10 +45,34 @@ td {
   font-size: 90%;
   color: #999999;
 }
-.h1smaller {
+.smaller {
 	color: gray;
 	font-size: 65%;
 	font-weight: normal;
+}
+
+.smaller2 {
+	color: gray;
+	font-size: 85%;
+	font-weight: normal;
+}
+
+.inactiveSearch {
+	color: gray;
+	font-size: 85%;
+	font-style: italic;
+}
+
+#left-column {
+	width: 200px;
+	float: left;
+	// background-color: #ccc;
+}
+
+#right-column {
+	width: 700px;
+	//background-color: #ddd;
+	margin: 2px 8px;
 }
 </style>
 </head>
@@ -43,82 +80,59 @@ td {
 <body>
 
 <div id="content">
-<h1>Krzysztof J. Kowalczyk's notebook <span class="h1smaller">(saying n'importe quoi since 2002)</span></h1> 
-
-<div id="adminList" style="position: absolute; left:10px; top:0px; font-size: 90%;">
-  {% if is_admin %}
-  <ul>
-  <li><a href="{{ login_out_url }}">log out</a></li>
-  <li><a href="/app/edit">new post</a></li>
-  <li><a href="/app/showprivate">private</a></li>
-  </ul>
-  {% else %}
-  &nbsp;<a id="login_id" class="invisible" onMouseOver="showLogin();" onMouseOut="hideLogin();" href="{{ login_out_url }}">login</a>
-  {% endif %}
-</div>
-
-<div style="position: absolute; right:20px; top:10px; font-size: 80%">
-  <form method="get" action="http://google.com/search" >
-  <input type="hidden" name="IncludeBlogs" value="1">
-  <input type="hidden" name="as_sitesearch" value="http://blog.kowalczyk.info">
-  <label for="searchFieldId">Search:</label> 
-  <input size=12 type="text" name="q" id="searchFieldId" />
-  <input class="button" value="Go" type="submit">
-  </form>
-</div>
+<h1>Krzysztof J. Kowalczyk's notebook <span class="smaller">(saying n'importe quoi since 2002)</span></h1> 
 
 <p></p>
-<br/>
-<br/>
 
-<table>
-  <tr>
-    <th>Me:</th>
-    <th>On this site:</th></tr>
-  <tr>
-    <td>  <script>
-      var email = "";
-      email += "kkowalczyk";
-      email += "@";
-      email += "gmail.com"
-      hyperlink = "<a href='mailto:email'>email</a>";
-      hyperlink = hyperlink.replace(/email/g, email);
-      document.write(hyperlink);
-    </script></td>
-    <td><a href="/software/sumatrapdf/">SumatraPDF</a> - PDF Reader for Windows</td>
-  </tr>
-  <tr>
-    <td><a href="http://github.com/kjk">github.com/kjk</a></td>
-    <td><a href="/software/fofou/">fofou</a> - forum software for App Engine</td>
-  </tr>
-  <tr>
-  <!--
-    <td><a href="http://flickr.com/photos/kjk">flickr.com/photos/kjk</a></td>
-  -->
-  <td><a href="http://code.google.com/u/kkowalczyk/">code.google.com/u/kkowalczyk/</a></td>
-    <td><a href="/articles/cocoa-reference.html"> Cocoa reference</a></td>
-   </tr>
-  <tr>
-<!--
-    <td><a href="http://del.icio.us/kjk/">del.icio.us/kjk</a></td>
- -->
-    <td><a href="http://twitter.com/kjk">twitter.com/kjk</a></td>
-    <td><a href="/articles/pyref.html">Python reference</a></td>
-  </tr>
+<div id="left-column">
 
-  <tr>
-    <td></td>    
-    <td><a href="/software/15minutes/">15minutes</a>, <a href="/software/scdiff/">scdiff</a>
-  </tr>
+{% if is_admin %}
+<b>Admin actions:</b><br>
+<a href="{{ login_out_url }}">log out</a><br>
+<a href="/app/edit">new post</a><br>
+<a href="/app/showprivate">private</a><br>
+<br>
+{% else %}
+<a id="login_id" class="invisible" onMouseOver="showLogin();" onMouseOut="hideLogin();" href="{{ login_out_url }}">login</a>
+<br>
+{% endif %}
 
-  <tr>
-    <td></td>
-    <td style="text-align: right;"><a href="/static/me.html">more</a></td>
-  </tr>
+<form method="get" action="http://google.com/search" >
+<input type="hidden" name="IncludeBlogs" value="1">
+<input type="hidden" name="as_sitesearch" value="http://blog.kowalczyk.info">
+<input size=18 type="text" name="q" id="searchFieldId"/>
+<input class="button" value="Go" type="submit">
+</form>
+<br>
 
-</table>
-<p></p>
+<b>Me:</b><br>
+<script>
+  var email = "";
+  email += "kkowalczyk";
+  email += "@";
+  email += "gmail.com"
+  hyperlink = "<a href='mailto:email'>email</a>";
+  hyperlink = hyperlink.replace(/email/g, email);
+  document.write(hyperlink);
+</script>
+<br>
+<a href="http://github.com/kjk">github.com/kjk</a><br>
+<a href="http://twitter.com/kjk">twitter.com/kjk</a><br>
+<a href="http://code.google.com/u/kkowalczyk/">code.google.com/u/kkowalczyk</a><br>
+<a href="/static/me.html">more</a><br>
+<br>
+<b>On this site:</b><br>
+<a href="/software/sumatrapdf/">SumatraPDF</a><br>
+<span class="smaller2">(PDF Reader for Windows)</span><br>
+<a href="/software/fofou/">fofou</a><br>
+<span class="smaller2">(forum software for App Engine)</span><br>
+<a href="/articles/cocoa-reference.html"> Cocoa reference</a><br>
+<a href="/articles/pyref.html">Python reference</a><br>
+<a href="/software/15minutes/">15minutes</a><br>
+<a href="/software/scdiff/">scdiff</a><br>
+</div> <!-- left-column -->
 
+<div id="right-column">
 <table>
   <tr>
     <th colspan=2>Recent posts:</th>
@@ -144,6 +158,7 @@ td {
 <hr>
 <br/>
 <div id="tagCloud">
+</div>
 </div>
 
 </div>
