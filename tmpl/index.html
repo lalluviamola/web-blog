@@ -65,7 +65,7 @@ $(document).ready(function(){
 }
 
 .date {
-	color: #C00;
+	color: #b88;
 	font-size: 18px;
 	font-weight: bold;
 	line-height: 0.8;	
@@ -101,24 +101,23 @@ a.title_permalink:hover {
 <table>
 <tr>
 	<td valign=top style="border-right: 1px solid #D0D0D0; padding-right: 12px">
+		<form method="get" action="http://google.com/search" >
+		<input type="hidden" name="IncludeBlogs" value="1">
+		<input type="hidden" name="as_sitesearch" value="http://blog.kowalczyk.info">
+		<input size=20 type="text" name="q" id="searchFieldId"/>
+		<input class="button" value="Go" type="submit">
+		</form>
+
 		{% if is_admin %}
+		<br>
+		<div class="line"></div>
 		<b>Admin actions:</b><br>
 		<a href="{{ login_out_url }}">log out</a><br>
 		<a href="/app/edit">new post</a><br>
 		<a href="/app/showprivate">private</a><br>
-		<br>
 		{% else %}
 		<a id="login_id" class="invisible" onMouseOver="showLogin();" onMouseOut="hideLogin();" href="{{ login_out_url }}">login</a>
-		<br>
 		{% endif %}
-
-		<form method="get" action="http://google.com/search" >
-		<input type="hidden" name="IncludeBlogs" value="1">
-		<input type="hidden" name="as_sitesearch" value="http://blog.kowalczyk.info">
-		<input size=18 type="text" name="q" id="searchFieldId"/>
-		<input class="button" value="Go" type="submit">
-		</form>
-
 		<br>
 		<div class="line"></div>
 
@@ -173,8 +172,7 @@ a.title_permalink:hover {
 		   · Tags: {{ article.tags_display }}
 		  {% endif %}
 		-->
-
-		<br>
+		<div class="line"></div>
 		{% endfor %}
 	</td>
 </tr>
