@@ -36,12 +36,6 @@ $(document).ready(function(){
 {% include "inline_css.html" %}
 <style>
 
-th {
-  padding: 2px 15px 2px 2px;
-}
-td {
-  padding: 2px 15px 2px 2px;
-}
 .date {
   font-family: Monaco,"Courier New",monospace;
   font-size: 90%;
@@ -65,23 +59,34 @@ td {
 	font-style: italic;
 }
 
-#left-column {
-	width: 200px;
-	float: left;
-	// background-color: #ccc;
-}
-
-#right-column {
-	width: 700px;
-	//background-color: #ddd;
-	margin: 2px 8px;
-}
-
 .article_title {
 	color: black;
 	font-weight: bold;
-	font-size: 130%;
 }
+
+.date {
+	color: #C00;
+	font-size: 18px;
+	font-weight: bold;
+	line-height: 0.8;	
+}
+
+.title_permalink {
+	font-weight: bold;
+	font-size: 160%;
+	text-decoration: none;
+	color: #000;
+}
+
+a.title_permalink:hover {
+	color: #c00;
+}
+
+.line {
+	border-top: 1px solid #ccc;
+	padding-bottom: 8px;
+}
+
 </style>
 </head>
 
@@ -89,84 +94,99 @@ td {
 
 <div id="content">
 <h1>Krzysztof J. Kowalczyk's notebook <span class="smaller">(saying n'importe quoi since 2002)</span></h1> 
+<p></p>
+<div class="line"></div>
+<p></p>
+
+<table>
+<tr>
+	<td valign=top style="border-right: 1px solid #D0D0D0; padding-right: 12px">
+		{% if is_admin %}
+		<b>Admin actions:</b><br>
+		<a href="{{ login_out_url }}">log out</a><br>
+		<a href="/app/edit">new post</a><br>
+		<a href="/app/showprivate">private</a><br>
+		<br>
+		{% else %}
+		<a id="login_id" class="invisible" onMouseOver="showLogin();" onMouseOut="hideLogin();" href="{{ login_out_url }}">login</a>
+		<br>
+		{% endif %}
+
+		<form method="get" action="http://google.com/search" >
+		<input type="hidden" name="IncludeBlogs" value="1">
+		<input type="hidden" name="as_sitesearch" value="http://blog.kowalczyk.info">
+		<input size=18 type="text" name="q" id="searchFieldId"/>
+		<input class="button" value="Go" type="submit">
+		</form>
+
+		<br>
+		<div class="line"></div>
+
+		<b>Me:</b><br>
+		<script>
+		  var email = "";
+		  email += "kkowalczyk";
+		  email += "@";
+		  email += "gmail.com"
+		  hyperlink = "<a href='mailto:email'>email</a>";
+		  hyperlink = hyperlink.replace(/email/g, email);
+		  document.write(hyperlink);
+		</script>
+		<br>
+		<a href="http://github.com/kjk">github.com/kjk</a><br>
+		<a href="http://twitter.com/kjk">twitter.com/kjk</a><br>
+		<a href="http://code.google.com/u/kkowalczyk/">code.google.com/u/kkowalczyk</a><br>
+		<a href="/static/me.html">more</a><br>
+
+		<br>
+		<div class="line"></div>
+
+		<b>On this site:</b><br>
+		<a href="/software/sumatrapdf/">SumatraPDF</a><br>
+		<span class="smaller2">(PDF Reader for Windows)</span><br>
+		<a href="/software/fofou/">fofou</a><br>
+		<span class="smaller2">(forum software for App Engine)</span><br>
+		<a href="/articles/cocoa-reference.html"> Cocoa reference</a><br>
+		<a href="/articles/pyref.html">Python reference</a><br>
+		<a href="/software/15minutes/">15minutes</a><br>
+		<a href="/software/scdiff/">scdiff</a><br>
+	</td>
+
+	<td style="padding-left: 12px">
+		{% for article in articles_summary %}
+		<p>
+			<table width=100% style="">
+			<tr>
+			<td width="50px" style="">
+			<small><span class="date">{{ article.published_on|date:"d" }}</span>
+			<br><span style="color: #CCC; font-weight: bold">{{ article.published_on|date:"M y" }}</span></small>
+			</td>
+			<td valign="top" style="padding-left: 0px">
+			<a class="title_permalink" href="{{ article.permalink }}">{{ article.title }}</a>
+			</td>
+			</tr>
+			</table>
+		</p>
+		{{ article.html_body }}
+		<!--
+		  {% if article.tags_display %}
+		   · Tags: {{ article.tags_display }}
+		  {% endif %}
+		-->
+
+		<br>
+		{% endfor %}
+	</td>
+</tr>
+</table>
 
 <p></p>
 
-<div id="left-column">
-
-{% if is_admin %}
-<b>Admin actions:</b><br>
-<a href="{{ login_out_url }}">log out</a><br>
-<a href="/app/edit">new post</a><br>
-<a href="/app/showprivate">private</a><br>
-<br>
-{% else %}
-<a id="login_id" class="invisible" onMouseOver="showLogin();" onMouseOut="hideLogin();" href="{{ login_out_url }}">login</a>
-<br>
-{% endif %}
-
-<form method="get" action="http://google.com/search" >
-<input type="hidden" name="IncludeBlogs" value="1">
-<input type="hidden" name="as_sitesearch" value="http://blog.kowalczyk.info">
-<input size=18 type="text" name="q" id="searchFieldId"/>
-<input class="button" value="Go" type="submit">
-</form>
-<br>
-
-<b>Me:</b><br>
-<script>
-  var email = "";
-  email += "kkowalczyk";
-  email += "@";
-  email += "gmail.com"
-  hyperlink = "<a href='mailto:email'>email</a>";
-  hyperlink = hyperlink.replace(/email/g, email);
-  document.write(hyperlink);
-</script>
-<br>
-<a href="http://github.com/kjk">github.com/kjk</a><br>
-<a href="http://twitter.com/kjk">twitter.com/kjk</a><br>
-<a href="http://code.google.com/u/kkowalczyk/">code.google.com/u/kkowalczyk</a><br>
-<a href="/static/me.html">more</a><br>
-<br>
-<b>On this site:</b><br>
-<a href="/software/sumatrapdf/">SumatraPDF</a><br>
-<span class="smaller2">(PDF Reader for Windows)</span><br>
-<a href="/software/fofou/">fofou</a><br>
-<span class="smaller2">(forum software for App Engine)</span><br>
-<a href="/articles/cocoa-reference.html"> Cocoa reference</a><br>
-<a href="/articles/pyref.html">Python reference</a><br>
-<a href="/software/15minutes/">15minutes</a><br>
-<a href="/software/scdiff/">scdiff</a><br>
-</div> <!-- left-column -->
-
-<div id="right-column">
-{% for article in articles_summary %}
-<p>
-<table class="postmeta" width=100%>
-  <tr><td >
-  {{ article.published_on|date:"d M Y" }}
-  {% if article.tags_display %}
-   · Tags: {{ article.tags_display }}
-  {% endif %}
-  </td><td class="article_title">{{ article.title }}
-  </td></tr>
-</table>
-</p>
-{{ article.html_body }}
-
-{% endfor %}
-
-</table>
-
-<p></p>
-<hr>
-<br/>
-</div>
+<div class="line"></div>
+<center><a href=/index.html>Krzysztof Kowalczyk</a></center>
 
 </div>
 
-<hr>
 {% include "analytics.html" %}
 <script charset="utf-8" type="text/javascript" src="{{ articles_js_url }}"></script>
 </body>
