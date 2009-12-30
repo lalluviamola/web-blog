@@ -461,6 +461,13 @@ def article_gen_html_body(article):
     html = gen_html_body(article.format, article.body)
     article.html_body = html
 
+def article_summary_gen_html_body(article):
+    format = article["format"]
+    permalink = article["permalink"]
+    article2 = Article.gql("WHERE permalink = :1", permalink).get()
+    html = gen_html_body(format, article2.body)
+    article["html_body"] = html
+
 def do_sitemap_ping():
     if is_localhost(): return
     sitemap_url = "%s/sitemap.xml" % g_root_url
@@ -528,6 +535,8 @@ def render_article(response, article):
     }
     template_out(response, "tmpl/article.html", vals)
 
+ARTICLES_PER_PAGE = 5
+
 # responds to /
 class IndexHandler(webapp.RequestHandler):
     def get(self):
@@ -535,8 +544,10 @@ class IndexHandler(webapp.RequestHandler):
         articles_summary = get_articles_summary()
         articles_summary = [a for a in articles_summary]
         articles_count = len(articles_summary)
-        articles_summary = articles_summary[:5]
+        articles_summary = articles_summary[:ARTICLES_PER_PAGE]
         articles_summary_set_tags_display(articles_summary)
+        for article in articles_summary:
+            article_summary_gen_html_body(article)
         vals = {
             'jquery_url' : jquery_url(),
             'articles_js_url' : get_article_json_url(),

@@ -11,22 +11,24 @@
 {% include "tagcloud.js" %}
 
 <script type="text/javascript">
+
 function articlesJsonLoaded(articlesJson) {
   articles_json = articlesJson;
-  var html = genTagCloudHtml();
+
+/*  var html = genTagCloudHtml();
   $('#tagCloud').html(html);
+*/
 }
 
 $(document).ready(function(){
-  $("#searchFieldId").val("Search").addClass("inactiveSearch");
-
   $("#searchFieldId").focus(function(){
     $(this).val("").removeClass("inactiveSearch");
   });
   $("#searchFieldId").blur(function(){
-    $(this).val("Search").addClass("inactiveSearch");
+    $(this).val("Search this site").addClass("inactiveSearch");
   });
 
+  $("#searchFieldId").blur(); /* force setting the text */
 });
 
 </script>
@@ -73,6 +75,12 @@ td {
 	width: 700px;
 	//background-color: #ddd;
 	margin: 2px 8px;
+}
+
+.article_title {
+	color: black;
+	font-weight: bold;
+	font-size: 130%;
 }
 </style>
 </head>
@@ -133,32 +141,27 @@ td {
 </div> <!-- left-column -->
 
 <div id="right-column">
-<table>
-  <tr>
-    <th colspan=2>Recent posts:</th>
-  </tr>
 {% for article in articles_summary %}
-<tr>
-  <td class="date">{{ article.published_on|date:"d M Y" }}</td>
-  <td><a href="{{ article.permalink }}">{{ article.title }}</a>
-    {% if not article.is_public %}
-    <font color=red>private</font>
-    {% endif %}
-  </td>
-</tr>
+<p>
+<table class="postmeta" width=100%>
+  <tr><td >
+  {{ article.published_on|date:"d M Y" }}
+  {% if article.tags_display %}
+   · Tags: {{ article.tags_display }}
+  {% endif %}
+  </td><td class="article_title">{{ article.title }}
+  </td></tr>
+</table>
+</p>
+{{ article.html_body }}
+
 {% endfor %}
-<tr><td></td>
-  <td style="text-align: right;">
-    <a href="/archives.html">see all {{ articles_count }}</a>
-    </td>
-</tr>
+
 </table>
 
 <p></p>
 <hr>
 <br/>
-<div id="tagCloud">
-</div>
 </div>
 
 </div>
