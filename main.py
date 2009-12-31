@@ -1,18 +1,19 @@
 # This code is in Public Domain. Take all the code you want, we'll just write more.
-import os
-import string
-import time
-import datetime
-import re
-import StringIO
-import pickle
 import bz2
-import urllib
 import cgi
-import sha
-import traceback
-import wsgiref.handlers
+import datetime
 import logging
+import math
+import os
+import pickle
+import re
+import sha
+import string
+import StringIO
+import time
+import traceback
+import urllib
+import wsgiref.handlers
 from google.appengine.ext import db
 from google.appengine.api import mail
 from google.appengine.api import memcache
@@ -537,17 +538,32 @@ def render_article(response, article):
 
 ARTICLES_PER_PAGE = 5
 
-# responds to /
-class IndexHandler(webapp.RequestHandler):
-    def get(self):
+class PageHandler(webapp.RequestHandler):
+    # for human readability, pageno starts with 1
+    def do_page(self, pageno):
         is_admin = users.is_current_user_admin()
         articles_summary = get_articles_summary()
         articles_summary = [a for a in articles_summary]
         articles_count = len(articles_summary)
-        articles_summary = articles_summary[:ARTICLES_PER_PAGE]
+        pages_count = int(math.ceil(float(articles_count) / float(ARTICLES_PER_PAGE)))
+        if pageno > pages_count:
+            pageno = pages_count
+
+        first_article = (pageno - 1) * ARTICLES_PER_PAGE
+        last_article = first_article + ARTICLES_PER_PAGE
+        if last_article > articles_count:
+            last_article = articles_count
+        articles_summary = articles_summary[first_article:last_article]
         articles_summary_set_tags_display(articles_summary)
         for article in articles_summary:
             article_summary_gen_html_body(article)
+        newer_page = None
+        if pageno > 1:
+            newer_page = { 'no' : pageno - 1 }
+        older_page = None
+        if pageno < pages_count:
+            older_page = { 'no' : pageno + 1 }
+
         vals = {
             'jquery_url' : jquery_url(),
             'articles_js_url' : get_article_json_url(),
@@ -555,9 +571,21 @@ class IndexHandler(webapp.RequestHandler):
             'login_out_url' : get_login_logut_url("/"),
             'articles_summary' : articles_summary,
             'articles_count' : articles_count,
+            'newer_page' : newer_page,
+            'older_page' : older_page,
+            'page_no' : pageno,
+            'pages_count' : pages_count,
             'show_analytics' : show_analytics(),
         }
         template_out(self.response, "tmpl/index.html", vals)
+
+    def get(self, pageno):
+        self.do_page(int(pageno))
+
+# responds to /
+class IndexHandler(PageHandler):
+    def get(self):
+        self.do_page(1)
 
 # responds to /tag/${tag}
 class TagHandler(webapp.RequestHandler):
@@ -1181,6 +1209,7 @@ def main():
         ('/index.html', IndexHandler),
         ('/archives.html', ArchivesHandler),
         ('/article/(.*)', ArticleHandler),
+        ('/page/(.*)', PageHandler),
         # /kb/ and /blog/ are for redirects from old website
         ('/kb/(.*)', ArticleHandler),
         ('/blog/(.*)', ArticleHandler),

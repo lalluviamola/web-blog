@@ -15,9 +15,8 @@
 function articlesJsonLoaded(articlesJson) {
   articles_json = articlesJson;
 
-/*  var html = genTagCloudHtml();
+  var html = genTagCloudHtml();
   $('#tagCloud').html(html);
-*/
 }
 
 $(document).ready(function(){
@@ -47,10 +46,25 @@ $(document).ready(function(){
 	font-weight: normal;
 }
 
-.smaller2 {
+.smaller2, .tags {
 	color: gray;
 	font-size: 85%;
 	font-weight: normal;
+}
+
+.tags a:link {
+  text-decoration: none;
+}
+
+.tags a:visited {
+  text-decoration: none;
+  color: blue;
+}
+
+.tags a:hover   { 
+  background-color: #5F9EA0; 
+  color: #fff; 
+  text-decoration: none;  
 }
 
 .inactiveSearch {
@@ -80,11 +94,6 @@ $(document).ready(function(){
 
 a.title_permalink:hover {
 	color: #c00;
-}
-
-.line {
-	border-top: 1px solid #ccc;
-	padding-bottom: 8px;
 }
 
 </style>
@@ -121,7 +130,8 @@ a.title_permalink:hover {
 		<br>
 		<div class="line"></div>
 
-		<b>Me:</b><br>
+		<b>Me</b><br>
+		<div style="margin-left: 6px">
 		<script>
 		  var email = "";
 		  email += "kkowalczyk";
@@ -136,11 +146,13 @@ a.title_permalink:hover {
 		<a href="http://twitter.com/kjk">twitter.com/kjk</a><br>
 		<a href="http://code.google.com/u/kkowalczyk/">code.google.com/u/kkowalczyk</a><br>
 		<a href="/static/me.html">more</a><br>
+		</div>
 
 		<br>
 		<div class="line"></div>
 
-		<b>On this site:</b><br>
+		<b>On this site</b><br>
+		<div style="margin-left: 6px">
 		<a href="/software/sumatrapdf/">SumatraPDF</a><br>
 		<span class="smaller2">(PDF Reader for Windows)</span><br>
 		<a href="/software/fofou/">fofou</a><br>
@@ -149,6 +161,15 @@ a.title_permalink:hover {
 		<a href="/articles/pyref.html">Python reference</a><br>
 		<a href="/software/15minutes/">15minutes</a><br>
 		<a href="/software/scdiff/">scdiff</a><br>
+		</div>
+
+		<br>
+		<div class="line"></div>
+
+		<b>Tags</b><br>
+		<div id="tagCloud" style="margin-left: 6px">
+		</div>
+
 	</td>
 
 	<td style="padding-left: 12px">
@@ -161,19 +182,40 @@ a.title_permalink:hover {
 			<br><span style="color: #CCC; font-weight: bold">{{ article.published_on|date:"M y" }}</span></small>
 			</td>
 			<td valign="top" style="padding-left: 0px">
-			<a class="title_permalink" href="{{ article.permalink }}">{{ article.title }}</a>
+			<a class="title_permalink" href="/{{ article.permalink }}">{{ article.title }}</a>
 			</td>
 			</tr>
 			</table>
 		</p>
 		{{ article.html_body }}
-		<!--
-		  {% if article.tags_display %}
-		   · Tags: {{ article.tags_display }}
-		  {% endif %}
-		-->
-		<div class="line"></div>
+
+		{% if article.tags_display %}
+		<div class="tags">
+		Tags: {{ article.tags_display }}
+		</div>
+		{% endif %}
+		<br>
+
 		{% endfor %}
+
+		<center>
+		{% if newer_page %}
+	    <a title="page {{ newer_page.no }}" href="/page/{{ newer_page.no }}">← newer</a>
+		{% else %}
+		← newer
+		{% endif %}
+
+	    &bull;
+	    {{ page_no }} of <a href="/archives.html">{{ pages_count }}</a> pages
+	    &bull;
+
+		{% if older_page %}
+	    <a title="page{{ older_page.no }}" href="/page/{{ older_page.no }}">older →</a>
+		{% else %}
+	    older →
+		{% endif %}
+		</center>
+
 	</td>
 </tr>
 </table>
