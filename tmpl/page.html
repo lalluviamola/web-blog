@@ -102,7 +102,8 @@ a.title_permalink:hover {
 <body>
 
 <div id="content">
-<h1>Krzysztof J. Kowalczyk's notebook <span class="smaller">(saying n'importe quoi since 2002)</span></h1> 
+<h1>Krzysztof J. Kowalczyk's notebook <span class="smaller">(saying n'importe quoi since 2002)</span></h1>
+
 <p></p>
 <div class="line"></div>
 <p></p>
@@ -172,7 +173,7 @@ a.title_permalink:hover {
 
 	</td>
 
-	<td style="padding-left: 12px">
+	<td style="padding-left: 12px" valign="top">
 		<div id="post">
 		{% for article in articles_summary %}
 		<p>
@@ -206,9 +207,9 @@ a.title_permalink:hover {
 		← newer
 		{% endif %}
 
-	    &bull;
-	    {{ page_no }} of <a href="/archives.html">{{ pages_count }}</a> pages
-	    &bull;
+	  &bull;
+	  {{ page_no }} of <a href="/archives.html">{{ pages_count }}</a> pages
+	  &bull;
 
 		{% if older_page %}
 	    <a title="page{{ older_page.no }}" href="/page/{{ older_page.no }}">older →</a>

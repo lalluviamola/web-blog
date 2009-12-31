@@ -577,7 +577,7 @@ class PageHandler(webapp.RequestHandler):
             'pages_count' : pages_count,
             'show_analytics' : show_analytics(),
         }
-        template_out(self.response, "tmpl/index.html", vals)
+        template_out(self.response, "tmpl/page.html", vals)
 
     def get(self, pageno):
         self.do_page(int(pageno))
