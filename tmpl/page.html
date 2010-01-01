@@ -85,6 +85,16 @@ $(document).ready(function(){
 	line-height: 0.8;	
 }
 
+.title_permalink2 {
+	font-weight: bold;
+	text-decoration: none;
+	color: gray;
+}
+
+a.title_permalink2:hover {
+	color: #c00;
+}
+
 .title_permalink {
 	font-weight: bold;
 	font-size: 160%;
@@ -102,10 +112,15 @@ a.title_permalink:hover {
 <body>
 
 <div id="content">
-<h1>Krzysztof J. Kowalczyk's notebook <span class="smaller">(saying n'importe quoi since 2002)</span></h1>
+
+  <h1 style="display:inline;">Krzysztof J. Kowalczyk's notebook <span class="smaller">(saying n'importe quoi since 2002)</span></h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a class="title_permalink2" href="/static/resume.html">About</a>&nbsp;&nbsp;
+<a class="title_permalink2" href="/atom.xml">RSS</a>
 
 <p></p>
+<!--
 <div class="line"></div>
+-->
 <p></p>
 
 <table>
@@ -176,19 +191,17 @@ a.title_permalink:hover {
 	<td style="padding-left: 12px" valign="top">
 		<div id="post">
 		{% for article in articles_summary %}
-		<p>
-			<table width=100% style="">
-			<tr>
-			<td width="50px" style="">
+		<table width=100%>
+		<tr>
+		<td width="50px">
 			<small><span class="date">{{ article.published_on|date:"d" }}</span>
 			<br><span style="color: #CCC; font-weight: bold">{{ article.published_on|date:"M y" }}</span></small>
-			</td>
-			<td valign="top" style="padding-left: 0px">
+		</td>
+		<td valign="top" style="padding-left: 0px">
 			<a class="title_permalink" href="/{{ article.permalink }}">{{ article.title }}</a>
-			</td>
-			</tr>
-			</table>
-		</p>
+		</td>
+		</tr>
+		</table>
 		{{ article.html_body }}
 
 		{% if article.tags_display %}
