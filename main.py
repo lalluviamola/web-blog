@@ -1010,6 +1010,7 @@ redirects = {
     '/articles/cocoa-objectivec-reference.html' : '/articles/cocoa-reference.html',
     '/forum_sumatra/rss.php' : 'http://forums.fofou.org/sumatrapdf/rss',
     '/forum_sumatra' : 'http://forums.fofou.org/sumatrapdf',
+    '/google6dba371684d43cd6.html' : '/static/google6dba371684d43cd6.html'
 }
 
 class RedirectHandler(webapp.RequestHandler):
@@ -1204,6 +1205,7 @@ def main():
         ('/feed/', RedirectHandler),
         ('/articles/cocoa-objectivec-reference.html', RedirectHandler),
         ('/forum_sumatra/rss.php', RedirectHandler),
+        ('/google6dba371684d43cd6.html', RedirectHandler),
         # non-redirects
         ('/', IndexHandler),
         ('/index.html', IndexHandler),
