@@ -125,7 +125,7 @@ a.title_permalink:hover {
 
 <table>
 <tr>
-	<td valign=top style="border-right: 1px solid #D0D0D0; padding-right: 12px; max-width: 240px">
+	<td valign=top style="border-right: 1px solid #D0D0D0; padding-right: 12px; max-width: 240px; font-size: 80%">
 		<form method="get" action="http://google.com/search" >
 		<input type="hidden" name="IncludeBlogs" value="1">
 		<input type="hidden" name="as_sitesearch" value="http://blog.kowalczyk.info">
@@ -193,10 +193,17 @@ a.title_permalink:hover {
 		{% for article in articles_summary %}
 		<table width=100%>
 		<tr>
-		<td width="50px">
-			<small><span class="date">{{ article.published_on|date:"d" }}</span>
-			<br><span style="color: #CCC; font-weight: bold">{{ article.published_on|date:"M y" }}</span></small>
+		<td width="46px">
+			<table style="font-size:60%">
+				<tr>
+					<td class="date" align="center">{{ article.published_on|date:"d" }}</td>
+				</tr>
+				<tr>
+					<td style="color: #CCC; font-weight: bold">{{ article.published_on|date:"M y" }}</td>
+				</tr>
+			</table>
 		</td>
+
 		<td valign="top" style="padding-left: 0px">
 			<a class="title_permalink" href="/{{ article.permalink }}">{{ article.title }}</a>
 		</td>
