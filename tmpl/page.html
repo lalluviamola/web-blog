@@ -137,9 +137,11 @@ a.title_permalink:hover {
 		<br>
 		<div class="line"></div>
 		<b>Admin actions:</b><br>
+		<div style="margin-left: 6px">
 		<a href="{{ login_out_url }}">log out</a><br>
 		<a href="/app/edit">new post</a><br>
 		<a href="/app/showprivate">private</a><br>
+		</div>
 		{% else %}
 		<a id="login_id" class="invisible" onMouseOver="showLogin();" onMouseOut="hideLogin();" href="{{ login_out_url }}">login</a>
 		{% endif %}
@@ -206,6 +208,7 @@ a.title_permalink:hover {
 
 		<td valign="top" style="padding-left: 0px">
 			<a class="title_permalink" href="/{{ article.permalink }}">{{ article.title }}</a>
+			{% if not article.is_public %} &nbsp;<font style="color: red;">(private)</font> {% endif %}
 		</td>
 		</tr>
 		</table>
