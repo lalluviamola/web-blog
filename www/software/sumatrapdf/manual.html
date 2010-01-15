@@ -55,6 +55,10 @@ table.shortcuts {
         <td>&nbsp;next/previous page</td></tr>
       <tr><td align="right"><b>Page Down/Page Up:</b></td>
         <td>&nbsp;next/previous page</td></tr>
+      <tr><td align="right"><b>&lt;Alt&gt; + Left:</b></td>
+        <td>&nbsp;go back</td></tr>
+      <tr><td align="right"><b>&lt;Alt&gt; + Right:</b></td>
+        <td>&nbsp;go forward</td></tr>
       <tr><td align="right"><b>&lt;Ctrl&gt; + G, g:</b></td>
         <td>&nbsp;go to page</td></tr>
       <tr><td align="right"><b>Home:</b></td>
@@ -71,6 +75,8 @@ table.shortcuts {
         <td>&nbsp;zoom in</td></tr>
       <tr><td align="right"><b>-:</b></td>
         <td>&nbsp;zoom out</td></tr>
+      <tr><td align="right"><b>&lt;Ctrl&gt; + scroll wheel</b></td>
+        <td>&nbsp;zoom in/out</td></tr>
       <tr><td align="right"><b>&lt;Shift&gt; &lt;Ctrl&gt; +:</b></td>
         <td>&nbsp;rotate clockwise</td></tr>
       <tr><td align="right"><b>&lt;Shift&gt; &lt;Ctrl&gt; -:</b></td>
@@ -79,7 +85,7 @@ table.shortcuts {
           <td>&nbsp;full screen</td></tr>
       <tr><td align="right"><b>F12:</b></td> 
           <td>&nbsp;show/hide PDF bookmarks (table of contents)</td></tr>
-      <tr><td align="right"><b>F5:</b>
+      <tr><td align="right"><b>F6:</b>
         </td> <td>&nbsp;switch focus between bookmarks window and main window</td></tr>
     </table>
   </td>
@@ -164,15 +170,14 @@ table.shortcuts {
         <td>&nbsp;run in restricted mode. In restricted mode some options are disabled</td></tr>
       <tr><td align="right"><b>-reuse-instance</b></td>
         <td>&nbsp;use existing Sumatra process instead of starting a new process</td></tr>
+      <tr><td align="right"><b>-register-for-pdf</b></td>
+        <td>&nbsp;forces registering Sumatra as a default reader for PDF files and exits</td></tr>
+
       <tr><td align="right"><b>-esc-to-exit</b></td>
         <td>&nbsp;if given, ESC key will exit the program. It's persisted in settings file, so only needs to be provided once</td></tr>
       <tr><td align="right"><b>-bgcolor $color</b></td>
         <td>&nbsp;change the yellow background color to a provided color in hex format (e.g. 0xffff00)</td></tr>
 
-      <tr><td align="right"><b>-register-for-pdf</b></td>
-        <td>&nbsp;forces registering Sumatra as a default reader for PDF files and exits</td></tr>
-      <tr><td align="right"><b>-no-register-ext</b></td>
-        <td>&nbsp;don't register Sumatra as a default PDF reader</td></tr>
 <!-- don't advertise printing options since printing from sumatra is not recommended
       <tr><td align="right"><b>-print-to-default $file.pdf</b></td>
         <td>&nbsp;prints a given PDF to a default printer</td></tr>
@@ -185,6 +190,9 @@ table.shortcuts {
 -->
 
 </table>
+
+Note: <b>-esc-to-exit</b> and <b>-bgcolor</b> options change the defaults and persist them in sumatrapdfprefs.dat file (in %appdata%\SumatraPDF directory if installed, in the same directory as executable in portable mode). To revert back to defaults, you can delete sumatrapdfprefs.dat file.
+
 <!--
 <p>Note: printing from Sumatra often uses lots of memory.</p>
 -->
@@ -209,6 +217,28 @@ table.shortcuts {
     </ul>
     <p>Note: printing from Sumatra often uses lots of memory.</p>
 -->
+
+    <h2 id="manual">Notes</h2>
+
+    <p>
+    If "Remember settings for each document" is turned on and a PDF is later opened again,
+    Sumatra PDF will return to the page shown when it was closed. Settings are not only
+    stored for those 10 files shown in the "File" menu - but resuming will not work
+    if the file has been moved in the meantime
+    </p>
+
+    <p>Some settings (e.g. fullscreen) are saved as defaults without a GUI option,
+      when SumatraPDF is closed without any document open.
+    </p>
+
+    <h2 id="manual">Known limitations</h2>
+
+    <p>Printing in Sumatra is slow. It's unlikely to be fixed.
+    </p>
+    
+    <p>Filling forms and adding comments is not implemented. Also unlikely to
+      be fixed.
+    </p>
 
     <h2 id="manual">Disable viewing PDF files directly in web browser (IE and Firefox)</h2>
     Adobe Acrobat also comes with Internet Explorer and Firefox plugin
