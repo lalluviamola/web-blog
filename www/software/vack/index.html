@@ -28,7 +28,11 @@ body, td {
 	font-weight: bold;
 }
 
-#lightbox {
+.smaller {
+    font-size: 80%;
+}
+
+.lightbox {
 	background: #D2E8FF;
 	border-bottom-left-radius: 10px 10px;
 	border-bottom-right-radius: 10px 10px;
@@ -80,7 +84,9 @@ function myInit() {
 	var html = "<a class=dl href='" + vackLatestUrl + "'>Download</a>";
 	$("url").innerHTML = html;
 	$("ver").innerHTML = "(version " + vackLatestVer + ")";
-	$("buildtime").innerHTML = vackBuiltOn;
+	html = '<a href="' + vackLatestUrl + '">' + '<img id="currentscreenshot" src="http://kjkpub.s3.amazonaws.com/blog/vack-main.png"></a>';
+	$("shot2").innerHTML = html;
+	//$("buildtime").innerHTML = vackBuiltOn;
 }
 window.onload = myInit;
 
@@ -94,7 +100,7 @@ Latest build of VisualAck for mac: <span id=url></span>, built on <span id=build
 <a href="http://kjkpub.s3.amazonaws.com/vack/relnotes.html">Release notes</a> (as <a href="http://kjkpub.s3.amazonaws.com/vack/relnotes.xml">rss feed</a>)
 -->
 
-<div id="lightbox">
+<div class="lightbox">
 
 <table cellpadding="8" cellspacing="0" border="0">
 <tr>
@@ -103,10 +109,13 @@ Latest build of VisualAck for mac: <span id=url></span>, built on <span id=build
 	<p>
 	VisualAck is like grep, except faster and with UI. For Mac.
 	</p>
-	<span id=url></span> <span id=ver><span>
-	</td>
+	<span id=url></span> <span id=ver></span><br><br>
+	<span class="smaller">Requires Mac OS X 10.5 or later.</span>
+  </td>
 
-  <td valign=top><img id="currentscreenshot" src="http://kjkpub.s3.amazonaws.com/blog/vack-main.png"></td>
+  <td valign=top>
+      <span id=shot2></span>
+  </td>
 </tr>
 
 <tr>
@@ -121,7 +130,63 @@ Latest build of VisualAck for mac: <span id=url></span>, built on <span id=build
 
 </div>
 
-<!---
+<div class="lightbox">
+<p>
+<span class="header">Command-line arguments</span>
+</p>
+<code>vack [-] [-i] [--help] regularExpression [file/directory to search] 
+</code>
+<ul>
+    <li><code>-</code> - invokes UI (instead of printing the results to stdout)</li>
+    <li><code>-i</code> - case insensitive search</li>
+</ul>
+<p>
+Examples:
+<ul>
+<li><code>vack foo</code> - search current directory and its subdirectories for files containing 'foo'</li>
+<li><code>vack - foo</code> - invoke the UI to search current directory and its subdirectories for files containing 'foo'</li>
+<li><code>vack foo bar.txt</code> - search file 'bar.txt' for text 'foo', case sensitive.</li>
+<li><code>vack -i foo bar.txt</code> - search file 'bar.txt' for text 'foo', case insensitive.</li>
+</ul>
+
+</p>
+<p>
+Note: you must run VisualAck at least one in order for the <code>vack</code> executable to be added to <code>$PATH</code>.
+</p>
+</div>
+
+<div class="lightbox">
+<p>
+<span class="header">How is VisualAck different than grep</span>
+</p>
+<p>For one, it has both command-line version and UI.
+</p>
+
+<p>In behavior, VisualAck is modelled after <a href="http://betterthangrep.com/">ack</a> (hence the name),
+except it's written as a native Cocoa application (as opposed to a perl script).</p>
+Two main differences from grep are:
+<ul>
+<li>by default it recurses into subdirectories</li>
+<li>it's faster and gives more useful results by only searching files of a known type and skipping
+    certain directories, like .git or .svn, that usually don't contain information user is interested
+    in</li>
+</ul>
+<p>
+VisualAck aims to support the same features as ack, but that reality is still far away. At the moment
+it only supports the basic options.
+</p>
+
+</div>
+
+<div class="lightbox">
+<p>
+<span class="header">Feedback</span>
+</p>
+<p>If you have suggestions on how to improve VisualAck, please
+<a href="http://visualack.uservoice.com">visit forums</a>
+</p>
+</div>
+
 <script type="text/javascript">
 var uservoiceOptions = {
   /* required */
@@ -145,8 +210,6 @@ function _loadUserVoice() {
 }
 _loadSuper = window.onload;
 window.onload = (typeof window.onload != 'function') ? _loadUserVoice : function() { _loadSuper(); _loadUserVoice(); };
--->
-
 </script>
 
 <hr>
