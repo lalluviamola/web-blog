@@ -83,7 +83,7 @@ function selectResult() {
 function myInit() {
 	var html = "<a class=dl href='" + vackLatestUrl + "'>Download</a>";
 	$("url").innerHTML = html;
-	$("ver").innerHTML = "(version " + vackLatestVer + ")";
+	$("ver").innerHTML = "(version " + vackLatestVer + ', <a href="http://kjkpub.s3.amazonaws.com/vack/relnotes.html">release notes</a>)';
 	html = '<a href="' + vackLatestUrl + '">' + '<img id="currentscreenshot" src="http://kjkpub.s3.amazonaws.com/blog/vack-main.png"></a>';
 	$("shot2").innerHTML = html;
 	//$("buildtime").innerHTML = vackBuiltOn;
@@ -134,11 +134,17 @@ Latest build of VisualAck for mac: <span id=url></span>, built on <span id=build
 <p>
 <span class="header">Command-line arguments</span>
 </p>
-<code>vack [-] [-i] [--help] regularExpression [file/directory to search] 
-</code>
+<p>
+<code>vack [OPTIONS] PATTERN [FILE/DIRECTORY]</code>
+</p>
+Available options:
 <ul>
     <li><code>-</code> - invokes UI (instead of printing the results to stdout)</li>
-    <li><code>-i</code> - case insensitive search</li>
+    <li><code>-i, --ignore-case</code> - case insensitive search</li>
+    <li><code>--[no]color</code> - highlight the matching text (default: on unless output is redirected)</li>
+    <li><code>--[no]clour</code> - same as --no[color]</li>
+    <li><code>--help</code> - show help</li>
+    <li><code>--version</code> - show version</li>
 </ul>
 <p>
 Examples:
@@ -146,7 +152,7 @@ Examples:
 <li><code>vack foo</code> - search current directory and its subdirectories for files containing 'foo'</li>
 <li><code>vack - foo</code> - invoke the UI to search current directory and its subdirectories for files containing 'foo'</li>
 <li><code>vack foo bar.txt</code> - search file 'bar.txt' for text 'foo', case sensitive.</li>
-<li><code>vack -i foo bar.txt</code> - search file 'bar.txt' for text 'foo', case insensitive.</li>
+<li><code>vack -i foo dir1 ~/dir2</code> - search text 'foo', case insensitive in directory dir1 and ~/dir2.</li>
 </ul>
 
 </p>
