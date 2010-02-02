@@ -6,6 +6,53 @@
 <meta http-equiv="Content-Type"content="text/html; charset=iso-8859-1" />
 <title>Sumatra PDF viewer</title>
 <link rel="stylesheet" href="sumatra.css" type="text/css" />
+<script src="http://kjkpub.s3.amazonaws.com/blog/sumatrapdf-langs.js"
+ type="text/javascript">
+</script>
+
+<script> 
+function $(id) {
+    if (document.all)
+        return document.all[id];
+    if (document.getElementById)
+        return document.getElementById(id);
+    for (var i=1; i<document.layers.length; i++) {
+        if (document.layers[i].id==id)
+          return document.layers[i];
+    }
+    return false;
+}
+function build_html_for_langs(langsData) {
+    var s = "";
+    s += "<table>";
+    var n = langsData.length;
+    for (var i=0; i<n; i++) {
+        var langInfo = langsData[i];
+        var langIso = langInfo[0];
+        var fileName = "strings-" + langIso + ".txt";
+        var langName = langInfo[1];
+        var untranslatedCount = langInfo[2];
+        var url = langInfo[3];
+        var urlTxt = '<a href="' + url + '">' + fileName + "</a>";
+        s += "<tr>";
+        s += "<td>" + langName + "</td>";
+        s += "<td>" + urlTxt + "</td>";
+        s += "<td>&nbsp;&nbsp;" + untranslatedCount + " untranslated</td>";
+        s += "</tr>";
+    }
+    s += "</table>";
+    return s;
+}
+
+function myInit() {
+    var html = build_html_for_langs(g_langsData)
+	$("langs_info").innerHTML = html;
+}
+
+window.onload = myInit;
+
+</script>
+
 </head>
 
 <body>
@@ -43,8 +90,8 @@
 
 <p>
 <b>First important note:</b> the file must be saved with utf8 encoding with BOM mark. If it's saved in a
-different encoding, it'll be unusable. Please use <a href="http://www.flos-freeware.ch/notepad2.html">notepad2</a>
-(menu <tt>File\Encoding\UTF-8 with signature</tt>). It's free and it's what I use for editing.
+different encoding, it'll be unusable. Please use e.g. free <a href="http://www.flos-freeware.ch/notepad2.html">notepad2</a>
+(menu <tt>File\Encoding\UTF-8 with signature</tt>).
 </p>
 
 <p>
@@ -53,30 +100,30 @@ already had several translations submitted that were not saved in the right form
 </p>
 
 <p>
-All strings that need to be translated are kept in one file <tt>src/strings.txt</tt>. 
-You can checkout the sources to get it or grab 
-<a href="http://sumatrapdf.googlecode.com/svn/trunk/src/strings.txt">directly from the browser</a>.
-</p>
-<p>I hope the format of the file is obvious. Here's an example showing translation of File and Open
-menu items:
+Each language has a separate translation file. It's format is very simple: english string followed by translation
+followed by an empty line. For example, part of file with German translation might look like:
 <pre>
--
 &File
-pl:Plik
-de:&Datei
-fr:&Fichier
--
+&Datei
+
 &Open\tCtrl-O
-pl:Otworz\tCtrl-O
-de:&Offnen\tCtrl-O
-fr:Ouvrir\tCtrl-O
+&Offnen\tCtrl-O
 </pre>
 </p>
 
+Lines that begin with "#" are comments. At the end of the file is a list of (commented out) strings that are
+not translated in this language.
+
 <p>
-In order to contribute translations:
+Here's a table of all languages:
+<div id="langs_info">
+</div>
+</p>
+
+<p>
+<b>To contribute to a translation:</b></a>
 <ul>
-<li>grab the <a href="http://sumatrapdf.googlecode.com/svn/trunk/src/strings.txt">latest version of strings.txt</a></li>
+<li>grab the latest version of strings file for your language, either by downloading the file using a link above or <a href="http://code.google.com/p/sumatrapdf/source/checkout">checking out the sources</a> </li>
 <li>add and improve translations for the language you know well</li>
 <li><a href="/">e-mail me</a> a modified file</li>
 </ul>
@@ -94,6 +141,7 @@ string is better than nothing, so do send me even incomplete translations.</p>
 <h2>How can you test the translations?</h2>
 <p>If you can't build Sumatra PDF from sources, then you're out of luck. You have to send
 me the translations without testing and wait for a new release.</p>
+
 <p>If you can build Sumatra PDF, you can rebuild program with new translations. It's very simple:
 <ul>
 <li>change <tt>strings.txt</tt></li>
@@ -102,11 +150,10 @@ me the translations without testing and wait for a new release.</p>
 </ul>
 </p>
 
-<h2>Limitations</h2>
-<p>At the moment text in dialog boxes cannot be translated. Hopefully I'll fix that some day.</p>
-
 <h2>Translators</h2>
+
 <p>Current translations has been contributed by <a href="translators.html">many people</a>.</p>
+
 </div>
 </div>
 <hr/>
