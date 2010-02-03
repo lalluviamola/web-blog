@@ -6,6 +6,55 @@
 <meta http-equiv="Content-Type"content="text/html; charset=utf8" />
 <title>Sumatra PDF viewer - translators</title>
 <link rel="stylesheet" href="sumatra.css" type="text/css" />
+
+<script src="http://kjkpub.s3.amazonaws.com/blog/sumatrapdf-langs.js"
+ type="text/javascript">
+</script>
+
+<script> 
+
+function $(id) {
+    if (document.all)
+        return document.all[id];
+    if (document.getElementById)
+        return document.getElementById(id);
+    for (var i=1; i<document.layers.length; i++) {
+        if (document.layers[i].id==id)
+          return document.layers[i];
+    }
+    return false;
+}
+
+function build_html_for_langs(langsData) {
+    var s = "";
+    s += "<ul>";
+    var n = langsData.length;
+    for (var i=0; i<n; i++) {
+        var langInfo = langsData[i];
+        var langName = langInfo[1];
+        var contributors = langInfo[4];
+        for (var j=0; j<contributors.length; j++) {
+            var c = contributors[j];
+            s += "<li>";
+            s += c;
+            s += "&nbsp;-&nbsp;";
+            s += langName;
+            s += "</li>";            
+        }
+    }
+    s += "</li>";
+    return s;
+}
+
+function myInit() {
+    var html = build_html_for_langs(g_langsData)
+	$("langs_info").innerHTML = html;
+}
+
+window.onload = myInit;
+
+</script>
+
 </head>
 
 <body>
@@ -39,82 +88,11 @@
 
 <h2>Translators</h2>
 <p>Translations of Sumatra PDF has been contributed by many people:
-<ul>
-<li>Pieter Kotzé - Afrikaans</li>
-<li><a href="http://pontocinza.blogspot.com">Francisco Fuchs</a> - Brazilian Portuguese</li>
-<li><a href="http://www.eviltux.de">Lars Wohlfahrt</a> - German</li>
-<li>Christopher Amann - German</li>
-<li>Simon Bünzli (zeniko@gmail.com)</li>
-<li>Hakan ATAÇ - Turkish</li>
-<li>Яўген Змачынскі - Belarusian</li>
-<li>fiuzzy - French</li>
-<li>laclasse - French</li>
-<li><a href="http://nardog.takoweb.com">Nardog</a> - Japanese</li>
-<li>Richard Magyar - Hungarian</li>
-<li>Lázár Viktor - Hungarian</li>
-<li>Adham Beyki - Persian</li>
-<li>Mardi Az Pansad Dastgah Artesh - Persian</li>
-<li>Lars J. Helbo - Danish</li>
-<li>Angelo Contardi - Italian</li>
-<li>iBlawgger - Italian</li>
-<li>Alessandro Visentin - Italian</li>
-<li><a href="http://webstek.info">Barry Haveman</a> - Dutch</li>
-<li>Kristof Bal - Dutch</li>
-<li>Stephan Paternotte - Dutch</li>
-<li><a href="http://rajeshanbiah.blogspot.com">R. Rajesh Jeba Anbiah</a> - Tamil</li>
-<li>Jose Virgili - Spanish</li>
-<li>Krunoslav Tomorad (cygnus77@gmail.com) - Croatian</li>
-<li>Zero-8 - Russian</li>
-<li>Dmitry Yerokhin (erodim@mail.ru) - Russian</li>
-<li>Victor Kozyakin - Russian</li>
-<li><a href="http://mbsee.info">Mohammed Al-Foulad</a> - Arabic</li>
-<li>Boubker Talibi - Arabic</li>
-<li><a href="http://wkismet.spaces.live.com">WangKing</a> - Chinese Simplified</li>
-<li>Linus Persson - Swedish</li>
-<li>Cecilia B - Swedish</li>
-<li>Kristian Vrhel - Czech</li>
-<li>Giorgos Dimopoulos - Greek</li>
-<li>George Georgiou - Greek</li>
-<li>Uthen Phutneam - Thai</li>
-<li><a href="http://www.meta-morf.pt.vu">Ricardo Santos</a> - Português (Portugal)</li>
-<li>Bruno Rodrigues - Português (Portugal)</li>
-<li>Jon Ivar F. Omland - Norwegian</li>
-<li>Kjell A. A. Holm - Norwegian</li>
-<li>Jon Stødle - Norwegian Neo-Norwegian</li>
-<li>Radoslav Zelenák - Slovakian</li>
-<li>Bernard Holý - Slovakian</li>
-<li><a href="http://sites.google.com/site/nguyenluongdong">Nguyen Luong Dong</a> - Vietnamese</li>
-<li>Viktoras Jakovlevas - Lithuania</li>
-<li>Masley b. Mastil - Bahasa Melayu (Malaysian)</li>
-<li>Pekka Halmela - Finnish</li>
-<li>Joan Montané - Catalan</li>
-<li>Janez Vehovec - Slovensko (Slovenian)</li>
-<li><a href="http://blog.ecstart.com/?47979">FreeXD</a> - Chinese Traditional</li>
-<li>Maxin B. John (maxinbjohn@gmail.com) - Malayalam</li>
-<li>Eyal Berman - Hebrew</li>
-<li>milanso (milanso@gmail.com) - Srpski/Latinica (Serbian/Latin)</li>
-<li>Горан Обрадовић - Srpski/Latinica (Serbian/Cyrillic )</li>
-<li><a href="http://yudiwbs.wordpress.com">Yudi Wibisono</a> - Indonesia</li>
-<li>Goce Mitevski - Macedonian</li>
-<li>Elly Câmpeanu - Romanian</li>
-<li>Hong Seung-geol (hsgno5@hanmir.com) – Korean</li>
-<li>Karnes Kim (karnes@gmail.com) - Korean</li>
-<li>Soham Chatterjee (soham.chatterjee@gmail.com) - Bengali</li>
-<li>Shabab Mustafa (shabab.mustafa@gmail.com) - Bengali</li>
-<li>Xulio Gómez Díaz - Galego (Galician)</li>
-<li><a href="http://hbcom.info">Христо Бенев</a> - Bulgarian/Български
-<li>Daniel Bohdan - Ukrainian</li>
-<li>Igor G. Olaizola - Basque</li>
-<li>Mark Angelo F. Racca - Tagalog</li>
-<li>Vicent Adam - Valencian</li>
-<li>Brian Musarurwa</li>
-<li>Rhoslyn Prys - Cymraeg/Welsh (post@meddal.com)</li>
-<li>Glenn Wall - Welsh</li>
-<li>Mohammed Ottama - Burmese</li>
-<li>Drive DRKA (drka2003@mail.ru) - Belarusian</li>
-<li>Hrant Ohanyan - Armenian</li>
-</ul>
+
+<div id="langs_info">
+</div>
 </p>
+
 <p>
 If you contributed a translation and are not listed here (or want the credits to be changed or updated) -
 <a href="/">let me know</a>.
