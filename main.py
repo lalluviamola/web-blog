@@ -274,17 +274,17 @@ def get_article_json_url():
 def show_analytics(): return not is_localhost()
 
 def jquery_url():
-    url = "http://ajax.googleapis.com/ajax/libs/jquery/1.3.1/jquery.min.js"
-    if is_localhost(): url = "/static/js/jquery-1.3.1.js"
+    url = "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"
+    if is_localhost(): url = "/static/js/jquery-1.4.2.js"
     return url
 
 def prettify_js_url():
-    url = "http://google-code-prettify.googlecode.com/svn-history/r61/trunk/src/prettify.js"
+    url = "http://google-code-prettify.googlecode.com/svn-history/r97/trunk/src/prettify.js"
     if is_localhost(): url = "/static/js/prettify.js"
     return url
 
 def prettify_css_url():
-    url = "http://google-code-prettify.googlecode.com/svn-history/r61/trunk/src/prettify.css"
+    url = "http://google-code-prettify.googlecode.com/svn-history/r97/trunk/src/prettify.css"
     if is_localhost(): url = "/static/js/prettify.css"
     return url
 
