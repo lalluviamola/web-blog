@@ -826,7 +826,7 @@ class EditHandler(webapp.RequestHandler):
                 'submit_button_text' : "Create new post",
                 'tags' : ",".join(tags)
             }
-            template_out(self.response, "tmpl/edit.html", vals)
+            template_out(self.response, "tmpl/edit2.html", vals)
             return
 
         article = db.get(db.Key.from_path('Article', int(article_id)))

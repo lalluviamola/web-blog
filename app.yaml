@@ -50,6 +50,9 @@ handlers:
 - url: /static
   static_dir: www/static
 
+- url: /ckeditor
+  static_dir: www/ckeditor
+
 - url: /robots.txt
   static_files: www/robots.txt
   upload: www/robots.txt

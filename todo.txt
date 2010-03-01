@@ -1,4 +1,8 @@
 Todo next:
+* when switching between ckeditor and text field, transfer the content between them
+  (need to remember previous type of the edit field and transfer when switching
+   between html and non-html). http://docs.cksource.com/CKEditor_3.x/Developers_Guide/Integration
+
 * an easy way to import posts from real blog locally, so that I can test changes
   in a more meaningful way
 * add syntax help for markdown/textile in edit page
