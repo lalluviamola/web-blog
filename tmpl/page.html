@@ -32,6 +32,9 @@ $(document).ready(function(){
 
 </script>
 
+<link  href="{{ prettify_css_url }}" type="text/css" rel="stylesheet" />
+<script src="{{ prettify_js_url }}" type="text/javascript"></script>
+
 {% include "inline_css.html" %}
 <style>
 
@@ -109,7 +112,7 @@ a.title_permalink:hover {
 </style>
 </head>
 
-<body>
+<body onload="prettyPrint()">
 
 <div id="content">
 

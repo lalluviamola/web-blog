@@ -556,6 +556,8 @@ class PageHandler(webapp.RequestHandler):
         vals = {
             'jquery_url' : jquery_url(),
             'articles_js_url' : get_article_json_url(),
+            'prettify_js_url' : prettify_js_url(),
+            'prettify_css_url' : prettify_css_url(),
             'is_admin' : users.is_current_user_admin(),
             'login_out_url' : get_login_logut_url("/"),
             'articles_summary' : articles_summary,
