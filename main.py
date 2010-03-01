@@ -118,44 +118,32 @@ def clear_memcache():
 
 def build_articles_summary():
     ATTRS_TO_COPY = ["title", "permalink", "published_on", "format", "tags", "is_public", "is_deleted"]
-    query = Article.gql('ORDER BY __key__')
+    query = Article.all()
     articles = []
-    while True:
-        got = query.fetch(201)
-        logging.info("got %d articles" % len(got))
-        for article in got[:200]:
-            a = {}
-            for attr in ATTRS_TO_COPY:
-                a[attr] = getattr(article,attr)
-            articles.append(a)
-        if len(got) <= 200:
-            break
-        query = Article.gql('WHERE __key__ > :1 ORDER BY __key__', got[199].key())
+    for article in query:
+        a = {}
+        for attr in ATTRS_TO_COPY:
+            a[attr] = getattr(article,attr)
+        articles.append(a)
     articles.sort(lambda x, y: cmp(y["published_on"], x["published_on"]))
     return articles
 
 def build_articles_json(for_admin):
     import simplejson as json
     ATTRS_TO_COPY = ["title", "permalink", "published_on", "tags", "is_public", "is_deleted"]
-    query = Article.gql('ORDER BY __key__')
+    query = Article.all()
     articles = []
-    while True:
-        got = query.fetch(201)
-        logging.info("got %d articles" % len(got))
-        for article in got[:200]:
-            if article.is_deleted or not article.is_public and not for_admin:
-                continue
-            a = []
-            a.append(getattr(article, "published_on"))
-            a.append(getattr(article, "permalink"))
-            a.append(getattr(article, "title"))
-            a.append(getattr(article, "tags"))
-            a.append(getattr(article, "is_public"))
-            a.append(getattr(article, "is_deleted"))
-            articles.append(a)
-        if len(got) <= 200:
-            break
-        query = Article.gql('WHERE __key__ > :1 ORDER BY __key__', got[199].key())
+    for article in query:
+        if article.is_deleted or not article.is_public and not for_admin:
+            continue
+        a = []
+        a.append(getattr(article, "published_on"))
+        a.append(getattr(article, "permalink"))
+        a.append(getattr(article, "title"))
+        a.append(getattr(article, "tags"))
+        a.append(getattr(article, "is_public"))
+        a.append(getattr(article, "is_deleted"))
+        articles.append(a)
     articles.sort(lambda x, y: cmp(y[0], x[0]))
     for a in articles:
         a[0] = to_simple_date(a[0])
