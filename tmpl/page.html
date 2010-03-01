@@ -115,7 +115,7 @@ a.title_permalink:hover {
 
   <h1 style="display:inline;">Krzysztof J. Kowalczyk's notebook <span class="smaller">(saying n'importe quoi since 2002)</span></h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <a class="title_permalink2" href="/static/resume.html">About</a>&nbsp;&nbsp;
-<a class="title_permalink2" href="/atom.xml">RSS</a>
+<a class="title_permalink2" href="/atom.xml">Subscribe</a>
 
 <p></p>
 <!--
@@ -139,8 +139,9 @@ a.title_permalink:hover {
 		<b>Admin actions:</b><br>
 		<div style="margin-left: 6px">
 		<a href="{{ login_out_url }}">log out</a><br>
-		<a href="/app/edit">new post</a><br>
-		<a href="/app/showprivate">private</a><br>
+		<a href="/app/edit">new blog post</a><br>
+		<a href="/app/edit?ramblings=yes">new ramblings post</a><br>
+		<a href="/app/showprivate">show private</a><br>
 		</div>
 		{% else %}
 		<a id="login_id" class="invisible" onMouseOver="showLogin();" onMouseOut="hideLogin();" href="{{ login_out_url }}">login</a>
@@ -151,8 +152,7 @@ a.title_permalink:hover {
 		<b>Me</b><br>
 		<div style="margin-left: 6px">
 		<script>
-		  var email = "";
-		  email += "kkowalczyk";
+		  var email = "kkowalczyk";
 		  email += "@";
 		  email += "gmail.com"
 		  hyperlink = "<a href='mailto:email'>email</a>";
@@ -161,8 +161,8 @@ a.title_permalink:hover {
 		</script>
 		<br>
 		<a href="http://github.com/kjk">github.com/kjk</a><br>
-		<a href="http://twitter.com/kjk">twitter.com/kjk</a><br>
 		<a href="http://code.google.com/u/kkowalczyk/">code.google.com/u/kkowalczyk</a><br>
+		<a href="http://twitter.com/kjk">twitter.com/kjk</a><br>
 		<a href="/static/me.html">more</a><br>
 		</div>
 
@@ -189,7 +189,6 @@ a.title_permalink:hover {
 		<b>Tags</b><br>
 		<div id="tagCloud" style="margin-left: 6px">
 		</div>
-
 	</td>
 
 	<td style="padding-left: 12px" valign="top">

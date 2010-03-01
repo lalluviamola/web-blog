@@ -32,8 +32,11 @@ SERVER = "blog.kowalczyk.info"
 
 # memcache key for caching atom.xml
 ATOM_MEMCACHE_KEY = "at"
+ATOM_ALL_MEMCACHE_KEY = "ata"
 JSON_ADMIN_MEMCACHE_KEY = "jsa"
 JSON_NON_ADMIN_MEMCACHE_KEY = "jsna"
+
+RAMBLINGS_TAG = "ramblings"
 
 # e.g. "http://localhost:8081" or "http://blog.kowalczyk.info"
 g_root_url = None
@@ -109,6 +112,7 @@ def articles_info_memcache_key():
 def clear_memcache():
     memcache.delete(articles_info_memcache_key())
     memcache.delete(ATOM_MEMCACHE_KEY)
+    memcache.delete(ATOM_ALL_MEMCACHE_KEY)
     memcache.delete(JSON_ADMIN_MEMCACHE_KEY)
     memcache.delete(JSON_NON_ADMIN_MEMCACHE_KEY)
 
@@ -198,6 +202,11 @@ def filter_nondeleted_articles(articles_summary):
         if article_summary["is_deleted"]:
             yield article_summary
 
+def filter_ramblings_articles(articles_summary):
+    for article_summary in articles_summary:
+        if RAMBLINGS_TAG not in article_summary['tags']:
+            yield article_summary
+    
 def filter_by_tag(articles_summary, tag):
     for article_summary in articles_summary:
         if tag in article_summary["tags"]:
@@ -217,7 +226,7 @@ def new_or_dup_text_content(body, format):
 
 (ARTICLE_SUMMARY_PUBLIC_OR_ADMIN, ARTICLE_PRIVATE, ARTICLE_DELETED) = range(3)
 
-def get_articles_summary(articles_type = ARTICLE_SUMMARY_PUBLIC_OR_ADMIN):
+def get_articles_summary(articles_type = ARTICLE_SUMMARY_PUBLIC_OR_ADMIN, all=True):
     pickled = memcache.get(articles_info_memcache_key())
     if NO_MEMCACHE: pickled = None
     if pickled:
@@ -237,6 +246,8 @@ def get_articles_summary(articles_type = ARTICLE_SUMMARY_PUBLIC_OR_ADMIN):
         articles_summary = filter_nonprivate_articles(articles_summary)
     elif articles_type == ARTICLE_DELETED:
         articles_summary = filter_nondeleted_articles(articles_summary)
+    if not all:
+        articles_summary = filter_ramblings_articles(articles_summary)
     return articles_summary
 
 def get_articles_json():
@@ -338,12 +349,7 @@ def do_404(response, url):
 
 def get_redirect(url):
     import redirects
-    if url in redirects.redirects:
-        redirect_url = redirects.redirects[url]
-        #logging.info("get_redirect(%s), found: %s" % (url, redirect_url))
-        return redirect_url
-    #logging.info("get_redirect(%s), not found" % url)
-    return None
+    return redirects.redirects.get(url, None)
 
 def lang_to_prettify_lang(lang):
     #from http://google-code-prettify.googlecode.com/svn/trunk/README.html
@@ -500,10 +506,6 @@ def find_next_prev_article(article):
         i = i + 1
     return (next, prev, i, num)
 
-class NotFoundHandler(webapp.RequestHandler):
-    def get(self, url):
-        do_404(self.response, url)
-
 def get_login_logut_url(url):
     if users.is_current_user_admin():
         return users.create_logout_url(url)
@@ -541,8 +543,7 @@ ARTICLES_PER_PAGE = 5
 class PageHandler(webapp.RequestHandler):
     # for human readability, pageno starts with 1
     def do_page(self, pageno):
-        is_admin = users.is_current_user_admin()
-        articles_summary = get_articles_summary()
+        articles_summary = get_articles_summary(all=False)
         articles_summary = [a for a in articles_summary]
         articles_count = len(articles_summary)
         pages_count = int(math.ceil(float(articles_count) / float(ARTICLES_PER_PAGE)))
@@ -822,6 +823,10 @@ class EditHandler(webapp.RequestHandler):
         if not users.is_current_user_admin():
             return self.redirect("/404.html")
 
+        ramblings = self.request.get("ramblings") == "yes"
+        tags = []
+        if ramblings:
+            tags.append(RAMBLINGS_TAG)
         article_id = self.request.get('article_id')
         if not article_id:
             vals = {
@@ -829,6 +834,7 @@ class EditHandler(webapp.RequestHandler):
                 'format_textile_checked' : "checked",
                 'private_checkbox_checked' : "checked",
                 'submit_button_text' : "Create new post",
+                'tags' : ",".join(tags)
             }
             template_out(self.response, "tmpl/edit.html", vals)
             return
@@ -968,57 +974,70 @@ class ShowPrivateHandler(webapp.RequestHandler):
         articles_summary = get_articles_summary(ARTICLE_PRIVATE)
         do_archives(self.response, articles_summary, self.request.path)
 
-# responds to /atom.xml
-class AtomHandler(webapp.RequestHandler):
+class AtomHandlerBase(webapp.RequestHandler):
 
-    def gen_atom_feed(self):
+    def gen_atom_feed(self, all):
+        url_path = "/atom.xml"
+        if all: url_path = "/atom-all.xml"
         feed = feedgenerator.Atom1Feed(
             title = "Krzysztof Kowalczyk blog",
-            link = self.request.host_url + "/atom.xml",
+            link = self.request.host_url + url_path,
             description = "Krzysztof Kowalczyk blog")
 
-        articles = Article.gql("WHERE is_public = True AND is_deleted = False ORDER BY published_on DESC").fetch(25)
+        MAX_ENTRIES = 25
+        articles = Article.gql("WHERE is_public = True AND is_deleted = False ORDER BY published_on DESC").fetch(125)
+        entries = 0
         for a in articles:
+            # only include posts tagged with RAMBLINGS_TAG if all is True
+            if not all and RAMBLINGS_TAG in a.tags:
+                continue
             title = a.title
             link = self.request.host_url + "/" + a.permalink
             article_gen_html_body(a)
             description = a.html_body
             pubdate = a.published_on
             feed.add_item(title=title, link=link, description=description, pubdate=pubdate)
+            entries += 1
+            if entries >= MAX_ENTRIES:
+                break;
         feedtxt = feed.writeString('utf-8')
         return feedtxt
 
-    def get(self):
+    def do_get(self, all=False):
+
         # TODO: should I compress it?
-        feedtxt = memcache.get(ATOM_MEMCACHE_KEY)
+        key = ATOM_MEMCACHE_KEY
+        if all:
+            key = ATOM_ALL_MEMCACHE_KEY
+        feedtxt = memcache.get(key)
         if not feedtxt:
-            feedtxt = self.gen_atom_feed()
-            memcache.set(ATOM_MEMCACHE_KEY, feedtxt)
+            feedtxt = self.gen_atom_feed(all)
+            memcache.set(key, feedtxt)
 
         self.response.headers['Content-Type'] = 'text/xml'
         self.response.out.write(feedtxt)
 
-redirects = {
-    '/software/fofou' : '/software/fofou/',
-    '/software/sumatra' : '/software/sumatrapdf/',
-    '/software/sumatrapdf' : '/software/sumatrapdf/',
-    '/extremeoptimizations' : '/extremeoptimizations/index.html',
-    '/feed/rss2/atom.xml' : '/atom.xml',
-    '/feed/rss2/' : '/atom.xml',
-    '/feed/rss2' : '/atom.xml',
-    '/feed/' : '/atom.xml',
-    '/articles/cocoa-objectivec-reference.html' : '/articles/cocoa-reference.html',
-    '/forum_sumatra/rss.php' : 'http://forums.fofou.org/sumatrapdf/rss',
-    '/forum_sumatra' : 'http://forums.fofou.org/sumatrapdf',
-    '/google6dba371684d43cd6.html' : '/static/google6dba371684d43cd6.html'
-}
+# responds to /atom-all.xml. Returns atom feed of all items, including ramblings
+class AtomAllHandler(AtomHandlerBase):
+    def get(self):
+        self.do_get(all=True)
+
+# responds to /atom.xml. Returns atom feed of blog items (doesn't include ramblings)
+class AtomHandler(AtomHandlerBase):
+    def get(self):
+        self.do_get(all=False)
 
 class RedirectHandler(webapp.RequestHandler):
     def get(self):
-        path = self.request.path
-        if path in redirects:
-            return self.redirect(redirects[path])
-        self.response.out.write("<html><body>Unknown redirect for %s</body></html>" % path)
+        new_path = get_redirect(self.request.path)
+        if new_path: return self.redirect(new_path)
+        self.response.out.write("<html><body>Unknown redirect for %s</body></html>" % self.request.path)
+
+class NotFoundHandler(webapp.RequestHandler):
+    def get(self, url):
+        new_path = get_redirect(self.request.path)
+        if new_path: return self.redirect(new_path)
+        do_404(self.response, url)
 
 class AddIndexHandler(webapp.RequestHandler):
     def get(self, sub=None):
@@ -1193,20 +1212,6 @@ class Crashes(webapp.RequestHandler):
 
 def main():
     mappings = [
-        # redirects should go first
-        ('/software/fofou', RedirectHandler),
-        ('/software/sumatra', RedirectHandler),
-        ('/software/sumatrapdf', RedirectHandler),
-        ('/forum_sumatra', RedirectHandler),
-        ('/extremeoptimizations', RedirectHandler),
-        ('/feed/rss2/atom.xml', RedirectHandler),
-        ('/feed/rss2/', RedirectHandler),
-        ('/feed/rss2', RedirectHandler),
-        ('/feed/', RedirectHandler),
-        ('/articles/cocoa-objectivec-reference.html', RedirectHandler),
-        ('/forum_sumatra/rss.php', RedirectHandler),
-        ('/google6dba371684d43cd6.html', RedirectHandler),
-        # non-redirects
         ('/', IndexHandler),
         ('/index.html', IndexHandler),
         ('/archives.html', ArchivesHandler),
@@ -1218,9 +1223,8 @@ def main():
         ('/tag/(.*)', TagHandler),
         ('/js/(.*)', JsHandler),
         ('/atom.xml', AtomHandler),
+        ('/atom-all.xml', AtomAllHandler),
         ('/sitemap.xml', SitemapHandler),
-        ('/software/', AddIndexHandler),
-        ('/extremeoptimizations/', AddIndexHandler),
         ('/software/(.+)/', AddIndexHandler),
         ('/forum_sumatra/(.*)', ForumRedirect),
         ('/app/edit', EditHandler),
