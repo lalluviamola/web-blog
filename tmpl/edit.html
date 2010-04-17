@@ -1,5 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 
 <meta http-equiv="Content-type" content="text/html; charset=utf-8" /> 
@@ -65,8 +65,8 @@ var has_preview = false;
 
 function _wnd_resize() {
   // TODO: figure out a better way to calculate the 32/112 magic constants
-  var dy = $(window).height() - 112 + 'px';
-  var total_dx = $(window).width() - 32;
+  var dy = $(window).height() - 122 + 'px';
+  var total_dx = $(window).width() - 36;
   var note_dx = total_dx;
   var preview_dx = 0;
   if (has_preview) {
@@ -74,13 +74,16 @@ function _wnd_resize() {
     preview_dx = total_dx / 2;
   }
   $('textarea#note').width(note_dx + 'px').height(dy);
-  $('#preview').width(preview_dx + 'px').height(dy);        
+  $('#preview').width(preview_dx + 'px').height(dy);
+  $('#title').width(note_dx);     
+  $('#tags').width(note_dx);
 }
 
 function preview_html() {
   var txt = $("#note").val();
   $("#preview").html(txt);
 }
+
 function preview_all_but_html() {
   function preview_callback(data, status) {
     $("#preview").html(data);
@@ -141,20 +144,9 @@ $(document).ready(function() {
 
 <body class="private">
   <form action="/app/edit" method="post" id="myform">
-  Format:
-  <input type="radio" name="format" value="textile" {{ format_textile_checked }}>textile
-  <input type="radio" name="format" value="markdown" {{ format_markdown_checked }}>markdown
-  <input type="radio" name="format" value="html" {{ format_html_checked }}>html
-  <input type="radio" name="format" value="text" {{ format_text_checked }}>text
-   | <input type="checkbox" name="private" id="checkbox-private" onclick="update_private_status();" {{ private_checkbox_checked }}>Private
-   | <input type="checkbox" name="update_published_on" {{ update_published_on_checkbox_checked }}>Update published on
-   &nbsp;&nbsp;<a onclick="return preview();" href="/invalid">preview</a>
-   &nbsp;&nbsp;<a onclick="return clean_html();" href="/invalid">clean html</a>
-  <br>
   <input name="article_id" type="hidden" value="{{ article.key.id }}">
-
-  Title: <input id="title" type="text" maxlength="1024" name="title" style="width:80%" value = "{{ article.title|escape }}"/><br>
-  Tags: <input id="tags" type="text" maxlength="1024" name="tags" style="width:80%" value = "{{ tags|escape }}"/>
+  <input id="title" type="text" maxlength="1024" name="title" style="width:90%" value = "{{ article.title|escape }}"/><br>
+  <input id="tags" type="text" maxlength="1024" name="tags" style="width:90%" value = "{{ tags|escape }}"/>
   <table id="input_and_sidebar" cellspacing=0 cellpadding=0>
   <tbody>
     <tr>
@@ -167,7 +159,24 @@ $(document).ready(function() {
     </tr>
   </tbody>
   </table>
-  <input type="submit" value="{{ submit_button_text }}"/> or <a href="/">cancel</a>. 
+  <input type="submit" value="{{ submit_button_text }}"/>
+
+  <select id="privateOrPublic">
+    <option value="private">Private</option>
+    <option value="public">Public</option>
+  </select>
+
+  <select id="format">
+    <option value="textile">Textile</option>
+    <option value="markdown">Markdown</option>
+    <option value="html">Html</option>
+    <option value="text">Text</option>
+  </select>
+  | 
+   <input type="checkbox" name="update_published_on" {{ update_published_on_checkbox_checked }}>
+   update published on
+   &nbsp; | &nbsp;<a onclick="return clean_html();" href="/invalid">clean html</a>
+  | <a href="/">cancel</a>. 
   </form>
 </body>
 </html>

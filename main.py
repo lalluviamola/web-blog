@@ -823,10 +823,10 @@ class EditHandler(webapp.RequestHandler):
                 'jquery_url' : jquery_url(),
                 'format_textile_checked' : "checked",
                 'private_checkbox_checked' : "checked",
-                'submit_button_text' : "Create new post",
+                'submit_button_text' : "Post",
                 'tags' : ",".join(tags)
             }
-            template_out(self.response, "tmpl/edit2.html", vals)
+            template_out(self.response, "tmpl/edit.html", vals)
             return
 
         article = db.get(db.Key.from_path('Article', int(article_id)))
