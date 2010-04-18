@@ -823,6 +823,8 @@ class EditHandler(webapp.RequestHandler):
         if not article_id:
             vals = {
                 'jquery_url' : jquery_url(),
+                'prettify_js_url' : prettify_js_url(),
+                'prettify_css_url' : prettify_css_url(),
                 'format_textile_checked' : "selected",
                 'type_private' : "selected",
                 'type_public' : "",
@@ -835,6 +837,8 @@ class EditHandler(webapp.RequestHandler):
         article = db.get(db.Key.from_path('Article', int(article_id)))
         vals = {
             'jquery_url' : jquery_url(),
+            'prettify_js_url' : prettify_js_url(),
+            'prettify_css_url' : prettify_css_url(),
             'format_textile_checked' : "",
             'format_markdown_checked' : "",
             'format_html_checked' : "",

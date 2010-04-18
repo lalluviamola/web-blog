@@ -3,6 +3,7 @@
 <head>
 
 <meta http-equiv="Content-type" content="text/html; charset=utf-8"> 
+<link  href="{{ prettify_css_url }}" type="text/css" rel="stylesheet">
 <title>Create or edit a post</title>
 
 {% include "inline_css.html" %}
@@ -27,6 +28,7 @@ textarea {
 </style>
 
 <script type="text/javascript" src="{{ jquery_url }}"></script>
+<script src="{{ prettify_js_url }}" type="text/javascript"></script>
 <script type="text/javascript">
 
 var previewTimerId = 0;
@@ -70,6 +72,7 @@ function previewAllButHtml() {
     data = data.replace(/<p>(.*)<\/p>/, "$1");
     $("#preview").html(data);
     stopInProgress();
+    prettyPrint();
   }
 
   var note = $("#note").val();
