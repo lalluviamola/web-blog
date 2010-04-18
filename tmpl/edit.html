@@ -40,8 +40,11 @@ function onWndResize() {
   $('#note').width(dx/2).height(dy);
   $('#sep').width(8);
   $('#preview').width(dx/2).height(dy);
+
   $('#title').width(dx/2);     
   $('#tags').width(dx/2);
+  $('#sep2').width(8);
+  $('#progress').width(dx/2);
 }
 
 function noteFormat() { return $("#format").val(); }
@@ -52,16 +55,26 @@ function schedulePreview() {
   previewTimerId = setTimeout(preview, 2000);
 }
 
+function startInProgress() {
+  previewInProgress = true;
+  $("#progress2").show();
+}
+
+function stopInProgress() {
+  previewInProgress = false;
+  $("#progress2").hide();
+}
+
 function previewAllButHtml() {
   function preview_callback(data, status) {
     $("#preview").html(data);
-    previewInProgress = false;
+    stopInProgress();
   }
 
   var note = $("#note").val();
   var data = { "format" : noteFormat(), "note" : note };
   $.post("/app/preview", data, preview_callback, "html");
-  previewInProgress = true;
+  startInProgress();
 }
 
 function preview()  {
@@ -107,6 +120,7 @@ $(document).ready(function() {
   $("#privateOrPublic").change(updatePrivateStatus);
   $("#format").change(onFormatChanged);
   $('#note').keyup(schedulePreview);
+  stopInProgress();
 });
 
 </script>
@@ -117,8 +131,19 @@ $(document).ready(function() {
   <form action="/app/edit" method="post" id="myform">
 
   <input name="article_id" type="hidden" value="{{ article.key.id }}">
-  <input id="title" type="text" maxlength="1024" name="title" value = "{{ article.title|escape }}"/><br>
-  <input id="tags" type="text" maxlength="1024" name="tags" value = "{{ tags|escape }}"/>
+
+  <table cellspacing=0 cellpadding=0>
+  <tr>
+    <td id="title2">
+      <input id="title" type="text" width=100% maxlength="1024" name="title" value = "{{ article.title|escape }}"/><br>
+      <input id="tags" type="text" width=100%  maxlength="1024" name="tags" value = "{{ tags|escape }}"/>
+   </td>
+   <td id="sep2"></td>
+   <td id="progress" valign=bottom>
+      <span id="progress2"><img src="/static/gfx/in-progress.gif"></span>
+   <td>
+  </tr>
+  </table>
 
   <table cellspacing=0 cellpadding=0>
   <tbody>
@@ -133,6 +158,7 @@ $(document).ready(function() {
     </tr>
   </tbody>
   </table>
+
   <input type="submit" value="{{ submit_button_text }}"/>
 
   <select id="privateOrPublic" name="private_or_public">
