@@ -595,7 +595,7 @@ class JsHandler(webapp.RequestHandler):
             (json_txt, sha1) = get_articles_json()
             # must over-ride Cache-Control (is 'no-cache' by default)
             self.response.headers['Cache-Control'] = 'public, max-age=31536000'
-            self.response.headers['Content-Type'] = 'text/plain'
+            self.response.headers['Content-Type'] = 'text/javascript '
             now = datetime.datetime.now()
             expires_date_txt = httpdate(now + datetime.timedelta(days=365))
             self.response.headers.add_header("Expires", expires_date_txt)

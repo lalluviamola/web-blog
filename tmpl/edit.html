@@ -3,6 +3,11 @@
 <head>
 
 <meta http-equiv="Content-type" content="text/html; charset=utf-8"> 
+<link rel="stylesheet" type="text/css" href="http://markitup.jaysalvat.com/examples/markitup/skins/simple/style.css">
+<link rel="stylesheet" type="text/css" href="http://markitup.jaysalvat.com/examples/markitup/sets/html/style.css">
+<link rel="stylesheet" type="text/css" href="http://markitup.jaysalvat.com/examples/markitup/sets/textile/style.css">
+<link rel="stylesheet" type="text/css" href="http://markitup.jaysalvat.com/examples/markitup/sets/markdown/style.css">
+
 <link  href="{{ prettify_css_url }}" type="text/css" rel="stylesheet">
 <title>Create or edit a post</title>
 
@@ -18,6 +23,7 @@
 
 #preview, #note {
   border: 1px solid #adadad !important;
+  overflow: auto;
 }
 
 textarea {
@@ -28,7 +34,9 @@ textarea {
 </style>
 
 <script type="text/javascript" src="{{ jquery_url }}"></script>
-<script src="{{ prettify_js_url }}" type="text/javascript"></script>
+<script type="text/javascript" src="{{ prettify_js_url }}"></script>
+<script type="text/javascript" src="/static/markitup/jquery.markitup.js"></script>
+
 <script type="text/javascript">
 
 var previewTimerId = 0;
@@ -36,12 +44,14 @@ var previewTimerId = 0;
 var previewInProgress = false;
 
 function onWndResize() {
-  // TODO: figure out a better way to calculate the magic numbers
-  var dy = $(window).height() - 122 + 'px';
+  var dy = $(window).height() - 122;
   var dx = $(window).width() - 32;
-  $('#note').width(dx/2).height(dy);
+  $('#note').width(dx/2).height(dy-38);
   $('#sep').width(8);
-  $('#preview').width(dx/2).height(dy);
+  $('#preview').width(dx/2).height(dy-6);
+
+  // don't understand why I need this, but I do
+  $('#markItUpNote').width(dx/2+8);
 
   $('#title').width(dx/2);     
   $('#tags').width(dx/2);
@@ -76,6 +86,8 @@ function previewAllButHtml() {
   }
 
   var note = $("#note").val();
+  var t = $.trim(note);
+  if (0 == t.length) { return; }
   var data = { "format" : noteFormat(), "note" : note };
   $.post("/app/preview", data, preview_callback, "html");
   startInProgress();
@@ -101,10 +113,23 @@ function cleanHtml() {
   return false;
 }
 
+function markitUpSettingsForFormat(format) {
+  if ("html" == format) { return myHtmlSettings; }
+  if ("textile" == format) { return myTextileSettings; }
+  if ("markdown" == format) { return myMarkdownSettings; }
+  return null;
+}
+
 function onFormatChanged() {
   if (noteFormat() == "html") { $("#cleanHtml").show(); }
   else                        { $("#cleanHtml").hide(); }
   preview();
+
+  $('#note').markItUpRemove();
+  var settings = markitUpSettingsForFormat(noteFormat());
+  if (null == settings) { return; }
+  $('#note').markItUp(settings);
+  onWndResize();
 }
 
 function updatePrivateStatus() {
@@ -115,10 +140,104 @@ function updatePrivateStatus() {
   }
 }
 
+myTextileSettings = {
+    nameSpace:           "textile", // Useful to prevent multi-instances CSS conflict
+    onShiftEnter:        {keepDefault:false, replaceWith:'\n\n'},
+    markupSet: [
+        {name:'Heading 1', key:'1', openWith:'h1(!(([![Class]!]))!). ', placeHolder:'Your title here...' },
+        {name:'Heading 2', key:'2', openWith:'h2(!(([![Class]!]))!). ', placeHolder:'Your title here...' },
+        {name:'Heading 3', key:'3', openWith:'h3(!(([![Class]!]))!). ', placeHolder:'Your title here...' },
+        {name:'Heading 4', key:'4', openWith:'h4(!(([![Class]!]))!). ', placeHolder:'Your title here...' },
+        {name:'Heading 5', key:'5', openWith:'h5(!(([![Class]!]))!). ', placeHolder:'Your title here...' },
+        {name:'Heading 6', key:'6', openWith:'h6(!(([![Class]!]))!). ', placeHolder:'Your title here...' },
+        {name:'Paragraph', key:'P', openWith:'p(!(([![Class]!]))!). '}, 
+        {separator:'---------------' },
+        {name:'Bold', key:'B', closeWith:'*', openWith:'*'}, 
+        {name:'Italic', key:'I', closeWith:'_', openWith:'_'}, 
+        {name:'Stroke through', key:'S', closeWith:'-', openWith:'-'}, 
+        {separator:'---------------' },
+        {name:'Bulleted list', openWith:'(!(* |!|*)!)'}, 
+        {name:'Numeric list', openWith:'(!(# |!|#)!)'}, 
+        {separator:'---------------' },
+        {name:'Picture', replaceWith:'![![Source:!:http://]!]([![Alternative text]!])!'}, 
+        {name:'Link', openWith:'"', closeWith:'([![Title]!])":[![Link:!:http://]!]', placeHolder:'Your text to link here...' },
+        {separator:'---------------' },
+        {name:'Quotes', openWith:'bq(!(([![Class]!]))!). '}, 
+        {name:'Code', openWith:'@', closeWith:'@'}, 
+    ]
+}
+
+myMarkdownSettings = {
+    nameSpace:          'markdown', // Useful to prevent multi-instances CSS conflict
+    onShiftEnter:       {keepDefault:false, openWith:'\n\n'},
+    markupSet: [
+        {name:'First Level Heading', key:"1", placeHolder:'Your title here...', closeWith:function(markItUp) { return miu.markdownTitle(markItUp, '=') } },
+        {name:'Second Level Heading', key:"2", placeHolder:'Your title here...', closeWith:function(markItUp) { return miu.markdownTitle(markItUp, '-') } },
+        {name:'Heading 3', key:"3", openWith:'### ', placeHolder:'Your title here...' },
+        {name:'Heading 4', key:"4", openWith:'#### ', placeHolder:'Your title here...' },
+        {name:'Heading 5', key:"5", openWith:'##### ', placeHolder:'Your title here...' },
+        {name:'Heading 6', key:"6", openWith:'###### ', placeHolder:'Your title here...' },
+        {separator:'---------------' },        
+        {name:'Bold', key:"B", openWith:'**', closeWith:'**'},
+        {name:'Italic', key:"I", openWith:'_', closeWith:'_'},
+        {separator:'---------------' },
+        {name:'Bulleted List', openWith:'- ' },
+        {name:'Numeric List', openWith:function(markItUp) {
+            return markItUp.line+'. ';
+        }},
+        {separator:'---------------' },
+        {name:'Picture', key:"P", replaceWith:'![[![Alternative text]!]]([![Url:!:http://]!] "[![Title]!]")'},
+        {name:'Link', key:"L", openWith:'[', closeWith:']([![Url:!:http://]!] "[![Title]!]")', placeHolder:'Your text to link here...' },
+        {separator:'---------------'},    
+        {name:'Quotes', openWith:'> '},
+        {name:'Code Block / Code', openWith:'(!(\t|!|`)!)', closeWith:'(!(`)!)'},
+    ]
+}
+
+// mIu nameSpace to avoid conflict.
+miu = {
+    markdownTitle: function(markItUp, char) {
+        heading = '';
+        n = $.trim(markItUp.selection||markItUp.placeHolder).length;
+        for(i = 0; i < n; i++) {
+            heading += char;
+        }
+        return '\n'+heading+'\n';
+    }
+}
+
+myHtmlSettings = {
+    nameSpace:       "html", // Useful to prevent multi-instances CSS conflict
+    onShiftEnter:    {keepDefault:false, replaceWith:'<br />\n'},
+    onCtrlEnter:     {keepDefault:false, openWith:'\n<p>', closeWith:'</p>\n'},
+    onTab:           {keepDefault:false, openWith:'     '},
+    markupSet:  [
+        {name:'Heading 1', key:'1', openWith:'<h1(!( class="[![Class]!]")!)>', closeWith:'</h1>', placeHolder:'Your title here...' },
+        {name:'Heading 2', key:'2', openWith:'<h2(!( class="[![Class]!]")!)>', closeWith:'</h2>', placeHolder:'Your title here...' },
+        {name:'Heading 3', key:'3', openWith:'<h3(!( class="[![Class]!]")!)>', closeWith:'</h3>', placeHolder:'Your title here...' },
+        {name:'Heading 4', key:'4', openWith:'<h4(!( class="[![Class]!]")!)>', closeWith:'</h4>', placeHolder:'Your title here...' },
+        {name:'Heading 5', key:'5', openWith:'<h5(!( class="[![Class]!]")!)>', closeWith:'</h5>', placeHolder:'Your title here...' },
+        {name:'Heading 6', key:'6', openWith:'<h6(!( class="[![Class]!]")!)>', closeWith:'</h6>', placeHolder:'Your title here...' },
+        {name:'Paragraph', openWith:'<p(!( class="[![Class]!]")!)>', closeWith:'</p>'  },
+        {separator:'---------------' },
+        {name:'Bold', key:'B', openWith:'<strong>', closeWith:'</strong>' },
+        {name:'Italic', key:'I', openWith:'<em>', closeWith:'</em>'  },
+        {name:'Stroke through', key:'S', openWith:'<del>', closeWith:'</del>' },
+        {separator:'---------------' },
+        {name:'Ul', openWith:'<ul>\n', closeWith:'</ul>\n' },
+        {name:'Ol', openWith:'<ol>\n', closeWith:'</ol>\n' },
+        {name:'Li', openWith:'<li>', closeWith:'</li>' },
+        {separator:'---------------' },
+        {name:'Picture', key:'P', replaceWith:'<img src="[![Source:!:http://]!]" alt="[![Alternative text]!]" />' },
+        {name:'Link', key:'L', openWith:'<a href="[![Link:!:http://]!]"(!( title="[![Title]!]")!)>', closeWith:'</a>', placeHolder:'Your text to link...' },
+        {separator:'---------------' },
+        {name:'Clean', replaceWith:function(h) { return h.selection.replace(/<(.*?)>/g, "") } },
+    ]
+}
+
 $(document).ready(function() {
   $("#title").focus();
   $(window).resize(onWndResize);
-  onWndResize();
   updatePrivateStatus();
   onFormatChanged();
   $("#privateOrPublic").change(updatePrivateStatus);
