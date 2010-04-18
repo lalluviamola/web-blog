@@ -67,6 +67,7 @@ function stopInProgress() {
 
 function previewAllButHtml() {
   function preview_callback(data, status) {
+    data = data.replace(/<p>(.*)<\/p>/, "$1");
     $("#preview").html(data);
     stopInProgress();
   }
