@@ -1,8 +1,10 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="alternate" type="application/atom+xml" title="RSS 2.0" href="/atom.xml" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+<link rel="alternate" type="application/atom+xml" title="RSS 2.0" href="/atom.xml">
+<link  href="{{ prettify_css_url }}" type="text/css" rel="stylesheet">
 
 <title>{{ article.title }}</title>
 
@@ -18,7 +20,6 @@ function articlesJsonLoaded(articlesJson) {
 }
 </script>
 
-<link  href="{{ prettify_css_url }}" type="text/css" rel="stylesheet" />
 <script src="{{ prettify_js_url }}" type="text/javascript"></script>
 
 {% include "inline_css.html" %}
@@ -49,7 +50,7 @@ function articlesJsonLoaded(articlesJson) {
 </div>
 
 <h1>
-  <a href=/index.html>home</a> &#8227; {{ article.title }}
+  <a href="/index.html">home</a> &#8227; {{ article.title }}
 
   {% if not article.is_public %}
     &nbsp;<font color="red">private</font>
@@ -68,7 +69,6 @@ function articlesJsonLoaded(articlesJson) {
 
 <div id="post">
 
-<p>
   <table class="postmeta" width=100%>
   <tr><td >
   {{ article.published_on|date:"d M Y" }}
@@ -91,7 +91,6 @@ function articlesJsonLoaded(articlesJson) {
     older →
     {% endif %}
   </td></tr></table>
-</p>
 
 {{ article.html_body }}
 </div>

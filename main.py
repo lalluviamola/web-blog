@@ -36,7 +36,7 @@ ATOM_ALL_MEMCACHE_KEY = "ata"
 JSON_ADMIN_MEMCACHE_KEY = "jsa"
 JSON_NON_ADMIN_MEMCACHE_KEY = "jsna"
 
-RAMBLINGS_TAG = "ramblings"
+RAMBLINGS_TAG = "note"
 
 # e.g. "http://localhost:8081" or "http://blog.kowalczyk.info"
 g_root_url = None
@@ -713,9 +713,10 @@ class PreviewHandler(webapp.RequestHandler):
 class EditHandler(webapp.RequestHandler):
 
     def create_new_article(self):
-        #logging.info("private: '%s'" % self.request.get("private"))
+        #logging.info("private: '%s'" % self.request.get("privateOrPublic"))
         #logging.info("format: '%s'" % self.request.get("format"))
         #logging.info("title: '%s'" % self.request.get("title"))
+        #logging.info("body: '%s'" % self.request.get("note"))
 
         format = self.request.get("format")
         assert format in ALL_FORMATS
@@ -728,7 +729,7 @@ class EditHandler(webapp.RequestHandler):
         permalink = gen_permalink(title)
         assert permalink
         article = Article(permalink=permalink, title=title, body=body, format=format)
-        article.is_public = not checkbox_to_bool(self.request.get("private"))
+        article.is_public = (self.request.get("private_or_public") == "public")
         article.previous_versions = [text_content.key()]
         article.published_on = published_on
         article.updated_on = published_on
@@ -743,6 +744,7 @@ class EditHandler(webapp.RequestHandler):
 
     def post(self):
         #logging.info("article_id: '%s'" % self.request.get("article_id"))
+        #logging.info("private: '%s'" % self.request.get("privateOrPublic"))
         #logging.info("format: '%s'" % self.request.get("format"))
         #logging.info("title: '%s'" % self.request.get("title"))
         #logging.info("body: '%s'" % self.request.get("note"))
@@ -756,7 +758,7 @@ class EditHandler(webapp.RequestHandler):
 
         format = self.request.get("format")
         assert format in ALL_FORMATS
-        is_public = not checkbox_to_bool(self.request.get("private"))
+        is_public = (self.request.get("private_or_public") == "public")
         update_published_on = checkbox_to_bool(self.request.get("update_published_on"))
         title = self.request.get("title").strip()
         body = self.request.get("note")
@@ -821,8 +823,9 @@ class EditHandler(webapp.RequestHandler):
         if not article_id:
             vals = {
                 'jquery_url' : jquery_url(),
-                'format_textile_checked' : "checked",
-                'private_checkbox_checked' : "checked",
+                'format_textile_checked' : "selected",
+                'type_private' : "selected",
+                'type_public' : "",
                 'submit_button_text' : "Post",
                 'tags' : ",".join(tags)
             }
@@ -837,14 +840,17 @@ class EditHandler(webapp.RequestHandler):
             'format_html_checked' : "",
             'format_text_checked' : "",
             'update_published_on_checkbox_checked' : "",
-            'private_checkbox_checked' : "",
+            'type_private' : "",
+            'type_public' : "",
             'article' : article,
             'submit_button_text' : "Update post",            
             'tags' : ", ".join(article.tags),
         }
-        vals['format_%s_checked' % article.format] = "checked"
-        if not article.is_public:
-            vals['private_checkbox_checked'] = "checked"
+        vals['format_%s_checked' % article.format] = "selected"
+        if article.is_public:
+            vals['type_public'] = "selected"
+        else:
+        	vals['type_private'] = "selected"
         template_out(self.response, "tmpl/edit.html", vals)
 
 MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
