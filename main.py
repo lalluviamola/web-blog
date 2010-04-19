@@ -324,6 +324,12 @@ def redirect_from_appspot(wsgi_app):
     return redirect_if_needed
 
 def template_out(response, template_name, template_values = {}):
+
+    template_values['jquery_url'] = jquery_url()
+    template_values['prettify_js_url'] = prettify_js_url()
+    template_values['prettify_css_url'] = prettify_css_url()
+    template_values['articles_js_url'] = get_article_json_url()
+
     response.headers['Content-Type'] = 'text/html'
     #path = os.path.join(os.path.dirname(__file__), template_name)
     path = template_name
@@ -509,10 +515,6 @@ def render_article(response, article):
     (next, prev, article_no, articles_count) = find_next_prev_article(article)
     tags_urls = [url_for_tag(tag) for tag in article.tags]
     vals = {
-        'jquery_url' : jquery_url(),
-        'articles_js_url' : get_article_json_url(),
-        'prettify_js_url' : prettify_js_url(),
-        'prettify_css_url' : prettify_css_url(),
         'is_admin' : users.is_current_user_admin(),
         'login_out_url' : get_login_logut_url(full_permalink),
         'article' : article,
@@ -557,10 +559,6 @@ class PageHandler(webapp.RequestHandler):
             older_page = { 'no' : pageno + 1 }
 
         vals = {
-            'jquery_url' : jquery_url(),
-            'articles_js_url' : get_article_json_url(),
-            'prettify_js_url' : prettify_js_url(),
-            'prettify_css_url' : prettify_css_url(),
             'is_admin' : users.is_current_user_admin(),
             'login_out_url' : get_login_logut_url("/"),
             'articles_summary' : articles_summary,
@@ -833,9 +831,6 @@ class EditHandler(webapp.RequestHandler):
 
         if not article:
             vals = {
-                'jquery_url' : jquery_url(),
-                'prettify_js_url' : prettify_js_url(),
-                'prettify_css_url' : prettify_css_url(),
                 'format_textile_checked' : "selected",
                 'type_private' : "selected",
                 'type_public' : "",
@@ -846,9 +841,6 @@ class EditHandler(webapp.RequestHandler):
             return
 
         vals = {
-            'jquery_url' : jquery_url(),
-            'prettify_js_url' : prettify_js_url(),
-            'prettify_css_url' : prettify_css_url(),
             'format_textile_checked' : "",
             'format_markdown_checked' : "",
             'format_html_checked' : "",
@@ -926,10 +918,8 @@ def do_archives(response, articles_summary, url, tag_to_display=None):
         posts_count += 1
 
     vals = {
-	'login_out_url' : get_login_logut_url(url),
+        'login_out_url' : get_login_logut_url(url),
         'is_admin' : users.is_current_user_admin(),
-        'jquery_url' : jquery_url(),
-        'articles_js_url' : get_article_json_url(),
         'years' : years,
         'tag' : tag_to_display,
         'posts_count' : posts_count,
