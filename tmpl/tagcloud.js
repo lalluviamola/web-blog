@@ -41,7 +41,15 @@ function genTagCloudHtml() {
     all_tags_arr.push(tag);
   }
 
-  all_tags_arr.sort();
+  all_tags_arr.sort(function(x,y){ 
+      var a = String(x).toUpperCase(); 
+      var b = String(y).toUpperCase(); 
+      if (a > b) 
+         return 1 
+      if (a < b) 
+         return -1 
+      return 0; 
+    });
   lines.push(tagUrl("archives.html", "all", articles_json.length));
   for (i = 0; i < all_tags_arr.length; i++) {
     tag = all_tags_arr[i];
