@@ -45,7 +45,7 @@ function articlesJsonLoaded(articlesJson) {
 <a href="/app/showdeleted">Show deleted</a>&nbsp;
 {% else %}
 <div id="adminList" style="position: absolute; left:25px; top:0px; font-size: 90%;">
-<a id="login_id" class="invisible" onMouseOver="showLogin();" onMouseOut="hideLogin();" href="{{ login_out_url }}">login</a>
+<a id="login_id" class="invisible" onMouseOver="showById('login_id');" onMouseOut="hideById('login_id');" href="{{ login_out_url }}">login</a>
 {% endif %}
 </div>
 

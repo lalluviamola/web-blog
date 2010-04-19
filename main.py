@@ -544,8 +544,11 @@ class PageHandler(webapp.RequestHandler):
             last_article = articles_count
         articles_summary = articles_summary[first_article:last_article]
         articles_summary_set_tags_display(articles_summary)
+        no = 1
         for article in articles_summary:
             article_summary_gen_html_body(article)
+            article["no"] = no
+            no += 1
         newer_page = None
         if pageno > 1:
             newer_page = { 'no' : pageno - 1 }
@@ -819,8 +822,16 @@ class EditHandler(webapp.RequestHandler):
         tags = []
         if ramblings:
             tags.append(RAMBLINGS_TAG)
+
+        article = None
         article_id = self.request.get('article_id')
-        if not article_id:
+        if article_id:
+            article = db.get(db.Key.from_path('Article', int(article_id)))
+        permalink = self.request.get('article_permalink')
+        if permalink:
+            article = Article.gql("WHERE permalink = :1", permalink).get()
+
+        if not article:
             vals = {
                 'jquery_url' : jquery_url(),
                 'prettify_js_url' : prettify_js_url(),
@@ -834,7 +845,6 @@ class EditHandler(webapp.RequestHandler):
             template_out(self.response, "tmpl/edit.html", vals)
             return
 
-        article = db.get(db.Key.from_path('Article', int(article_id)))
         vals = {
             'jquery_url' : jquery_url(),
             'prettify_js_url' : prettify_js_url(),

@@ -1,11 +1,11 @@
 <script type="text/javascript">
 
-function showLogin() {
-    $('#login_id').removeClass("invisible").addClass("visible");
+function showById(id) {
+  $('#' + id).removeClass("invisible").addClass("visible");
 }
 
-function hideLogin() {
-    $('#login_id').removeClass("visible").addClass("invisible"); 
+function hideById(id) {
+  $('#' + id).removeClass("visible").addClass("invisible");
 }
 
 var articles_json = null;
