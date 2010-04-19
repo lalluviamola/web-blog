@@ -11,13 +11,16 @@ function hideLogin() {
 var articles_json = null;
 var TAGS_IDX = 3;
 
+function tagUrl(url, tag, count) {
+  return '<span class="nowrap"><a href="' + encodeURIComponent(url) + '">' + tag + '</a> <span class="light">(' + count + ')</span></span> ';
+}
+
 function genTagCloudHtml() {
   var all_tags = {};
   var all_tags_arr = [];
   var tag, tags;
   var tag_count;
   var i, j;
-  var txt = "";
   var lines = [];
 
   for (i=0; i < articles_json.length; i++) {
@@ -28,7 +31,7 @@ function genTagCloudHtml() {
       if (undefined == tag_count) {
         tag_count = 1;
       } else {
-        tag_count = tag_count + 1;
+        tag_count += 1;
       }
       all_tags[tag] = tag_count;
     }
@@ -39,14 +42,13 @@ function genTagCloudHtml() {
   }
 
   all_tags_arr.sort();
-  lines.push('<a href="/archives.html">all' + '</a> <span class="light">(' + articles_json.length + ')</span> ');
+  lines.push(tagUrl("/archives.html", "all", articles_json.length));
   for (i = 0; i < all_tags_arr.length; i++) {
     tag = all_tags_arr[i];
     tag_count = all_tags[tag];
-    txt = '<a href="/tag/' + encodeURIComponent(tag) + '">' + tag + '</a> <span class="light">(' + tag_count + ')</span> ';
-    lines.push(txt);
+    //txt = '<a href="/tag/' + encodeURIComponent(tag) + '">' + tag + '</a> <span class="light">(' + tag_count + ')</span> ';
+    lines.push(tagUrl("/tag/" + tag, tag, tag_count));
   }
-  txt = lines.join("");
-  return txt;
+  return lines.join("");
 }
 </script>
