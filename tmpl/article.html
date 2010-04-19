@@ -29,26 +29,6 @@ function articlesJsonLoaded(articlesJson) {
 
 <div id="content">
 
-
-{% if is_admin %}
-<div id="adminList" style="font-size: 90%; background: #ddd">
-<a href="{{ login_out_url }}">Log out</a>&nbsp;
-<a href="/app/edit?article_id={{ article.key.id }}">Edit</a>&nbsp;
-<a href="/app/edit">New</a>&nbsp;
-{% if article.is_deleted %}
-  <a href="/app/undelete?article_id={{ article.key.id }}">Undelete</a>&nbsp;
-  {% else %}
-  <a href="/app/delete?article_id={{ article.key.id }}">Delete</a>&nbsp;
-{% endif %}
-<a href="/app/permanentdelete?article_id={{ article.key.id }}">Permanent delete</a>&nbsp;
-<a href="/app/showprivate">Show private</a>&nbsp;
-<a href="/app/showdeleted">Show deleted</a>&nbsp;
-{% else %}
-<div id="adminList" style="position: absolute; left:25px; top:0px; font-size: 90%;">
-<a id="login_id" class="invisible" onMouseOver="showById('login_id');" onMouseOut="hideById('login_id');" href="{{ login_out_url }}">login</a>
-{% endif %}
-</div>
-
 <h1>
   <a href="/index.html">home</a> &#8227; {{ article.title }}
 
@@ -92,8 +72,32 @@ function articlesJsonLoaded(articlesJson) {
     {% endif %}
   </td></tr></table>
 
+<br>
+{% if is_admin %}
+	<div id="adminList" style="font-size: 90%; background: #ddd">
+	<a href="{{ login_out_url }}">Log out</a>&nbsp;
+	<a href="/app/edit?article_id={{ article.key.id }}">Edit</a>&nbsp;
+	<a href="/app/edit">New</a>&nbsp;
+	{% if article.is_deleted %}
+	 <a href="/app/undelete?article_id={{ article.key.id }}">Undelete</a>&nbsp;
+	 {% else %}
+	 <a href="/app/delete?article_id={{ article.key.id }}">Delete</a>&nbsp;
+	{% endif %}
+	<a href="/app/permanentdelete?article_id={{ article.key.id }}">Permanent delete</a>&nbsp;
+	<a href="/app/showprivate">Show private</a>&nbsp;
+	<a href="/app/showdeleted">Show deleted</a>&nbsp;
+{% else %}
+	<div id="adminList" style="position: absolute; left:25px; top:0px; font-size: 90%;">
+	<a id="login_id" class="invisible" onMouseOver="showById('login_id');" onMouseOut="hideById('login_id');" href="{{ login_out_url }}">login</a>
+{% endif %}
+</div>
+
+
 {{ article.html_body }}
 </div>
+
+<div class="line"></div>
+<center><a href=/index.html>Krzysztof Kowalczyk</a></center>
 
 <!--
 {% if article.is_public %}
