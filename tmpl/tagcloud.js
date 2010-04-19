@@ -11,8 +11,15 @@ function hideLogin() {
 var articles_json = null;
 var TAGS_IDX = 3;
 
+function a(url, txt) {
+  return '<a href="' + url + '">' + txt + "</a>";
+}
+function span(txt, cls) {
+  return '<span class="' + cls + '">' + txt + '</span>';
+}
+
 function tagUrl(url, tag, count) {
-  return '<span class="nowrap"><a href="' + encodeURIComponent(url) + '">' + tag + '</a> <span class="light">(' + count + ')</span></span> ';
+  return span(a(url, tag) + ' ' + span('(' + count + ')', "light"), "nowrap") + ' ';
 }
 
 function genTagCloudHtml() {
@@ -50,11 +57,11 @@ function genTagCloudHtml() {
          return -1 
       return 0; 
     });
-  lines.push(tagUrl("archives.html", "all", articles_json.length));
+  lines.push(tagUrl("/archives.html", "all", articles_json.length));
   for (i = 0; i < all_tags_arr.length; i++) {
     tag = all_tags_arr[i];
     tag_count = all_tags[tag];
-    lines.push(tagUrl("tag/" + tag, tag, tag_count));
+    lines.push(tagUrl("/tag/" + tag, tag, tag_count));
   }
   return lines.join("");
 }
