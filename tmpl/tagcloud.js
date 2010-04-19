@@ -42,12 +42,11 @@ function genTagCloudHtml() {
   }
 
   all_tags_arr.sort();
-  lines.push(tagUrl("/archives.html", "all", articles_json.length));
+  lines.push(tagUrl("archives.html", "all", articles_json.length));
   for (i = 0; i < all_tags_arr.length; i++) {
     tag = all_tags_arr[i];
     tag_count = all_tags[tag];
-    //txt = '<a href="/tag/' + encodeURIComponent(tag) + '">' + tag + '</a> <span class="light">(' + tag_count + ')</span> ';
-    lines.push(tagUrl("/tag/" + tag, tag, tag_count));
+    lines.push(tagUrl("tag/" + tag, tag, tag_count));
   }
   return lines.join("");
 }
