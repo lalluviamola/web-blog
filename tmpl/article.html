@@ -3,10 +3,16 @@
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+<title>{{ article.title }}</title>
+
 <link rel="alternate" type="application/atom+xml" title="RSS 2.0" href="/atom.xml">
 <link  href="{{ prettify_css_url }}" type="text/css" rel="stylesheet">
-
-<title>{{ article.title }}</title>
+{% include "inline_css.html" %}
+<style type=text/css>
+body {
+  padding-left: 20px;
+}
+</style>
 
 <script type="text/javascript" src="{{ jquery_url }}"></script>
 
@@ -22,7 +28,6 @@ function articlesJsonLoaded(articlesJson) {
 
 <script src="{{ prettify_js_url }}" type="text/javascript"></script>
 
-{% include "inline_css.html" %}
 </head>
 
 <body onload="prettyPrint()">
@@ -72,25 +77,22 @@ function articlesJsonLoaded(articlesJson) {
     {% endif %}
   </td></tr></table>
 
-<br>
 {% if is_admin %}
-	<div id="adminList" style="font-size: 90%; background: #ddd">
-	<a href="{{ login_out_url }}">Log out</a>&nbsp;
-	<a href="/app/edit?article_id={{ article.key.id }}">Edit</a>&nbsp;
-	<a href="/app/edit">New</a>&nbsp;
-	{% if article.is_deleted %}
-	 <a href="/app/undelete?article_id={{ article.key.id }}">Undelete</a>&nbsp;
-	 {% else %}
-	 <a href="/app/delete?article_id={{ article.key.id }}">Delete</a>&nbsp;
-	{% endif %}
-	<a href="/app/permanentdelete?article_id={{ article.key.id }}">Permanent delete</a>&nbsp;
-	<a href="/app/showprivate">Show private</a>&nbsp;
-	<a href="/app/showdeleted">Show deleted</a>&nbsp;
-{% else %}
-	<div id="adminList" style="position: absolute; left:25px; top:0px; font-size: 90%;">
-	<a id="login_id" class="invisible" onMouseOver="showById('login_id');" onMouseOut="hideById('login_id');" href="{{ login_out_url }}">login</a>
+    <br>
+    <div id="adminList" style="font-size: 90%; background: #ddd">
+    <a href="{{ login_out_url }}">Log out</a>&nbsp;
+    <a href="/app/edit?article_id={{ article.key.id }}">Edit</a>&nbsp;
+    <a href="/app/edit">New</a>&nbsp;
+    {% if article.is_deleted %}
+     <a href="/app/undelete?article_id={{ article.key.id }}">Undelete</a>&nbsp;
+     {% else %}
+     <a href="/app/delete?article_id={{ article.key.id }}">Delete</a>&nbsp;
+    {% endif %}
+    <a href="/app/permanentdelete?article_id={{ article.key.id }}">Permanent delete</a>&nbsp;
+    <a href="/app/showprivate">Show private</a>&nbsp;
+    <a href="/app/showdeleted">Show deleted</a>&nbsp;
+    </div>
 {% endif %}
-</div>
 
 
 {{ article.html_body }}
