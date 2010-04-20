@@ -231,33 +231,30 @@ a.title_permalink:hover {
 		<br>
 
 		{% endfor %}
-
-		<center>
-		{% if newer_page %}
-	    <a title="page {{ newer_page.no }}" href="/page/{{ newer_page.no }}">← newer</a>
-		{% else %}
-		← newer
-		{% endif %}
-
-	  &bull;
-	  {{ page_no }} of <a href="/archives.html">{{ pages_count }}</a> pages
-	  &bull;
-
-		{% if older_page %}
-	    <a title="page{{ older_page.no }}" href="/page/{{ older_page.no }}">older →</a>
-		{% else %}
-	    older →
-		{% endif %}
-		</center>
 		</div>
 	</td>
 </tr>
 </table>
 
-<p></p>
+<br>
 
-<div class="line"></div>
-<center><a href=/index.html>Krzysztof Kowalczyk</a></center>
+<center>
+{% if newer_page %}
+<a title="page {{ newer_page.no }}" href="/page/{{ newer_page.no }}">← newer</a>
+{% else %}
+← newer
+{% endif %}
+
+&bull;
+{{ page_no }} of <a href="/archives.html">{{ pages_count }}</a> pages
+&bull;
+
+{% if older_page %}
+<a title="page{{ older_page.no }}" href="/page/{{ older_page.no }}">older →</a>
+{% else %}
+older →
+{% endif %}
+</center>
 
 </div>
 
