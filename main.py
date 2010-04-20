@@ -533,7 +533,7 @@ ARTICLES_PER_PAGE = 5
 class PageHandler(webapp.RequestHandler):
     # for human readability, pageno starts with 1
     def do_page(self, pageno):
-        articles_summary = get_articles_summary(all=False)
+        articles_summary = get_articles_summary()
         articles_summary = [a for a in articles_summary]
         articles_count = len(articles_summary)
         pages_count = int(math.ceil(float(articles_count) / float(ARTICLES_PER_PAGE)))
