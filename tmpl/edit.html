@@ -258,8 +258,8 @@ $(document).ready(function() {
   <table cellspacing=0 cellpadding=0>
   <tr>
     <td id="title2">
-      <input id="title" type="text" width=100% maxlength="1024" name="title" value = "{{ article.title|escape }}"/><br>
-      <input id="tags" type="text" width=100%  maxlength="1024" name="tags" value = "{{ tags|escape }}"/>
+      <input id="title" tabindex=1 type="text" width=100% maxlength="1024" name="title" value = "{{ article.title|escape }}"/><br>
+      <input id="tags" tabindex=2 type="text" width=100%  maxlength="1024" name="tags" value = "{{ tags|escape }}"/>
    </td>
    <td id="sep2"></td>
    <td id="progress" valign=bottom>
@@ -272,7 +272,7 @@ $(document).ready(function() {
   <tbody>
     <tr>
       <td id="input" >
-       <textarea id="note" name="note" wrap="soft">{{ article.body|escape }}</textarea>
+       <textarea id="note" tabindex=3 name="note" wrap="soft">{{ article.body|escape }}</textarea>
      </td>
      <td id="sep"></td>
      <td>
