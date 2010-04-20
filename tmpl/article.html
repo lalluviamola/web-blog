@@ -99,12 +99,25 @@ function articlesJsonLoaded(articlesJson) {
     </div>
 {% endif %}
 
-
 {{ article.html_body }}
 </div>
 
-<div class="line"></div>
-<center><a href=/index.html>Krzysztof Kowalczyk</a></center>
+<center>
+    {% if next_article %}
+    <a title="{{ next_article.title }}" href="/{{ next_article.permalink}}">← newer</a>
+    {% else %}
+    ← newer
+    {% endif %}
+    &bull;
+    {{ article_no }} of <a href="/archives.html">{{ articles_count }}</a>
+    &bull;
+    {% if prev_article %}
+    <a title="{{ prev_article.title }}" href="/{{ prev_article.permalink}}">older →</a>
+    {% else %}
+    older →
+    {% endif %}
+</center>
+<br>
 
 <!--
 {% if article.is_public %}
