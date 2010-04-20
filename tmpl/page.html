@@ -211,11 +211,13 @@ a.title_permalink:hover {
 		</td>
 
 		<td valign="top" style="padding-left: 0px">
-			<a class="title_permalink" onMouseOver="showById('article_{{ article.no }}');" onMouseOut="hideById('article_{{ article.no }}');" href="/{{ article.permalink }}">{{ article.title }}&nbsp;&nbsp;</a>
+		    <span onMouseOver="showById('article_{{ article.no }}');" onMouseOut="hideById('article_{{ article.no }}');">
+			<a class="title_permalink"  href="/{{ article.permalink }}">{{ article.title }}</a>
 			{% if not article.is_public %} &nbsp;<font style="color: red;">(private)</font> {% endif %}
-			{% if is_admin %}
-			<a id="article_{{ article.no }}" class="invisible" onMouseOver="showById('article_{{ article.no }}');" onMouseOut="hideById('article_{{ article.no }}');" href="/app/edit?article_permalink={{ article.permalink }}">edit</a>
+			{% if is_admin %}&nbsp;
+			<a id="article_{{ article.no }}" class="invisible" href="/app/edit?article_permalink={{ article.permalink }}">edit</a>
 			{% endif %}
+			</span>
 		</td>
 		</tr>
 		</table>
