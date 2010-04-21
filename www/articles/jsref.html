@@ -8,12 +8,11 @@ body, table {
 }
 
 table {
-	//border-bottom: 2px solid #ccc;
 	color: #444;
 }
 
 td {
-	font-family: consolas, monospace;
+	font-family: consolas, menlo, monospace;
 }
 
 .header {
@@ -37,7 +36,7 @@ td {
 .em {
 	font-weight: bold;
 	color: #420066;
-	font-size: 120%;
+	font-size: 130%;
 }
 
 </style>
@@ -45,13 +44,20 @@ td {
 <body>
 
 <div>
-	Quick links: <a href="#number">Number</a>, 
-	<a href="#num-2-str">Number&lt;-&gt;String</a>,
-	<a href="#string">String</a>,
-	<a href="#date">Date</a>,
-	<a href="#boolean">Boolean</a>,
-	<a href="#array">Array</a>,
-	<a href="#function">Function</a>
+    <a href="/index.html">home</a> &#8227;
+	quick links: <a href="#number">Number</a> &bull;
+	<a href="#string">String</a> &bull;
+	<a href="#number-to-string">Number&lt;-&gt;String</a> &bull;
+	<a href="#boolean">Boolean</a> &bull;
+	<a href="#date">Date</a> &bull;
+	<a href="#math">Math</a> &bull;
+	<a href="#array">Array</a> &bull;
+	<a href="#function">Function</a> &bull;
+	<a href="#logic">logic</a> &bull;
+	<a href="#object">Object</a> &bull;
+	<a href="#type">type</a> &bull;
+	<a href="#object-orientation">object-orientation</a> &bull;
+	<a href="#exceptions">exceptions</a>
 </div>
 <br>
 <table id="number">
@@ -87,22 +93,22 @@ td {
  </tr>
  <tr>
   <td>
-   assert(   2 <span class="em">+</span> 2 == 4); <span class="comment">// addition</span>
+   assert(2 <span class="em">+</span> 2 == 4); <span class="comment">// addition</span>
   </td>
  </tr>
  <tr>
   <td>
-   assert(  10 <span class="em">-</span> 3 == 7); <span class="comment">// subtraction</span>
+   assert(9 <span class="em">-</span> 3 == 6); <span class="comment">// subtraction</span>
   </td>
  </tr>
  <tr>
   <td>
-   assert(   3 <span class="em">*</span> 8 == 24); <span class="comment">// multiplication</span>
+   assert(3 <span class="em">*</span> 8 == 24); <span class="comment">// multiplication</span>
   </td>
  </tr>
  <tr>
   <td>
-   assert( 123 <span class="em">/</span> 10 == 12.3); <span class="comment">// real (not integer) division</span>
+   assert(123 <span class="em">/</span> 10 == 12.3); <span class="comment">// real (not integer) division</span>
   </td>
  </tr>
  <tr>
@@ -112,12 +118,182 @@ td {
  </tr>
  <tr>
   <td>
-   var n=3;  n <span class="em">+=</span> 30; assert(n == 33); <span class="comment">// compute &amp; store</span>
+   var n=15; n <span class="em">+=</span> 14; assert(n == 29); <span class="comment">// compute &amp; store</span>
   </td>
  </tr>
  <tr>
   <td>
-   var n=33; n <span class="em">-=</span> 30; assert(n == 3); <span class="comment">// x *= is the same</span>
+   var n=18; n <span class="em">-=</span> 11; assert(n == 7	); <span class="comment">// x *= is the same</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   var n=12; n <span class="em">*=</span> 10; assert(n == 120); <span class="comment">// as x=x*y</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   var n=19; n <span class="em">/=</span> 10; assert(n == 1.9);
+  </td>
+ </tr>
+ <tr>
+  <td class="line">
+   var n=18; n <span class="em">%=</span> 10; assert(n == 8);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(<span class="em">-</span>3+3 == 0); <span class="comment">// negative number (unary minus)</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   var n=3; n<span class="em">++</span>; assert(n == 4); <span class="comment">// increment</span>
+  </td>
+ </tr>
+ <tr>
+  <td class="line">
+   var n=3; n<span class="em">--</span>; assert(n == 2); <span class="comment">// decrement</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(50 <span class="em">&lt; </span> 51); <span class="comment">// less than</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(50 <span class="em">&lt;=</span> 51); <span class="comment">// less than or equal</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(51 <span class="em">&gt; </span> 50); <span class="comment">// greater than</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(51 <span class="em">&gt;=</span> 50); <span class="comment">// greater than or equal</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(51 <span class="em">==</span> 51); <span class="comment">// equal</span>
+  </td>
+ </tr>
+ <tr>
+  <td class="line">
+   assert(50 <span class="em">!=</span> 51); <span class="comment">// not equal</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(1000 <span class="em">&lt;&lt;</span> 3 == 8000); <span class="comment">// shift left</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(1000 <span class="em">&gt;&gt;</span> 3 == 125); <span class="comment">// shift right, signed</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(0xFFFF0000 <span class="em">&gt;&gt;&gt;</span> 8 == 0x00FFFF00); <span class="comment">// unsigned</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="comment">// always use parentheses around termsn with: &amp; | ^</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert((0x55555555 <span class="em">&amp;</span> 0xFF00FFFF) == 0x55005555); <span class="comment">// and</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert((0x55555555 <span class="em">|</span> 0x00FF0000) == 0x55FF555555); <span class="comment">// or</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert((0x55555555 <span class="em">^</span> 0x0FF000000) == 0x55AA5555); <span class="comment">// xor</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(((<span class="em">~</span>0xAAAA) &amp; 0xFFFF) == 0x5555);; <span class="comment">// 1's complement</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="comment">// mask (e.g. FFFF) to remove unwanted sign extension</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   var n = 0x555; n <span class="em">&amp;=</span> 0xF0F; assert(n == 0x505);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   var n = 0x555; n <span class="em">|=</span> 0x0F0; assert(n == 0x5F5);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   var n = 0x555; n <span class="em">^=</span> 0x0F0; assert(n == 0x5A5);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   var n = -10; n <span class="em">&lt;&lt;=</span> 1; assert(n == -20); <span class="comment">// shift left</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   var n = -10; n <span class="em">&gt;&gt;=</span>1; assert(n == -5); <span class="comment">// signed right</span>
+  </td>
+ </tr>
+ <tr>
+  <td class="line">
+   var n = 0x8; n <span class="em">&gt;&gt;&gt;=</span> 1; assert(n == 0x4); <span class="comment">// unsigned</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(<span class="em">Number.MIN_VALUE</span> &lt; 1e-307); <span class="comment">// special</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(<span class="em">Number.MAX_VALUE</span> &gt; 1e308); <span class="comment">// numbers</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(<span class="em">Number.NEGATIVE_INFINITY</span> == 1/0);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(<span class="em">Number.POSITIVE_INFINITY</span> == -1/0);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(<span class="em">isNaN</span>(0/0)); <span class="comment">// NaN stands for Not a Number</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(0/0 != 0/0); <span class="comment">// NaN is not equal to itself!</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(!<span class="em">isFinite</span>(1/0)); assert(isFinite(1));
   </td>
  </tr>
 </table>
@@ -141,6 +317,534 @@ td {
  <tr>
   <td>
    assert("str" <span class="em">+</span> "ing" == "string"); <span class="comment">// + concatenates</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(s.<span class="em">length</span> == 6);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(s.<span class="em">charAt</span>(0) == "s"); <span class="comment">// 0-based indexing</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(s.<span class="em">charAt</span>(5) == "g"); <span class="comment">// no character type</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(s.<span class="em">charCodeAt</span>(5) == 0x67); <span class="comment">// ASCII character value</span>
+  </td>
+ </tr>
+ <tr>
+  <td class="line">
+   assert(<span class="em">String.fromCahrCoe</span>(65,66,67) == "ABC");
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(s.<span class="em">substring</span>(2) == "ring"); <span class="comment">// istart</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(s.substring(2,4) == "ri"); <span class="comment">// istart, iend+1</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(s.substring(4,2) == "ri"); <span class="comment">// iend+1, istart</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(substring(-1) != "ng"); <span class="comment">// (negative values are</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(s.substring(1,-1) != "tring"); <span class="comment">// relative to the right)</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(s.<span class="em">slice</span>(2) == "ring"); <span class="comment">// istart</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(s.slice(2,4) == "ri"); <span class="comment">// istart, iend + 1</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(s.slice(-1) != "ng");
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(s.slice(1,-1) != "trin");
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(s.<span class="em">substr</span>(2) == "ring"); <span class="comment">// istart</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(s.substr(2,2) == "ri"); <span class="comment">// istart, inum</span>
+  </td>
+ </tr>
+ <tr>
+  <td class="line">
+   assert(s.substr(-2,2) == "ng");
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert('abc'.<span class="em">toUpperCase</span>() == 'ABC');
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert('ABC'.<span class="em">toLowerCase</span>() == 'abc');
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert('abc'.<span class="em">toLocaleUpperCase</span>() == 'ABC');
+  </td>
+ </tr>
+ <tr>
+  <td class="line">
+   assert('ABC'.<span class="em">toLocaleLowerCase</span>() == 'abc');
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert('str'.<span class="em">concat</span>('ing') == 'str' + 'ing');
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(s.<span class="em">indexOf</span>('ing') == 3); <span class="comment">// find substring, -1 == can't</span>
+  </td>
+ </tr>
+ <tr>
+  <td class="line">
+   assert('strings'.<span class="em">lastIndexOf</span>('s') == 6); <span class="comment">// find rightmost</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="comment">// These involve Regular Expression and/or Arrays</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(/ing/.<span class="em">test</span>(s));
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(s.<span class="em">search</span>(/ing/) == 3);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert('nature'.<span class="em">replace</span>(/a/,'ur') == 'nurture');
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert('a:b:c'.<span class="em">split</span>(':').<span class="em">join</span>('..') == 'a..b..c');
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert('1-37/54'.<span class="em">match</span>(\d+/g).join() == '1,37,54');
+  </td>
+ </tr>
+ <tr>
+  <td>
+   RegExp.lastIndex = 0;
+  </td>
+ </tr>
+ <tr>
+  <td class="line">
+   assert(/o(.)r/.<span class="em">exec</span>('courage').join() == 'our,u');
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="comment">// search expects a regular expresion (where dot=any):</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert('imdb.com'.search(".") == 0); <span class="comment">// see you must</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert('imdb.com'.search(/./) == 0); <span class="comment">// not forget to</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert('imdb.com'.search(/\./) == 4); <span class="comment">// double-escape</span>
+  </td>
+ </tr>
+ <tr>
+  <td class="line">
+   assert('imdb.com'.search("\.") == 4); <span class="comment">// your punctuation</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="comment">// Slash Escapes</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   s="<span class="em">\uFFFF</span>"; <span class="comment">// hexadecimal Unicode</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   s="<span class="em">\xFF</span>"; <span class="comment">// hexadecimal ASCII</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   x="<span class="em">\377</span>"; s="<span class="em">\77</span>"; s="<span class="em">\7</span>"; <span class="comment">// 8-bit octal</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert('<span class="em">\0</span>' == '\u0000'); <span class="comment">// NUL</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert('<span class="em">\b</span>' == '\u0008'); <span class="comment">// backspace</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert('<span class="em">\t</span>' == '\u0009'); <span class="comment">// tab</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert('<span class="em">\f</span>' == '\u000C); <span class="comment">// formfeed</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert('<span class="em">\r</span>' == '\u000D); <span class="comment">// return (CR)</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert('<span class="em">\n</span>' == '\u000A); <span class="comment">// newline (LF)</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert('<span class="em">\v</span>' == '\u000B'); <span class="comment">// vertical tab</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert("<span class="em">\"</span>" = '"');
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert('<span class="em">'</span>' == "'");
+  </td>
+ </tr>
+ <tr>
+  <td class="line">
+   assert("<span class="em">\\</span>" == '\u005C);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="comment">// multi-line strings</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   s = "this is a <span class="em">\</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   test"; <span class="comment">// comments not allowed on the line above</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(s == "this is a test");
+  </td>
+ </tr>
+ <tr>
+  <td>
+   s="this is a " <span class="em">+</span> <span class="comment">// concatenate</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   "better test"; <span class="comment">// comments allowed on both of those lines</span>
+  </td>
+ </tr>
+ <tr>
+  <td class="line">
+   assert(s == "this is a better test");
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="comment">// NUL isn't special, it's a character like any other</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert('abc\0def'.length == 7);
+  </td>
+ </tr>
+ <tr>
+  <td class="line">
+   assert('abc\0def' != 'abc\0xyz');
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="comment">// user-entered cookies or URLs must encode punctuation</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(<span class="em">escape</span>("that's all.") == "that%27s%20all.");
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(<span class="em">unescape</span>("that%27s%20all.") == "that's all.');
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="comment">// These are escaped %&lt;&gt;[\]^`{|}#$&amp;,:;=?!/'()~</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="comment">// plus space. Alphanumerics and these are not *-._+/@</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="comment">// <span class="em">encodeURI</span>() translates %&lt;&gt;[\]^`{|}</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="comment">// <span class="em">encoeURIComponent</span>() %&lt;&gt;[\]^`{|}#$&amp;+,/:;=?</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="comment">// <span class="em">decodeURI</span>() and <span class="em">decodeURIComponent</span>() do the inverse</span>
+  </td>
+ </tr>
+</table>
+<br>
+<table id="number-to-string">
+ <tr>
+  <td class="header line">
+   <span class="big">Number<->String</span> conversions
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(256 == "256"); <span class="comment">// strings in a numeric context are</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(256.0 == "256"); <span class="comment">// converted to a number. This is</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(256 == "256.0"); <span class="comment">// usually reasonable and useful.</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert("256" != "256.0"); <span class="comment">// (String context, no convert!)</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(256 == "0x100"); <span class="comment">// hexadecimal prefix 0x works</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(256 == "0256");; <span class="comment">// but no octal 0 prefix this way</span>
+  </td>
+ </tr>
+ <tr>
+  <td class="line">
+   assert(256 != "25 xyz"); <span class="comment">// no extraneous characters</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="comment">// Number &lt;- String</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(256 === "256" - 0); <span class="comment">// - converts string to number</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert("2560" === "256" + 0); <span class="comment">// + concatenates strings</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(256 === <span class="em">parseInt</span>("256"));
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(256 === <span class="em">parseInt</span>("256 xyz")); <span class="comment">// extras forgiven</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(256 === <span class="em">parseInt</span>("0x100")); <span class="comment">// hexadecimal</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(256 === <span class="em">parseInt</span>("0400")); <span class="comment">// 0 for octal</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(256 === <span class="em">parseInt</span>("0256", 10)); <span class="comment">// parse decimal</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(256 === <span class="em">parseInt</span>("100", 16)); <span class="comment">// parse hex</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(256 === <span class="em">parseInt</span>("400", 8)); <span class="comment">// parse octal</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(256 === <span class="em">parseFloat</span>("2.56e1"));
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert("256" === "256".<span class="em">valueOf</span>());
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(isNaN(<span class="em">parseInt</span>("xyz")));
+  </td>
+ </tr>
+ <tr>
+  <td class="line">
+   assert(isNaN(<span class="em">parseFloat</span>("xyz")));
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="comment">// Number -&gt; String explicit conversions</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(256 + "" === "256");
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert((256)._toString() === "256");
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert((2.56)._toString() === "2.56");
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert((256).toString(16) === "100");
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert((2.56).<span class="em">toFixed</span>() === "3");
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert((2.56).<span class="em">toFixed</span>(3) === "2.560");
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert((2.56).<span class="em">toPrecision</span>(2) === "2.6");
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert((256).<span class="em">toExpnential</span>(4) === "2.5600e+2");
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert((1024).<span class="em">toLocaleString</span>() === "1,024.00");
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="comment">// oddbal numbers convert to strings in precise ways</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert((-1/0).toString() === "-Infinity");
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert((0/0).toString() === "NaN");
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert((1/0).toString() === "Infinity");
   </td>
  </tr>
 </table>
@@ -251,11 +955,350 @@ td {
  </tr>
  <tr>
   <td>
-   assert(past.<span class="em">toUTCString</span>() = 'Tue, 21 May 2002 03:59:59 UTC');
+   assert(past.<span class="em">toUTCString</span>() == 'Tue, 21 May 2002 03:59:59 UTC');
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(past.<span class="em">toDateString</span>() == 'Mon May 20 2002');
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(past.<span class="em">toTimeString</span>() == '23:59:59 EDT');
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(past.<span class="em">toLocaleDateString</span>() == 'Monday, 20 May, 2002');
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(past.<span class="em">toLocaleTimeString</span>() == '23:59:59 PM');
+  </td>
+ </tr>
+ <tr>
+  <td class="line">
+   assert(past.<span class="em">toLocaleString</span>() == 'Monday, 20 May, 2002 23:59:59 PM');
+  </td>
+ </tr>
+ <tr>
+  <td>
+   var d=<span class="em">new Date</span>(0); <span class="comment">// Dates count milliseconds</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(d.getTime() == 0); <span class="comment">// after midnight 1/1/1970 UTC</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(d.toUTCString() == 'Thu, 1 Jan 1970 00:00:00 UTC');
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(d.<span class="em">getTimezoneOffset</span>() == 5*60); <span class="comment">// minute West</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="comment">// getTime() is millisec after 1/1/1970</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="comment">// getDate() is day of month, getDay() is day of week</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="comment">// Same for setTime() and setDate(). There is no setDay()</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   d.<span class="em">setFullYear</span>(2002); assert(d.<span class="em">getFullYear</span>() == 2002);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   d.<span class="em">setMonth</span>(5-1); assert(d.<span class="em">getMonth</span>() == 5-1);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   d.<span class="em">setDate</span>(31); assert(d.<span class="em">getDate</span>() == 31);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   d.<span class="em">setHours</span>(23); assert(d.<span class="em">getHours</span>() == 23);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   d.<span class="em">setMinutes</span>(59); assert(d.<span class="em">getMinutes</span>() == 59);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   d.<span class="em">setSeconds(59); assert(d.</span>getSeconds() == 59);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   d.<span class="em">setMilliseconds</span>(999); assert(d.<span class="em">getMilliseconds</span>() == 999);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(d.<span class="em">getDay</span>() == 5); <span class="comment">// 0=Sunday, 6=Saturday</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   d.<span class="em">setYear</span>(99); assert(d<span class="em">getYear</span>() == 99);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   d.setYear(2001); assert(d.getYear() == 2001);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   d.<span class="em">setUTCFullYear</span>(2002); assert(d.<span class="em">getUTCFullYear</span>() == 2002);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   d.<span class="em">setUTCMonth(5-1); assert(d.</span>getUTCMonth() == 5-1);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   d.<span class="em">setUTCDate(31); assert(d.</span>getUTCDate_() == 31);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   d.<span class="em">setUTCHours</span>(23); assert(d.<span class="em">getUTCHours</span>() == 23);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   d.<span class="em">setUTCMinutes</span>(59); assert(d.<span class="em">getUTCMinutes</span>() == 59);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   d.<span class="em">setUTCSeconds(59); assert(g.</span>getUTCSeconds_() == 59);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   d.<span class="em">setUTCMilliseconds</span>(999); assert(d.<span class="em">getUTCMilliseconds</span>() == 999);
+  </td>
+ </tr>
+ <tr>
+  <td class="line">
+   assert(d.<span class="em">getUTCDay</span>() == 5); <span class="comment">// 0=Sunday, 6=Saturday</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="comment">// Most set-functions can take multiple parameters</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   d.setFullYear(2002,5-1,31); d.setUTCFullYear(2002,5-1,31);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   d.setMonth(5-1,31); d.setUTCMonth(5-1,31);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   d.setHours(23,59,59,999); d.setUTCHours(23,59,59,999);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   d.setMintues(59,59,999); d.setUTCMinutes(59,59,999);
+  </td>
+ </tr>
+ <tr>
+  <td class="line">
+   d.setSeconds(59,999); d.setUTCSeconds(59,999)
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="comment">// if you must call more than one set function, it's</span>
+  </td>
+ </tr>
+ <tr>
+  <td class="line">
+   <span class="comment">// probably better to call the longer-period function first</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   d.setMilliseconds(0); <span class="comment">// (following point too coarse for msec)</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="comment">// Date.parse() works on the output of either toString()</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   var msec=<span class="em">Date.parse</span>(d.toString()); <span class="comment">// or toUTCString()</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(msec == d.getTime()); <span class="comment">// the formats of</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   msec = <span class="em">Date.parse</span>(d.toUTCString()); <span class="comment">// thsoe strings vary</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(msec == d.getTime()); <span class="comment">// one computer to another</span>
   </td>
  </tr>
 </table>
 <br>
+<table id="math">
+ <tr>
+  <td class="header line">
+   <span class="big">Math</span> Math.PI Math.max() Math.round()
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(<span class="em">Math.abs</span>(-3.2) == 3.2);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(<span class="em">Math.max</span>(1,2,3) == 3);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(<span class="em">Math.min</span>(1,2,3) == 1);
+  </td>
+ </tr>
+ <tr>
+  <td class="line">
+   assert(0 &lt;= <span class="em">Math.random</span>() &amp;&amp; Math.random() &lt; 1);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(<span class="em">Math.ceil</span>(1.5) == 2); <span class="comment">// round up, to the nearest</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(Math.ceil(-1.5) == -1); <span class="comment">// integer higher or equal</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(<span class="em">Math.round</span>(1.7) == 2); <span class="comment">// round to the nearest</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(Math.round(1.2) == 1); <span class="comment">// integer, up or down</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(<span class="em">Math.floor</span>(1.5) == 1); <span class="comment">//round down to the nearest</span>
+  </td>
+ </tr>
+ <tr>
+  <td class="line">
+   assert(Math.floor(-1.5) == -2); <span class="comment">// integer lower or equal</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   var n;
+  </td>
+ </tr>
+ <tr>
+  <td>
+   n=<span class="em">Math.E</span>; assertApprox(Math.log(n),1);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   n=<span class="em">Math.LN10</span>; assertApprox(Math.pow(Math.E,n),10);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   n=<span class="em">Math.LN2</span>; assertApprox(Math.pow(Math.E,n),2);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   n=<span class="em">Math.LOG10E</span>; assertApprox(Math.pow(10,n),Math.E);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   n=<span class="em">Math.LOG2E</span>; assertApprox(Math.pow(2,n),Math.E);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   n=<span class="em">Math.PI</span>; assertApprox(Math.sin(n/2),1);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   n=<span class="em">Math.SQRT1_2</span>; assertApprox(n*n,0.5);
+  </td>
+ </tr>
+ <tr>
+  <td class="line">
+   n=<span class="em">Math.SQRT2</span>; assertApprox(n*n,2);
+  </td>
+ </tr>
+</table>
+<br>
+
+
+<hr/> 
+<center><a href="/index.html">Krzysztof Kowalczyk</a></center> 
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-194516-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+  })();
+</script>
 
 </body>
 </html>

@@ -8,12 +8,11 @@ body, table {
 }
 
 table {
-	//border-bottom: 2px solid #ccc;
 	color: #444;
 }
 
 td {
-	font-family: consolas, monospace;
+	font-family: consolas, menlo, monospace;
 }
 
 .header {
@@ -37,7 +36,7 @@ td {
 .em {
 	font-weight: bold;
 	color: #420066;
-	font-size: 120%;
+	font-size: 130%;
 }
 
 </style>
@@ -45,15 +44,38 @@ td {
 <body>
 
 <div>
-	Quick links: <a href="#number">Number</a>, 
-	<a href="#num-2-str">Number&lt;-&gt;String</a>,
-	<a href="#string">String</a>,
-	<a href="#date">Date</a>,
-	<a href="#boolean">Boolean</a>,
-	<a href="#array">Array</a>,
-	<a href="#function">Function</a>
+    <a href="/index.html">home</a> &#8227;
+	quick links: <a href="#number">Number</a> &bull;
+	<a href="#string">String</a> &bull;
+	<a href="#number-to-string">Number&lt;-&gt;String</a> &bull;
+	<a href="#boolean">Boolean</a> &bull;
+	<a href="#date">Date</a> &bull;
+	<a href="#math">Math</a> &bull;
+	<a href="#array">Array</a> &bull;
+	<a href="#function">Function</a> &bull;
+	<a href="#logic">logic</a> &bull;
+	<a href="#object">Object</a> &bull;
+	<a href="#type">type</a> &bull;
+	<a href="#object-orientation">object-orientation</a> &bull;
+	<a href="#exceptions">exceptions</a>
 </div>
 <br>
 %s
+
+<hr/> 
+<center><a href="/index.html">Krzysztof Kowalczyk</a></center> 
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-194516-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+  })();
+</script>
+
 </body>
 </html>"""
