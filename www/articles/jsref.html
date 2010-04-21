@@ -8,8 +8,12 @@ body, table {
 }
 
 table {
-	border: 2px solid #ccc;
+	//border-bottom: 2px solid #ccc;
 	color: #444;
+}
+
+td {
+	font-family: consolas, monospace;
 }
 
 .header {
@@ -50,54 +54,208 @@ table {
 	<a href="#function">Function</a>
 </div>
 <br>
-
 <table id="number">
-	<tr><td class="header line"><span class="big">Number</span> 2 1.5 2.5e3 0xFF 010</td></tr>
-	<tr><td>assert(<span class="em">2</span> + 2 == 4); <span class="comment">// numbers are 64-bit floating point</span></td></tr>
-	<tr><td>assert(<span class="em">1.5</span> == 3/2); <span class="comment">//no separate integer type</span></td></tr>
-	<tr><td>assert(<span class="em">2.5e3</span> == 2500); <span class="comment">// 2.5 * 10^3 exponential notation</span></td></tr>
-	<tr><td>assert(<span class="em">0xFF</span> == 255); <span class="comment">// hexadecimal</span></td></tr>
-	<tr><td class="line">assert(<span class="em">010</span> == 8); <span class="comment">// octal</span></td></tr>
-	<tr><td>assert(2 <span class="em">+</span> 2 == 4); <span class="comment">// addition</span></td></tr>
-	<tr><td>assert(10 <span class="em">-</span> 3 == 7) <span class="comment">// subtraction</span></td></tr>
-	<tr><td>assert(3 <span class="em">*</span> 8 == 14); <span class="comment">// multiplication</span></td></tr>
-	<tr><td>assert(123 <span class="em">/</span> 10 == 12.3); <span class="comment">// real (not integer) division</span></td></tr>
-	<tr><td class="line">assert(1234 <span class="em">%</span> 100 == 34); <span class="comment">// modulo (reminder)</span></td></tr>
-	<tr><td>var n=3; &nbsp;n <span class="em">+=</span> 30; assert(n==33); <span class="comment">// compute &amp; store</span></td></tr>
-	<tr><td>var n=33; n <span class="em">-=</span> 30; assert(n == 3); <span class="comment">// x*=y is the same</span></td></tr>
-	<tr><td>var n=3; &nbsp;n <span class="em">*=</span> 20; assert(n == 60); <span class="comment">// as x=x*y</span></td></tr>
-	<tr><td>var n=38; n <span class="em">/=</span> 10; assert(n == 3.8);</td></tr>
-	<tr><td class="line">var n=38; n <span class="em">%=</span> 10; assert(n == 8);</td></tr>
-
-	<tr><td>assert(-3+3 == 0); <span class="comment">// negative number (unary minus)</span></td></tr>
-	<tr><td>var n=3; n++; assert(n == 4); <span class="comment">// increment</span></td></tr>
-	<tr><td class="line">var n=3; n--; assert(n == 2); <span class="comment">// decrement</span></td></tr>
-	<tr><td>assert(&nbsp;99 &lt; &nbsp;100); <span class="comment">// less than</span></td></tr>
-	<tr><td>assert(&nbsp;99 &lt;=100); <span class="comment">// less than or equal</span></td></tr>
-	<tr><td>assert(100 &gt; &nbsp;99); <span class="comment">// greater than</span></td></tr>
-	<tr><td>assert(100 &gt;= &nbsp;99); <span class="comment">// greater than or equal</span></td></tr>
-	<tr><td>assert(100 == 100); <span class="comment">// equal</span></td></tr>
-	<tr><td class="line">assert(&nbsp;99 != 100); <span class="comment">// not equal</span></td></tr>
-
-	<tr><td>assert(1000 &gt;&gt; 3 == 8000); <span class="comment">// shift left</span></td></tr>
-	<tr><td>assert(1000 >> 3 == 125); <span class="comment">// shift right, signed</span></td></tr>
-	<tr><td>assert(0xFFFF0000 >>> 8 == 0x00FFFF00); <span class="comment">// unsigned</span></td></tr>
-	<tr><td><span class="comment">// always use parentheses around terms with: &amp; | ^</span></td></tr>
-	<tr><td></td></tr>
-	<tr><td></td></tr>
+ <tr>
+  <td class="header line">
+   <span class="big">Number</span> 2 1.5 2.5e3 0xFF 010
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(<span class="em">2</span>+2 == 4); <span class="comment">// numbers are 64-bit floating point</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(<span class="em">1.5</span> == 3/2); <span class="comment">// no separate integer type</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(<span class="em">2.5e3</span> == 2500; <span class="comment">// 2.5 * 10^3 exponential notation</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(<span class="em">0xFF</span> == 255); <span class="comment">// hexadecimal</span>
+  </td>
+ </tr>
+ <tr>
+  <td class="line">
+   assert(<span class="em">010</span> == 8); <span class="comment">// octal</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(   2 <span class="em">+</span> 2 == 4); <span class="comment">// addition</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(  10 <span class="em">-</span> 3 == 7); <span class="comment">// subtraction</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(   3 <span class="em">*</span> 8 == 24); <span class="comment">// multiplication</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert( 123 <span class="em">/</span> 10 == 12.3); <span class="comment">// real (not integer) division</span>
+  </td>
+ </tr>
+ <tr>
+  <td class="line">
+   assert(1234 <span class="em">%</span> 100 == 34); <span class="comment">// modulo (reminder)</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   var n=3;  n <span class="em">+=</span> 30; assert(n == 33); <span class="comment">// compute &amp; store</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   var n=33; n <span class="em">-=</span> 30; assert(n == 3); <span class="comment">// x *= is the same</span>
+  </td>
+ </tr>
 </table>
-
+<br>
+<table id="string">
+ <tr>
+  <td class="header line">
+   <span class="big">String</span> 'abc' "abc" "line\u000D\u000A"
+  </td>
+ </tr>
+ <tr>
+  <td>
+   var s=="str"; <span class="comment">// double or single quotes</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   var s=='str';
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert("str" <span class="em">+</span> "ing" == "string"); <span class="comment">// + concatenates</span>
+  </td>
+ </tr>
+</table>
 <br>
 <table id="boolean">
-	<tr><td class="header line"><span class="big">Boolean</span> true false</td></tr>
-	<tr><td>var t=<span class="em">true</span>; assert(t);</td></tr>
-	<tr><td>var f=<span class="em">false</span>; assert(!f); <span class="comment">// ! is boolean not</span></td></tr>
-	<tr><td>assert((true <span class="em">&amp;&amp;</span> false) == false); <span class="comment">// &amp;&amp; is boolean and</span></td></tr>
-	<tr><td>assert((true <span class="em">||</span> false) == true); <span class="comment">// || is boolean or</span></td></tr>
-	<tr><td>assert((true <span class="em">?</span> 'a' <span class="em">:</span> 'b') == 'a') <span class="comment">// miniature if-else</span></td></tr>
-	<tr><td>assert((false <span class="em">?</span> 'a' <span class="em">:</span> 'b') == 'b');</td></tr>
+ <tr>
+  <td class="header line">
+   <span class="big">Boolean</span>  true false
+  </td>
+ </tr>
+ <tr>
+  <td>
+   var t=<span class="em">true</span>; assert(t);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   var f=<span class="em">false</span>; assert(!f); <span class="comment">// ! is boolean not</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert((true <span class="em">&amp;&amp;</span> false) == false); <span class="comment">// &amp;&amp; is boolean and</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert((true <span class="em">||</span> false) == true); <span class="comment">// || is boolean or</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert((true <span class="em">?</span> 'a' <span class="em">:</span> 'b') == 'a'); <span class="comment">// compact if-else</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert((false <span class="em">?</span> 'a' <span class="em">:</span> 'b') == 'b');
+  </td>
+ </tr>
 </table>
+<br>
+<table id="date">
+ <tr>
+  <td class="header line">
+   <span class="big">Date</span> Date() new Date(1999,12-1,31,23,59)
+  </td>
+ </tr>
+ <tr>
+  <td>
+   var now=<span class="em">new Date()</span>; <span class="comment">// current date</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   var past=<span class="em">new Date(</span>2002,5-1,20,23,59,59,999<span class="em">)</span>;
+  </td>
+ </tr>
+ <tr>
+  <td class="line">
+   <span class="comment">// (year,month-1,day,hr,minutes,seconds,milliseconds)</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(now.<span class="em">getTime()</span> &gt; past.getTime());
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="comment">// Compare dates only by their getTime() or valueOf()</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(past.getTime() == 1021953599999);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(past.getTime() == past.<span class="em">valueOf</span>());
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="comment">// Compute elapsed milliseconds by substracting getTime()'s</span>
+  </td>
+ </tr>
+ <tr>
+  <td class="line">
+   var hours=(now.getTime()-past.getTime())/3600000;
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="comment">// Example date and time formats:</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(past.<span class="em">toString</span>() == 'Mon May 20 23:59:59 EDT 2002');
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(past.<span class="em">toGMTString</span>() == 'Tue, 21 May 002 03:59:59 UTC');
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(past.<span class="em">toUTCString</span>() = 'Tue, 21 May 2002 03:59:59 UTC');
+  </td>
+ </tr>
+</table>
+<br>
 
 </body>
-
 </html>
