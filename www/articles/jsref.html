@@ -1,23 +1,103 @@
 <html>
 <head>
 <style type="text/css">
+
+body, table {
+	font-family: "Lucida Grande", sans-serif;
+	font-size: 12px;
+}
+
+table {
+	border: 2px solid #ccc;
+	color: #444;
+}
+
 .header {
-	font-size: 120%;
+	color: #420066;
+	font-style: italic;
+}
+
+.line {
+	border-bottom: 1px dotted #ccc;
+}
+
+.big {
+	font-size: 140%;
 	font-weight: bold;
 }
+
+.comment {
+	color: #999;
+}
+
+.em {
+	font-weight: bold;
+	color: #420066;
+	font-size: 120%;
+}
+
 </style>
 </head>
 <body>
+
+<div>
 	Quick links: <a href="#number">Number</a>, 
-	<a href="#num-2-str">Number &lt;=&gt; String</a>,
+	<a href="#num-2-str">Number&lt;-&gt;String</a>,
 	<a href="#string">String</a>,
 	<a href="#date">Date</a>,
 	<a href="#boolean">Boolean</a>,
 	<a href="#array">Array</a>,
-	<a href="#function">Function</a>,
-<table>
-	<tr><td><span class="header">Number</span> 2 1.5 2.5e3 0xFF 010</td></tr>
-	<tr><td><span class="header">Number</span> 2 1.5 2.5e3 0xFF 010</td></tr>
+	<a href="#function">Function</a>
+</div>
+<br>
+
+<table id="number">
+	<tr><td class="header line"><span class="big">Number</span> 2 1.5 2.5e3 0xFF 010</td></tr>
+	<tr><td>assert(<span class="em">2</span> + 2 == 4); <span class="comment">// numbers are 64-bit floating point</span></td></tr>
+	<tr><td>assert(<span class="em">1.5</span> == 3/2); <span class="comment">//no separate integer type</span></td></tr>
+	<tr><td>assert(<span class="em">2.5e3</span> == 2500); <span class="comment">// 2.5 * 10^3 exponential notation</span></td></tr>
+	<tr><td>assert(<span class="em">0xFF</span> == 255); <span class="comment">// hexadecimal</span></td></tr>
+	<tr><td class="line">assert(<span class="em">010</span> == 8); <span class="comment">// octal</span></td></tr>
+	<tr><td>assert(2 <span class="em">+</span> 2 == 4); <span class="comment">// addition</span></td></tr>
+	<tr><td>assert(10 <span class="em">-</span> 3 == 7) <span class="comment">// subtraction</span></td></tr>
+	<tr><td>assert(3 <span class="em">*</span> 8 == 14); <span class="comment">// multiplication</span></td></tr>
+	<tr><td>assert(123 <span class="em">/</span> 10 == 12.3); <span class="comment">// real (not integer) division</span></td></tr>
+	<tr><td class="line">assert(1234 <span class="em">%</span> 100 == 34); <span class="comment">// modulo (reminder)</span></td></tr>
+	<tr><td>var n=3; &nbsp;n <span class="em">+=</span> 30; assert(n==33); <span class="comment">// compute &amp; store</span></td></tr>
+	<tr><td>var n=33; n <span class="em">-=</span> 30; assert(n == 3); <span class="comment">// x*=y is the same</span></td></tr>
+	<tr><td>var n=3; &nbsp;n <span class="em">*=</span> 20; assert(n == 60); <span class="comment">// as x=x*y</span></td></tr>
+	<tr><td>var n=38; n <span class="em">/=</span> 10; assert(n == 3.8);</td></tr>
+	<tr><td class="line">var n=38; n <span class="em">%=</span> 10; assert(n == 8);</td></tr>
+
+	<tr><td>assert(-3+3 == 0); <span class="comment">// negative number (unary minus)</span></td></tr>
+	<tr><td>var n=3; n++; assert(n == 4); <span class="comment">// increment</span></td></tr>
+	<tr><td class="line">var n=3; n--; assert(n == 2); <span class="comment">// decrement</span></td></tr>
+	<tr><td>assert(&nbsp;99 &lt; &nbsp;100); <span class="comment">// less than</span></td></tr>
+	<tr><td>assert(&nbsp;99 &lt;=100); <span class="comment">// less than or equal</span></td></tr>
+	<tr><td>assert(100 &gt; &nbsp;99); <span class="comment">// greater than</span></td></tr>
+	<tr><td>assert(100 &gt;= &nbsp;99); <span class="comment">// greater than or equal</span></td></tr>
+	<tr><td>assert(100 == 100); <span class="comment">// equal</span></td></tr>
+	<tr><td class="line">assert(&nbsp;99 != 100); <span class="comment">// not equal</span></td></tr>
+
+	<tr><td>assert(1000 &gt;&gt; 3 == 8000); <span class="comment">// shift left</span></td></tr>
+	<tr><td>assert(1000 >> 3 == 125); <span class="comment">// shift right, signed</span></td></tr>
+	<tr><td>assert(0xFFFF0000 >>> 8 == 0x00FFFF00); <span class="comment">// unsigned</span></td></tr>
+	<tr><td><span class="comment">// always use parentheses around terms with: &amp; | ^</span></td></tr>
+	<tr><td></td></tr>
+	<tr><td></td></tr>
 </table>
+
+<br>
+<table id="boolean">
+	<tr><td class="header line"><span class="big">Boolean</span> true false</td></tr>
+	<tr><td>var t=<span class="em">true</span>; assert(t);</td></tr>
+	<tr><td>var f=<span class="em">false</span>; assert(!f); <span class="comment">// ! is boolean not</span></td></tr>
+	<tr><td>assert((true <span class="em">&amp;&amp;</span> false) == false); <span class="comment">// &amp;&amp; is boolean and</span></td></tr>
+	<tr><td>assert((true <span class="em">||</span> false) == true); <span class="comment">// || is boolean or</span></td></tr>
+	<tr><td>assert((true <span class="em">?</span> 'a' <span class="em">:</span> 'b') == 'a') <span class="comment">// miniature if-else</span></td></tr>
+	<tr><td>assert((false <span class="em">?</span> 'a' <span class="em">:</span> 'b') == 'b');</td></tr>
+</table>
+
 </body>
+
 </html>
