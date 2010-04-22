@@ -5,6 +5,7 @@ tmpl = """<html>
 body, table {
 	font-family: "Lucida Grande", sans-serif;
 	font-size: 12px;
+	font-size: 8pt;
 }
 
 table {
@@ -17,6 +18,7 @@ td {
 
 .header {
 	color: #420066;
+	color: #0000ff;
 	font-style: italic;
 }
 
@@ -36,7 +38,9 @@ td {
 .em {
 	font-weight: bold;
 	color: #420066;
+	color: #000;
 	font-size: 130%;
+	font-size: 100%;
 }
 
 </style>

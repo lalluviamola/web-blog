@@ -350,7 +350,7 @@ ass([6,7,8,9]._slice_(-3).join() == '7,8,9'); // to - values
 
 !function Function function zed() { return 0; }
 _function_ sum_(_x,y_)_ _{_  // definition
-&nbsp;&nbsp;_return_ x + y; // return value
+  _return_ x + y; // return value
 _}_
 var n=sum_(_5,5_)_; ass(n == 10); // call
 ---
