@@ -1243,42 +1243,506 @@ td {
  </tr>
  <tr>
   <td>
-   n=<span class="em">Math.E</span>; assertApprox(Math.log(n),1);
+   n = <span class="em">Math.E</span>; assertApprox(Math.log(n),1);
   </td>
  </tr>
  <tr>
   <td>
-   n=<span class="em">Math.LN10</span>; assertApprox(Math.pow(Math.E,n),10);
+   n = <span class="em">Math.LN10</span>; assertApprox(Math.pow(Math.E,n),10);
   </td>
  </tr>
  <tr>
   <td>
-   n=<span class="em">Math.LN2</span>; assertApprox(Math.pow(Math.E,n),2);
+   n = <span class="em">Math.LN2</span>; assertApprox(Math.pow(Math.E,n),2);
   </td>
  </tr>
  <tr>
   <td>
-   n=<span class="em">Math.LOG10E</span>; assertApprox(Math.pow(10,n),Math.E);
+   n = <span class="em">Math.LOG10E</span>; assertApprox(Math.pow(10,n),Math.E);
   </td>
  </tr>
  <tr>
   <td>
-   n=<span class="em">Math.LOG2E</span>; assertApprox(Math.pow(2,n),Math.E);
+   n = <span class="em">Math.LOG2E</span>; assertApprox(Math.pow(2,n),Math.E);
   </td>
  </tr>
  <tr>
   <td>
-   n=<span class="em">Math.PI</span>; assertApprox(Math.sin(n/2),1);
+   n = <span class="em">Math.PI</span>; assertApprox(Math.sin(n/2),1);
   </td>
  </tr>
  <tr>
   <td>
-   n=<span class="em">Math.SQRT1_2</span>; assertApprox(n*n,0.5);
+   n = <span class="em">Math.SQRT1_2</span>; assertApprox(n*n,0.5);
   </td>
  </tr>
  <tr>
   <td class="line">
-   n=<span class="em">Math.SQRT2</span>; assertApprox(n*n,2);
+   n = <span class="em">Math.SQRT2</span>; assertApprox(n*n,2);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assertApprox(<span class="em">Math.sin</span>(Math.PI/6),1/2); <span class="comment">// trig functions</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assertApprox(<span class="em">Math.cos</span>(Math.Pi/3),1/2); <span class="comment">// are in radians</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assertApprox(<span class="em">Math.tan</span>(Math.PI/4),1);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assertApprox(<span class="em">Math.asin</span>(1/2),Math.PI/6);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assertApprox(<span class="em">Math.acos</span>(1/2),Math.PI/3);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assertApprox(<span class="em">Math.atan</span>(1),Math.PI/4);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assertApprox(<span class="em">Math.atan2</span>(1,1),Math.PI/4);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assertApprox(<span class="em">Math.sqrt</span>(25),5);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assertApprox(<span class="em">Math.pow</span>(10,3),1000);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assertApprox(<span class="em">Math.exp</span>(1),Math.E);
+  </td>
+ </tr>
+ <tr>
+  <td class="line">
+   assertApprox(<span class="em">Math.log</span>(Math.E),1); <span class="comment">// base e, not 10</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   function assertApprox(a,b) { <span class="comment">// 15 digits of accuracy</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert((b*0.999999999999999 &lt; a) &amp;&amp;
+  </td>
+ </tr>
+ <tr>
+  <td>
+   (a &lt;b*1.000000000000001));
+  </td>
+ </tr>
+ <tr>
+  <td>
+   }
+  </td>
+ </tr>
+</table>
+<br>
+<table id="array">
+ <tr>
+  <td class="header line">
+   <span class="big">Array</span> [1,'abc',new Date(),['x','y'],true]
+  </td>
+ </tr>
+ <tr>
+  <td>
+   var a = <span class="em">new Array</span>; <span class="comment">// container of numbered things</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(a.<span class="em">length</span> == 0); <span class="comment">// they begin with zero elements</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   a = new <span class="em">Array</span>(8); <span class="comment">// unless you give them dimension</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(a.length == 8);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(a[0] == null); <span class="comment">// indexes from 0 to length-1</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(a[7] == null); <span class="comment">// uninitialized elements are null</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(a[20] == null); <span class="comment">// out-of-range elements equal null</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   a[20] = '21st el'; <span class="comment">// writing out of range</span>
+  </td>
+ </tr>
+ <tr>
+  <td class="line">
+   assert(a.length == 21); <span class="comment">// makes an array bigger</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   a[0] = 'a'; a['1'] = 'cat'; a[2] = 44; <span class="comment">// three equivalent</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   a=new <span class="em">Array</span>('a','cat',44); <span class="comment">// ways to fill</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   a=<span class="em">[</span>'a','cat',44<span class="em">]</span>; <span class="comment">// up an array</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(a.length==3);
+  </td>
+ </tr>
+ <tr>
+  <td class="line">
+   assert(a[0] == 'a' &amp;&amp; a[1] =='cat' &amp;&amp; a[2] == 44);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert([1,2,3] != [1,2,3]); <span class="comment">// arrays compare by refernce, not value</span>
+  </td>
+ </tr>
+ <tr>
+  <td class="line">
+   assert([1,2,3].join() == "1,2,3"); <span class="comment">// can use join() to compare by value</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(a.<span class="em">join</span>() == 'a,cat,44"); <span class="comment">// join() turns array into string</span>
+  </td>
+ </tr>
+ <tr>
+  <td class="line">
+   assert(a.<span class="em">join</span>("/") == "a/cat/44"); <span class="comment">// default comma delimited</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   a="a,cat,44".<span class="em">split</span>(); <span class="comment">// split parses string into array</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(a.join() == "a,cat,44");
+  </td>
+ </tr>
+ <tr>
+  <td>
+   a="a-cat-44".<span class="em">split</span>("-");
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(a.join("+") == "a+cat+44");
+  </td>
+ </tr>
+ <tr>
+  <td>
+   a="pro@sup.net".<span class="em">split</span>(/[\.\@]/); <span class="comment">// split with a regular</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(a.join() == "pro,sup,net"); <span class="comment">// expression</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="comment">// split("") truns a string into an array of characters</span>
+  </td>
+ </tr>
+ <tr>
+  <td class="line">
+   assert("the end".split("").join() == "t,h,e, ,e,n,d");
+  </td>
+ </tr>
+ <tr>
+  <td>
+   a=[2,36,111]; a._sort(); <span class="comment">// case-sensitive string sort</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   asss(a.join() == '111,2,36');
+  </td>
+ </tr>
+ <tr>
+  <td>
+   a.<span class="em">sort</span>(function(a,b) { return a-b; }); <span class="comment">// numeric order</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(a.join() == '2,36,111');
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="comment">// sort function should return -,0,+ signifying &lt;,==,&gt;</span>
+  </td>
+ </tr>
+ <tr>
+  <td class="line">
+   assert(("a").<span class="em">localeCompare</span>("z")&lt; 0); <span class="comment">// sort function</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   a=[1,2,3]; a.<span class="em">reverse</span>(); assert(a.join() == '3,2,1');
+  </td>
+ </tr>
+ <tr>
+  <td>
+   a=[1,2,3]; assert(a.<span class="em">pop</span>() == 3); assert(a.join() == '1,2');
+  </td>
+ </tr>
+ <tr>
+  <td>
+   a=[1,2,3]; a.<span class="em">push</span>(4); assert(a.join() == '1,2,3,4');
+  </td>
+ </tr>
+ <tr>
+  <td>
+   a=[1,2,3]; assert(a.<span class="em">shift</span>() == 1); assert(a.join() == '0,1,2,3');
+  </td>
+ </tr>
+ <tr>
+  <td>
+   a=[1,2,3]; a.<span class="em">unshift</span>(0); assert(a.join() == '0,1,2,3');
+  </td>
+ </tr>
+ <tr>
+  <td>
+   a=[1,2,3]; <span class="comment">// splice(iStart,nDelete,xInsert1,xInsert,...)</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   a.<span class="em">splice</span>(2,0,'a','b'); assert(a.join() == '1,2,a,b,3'); <span class="comment">// insert</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   a.<span class="em">splice</span>(1,2); assert(a.join() == '1,b,3'); <span class="comment">// delete</span>
+  </td>
+ </tr>
+ <tr>
+  <td class="line">
+   a.<span class="em">splic</span>(1,2,'Z'); assert(a.join() == '1,Z'); <span class="comment">// insert &amp; delete</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="comment">// slice(istart,iend+1) creates a new subarrary</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert([6,7,8,9].<span class="em">slice</span>(0,2).join() == '6,7'); <span class="comment">// istart,iend+1</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert([6,7,8,9].<span class="em">slice</span>(1).join() == '7,8,9'); <span class="comment">// istart</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert([6,7,8,9].<span class="em">slice</span>(1,-1).join() == '7,8'); <span class="comment">// length added</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert([6,7,8,9].<span class="em">slice</span>(-3).join() == '7,8,9'); <span class="comment">// to - values</span>
+  </td>
+ </tr>
+</table>
+<br>
+<table id="function">
+ <tr>
+  <td class="header line">
+   <span class="big">Function</span> function zed() { return 0; }
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="em">function</span> sum<span class="em">(</span>x,y<span class="em">)</span> <span class="em">{</span>  <span class="comment">// definition</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="em">return</span> x + y; <span class="comment">// return value</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="em">}</span>
+  </td>
+ </tr>
+ <tr>
+  <td class="line">
+   var n=sum<span class="em">(</span>5,5<span class="em">)</span>; assert(n == 10); <span class="comment">// call</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="em">function</span> sum1(x,y) { return x + y; } <span class="comment">// 3 ways</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   var sum2=<span class="em">function(</span>x,y<span class="em">)</span> <span class="em">{</span> return x + y; <span class="em">}</span>; <span class="comment">// define a</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   var sum3=<span class="em">new Function(</span>"x", "y","return x+y;"<span class="em">)</span>; <span class="comment">// function</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(sum1.<span class="em">toString</span>() == <span class="comment">// reveals defition code, but</span>
+  </td>
+ </tr>
+ <tr>
+  <td class="line">
+   "function sum1(x,y) { return x+y; }"); <span class="comment">// format varies</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   function sumx() { <span class="comment">// Dynamic arguments</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   var retval=0;
+  </td>
+ </tr>
+ <tr>
+  <td>
+   for (var i=0; i &lt; <span class="em">arguments.length</span>; i++) {
+  </td>
+ </tr>
+ <tr>
+  <td>
+   retval += <span class="em">arguments</span>[i];
+  </td>
+ </tr>
+ <tr>
+  <td>
+   }
+  </td>
+ </tr>
+ <tr>
+  <td>
+   return retval;
+  </td>
+ </tr>
+ <tr>
+  <td>
+   }
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(sumx(1,2) == 3);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(sumx(1,2,3,4,5) == 15);
+  </td>
+ </tr>
+</table>
+<br>
+<table id="logic">
+ <tr>
+  <td class="header line">
+   <span class="big">logic</span> if else for while do switch case
+  </td>
+ </tr>
+ <tr>
+  <td>
+   function choose1(b) { <span class="comment">// if demo</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   var retval = "skip";
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="em">if (</span>b<span class="em">) {</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   retval = "if-clause";
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="em">}</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   return retval;
+  </td>
+ </tr>
+ <tr>
+  <td>
+   }
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(choose1(true) == "if-clause");
+  </td>
+ </tr>
+ <tr>
+  <td class="line">
+   assert(choose1(false) == "skip");
   </td>
  </tr>
 </table>

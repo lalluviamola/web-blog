@@ -267,15 +267,121 @@ ass(_Math.floor_(1.5) == 1); //round down to the nearest
 ass(Math.floor(-1.5) == -2); // integer lower or equal
 ---
 var n;
-n=_Math.E_; assa(Math.log(n),1);
-n=_Math.LN10_; assa(Math.pow(Math.E,n),10);
-n=_Math.LN2_; assa(Math.pow(Math.E,n),2);
-n=_Math.LOG10E_; assa(Math.pow(10,n),Math.E);
-n=_Math.LOG2E_; assa(Math.pow(2,n),Math.E);
-n=_Math.PI_; assa(Math.sin(n/2),1);
-n=__Math.SQRT1_2__; assa(n*n,0.5);
-n=_Math.SQRT2_; assa(n*n,2);
+n = _Math.E_; assa(Math.log(n),1);
+n = _Math.LN10_; assa(Math.pow(Math.E,n),10);
+n = _Math.LN2_; assa(Math.pow(Math.E,n),2);
+n = _Math.LOG10E_; assa(Math.pow(10,n),Math.E);
+n = _Math.LOG2E_; assa(Math.pow(2,n),Math.E);
+n = _Math.PI_; assa(Math.sin(n/2),1);
+n = __Math.SQRT1_2__; assa(n*n,0.5);
+n = _Math.SQRT2_; assa(n*n,2);
 ---
+assa(_Math.sin_(Math.PI/6),1/2); // trig functions
+assa(_Math.cos_(Math.Pi/3),1/2); // are in radians
+assa(_Math.tan_(Math.PI/4),1);
+assa(_Math.asin_(1/2),Math.PI/6);
+assa(_Math.acos_(1/2),Math.PI/3);
+assa(_Math.atan_(1),Math.PI/4);
+assa(_Math.atan2_(1,1),Math.PI/4);
+assa(_Math.sqrt_(25),5);
+assa(_Math.pow_(10,3),1000);
+assa(_Math.exp_(1),Math.E);
+assa(_Math.log_(Math.E),1); // base e, not 10
+---
+function assa(a,b) { // 15 digits of accuracy
+  ass((b*0.999999999999999 < a) &&
+    (a <b*1.000000000000001));
+}
+
+!array Array [1,'abc',new Date(),['x','y'],true]
+var a = _new Array_; // container of numbered things
+ass(a._length_ == 0); // they begin with zero elements
+a = new _Array_(8); // unless you give them dimension
+ass(a.length == 8);
+ass(a[0] == null); // indexes from 0 to length-1
+ass(a[7] == null); // uninitialized elements are null
+ass(a[20] == null); // out-of-range elements equal null
+a[20] = '21st el'; // writing out of range
+ass(a.length == 21); // makes an array bigger
+---
+a[0] = 'a'; a['1'] = 'cat'; a[2] = 44; // three equivalent
+a=new _Array_('a','cat',44); // ways to fill
+a=_[_'a','cat',44_]_; // up an array
+ass(a.length==3);
+ass(a[0] == 'a' && a[1] =='cat' && a[2] == 44);
+---
+ass([1,2,3] != [1,2,3]); // arrays compare by refernce, not value
+ass([1,2,3].join() == "1,2,3"); // can use join() to compare by value
+---
+ass(a._join_() == 'a,cat,44"); // join() turns array into string
+ass(a._join_("/") == "a/cat/44"); // default comma delimited
+---
+a="a,cat,44"._split_(); // split parses string into array
+ass(a.join() == "a,cat,44");
+a="a-cat-44"._split_("-");
+ass(a.join("+") == "a+cat+44");
+a="pro@sup.net"._split_(/[\\.\\@]/); // split with a regular
+ass(a.join() == "pro,sup,net"); // expression
+// split("") truns a string into an array of characters
+ass("the end".split("").join() == "t,h,e, ,e,n,d");
+---
+a=[2,36,111]; a._sort(); // case-sensitive string sort
+asss(a.join() == '111,2,36');
+a._sort_(function(a,b) { return a-b; }); // numeric order
+ass(a.join() == '2,36,111');
+// sort function should return -,0,+ signifying <,==,>
+ass(("a")._localeCompare_("z")< 0); // sort function
+---
+a=[1,2,3]; a._reverse_(); ass(a.join() == '3,2,1');
+a=[1,2,3]; ass(a._pop_() == 3); ass(a.join() == '1,2');
+a=[1,2,3]; a._push_(4); ass(a.join() == '1,2,3,4');
+a=[1,2,3]; ass(a._shift_() == 1); ass(a.join() == '0,1,2,3');
+a=[1,2,3]; a._unshift_(0); ass(a.join() == '0,1,2,3');
+a=[1,2,3]; // splice(iStart,nDelete,xInsert1,xInsert,...)
+a._splice_(2,0,'a','b'); ass(a.join() == '1,2,a,b,3'); // insert
+a._splice_(1,2); ass(a.join() == '1,b,3'); // delete
+a._splic_(1,2,'Z'); ass(a.join() == '1,Z'); // insert & delete
+---
+// slice(istart,iend+1) creates a new subarrary
+ass([6,7,8,9]._slice_(0,2).join() == '6,7'); // istart,iend+1
+ass([6,7,8,9]._slice_(1).join() == '7,8,9'); // istart
+ass([6,7,8,9]._slice_(1,-1).join() == '7,8'); // length added
+ass([6,7,8,9]._slice_(-3).join() == '7,8,9'); // to - values
+
+!function Function function zed() { return 0; }
+_function_ sum_(_x,y_)_ _{_  // definition
+&nbsp;&nbsp;_return_ x + y; // return value
+_}_
+var n=sum_(_5,5_)_; ass(n == 10); // call
+---
+_function_ sum1(x,y) { return x + y; } // 3 ways
+var sum2=_function(_x,y_)_ _{_ return x + y; _}_; // define a
+var sum3=_new Function(_"x", "y","return x+y;"_)_; // function
+ass(sum1._toString_() == // reveals defition code, but
+  "function sum1(x,y) { return x+y; }"); // format varies
+---
+function sumx() { // Dynamic arguments
+  var retval=0;
+  for (var i=0; i < _arguments.length_; i++) {
+    retval += _arguments_[i];
+  }
+  return retval;
+}
+ass(sumx(1,2) == 3);
+ass(sumx(1,2,3,4,5) == 15);
+
+!logic logic if else for while do switch case
+function choose1(b) { // if demo
+  var retval = "skip";
+  _if (_b_) {_
+    retval = "if-clause";
+  _}_
+  return retval;
+}
+ass(choose1(true) == "if-clause");
+ass(choose1(false) == "skip");
+---
+
 """
 
 def tr(s):
