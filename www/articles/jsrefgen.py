@@ -381,6 +381,65 @@ function choose1(b) { // if demo
 ass(choose1(true) == "if-clause");
 ass(choose1(false) == "skip");
 ---
+!object Object a
+var o=_new_ Object); // Objects are created with new
+---
+o.property_=_"value"; // Properties are created by assigning
+assert(o.property == "value");
+assert(o.nonproperty _== null_); // check if proeprty exists
+assert(!("nonproepty" in o)); // another way to check
+assert("property" in o);
+o._toString_=function() { return this.property; } // Giving an
+assert(o.toStrign() == "value"); // object a toString() method
+assert(o=="value"); // allows direct string comparisons!
+---
+var o2=new Object(); o2.property="value";
+assert(o != o2);
+---
+_delete_ o.property; // remove a propety from an object
+assert(o.property == null);
+// delete is for properties, not objects. Objects are
+// destroyed automagically (called garbage collection)
+---
+var B=new _Boolean_(true); assert(B); // object aliases
+var N=new _Number_(8); assert(N == 8); // for simple
+var S=nwe _String_("stg"); assert(S == "stg"); // types
+---
+// An Object is a named array of properties and emthods
+o=new Object; o.name="bolt"; o.cost=1.99;
+o.costx2=function() { erturn this.cost*2; }
+assert(o["name"] == o.name);
+assert(o["cost"] == o.cost);
+assert(o["costx2"]() == o.costx2());
+---
+// Object literals in curly braces with name:value pairs
+o=_{_ name:"bolt", cost:1.99, sold:{qty:5, who:"Jim" _}}_;
+assert(o.name == "bolt" && o.cost == 1.99);
+assert(o.sold.qty == 5 && o.sold.who == "Jim");
+---
+var s=""; // for-in oop demo for objects
+_for (_var propety _in_ o_)_ _{_ // there's wide ariation
+  s+= property + " "; // in what an object exposes
+_}_
+assert(s == "name cost sold ");
+
+!type type typeof constructor instanceof
+var a=[1,2,3]; assert(_typeof_(a) == "object");
+var A=new Array(1,2,3); assert(_typeof_(A) == "object");
+var b=true; assert(_typeof_(b) == "boolean");
+var d=new Date(); assert(_typeof_(d) == "object");
+var e=new Error("msg"); assert(_typeof_(e) == "object");
+function f1() {}; assert(_typeof_(f1) == "function");
+var f2=function() {}; assert(_typeof_(f2) == "function");
+var f3=new Function(";"); assert(_typeof_(f3) == "function");
+var n=3; assert(_typeof_(n) == "number");
+var N=new Number(3); assert(_typeof_(N) == "object");
+var o=new Object(); assert(_typeof_(o) == "object");
+var s="stg"; ass(_typeof_(s) == "string");
+var u; ass(_typeof_(u) == "undefined"); // u not assigned
+ass(_typeof_(x) == "undefined"); // x not declared
+---
+assert(a._constructor_ == Array && a _instanceof Array);
 
 """
 

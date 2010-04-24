@@ -1751,6 +1751,262 @@ td {
  </tr>
 </table>
 <br>
+<table id="object">
+ <tr>
+  <td class="header line">
+   <span class="big">Object</span> a
+  </td>
+ </tr>
+ <tr>
+  <td class="line">
+   var o=<span class="em">new</span> Object); <span class="comment">// Objects are created with new</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   o.property<span class="em">=</span>"value"; <span class="comment">// Properties are created by assigning</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(o.property == "value");
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(o.nonproperty <span class="em">== null</span>); <span class="comment">// check if proeprty exists</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(!("nonproepty" in o)); <span class="comment">// another way to check</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert("property" in o);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   o.<span class="em">toString</span>=function() { return this.property; } <span class="comment">// Giving an</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(o.toStrign() == "value"); <span class="comment">// object a toString() method</span>
+  </td>
+ </tr>
+ <tr>
+  <td class="line">
+   assert(o=="value"); <span class="comment">// allows direct string comparisons!</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   var o2=new Object(); o2.property="value";
+  </td>
+ </tr>
+ <tr>
+  <td class="line">
+   assert(o != o2);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="em">delete</span> o.property; <span class="comment">// remove a propety from an object</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(o.property == null);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="comment">// delete is for properties, not objects. Objects are</span>
+  </td>
+ </tr>
+ <tr>
+  <td class="line">
+   <span class="comment">// destroyed automagically (called garbage collection)</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   var B=new <span class="em">Boolean</span>(true); assert(B); <span class="comment">// object aliases</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   var N=new <span class="em">Number</span>(8); assert(N == 8); <span class="comment">// for simple</span>
+  </td>
+ </tr>
+ <tr>
+  <td class="line">
+   var S=nwe <span class="em">String</span>("stg"); assert(S == "stg"); <span class="comment">// types</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="comment">// An Object is a named array of properties and emthods</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   o=new Object; o.name="bolt"; o.cost=1.99;
+  </td>
+ </tr>
+ <tr>
+  <td>
+   o.costx2=function() { erturn this.cost*2; }
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(o["name"] == o.name);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(o["cost"] == o.cost);
+  </td>
+ </tr>
+ <tr>
+  <td class="line">
+   assert(o["costx2"]() == o.costx2());
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="comment">// Object literals in curly braces with name:value pairs</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   o=<span class="em">{</span> name:"bolt", cost:1.99, sold:{qty:5, who:"Jim" <span class="em">}}</span>;
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(o.name == "bolt" &amp;&amp; o.cost == 1.99);
+  </td>
+ </tr>
+ <tr>
+  <td class="line">
+   assert(o.sold.qty == 5 &amp;&amp; o.sold.who == "Jim");
+  </td>
+ </tr>
+ <tr>
+  <td>
+   var s=""; <span class="comment">// for-in oop demo for objects</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="em">for (</span>var propety <span class="em">in</span> o<span class="em">)</span> <span class="em">{</span> <span class="comment">// there's wide ariation</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   s+= property + " "; <span class="comment">// in what an object exposes</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="em">}</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(s == "name cost sold ");
+  </td>
+ </tr>
+</table>
+<br>
+<table id="type">
+ <tr>
+  <td class="header line">
+   <span class="big">type</span> typeof constructor instanceof
+  </td>
+ </tr>
+ <tr>
+  <td>
+   var a=[1,2,3]; assert(<span class="em">typeof</span>(a) == "object");
+  </td>
+ </tr>
+ <tr>
+  <td>
+   var A=new Array(1,2,3); assert(<span class="em">typeof</span>(A) == "object");
+  </td>
+ </tr>
+ <tr>
+  <td>
+   var b=true; assert(<span class="em">typeof</span>(b) == "boolean");
+  </td>
+ </tr>
+ <tr>
+  <td>
+   var d=new Date(); assert(<span class="em">typeof</span>(d) == "object");
+  </td>
+ </tr>
+ <tr>
+  <td>
+   var e=new Error("msg"); assert(<span class="em">typeof</span>(e) == "object");
+  </td>
+ </tr>
+ <tr>
+  <td>
+   function f1() {}; assert(<span class="em">typeof</span>(f1) == "function");
+  </td>
+ </tr>
+ <tr>
+  <td>
+   var f2=function() {}; assert(<span class="em">typeof</span>(f2) == "function");
+  </td>
+ </tr>
+ <tr>
+  <td>
+   var f3=new Function(";"); assert(<span class="em">typeof</span>(f3) == "function");
+  </td>
+ </tr>
+ <tr>
+  <td>
+   var n=3; assert(<span class="em">typeof</span>(n) == "number");
+  </td>
+ </tr>
+ <tr>
+  <td>
+   var N=new Number(3); assert(<span class="em">typeof</span>(N) == "object");
+  </td>
+ </tr>
+ <tr>
+  <td>
+   var o=new Object(); assert(<span class="em">typeof</span>(o) == "object");
+  </td>
+ </tr>
+ <tr>
+  <td>
+   var s="stg"; assert(<span class="em">typeof</span>(s) == "string");
+  </td>
+ </tr>
+ <tr>
+  <td>
+   var u; assert(<span class="em">typeof</span>(u) == "undefined"); <span class="comment">// u not assigned</span>
+  </td>
+ </tr>
+ <tr>
+  <td class="line">
+   assert(<span class="em">typeof</span>(x) == "undefined"); <span class="comment">// x not declared</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(a.<span class="em">constructor</span> == Array &amp;&amp; a _instanceof Array);
+  </td>
+ </tr>
+</table>
+<br>
 
 
 <hr/> 
