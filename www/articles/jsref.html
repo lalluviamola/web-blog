@@ -1749,12 +1749,432 @@ td {
    assert(choose1(false) == "skip");
   </td>
  </tr>
+ <tr>
+  <td>
+   function hoose2(b) { <span class="comment">// else demo</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   var retval="doesn't matter";
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="em">if </span>b<span class="em">) {</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   retval = "if-clause";
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="em">} else {</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   retval = "else-clause";
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="em">}</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   return retval;
+  </td>
+ </tr>
+ <tr>
+  <td>
+   }
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(choose2(true) == "if-clause");
+  </td>
+ </tr>
+ <tr>
+  <td class="line">
+   assert(choose2(false) == "else-clause");
+  </td>
+ </tr>
+ <tr>
+  <td>
+   function choose3(n) { <span class="comment">// else-if demo</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   var retval = "doesn't matter";
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="em">if </span>n==0<span class="em">) {</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   retval="if-clause";
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="em">} else if (</span>n==1<span class="em">) {</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   retval ="else-if-clause";
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="em">} else {</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   retval = "else-clause";
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="em">}</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   return retval;
+  </td>
+ </tr>
+ <tr>
+  <td>
+   }
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(choose3(0) == "if-clause");
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(choose3(1) == "else-if-clause");
+  </td>
+ </tr>
+ <tr>
+  <td class="line">
+   assert(choose3(9) == "else-clause");
+  </td>
+ </tr>
+ <tr>
+  <td>
+   function choose4(s) { <span class="comment">// switch-case demo</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   var retval="doesn't matter";
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="em">switch (</span>s<span class="em">) {</span> <span class="comment">// switch on a number of string</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="em">case</span> "A":
+  </td>
+ </tr>
+ <tr>
+  <td>
+   retval="A-clasue";
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="em">break</span>;
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="em">case</span> "B":
+  </td>
+ </tr>
+ <tr>
+  <td>
+   retval="B-clause";
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="em">break</span>;
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="em">case</span> "Whatever":
+  </td>
+ </tr>
+ <tr>
+  <td>
+   retval="Wathever-clause";
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="em">break</span>;
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="em">default</span>:
+  </td>
+ </tr>
+ <tr>
+  <td>
+   retval="default-clause";
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="em">break</span>;
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="em">}</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   return retval;
+  </td>
+ </tr>
+ <tr>
+  <td>
+   }
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(choose4("A") == "A-clause");
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(choose4("B") == "B-clause");
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(choose4("Whatever") == "Whatever-clause");
+  </td>
+ </tr>
+ <tr>
+  <td class="line">
+   assert(choose4("Z") == "default-clause");
+  </td>
+ </tr>
+ <tr>
+  <td>
+   function dotsfor(a) { <span class="comment">// for demo</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   var s="";
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="em">for (</span>var i=0; i&lt;a.length; i++<span class="em">) {</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   s+=a[i]+".";
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="em">}</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   return s;
+  </td>
+ </tr>
+ <tr>
+  <td>
+   }
+  </td>
+ </tr>
+ <tr>
+  <td class="line">
+   assert(dotsfor(["a","b","c"]) == "a.b.c.");
+  </td>
+ </tr>
+ <tr>
+  <td>
+   function dotswhile(a) { <span class="comment">// while demo</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   var s="";
+  </td>
+ </tr>
+ <tr>
+  <td>
+   var i=0;
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="em">while (</span>i&lt;a.length<span class="em">) {</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   s+=a[i]+".";
+  </td>
+ </tr>
+ <tr>
+  <td>
+   i++;
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="em">}</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   return s;
+  </td>
+ </tr>
+ <tr>
+  <td>
+   }
+  </td>
+ </tr>
+ <tr>
+  <td class="line">
+   assert(dotswhile(["a","b","c"]) == "a.b.c.");
+  </td>
+ </tr>
+ <tr>
+  <td>
+   function uline(s,columnwidht) { <span class="comment">// do-while demo</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="em">do {</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   s="<span class="em">"+s+"</span>";
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="em">} while (</span>s.length &lt;columnwidth<span class="em">)</span>;
+  </td>
+ </tr>
+ <tr>
+  <td>
+   return s;
+  </td>
+ </tr>
+ <tr>
+  <td>
+   }
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(ulin("Qty",7) == "<span class="em">Qty</span>_");
+  </td>
+ </tr>
+ <tr>
+  <td class="line">
+   assert(uline("Description",7) == "<span class="em">Description</span>");
+  </td>
+ </tr>
+ <tr>
+  <td>
+   function forever1() { for (;true;) {} }
+  </td>
+ </tr>
+ <tr>
+  <td>
+   function forever2() { while(true) {} }
+  </td>
+ </tr>
+ <tr>
+  <td class="line">
+   function forever3() { do { } while(true); }
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="comment">// break escapes from the innermost for,while, do-while</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="comment">// or switch clause, ignoring if and else clauses</span>
+  </td>
+ </tr>
+ <tr>
+  <td class="line">
+   <span class="comment">// continue skips to the test in for,while,do-while clauses</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   var a=["x","y","z"], s=""; <span class="comment">// for-in demo for arrays</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   for (var i in a) {
+  </td>
+ </tr>
+ <tr>
+  <td>
+   s+=a[i]; <span class="comment">// i goes thru indexes, not elements</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   }
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(s=="xyz");
+  </td>
+ </tr>
 </table>
 <br>
 <table id="object">
  <tr>
   <td class="header line">
-   <span class="big">Object</span> a
+   <span class="big">Object</span> 
   </td>
  </tr>
  <tr>
@@ -2075,7 +2495,7 @@ td {
 <table id="object-orientation">
  <tr>
   <td class="header line">
-   <span class="big">object-orientation</span> o
+   <span class="big">object-orientation</span> 
   </td>
  </tr>
  <tr>

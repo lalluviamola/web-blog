@@ -381,7 +381,100 @@ function choose1(b) { // if demo
 ass(choose1(true) == "if-clause");
 ass(choose1(false) == "skip");
 ---
-!object Object a
+function hoose2(b) { // else demo
+  var retval="doesn't matter";
+  _if _b_) {_
+    retval = "if-clause";
+  _} else {_
+    retval = "else-clause";
+  _}_
+  return retval;
+}
+ass(choose2(true) == "if-clause");
+ass(choose2(false) == "else-clause");
+---
+function choose3(n) { // else-if demo
+  var retval = "doesn't matter";
+  _if _n==0_) {_
+    retval="if-clause";
+  _} else if (_n==1_) {_
+    retval ="else-if-clause";
+  _} else {_
+    retval = "else-clause";
+  _}_
+  return retval;
+}
+ass(choose3(0) == "if-clause");
+ass(choose3(1) == "else-if-clause");
+ass(choose3(9) == "else-clause");
+---
+function choose4(s) { // switch-case demo
+  var retval="doesn't matter";
+  _switch (_s_) {_ // switch on a number of string
+  _case_ "A":
+    retval="A-clasue";
+    _break_;
+  _case_ "B":
+    retval="B-clause";
+	_break_;
+  _case_ "Whatever":
+    retval="Wathever-clause";
+	_break_;
+  _default_:
+    retval="default-clause";
+	_break_;
+  _}_
+  return retval;
+}
+ass(choose4("A") == "A-clause");
+ass(choose4("B") == "B-clause");
+ass(choose4("Whatever") == "Whatever-clause");
+ass(choose4("Z") == "default-clause");
+---
+function dotsfor(a) { // for demo
+  var s="";
+  _for (_var i=0; i<a.length; i++_) {_
+    s+=a[i]+".";
+  _}_
+  return s;
+}
+ass(dotsfor(["a","b","c"]) == "a.b.c.");
+---
+function dotswhile(a) { // while demo
+  var s="";
+  var i=0;
+  _while (_i<a.length_) {_
+    s+=a[i]+".";
+	i++;
+  _}_
+  return s;
+}
+ass(dotswhile(["a","b","c"]) == "a.b.c.");
+---
+function uline(s,columnwidht) { // do-while demo
+  _do {_
+    s="_"+s+"_";
+  _} while (_s.length <columnwidth_)_;
+  return s;
+}
+ass(ulin("Qty",7) == "__Qty___");
+ass(uline("Description",7) == "_Description_");
+---
+function forever1() { for (;true;) {} }
+function forever2() { while(true) {} }
+function forever3() { do { } while(true); }
+---
+// break escapes from the innermost for,while, do-while
+// or switch clause, ignoring if and else clauses
+// continue skips to the test in for,while,do-while clauses
+---
+var a=["x","y","z"], s=""; // for-in demo for arrays
+for (var i in a) {
+  s+=a[i]; // i goes thru indexes, not elements
+}
+ass(s=="xyz");
+
+!object Object
 var o=_new_ Object); // Objects are created with new
 ---
 o.property_=_"value"; // Properties are created by assigning
@@ -454,7 +547,7 @@ assert(o._constructor_ == Object)  && o _instanceof_ Object);
 assert(s._constructor_ == String);
 assert(S._constructor_ == String);
 
-!object-orientation object-orientation o
+!object-orientation object-orientation
 _function_ Part(name,cost) { // constructor is the class
   _this_.name = name; // define and initialize properties
   _this_.cost = cost; // "this" is always explicit
@@ -611,8 +704,12 @@ def genhtml(src):
 			try:
 				(id, left, right) = s.split(" ", 2)
 			except:
-				print(s)
-				raise
+				try:
+					(id, left) = s.split(" ", 1)
+					right = ""
+				except:
+					print(s)
+					raise
 			tbl = table(id)
 			tbl.addrow(header_row(left, right))
 			continue
