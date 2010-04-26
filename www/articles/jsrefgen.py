@@ -496,7 +496,7 @@ assert(o.property == null);
 ---
 var B=new _Boolean_(true); assert(B); // object aliases
 var N=new _Number_(8); assert(N == 8); // for simple
-var S=nwe _String_("stg"); assert(S == "stg"); // types
+var S=new _String_("stg"); assert(S == "stg"); // types
 ---
 // An Object is a named array of properties and emthods
 o=new Object; o.name="bolt"; o.cost=1.99;
@@ -583,7 +583,7 @@ function WoodPart(name,cost,tree) { // inheritance
 }
 WoodPart._prototype_=_new_ Part(); // clone the prototype
 WoodPart._prototype_._constructor_=WoodPart;
-var tpick=nwe WoodPart("toothpick",0.01,"oak");
+var tpick=new WoodPart("toothpick",0.01,"oak");
 as(tpick.name == "toothpick");
 ass(tpick instanceof Part); // proof of inheritance
 var a=[partBolt,partNut,tpick]; // polymorphism sorta
@@ -643,6 +643,8 @@ def td(s, cls=None):
 		return """%s  <td class="%s">%s   %s%s  </td>%s""" % ("\n", cls, "\n", s, "\n", "\n")
 	else:
 		return """%s  <td>%s   %s%s  </td>%s""" % ("\n", "\n", s, "\n", "\n")
+def pre(s):
+	return "<pre>%s</pre>" % s
 
 def span(s, cls=None):
 	if cls:
@@ -675,6 +677,7 @@ class row(object):
 		s = re_em2.sub(span(r"\1", "em"), s)
 		cls = None
 		if self.sepline: cls = "line"
+		s = pre(s)
 		return tr(td(s, cls))
 
 class table(object):
@@ -696,7 +699,7 @@ def genhtml(src):
 	tables = []
 	tbl = None
 	for s in src.split("\n"):
-		s = s.strip()
+		s = s.rstrip()
 		if len(s) == 0: continue
 		if s[0] == '!':
 			if tbl is not None: tables.append(tbl)

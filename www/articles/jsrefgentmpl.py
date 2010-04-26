@@ -49,7 +49,7 @@ td {
 
 <div>
     <a href="/index.html">home</a> &#8227;
-	quick links: <a href="#number">Number</a> &bull;
+	<a href="#number">Number</a> &bull;
 	<a href="#string">String</a> &bull;
 	<a href="#number-to-string">Number&lt;-&gt;String</a> &bull;
 	<a href="#boolean">Boolean</a> &bull;

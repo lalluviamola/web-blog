@@ -49,7 +49,7 @@ td {
 
 <div>
     <a href="/index.html">home</a> &#8227;
-	quick links: <a href="#number">Number</a> &bull;
+	<a href="#number">Number</a> &bull;
 	<a href="#string">String</a> &bull;
 	<a href="#number-to-string">Number&lt;-&gt;String</a> &bull;
 	<a href="#boolean">Boolean</a> &bull;
@@ -72,232 +72,232 @@ td {
  </tr>
  <tr>
   <td>
-   assert(<span class="em">2</span>+2 == 4); <span class="comment">// numbers are 64-bit floating point</span>
+   <pre>assert(<span class="em">2</span>+2 == 4); <span class="comment">// numbers are 64-bit floating point</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(<span class="em">1.5</span> == 3/2); <span class="comment">// no separate integer type</span>
+   <pre>assert(<span class="em">1.5</span> == 3/2); <span class="comment">// no separate integer type</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(<span class="em">2.5e3</span> == 2500; <span class="comment">// 2.5 * 10^3 exponential notation</span>
+   <pre>assert(<span class="em">2.5e3</span> == 2500; <span class="comment">// 2.5 * 10^3 exponential notation</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(<span class="em">0xFF</span> == 255); <span class="comment">// hexadecimal</span>
+   <pre>assert(<span class="em">0xFF</span> == 255); <span class="comment">// hexadecimal</span></pre>
   </td>
  </tr>
  <tr>
   <td class="line">
-   assert(<span class="em">010</span> == 8); <span class="comment">// octal</span>
+   <pre>assert(<span class="em">010</span> == 8); <span class="comment">// octal</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(2 <span class="em">+</span> 2 == 4); <span class="comment">// addition</span>
+   <pre>assert(2 <span class="em">+</span> 2 == 4); <span class="comment">// addition</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(9 <span class="em">-</span> 3 == 6); <span class="comment">// subtraction</span>
+   <pre>assert(9 <span class="em">-</span> 3 == 6); <span class="comment">// subtraction</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(3 <span class="em">*</span> 8 == 24); <span class="comment">// multiplication</span>
+   <pre>assert(3 <span class="em">*</span> 8 == 24); <span class="comment">// multiplication</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(123 <span class="em">/</span> 10 == 12.3); <span class="comment">// real (not integer) division</span>
+   <pre>assert(123 <span class="em">/</span> 10 == 12.3); <span class="comment">// real (not integer) division</span></pre>
   </td>
  </tr>
  <tr>
   <td class="line">
-   assert(1234 <span class="em">%</span> 100 == 34); <span class="comment">// modulo (reminder)</span>
+   <pre>assert(1234 <span class="em">%</span> 100 == 34); <span class="comment">// modulo (reminder)</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   var n=15; n <span class="em">+=</span> 14; assert(n == 29); <span class="comment">// compute &amp; store</span>
+   <pre>var n=15; n <span class="em">+=</span> 14; assert(n == 29); <span class="comment">// compute &amp; store</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   var n=18; n <span class="em">-=</span> 11; assert(n == 7	); <span class="comment">// x *= is the same</span>
+   <pre>var n=18; n <span class="em">-=</span> 11; assert(n == 7	); <span class="comment">// x *= is the same</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   var n=12; n <span class="em">*=</span> 10; assert(n == 120); <span class="comment">// as x=x*y</span>
+   <pre>var n=12; n <span class="em">*=</span> 10; assert(n == 120); <span class="comment">// as x=x*y</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   var n=19; n <span class="em">/=</span> 10; assert(n == 1.9);
+   <pre>var n=19; n <span class="em">/=</span> 10; assert(n == 1.9);</pre>
   </td>
  </tr>
  <tr>
   <td class="line">
-   var n=18; n <span class="em">%=</span> 10; assert(n == 8);
+   <pre>var n=18; n <span class="em">%=</span> 10; assert(n == 8);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(<span class="em">-</span>3+3 == 0); <span class="comment">// negative number (unary minus)</span>
+   <pre>assert(<span class="em">-</span>3+3 == 0); <span class="comment">// negative number (unary minus)</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   var n=3; n<span class="em">++</span>; assert(n == 4); <span class="comment">// increment</span>
+   <pre>var n=3; n<span class="em">++</span>; assert(n == 4); <span class="comment">// increment</span></pre>
   </td>
  </tr>
  <tr>
   <td class="line">
-   var n=3; n<span class="em">--</span>; assert(n == 2); <span class="comment">// decrement</span>
+   <pre>var n=3; n<span class="em">--</span>; assert(n == 2); <span class="comment">// decrement</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(50 <span class="em">&lt; </span> 51); <span class="comment">// less than</span>
+   <pre>assert(50 <span class="em">&lt; </span> 51); <span class="comment">// less than</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(50 <span class="em">&lt;=</span> 51); <span class="comment">// less than or equal</span>
+   <pre>assert(50 <span class="em">&lt;=</span> 51); <span class="comment">// less than or equal</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(51 <span class="em">&gt; </span> 50); <span class="comment">// greater than</span>
+   <pre>assert(51 <span class="em">&gt; </span> 50); <span class="comment">// greater than</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(51 <span class="em">&gt;=</span> 50); <span class="comment">// greater than or equal</span>
+   <pre>assert(51 <span class="em">&gt;=</span> 50); <span class="comment">// greater than or equal</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(51 <span class="em">==</span> 51); <span class="comment">// equal</span>
+   <pre>assert(51 <span class="em">==</span> 51); <span class="comment">// equal</span></pre>
   </td>
  </tr>
  <tr>
   <td class="line">
-   assert(50 <span class="em">!=</span> 51); <span class="comment">// not equal</span>
+   <pre>assert(50 <span class="em">!=</span> 51); <span class="comment">// not equal</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(1000 <span class="em">&lt;&lt;</span> 3 == 8000); <span class="comment">// shift left</span>
+   <pre>assert(1000 <span class="em">&lt;&lt;</span> 3 == 8000); <span class="comment">// shift left</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(1000 <span class="em">&gt;&gt;</span> 3 == 125); <span class="comment">// shift right, signed</span>
+   <pre>assert(1000 <span class="em">&gt;&gt;</span> 3 == 125); <span class="comment">// shift right, signed</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(0xFFFF0000 <span class="em">&gt;&gt;&gt;</span> 8 == 0x00FFFF00); <span class="comment">// unsigned</span>
+   <pre>assert(0xFFFF0000 <span class="em">&gt;&gt;&gt;</span> 8 == 0x00FFFF00); <span class="comment">// unsigned</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   <span class="comment">// always use parentheses around termsn with: &amp; | ^</span>
+   <pre><span class="comment">// always use parentheses around termsn with: &amp; | ^</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert((0x55555555 <span class="em">&amp;</span> 0xFF00FFFF) == 0x55005555); <span class="comment">// and</span>
+   <pre>assert((0x55555555 <span class="em">&amp;</span> 0xFF00FFFF) == 0x55005555); <span class="comment">// and</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert((0x55555555 <span class="em">|</span> 0x00FF0000) == 0x55FF555555); <span class="comment">// or</span>
+   <pre>assert((0x55555555 <span class="em">|</span> 0x00FF0000) == 0x55FF555555); <span class="comment">// or</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert((0x55555555 <span class="em">^</span> 0x0FF000000) == 0x55AA5555); <span class="comment">// xor</span>
+   <pre>assert((0x55555555 <span class="em">^</span> 0x0FF000000) == 0x55AA5555); <span class="comment">// xor</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(((<span class="em">~</span>0xAAAA) &amp; 0xFFFF) == 0x5555);; <span class="comment">// 1's complement</span>
+   <pre>assert(((<span class="em">~</span>0xAAAA) &amp; 0xFFFF) == 0x5555);; <span class="comment">// 1's complement</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   <span class="comment">// mask (e.g. FFFF) to remove unwanted sign extension</span>
+   <pre><span class="comment">// mask (e.g. FFFF) to remove unwanted sign extension</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   var n = 0x555; n <span class="em">&amp;=</span> 0xF0F; assert(n == 0x505);
+   <pre>var n = 0x555; n <span class="em">&amp;=</span> 0xF0F; assert(n == 0x505);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   var n = 0x555; n <span class="em">|=</span> 0x0F0; assert(n == 0x5F5);
+   <pre>var n = 0x555; n <span class="em">|=</span> 0x0F0; assert(n == 0x5F5);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   var n = 0x555; n <span class="em">^=</span> 0x0F0; assert(n == 0x5A5);
+   <pre>var n = 0x555; n <span class="em">^=</span> 0x0F0; assert(n == 0x5A5);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   var n = -10; n <span class="em">&lt;&lt;=</span> 1; assert(n == -20); <span class="comment">// shift left</span>
+   <pre>var n = -10; n <span class="em">&lt;&lt;=</span> 1; assert(n == -20); <span class="comment">// shift left</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   var n = -10; n <span class="em">&gt;&gt;=</span>1; assert(n == -5); <span class="comment">// signed right</span>
+   <pre>var n = -10; n <span class="em">&gt;&gt;=</span>1; assert(n == -5); <span class="comment">// signed right</span></pre>
   </td>
  </tr>
  <tr>
   <td class="line">
-   var n = 0x8; n <span class="em">&gt;&gt;&gt;=</span> 1; assert(n == 0x4); <span class="comment">// unsigned</span>
+   <pre>var n = 0x8; n <span class="em">&gt;&gt;&gt;=</span> 1; assert(n == 0x4); <span class="comment">// unsigned</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(<span class="em">Number.MIN_VALUE</span> &lt; 1e-307); <span class="comment">// special</span>
+   <pre>assert(<span class="em">Number.MIN_VALUE</span> &lt; 1e-307); <span class="comment">// special</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(<span class="em">Number.MAX_VALUE</span> &gt; 1e308); <span class="comment">// numbers</span>
+   <pre>assert(<span class="em">Number.MAX_VALUE</span> &gt; 1e308); <span class="comment">// numbers</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(<span class="em">Number.NEGATIVE_INFINITY</span> == 1/0);
+   <pre>assert(<span class="em">Number.NEGATIVE_INFINITY</span> == 1/0);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(<span class="em">Number.POSITIVE_INFINITY</span> == -1/0);
+   <pre>assert(<span class="em">Number.POSITIVE_INFINITY</span> == -1/0);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(<span class="em">isNaN</span>(0/0)); <span class="comment">// NaN stands for Not a Number</span>
+   <pre>assert(<span class="em">isNaN</span>(0/0)); <span class="comment">// NaN stands for Not a Number</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(0/0 != 0/0); <span class="comment">// NaN is not equal to itself!</span>
+   <pre>assert(0/0 != 0/0); <span class="comment">// NaN is not equal to itself!</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(!<span class="em">isFinite</span>(1/0)); assert(isFinite(1));
+   <pre>assert(!<span class="em">isFinite</span>(1/0)); assert(isFinite(1));</pre>
   </td>
  </tr>
 </table>
@@ -310,362 +310,362 @@ td {
  </tr>
  <tr>
   <td>
-   var s=="str"; <span class="comment">// double or single quotes</span>
+   <pre>var s=="str"; <span class="comment">// double or single quotes</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   var s=='str';
+   <pre>var s=='str';</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert("str" <span class="em">+</span> "ing" == "string"); <span class="comment">// + concatenates</span>
+   <pre>assert("str" <span class="em">+</span> "ing" == "string"); <span class="comment">// + concatenates</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(s.<span class="em">length</span> == 6);
+   <pre>assert(s.<span class="em">length</span> == 6);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(s.<span class="em">charAt</span>(0) == "s"); <span class="comment">// 0-based indexing</span>
+   <pre>assert(s.<span class="em">charAt</span>(0) == "s"); <span class="comment">// 0-based indexing</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(s.<span class="em">charAt</span>(5) == "g"); <span class="comment">// no character type</span>
+   <pre>assert(s.<span class="em">charAt</span>(5) == "g"); <span class="comment">// no character type</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(s.<span class="em">charCodeAt</span>(5) == 0x67); <span class="comment">// ASCII character value</span>
+   <pre>assert(s.<span class="em">charCodeAt</span>(5) == 0x67); <span class="comment">// ASCII character value</span></pre>
   </td>
  </tr>
  <tr>
   <td class="line">
-   assert(<span class="em">String.fromCahrCoe</span>(65,66,67) == "ABC");
+   <pre>assert(<span class="em">String.fromCahrCoe</span>(65,66,67) == "ABC");</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(s.<span class="em">substring</span>(2) == "ring"); <span class="comment">// istart</span>
+   <pre>assert(s.<span class="em">substring</span>(2) == "ring"); <span class="comment">// istart</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(s.substring(2,4) == "ri"); <span class="comment">// istart, iend+1</span>
+   <pre>assert(s.substring(2,4) == "ri"); <span class="comment">// istart, iend+1</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(s.substring(4,2) == "ri"); <span class="comment">// iend+1, istart</span>
+   <pre>assert(s.substring(4,2) == "ri"); <span class="comment">// iend+1, istart</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(substring(-1) != "ng"); <span class="comment">// (negative values are</span>
+   <pre>assert(substring(-1) != "ng"); <span class="comment">// (negative values are</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(s.substring(1,-1) != "tring"); <span class="comment">// relative to the right)</span>
+   <pre>assert(s.substring(1,-1) != "tring"); <span class="comment">// relative to the right)</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(s.<span class="em">slice</span>(2) == "ring"); <span class="comment">// istart</span>
+   <pre>assert(s.<span class="em">slice</span>(2) == "ring"); <span class="comment">// istart</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(s.slice(2,4) == "ri"); <span class="comment">// istart, iend + 1</span>
+   <pre>assert(s.slice(2,4) == "ri"); <span class="comment">// istart, iend + 1</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(s.slice(-1) != "ng");
+   <pre>assert(s.slice(-1) != "ng");</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(s.slice(1,-1) != "trin");
+   <pre>assert(s.slice(1,-1) != "trin");</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(s.<span class="em">substr</span>(2) == "ring"); <span class="comment">// istart</span>
+   <pre>assert(s.<span class="em">substr</span>(2) == "ring"); <span class="comment">// istart</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(s.substr(2,2) == "ri"); <span class="comment">// istart, inum</span>
+   <pre>assert(s.substr(2,2) == "ri"); <span class="comment">// istart, inum</span></pre>
   </td>
  </tr>
  <tr>
   <td class="line">
-   assert(s.substr(-2,2) == "ng");
+   <pre>assert(s.substr(-2,2) == "ng");</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert('abc'.<span class="em">toUpperCase</span>() == 'ABC');
+   <pre>assert('abc'.<span class="em">toUpperCase</span>() == 'ABC');</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert('ABC'.<span class="em">toLowerCase</span>() == 'abc');
+   <pre>assert('ABC'.<span class="em">toLowerCase</span>() == 'abc');</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert('abc'.<span class="em">toLocaleUpperCase</span>() == 'ABC');
+   <pre>assert('abc'.<span class="em">toLocaleUpperCase</span>() == 'ABC');</pre>
   </td>
  </tr>
  <tr>
   <td class="line">
-   assert('ABC'.<span class="em">toLocaleLowerCase</span>() == 'abc');
+   <pre>assert('ABC'.<span class="em">toLocaleLowerCase</span>() == 'abc');</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert('str'.<span class="em">concat</span>('ing') == 'str' + 'ing');
+   <pre>assert('str'.<span class="em">concat</span>('ing') == 'str' + 'ing');</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(s.<span class="em">indexOf</span>('ing') == 3); <span class="comment">// find substring, -1 == can't</span>
+   <pre>assert(s.<span class="em">indexOf</span>('ing') == 3); <span class="comment">// find substring, -1 == can't</span></pre>
   </td>
  </tr>
  <tr>
   <td class="line">
-   assert('strings'.<span class="em">lastIndexOf</span>('s') == 6); <span class="comment">// find rightmost</span>
+   <pre>assert('strings'.<span class="em">lastIndexOf</span>('s') == 6); <span class="comment">// find rightmost</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   <span class="comment">// These involve Regular Expression and/or Arrays</span>
+   <pre><span class="comment">// These involve Regular Expression and/or Arrays</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(/ing/.<span class="em">test</span>(s));
+   <pre>assert(/ing/.<span class="em">test</span>(s));</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(s.<span class="em">search</span>(/ing/) == 3);
+   <pre>assert(s.<span class="em">search</span>(/ing/) == 3);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert('nature'.<span class="em">replace</span>(/a/,'ur') == 'nurture');
+   <pre>assert('nature'.<span class="em">replace</span>(/a/,'ur') == 'nurture');</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert('a:b:c'.<span class="em">split</span>(':').<span class="em">join</span>('..') == 'a..b..c');
+   <pre>assert('a:b:c'.<span class="em">split</span>(':').<span class="em">join</span>('..') == 'a..b..c');</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert('1-37/54'.<span class="em">match</span>(\d+/g).join() == '1,37,54');
+   <pre>assert('1-37/54'.<span class="em">match</span>(\d+/g).join() == '1,37,54');</pre>
   </td>
  </tr>
  <tr>
   <td>
-   RegExp.lastIndex = 0;
+   <pre>RegExp.lastIndex = 0;</pre>
   </td>
  </tr>
  <tr>
   <td class="line">
-   assert(/o(.)r/.<span class="em">exec</span>('courage').join() == 'our,u');
+   <pre>assert(/o(.)r/.<span class="em">exec</span>('courage').join() == 'our,u');</pre>
   </td>
  </tr>
  <tr>
   <td>
-   <span class="comment">// search expects a regular expresion (where dot=any):</span>
+   <pre><span class="comment">// search expects a regular expresion (where dot=any):</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert('imdb.com'.search(".") == 0); <span class="comment">// see you must</span>
+   <pre>assert('imdb.com'.search(".") == 0); <span class="comment">// see you must</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert('imdb.com'.search(/./) == 0); <span class="comment">// not forget to</span>
+   <pre>assert('imdb.com'.search(/./) == 0); <span class="comment">// not forget to</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert('imdb.com'.search(/\./) == 4); <span class="comment">// double-escape</span>
+   <pre>assert('imdb.com'.search(/\./) == 4); <span class="comment">// double-escape</span></pre>
   </td>
  </tr>
  <tr>
   <td class="line">
-   assert('imdb.com'.search("\.") == 4); <span class="comment">// your punctuation</span>
+   <pre>assert('imdb.com'.search("\.") == 4); <span class="comment">// your punctuation</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   <span class="comment">// Slash Escapes</span>
+   <pre><span class="comment">// Slash Escapes</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   s="<span class="em">\uFFFF</span>"; <span class="comment">// hexadecimal Unicode</span>
+   <pre>s="<span class="em">\uFFFF</span>"; <span class="comment">// hexadecimal Unicode</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   s="<span class="em">\xFF</span>"; <span class="comment">// hexadecimal ASCII</span>
+   <pre>s="<span class="em">\xFF</span>"; <span class="comment">// hexadecimal ASCII</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   x="<span class="em">\377</span>"; s="<span class="em">\77</span>"; s="<span class="em">\7</span>"; <span class="comment">// 8-bit octal</span>
+   <pre>x="<span class="em">\377</span>"; s="<span class="em">\77</span>"; s="<span class="em">\7</span>"; <span class="comment">// 8-bit octal</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert('<span class="em">\0</span>' == '\u0000'); <span class="comment">// NUL</span>
+   <pre>assert('<span class="em">\0</span>' == '\u0000'); <span class="comment">// NUL</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert('<span class="em">\b</span>' == '\u0008'); <span class="comment">// backspace</span>
+   <pre>assert('<span class="em">\b</span>' == '\u0008'); <span class="comment">// backspace</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert('<span class="em">\t</span>' == '\u0009'); <span class="comment">// tab</span>
+   <pre>assert('<span class="em">\t</span>' == '\u0009'); <span class="comment">// tab</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert('<span class="em">\f</span>' == '\u000C); <span class="comment">// formfeed</span>
+   <pre>assert('<span class="em">\f</span>' == '\u000C); <span class="comment">// formfeed</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert('<span class="em">\r</span>' == '\u000D); <span class="comment">// return (CR)</span>
+   <pre>assert('<span class="em">\r</span>' == '\u000D); <span class="comment">// return (CR)</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert('<span class="em">\n</span>' == '\u000A); <span class="comment">// newline (LF)</span>
+   <pre>assert('<span class="em">\n</span>' == '\u000A); <span class="comment">// newline (LF)</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert('<span class="em">\v</span>' == '\u000B'); <span class="comment">// vertical tab</span>
+   <pre>assert('<span class="em">\v</span>' == '\u000B'); <span class="comment">// vertical tab</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert("<span class="em">\"</span>" = '"');
+   <pre>assert("<span class="em">\"</span>" = '"');</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert('<span class="em">'</span>' == "'");
+   <pre>assert('<span class="em">'</span>' == "'");</pre>
   </td>
  </tr>
  <tr>
   <td class="line">
-   assert("<span class="em">\\</span>" == '\u005C);
+   <pre>assert("<span class="em">\\</span>" == '\u005C);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   <span class="comment">// multi-line strings</span>
+   <pre><span class="comment">// multi-line strings</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   s = "this is a <span class="em">\</span>
+   <pre>s = "this is a <span class="em">\</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   test"; <span class="comment">// comments not allowed on the line above</span>
+   <pre>test"; <span class="comment">// comments not allowed on the line above</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(s == "this is a test");
+   <pre>assert(s == "this is a test");</pre>
   </td>
  </tr>
  <tr>
   <td>
-   s="this is a " <span class="em">+</span> <span class="comment">// concatenate</span>
+   <pre>s="this is a " <span class="em">+</span> <span class="comment">// concatenate</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   "better test"; <span class="comment">// comments allowed on both of those lines</span>
+   <pre>"better test"; <span class="comment">// comments allowed on both of those lines</span></pre>
   </td>
  </tr>
  <tr>
   <td class="line">
-   assert(s == "this is a better test");
+   <pre>assert(s == "this is a better test");</pre>
   </td>
  </tr>
  <tr>
   <td>
-   <span class="comment">// NUL isn't special, it's a character like any other</span>
+   <pre><span class="comment">// NUL isn't special, it's a character like any other</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert('abc\0def'.length == 7);
+   <pre>assert('abc\0def'.length == 7);</pre>
   </td>
  </tr>
  <tr>
   <td class="line">
-   assert('abc\0def' != 'abc\0xyz');
+   <pre>assert('abc\0def' != 'abc\0xyz');</pre>
   </td>
  </tr>
  <tr>
   <td>
-   <span class="comment">// user-entered cookies or URLs must encode punctuation</span>
+   <pre><span class="comment">// user-entered cookies or URLs must encode punctuation</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(<span class="em">escape</span>("that's all.") == "that%27s%20all.");
+   <pre>assert(<span class="em">escape</span>("that's all.") == "that%27s%20all.");</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(<span class="em">unescape</span>("that%27s%20all.") == "that's all.');
+   <pre>assert(<span class="em">unescape</span>("that%27s%20all.") == "that's all.');</pre>
   </td>
  </tr>
  <tr>
   <td>
-   <span class="comment">// These are escaped %&lt;&gt;[\]^`{|}#$&amp;,:;=?!/'()~</span>
+   <pre><span class="comment">// These are escaped %&lt;&gt;[\]^`{|}#$&amp;,:;=?!/'()~</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   <span class="comment">// plus space. Alphanumerics and these are not *-._+/@</span>
+   <pre><span class="comment">// plus space. Alphanumerics and these are not *-._+/@</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   <span class="comment">// <span class="em">encodeURI</span>() translates %&lt;&gt;[\]^`{|}</span>
+   <pre><span class="comment">// <span class="em">encodeURI</span>() translates %&lt;&gt;[\]^`{|}</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   <span class="comment">// <span class="em">encoeURIComponent</span>() %&lt;&gt;[\]^`{|}#$&amp;+,/:;=?</span>
+   <pre><span class="comment">// <span class="em">encoeURIComponent</span>() %&lt;&gt;[\]^`{|}#$&amp;+,/:;=?</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   <span class="comment">// <span class="em">decodeURI</span>() and <span class="em">decodeURIComponent</span>() do the inverse</span>
+   <pre><span class="comment">// <span class="em">decodeURI</span>() and <span class="em">decodeURIComponent</span>() do the inverse</span></pre>
   </td>
  </tr>
 </table>
@@ -678,177 +678,177 @@ td {
  </tr>
  <tr>
   <td>
-   assert(256 == "256"); <span class="comment">// strings in a numeric context are</span>
+   <pre>assert(256 == "256"); <span class="comment">// strings in a numeric context are</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(256.0 == "256"); <span class="comment">// converted to a number. This is</span>
+   <pre>assert(256.0 == "256"); <span class="comment">// converted to a number. This is</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(256 == "256.0"); <span class="comment">// usually reasonable and useful.</span>
+   <pre>assert(256 == "256.0"); <span class="comment">// usually reasonable and useful.</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert("256" != "256.0"); <span class="comment">// (String context, no convert!)</span>
+   <pre>assert("256" != "256.0"); <span class="comment">// (String context, no convert!)</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(256 == "0x100"); <span class="comment">// hexadecimal prefix 0x works</span>
+   <pre>assert(256 == "0x100"); <span class="comment">// hexadecimal prefix 0x works</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(256 == "0256");; <span class="comment">// but no octal 0 prefix this way</span>
+   <pre>assert(256 == "0256");; <span class="comment">// but no octal 0 prefix this way</span></pre>
   </td>
  </tr>
  <tr>
   <td class="line">
-   assert(256 != "25 xyz"); <span class="comment">// no extraneous characters</span>
+   <pre>assert(256 != "25 xyz"); <span class="comment">// no extraneous characters</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   <span class="comment">// Number &lt;- String</span>
+   <pre><span class="comment">// Number &lt;- String</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(256 === "256" - 0); <span class="comment">// - converts string to number</span>
+   <pre>assert(256 === "256" - 0); <span class="comment">// - converts string to number</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert("2560" === "256" + 0); <span class="comment">// + concatenates strings</span>
+   <pre>assert("2560" === "256" + 0); <span class="comment">// + concatenates strings</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(256 === <span class="em">parseInt</span>("256"));
+   <pre>assert(256 === <span class="em">parseInt</span>("256"));</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(256 === <span class="em">parseInt</span>("256 xyz")); <span class="comment">// extras forgiven</span>
+   <pre>assert(256 === <span class="em">parseInt</span>("256 xyz")); <span class="comment">// extras forgiven</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(256 === <span class="em">parseInt</span>("0x100")); <span class="comment">// hexadecimal</span>
+   <pre>assert(256 === <span class="em">parseInt</span>("0x100")); <span class="comment">// hexadecimal</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(256 === <span class="em">parseInt</span>("0400")); <span class="comment">// 0 for octal</span>
+   <pre>assert(256 === <span class="em">parseInt</span>("0400")); <span class="comment">// 0 for octal</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(256 === <span class="em">parseInt</span>("0256", 10)); <span class="comment">// parse decimal</span>
+   <pre>assert(256 === <span class="em">parseInt</span>("0256", 10)); <span class="comment">// parse decimal</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(256 === <span class="em">parseInt</span>("100", 16)); <span class="comment">// parse hex</span>
+   <pre>assert(256 === <span class="em">parseInt</span>("100", 16)); <span class="comment">// parse hex</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(256 === <span class="em">parseInt</span>("400", 8)); <span class="comment">// parse octal</span>
+   <pre>assert(256 === <span class="em">parseInt</span>("400", 8)); <span class="comment">// parse octal</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(256 === <span class="em">parseFloat</span>("2.56e1"));
+   <pre>assert(256 === <span class="em">parseFloat</span>("2.56e1"));</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert("256" === "256".<span class="em">valueOf</span>());
+   <pre>assert("256" === "256".<span class="em">valueOf</span>());</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(isNaN(<span class="em">parseInt</span>("xyz")));
+   <pre>assert(isNaN(<span class="em">parseInt</span>("xyz")));</pre>
   </td>
  </tr>
  <tr>
   <td class="line">
-   assert(isNaN(<span class="em">parseFloat</span>("xyz")));
+   <pre>assert(isNaN(<span class="em">parseFloat</span>("xyz")));</pre>
   </td>
  </tr>
  <tr>
   <td>
-   <span class="comment">// Number -&gt; String explicit conversions</span>
+   <pre><span class="comment">// Number -&gt; String explicit conversions</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(256 + "" === "256");
+   <pre>assert(256 + "" === "256");</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert((256)._toString() === "256");
+   <pre>assert((256)._toString() === "256");</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert((2.56)._toString() === "2.56");
+   <pre>assert((2.56)._toString() === "2.56");</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert((256).toString(16) === "100");
+   <pre>assert((256).toString(16) === "100");</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert((2.56).<span class="em">toFixed</span>() === "3");
+   <pre>assert((2.56).<span class="em">toFixed</span>() === "3");</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert((2.56).<span class="em">toFixed</span>(3) === "2.560");
+   <pre>assert((2.56).<span class="em">toFixed</span>(3) === "2.560");</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert((2.56).<span class="em">toPrecision</span>(2) === "2.6");
+   <pre>assert((2.56).<span class="em">toPrecision</span>(2) === "2.6");</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert((256).<span class="em">toExpnential</span>(4) === "2.5600e+2");
+   <pre>assert((256).<span class="em">toExpnential</span>(4) === "2.5600e+2");</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert((1024).<span class="em">toLocaleString</span>() === "1,024.00");
+   <pre>assert((1024).<span class="em">toLocaleString</span>() === "1,024.00");</pre>
   </td>
  </tr>
  <tr>
   <td>
-   <span class="comment">// oddbal numbers convert to strings in precise ways</span>
+   <pre><span class="comment">// oddbal numbers convert to strings in precise ways</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert((-1/0).toString() === "-Infinity");
+   <pre>assert((-1/0).toString() === "-Infinity");</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert((0/0).toString() === "NaN");
+   <pre>assert((0/0).toString() === "NaN");</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert((1/0).toString() === "Infinity");
+   <pre>assert((1/0).toString() === "Infinity");</pre>
   </td>
  </tr>
 </table>
@@ -861,32 +861,32 @@ td {
  </tr>
  <tr>
   <td>
-   var t=<span class="em">true</span>; assert(t);
+   <pre>var t=<span class="em">true</span>; assert(t);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   var f=<span class="em">false</span>; assert(!f); <span class="comment">// ! is boolean not</span>
+   <pre>var f=<span class="em">false</span>; assert(!f); <span class="comment">// ! is boolean not</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert((true <span class="em">&amp;&amp;</span> false) == false); <span class="comment">// &amp;&amp; is boolean and</span>
+   <pre>assert((true <span class="em">&amp;&amp;</span> false) == false); <span class="comment">// &amp;&amp; is boolean and</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert((true <span class="em">||</span> false) == true); <span class="comment">// || is boolean or</span>
+   <pre>assert((true <span class="em">||</span> false) == true); <span class="comment">// || is boolean or</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert((true <span class="em">?</span> 'a' <span class="em">:</span> 'b') == 'a'); <span class="comment">// compact if-else</span>
+   <pre>assert((true <span class="em">?</span> 'a' <span class="em">:</span> 'b') == 'a'); <span class="comment">// compact if-else</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert((false <span class="em">?</span> 'a' <span class="em">:</span> 'b') == 'b');
+   <pre>assert((false <span class="em">?</span> 'a' <span class="em">:</span> 'b') == 'b');</pre>
   </td>
  </tr>
 </table>
@@ -899,287 +899,287 @@ td {
  </tr>
  <tr>
   <td>
-   var now=<span class="em">new Date()</span>; <span class="comment">// current date</span>
+   <pre>var now=<span class="em">new Date()</span>; <span class="comment">// current date</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   var past=<span class="em">new Date(</span>2002,5-1,20,23,59,59,999<span class="em">)</span>;
+   <pre>var past=<span class="em">new Date(</span>2002,5-1,20,23,59,59,999<span class="em">)</span>;</pre>
   </td>
  </tr>
  <tr>
   <td class="line">
-   <span class="comment">// (year,month-1,day,hr,minutes,seconds,milliseconds)</span>
+   <pre><span class="comment">// (year,month-1,day,hr,minutes,seconds,milliseconds)</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(now.<span class="em">getTime()</span> &gt; past.getTime());
+   <pre>assert(now.<span class="em">getTime()</span> &gt; past.getTime());</pre>
   </td>
  </tr>
  <tr>
   <td>
-   <span class="comment">// Compare dates only by their getTime() or valueOf()</span>
+   <pre><span class="comment">// Compare dates only by their getTime() or valueOf()</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(past.getTime() == 1021953599999);
+   <pre>assert(past.getTime() == 1021953599999);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(past.getTime() == past.<span class="em">valueOf</span>());
+   <pre>assert(past.getTime() == past.<span class="em">valueOf</span>());</pre>
   </td>
  </tr>
  <tr>
   <td>
-   <span class="comment">// Compute elapsed milliseconds by substracting getTime()'s</span>
+   <pre><span class="comment">// Compute elapsed milliseconds by substracting getTime()'s</span></pre>
   </td>
  </tr>
  <tr>
   <td class="line">
-   var hours=(now.getTime()-past.getTime())/3600000;
+   <pre>var hours=(now.getTime()-past.getTime())/3600000;</pre>
   </td>
  </tr>
  <tr>
   <td>
-   <span class="comment">// Example date and time formats:</span>
+   <pre><span class="comment">// Example date and time formats:</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(past.<span class="em">toString</span>() == 'Mon May 20 23:59:59 EDT 2002');
+   <pre>assert(past.<span class="em">toString</span>() == 'Mon May 20 23:59:59 EDT 2002');</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(past.<span class="em">toGMTString</span>() == 'Tue, 21 May 002 03:59:59 UTC');
+   <pre>assert(past.<span class="em">toGMTString</span>() == 'Tue, 21 May 002 03:59:59 UTC');</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(past.<span class="em">toUTCString</span>() == 'Tue, 21 May 2002 03:59:59 UTC');
+   <pre>assert(past.<span class="em">toUTCString</span>() == 'Tue, 21 May 2002 03:59:59 UTC');</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(past.<span class="em">toDateString</span>() == 'Mon May 20 2002');
+   <pre>assert(past.<span class="em">toDateString</span>() == 'Mon May 20 2002');</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(past.<span class="em">toTimeString</span>() == '23:59:59 EDT');
+   <pre>assert(past.<span class="em">toTimeString</span>() == '23:59:59 EDT');</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(past.<span class="em">toLocaleDateString</span>() == 'Monday, 20 May, 2002');
+   <pre>assert(past.<span class="em">toLocaleDateString</span>() == 'Monday, 20 May, 2002');</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(past.<span class="em">toLocaleTimeString</span>() == '23:59:59 PM');
+   <pre>assert(past.<span class="em">toLocaleTimeString</span>() == '23:59:59 PM');</pre>
   </td>
  </tr>
  <tr>
   <td class="line">
-   assert(past.<span class="em">toLocaleString</span>() == 'Monday, 20 May, 2002 23:59:59 PM');
+   <pre>assert(past.<span class="em">toLocaleString</span>() == 'Monday, 20 May, 2002 23:59:59 PM');</pre>
   </td>
  </tr>
  <tr>
   <td>
-   var d=<span class="em">new Date</span>(0); <span class="comment">// Dates count milliseconds</span>
+   <pre>var d=<span class="em">new Date</span>(0); <span class="comment">// Dates count milliseconds</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(d.getTime() == 0); <span class="comment">// after midnight 1/1/1970 UTC</span>
+   <pre>assert(d.getTime() == 0); <span class="comment">// after midnight 1/1/1970 UTC</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(d.toUTCString() == 'Thu, 1 Jan 1970 00:00:00 UTC');
+   <pre>assert(d.toUTCString() == 'Thu, 1 Jan 1970 00:00:00 UTC');</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(d.<span class="em">getTimezoneOffset</span>() == 5*60); <span class="comment">// minute West</span>
+   <pre>assert(d.<span class="em">getTimezoneOffset</span>() == 5*60); <span class="comment">// minute West</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   <span class="comment">// getTime() is millisec after 1/1/1970</span>
+   <pre><span class="comment">// getTime() is millisec after 1/1/1970</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   <span class="comment">// getDate() is day of month, getDay() is day of week</span>
+   <pre><span class="comment">// getDate() is day of month, getDay() is day of week</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   <span class="comment">// Same for setTime() and setDate(). There is no setDay()</span>
+   <pre><span class="comment">// Same for setTime() and setDate(). There is no setDay()</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   d.<span class="em">setFullYear</span>(2002); assert(d.<span class="em">getFullYear</span>() == 2002);
+   <pre>d.<span class="em">setFullYear</span>(2002); assert(d.<span class="em">getFullYear</span>() == 2002);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   d.<span class="em">setMonth</span>(5-1); assert(d.<span class="em">getMonth</span>() == 5-1);
+   <pre>d.<span class="em">setMonth</span>(5-1); assert(d.<span class="em">getMonth</span>() == 5-1);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   d.<span class="em">setDate</span>(31); assert(d.<span class="em">getDate</span>() == 31);
+   <pre>d.<span class="em">setDate</span>(31); assert(d.<span class="em">getDate</span>() == 31);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   d.<span class="em">setHours</span>(23); assert(d.<span class="em">getHours</span>() == 23);
+   <pre>d.<span class="em">setHours</span>(23); assert(d.<span class="em">getHours</span>() == 23);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   d.<span class="em">setMinutes</span>(59); assert(d.<span class="em">getMinutes</span>() == 59);
+   <pre>d.<span class="em">setMinutes</span>(59); assert(d.<span class="em">getMinutes</span>() == 59);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   d.<span class="em">setSeconds(59); assert(d.</span>getSeconds() == 59);
+   <pre>d.<span class="em">setSeconds(59); assert(d.</span>getSeconds() == 59);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   d.<span class="em">setMilliseconds</span>(999); assert(d.<span class="em">getMilliseconds</span>() == 999);
+   <pre>d.<span class="em">setMilliseconds</span>(999); assert(d.<span class="em">getMilliseconds</span>() == 999);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(d.<span class="em">getDay</span>() == 5); <span class="comment">// 0=Sunday, 6=Saturday</span>
+   <pre>assert(d.<span class="em">getDay</span>() == 5); <span class="comment">// 0=Sunday, 6=Saturday</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   d.<span class="em">setYear</span>(99); assert(d<span class="em">getYear</span>() == 99);
+   <pre>d.<span class="em">setYear</span>(99); assert(d<span class="em">getYear</span>() == 99);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   d.setYear(2001); assert(d.getYear() == 2001);
+   <pre>d.setYear(2001); assert(d.getYear() == 2001);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   d.<span class="em">setUTCFullYear</span>(2002); assert(d.<span class="em">getUTCFullYear</span>() == 2002);
+   <pre>d.<span class="em">setUTCFullYear</span>(2002); assert(d.<span class="em">getUTCFullYear</span>() == 2002);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   d.<span class="em">setUTCMonth(5-1); assert(d.</span>getUTCMonth() == 5-1);
+   <pre>d.<span class="em">setUTCMonth(5-1); assert(d.</span>getUTCMonth() == 5-1);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   d.<span class="em">setUTCDate(31); assert(d.</span>getUTCDate_() == 31);
+   <pre>d.<span class="em">setUTCDate(31); assert(d.</span>getUTCDate_() == 31);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   d.<span class="em">setUTCHours</span>(23); assert(d.<span class="em">getUTCHours</span>() == 23);
+   <pre>d.<span class="em">setUTCHours</span>(23); assert(d.<span class="em">getUTCHours</span>() == 23);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   d.<span class="em">setUTCMinutes</span>(59); assert(d.<span class="em">getUTCMinutes</span>() == 59);
+   <pre>d.<span class="em">setUTCMinutes</span>(59); assert(d.<span class="em">getUTCMinutes</span>() == 59);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   d.<span class="em">setUTCSeconds(59); assert(g.</span>getUTCSeconds_() == 59);
+   <pre>d.<span class="em">setUTCSeconds(59); assert(g.</span>getUTCSeconds_() == 59);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   d.<span class="em">setUTCMilliseconds</span>(999); assert(d.<span class="em">getUTCMilliseconds</span>() == 999);
+   <pre>d.<span class="em">setUTCMilliseconds</span>(999); assert(d.<span class="em">getUTCMilliseconds</span>() == 999);</pre>
   </td>
  </tr>
  <tr>
   <td class="line">
-   assert(d.<span class="em">getUTCDay</span>() == 5); <span class="comment">// 0=Sunday, 6=Saturday</span>
+   <pre>assert(d.<span class="em">getUTCDay</span>() == 5); <span class="comment">// 0=Sunday, 6=Saturday</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   <span class="comment">// Most set-functions can take multiple parameters</span>
+   <pre><span class="comment">// Most set-functions can take multiple parameters</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   d.setFullYear(2002,5-1,31); d.setUTCFullYear(2002,5-1,31);
+   <pre>d.setFullYear(2002,5-1,31); d.setUTCFullYear(2002,5-1,31);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   d.setMonth(5-1,31); d.setUTCMonth(5-1,31);
+   <pre>d.setMonth(5-1,31); d.setUTCMonth(5-1,31);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   d.setHours(23,59,59,999); d.setUTCHours(23,59,59,999);
+   <pre>d.setHours(23,59,59,999); d.setUTCHours(23,59,59,999);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   d.setMintues(59,59,999); d.setUTCMinutes(59,59,999);
+   <pre>d.setMintues(59,59,999); d.setUTCMinutes(59,59,999);</pre>
   </td>
  </tr>
  <tr>
   <td class="line">
-   d.setSeconds(59,999); d.setUTCSeconds(59,999)
+   <pre>d.setSeconds(59,999); d.setUTCSeconds(59,999)</pre>
   </td>
  </tr>
  <tr>
   <td>
-   <span class="comment">// if you must call more than one set function, it's</span>
+   <pre><span class="comment">// if you must call more than one set function, it's</span></pre>
   </td>
  </tr>
  <tr>
   <td class="line">
-   <span class="comment">// probably better to call the longer-period function first</span>
+   <pre><span class="comment">// probably better to call the longer-period function first</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   d.setMilliseconds(0); <span class="comment">// (following point too coarse for msec)</span>
+   <pre>d.setMilliseconds(0); <span class="comment">// (following point too coarse for msec)</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   <span class="comment">// Date.parse() works on the output of either toString()</span>
+   <pre><span class="comment">// Date.parse() works on the output of either toString()</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   var msec=<span class="em">Date.parse</span>(d.toString()); <span class="comment">// or toUTCString()</span>
+   <pre>var msec=<span class="em">Date.parse</span>(d.toString()); <span class="comment">// or toUTCString()</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(msec == d.getTime()); <span class="comment">// the formats of</span>
+   <pre>assert(msec == d.getTime()); <span class="comment">// the formats of</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   msec = <span class="em">Date.parse</span>(d.toUTCString()); <span class="comment">// thsoe strings vary</span>
+   <pre>msec = <span class="em">Date.parse</span>(d.toUTCString()); <span class="comment">// thsoe strings vary</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(msec == d.getTime()); <span class="comment">// one computer to another</span>
+   <pre>assert(msec == d.getTime()); <span class="comment">// one computer to another</span></pre>
   </td>
  </tr>
 </table>
@@ -1192,172 +1192,172 @@ td {
  </tr>
  <tr>
   <td>
-   assert(<span class="em">Math.abs</span>(-3.2) == 3.2);
+   <pre>assert(<span class="em">Math.abs</span>(-3.2) == 3.2);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(<span class="em">Math.max</span>(1,2,3) == 3);
+   <pre>assert(<span class="em">Math.max</span>(1,2,3) == 3);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(<span class="em">Math.min</span>(1,2,3) == 1);
+   <pre>assert(<span class="em">Math.min</span>(1,2,3) == 1);</pre>
   </td>
  </tr>
  <tr>
   <td class="line">
-   assert(0 &lt;= <span class="em">Math.random</span>() &amp;&amp; Math.random() &lt; 1);
+   <pre>assert(0 &lt;= <span class="em">Math.random</span>() &amp;&amp; Math.random() &lt; 1);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(<span class="em">Math.ceil</span>(1.5) == 2); <span class="comment">// round up, to the nearest</span>
+   <pre>assert(<span class="em">Math.ceil</span>(1.5) == 2); <span class="comment">// round up, to the nearest</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(Math.ceil(-1.5) == -1); <span class="comment">// integer higher or equal</span>
+   <pre>assert(Math.ceil(-1.5) == -1); <span class="comment">// integer higher or equal</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(<span class="em">Math.round</span>(1.7) == 2); <span class="comment">// round to the nearest</span>
+   <pre>assert(<span class="em">Math.round</span>(1.7) == 2); <span class="comment">// round to the nearest</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(Math.round(1.2) == 1); <span class="comment">// integer, up or down</span>
+   <pre>assert(Math.round(1.2) == 1); <span class="comment">// integer, up or down</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(<span class="em">Math.floor</span>(1.5) == 1); <span class="comment">//round down to the nearest</span>
+   <pre>assert(<span class="em">Math.floor</span>(1.5) == 1); <span class="comment">//round down to the nearest</span></pre>
   </td>
  </tr>
  <tr>
   <td class="line">
-   assert(Math.floor(-1.5) == -2); <span class="comment">// integer lower or equal</span>
+   <pre>assert(Math.floor(-1.5) == -2); <span class="comment">// integer lower or equal</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   var n;
+   <pre>var n;</pre>
   </td>
  </tr>
  <tr>
   <td>
-   n = <span class="em">Math.E</span>; assertApprox(Math.log(n),1);
+   <pre>n = <span class="em">Math.E</span>; assertApprox(Math.log(n),1);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   n = <span class="em">Math.LN10</span>; assertApprox(Math.pow(Math.E,n),10);
+   <pre>n = <span class="em">Math.LN10</span>; assertApprox(Math.pow(Math.E,n),10);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   n = <span class="em">Math.LN2</span>; assertApprox(Math.pow(Math.E,n),2);
+   <pre>n = <span class="em">Math.LN2</span>; assertApprox(Math.pow(Math.E,n),2);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   n = <span class="em">Math.LOG10E</span>; assertApprox(Math.pow(10,n),Math.E);
+   <pre>n = <span class="em">Math.LOG10E</span>; assertApprox(Math.pow(10,n),Math.E);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   n = <span class="em">Math.LOG2E</span>; assertApprox(Math.pow(2,n),Math.E);
+   <pre>n = <span class="em">Math.LOG2E</span>; assertApprox(Math.pow(2,n),Math.E);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   n = <span class="em">Math.PI</span>; assertApprox(Math.sin(n/2),1);
+   <pre>n = <span class="em">Math.PI</span>; assertApprox(Math.sin(n/2),1);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   n = <span class="em">Math.SQRT1_2</span>; assertApprox(n*n,0.5);
+   <pre>n = <span class="em">Math.SQRT1_2</span>; assertApprox(n*n,0.5);</pre>
   </td>
  </tr>
  <tr>
   <td class="line">
-   n = <span class="em">Math.SQRT2</span>; assertApprox(n*n,2);
+   <pre>n = <span class="em">Math.SQRT2</span>; assertApprox(n*n,2);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assertApprox(<span class="em">Math.sin</span>(Math.PI/6),1/2); <span class="comment">// trig functions</span>
+   <pre>assertApprox(<span class="em">Math.sin</span>(Math.PI/6),1/2); <span class="comment">// trig functions</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assertApprox(<span class="em">Math.cos</span>(Math.Pi/3),1/2); <span class="comment">// are in radians</span>
+   <pre>assertApprox(<span class="em">Math.cos</span>(Math.Pi/3),1/2); <span class="comment">// are in radians</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assertApprox(<span class="em">Math.tan</span>(Math.PI/4),1);
+   <pre>assertApprox(<span class="em">Math.tan</span>(Math.PI/4),1);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assertApprox(<span class="em">Math.asin</span>(1/2),Math.PI/6);
+   <pre>assertApprox(<span class="em">Math.asin</span>(1/2),Math.PI/6);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assertApprox(<span class="em">Math.acos</span>(1/2),Math.PI/3);
+   <pre>assertApprox(<span class="em">Math.acos</span>(1/2),Math.PI/3);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assertApprox(<span class="em">Math.atan</span>(1),Math.PI/4);
+   <pre>assertApprox(<span class="em">Math.atan</span>(1),Math.PI/4);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assertApprox(<span class="em">Math.atan2</span>(1,1),Math.PI/4);
+   <pre>assertApprox(<span class="em">Math.atan2</span>(1,1),Math.PI/4);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assertApprox(<span class="em">Math.sqrt</span>(25),5);
+   <pre>assertApprox(<span class="em">Math.sqrt</span>(25),5);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assertApprox(<span class="em">Math.pow</span>(10,3),1000);
+   <pre>assertApprox(<span class="em">Math.pow</span>(10,3),1000);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assertApprox(<span class="em">Math.exp</span>(1),Math.E);
+   <pre>assertApprox(<span class="em">Math.exp</span>(1),Math.E);</pre>
   </td>
  </tr>
  <tr>
   <td class="line">
-   assertApprox(<span class="em">Math.log</span>(Math.E),1); <span class="comment">// base e, not 10</span>
+   <pre>assertApprox(<span class="em">Math.log</span>(Math.E),1); <span class="comment">// base e, not 10</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   function assertApprox(a,b) { <span class="comment">// 15 digits of accuracy</span>
+   <pre>function assertApprox(a,b) { <span class="comment">// 15 digits of accuracy</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert((b*0.999999999999999 &lt; a) &amp;&amp;
+   <pre>  assert((b*0.999999999999999 &lt; a) &amp;&amp;</pre>
   </td>
  </tr>
  <tr>
   <td>
-   (a &lt;b*1.000000000000001));
+   <pre>    (a &lt;b*1.000000000000001));</pre>
   </td>
  </tr>
  <tr>
   <td>
-   }
+   <pre>}</pre>
   </td>
  </tr>
 </table>
@@ -1370,232 +1370,232 @@ td {
  </tr>
  <tr>
   <td>
-   var a = <span class="em">new Array</span>; <span class="comment">// container of numbered things</span>
+   <pre>var a = <span class="em">new Array</span>; <span class="comment">// container of numbered things</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(a.<span class="em">length</span> == 0); <span class="comment">// they begin with zero elements</span>
+   <pre>assert(a.<span class="em">length</span> == 0); <span class="comment">// they begin with zero elements</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   a = new <span class="em">Array</span>(8); <span class="comment">// unless you give them dimension</span>
+   <pre>a = new <span class="em">Array</span>(8); <span class="comment">// unless you give them dimension</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(a.length == 8);
+   <pre>assert(a.length == 8);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(a[0] == null); <span class="comment">// indexes from 0 to length-1</span>
+   <pre>assert(a[0] == null); <span class="comment">// indexes from 0 to length-1</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(a[7] == null); <span class="comment">// uninitialized elements are null</span>
+   <pre>assert(a[7] == null); <span class="comment">// uninitialized elements are null</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(a[20] == null); <span class="comment">// out-of-range elements equal null</span>
+   <pre>assert(a[20] == null); <span class="comment">// out-of-range elements equal null</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   a[20] = '21st el'; <span class="comment">// writing out of range</span>
+   <pre>a[20] = '21st el'; <span class="comment">// writing out of range</span></pre>
   </td>
  </tr>
  <tr>
   <td class="line">
-   assert(a.length == 21); <span class="comment">// makes an array bigger</span>
+   <pre>assert(a.length == 21); <span class="comment">// makes an array bigger</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   a[0] = 'a'; a['1'] = 'cat'; a[2] = 44; <span class="comment">// three equivalent</span>
+   <pre>a[0] = 'a'; a['1'] = 'cat'; a[2] = 44; <span class="comment">// three equivalent</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   a=new <span class="em">Array</span>('a','cat',44); <span class="comment">// ways to fill</span>
+   <pre>a=new <span class="em">Array</span>('a','cat',44); <span class="comment">// ways to fill</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   a=<span class="em">[</span>'a','cat',44<span class="em">]</span>; <span class="comment">// up an array</span>
+   <pre>a=<span class="em">[</span>'a','cat',44<span class="em">]</span>; <span class="comment">// up an array</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(a.length==3);
+   <pre>assert(a.length==3);</pre>
   </td>
  </tr>
  <tr>
   <td class="line">
-   assert(a[0] == 'a' &amp;&amp; a[1] =='cat' &amp;&amp; a[2] == 44);
+   <pre>assert(a[0] == 'a' &amp;&amp; a[1] =='cat' &amp;&amp; a[2] == 44);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert([1,2,3] != [1,2,3]); <span class="comment">// arrays compare by refernce, not value</span>
+   <pre>assert([1,2,3] != [1,2,3]); <span class="comment">// arrays compare by refernce, not value</span></pre>
   </td>
  </tr>
  <tr>
   <td class="line">
-   assert([1,2,3].join() == "1,2,3"); <span class="comment">// can use join() to compare by value</span>
+   <pre>assert([1,2,3].join() == "1,2,3"); <span class="comment">// can use join() to compare by value</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(a.<span class="em">join</span>() == 'a,cat,44"); <span class="comment">// join() turns array into string</span>
+   <pre>assert(a.<span class="em">join</span>() == 'a,cat,44"); <span class="comment">// join() turns array into string</span></pre>
   </td>
  </tr>
  <tr>
   <td class="line">
-   assert(a.<span class="em">join</span>("/") == "a/cat/44"); <span class="comment">// default comma delimited</span>
+   <pre>assert(a.<span class="em">join</span>("/") == "a/cat/44"); <span class="comment">// default comma delimited</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   a="a,cat,44".<span class="em">split</span>(); <span class="comment">// split parses string into array</span>
+   <pre>a="a,cat,44".<span class="em">split</span>(); <span class="comment">// split parses string into array</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(a.join() == "a,cat,44");
+   <pre>assert(a.join() == "a,cat,44");</pre>
   </td>
  </tr>
  <tr>
   <td>
-   a="a-cat-44".<span class="em">split</span>("-");
+   <pre>a="a-cat-44".<span class="em">split</span>("-");</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(a.join("+") == "a+cat+44");
+   <pre>assert(a.join("+") == "a+cat+44");</pre>
   </td>
  </tr>
  <tr>
   <td>
-   a="pro@sup.net".<span class="em">split</span>(/[\.\@]/); <span class="comment">// split with a regular</span>
+   <pre>a="pro@sup.net".<span class="em">split</span>(/[\.\@]/); <span class="comment">// split with a regular</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(a.join() == "pro,sup,net"); <span class="comment">// expression</span>
+   <pre>assert(a.join() == "pro,sup,net"); <span class="comment">// expression</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   <span class="comment">// split("") truns a string into an array of characters</span>
+   <pre><span class="comment">// split("") truns a string into an array of characters</span></pre>
   </td>
  </tr>
  <tr>
   <td class="line">
-   assert("the end".split("").join() == "t,h,e, ,e,n,d");
+   <pre>assert("the end".split("").join() == "t,h,e, ,e,n,d");</pre>
   </td>
  </tr>
  <tr>
   <td>
-   a=[2,36,111]; a._sort(); <span class="comment">// case-sensitive string sort</span>
+   <pre>a=[2,36,111]; a._sort(); <span class="comment">// case-sensitive string sort</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   asss(a.join() == '111,2,36');
+   <pre>asss(a.join() == '111,2,36');</pre>
   </td>
  </tr>
  <tr>
   <td>
-   a.<span class="em">sort</span>(function(a,b) { return a-b; }); <span class="comment">// numeric order</span>
+   <pre>a.<span class="em">sort</span>(function(a,b) { return a-b; }); <span class="comment">// numeric order</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(a.join() == '2,36,111');
+   <pre>assert(a.join() == '2,36,111');</pre>
   </td>
  </tr>
  <tr>
   <td>
-   <span class="comment">// sort function should return -,0,+ signifying &lt;,==,&gt;</span>
+   <pre><span class="comment">// sort function should return -,0,+ signifying &lt;,==,&gt;</span></pre>
   </td>
  </tr>
  <tr>
   <td class="line">
-   assert(("a").<span class="em">localeCompare</span>("z")&lt; 0); <span class="comment">// sort function</span>
+   <pre>assert(("a").<span class="em">localeCompare</span>("z")&lt; 0); <span class="comment">// sort function</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   a=[1,2,3]; a.<span class="em">reverse</span>(); assert(a.join() == '3,2,1');
+   <pre>a=[1,2,3]; a.<span class="em">reverse</span>(); assert(a.join() == '3,2,1');</pre>
   </td>
  </tr>
  <tr>
   <td>
-   a=[1,2,3]; assert(a.<span class="em">pop</span>() == 3); assert(a.join() == '1,2');
+   <pre>a=[1,2,3]; assert(a.<span class="em">pop</span>() == 3); assert(a.join() == '1,2');</pre>
   </td>
  </tr>
  <tr>
   <td>
-   a=[1,2,3]; a.<span class="em">push</span>(4); assert(a.join() == '1,2,3,4');
+   <pre>a=[1,2,3]; a.<span class="em">push</span>(4); assert(a.join() == '1,2,3,4');</pre>
   </td>
  </tr>
  <tr>
   <td>
-   a=[1,2,3]; assert(a.<span class="em">shift</span>() == 1); assert(a.join() == '0,1,2,3');
+   <pre>a=[1,2,3]; assert(a.<span class="em">shift</span>() == 1); assert(a.join() == '0,1,2,3');</pre>
   </td>
  </tr>
  <tr>
   <td>
-   a=[1,2,3]; a.<span class="em">unshift</span>(0); assert(a.join() == '0,1,2,3');
+   <pre>a=[1,2,3]; a.<span class="em">unshift</span>(0); assert(a.join() == '0,1,2,3');</pre>
   </td>
  </tr>
  <tr>
   <td>
-   a=[1,2,3]; <span class="comment">// splice(iStart,nDelete,xInsert1,xInsert,...)</span>
+   <pre>a=[1,2,3]; <span class="comment">// splice(iStart,nDelete,xInsert1,xInsert,...)</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   a.<span class="em">splice</span>(2,0,'a','b'); assert(a.join() == '1,2,a,b,3'); <span class="comment">// insert</span>
+   <pre>a.<span class="em">splice</span>(2,0,'a','b'); assert(a.join() == '1,2,a,b,3'); <span class="comment">// insert</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   a.<span class="em">splice</span>(1,2); assert(a.join() == '1,b,3'); <span class="comment">// delete</span>
+   <pre>a.<span class="em">splice</span>(1,2); assert(a.join() == '1,b,3'); <span class="comment">// delete</span></pre>
   </td>
  </tr>
  <tr>
   <td class="line">
-   a.<span class="em">splic</span>(1,2,'Z'); assert(a.join() == '1,Z'); <span class="comment">// insert &amp; delete</span>
+   <pre>a.<span class="em">splic</span>(1,2,'Z'); assert(a.join() == '1,Z'); <span class="comment">// insert &amp; delete</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   <span class="comment">// slice(istart,iend+1) creates a new subarrary</span>
+   <pre><span class="comment">// slice(istart,iend+1) creates a new subarrary</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert([6,7,8,9].<span class="em">slice</span>(0,2).join() == '6,7'); <span class="comment">// istart,iend+1</span>
+   <pre>assert([6,7,8,9].<span class="em">slice</span>(0,2).join() == '6,7'); <span class="comment">// istart,iend+1</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert([6,7,8,9].<span class="em">slice</span>(1).join() == '7,8,9'); <span class="comment">// istart</span>
+   <pre>assert([6,7,8,9].<span class="em">slice</span>(1).join() == '7,8,9'); <span class="comment">// istart</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert([6,7,8,9].<span class="em">slice</span>(1,-1).join() == '7,8'); <span class="comment">// length added</span>
+   <pre>assert([6,7,8,9].<span class="em">slice</span>(1,-1).join() == '7,8'); <span class="comment">// length added</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert([6,7,8,9].<span class="em">slice</span>(-3).join() == '7,8,9'); <span class="comment">// to - values</span>
+   <pre>assert([6,7,8,9].<span class="em">slice</span>(-3).join() == '7,8,9'); <span class="comment">// to - values</span></pre>
   </td>
  </tr>
 </table>
@@ -1608,92 +1608,92 @@ td {
  </tr>
  <tr>
   <td>
-   <span class="em">function</span> sum<span class="em">(</span>x,y<span class="em">)</span> <span class="em">{</span>  <span class="comment">// definition</span>
+   <pre><span class="em">function</span> sum<span class="em">(</span>x,y<span class="em">)</span> <span class="em">{</span>  <span class="comment">// definition</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   <span class="em">return</span> x + y; <span class="comment">// return value</span>
+   <pre>  <span class="em">return</span> x + y; <span class="comment">// return value</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   <span class="em">}</span>
+   <pre><span class="em">}</span></pre>
   </td>
  </tr>
  <tr>
   <td class="line">
-   var n=sum<span class="em">(</span>5,5<span class="em">)</span>; assert(n == 10); <span class="comment">// call</span>
+   <pre>var n=sum<span class="em">(</span>5,5<span class="em">)</span>; assert(n == 10); <span class="comment">// call</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   <span class="em">function</span> sum1(x,y) { return x + y; } <span class="comment">// 3 ways</span>
+   <pre><span class="em">function</span> sum1(x,y) { return x + y; } <span class="comment">// 3 ways</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   var sum2=<span class="em">function(</span>x,y<span class="em">)</span> <span class="em">{</span> return x + y; <span class="em">}</span>; <span class="comment">// define a</span>
+   <pre>var sum2=<span class="em">function(</span>x,y<span class="em">)</span> <span class="em">{</span> return x + y; <span class="em">}</span>; <span class="comment">// define a</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   var sum3=<span class="em">new Function(</span>"x", "y","return x+y;"<span class="em">)</span>; <span class="comment">// function</span>
+   <pre>var sum3=<span class="em">new Function(</span>"x", "y","return x+y;"<span class="em">)</span>; <span class="comment">// function</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(sum1.<span class="em">toString</span>() == <span class="comment">// reveals defition code, but</span>
+   <pre>assert(sum1.<span class="em">toString</span>() == <span class="comment">// reveals defition code, but</span></pre>
   </td>
  </tr>
  <tr>
   <td class="line">
-   "function sum1(x,y) { return x+y; }"); <span class="comment">// format varies</span>
+   <pre>  "function sum1(x,y) { return x+y; }"); <span class="comment">// format varies</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   function sumx() { <span class="comment">// Dynamic arguments</span>
+   <pre>function sumx() { <span class="comment">// Dynamic arguments</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   var retval=0;
+   <pre>  var retval=0;</pre>
   </td>
  </tr>
  <tr>
   <td>
-   for (var i=0; i &lt; <span class="em">arguments.length</span>; i++) {
+   <pre>  for (var i=0; i &lt; <span class="em">arguments.length</span>; i++) {</pre>
   </td>
  </tr>
  <tr>
   <td>
-   retval += <span class="em">arguments</span>[i];
+   <pre>    retval += <span class="em">arguments</span>[i];</pre>
   </td>
  </tr>
  <tr>
   <td>
-   }
+   <pre>  }</pre>
   </td>
  </tr>
  <tr>
   <td>
-   return retval;
+   <pre>  return retval;</pre>
   </td>
  </tr>
  <tr>
   <td>
-   }
+   <pre>}</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(sumx(1,2) == 3);
+   <pre>assert(sumx(1,2) == 3);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(sumx(1,2,3,4,5) == 15);
+   <pre>assert(sumx(1,2,3,4,5) == 15);</pre>
   </td>
  </tr>
 </table>
@@ -1706,467 +1706,467 @@ td {
  </tr>
  <tr>
   <td>
-   function choose1(b) { <span class="comment">// if demo</span>
+   <pre>function choose1(b) { <span class="comment">// if demo</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   var retval = "skip";
+   <pre>  var retval = "skip";</pre>
   </td>
  </tr>
  <tr>
   <td>
-   <span class="em">if (</span>b<span class="em">) {</span>
+   <pre>  <span class="em">if (</span>b<span class="em">) {</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   retval = "if-clause";
+   <pre>    retval = "if-clause";</pre>
   </td>
  </tr>
  <tr>
   <td>
-   <span class="em">}</span>
+   <pre>  <span class="em">}</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   return retval;
+   <pre>  return retval;</pre>
   </td>
  </tr>
  <tr>
   <td>
-   }
+   <pre>}</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(choose1(true) == "if-clause");
-  </td>
- </tr>
- <tr>
-  <td class="line">
-   assert(choose1(false) == "skip");
-  </td>
- </tr>
- <tr>
-  <td>
-   function hoose2(b) { <span class="comment">// else demo</span>
-  </td>
- </tr>
- <tr>
-  <td>
-   var retval="doesn't matter";
-  </td>
- </tr>
- <tr>
-  <td>
-   <span class="em">if </span>b<span class="em">) {</span>
-  </td>
- </tr>
- <tr>
-  <td>
-   retval = "if-clause";
-  </td>
- </tr>
- <tr>
-  <td>
-   <span class="em">} else {</span>
-  </td>
- </tr>
- <tr>
-  <td>
-   retval = "else-clause";
-  </td>
- </tr>
- <tr>
-  <td>
-   <span class="em">}</span>
-  </td>
- </tr>
- <tr>
-  <td>
-   return retval;
-  </td>
- </tr>
- <tr>
-  <td>
-   }
-  </td>
- </tr>
- <tr>
-  <td>
-   assert(choose2(true) == "if-clause");
+   <pre>assert(choose1(true) == "if-clause");</pre>
   </td>
  </tr>
  <tr>
   <td class="line">
-   assert(choose2(false) == "else-clause");
+   <pre>assert(choose1(false) == "skip");</pre>
   </td>
  </tr>
  <tr>
   <td>
-   function choose3(n) { <span class="comment">// else-if demo</span>
+   <pre>function hoose2(b) { <span class="comment">// else demo</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   var retval = "doesn't matter";
+   <pre>  var retval="doesn't matter";</pre>
   </td>
  </tr>
  <tr>
   <td>
-   <span class="em">if </span>n==0<span class="em">) {</span>
+   <pre>  <span class="em">if </span>b<span class="em">) {</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   retval="if-clause";
+   <pre>    retval = "if-clause";</pre>
   </td>
  </tr>
  <tr>
   <td>
-   <span class="em">} else if (</span>n==1<span class="em">) {</span>
+   <pre>  <span class="em">} else {</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   retval ="else-if-clause";
+   <pre>    retval = "else-clause";</pre>
   </td>
  </tr>
  <tr>
   <td>
-   <span class="em">} else {</span>
+   <pre>  <span class="em">}</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   retval = "else-clause";
+   <pre>  return retval;</pre>
   </td>
  </tr>
  <tr>
   <td>
-   <span class="em">}</span>
+   <pre>}</pre>
   </td>
  </tr>
  <tr>
   <td>
-   return retval;
-  </td>
- </tr>
- <tr>
-  <td>
-   }
-  </td>
- </tr>
- <tr>
-  <td>
-   assert(choose3(0) == "if-clause");
-  </td>
- </tr>
- <tr>
-  <td>
-   assert(choose3(1) == "else-if-clause");
+   <pre>assert(choose2(true) == "if-clause");</pre>
   </td>
  </tr>
  <tr>
   <td class="line">
-   assert(choose3(9) == "else-clause");
+   <pre>assert(choose2(false) == "else-clause");</pre>
   </td>
  </tr>
  <tr>
   <td>
-   function choose4(s) { <span class="comment">// switch-case demo</span>
+   <pre>function choose3(n) { <span class="comment">// else-if demo</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   var retval="doesn't matter";
+   <pre>  var retval = "doesn't matter";</pre>
   </td>
  </tr>
  <tr>
   <td>
-   <span class="em">switch (</span>s<span class="em">) {</span> <span class="comment">// switch on a number of string</span>
+   <pre>  <span class="em">if </span>n==0<span class="em">) {</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   <span class="em">case</span> "A":
+   <pre>    retval="if-clause";</pre>
   </td>
  </tr>
  <tr>
   <td>
-   retval="A-clasue";
+   <pre>  <span class="em">} else if (</span>n==1<span class="em">) {</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   <span class="em">break</span>;
+   <pre>    retval ="else-if-clause";</pre>
   </td>
  </tr>
  <tr>
   <td>
-   <span class="em">case</span> "B":
+   <pre>  <span class="em">} else {</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   retval="B-clause";
+   <pre>    retval = "else-clause";</pre>
   </td>
  </tr>
  <tr>
   <td>
-   <span class="em">break</span>;
+   <pre>  <span class="em">}</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   <span class="em">case</span> "Whatever":
+   <pre>  return retval;</pre>
   </td>
  </tr>
  <tr>
   <td>
-   retval="Wathever-clause";
+   <pre>}</pre>
   </td>
  </tr>
  <tr>
   <td>
-   <span class="em">break</span>;
+   <pre>assert(choose3(0) == "if-clause");</pre>
   </td>
  </tr>
  <tr>
   <td>
-   <span class="em">default</span>:
-  </td>
- </tr>
- <tr>
-  <td>
-   retval="default-clause";
-  </td>
- </tr>
- <tr>
-  <td>
-   <span class="em">break</span>;
-  </td>
- </tr>
- <tr>
-  <td>
-   <span class="em">}</span>
-  </td>
- </tr>
- <tr>
-  <td>
-   return retval;
-  </td>
- </tr>
- <tr>
-  <td>
-   }
-  </td>
- </tr>
- <tr>
-  <td>
-   assert(choose4("A") == "A-clause");
-  </td>
- </tr>
- <tr>
-  <td>
-   assert(choose4("B") == "B-clause");
-  </td>
- </tr>
- <tr>
-  <td>
-   assert(choose4("Whatever") == "Whatever-clause");
+   <pre>assert(choose3(1) == "else-if-clause");</pre>
   </td>
  </tr>
  <tr>
   <td class="line">
-   assert(choose4("Z") == "default-clause");
+   <pre>assert(choose3(9) == "else-clause");</pre>
   </td>
  </tr>
  <tr>
   <td>
-   function dotsfor(a) { <span class="comment">// for demo</span>
+   <pre>function choose4(s) { <span class="comment">// switch-case demo</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   var s="";
+   <pre>  var retval="doesn't matter";</pre>
   </td>
  </tr>
  <tr>
   <td>
-   <span class="em">for (</span>var i=0; i&lt;a.length; i++<span class="em">) {</span>
+   <pre>  <span class="em">switch (</span>s<span class="em">) {</span> <span class="comment">// switch on a number of string</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   s+=a[i]+".";
+   <pre>  <span class="em">case</span> "A":</pre>
   </td>
  </tr>
  <tr>
   <td>
-   <span class="em">}</span>
+   <pre>    retval="A-clasue";</pre>
   </td>
  </tr>
  <tr>
   <td>
-   return s;
+   <pre>    <span class="em">break</span>;</pre>
   </td>
  </tr>
  <tr>
   <td>
-   }
+   <pre>  <span class="em">case</span> "B":</pre>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <pre>    retval="B-clause";</pre>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <pre>	<span class="em">break</span>;</pre>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <pre>  <span class="em">case</span> "Whatever":</pre>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <pre>    retval="Wathever-clause";</pre>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <pre>	<span class="em">break</span>;</pre>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <pre>  <span class="em">default</span>:</pre>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <pre>    retval="default-clause";</pre>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <pre>	<span class="em">break</span>;</pre>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <pre>  <span class="em">}</span></pre>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <pre>  return retval;</pre>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <pre>}</pre>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <pre>assert(choose4("A") == "A-clause");</pre>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <pre>assert(choose4("B") == "B-clause");</pre>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <pre>assert(choose4("Whatever") == "Whatever-clause");</pre>
   </td>
  </tr>
  <tr>
   <td class="line">
-   assert(dotsfor(["a","b","c"]) == "a.b.c.");
+   <pre>assert(choose4("Z") == "default-clause");</pre>
   </td>
  </tr>
  <tr>
   <td>
-   function dotswhile(a) { <span class="comment">// while demo</span>
+   <pre>function dotsfor(a) { <span class="comment">// for demo</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   var s="";
+   <pre>  var s="";</pre>
   </td>
  </tr>
  <tr>
   <td>
-   var i=0;
+   <pre>  <span class="em">for (</span>var i=0; i&lt;a.length; i++<span class="em">) {</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   <span class="em">while (</span>i&lt;a.length<span class="em">) {</span>
+   <pre>    s+=a[i]+".";</pre>
   </td>
  </tr>
  <tr>
   <td>
-   s+=a[i]+".";
+   <pre>  <span class="em">}</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   i++;
+   <pre>  return s;</pre>
   </td>
  </tr>
  <tr>
   <td>
-   <span class="em">}</span>
-  </td>
- </tr>
- <tr>
-  <td>
-   return s;
-  </td>
- </tr>
- <tr>
-  <td>
-   }
+   <pre>}</pre>
   </td>
  </tr>
  <tr>
   <td class="line">
-   assert(dotswhile(["a","b","c"]) == "a.b.c.");
+   <pre>assert(dotsfor(["a","b","c"]) == "a.b.c.");</pre>
   </td>
  </tr>
  <tr>
   <td>
-   function uline(s,columnwidht) { <span class="comment">// do-while demo</span>
+   <pre>function dotswhile(a) { <span class="comment">// while demo</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   <span class="em">do {</span>
+   <pre>  var s="";</pre>
   </td>
  </tr>
  <tr>
   <td>
-   s="<span class="em">"+s+"</span>";
+   <pre>  var i=0;</pre>
   </td>
  </tr>
  <tr>
   <td>
-   <span class="em">} while (</span>s.length &lt;columnwidth<span class="em">)</span>;
+   <pre>  <span class="em">while (</span>i&lt;a.length<span class="em">) {</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   return s;
+   <pre>    s+=a[i]+".";</pre>
   </td>
  </tr>
  <tr>
   <td>
-   }
+   <pre>	i++;</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(ulin("Qty",7) == "<span class="em">Qty</span>_");
+   <pre>  <span class="em">}</span></pre>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <pre>  return s;</pre>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <pre>}</pre>
   </td>
  </tr>
  <tr>
   <td class="line">
-   assert(uline("Description",7) == "<span class="em">Description</span>");
+   <pre>assert(dotswhile(["a","b","c"]) == "a.b.c.");</pre>
   </td>
  </tr>
  <tr>
   <td>
-   function forever1() { for (;true;) {} }
+   <pre>function uline(s,columnwidht) { <span class="comment">// do-while demo</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   function forever2() { while(true) {} }
+   <pre>  <span class="em">do {</span></pre>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <pre>    s="<span class="em">"+s+"</span>";</pre>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <pre>  <span class="em">} while (</span>s.length &lt;columnwidth<span class="em">)</span>;</pre>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <pre>  return s;</pre>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <pre>}</pre>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <pre>assert(ulin("Qty",7) == "<span class="em">Qty</span>_");</pre>
   </td>
  </tr>
  <tr>
   <td class="line">
-   function forever3() { do { } while(true); }
+   <pre>assert(uline("Description",7) == "<span class="em">Description</span>");</pre>
   </td>
  </tr>
  <tr>
   <td>
-   <span class="comment">// break escapes from the innermost for,while, do-while</span>
+   <pre>function forever1() { for (;true;) {} }</pre>
   </td>
  </tr>
  <tr>
   <td>
-   <span class="comment">// or switch clause, ignoring if and else clauses</span>
+   <pre>function forever2() { while(true) {} }</pre>
   </td>
  </tr>
  <tr>
   <td class="line">
-   <span class="comment">// continue skips to the test in for,while,do-while clauses</span>
+   <pre>function forever3() { do { } while(true); }</pre>
   </td>
  </tr>
  <tr>
   <td>
-   var a=["x","y","z"], s=""; <span class="comment">// for-in demo for arrays</span>
+   <pre><span class="comment">// break escapes from the innermost for,while, do-while</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   for (var i in a) {
+   <pre><span class="comment">// or switch clause, ignoring if and else clauses</span></pre>
+  </td>
+ </tr>
+ <tr>
+  <td class="line">
+   <pre><span class="comment">// continue skips to the test in for,while,do-while clauses</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   s+=a[i]; <span class="comment">// i goes thru indexes, not elements</span>
+   <pre>var a=["x","y","z"], s=""; <span class="comment">// for-in demo for arrays</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   }
+   <pre>for (var i in a) {</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(s=="xyz");
+   <pre>  s+=a[i]; <span class="comment">// i goes thru indexes, not elements</span></pre>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <pre>}</pre>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <pre>assert(s=="xyz");</pre>
   </td>
  </tr>
 </table>
@@ -2179,167 +2179,167 @@ td {
  </tr>
  <tr>
   <td class="line">
-   var o=<span class="em">new</span> Object); <span class="comment">// Objects are created with new</span>
+   <pre>var o=<span class="em">new</span> Object); <span class="comment">// Objects are created with new</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   o.property<span class="em">=</span>"value"; <span class="comment">// Properties are created by assigning</span>
+   <pre>o.property<span class="em">=</span>"value"; <span class="comment">// Properties are created by assigning</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(o.property == "value");
+   <pre>assert(o.property == "value");</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(o.nonproperty <span class="em">== null</span>); <span class="comment">// check if proeprty exists</span>
+   <pre>assert(o.nonproperty <span class="em">== null</span>); <span class="comment">// check if proeprty exists</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(!("nonproepty" in o)); <span class="comment">// another way to check</span>
+   <pre>assert(!("nonproepty" in o)); <span class="comment">// another way to check</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert("property" in o);
+   <pre>assert("property" in o);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   o.<span class="em">toString</span>=function() { return this.property; } <span class="comment">// Giving an</span>
+   <pre>o.<span class="em">toString</span>=function() { return this.property; } <span class="comment">// Giving an</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(o.toStrign() == "value"); <span class="comment">// object a toString() method</span>
+   <pre>assert(o.toStrign() == "value"); <span class="comment">// object a toString() method</span></pre>
   </td>
  </tr>
  <tr>
   <td class="line">
-   assert(o=="value"); <span class="comment">// allows direct string comparisons!</span>
+   <pre>assert(o=="value"); <span class="comment">// allows direct string comparisons!</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   var o2=new Object(); o2.property="value";
+   <pre>var o2=new Object(); o2.property="value";</pre>
   </td>
  </tr>
  <tr>
   <td class="line">
-   assert(o != o2);
+   <pre>assert(o != o2);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   <span class="em">delete</span> o.property; <span class="comment">// remove a propety from an object</span>
+   <pre><span class="em">delete</span> o.property; <span class="comment">// remove a propety from an object</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(o.property == null);
+   <pre>assert(o.property == null);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   <span class="comment">// delete is for properties, not objects. Objects are</span>
+   <pre><span class="comment">// delete is for properties, not objects. Objects are</span></pre>
   </td>
  </tr>
  <tr>
   <td class="line">
-   <span class="comment">// destroyed automagically (called garbage collection)</span>
+   <pre><span class="comment">// destroyed automagically (called garbage collection)</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   var B=new <span class="em">Boolean</span>(true); assert(B); <span class="comment">// object aliases</span>
+   <pre>var B=new <span class="em">Boolean</span>(true); assert(B); <span class="comment">// object aliases</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   var N=new <span class="em">Number</span>(8); assert(N == 8); <span class="comment">// for simple</span>
+   <pre>var N=new <span class="em">Number</span>(8); assert(N == 8); <span class="comment">// for simple</span></pre>
   </td>
  </tr>
  <tr>
   <td class="line">
-   var S=nwe <span class="em">String</span>("stg"); assert(S == "stg"); <span class="comment">// types</span>
+   <pre>var S=new <span class="em">String</span>("stg"); assert(S == "stg"); <span class="comment">// types</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   <span class="comment">// An Object is a named array of properties and emthods</span>
+   <pre><span class="comment">// An Object is a named array of properties and emthods</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   o=new Object; o.name="bolt"; o.cost=1.99;
+   <pre>o=new Object; o.name="bolt"; o.cost=1.99;</pre>
   </td>
  </tr>
  <tr>
   <td>
-   o.costx2=function() { erturn this.cost*2; }
+   <pre>o.costx2=function() { erturn this.cost*2; }</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(o["name"] == o.name);
+   <pre>assert(o["name"] == o.name);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(o["cost"] == o.cost);
+   <pre>assert(o["cost"] == o.cost);</pre>
   </td>
  </tr>
  <tr>
   <td class="line">
-   assert(o["costx2"]() == o.costx2());
+   <pre>assert(o["costx2"]() == o.costx2());</pre>
   </td>
  </tr>
  <tr>
   <td>
-   <span class="comment">// Object literals in curly braces with name:value pairs</span>
+   <pre><span class="comment">// Object literals in curly braces with name:value pairs</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   o=<span class="em">{</span> name:"bolt", cost:1.99, sold:{qty:5, who:"Jim" <span class="em">}}</span>;
+   <pre>o=<span class="em">{</span> name:"bolt", cost:1.99, sold:{qty:5, who:"Jim" <span class="em">}}</span>;</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(o.name == "bolt" &amp;&amp; o.cost == 1.99);
+   <pre>assert(o.name == "bolt" &amp;&amp; o.cost == 1.99);</pre>
   </td>
  </tr>
  <tr>
   <td class="line">
-   assert(o.sold.qty == 5 &amp;&amp; o.sold.who == "Jim");
+   <pre>assert(o.sold.qty == 5 &amp;&amp; o.sold.who == "Jim");</pre>
   </td>
  </tr>
  <tr>
   <td>
-   var s=""; <span class="comment">// for-in oop demo for objects</span>
+   <pre>var s=""; <span class="comment">// for-in oop demo for objects</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   <span class="em">for (</span>var propety <span class="em">in</span> o<span class="em">)</span> <span class="em">{</span> <span class="comment">// there's wide ariation</span>
+   <pre><span class="em">for (</span>var propety <span class="em">in</span> o<span class="em">)</span> <span class="em">{</span> <span class="comment">// there's wide ariation</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   s+= property + " "; <span class="comment">// in what an object exposes</span>
+   <pre>  s+= property + " "; <span class="comment">// in what an object exposes</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   <span class="em">}</span>
+   <pre><span class="em">}</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(s == "name cost sold ");
+   <pre>assert(s == "name cost sold ");</pre>
   </td>
  </tr>
 </table>
@@ -2352,142 +2352,142 @@ td {
  </tr>
  <tr>
   <td>
-   var a=[1,2,3]; assert(<span class="em">typeof</span>(a) == "object");
+   <pre>var a=[1,2,3]; assert(<span class="em">typeof</span>(a) == "object");</pre>
   </td>
  </tr>
  <tr>
   <td>
-   var A=new Array(1,2,3); assert(<span class="em">typeof</span>(A) == "object");
+   <pre>var A=new Array(1,2,3); assert(<span class="em">typeof</span>(A) == "object");</pre>
   </td>
  </tr>
  <tr>
   <td>
-   var b=true; assert(<span class="em">typeof</span>(b) == "boolean");
+   <pre>var b=true; assert(<span class="em">typeof</span>(b) == "boolean");</pre>
   </td>
  </tr>
  <tr>
   <td>
-   var d=new Date(); assert(<span class="em">typeof</span>(d) == "object");
+   <pre>var d=new Date(); assert(<span class="em">typeof</span>(d) == "object");</pre>
   </td>
  </tr>
  <tr>
   <td>
-   var e=new Error("msg"); assert(<span class="em">typeof</span>(e) == "object");
+   <pre>var e=new Error("msg"); assert(<span class="em">typeof</span>(e) == "object");</pre>
   </td>
  </tr>
  <tr>
   <td>
-   function f1() {}; assert(<span class="em">typeof</span>(f1) == "function");
+   <pre>function f1() {}; assert(<span class="em">typeof</span>(f1) == "function");</pre>
   </td>
  </tr>
  <tr>
   <td>
-   var f2=function() {}; assert(<span class="em">typeof</span>(f2) == "function");
+   <pre>var f2=function() {}; assert(<span class="em">typeof</span>(f2) == "function");</pre>
   </td>
  </tr>
  <tr>
   <td>
-   var f3=new Function(";"); assert(<span class="em">typeof</span>(f3) == "function");
+   <pre>var f3=new Function(";"); assert(<span class="em">typeof</span>(f3) == "function");</pre>
   </td>
  </tr>
  <tr>
   <td>
-   var n=3; assert(<span class="em">typeof</span>(n) == "number");
+   <pre>var n=3; assert(<span class="em">typeof</span>(n) == "number");</pre>
   </td>
  </tr>
  <tr>
   <td>
-   var N=new Number(3); assert(<span class="em">typeof</span>(N) == "object");
+   <pre>var N=new Number(3); assert(<span class="em">typeof</span>(N) == "object");</pre>
   </td>
  </tr>
  <tr>
   <td>
-   var o=new Object(); assert(<span class="em">typeof</span>(o) == "object");
+   <pre>var o=new Object(); assert(<span class="em">typeof</span>(o) == "object");</pre>
   </td>
  </tr>
  <tr>
   <td>
-   var s="stg"; assert(<span class="em">typeof</span>(s) == "string");
+   <pre>var s="stg"; assert(<span class="em">typeof</span>(s) == "string");</pre>
   </td>
  </tr>
  <tr>
   <td>
-   var u; assert(<span class="em">typeof</span>(u) == "undefined"); <span class="comment">// u not assigned</span>
+   <pre>var u; assert(<span class="em">typeof</span>(u) == "undefined"); <span class="comment">// u not assigned</span></pre>
   </td>
  </tr>
  <tr>
   <td class="line">
-   assert(<span class="em">typeof</span>(x) == "undefined"); <span class="comment">// x not declared</span>
+   <pre>assert(<span class="em">typeof</span>(x) == "undefined"); <span class="comment">// x not declared</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(a.<span class="em">constructor</span> == Array &amp;&amp; a <span class="em">instanceof</span> Array);
+   <pre>assert(a.<span class="em">constructor</span> == Array &amp;&amp; a <span class="em">instanceof</span> Array);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(A.<span class="em">constructor</span> == Array &amp;&amp; A <span class="em">instanceof</span> Array);
+   <pre>assert(A.<span class="em">constructor</span> == Array &amp;&amp; A <span class="em">instanceof</span> Array);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(b.<span class="em">constructor</span> == Boolean);
+   <pre>assert(b.<span class="em">constructor</span> == Boolean);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(B.<span class="em">constructor</span> == Boolean);
+   <pre>assert(B.<span class="em">constructor</span> == Boolean);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(d.<span class="em">constructor</span> == Date &amp;&amp; a <span class="em">instanceof</span> Date);
+   <pre>assert(d.<span class="em">constructor</span> == Date &amp;&amp; a <span class="em">instanceof</span> Date);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(e.<span class="em">constructor</span> == Error &amp;&amp; a <span class="em">instanceof</span> Error);
+   <pre>assert(e.<span class="em">constructor</span> == Error &amp;&amp; a <span class="em">instanceof</span> Error);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(f1.<span class="em">constructor</span> == Function &amp;&amp; f1 <span class="em">instanceof</span> Function);
+   <pre>assert(f1.<span class="em">constructor</span> == Function &amp;&amp; f1 <span class="em">instanceof</span> Function);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(f2.<span class="em">constructor</span> == Function &amp;&amp; f2 <span class="em">instanceof</span> Function);
+   <pre>assert(f2.<span class="em">constructor</span> == Function &amp;&amp; f2 <span class="em">instanceof</span> Function);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(f3.<span class="em">constructor</span> == Function &amp;&amp; f3 <span class="em">instanceof</span> Function);
+   <pre>assert(f3.<span class="em">constructor</span> == Function &amp;&amp; f3 <span class="em">instanceof</span> Function);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(n.<span class="em">constructor</span> == Number);
+   <pre>assert(n.<span class="em">constructor</span> == Number);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(N.<span class="em">constructor</span> == Number);
+   <pre>assert(N.<span class="em">constructor</span> == Number);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(o.<span class="em">constructor</span> == Object)  &amp;&amp; o <span class="em">instanceof</span> Object);
+   <pre>assert(o.<span class="em">constructor</span> == Object)  &amp;&amp; o <span class="em">instanceof</span> Object);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(s.<span class="em">constructor</span> == String);
+   <pre>assert(s.<span class="em">constructor</span> == String);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(S.<span class="em">constructor</span> == String);
+   <pre>assert(S.<span class="em">constructor</span> == String);</pre>
   </td>
  </tr>
 </table>
@@ -2500,242 +2500,242 @@ td {
  </tr>
  <tr>
   <td>
-   <span class="em">function</span> Part(name,cost) { <span class="comment">// constructor is the class</span>
+   <pre><span class="em">function</span> Part(name,cost) { <span class="comment">// constructor is the class</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   <span class="em">this</span>.name = name; <span class="comment">// define and initialize properties</span>
+   <pre>  <span class="em">this</span>.name = name; <span class="comment">// define and initialize properties</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   <span class="em">this</span>.cost = cost; <span class="comment">// "this" is always explicit</span>
+   <pre>  <span class="em">this</span>.cost = cost; <span class="comment">// "this" is always explicit</span></pre>
   </td>
  </tr>
  <tr>
   <td class="line">
-   };
+   <pre>};</pre>
   </td>
  </tr>
  <tr>
   <td>
-   var partBolt=<span class="em">new</span> Part("bolt",1.99); <span class="comment">// instantiation</span>
+   <pre>var partBolt=<span class="em">new</span> Part("bolt",1.99); <span class="comment">// instantiation</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(partBolt.<span class="em">constructor</span> == Part);
+   <pre>assert(partBolt.<span class="em">constructor</span> == Part);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(partBolt <span class="em">instanceof</span> Part); <span class="comment">// ancestry test</span>
+   <pre>assert(partBolt <span class="em">instanceof</span> Part); <span class="comment">// ancestry test</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(Part.prototype.<span class="em">isPrototypeOf</span>(partBolt)); <span class="comment">// type test</span>
+   <pre>assert(Part.prototype.<span class="em">isPrototypeOf</span>(partBolt)); <span class="comment">// type test</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(typeof(partBolt) == "object"); <span class="comment">// not a type test</span>
+   <pre>assert(typeof(partBolt) == "object"); <span class="comment">// not a type test</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(partBolt.name == "bolt" &amp; partBolt.cost == 1.99);
+   <pre>assert(partBolt.name == "bolt" &amp; partBolt.cost == 1.99);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   var partNut=new Part("nut,0.10);
+   <pre>var partNut=new Part("nut,0.10);</pre>
   </td>
  </tr>
  <tr>
   <td class="line">
-   assert(partNut.name == "nut" &amp;&amp; partNut.cost==01.10);
+   <pre>assert(partNut.name == "nut" &amp;&amp; partNut.cost==01.10);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   Part.<span class="em">prototype</span>.description=<span class="em">function</span>() { <span class="comment">//methdos</span>
+   <pre>Part.<span class="em">prototype</span>.description=<span class="em">function</span>() { <span class="comment">//methdos</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   return this.name  "$" + thsi.toFixed(2);
+   <pre>  return this.name  "$" + thsi.toFixed(2);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   }
+   <pre>}</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(partBolt.description() == "bolt $1.99");
+   <pre>assert(partBolt.description() == "bolt $1.99");</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(partNut.description() == "nut $0.10");
+   <pre>assert(partNut.description() == "nut $0.10");</pre>
   </td>
  </tr>
  <tr>
   <td>
-   <span class="comment">// Whatever the prototype contains, all instances contain:</span>
+   <pre><span class="comment">// Whatever the prototype contains, all instances contain:</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   Part.<span class="em">prototype</span>.toString=<span class="em">function</span>() { return thsi.name;
+   <pre>Part.<span class="em">prototype</span>.toString=<span class="em">function</span>() { return thsi.name;</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(partBolt.toString() == "bolt");
+   <pre>assert(partBolt.toString() == "bolt");</pre>
   </td>
  </tr>
  <tr>
   <td class="line">
-   var a=[parBolt,parttNut]; assert(a.join() == "bolt,nut);
+   <pre>var a=[parBolt,parttNut]; assert(a.join() == "bolt,nut);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   Part.CostCompare=<span class="em">function</span>(l,r) { <span class="comment">// class mthod</span>
+   <pre>Part.CostCompare=<span class="em">function</span>(l,r) { <span class="comment">// class mthod</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   return l.cost - r.cost;
+   <pre>  return l.cost - r.cost;</pre>
   </td>
  </tr>
  <tr>
   <td>
-   }
+   <pre>}</pre>
   </td>
  </tr>
  <tr>
   <td class="line">
-   a.sort(Part.CostCompare); assert(a.join() == "nut,bolt");
+   <pre>a.sort(Part.CostCompare); assert(a.join() == "nut,bolt");</pre>
   </td>
  </tr>
  <tr>
   <td>
-   function WoodPart(name,cost,tree) { <span class="comment">// inheritance</span>
+   <pre>function WoodPart(name,cost,tree) { <span class="comment">// inheritance</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   Part.<span class="em">apply</span>(this, [name,cost]); <span class="comment">// base constructor call</span>
+   <pre>  Part.<span class="em">apply</span>(this, [name,cost]); <span class="comment">// base constructor call</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   this.tree=tree;
+   <pre>  this.tree=tree;</pre>
   </td>
  </tr>
  <tr>
   <td>
-   }
+   <pre>}</pre>
   </td>
  </tr>
  <tr>
   <td>
-   WoodPart.<span class="em">prototype</span>=<span class="em">new</span> Part(); <span class="comment">// clone the prototype</span>
+   <pre>WoodPart.<span class="em">prototype</span>=<span class="em">new</span> Part(); <span class="comment">// clone the prototype</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   WoodPart.<span class="em">prototype</span>.<span class="em">constructor</span>=WoodPart;
+   <pre>WoodPart.<span class="em">prototype</span>.<span class="em">constructor</span>=WoodPart;</pre>
   </td>
  </tr>
  <tr>
   <td>
-   var tpick=nwe WoodPart("toothpick",0.01,"oak");
+   <pre>var tpick=new WoodPart("toothpick",0.01,"oak");</pre>
   </td>
  </tr>
  <tr>
   <td>
-   as(tpick.name == "toothpick");
+   <pre>as(tpick.name == "toothpick");</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(tpick instanceof Part); <span class="comment">// proof of inheritance</span>
+   <pre>assert(tpick instanceof Part); <span class="comment">// proof of inheritance</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   var a=[partBolt,partNut,tpick]; <span class="comment">// polymorphism sorta</span>
+   <pre>var a=[partBolt,partNut,tpick]; <span class="comment">// polymorphism sorta</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(a.sort(Part.CostCompare).join() == "toothpick,nut,bolt");
+   <pre>assert(a.sort(Part.CostCompare).join() == "toothpick,nut,bolt");</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(a[0].tree == "oak" &amp;&amp; a[1].tree== null);
+   <pre>assert(a[0].tree == "oak" &amp;&amp; a[1].tree== null);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(a[0] instanceof WoodPart);
+   <pre>assert(a[0] instanceof WoodPart);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(!(a[1] instanceof WoodPart));
+   <pre>assert(!(a[1] instanceof WoodPart));</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert("tree" <span class="em">in</span> tpick); <span class="comment">// membership test - in operator</span>
+   <pre>assert("tree" <span class="em">in</span> tpick); <span class="comment">// membership test - in operator</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(!("tree" in partBolt));
+   <pre>assert(!("tree" in partBolt));</pre>
   </td>
  </tr>
  <tr>
   <td>
-   WoodPart.prototype.description=function() { <span class="comment">// override</span>
+   <pre>WoodPart.prototype.description=function() { <span class="comment">// override</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   <span class="comment">// Calling base class version of description() method:</span>
+   <pre>  <span class="comment">// Calling base class version of description() method:</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   var dsc=Part.prototype.description.<span class="em">apply</span>(this,[]);
+   <pre>  var dsc=Part.prototype.description.<span class="em">apply</span>(this,[]);</pre>
   </td>
  </tr>
  <tr>
   <td>
-   return dsc+" ("+this.tere + ")"; <span class="comment">// and overriding it</span>
+   <pre>  return dsc+" ("+this.tere + ")"; <span class="comment">// and overriding it</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   }
+   <pre>}</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(tpick.description() == "toothpick $0.01 (oak)");
+   <pre>assert(tpick.description() == "toothpick $0.01 (oak)");</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(partBolt.description() == "bolt $1.99");
+   <pre>assert(partBolt.description() == "bolt $1.99");</pre>
   </td>
  </tr>
 </table>
@@ -2748,142 +2748,142 @@ td {
  </tr>
  <tr>
   <td>
-   <span class="em">try {</span> <span class="comment">// catch an exception</span>
+   <pre><span class="em">try {</span> <span class="comment">// catch an exception</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   var v-nodef;
+   <pre>  var v-nodef;</pre>
   </td>
  </tr>
  <tr>
   <td>
-   <span class="em">}</span>
+   <pre><span class="em">}</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   <span class="em">catch(</span>e<span class="em">) {</span>
+   <pre><span class="em">catch(</span>e<span class="em">) {</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(e.<span class="em">message</span> == "'nodef' is undefined"); <span class="comment">// varies</span>
+   <pre>  assert(e.<span class="em">message</span> == "'nodef' is undefined"); <span class="comment">// varies</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(e.<span class="em">name</span> == "RefernceError");
+   <pre>  assert(e.<span class="em">name</span> == "RefernceError");</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(e.<span class="em">description</span> == "'nodef' is undefined");
+   <pre>  assert(e.<span class="em">description</span> == "'nodef' is undefined");</pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(e._number &gt; 0);
+   <pre>  assert(e._number &gt; 0);</pre>
   </td>
  </tr>
  <tr>
   <td class="line">
-   <span class="em">}</span>
+   <pre><span class="em">}</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   function process () { <span class="comment">// throw an exception</span>
+   <pre>function process () { <span class="comment">// throw an exception</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   if (somethingGoesVeryWrong()) {
+   <pre>  if (somethingGoesVeryWrong()) {</pre>
   </td>
  </tr>
  <tr>
   <td>
-   <span class="em">throw new Error</span>("msg","msg");
+   <pre>    <span class="em">throw new Error</span>("msg","msg");</pre>
   </td>
  </tr>
  <tr>
   <td>
-   }
+   <pre>  }</pre>
   </td>
  </tr>
  <tr>
   <td>
-   catch (e) { <span class="comment">// message or decription should have it</span>
+   <pre>  catch (e) { <span class="comment">// message or decription should have it</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   assert(e.message == "msg" || e.description == "msg");
+   <pre>    assert(e.message == "msg" || e.description == "msg");</pre>
   </td>
  </tr>
  <tr>
   <td>
-   }
+   <pre>  }</pre>
   </td>
  </tr>
  <tr>
   <td class="line">
-   }
+   <pre>}</pre>
   </td>
  </tr>
  <tr>
   <td>
-   function ReliableHandler() { <span class="comment">// finally is for sure</span>
+   <pre>function ReliableHandler() { <span class="comment">// finally is for sure</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   try {
+   <pre>  try {</pre>
   </td>
  </tr>
  <tr>
   <td>
-   initialize();
+   <pre>    initialize();</pre>
   </td>
  </tr>
  <tr>
   <td>
-   process();
+   <pre>    process();</pre>
   </td>
  </tr>
  <tr>
   <td>
-   }
+   <pre>  }</pre>
   </td>
  </tr>
  <tr>
   <td>
-   <span class="em">finally {</span>
+   <pre>  <span class="em">finally {</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   shutdown();
+   <pre>    shutdown();</pre>
   </td>
  </tr>
  <tr>
   <td>
-   <span class="em">}</span>
+   <pre>  <span class="em">}</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   }
+   <pre>}</pre>
   </td>
  </tr>
  <tr>
   <td>
-   <span class="comment">// if the try-clause starts, the finally-clause must also,</span>
+   <pre><span class="comment">// if the try-clause starts, the finally-clause must also,</span></pre>
   </td>
  </tr>
  <tr>
   <td>
-   <span class="comment">// even if an exception is thrown or the function returns</span>
+   <pre><span class="comment">// even if an exception is thrown or the function returns</span></pre>
   </td>
  </tr>
 </table>
