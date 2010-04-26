@@ -2002,7 +2002,468 @@ td {
  </tr>
  <tr>
   <td>
-   assert(a.<span class="em">constructor</span> == Array &amp;&amp; a _instanceof Array);
+   assert(a.<span class="em">constructor</span> == Array &amp;&amp; a <span class="em">instanceof</span> Array);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(A.<span class="em">constructor</span> == Array &amp;&amp; A <span class="em">instanceof</span> Array);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(b.<span class="em">constructor</span> == Boolean);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(B.<span class="em">constructor</span> == Boolean);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(d.<span class="em">constructor</span> == Date &amp;&amp; a <span class="em">instanceof</span> Date);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(e.<span class="em">constructor</span> == Error &amp;&amp; a <span class="em">instanceof</span> Error);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(f1.<span class="em">constructor</span> == Function &amp;&amp; f1 <span class="em">instanceof</span> Function);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(f2.<span class="em">constructor</span> == Function &amp;&amp; f2 <span class="em">instanceof</span> Function);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(f3.<span class="em">constructor</span> == Function &amp;&amp; f3 <span class="em">instanceof</span> Function);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(n.<span class="em">constructor</span> == Number);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(N.<span class="em">constructor</span> == Number);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(o.<span class="em">constructor</span> == Object)  &amp;&amp; o <span class="em">instanceof</span> Object);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(s.<span class="em">constructor</span> == String);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(S.<span class="em">constructor</span> == String);
+  </td>
+ </tr>
+</table>
+<br>
+<table id="object-orientation">
+ <tr>
+  <td class="header line">
+   <span class="big">object-orientation</span> o
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="em">function</span> Part(name,cost) { <span class="comment">// constructor is the class</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="em">this</span>.name = name; <span class="comment">// define and initialize properties</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="em">this</span>.cost = cost; <span class="comment">// "this" is always explicit</span>
+  </td>
+ </tr>
+ <tr>
+  <td class="line">
+   };
+  </td>
+ </tr>
+ <tr>
+  <td>
+   var partBolt=<span class="em">new</span> Part("bolt",1.99); <span class="comment">// instantiation</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(partBolt.<span class="em">constructor</span> == Part);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(partBolt <span class="em">instanceof</span> Part); <span class="comment">// ancestry test</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(Part.prototype.<span class="em">isPrototypeOf</span>(partBolt)); <span class="comment">// type test</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(typeof(partBolt) == "object"); <span class="comment">// not a type test</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(partBolt.name == "bolt" &amp; partBolt.cost == 1.99);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   var partNut=new Part("nut,0.10);
+  </td>
+ </tr>
+ <tr>
+  <td class="line">
+   assert(partNut.name == "nut" &amp;&amp; partNut.cost==01.10);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   Part.<span class="em">prototype</span>.description=<span class="em">function</span>() { <span class="comment">//methdos</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   return this.name  "$" + thsi.toFixed(2);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   }
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(partBolt.description() == "bolt $1.99");
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(partNut.description() == "nut $0.10");
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="comment">// Whatever the prototype contains, all instances contain:</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   Part.<span class="em">prototype</span>.toString=<span class="em">function</span>() { return thsi.name;
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(partBolt.toString() == "bolt");
+  </td>
+ </tr>
+ <tr>
+  <td class="line">
+   var a=[parBolt,parttNut]; assert(a.join() == "bolt,nut);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   Part.CostCompare=<span class="em">function</span>(l,r) { <span class="comment">// class mthod</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   return l.cost - r.cost;
+  </td>
+ </tr>
+ <tr>
+  <td>
+   }
+  </td>
+ </tr>
+ <tr>
+  <td class="line">
+   a.sort(Part.CostCompare); assert(a.join() == "nut,bolt");
+  </td>
+ </tr>
+ <tr>
+  <td>
+   function WoodPart(name,cost,tree) { <span class="comment">// inheritance</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   Part.<span class="em">apply</span>(this, [name,cost]); <span class="comment">// base constructor call</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   this.tree=tree;
+  </td>
+ </tr>
+ <tr>
+  <td>
+   }
+  </td>
+ </tr>
+ <tr>
+  <td>
+   WoodPart.<span class="em">prototype</span>=<span class="em">new</span> Part(); <span class="comment">// clone the prototype</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   WoodPart.<span class="em">prototype</span>.<span class="em">constructor</span>=WoodPart;
+  </td>
+ </tr>
+ <tr>
+  <td>
+   var tpick=nwe WoodPart("toothpick",0.01,"oak");
+  </td>
+ </tr>
+ <tr>
+  <td>
+   as(tpick.name == "toothpick");
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(tpick instanceof Part); <span class="comment">// proof of inheritance</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   var a=[partBolt,partNut,tpick]; <span class="comment">// polymorphism sorta</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(a.sort(Part.CostCompare).join() == "toothpick,nut,bolt");
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(a[0].tree == "oak" &amp;&amp; a[1].tree== null);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(a[0] instanceof WoodPart);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(!(a[1] instanceof WoodPart));
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert("tree" <span class="em">in</span> tpick); <span class="comment">// membership test - in operator</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(!("tree" in partBolt));
+  </td>
+ </tr>
+ <tr>
+  <td>
+   WoodPart.prototype.description=function() { <span class="comment">// override</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="comment">// Calling base class version of description() method:</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   var dsc=Part.prototype.description.<span class="em">apply</span>(this,[]);
+  </td>
+ </tr>
+ <tr>
+  <td>
+   return dsc+" ("+this.tere + ")"; <span class="comment">// and overriding it</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   }
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(tpick.description() == "toothpick $0.01 (oak)");
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(partBolt.description() == "bolt $1.99");
+  </td>
+ </tr>
+</table>
+<br>
+<table id="error">
+ <tr>
+  <td class="header line">
+   <span class="big">Error</span> (exceptions) try catch finally throw
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="em">try {</span> <span class="comment">// catch an exception</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   var v-nodef;
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="em">}</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="em">catch(</span>e<span class="em">) {</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(e.<span class="em">message</span> == "'nodef' is undefined"); <span class="comment">// varies</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(e.<span class="em">name</span> == "RefernceError");
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(e.<span class="em">description</span> == "'nodef' is undefined");
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(e._number &gt; 0);
+  </td>
+ </tr>
+ <tr>
+  <td class="line">
+   <span class="em">}</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   function process () { <span class="comment">// throw an exception</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   if (somethingGoesVeryWrong()) {
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="em">throw new Error</span>("msg","msg");
+  </td>
+ </tr>
+ <tr>
+  <td>
+   }
+  </td>
+ </tr>
+ <tr>
+  <td>
+   catch (e) { <span class="comment">// message or decription should have it</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   assert(e.message == "msg" || e.description == "msg");
+  </td>
+ </tr>
+ <tr>
+  <td>
+   }
+  </td>
+ </tr>
+ <tr>
+  <td class="line">
+   }
+  </td>
+ </tr>
+ <tr>
+  <td>
+   function ReliableHandler() { <span class="comment">// finally is for sure</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   try {
+  </td>
+ </tr>
+ <tr>
+  <td>
+   initialize();
+  </td>
+ </tr>
+ <tr>
+  <td>
+   process();
+  </td>
+ </tr>
+ <tr>
+  <td>
+   }
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="em">finally {</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   shutdown();
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="em">}</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   }
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="comment">// if the try-clause starts, the finally-clause must also,</span>
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <span class="comment">// even if an exception is thrown or the function returns</span>
   </td>
  </tr>
 </table>
