@@ -64,7 +64,6 @@ function articlesJsonLoaded(articlesJson) {
       <tr>
         <th>{{ article.day }}</th>
         <td>
-        <span onMouseOver="showById('article_edit');" onMouseOut="hideById('article_edit');">
         <a href="/{{ article.permalink }}">{{ article.title }}</a>
         {% if article.tags_display %}
           ({{ article.tags_display }})
@@ -77,9 +76,8 @@ function articlesJsonLoaded(articlesJson) {
         &nbsp;<font color="red">private</font>
         {% endif %}
         {% if is_admin %}&nbsp;
-        <a id="article_edit" class="invisible" href="/app/edit?article_permalink={{ article.permalink }}">edit</a>
+        <a id="article_edit" href="/app/edit?article_permalink={{ article.permalink }}">edit</a>
         {% endif %}
-        </span>
       </td></tr>
       {% endfor %}
     {% endfor %}
