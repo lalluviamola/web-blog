@@ -61,7 +61,11 @@ function articlesJsonLoaded(articlesJson) {
     {% for month in year.months %}
     <tr><th>{{ month.name }}</th><td></td></tr>    
       {% for article in month.articles %}
-      <tr><th>{{ article.day }}</th><td><a href="/{{ article.permalink }}">{{ article.title }}</a>
+      <tr>
+        <th>{{ article.day }}</th>
+        <td>
+        <span onMouseOver="showById('article_edit');" onMouseOut="hideById('article_edit');">
+        <a href="/{{ article.permalink }}">{{ article.title }}</a>
         {% if article.tags_display %}
           ({{ article.tags_display }})
         {% endif %}
@@ -72,6 +76,10 @@ function articlesJsonLoaded(articlesJson) {
         {% if not article.is_public %}
         &nbsp;<font color="red">private</font>
         {% endif %}
+        {% if is_admin %}&nbsp;
+        <a id="article_edit" class="invisible" href="/app/edit?article_permalink={{ article.permalink }}">edit</a>
+        {% endif %}
+        </span>
       </td></tr>
       {% endfor %}
     {% endfor %}

@@ -33,7 +33,6 @@ function articlesJsonLoaded(articlesJson) {
 <body onload="prettyPrint()">
 
 <div id="content">
-
 <h1>
   <a href="/index.html">home</a> &#8227;
   <span onMouseOver="showById('article_edit');" onMouseOut="hideById('article_edit');">
@@ -43,7 +42,11 @@ function articlesJsonLoaded(articlesJson) {
   {% endif %}
   {% if is_admin %}&nbsp;
   <a id="article_edit" class="invisible" href="/app/edit?article_permalink={{ article.permalink }}">edit</a>
+  {% else %}
+  &nbsp;&nbsp;<a id="login_id" class="invisible" onMouseOver="showById('login_id');" onMouseOut="hideById('login_id');" href="{{ login_out_url }}">login</a>
   {% endif %}
+  
+
   </span>
 </h1>
 
