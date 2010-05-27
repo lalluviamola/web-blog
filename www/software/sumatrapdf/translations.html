@@ -29,7 +29,7 @@ function build_html_for_langs(langsData) {
     for (var i=0; i<n; i++) {
         var langInfo = langsData[i];
         var langIso = langInfo[0];
-        var fileName = "strings-" + langIso + ".txt";
+        var fileName = langIso + ".txt";
         var langName = langInfo[1];
         var untranslatedCount = langInfo[2];
         var url = langInfo[3];
