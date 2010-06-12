@@ -36,6 +36,7 @@ function articlesJsonLoaded(articlesJson) {
 <h1>
   <a href="/index.html">home</a> &#8227;
   <span onMouseOver="showById('article_edit');" onMouseOut="hideById('article_edit');">
+  <span style="color:gray">{{ article.published_on|date:"d M Y" }}</span>
   {{ article.title }}
   {% if not article.is_public %}
     &nbsp;<font color="red">private</font>
@@ -45,8 +46,6 @@ function articlesJsonLoaded(articlesJson) {
   {% else %}
   &nbsp;&nbsp;<a id="login_id" class="invisible" onMouseOver="showById('login_id');" onMouseOut="hideById('login_id');" href="{{ login_out_url }}">login</a>
   {% endif %}
-  
-
   </span>
 </h1>
 
@@ -58,33 +57,26 @@ function articlesJsonLoaded(articlesJson) {
   <input size=12 type="text" name="q" id="searchFieldId" />
   <input class="button" value="Go" type="submit">
   </form>
+  <br>
+  <center class="postmeta">
+      {% if next_article %}
+      <a title="{{ next_article.title }}" href="/{{ next_article.permalink}}">← newer</a>
+      {% else %}
+      ← newer
+      {% endif %}
+      &bull;
+      {{ article_no }} of <a href="/archives.html">{{ articles_count }}</a>
+      &bull;
+      {% if prev_article %}
+      <a title="{{ prev_article.title }}" href="/{{ prev_article.permalink}}">older →</a>
+      {% else %}
+      older →
+      {% endif %}
+  </center>  
 </div>
 
+
 <div id="post">
-
-  <table class="postmeta" width=100%>
-  <tr><td >
-  {{ article.published_on|date:"d M Y" }}
-  {% if tags_display %}
-   · Tags: {{ tags_display }}
-  {% endif %}
-
-  </td><td style="text-align:right">
-    {% if next_article %}
-    <a title="{{ next_article.title }}" href="/{{ next_article.permalink}}">← newer</a>
-    {% else %}
-    ← newer
-    {% endif %}
-    &bull;
-    {{ article_no }} of <a href="/archives.html">{{ articles_count }}</a>
-    &bull;
-    {% if prev_article %}
-    <a title="{{ prev_article.title }}" href="/{{ prev_article.permalink}}">older →</a>
-    {% else %}
-    older →
-    {% endif %}
-  </td></tr></table>
-
 {% if is_admin %}
     <br>
     <div id="adminList" style="font-size: 90%; background: #ddd">
@@ -103,9 +95,15 @@ function articlesJsonLoaded(articlesJson) {
 {% endif %}
 
 {{ article.html_body }}
+
+<span class="postmeta">
+{% if tags_display %}
+Tags: {{ tags_display }}
+{% endif %}
+</span>
 </div>
 
-<center>
+<center class="postmeta">
     {% if next_article %}
     <a title="{{ next_article.title }}" href="/{{ next_article.permalink}}">← newer</a>
     {% else %}
