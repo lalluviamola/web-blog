@@ -1222,7 +1222,6 @@ def main():
         ('/blog/(.*)', ArticleHandler),
         ('/tag/(.*)', TagHandler),
         ('/js/(.*)', JsHandler),
-        ('/atom.xml', AtomHandler),
         ('/atom-all.xml', AtomAllHandler),
         ('/feedburner.xml', AtomHandler),
         ('/sitemap.xml', SitemapHandler),
