@@ -12,6 +12,10 @@
 body {
   padding-left: 20px;
 }
+div#content {
+  max-width: 900px;
+}
+
 </style>
 
 <script type="text/javascript" src="{{ jquery_url }}"></script>
@@ -24,6 +28,17 @@ function articlesJsonLoaded(articlesJson) {
   var html = genTagCloudHtml();
   $('#tagCloud').val(html);
 }
+
+$(document).ready(function(){
+  $("#searchFieldId").focus(function(){
+    $(this).val("").removeClass("inactiveSearch");
+  });
+  $("#searchFieldId").blur(function(){
+    $(this).val("Search this site").addClass("inactiveSearch");
+  });
+
+  $("#searchFieldId").blur(); /* force setting the text */
+});
 </script>
 
 <script src="{{ prettify_js_url }}" type="text/javascript"></script>
@@ -33,7 +48,7 @@ function articlesJsonLoaded(articlesJson) {
 <body onload="prettyPrint()">
 
 <div id="content">
-<h1>
+<h1 style="display:inline;">
   <a href="/index.html">home</a> &#8227;
   <span onMouseOver="showById('article_edit');" onMouseOut="hideById('article_edit');">
   <span style="color:gray">{{ article.published_on|date:"d M Y" }}</span>
@@ -49,14 +64,14 @@ function articlesJsonLoaded(articlesJson) {
   </span>
 </h1>
 
-<div style="position: absolute; right:20px; top:10px; font-size: 80%">
+<span style="float:right">
   <form method="get" action="http://google.com/search" >
   <input type="hidden" name="IncludeBlogs" value="1">
   <input type="hidden" name="as_sitesearch" value="http://blog.kowalczyk.info">
-  <label for="searchFieldId">Search:</label> 
-  <input size=12 type="text" name="q" id="searchFieldId" />
+  <input size=20 type="text" name="q" id="searchFieldId" />
   <input class="button" value="Go" type="submit">
   </form>
+<!--
   <center class="postmeta">
       {% if next_article %}
       <a title="{{ next_article.title }}" href="/{{ next_article.permalink}}">← newer</a>
@@ -72,13 +87,13 @@ function articlesJsonLoaded(articlesJson) {
       older →
       {% endif %}
   </center>  
-</div>
-
+-->
+</span>
 
 <div id="post">
 {% if is_admin %}
-    <br>
-    <div id="adminList" style="font-size: 90%; background: #ddd">
+<br>
+    <div id="adminList" style="font-size: 90%;">
     <a href="{{ login_out_url }}">Log out</a>&nbsp;
     <a href="/app/edit?article_id={{ article.key.id }}">Edit</a>&nbsp;
     <a href="/app/edit">New</a>&nbsp;

@@ -16,6 +16,17 @@ function articlesJsonLoaded(articlesJson) {
   var html = genTagCloudHtml();
   $('#tagCloud').html(html);
 }
+
+$(document).ready(function(){
+  $("#searchFieldId").focus(function(){
+    $(this).val("").removeClass("inactiveSearch");
+  });
+  $("#searchFieldId").blur(function(){
+    $(this).val("Search this site").addClass("inactiveSearch");
+  });
+
+  $("#searchFieldId").blur(); /* force setting the text */
+});
 </script>
 
 {% include "inline_css.html" %}
@@ -45,12 +56,11 @@ function articlesJsonLoaded(articlesJson) {
   {% endif %}
 </div>
 
-<div style="position: absolute; right:20px; top:10px; font-size: 80%">
+<div style="position: absolute; right:20px; top:10px">
   <form method="get" action="http://google.com/search" >
   <input type="hidden" name="IncludeBlogs" value="1">
   <input type="hidden" name="as_sitesearch" value="http://blog.kowalczyk.info">
-  <label for="searchFieldId">Search:</label> 
-  <input size=12 type="text" name="q" id="searchFieldId" />
+  <input size=20 type="text" name="q" id="searchFieldId" />
   <input class="button" value="Go" type="submit">
   </form>
 </div>
