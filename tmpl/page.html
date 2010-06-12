@@ -109,6 +109,8 @@ a.title_permalink:hover {
 	color: #c00;
 }
 
+.invisible { color: #f2f2f2 }
+
 </style>
 </head>
 
@@ -116,43 +118,40 @@ a.title_permalink:hover {
 
 <div id="content">
 
-  <h1 style="display:inline;"><a href="/" style="text-decoration:none; color: black">Krzysztof J. Kowalczyk's notebook</a> <span class="smaller">(a guy and his software)</span></h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<a class="title_permalink2" href="/static/resume.html">About</a><span style="color:gray">&nbsp;&bull;&nbsp;</span>
+<h1 style="display:inline; padding-left:4px"><a href="/" style="text-decoration:none; color: black">
+Krzysztof J. Kowalczyk's notebook</a> <span class="smaller">(a guy and his software)</span>
+</h1>
+<span style="float:right">
+<a class="title_permalink2" href="/static/resume.html">About</a>
+<span style="color:gray">&nbsp;&bull;&nbsp;</span>
 <a class="title_permalink2" href="/atom.xml">Subscribe (rss)</a>
-
+<span style="color:gray">&nbsp;&bull;&nbsp;</span>
+<form style="display:inline" method="get" action="http://google.com/search" >
+<input type="hidden" name="IncludeBlogs" value="1">
+<input type="hidden" name="as_sitesearch" value="http://blog.kowalczyk.info">
+<input size=20 type="text" name="q" id="searchFieldId">
+<input class="button" value="Go" type="submit">
+</form>
+</span>
 <p></p>
-<!--
-<div class="line"></div>
--->
 <p></p>
 
 <table>
 <tr>
-	<td valign=top style="border-right: 1px solid #D0D0D0; padding-right: 12px; max-width: 240px; font-size: 80%">
-		<form method="get" action="http://google.com/search" >
-		<input type="hidden" name="IncludeBlogs" value="1">
-		<input type="hidden" name="as_sitesearch" value="http://blog.kowalczyk.info">
-		<input size=20 type="text" name="q" id="searchFieldId">
-		<input class="button" value="Go" type="submit">
-		</form>
-
+	<td valign=top style="background: #F2F2F2; padding-right: 12px; padding-left: 4px; max-width: 240px; font-size: 80%">
 		{% if is_admin %}
-		<br>
-		<div class="line"></div>
-		<b>Admin actions:</b><br>
+		<b>Admin actions</b><br>
 		<div style="margin-left: 6px">
 		<a href="{{ login_out_url }}">log out</a><br>
 		<a href="/app/edit">new blog post</a><br>
 		<a href="/app/edit?ramblings=yes">new note post</a><br>
 		<a href="/app/showprivate">show private</a><br>
 		</div>
-		{% else %}
-		<a id="login_id" class="invisible" onMouseOver="showById('login_id');" onMouseOut="hideById('login_id');" href="{{ login_out_url }}">login</a>
+		{% endif %}
+
+		<b>Me</b> {% if not is_admin %} <a id="login_id" class="invisible" onMouseOver="showById('login_id');" onMouseOut="hideById('login_id');" href="{{ login_out_url }}">login</a>
 		{% endif %}
 		<br>
-		<div class="line"></div>
-
-		<b>Me</b><br>
 		<div style="margin-left: 6px">
 		<script>
 		  var email = "kkowalczyk";
@@ -170,7 +169,6 @@ a.title_permalink:hover {
 		</div>
 
 		<br>
-		<div class="line"></div>
 
 		<b>On this site</b><br>
 		<div style="margin-left: 6px">
@@ -188,7 +186,6 @@ a.title_permalink:hover {
 		</div>
 
 		<br>
-		<div class="line"></div>
 
 		<b>Tags</b><br>
 		<div id="tagCloud" style="margin-left: 6px">
