@@ -48,6 +48,25 @@ $(document).ready(function(){
 <body onload="prettyPrint()">
 
 <div id="content">
+{% if is_admin %}
+    <center id="adminList" style="font-size: 90%; background: #ddd">
+    <a href="{{ login_out_url }}">Log out</a>&nbsp;
+    <a href="/app/edit?article_id={{ article.key.id }}">Edit</a>&nbsp;
+    <a href="/app/edit">New</a>&nbsp;
+    {% if article.is_deleted %}
+     <a href="/app/undelete?article_id={{ article.key.id }}">Undelete</a>&nbsp;
+     {% else %}
+     <a href="/app/delete?article_id={{ article.key.id }}">Delete</a>&nbsp;
+    {% endif %}
+    <a href="/app/permanentdelete?article_id={{ article.key.id }}">Permanent delete</a>&nbsp;
+    <a href="/app/showprivate">Show private</a>&nbsp;
+    <a href="/app/showdeleted">Show deleted</a>&nbsp;
+    </center>
+    <br/>
+
+{% endif %}
+
+
 <h1 style="display:inline;">
   <a href="/index.html">home</a> &#8227;
   <span onMouseOver="showById('article_edit');" onMouseOut="hideById('article_edit');">
@@ -91,22 +110,6 @@ $(document).ready(function(){
 </span>
 
 <div id="post">
-{% if is_admin %}
-<br>
-    <div id="adminList" style="font-size: 90%;">
-    <a href="{{ login_out_url }}">Log out</a>&nbsp;
-    <a href="/app/edit?article_id={{ article.key.id }}">Edit</a>&nbsp;
-    <a href="/app/edit">New</a>&nbsp;
-    {% if article.is_deleted %}
-     <a href="/app/undelete?article_id={{ article.key.id }}">Undelete</a>&nbsp;
-     {% else %}
-     <a href="/app/delete?article_id={{ article.key.id }}">Delete</a>&nbsp;
-    {% endif %}
-    <a href="/app/permanentdelete?article_id={{ article.key.id }}">Permanent delete</a>&nbsp;
-    <a href="/app/showprivate">Show private</a>&nbsp;
-    <a href="/app/showdeleted">Show deleted</a>&nbsp;
-    </div>
-{% endif %}
 
 {{ article.html_body }}
 

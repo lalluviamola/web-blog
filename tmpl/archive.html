@@ -36,34 +36,33 @@ $(document).ready(function(){
 
 <div id="content" style="line-height:1.50">
 
-<h1><a href=/index.html>home</a> &#8227; 
+{% if is_admin %}
+<center id="adminList" style="font-size: 90%; background: #ddd">
+<a href="{{ login_out_url }}">Log out</a>&nbsp;
+<a href="/app/edit">New Post</a>&nbsp;
+<a href="/app/showprivate">Show private</a>&nbsp;
+</center>
+{% endif %}
+
+<h1 style="display:inline;"><a href=/index.html>home</a> &#8227; 
   {% if tag %}
   Posts tagged with: {{ tag }} ({{ posts_count }} articles)
   {% else %}
   All {{ posts_count }} articles
   {% endif %} 
 </h1>
+{% if not is_admign %}
+<a id="login_id" class="invisible" onMouseOver="showLogin();" onMouseOut="hideLogin();" href="{{ login_out_url }}">login</a>
+{% endif %}
 
-<div id="adminList" style="position: absolute; left:10px; top:0px; font-size: 90%;">
-  {% if is_admin %}
-  <div id="adminList" style="font-size: 90%; background: #ddd">
-  <a href="{{ login_out_url }}">Log out</a>&nbsp;
-  <a href="/app/edit">New Post</a>&nbsp;
-  <a href="/app/showprivate">Show private</a>&nbsp;
-  </div>
-  {% else %}
-  &nbsp;<a id="login_id" class="invisible" onMouseOver="showLogin();" onMouseOut="hideLogin();" href="{{ login_out_url }}">login</a>
-  {% endif %}
-</div>
-
-<div style="position: absolute; right:20px; top:10px">
+<span style="float:right">
   <form method="get" action="http://google.com/search" >
   <input type="hidden" name="IncludeBlogs" value="1">
   <input type="hidden" name="as_sitesearch" value="http://blog.kowalczyk.info">
   <input size=20 type="text" name="q" id="searchFieldId" />
   <input class="button" value="Go" type="submit">
   </form>
-</div>
+</span>
 
 <table id=arc>
   {% for year in years %}
