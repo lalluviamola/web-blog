@@ -189,6 +189,7 @@ Krzysztof J. Kowalczyk</a> <span class="smaller">(a guy and his software)</span>
 	<td style="padding-left: 12px" valign="top">
 		<div id="post">
 		{% for article in articles_summary %}
+
 		<table width=100%>
 		<tr>
 		<td width="46px">
@@ -197,7 +198,7 @@ Krzysztof J. Kowalczyk</a> <span class="smaller">(a guy and his software)</span>
 					<td class="date" align="center">{{ article.published_on|date:"d" }}</td>
 				</tr>
 				<tr>
-					<td style="color: #CCC; font-weight: bold">{{ article.published_on|date:"M y" }}</td>
+					<td style="color: #CCC; font-weight: bold">{{ article.published_on|date:"M Y" }}</td>
 				</tr>
 			</table>
 		</td>
