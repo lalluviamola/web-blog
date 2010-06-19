@@ -267,14 +267,10 @@ def jquery_url():
     return url
 
 def prettify_js_url():
-    url = "http://google-code-prettify.googlecode.com/svn-history/r97/trunk/src/prettify.js"
-    if is_localhost(): url = "/static/js/prettify.js"
-    return url
+    return "/static/js/prettify.js"
 
 def prettify_css_url():
-    url = "http://google-code-prettify.googlecode.com/svn-history/r97/trunk/src/prettify.css"
-    if is_localhost(): url = "/static/js/prettify.css"
-    return url
+    return "/static/js/prettify.css"
 
 def is_empty_string(s):
     if not s: return True
@@ -459,14 +455,12 @@ def gen_html_body(format, txt):
     return html
 
 def article_gen_html_body(article):
-    html = gen_html_body(article.format, article.body)
-    article.html_body = html
+    article.html_body = gen_html_body(article.format, article.body)
 
 def article_summary_gen_html_body(article):
-    format = article["format"]
     permalink = article["permalink"]
     article2 = Article.gql("WHERE permalink = :1", permalink).get()
-    html = gen_html_body(format, article2.body)
+    html = gen_html_body(article["format"], article2.body)
     article["html_body"] = html
 
 def do_sitemap_ping():
