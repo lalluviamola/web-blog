@@ -70,13 +70,13 @@ function $(id) {
 
 function selectMain() {
     var shot = $("currentscreenshot");
-	shot.src = "http://kjkpub.s3.amazonaws.com/blog/vack-main.png";
+	shot.src = "http://kjkpub.s3.amazonaws.com/blog/vack/vack-main.png";
     return false;
 }
 
 function selectResult() {
     var shot = $("currentscreenshot");
-	shot.src = "http://kjkpub.s3.amazonaws.com/blog/vack-results.png";
+	shot.src = "http://kjkpub.s3.amazonaws.com/blog/vack/vack-results.png";
     return false;
 }
 
@@ -84,7 +84,7 @@ function myInit() {
 	var html = "<a class=dl href='" + vackLatestUrl + "'>Download</a>";
 	$("url").innerHTML = html;
 	$("ver").innerHTML = "(version " + vackLatestVer + ', <a href="http://kjkpub.s3.amazonaws.com/vack/relnotes.html">release notes</a>)';
-	html = '<a href="' + vackLatestUrl + '">' + '<img id="currentscreenshot" src="http://kjkpub.s3.amazonaws.com/blog/vack-main.png"></a>';
+	html = '<a href="' + vackLatestUrl + '">' + '<img id="currentscreenshot" src="http://kjkpub.s3.amazonaws.com/blog/vack/vack-main.png"></a>';
 	$("shot2").innerHTML = html;
 	//$("buildtime").innerHTML = vackBuiltOn;
 }
@@ -121,8 +121,8 @@ Latest build of VisualAck for mac: <span id=url></span>, built on <span id=build
 <tr>
   <td></td>
   <td align=center>
-	<a href="#" onclick="return selectMain();"><img src="http://kjkpub.s3.amazonaws.com/blog/vack-main-mini.png"></a>
-	<a href="#" onclick="return selectResult();"><img src="http://kjkpub.s3.amazonaws.com/blog/vack-results-mini.png"></a>
+	<a href="#" onclick="return selectMain();"><img src="http://kjkpub.s3.amazonaws.com/blog/vack/vack-main-mini.png"></a>
+	<a href="#" onclick="return selectResult();"><img src="http://kjkpub.s3.amazonaws.com/blog/vack/vack-results-mini.png"></a>
   </td>
 </tr>
 
