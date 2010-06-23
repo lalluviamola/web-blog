@@ -601,7 +601,7 @@ WoodPart.prototype.description=function() { // override
 ass(tpick.description() == "toothpick $0.01 (oak)");
 ass(partBolt.description() == "bolt $1.99");
 
-!error Error (exceptions) try catch finally throw
+!exceptions Error (exceptions) try catch finally throw
 _try {_ // catch an exception
   var v-nodef;
 _}_
