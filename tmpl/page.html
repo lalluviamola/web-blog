@@ -85,6 +85,7 @@ a.title_permalink2:hover {
 	font-size: 160%;
 	text-decoration: none;
 	color: #000;
+	border-bottom: 1px solid lightgray;
 }
 
 a.title_permalink:hover {
@@ -180,9 +181,9 @@ Krzysztof J. Kowalczyk</a> <span class="smaller">(a guy and his software)</span>
 
 		<table width=100%>
 		<tr>
-		<td valign="top" style="padding-left: 0px">
-			<a class="title_permalink"  href="/{{ article.permalink }}">{{ article.title }}</a>
-			{% if not article.is_public %} &nbsp;<font style="color: red;">(private)</font> {% endif %}
+		<td valign="top" style="padding-left: 0px;">
+			<a class="title_permalink" href="/{{ article.permalink }}">{{ article.title }}</a>
+			{% if not article.is_public %} &nbsp;<font style="color: red;">private</font> {% endif %}
 			{% if is_admin %}&nbsp;
 			<a id="article_{{ article.no }}" href="/app/edit?article_permalink={{ article.permalink }}">edit</a>
 			{% endif %}
