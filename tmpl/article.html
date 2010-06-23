@@ -70,7 +70,6 @@ $(document).ready(function(){
 <h1 style="display:inline;">
   <a href="/index.html">home</a> &#8227;
   <span onMouseOver="showById('article_edit');" onMouseOut="hideById('article_edit');">
-  <span style="color:gray">{{ article.published_on|date:"d M Y" }}</span>
   {{ article.title }}
   {% if not article.is_public %}
     &nbsp;<font color="red">private</font>
@@ -114,10 +113,12 @@ $(document).ready(function(){
 {{ article.html_body }}
 
 <span class="postmeta">
+Posted on {{ article.published_on|date:"d M Y" }}
 {% if tags_display %}
-Tags: {{ tags_display }}
+&bull; Tags: {{ tags_display }}
 {% endif %}
 </span>
+
 </div>
 
 <center class="postmeta">

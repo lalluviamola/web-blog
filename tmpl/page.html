@@ -38,11 +38,6 @@ $(document).ready(function(){
 {% include "inline_css.html" %}
 <style>
 
-.date {
-  font-family: Monaco,"Courier New",monospace;
-  font-size: 90%;
-  color: #999999;
-}
 .smaller {
 	color: gray;
 	font-size: 65%;
@@ -75,13 +70,6 @@ $(document).ready(function(){
 	font-weight: bold;
 }
 
-.date {
-	color: #b88;
-	font-size: 18px;
-	font-weight: bold;
-	line-height: 0.8;	
-}
-
 .title_permalink2 {
 	font-weight: bold;
 	text-decoration: none;
@@ -103,7 +91,7 @@ a.title_permalink:hover {
 	color: #c00;
 }
 
-.invisible { color: #f2f2f2 }
+.invisible { color: #F9F7F5 }
 
 </style>
 </head>
@@ -132,7 +120,7 @@ Krzysztof J. Kowalczyk</a> <span class="smaller">(a guy and his software)</span>
 
 <table>
 <tr>
-	<td valign=top style="background: #F2F2F2; padding-right: 12px; padding-left: 4px; max-width: 240px; font-size: 80%">
+	<td valign=top style="background: #F9F7F5; padding-right: 12px; padding-left: 4px; max-width: 240px; font-size: 80%">
 		{% if is_admin %}
 		<b>Admin actions</b><br>
 		<div style="margin-left: 6px">
@@ -192,35 +180,23 @@ Krzysztof J. Kowalczyk</a> <span class="smaller">(a guy and his software)</span>
 
 		<table width=100%>
 		<tr>
-		<td width="46px">
-			<table style="font-size:60%">
-				<tr>
-					<td class="date" align="center">{{ article.published_on|date:"d" }}</td>
-				</tr>
-				<tr>
-					<td style="color: #CCC; font-weight: bold">{{ article.published_on|date:"M Y" }}</td>
-				</tr>
-			</table>
-		</td>
-
 		<td valign="top" style="padding-left: 0px">
-		    <span onMouseOver="showById('article_{{ article.no }}');" onMouseOut="hideById('article_{{ article.no }}');">
 			<a class="title_permalink"  href="/{{ article.permalink }}">{{ article.title }}</a>
 			{% if not article.is_public %} &nbsp;<font style="color: red;">(private)</font> {% endif %}
 			{% if is_admin %}&nbsp;
-			<a id="article_{{ article.no }}" class="invisible" href="/app/edit?article_permalink={{ article.permalink }}">edit</a>
+			<a id="article_{{ article.no }}" href="/app/edit?article_permalink={{ article.permalink }}">edit</a>
 			{% endif %}
-			</span>
 		</td>
 		</tr>
 		</table>
 		{{ article.html_body }}
 
-		{% if article.tags_display %}
 		<div class="tags">
-		Tags: {{ article.tags_display }}
+			{% if article.tags_display %}
+			Tags: {{ article.tags_display }} &bull;
+			{% endif %}
+			posted on {{ article.published_on|date:"d M Y" }}
 		</div>
-		{% endif %}
 		<br>
 
 		{% endfor %}
