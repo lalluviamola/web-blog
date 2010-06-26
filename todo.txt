@@ -1,47 +1,21 @@
 Todo next:
 * add syntax help for markdown/textile in edit page
-* wysiwig editor using ckeditor or tinymce
 * an easy way to import posts from real blog locally, so that I can test changes
   in a more meaningful way
 * archives.html should use articles_json, instead of us using another memcache data
 * better 404 handling (all should redirect to 404.html?${orig_url})
 * show articles tagged e.g. with 'fav' as another list on index page if in
   admin mode
-* use http://jquery.com/demo/thickbox/ for even less intrusive admin interface
 * use http://jquery.com/demo/thickbox/ for pop-up tags page
-* when switching between ckeditor and text field, transfer the content between them
-  (need to remember previous type of the edit field and transfer when switching
-   between html and non-html). http://docs.cksource.com/CKEditor_3.x/Developers_Guide/Integration
 
 Maybe todo someday:
 * add per-tag atom feeds (/atom.xml?tag=tag) so that I can e.g. easily add feeds
   for sumatra-only announcements just by tagging announcement posts with unique
   tag
-* steal http://www.codylindley.com/Archive/ design
-* rename me.html to more.html and all the places that link to it
-* delete sourceOfBugs.html and make that blog post public
-* automatically tweet my posts
-* better 404 page (show possible destinations, add manual redirects based on
-  data from dashboard)
 * ability to see previous versions of blog posts
 * only load prettify js/css if there's code in the post
-* use minified version of code-higlighter js
-* design where clicking on a tag shows overlayed window with articles with this
+* design where clicking on a tag shows overlaid window with articles with this
   tag (to make browsing more efficient)
 * somehow integrate my del.icio.us tags into index page
-* month links at the bottom like in http://blog.quinthar.com
 * implement micro-blogging aggregator like http://dotat.at/:/ (automatically sync
   del.icio.us bookmarks every day)
-
-Twitter posting:
-Basic auth
-curl -u username:password -d status="your message here" http://twitter.com/statuses/update.json
-username: registered username or email
-
-Bitly:
-login=login&apiKey=apiKey
-version=2.0.1
-format=json
-e.g.:
-http://api.bit.ly/shorten?version=2.0.1&longUrl=http://cnn.com&login=bitlyapidemo&apiKey=R_0da49e0a9118ff35f52f629d2d71bf07
-

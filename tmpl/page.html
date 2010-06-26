@@ -121,7 +121,7 @@ Krzysztof J. Kowalczyk</a> <span class="smaller">(a guy and his software)</span>
 
 <table>
 <tr>
-	<td valign=top style="background: #F9F7F5; padding-right: 12px; padding-left: 4px; max-width: 240px; font-size: 80%">
+	<td valign=top style="background: #F9F7F5; padding-right: 12px; padding-left: 4px; padding-top: 8px; padding-bottom: 8px; max-width: 240px; font-size: 80%">
 		{% if is_admin %}
 		<b>Admin actions</b><br>
 		<div style="margin-left: 6px">
@@ -196,7 +196,7 @@ Krzysztof J. Kowalczyk</a> <span class="smaller">(a guy and his software)</span>
 			{% if article.tags_display %}
 			Tags: {{ article.tags_display }} &bull;
 			{% endif %}
-			posted on {{ article.published_on|date:"d M Y" }}
+			posted on {{ article.published_on|date:"d F Y" }}
 		</div>
 		<br>
 
