@@ -84,8 +84,8 @@ a.title_permalink2:hover {
 	font-weight: bold;
 	font-size: 160%;
 	text-decoration: none;
-	color: #000;
-	border-bottom: 1px solid lightgray;
+	color: #6e0315;
+	border-bottom: 1px solid #6e0315;
 }
 
 a.title_permalink:hover {
@@ -183,10 +183,12 @@ Krzysztof J. Kowalczyk</a> <span class="smaller">(a guy and his software)</span>
 		<table width=100%>
 		<tr>
 		<td valign="top" style="padding-left: 0px;">
+		  <span onMouseOver="showById('article_{{ article.no }}');" onMouseOut="hideById('article_{{ article.no }}');">
 			<a class="title_permalink" href="/{{ article.permalink }}">{{ article.title }}</a>
 			{% if not article.is_public %} &nbsp;<font style="color: red;">private</font> {% endif %}
 			{% if is_admin %}&nbsp;
-			<a id="article_{{ article.no }}" href="/app/edit?article_permalink={{ article.permalink }}">edit</a>
+			<a id="article_{{ article.no }}" class="invisible" href="/app/edit?article_permalink={{ article.permalink }}">edit</a>
+			</span>
 			{% endif %}
 		</td>
 		</tr>
