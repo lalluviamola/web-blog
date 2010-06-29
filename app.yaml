@@ -57,6 +57,10 @@ handlers:
   static_files: www/robots.txt
   upload: www/robots.txt
 
+- url: /favicon.ico
+  static_files: www/static/favicon.ico
+  upload: www/static/favicon.ico
+
 - url: .*
   script: main.py
 
