@@ -2,10 +2,10 @@
 <head> 
 <meta http-equiv="Content-Type"content="text/html; charset=utf-8" />
 <title>Misc software betas</title>
-<script src="http://kjkpub.s3.amazonaws.com/app/fotofi/latestver.js" type="text/javascript"> 
-</script>
-<script>
+<script src="http://kjkpub.s3.amazonaws.com/app/fotofi/latestver.js" type="text/javascript"></script>
+<script src="http://kjkpub.s3.amazonaws.com/app/simplerion/latestver.js" type="text/javascript"></script>
 
+<script>
 function $(id) {
     if (document.all)
         return document.all[id];
@@ -22,14 +22,18 @@ function a(url, txt) {
   return '<a href="' + url + '">' + txt + '</a>';
 }
 
-function build_fotofi_html() {
-  var ver = fotofiLatestVer[0];
-  var url = fotofiLatestVer[1];
+function build_link_html(latestVer) {
+  var ver = latestVer[0];
+  var url = latestVer[1];
   return a(url, ver);
 }
 
+function build_fotofi_html() { return build_link_html(fotofiLatestVer); }
+function build_simplerion_html() { return build_link_html(simplerionLatestVer); }
+
 function myInit() {
 	$("fotofi").innerHTML = build_fotofi_html();
+	$("simplerion").innerHTML = build_simplerion_html();
 }
  
 window.onload = myInit;
@@ -38,7 +42,8 @@ window.onload = myInit;
 </head>
 
 <ul>
-  <li>Latest fotofi: <span id="fotofi"></span></li>
+  <li>Latest Fotofi: <span id="fotofi"></span></li>
+  <li>Latest Simplerion: <span id="simplerion"></span></li>
 </ul>
 
 </html>
