@@ -1,6 +1,7 @@
 # manual redirects from old urls to new
 redirects = {
     '/kb/serialization-in-c#.html' : '/article/Serialization-in-C.html',
+    '/articles/' : '/articles/index.html',
     '/software/' : '/software/index.html',
     '/software/fofou' : '/software/fofou/index.html',
     '/software/sumatra' : '/software/sumatrapdf/index.html',
