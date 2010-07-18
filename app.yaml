@@ -25,7 +25,10 @@ handlers:
 - url: /extremeoptimizations/
   script: main.py
 
-- url: /software/sumatrapdf/sumatra-shot-0?.gif
+- url: /software/sumatrapdf/sumatra-shot.*.gif
+  script: main.py
+
+- url: /software/sumatrapdf/SumatraSplash.png
   script: main.py
 
 - url: /software

@@ -19,5 +19,8 @@ redirects = {
     '/forum_sumatra' : 'http://forums.fofou.org/sumatrapdf',
     '/google6dba371684d43cd6.html' : '/static/google6dba371684d43cd6.html',
     '/software/sumatrapdf/sumatra-shot-00.gif' : 'http://kjkpub.s3.amazonaws.com/blog/sumatra/sumatra-shot-00.gif',
-    '/software/sumatrapdf/sumatra-shot-01.gif' : 'http://kjkpub.s3.amazonaws.com/blog/sumatra/sumatra-shot-01.gif'
+    '/software/sumatrapdf/sumatra-shot-01.gif' : 'http://kjkpub.s3.amazonaws.com/blog/sumatra/sumatra-shot-01.gif',
+    '/software/sumatrapdf/sumatra-shot-00-full.gif' : 'http://kjkpub.s3.amazonaws.com/blog/sumatra/sumatra-shot-00-full.gif',
+    '/software/sumatrapdf/sumatra-shot-01-full.gif' : 'http://kjkpub.s3.amazonaws.com/blog/sumatra/sumatra-shot-01-full.gif',
+    '/software/sumatrapdf/SumatraSplash.png' : 'http://kjkpub.s3.amazonaws.com/blog/sumatra/SumatraSplash.png'
 }
