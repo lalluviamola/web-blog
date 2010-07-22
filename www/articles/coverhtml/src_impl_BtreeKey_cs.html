@@ -1,0 +1,309 @@
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type=text/css> 
+pre,code {font-size:9pt; font:Consolas,Monaco,"Courier New","DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace;}
+.c { background-color: #96EBA6; }
+</style>
+</head>
+<body>
+<pre><a href="index.html">Home</a> : csharp\src\impl\BtreeKey.cs</pre>
+<table cellpadding="0" cellspacing="0">
+<tbody>
+  <tr>
+  <td style="margin:0px; vertical-align:top">
+  <pre><span>1</span>
+<span>2</span>
+<span>3</span>
+<span>4</span>
+<span>5</span>
+<span>6</span>
+<span>7</span>
+<span>8</span>
+<span>9</span>
+<span>10</span>
+<span>11</span>
+<span>12</span>
+<span>13</span>
+<span>14</span>
+<span>15</span>
+<span>16</span>
+<span>17</span>
+<span>18</span>
+<span>19</span>
+<span>20</span>
+<span>21</span>
+<span>22</span>
+<span>23</span>
+<span>24</span>
+<span>25</span>
+<span>26</span>
+<span>27</span>
+<span>28</span>
+<span>29</span>
+<span>30</span>
+<span>31</span>
+<span>32</span>
+<span>33</span>
+<span>34</span>
+<span>35</span>
+<span>36</span>
+<span>37</span>
+<span>38</span>
+<span>39</span>
+<span>40</span>
+<span>41</span>
+<span>42</span>
+<span>43</span>
+<span>44</span>
+<span>45</span>
+<span>46</span>
+<span>47</span>
+<span>48</span>
+<span>49</span>
+<span>50</span>
+<span>51</span>
+<span>52</span>
+<span>53</span>
+<span>54</span>
+<span>55</span>
+<span>56</span>
+<span>57</span>
+<span>58</span>
+<span>59</span>
+<span>60</span>
+<span>61</span>
+<span>62</span>
+<span>63</span>
+<span>64</span>
+<span>65</span>
+<span>66</span>
+<span>67</span>
+<span>68</span>
+<span>69</span>
+<span>70</span>
+<span>71</span>
+<span>72</span>
+<span>73</span>
+<span>74</span>
+<span>75</span>
+<span>76</span>
+<span>77</span>
+<span>78</span>
+<span>79</span>
+<span>80</span>
+<span>81</span>
+<span>82</span>
+<span>83</span>
+<span>84</span>
+<span>85</span>
+<span>86</span>
+<span>87</span>
+<span>88</span>
+<span>89</span>
+<span>90</span>
+<span>91</span>
+<span>92</span>
+<span>93</span>
+<span>94</span>
+<span>95</span>
+<span>96</span>
+<span>97</span>
+<span>98</span>
+<span>99</span>
+<span>100</span>
+<span>101</span>
+<span>102</span>
+<span>103</span>
+<span>104</span>
+<span>105</span>
+<span>106</span>
+<span>107</span>
+<span>108</span>
+<span>109</span>
+<span>110</span>
+<span>111</span>
+<span>112</span>
+<span>113</span>
+<span>114</span>
+<span>115</span>
+<span>116</span>
+<span>117</span>
+<span>118</span>
+<span>119</span>
+<span>120</span>
+<span>121</span>
+<span>122</span>
+<span>123</span>
+<span>124</span>
+<span>125</span>
+<span>126</span>
+<span>127</span>
+<span>128</span>
+<span>129</span>
+<span>130</span>
+<span>131</span>
+<span>132</span>
+<span>133</span>
+<span>134</span>
+<span>135</span>
+<span>136</span>
+<span>137</span>
+<span>138</span>
+<span>139</span>
+<span>140</span>
+<span>141</span>
+<span>142</span>
+<span>143</span>
+<span>144</span>
+<span>145</span>
+<span>146</span>
+<span>147</span>
+<span>148</span>
+<span>149</span>
+<span>150</span>
+<span>151</span>
+<span>152</span>
+<span>153</span>
+<span>154</span>
+<span>155</span>
+<span>156</span>
+<span>157</span>
+<span>158</span>
+<span>159</span>
+<span>160</span>
+<span>161</span>
+<span>162</span>
+<span>163</span>
+<span>164</span>
+<span>165</span>
+<span>166</span>
+<span>167</span>
+
+  </pre>
+  </td>
+
+  <td  style="margin:0px; padding-left:8px; vertical-align:top" width="100%">
+  <pre><div class="line" id="l1">namespace NachoDB.Impl
+</div><div class="line" id="l2">{
+</div><div class="line" id="l3">    using System;
+</div><div class="line" id="l4">    using NachoDB;
+</div><div class="line" id="l5">    using System.Diagnostics;
+</div><div class="line" id="l6"><br></div><div class="line" id="l7">    class BtreeKey
+</div><div class="line" id="l8">    {
+</div><div class="line" id="l9">        internal Key key;
+</div><div class="line" id="l10">        internal int oid;
+</div><div class="line" id="l11">        internal int oldOid;
+</div><div class="line" id="l12"><br></div><div class="line" id="l13">        <span class="c">internal BtreeKey(Key key, int oid)</span></div><div class="line" id="l14">        {
+</div><div class="line" id="l15">            <span class="c">this.key = key;</span></div><div class="line" id="l16">            <span class="c">this.oid = oid;</span></div><div class="line" id="l17">        <span class="c">}</span></div><div class="line" id="l18"><br></div><div class="line" id="l19">        internal void  getStr(Page pg, int i)
+</div><div class="line" id="l20">        {
+</div><div class="line" id="l21">            int len = BtreePage.getKeyStrSize(pg, i);
+</div><div class="line" id="l22">            int offs = BtreePage.firstKeyOffs + BtreePage.getKeyStrOffs(pg, i);
+</div><div class="line" id="l23">            char[] sval = new char[len];
+</div><div class="line" id="l24">            for (int j = 0; j &lt; len; j++)
+</div><div class="line" id="l25">            {
+</div><div class="line" id="l26">                sval[j] = (char) Bytes.unpack2(pg.data, offs);
+</div><div class="line" id="l27">                offs += 2;
+</div><div class="line" id="l28">            }
+</div><div class="line" id="l29">            key = new Key(sval);
+</div><div class="line" id="l30">        }
+</div><div class="line" id="l31"><br></div><div class="line" id="l32">        internal void getByteArray(Page pg, int i) 
+</div><div class="line" id="l33">        { 
+</div><div class="line" id="l34">            int len = BtreePage.getKeyStrSize(pg, i);
+</div><div class="line" id="l35">            int offs = BtreePage.firstKeyOffs + BtreePage.getKeyStrOffs(pg, i);
+</div><div class="line" id="l36">            byte[] bval = new byte[len];
+</div><div class="line" id="l37">            Array.Copy(pg.data, offs, bval, 0, len);
+</div><div class="line" id="l38">            key = new Key(bval);
+</div><div class="line" id="l39">        }
+</div><div class="line" id="l40"><br></div><div class="line" id="l41">        internal void  extract(Page pg, int offs, ClassDescriptor.FieldType type)
+</div><div class="line" id="l42">        {
+</div><div class="line" id="l43">            byte[] data = pg.data;
+</div><div class="line" id="l44"><br></div><div class="line" id="l45">            switch (type)
+</div><div class="line" id="l46">            {
+</div><div class="line" id="l47">                case ClassDescriptor.FieldType.tpBoolean: 
+</div><div class="line" id="l48">                    key = new Key(data[offs] != 0);
+</div><div class="line" id="l49">                    break;
+</div><div class="line" id="l50"><br></div><div class="line" id="l51">                case ClassDescriptor.FieldType.tpSByte: 
+</div><div class="line" id="l52">                    key = new Key((sbyte)data[offs]);
+</div><div class="line" id="l53">                    break;
+</div><div class="line" id="l54">                case ClassDescriptor.FieldType.tpByte: 
+</div><div class="line" id="l55">                    key = new Key(data[offs]);
+</div><div class="line" id="l56">                    break;
+</div><div class="line" id="l57"><br></div><div class="line" id="l58">                case ClassDescriptor.FieldType.tpShort: 
+</div><div class="line" id="l59">                    key = new Key(Bytes.unpack2(data, offs));
+</div><div class="line" id="l60">                    break;
+</div><div class="line" id="l61">                case ClassDescriptor.FieldType.tpUShort: 
+</div><div class="line" id="l62">                    key = new Key((ushort)Bytes.unpack2(data, offs));
+</div><div class="line" id="l63">                    break;
+</div><div class="line" id="l64"><br></div><div class="line" id="l65"><br></div><div class="line" id="l66">                case ClassDescriptor.FieldType.tpChar: 
+</div><div class="line" id="l67">                    key = new Key((char) Bytes.unpack2(data, offs));
+</div><div class="line" id="l68">                    break;
+</div><div class="line" id="l69"><br></div><div class="line" id="l70">                case ClassDescriptor.FieldType.tpInt: 
+</div><div class="line" id="l71">                    key = new Key(Bytes.unpack4(data, offs));
+</div><div class="line" id="l72">                    break;
+</div><div class="line" id="l73">                case ClassDescriptor.FieldType.tpEnum: 
+</div><div class="line" id="l74">                case ClassDescriptor.FieldType.tpUInt: 
+</div><div class="line" id="l75">                case ClassDescriptor.FieldType.tpObject: 
+</div><div class="line" id="l76">                case ClassDescriptor.FieldType.tpOid: 
+</div><div class="line" id="l77">                    key = new Key((uint)Bytes.unpack4(data, offs));
+</div><div class="line" id="l78">                    break;
+</div><div class="line" id="l79"><br></div><div class="line" id="l80">                case ClassDescriptor.FieldType.tpLong: 
+</div><div class="line" id="l81">                    key = new Key(Bytes.unpack8(data, offs));
+</div><div class="line" id="l82">                    break;
+</div><div class="line" id="l83">                case ClassDescriptor.FieldType.tpDate: 
+</div><div class="line" id="l84">                case ClassDescriptor.FieldType.tpULong: 
+</div><div class="line" id="l85">                    key = new Key((ulong)Bytes.unpack8(data, offs));
+</div><div class="line" id="l86">                    break;
+</div><div class="line" id="l87"><br></div><div class="line" id="l88">                case ClassDescriptor.FieldType.tpFloat: 
+</div><div class="line" id="l89">                    key = new Key(Bytes.unpackF4(data, offs));
+</div><div class="line" id="l90">                    break;
+</div><div class="line" id="l91"><br></div><div class="line" id="l92">                case ClassDescriptor.FieldType.tpDouble: 
+</div><div class="line" id="l93">                    key = new Key(Bytes.unpackF8(data, offs));
+</div><div class="line" id="l94">                    break;
+</div><div class="line" id="l95"><br></div><div class="line" id="l96">                case ClassDescriptor.FieldType.tpGuid:
+</div><div class="line" id="l97">                    key = new Key(Bytes.unpackGuid(data, offs));
+</div><div class="line" id="l98">                    break;
+</div><div class="line" id="l99"><br></div><div class="line" id="l100">                case ClassDescriptor.FieldType.tpDecimal:
+</div><div class="line" id="l101">                    key = new Key(Bytes.unpackDecimal(data, offs));
+</div><div class="line" id="l102">                    break;
+</div><div class="line" id="l103"><br></div><div class="line" id="l104">                default: 
+</div><div class="line" id="l105">                    Debug.Assert(false, "Invalid type");
+</div><div class="line" id="l106">                    break;
+</div><div class="line" id="l107"><br></div><div class="line" id="l108">            }
+</div><div class="line" id="l109">        }
+</div><div class="line" id="l110"><br></div><div class="line" id="l111">        internal void  pack(Page pg, int i)
+</div><div class="line" id="l112">        {
+</div><div class="line" id="l113">            <span class="c">byte[] dst = pg.data;</span></div><div class="line" id="l114">            <span class="c">switch (key.type)</span></div><div class="line" id="l115">            {
+</div><div class="line" id="l116">                case ClassDescriptor.FieldType.tpBoolean: 
+</div><div class="line" id="l117">                case ClassDescriptor.FieldType.tpSByte: 
+</div><div class="line" id="l118">                case ClassDescriptor.FieldType.tpByte: 
+</div><div class="line" id="l119">                    <span class="c">dst[BtreePage.firstKeyOffs + i] = (byte) key.ival;</span></div><div class="line" id="l120">                    <span class="c">break;</span></div><div class="line" id="l121"><br></div><div class="line" id="l122">                case ClassDescriptor.FieldType.tpShort: 
+</div><div class="line" id="l123">                case ClassDescriptor.FieldType.tpUShort: 
+</div><div class="line" id="l124">                case ClassDescriptor.FieldType.tpChar: 
+</div><div class="line" id="l125">                    <span class="c">Bytes.pack2(dst, BtreePage.firstKeyOffs + i * 2, (short) key.ival);</span></div><div class="line" id="l126">                    <span class="c">break;</span></div><div class="line" id="l127"><br></div><div class="line" id="l128">                case ClassDescriptor.FieldType.tpInt: 
+</div><div class="line" id="l129">                case ClassDescriptor.FieldType.tpUInt: 
+</div><div class="line" id="l130">                case ClassDescriptor.FieldType.tpEnum: 
+</div><div class="line" id="l131">                case ClassDescriptor.FieldType.tpObject: 
+</div><div class="line" id="l132">                case ClassDescriptor.FieldType.tpOid: 
+</div><div class="line" id="l133">                    <span class="c">Bytes.pack4(dst, BtreePage.firstKeyOffs + i * 4, key.ival);</span></div><div class="line" id="l134">                    <span class="c">break;</span></div><div class="line" id="l135"><br></div><div class="line" id="l136">                case ClassDescriptor.FieldType.tpLong: 
+</div><div class="line" id="l137">                case ClassDescriptor.FieldType.tpULong: 
+</div><div class="line" id="l138">                case ClassDescriptor.FieldType.tpDate: 
+</div><div class="line" id="l139">                    <span class="c">Bytes.pack8(dst, BtreePage.firstKeyOffs + i * 8, key.lval);</span></div><div class="line" id="l140">                    <span class="c">break;</span></div><div class="line" id="l141"><br></div><div class="line" id="l142">                case ClassDescriptor.FieldType.tpFloat: 
+</div><div class="line" id="l143">                    <span class="c">Bytes.packF4(dst, BtreePage.firstKeyOffs + i * 4, (float)key.dval);</span></div><div class="line" id="l144">                    <span class="c">break;</span></div><div class="line" id="l145"><br></div><div class="line" id="l146">                case ClassDescriptor.FieldType.tpDouble: 
+</div><div class="line" id="l147">                    <span class="c">Bytes.packF8(dst, BtreePage.firstKeyOffs + i * 8, key.dval);</span></div><div class="line" id="l148">                    <span class="c">break;</span></div><div class="line" id="l149"><br></div><div class="line" id="l150">                case ClassDescriptor.FieldType.tpDecimal:
+</div><div class="line" id="l151">                    <span class="c">Bytes.packDecimal(dst, BtreePage.firstKeyOffs + i * 16, key.dec);</span></div><div class="line" id="l152">                    <span class="c">break;</span></div><div class="line" id="l153"><br></div><div class="line" id="l154">                case ClassDescriptor.FieldType.tpGuid:
+</div><div class="line" id="l155">                    <span class="c">Bytes.packGuid(dst, BtreePage.firstKeyOffs + i * 16, key.guid);</span></div><div class="line" id="l156">                    break;
+</div><div class="line" id="l157"><br></div><div class="line" id="l158"><br></div><div class="line" id="l159">                default: 
+</div><div class="line" id="l160">                    Debug.Assert(false, "Invalid type");
+</div><div class="line" id="l161">                    break;
+</div><div class="line" id="l162"><br></div><div class="line" id="l163">            }
+</div><div class="line" id="l164">            <span class="c">Bytes.pack4(dst, BtreePage.firstKeyOffs + (BtreePage.maxItems - i - 1) * 4, oid);</span></div><div class="line" id="l165">        <span class="c">}</span></div><div class="line" id="l166">    }
+</div><div class="line" id="l167">}</div>
+  </pre>
+  </td>
+  </tr>
+</tbody>
+</table>
+</body>
+</html>

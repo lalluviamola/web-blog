@@ -1,0 +1,72 @@
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type=text/css> 
+pre,code {font-size:9pt; font:Consolas,Monaco,"Courier New","DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace;}
+.c { background-color: #96EBA6; }
+</style>
+</head>
+<body>
+<pre><a href="index.html">Home</a> : csharp\src\impl\LRU.cs</pre>
+<table cellpadding="0" cellspacing="0">
+<tbody>
+  <tr>
+  <td style="margin:0px; vertical-align:top">
+  <pre><span>1</span>
+<span>2</span>
+<span>3</span>
+<span>4</span>
+<span>5</span>
+<span>6</span>
+<span>7</span>
+<span>8</span>
+<span>9</span>
+<span>10</span>
+<span>11</span>
+<span>12</span>
+<span>13</span>
+<span>14</span>
+<span>15</span>
+<span>16</span>
+<span>17</span>
+<span>18</span>
+<span>19</span>
+<span>20</span>
+<span>21</span>
+<span>22</span>
+<span>23</span>
+<span>24</span>
+<span>25</span>
+<span>26</span>
+<span>27</span>
+<span>28</span>
+<span>29</span>
+<span>30</span>
+
+  </pre>
+  </td>
+
+  <td  style="margin:0px; padding-left:8px; vertical-align:top" width="100%">
+  <pre><div class="line" id="l1">namespace NachoDB.Impl        
+</div><div class="line" id="l2">{
+</div><div class="line" id="l3">    using System;
+</div><div class="line" id="l4">    using NachoDB;
+</div><div class="line" id="l5"><br></div><div class="line" id="l6">    class LRU
+</div><div class="line" id="l7">    {
+</div><div class="line" id="l8">        internal LRU next;
+</div><div class="line" id="l9">        internal LRU prev;
+</div><div class="line" id="l10"><br></div><div class="line" id="l11">        <span class="c">internal LRU()</span></div><div class="line" id="l12">        {
+</div><div class="line" id="l13">            <span class="c">next = prev = this;</span></div><div class="line" id="l14">        <span class="c">}</span></div><div class="line" id="l15"><br></div><div class="line" id="l16">        internal void  unlink()
+</div><div class="line" id="l17">        {
+</div><div class="line" id="l18">            <span class="c">next.prev = prev;</span></div><div class="line" id="l19">            <span class="c">prev.next = next;</span></div><div class="line" id="l20">        <span class="c">}</span></div><div class="line" id="l21"><br></div><div class="line" id="l22">        internal void  link(LRU node)
+</div><div class="line" id="l23">        {
+</div><div class="line" id="l24">            <span class="c">node.next = next;</span></div><div class="line" id="l25">            <span class="c">node.prev = this;</span></div><div class="line" id="l26">            <span class="c">next.prev = node;</span></div><div class="line" id="l27">            <span class="c">next = node;</span></div><div class="line" id="l28">        <span class="c">}</span></div><div class="line" id="l29">    }
+</div><div class="line" id="l30">}</div>
+  </pre>
+  </td>
+  </tr>
+</tbody>
+</table>
+</body>
+</html>

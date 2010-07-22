@@ -1,0 +1,135 @@
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type=text/css> 
+pre,code {font-size:9pt; font:Consolas,Monaco,"Courier New","DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace;}
+.c { background-color: #96EBA6; }
+</style>
+</head>
+<body>
+<pre><a href="index.html">Home</a> : csharp\src\StorageFactory.cs</pre>
+<table cellpadding="0" cellspacing="0">
+<tbody>
+  <tr>
+  <td style="margin:0px; vertical-align:top">
+  <pre><span>1</span>
+<span>2</span>
+<span>3</span>
+<span>4</span>
+<span>5</span>
+<span>6</span>
+<span>7</span>
+<span>8</span>
+<span>9</span>
+<span>10</span>
+<span>11</span>
+<span>12</span>
+<span>13</span>
+<span>14</span>
+<span>15</span>
+<span>16</span>
+<span>17</span>
+<span>18</span>
+<span>19</span>
+<span>20</span>
+<span>21</span>
+<span>22</span>
+<span>23</span>
+<span>24</span>
+<span>25</span>
+<span>26</span>
+<span>27</span>
+<span>28</span>
+<span>29</span>
+<span>30</span>
+<span>31</span>
+<span>32</span>
+<span>33</span>
+<span>34</span>
+<span>35</span>
+<span>36</span>
+<span>37</span>
+<span>38</span>
+<span>39</span>
+<span>40</span>
+<span>41</span>
+<span>42</span>
+<span>43</span>
+<span>44</span>
+<span>45</span>
+<span>46</span>
+<span>47</span>
+<span>48</span>
+<span>49</span>
+<span>50</span>
+<span>51</span>
+<span>52</span>
+<span>53</span>
+<span>54</span>
+<span>55</span>
+<span>56</span>
+
+  </pre>
+  </td>
+
+  <td  style="margin:0px; padding-left:8px; vertical-align:top" width="100%">
+  <pre><div class="line" id="l1">namespace NachoDB
+</div><div class="line" id="l2">{
+</div><div class="line" id="l3">    using System;
+</div><div class="line" id="l4">    using NachoDB.Impl;
+</div><div class="line" id="l5"><br></div><div class="line" id="l6">    /// &lt;summary&gt; Storage factory
+</div><div class="line" id="l7">    /// &lt;/summary&gt;
+</div><div class="line" id="l8">    public class StorageFactory
+</div><div class="line" id="l9">    {
+</div><div class="line" id="l10">        /// &lt;summary&gt; Create new instance of the storage
+</div><div class="line" id="l11">        /// &lt;/summary&gt;
+</div><div class="line" id="l12">        /// &lt;param name="new"&gt;instance of the storage (unopened,you should explicitely invoke open method)
+</div><div class="line" id="l13">        /// 
+</div><div class="line" id="l14">        /// &lt;/param&gt;
+</div><div class="line" id="l15">        public static Storage CreateStorage()
+</div><div class="line" id="l16">        {
+</div><div class="line" id="l17">#if COMPACT_NET_FRAMEWORK
+</div><div class="line" id="l18">            return new StorageImpl(System.Reflection.Assembly.GetCallingAssembly());
+</div><div class="line" id="l19">#else
+</div><div class="line" id="l20">            <span class="c">return new StorageImpl();</span></div><div class="line" id="l21">#endif
+</div><div class="line" id="l22">        }
+</div><div class="line" id="l23"><br></div><div class="line" id="l24">#if !COMPACT_NET_FRAMEWORK
+</div><div class="line" id="l25">#if !OMIT_REPLICATION
+</div><div class="line" id="l26">        /// &lt;summary&gt;
+</div><div class="line" id="l27">        /// Create new instance of the master node of replicated storage
+</div><div class="line" id="l28">        /// &lt;/summary&gt;
+</div><div class="line" id="l29">        /// &lt;param name="replicationSlaveNodes"&gt;addresses of hosts to which replication will be performed. 
+</div><div class="line" id="l30">        /// Address as specified as NAME:PORT&lt;/param&gt;
+</div><div class="line" id="l31">        /// &lt;param name="asyncBufSize"&gt;if value of this parameter is greater than zero then replication will be 
+</div><div class="line" id="l32">        /// asynchronous, done by separate thread and not blocking main application. 
+</div><div class="line" id="l33">        /// Otherwise data is send to the slave nodes by the same thread which updates the database.
+</div><div class="line" id="l34">        /// If space asynchronous buffer is exhausted, then main thread willbe also blocked until the
+</div><div class="line" id="l35">        /// data is send.&lt;/param&gt;
+</div><div class="line" id="l36">        /// &lt;returns&gt;new instance of the master storage (unopened, you should explicitely invoke open method)&lt;/returns&gt;
+</div><div class="line" id="l37">        ///
+</div><div class="line" id="l38">        public static ReplicationMasterStorage CreateReplicationMasterStorage(string[] replicationSlaveNodes, int asyncBufSize) 
+</div><div class="line" id="l39">        {
+</div><div class="line" id="l40">            return new ReplicationMasterStorageImpl(replicationSlaveNodes, asyncBufSize);
+</div><div class="line" id="l41">        }
+</div><div class="line" id="l42"><br></div><div class="line" id="l43">        /// &lt;summary&gt;
+</div><div class="line" id="l44">        /// Create new instance of the slave node of replicated storage
+</div><div class="line" id="l45">        /// &lt;/summary&gt;
+</div><div class="line" id="l46">        /// &lt;param name="port"&gt;socket port at which connection from master will be established&lt;/param&gt;
+</div><div class="line" id="l47">        /// &lt;returns&gt;new instance of the slave storage (unopened, you should explicitely invoke open method)&lt;/returns&gt;
+</div><div class="line" id="l48">        ////
+</div><div class="line" id="l49">        public static ReplicationSlaveStorage CreateReplicationSlaveStorage(int port) 
+</div><div class="line" id="l50">        {
+</div><div class="line" id="l51">            return new ReplicationSlaveStorageImpl(port);
+</div><div class="line" id="l52">        }
+</div><div class="line" id="l53">#endif
+</div><div class="line" id="l54">#endif
+</div><div class="line" id="l55">    }	
+</div><div class="line" id="l56">}</div>
+  </pre>
+  </td>
+  </tr>
+</tbody>
+</table>
+</body>
+</html>

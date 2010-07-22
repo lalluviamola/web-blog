@@ -1,0 +1,220 @@
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type=text/css> 
+pre,code {font-size:9pt; font:Consolas,Monaco,"Courier New","DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace;}
+.c { background-color: #96EBA6; }
+</style>
+</head>
+<body>
+<pre><a href="index.html">Home</a> : csharp\src\impl\PersistentStub.cs</pre>
+<table cellpadding="0" cellspacing="0">
+<tbody>
+  <tr>
+  <td style="margin:0px; vertical-align:top">
+  <pre><span>1</span>
+<span>2</span>
+<span>3</span>
+<span>4</span>
+<span>5</span>
+<span>6</span>
+<span>7</span>
+<span>8</span>
+<span>9</span>
+<span>10</span>
+<span>11</span>
+<span>12</span>
+<span>13</span>
+<span>14</span>
+<span>15</span>
+<span>16</span>
+<span>17</span>
+<span>18</span>
+<span>19</span>
+<span>20</span>
+<span>21</span>
+<span>22</span>
+<span>23</span>
+<span>24</span>
+<span>25</span>
+<span>26</span>
+<span>27</span>
+<span>28</span>
+<span>29</span>
+<span>30</span>
+<span>31</span>
+<span>32</span>
+<span>33</span>
+<span>34</span>
+<span>35</span>
+<span>36</span>
+<span>37</span>
+<span>38</span>
+<span>39</span>
+<span>40</span>
+<span>41</span>
+<span>42</span>
+<span>43</span>
+<span>44</span>
+<span>45</span>
+<span>46</span>
+<span>47</span>
+<span>48</span>
+<span>49</span>
+<span>50</span>
+<span>51</span>
+<span>52</span>
+<span>53</span>
+<span>54</span>
+<span>55</span>
+<span>56</span>
+<span>57</span>
+<span>58</span>
+<span>59</span>
+<span>60</span>
+<span>61</span>
+<span>62</span>
+<span>63</span>
+<span>64</span>
+<span>65</span>
+<span>66</span>
+<span>67</span>
+<span>68</span>
+<span>69</span>
+<span>70</span>
+<span>71</span>
+<span>72</span>
+<span>73</span>
+<span>74</span>
+<span>75</span>
+<span>76</span>
+<span>77</span>
+<span>78</span>
+<span>79</span>
+<span>80</span>
+<span>81</span>
+<span>82</span>
+<span>83</span>
+<span>84</span>
+<span>85</span>
+<span>86</span>
+<span>87</span>
+<span>88</span>
+<span>89</span>
+<span>90</span>
+<span>91</span>
+<span>92</span>
+<span>93</span>
+<span>94</span>
+<span>95</span>
+<span>96</span>
+<span>97</span>
+<span>98</span>
+<span>99</span>
+<span>100</span>
+<span>101</span>
+<span>102</span>
+<span>103</span>
+<span>104</span>
+<span>105</span>
+<span>106</span>
+<span>107</span>
+<span>108</span>
+<span>109</span>
+<span>110</span>
+
+  </pre>
+  </td>
+
+  <td  style="margin:0px; padding-left:8px; vertical-align:top" width="100%">
+  <pre><div class="line" id="l1">namespace NachoDB.Impl
+</div><div class="line" id="l2">{
+</div><div class="line" id="l3">    using NachoDB;
+</div><div class="line" id="l4"><br></div><div class="line" id="l5">    public class PersistentStub : IPersistent 
+</div><div class="line" id="l6">    { 
+</div><div class="line" id="l7">        public virtual int Oid
+</div><div class="line" id="l8">        {
+</div><div class="line" id="l9">            get
+</div><div class="line" id="l10">            {
+</div><div class="line" id="l11">                <span class="c">return oid;</span></div><div class="line" id="l12">            }	
+</div><div class="line" id="l13">        }
+</div><div class="line" id="l14"><br></div><div class="line" id="l15">        public virtual Storage Storage
+</div><div class="line" id="l16">        {
+</div><div class="line" id="l17">            get
+</div><div class="line" id="l18">            {
+</div><div class="line" id="l19">                <span class="c">return storage;</span></div><div class="line" id="l20">            }			
+</div><div class="line" id="l21">        }
+</div><div class="line" id="l22"><br></div><div class="line" id="l23">        public virtual void Load()
+</div><div class="line" id="l24">        {
+</div><div class="line" id="l25">            throw new StorageError(StorageError.ErrorCode.ACCESS_TO_STUB);
+</div><div class="line" id="l26">        }
+</div><div class="line" id="l27"><br></div><div class="line" id="l28">        public bool IsRaw() 
+</div><div class="line" id="l29">        { 
+</div><div class="line" id="l30">            <span class="c">return true;</span></div><div class="line" id="l31">        } 
+</div><div class="line" id="l32"><br></div><div class="line" id="l33">        public bool IsModified() 
+</div><div class="line" id="l34">        { 
+</div><div class="line" id="l35">            return false;
+</div><div class="line" id="l36">        } 
+</div><div class="line" id="l37"><br></div><div class="line" id="l38">        public bool IsDeleted() 
+</div><div class="line" id="l39">        { 
+</div><div class="line" id="l40">            return false;
+</div><div class="line" id="l41">        } 
+</div><div class="line" id="l42"><br></div><div class="line" id="l43">        public bool IsPersistent()
+</div><div class="line" id="l44">        {
+</div><div class="line" id="l45">            <span class="c">return true;</span></div><div class="line" id="l46">        }
+</div><div class="line" id="l47"><br></div><div class="line" id="l48">        public virtual int MakePersistent(Storage storage)
+</div><div class="line" id="l49">        {
+</div><div class="line" id="l50">            throw new StorageError(StorageError.ErrorCode.ACCESS_TO_STUB);
+</div><div class="line" id="l51">        }
+</div><div class="line" id="l52"><br></div><div class="line" id="l53">        public virtual void Store()
+</div><div class="line" id="l54">        {
+</div><div class="line" id="l55">            throw new StorageError(StorageError.ErrorCode.ACCESS_TO_STUB);
+</div><div class="line" id="l56">        }
+</div><div class="line" id="l57"><br></div><div class="line" id="l58">        public void Modify() 
+</div><div class="line" id="l59">        { 
+</div><div class="line" id="l60">            throw new StorageError(StorageError.ErrorCode.ACCESS_TO_STUB);
+</div><div class="line" id="l61">        }
+</div><div class="line" id="l62"><br></div><div class="line" id="l63">        public virtual void Deallocate()
+</div><div class="line" id="l64">        {
+</div><div class="line" id="l65">            throw new StorageError(StorageError.ErrorCode.ACCESS_TO_STUB);
+</div><div class="line" id="l66">        }
+</div><div class="line" id="l67"><br></div><div class="line" id="l68">        public virtual bool RecursiveLoading()
+</div><div class="line" id="l69">        {
+</div><div class="line" id="l70">            return true;
+</div><div class="line" id="l71">        }
+</div><div class="line" id="l72"><br></div><div class="line" id="l73">        public override bool Equals(object o)
+</div><div class="line" id="l74">        {
+</div><div class="line" id="l75">            return o is IPersistent &amp;&amp; ((IPersistent) o).Oid == oid;
+</div><div class="line" id="l76">        }
+</div><div class="line" id="l77"><br></div><div class="line" id="l78">        public override int GetHashCode()
+</div><div class="line" id="l79">        {
+</div><div class="line" id="l80">            return oid;
+</div><div class="line" id="l81">        }
+</div><div class="line" id="l82"><br></div><div class="line" id="l83">        public virtual void OnLoad() 
+</div><div class="line" id="l84">        {
+</div><div class="line" id="l85">        }
+</div><div class="line" id="l86"><br></div><div class="line" id="l87">        public virtual void OnStore() 
+</div><div class="line" id="l88">        {
+</div><div class="line" id="l89">        }
+</div><div class="line" id="l90"><br></div><div class="line" id="l91">        public virtual void Invalidate() 
+</div><div class="line" id="l92">        {
+</div><div class="line" id="l93">            throw new StorageError(StorageError.ErrorCode.ACCESS_TO_STUB);
+</div><div class="line" id="l94">        }
+</div><div class="line" id="l95"><br></div><div class="line" id="l96">        <span class="c">internal PersistentStub(Storage storage, int oid)</span></div><div class="line" id="l97">        {
+</div><div class="line" id="l98">            <span class="c">this.storage = storage;</span></div><div class="line" id="l99">            <span class="c">this.oid = oid;</span></div><div class="line" id="l100">        <span class="c">}</span></div><div class="line" id="l101"><br></div><div class="line" id="l102">        public void AssignOid(Storage storage, int oid, bool raw)
+</div><div class="line" id="l103">        {
+</div><div class="line" id="l104">            throw new StorageError(StorageError.ErrorCode.ACCESS_TO_STUB);
+</div><div class="line" id="l105">        }
+</div><div class="line" id="l106"><br></div><div class="line" id="l107">        private Storage storage;
+</div><div class="line" id="l108">        private int oid;
+</div><div class="line" id="l109">    }
+</div><div class="line" id="l110">}
+</div>
+  </pre>
+  </td>
+  </tr>
+</tbody>
+</table>
+</body>
+</html>

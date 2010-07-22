@@ -1,0 +1,73 @@
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type=text/css> 
+pre,code {font-size:9pt; font:Consolas,Monaco,"Courier New","DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace;}
+.c { background-color: #96EBA6; }
+</style>
+</head>
+<body>
+<pre><a href="index.html">Home</a> : csharp\src\impl\ObjectHeader.cs</pre>
+<table cellpadding="0" cellspacing="0">
+<tbody>
+  <tr>
+  <td style="margin:0px; vertical-align:top">
+  <pre><span>1</span>
+<span>2</span>
+<span>3</span>
+<span>4</span>
+<span>5</span>
+<span>6</span>
+<span>7</span>
+<span>8</span>
+<span>9</span>
+<span>10</span>
+<span>11</span>
+<span>12</span>
+<span>13</span>
+<span>14</span>
+<span>15</span>
+<span>16</span>
+<span>17</span>
+<span>18</span>
+<span>19</span>
+<span>20</span>
+<span>21</span>
+<span>22</span>
+<span>23</span>
+<span>24</span>
+<span>25</span>
+<span>26</span>
+<span>27</span>
+
+  </pre>
+  </td>
+
+  <td  style="margin:0px; padding-left:8px; vertical-align:top" width="100%">
+  <pre><div class="line" id="l1">namespace NachoDB.Impl
+</div><div class="line" id="l2">{
+</div><div class="line" id="l3">    using System;
+</div><div class="line" id="l4">    using NachoDB;
+</div><div class="line" id="l5"><br></div><div class="line" id="l6">    class ObjectHeader
+</div><div class="line" id="l7">    {
+</div><div class="line" id="l8">        internal const int Sizeof = 8;
+</div><div class="line" id="l9"><br></div><div class="line" id="l10">        internal static int getSize(byte[] arr, int offs)
+</div><div class="line" id="l11">        {
+</div><div class="line" id="l12">            <span class="c">return Bytes.unpack4(arr, offs);</span></div><div class="line" id="l13">        }
+</div><div class="line" id="l14">        internal static void  setSize(byte[] arr, int offs, int size)
+</div><div class="line" id="l15">        {
+</div><div class="line" id="l16">            <span class="c">Bytes.pack4(arr, offs, size);</span></div><div class="line" id="l17">        <span class="c">}</span></div><div class="line" id="l18">        internal static int getType(byte[] arr, int offs)
+</div><div class="line" id="l19">        {
+</div><div class="line" id="l20">            <span class="c">return Bytes.unpack4(arr, offs + 4);</span></div><div class="line" id="l21">        }
+</div><div class="line" id="l22">        internal static void  setType(byte[] arr, int offs, int type)
+</div><div class="line" id="l23">        {
+</div><div class="line" id="l24">            <span class="c">Bytes.pack4(arr, offs + 4, type);</span></div><div class="line" id="l25">        <span class="c">}</span></div><div class="line" id="l26">    }
+</div><div class="line" id="l27">}</div>
+  </pre>
+  </td>
+  </tr>
+</tbody>
+</table>
+</body>
+</html>

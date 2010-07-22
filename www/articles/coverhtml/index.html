@@ -1,0 +1,2114 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<style type=text/css> 
+.typename { font-weight: bold; }
+.perc { color: red; }
+</style>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+
+<script type="text/javascript">
+function toggleVisibility(id) {
+  var el = $('#'+id);
+  var val = el.css("display");
+  if (val == "none") {
+    el.css("display", "block");
+  } else {
+    el.css("display", "none");
+  }
+  return false;
+}
+
+</script>
+
+</head>
+<body>
+<h1>Code coverage report for NachoDB</h1>
+<table><tr><td valign=top><span class="typename"><a href="#" onclick="return toggleVisibility('cls50');">NachoDB.Impl.AltBtree`2</a></span>
+<span class="perc">43.28%</span>:<br/><span id="cls50" style="display:none"><ul>
+<li><a href="src_impl_AltBtree_cs.html#l1436">void .cctor()</a> <span class="perc">92.31%</span></li>
+<li><a href="src_impl_AltBtree_cs.html#l27">void .ctor()</a> <span class="perc">87.50%</span></li>
+<li><a href="src_impl_AltBtree_cs.html#l1335">void .ctor(bool)</a> <span class="perc">97.22%</span></li>
+<li>void .ctor(NachoDB.Impl.ClassDescriptor.FieldType, bool) <span class="perc">0.00%</span></li>
+<li><a href="src_impl_AltBtree_cs.html#l1497">void allocateRootPage()</a> <span class="perc">96.12%</span></li>
+<li><a href="src_impl_AltBtree_cs.html#l1387">NachoDB.Key checkKey(NachoDB.Key)</a> <span class="perc">90.77%</span></li>
+<li><a href="src_impl_AltBtree_cs.html#l1324">NachoDB.Impl.ClassDescriptor.FieldType checkType(System.Type)</a> <span class="perc">75.51%</span></li>
+<li>void Clear() <span class="perc">0.00%</span></li>
+<li>void Deallocate() <span class="perc">0.00%</span></li>
+<li><a href="src_impl_AltBtree_cs.html#l1409"> Get(NachoDB.Key)</a> <span class="perc">89.38%</span></li>
+<li><a href="src_impl_AltBtree_cs.html#l1432"> Get()</a> <span class="perc">94.74%</span></li>
+<li>[] Get(NachoDB.Key, NachoDB.Key) <span class="perc">0.00%</span></li>
+<li>[] Get(, ) <span class="perc">0.00%</span></li>
+<li>int get_Count() <span class="perc">0.00%</span></li>
+<li><a href="src_impl_AltBtree_cs.html#l1369"> get_Item()</a> <span class="perc">88.89%</span></li>
+<li>[] get_Item(, ) <span class="perc">0.00%</span></li>
+<li>System.Type get_KeyType() <span class="perc">0.00%</span></li>
+<li>System.Collections.IDictionaryEnumerator GetDictionaryEnumerator() <span class="perc">0.00%</span></li>
+<li>System.Collections.IDictionaryEnumerator GetDictionaryEnumerator(NachoDB.Key, NachoDB.Key, NachoDB.IterationOrder) <span class="perc">0.00%</span></li>
+<li><a href="src_impl_AltBtree_cs.html#l1885"> GetEnumerator()</a> <span class="perc">87.50%</span></li>
+<li> GetEnumerator(NachoDB.Key, NachoDB.Key, NachoDB.IterationOrder) <span class="perc">0.00%</span></li>
+<li> GetEnumerator(, , NachoDB.IterationOrder) <span class="perc">0.00%</span></li>
+<li> GetEnumerator(NachoDB.Key, NachoDB.Key) <span class="perc">0.00%</span></li>
+<li> GetEnumerator(, ) <span class="perc">0.00%</span></li>
+<li> GetEnumerator(string) <span class="perc">0.00%</span></li>
+<li>[] GetPrefix(string) <span class="perc">0.00%</span></li>
+<li><a href="src_impl_AltBtree_cs.html#l1579">NachoDB.IPersistent insert(NachoDB.Key, NachoDB.IPersistent, bool)</a> <span class="perc">92.21%</span></li>
+<li><a href="src_impl_AltBtree_cs.html#l33">void OnLoad()</a> <span class="perc">97.62%</span></li>
+<li>[] PrefixSearch(string) <span class="perc">0.00%</span></li>
+<li><a href="src_impl_AltBtree_cs.html#l1477">bool Put(NachoDB.Key, )</a> <span class="perc">94.74%</span></li>
+<li>bool Put(, ) <span class="perc">0.00%</span></li>
+<li><a href="src_impl_AltBtree_cs.html#l2303"> Range(NachoDB.Key, NachoDB.Key, NachoDB.IterationOrder)</a> <span class="perc">95.65%</span></li>
+<li> Range(NachoDB.Key, NachoDB.Key) <span class="perc">0.00%</span></li>
+<li> Range(, , NachoDB.IterationOrder) <span class="perc">0.00%</span></li>
+<li> Range(, ) <span class="perc">0.00%</span></li>
+<li>void Remove(NachoDB.Key, ) <span class="perc">0.00%</span></li>
+<li>void Remove(, ) <span class="perc">0.00%</span></li>
+<li>void Remove() <span class="perc">0.00%</span></li>
+<li> Remove(NachoDB.Key) <span class="perc">0.00%</span></li>
+<li> RemoveKey() <span class="perc">0.00%</span></li>
+<li> Reverse() <span class="perc">0.00%</span></li>
+<li><a href="src_impl_AltBtree_cs.html#l1487"> Set(NachoDB.Key, )</a> <span class="perc">95.24%</span></li>
+<li><a href="src_impl_AltBtree_cs.html#l1492"> Set(, )</a> <span class="perc">95.00%</span></li>
+<li><a href="src_impl_AltBtree_cs.html#l1373">void set_Item(, )</a> <span class="perc">90.91%</span></li>
+<li>int Size() <span class="perc">0.00%</span></li>
+<li> StartsWith(string) <span class="perc">0.00%</span></li>
+<li>System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator() <span class="perc">0.00%</span></li>
+<li>[] ToArray() <span class="perc">0.00%</span></li>
+<li>System.Array ToArray(System.Type) <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls14');">NachoDB.Impl.AltBtree`2BtreeDictionaryEnumerator</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls14" style="display:none"><ul>
+<li>void .ctor() <span class="perc">0.00%</span></li>
+<li>object get_Current() <span class="perc">0.00%</span></li>
+<li>System.Collections.DictionaryEntry get_Entry() <span class="perc">0.00%</span></li>
+<li>object get_Key() <span class="perc">0.00%</span></li>
+<li>object get_Value() <span class="perc">0.00%</span></li>
+<li>void getCurrent(, int) <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls16');">NachoDB.Impl.AltBtree`2BtreeDictionarySelectionIterator</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls16" style="display:none"><ul>
+<li>void .ctor(, NachoDB.Key, NachoDB.Key, NachoDB.IterationOrder) <span class="perc">0.00%</span></li>
+<li>object get_Current() <span class="perc">0.00%</span></li>
+<li>System.Collections.DictionaryEntry get_Entry() <span class="perc">0.00%</span></li>
+<li>object get_Key() <span class="perc">0.00%</span></li>
+<li>object get_Value() <span class="perc">0.00%</span></li>
+<li>void getCurrent(, int) <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls12');">NachoDB.Impl.AltBtree`2BtreeEnumerator</a></span>
+<span class="perc">93.64%</span>:<br/><span id="cls12" style="display:none"><ul>
+<li><a href="src_impl_AltBtree_cs.html#l1714">void .ctor()</a> <span class="perc">95.24%</span></li>
+<li><a href="src_impl_AltBtree_cs.html#l1749">void Dispose()</a> <span class="perc">50.00%</span></li>
+<li><a href="src_impl_AltBtree_cs.html#l1798"> get_Current()</a> <span class="perc">96.30%</span></li>
+<li><a href="src_impl_AltBtree_cs.html#l1746">void getCurrent(, int)</a> <span class="perc">95.00%</span></li>
+<li><a href="src_impl_AltBtree_cs.html#l1753">bool MoveNext()</a> <span class="perc">96.56%</span></li>
+<li><a href="src_impl_AltBtree_cs.html#l1722">void Reset()</a> <span class="perc">94.37%</span></li>
+<li>object System.Collections.IEnumerator.get_Current() <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls51');">NachoDB.Impl.AltBtree`2BtreeKey</a></span>
+<span class="perc">95.45%</span>:<br/><span id="cls51" style="display:none"><ul>
+<li><a href="src_impl_AltBtree_cs.html#l44">void .ctor(NachoDB.Key, NachoDB.IPersistent)</a> <span class="perc">95.45%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls52');">NachoDB.Impl.AltBtree`2BtreePage</a></span>
+<span class="perc">40.94%</span>:<br/><span id="cls52" style="display:none"><ul>
+<li><a href="src_impl_AltBtree_cs.html#l447">void .ctor(NachoDB.Storage, int)</a> <span class="perc">97.06%</span></li>
+<li><a href="src_impl_AltBtree_cs.html#l453">void .ctor()</a> <span class="perc">87.50%</span></li>
+<li>void clearKeyValue(int) <span class="perc">0.00%</span></li>
+<li> clonePage() <span class="perc">100.00%</span></li>
+<li>int compare(NachoDB.Key, int) <span class="perc">100.00%</span></li>
+<li><a href="src_impl_AltBtree_cs.html#l71">bool find(NachoDB.Key, NachoDB.Key, int, System.Collections.ArrayList)</a> <span class="perc">95.28%</span></li>
+<li>System.Array get_Data() <span class="perc">100.00%</span></li>
+<li>NachoDB.Key getKey(int) <span class="perc">100.00%</span></li>
+<li>object getKeyValue(int) <span class="perc">100.00%</span></li>
+<li> handlePageUnderflow(int, , int) <span class="perc">0.00%</span></li>
+<li>void insert(, int) <span class="perc">100.00%</span></li>
+<li><a href="src_impl_AltBtree_cs.html#l170"> insert(, int, bool, bool)</a> <span class="perc">97.60%</span></li>
+<li><a href="src_impl_AltBtree_cs.html#l155">void memcpy(, int, , int, int)</a> <span class="perc">95.83%</span></li>
+<li><a href="src_impl_AltBtree_cs.html#l145">void memcpyData(, int, , int, int)</a> <span class="perc">95.65%</span></li>
+<li><a href="src_impl_AltBtree_cs.html#l150">void memcpyItems(, int, , int, int)</a> <span class="perc">96.97%</span></li>
+<li>void memset(int, int) <span class="perc">0.00%</span></li>
+<li>void purge(int) <span class="perc">0.00%</span></li>
+<li> remove(, int) <span class="perc">0.00%</span></li>
+<li>int traverseForward(int, NachoDB.IPersistent[], int) <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls55');">NachoDB.Impl.AltBtree`2BtreePageOfBoolean</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls55" style="display:none"><ul>
+<li>void .ctor() <span class="perc">0.00%</span></li>
+<li>void .ctor(NachoDB.Storage) <span class="perc">0.00%</span></li>
+<li> clonePage() <span class="perc">0.00%</span></li>
+<li>NachoDB.Key getKey(int) <span class="perc">0.00%</span></li>
+<li>object getKeyValue(int) <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls53');">NachoDB.Impl.AltBtree`2BtreePageOfByte</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls53" style="display:none"><ul>
+<li>void .ctor(NachoDB.Storage) <span class="perc">0.00%</span></li>
+<li>void .ctor() <span class="perc">0.00%</span></li>
+<li> clonePage() <span class="perc">0.00%</span></li>
+<li>int compare(NachoDB.Key, int) <span class="perc">0.00%</span></li>
+<li>System.Array get_Data() <span class="perc">0.00%</span></li>
+<li>NachoDB.Key getKey(int) <span class="perc">0.00%</span></li>
+<li>object getKeyValue(int) <span class="perc">0.00%</span></li>
+<li>void insert(, int) <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls65');">NachoDB.Impl.AltBtree`2BtreePageOfDecimal</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls65" style="display:none"><ul>
+<li>void .ctor(NachoDB.Storage) <span class="perc">0.00%</span></li>
+<li>void .ctor() <span class="perc">0.00%</span></li>
+<li> clonePage() <span class="perc">0.00%</span></li>
+<li>int compare(NachoDB.Key, int) <span class="perc">0.00%</span></li>
+<li>System.Array get_Data() <span class="perc">0.00%</span></li>
+<li>NachoDB.Key getKey(int) <span class="perc">0.00%</span></li>
+<li>object getKeyValue(int) <span class="perc">0.00%</span></li>
+<li>void insert(, int) <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls63');">NachoDB.Impl.AltBtree`2BtreePageOfDouble</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls63" style="display:none"><ul>
+<li>void .ctor(NachoDB.Storage) <span class="perc">0.00%</span></li>
+<li>void .ctor() <span class="perc">0.00%</span></li>
+<li> clonePage() <span class="perc">0.00%</span></li>
+<li>int compare(NachoDB.Key, int) <span class="perc">0.00%</span></li>
+<li>System.Array get_Data() <span class="perc">0.00%</span></li>
+<li>NachoDB.Key getKey(int) <span class="perc">0.00%</span></li>
+<li>object getKeyValue(int) <span class="perc">0.00%</span></li>
+<li>void insert(, int) <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls62');">NachoDB.Impl.AltBtree`2BtreePageOfFloat</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls62" style="display:none"><ul>
+<li>void .ctor(NachoDB.Storage) <span class="perc">0.00%</span></li>
+<li>void .ctor() <span class="perc">0.00%</span></li>
+<li> clonePage() <span class="perc">0.00%</span></li>
+<li>int compare(NachoDB.Key, int) <span class="perc">0.00%</span></li>
+<li>System.Array get_Data() <span class="perc">0.00%</span></li>
+<li>NachoDB.Key getKey(int) <span class="perc">0.00%</span></li>
+<li>object getKeyValue(int) <span class="perc">0.00%</span></li>
+<li>void insert(, int) <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls64');">NachoDB.Impl.AltBtree`2BtreePageOfGuid</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls64" style="display:none"><ul>
+<li>void .ctor(NachoDB.Storage) <span class="perc">0.00%</span></li>
+<li>void .ctor() <span class="perc">0.00%</span></li>
+<li> clonePage() <span class="perc">0.00%</span></li>
+<li>int compare(NachoDB.Key, int) <span class="perc">0.00%</span></li>
+<li>System.Array get_Data() <span class="perc">0.00%</span></li>
+<li>NachoDB.Key getKey(int) <span class="perc">0.00%</span></li>
+<li>object getKeyValue(int) <span class="perc">0.00%</span></li>
+<li>void insert(, int) <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls58');">NachoDB.Impl.AltBtree`2BtreePageOfInt</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls58" style="display:none"><ul>
+<li>void .ctor(NachoDB.Storage) <span class="perc">0.00%</span></li>
+<li>void .ctor() <span class="perc">0.00%</span></li>
+<li> clonePage() <span class="perc">0.00%</span></li>
+<li>int compare(NachoDB.Key, int) <span class="perc">0.00%</span></li>
+<li>System.Array get_Data() <span class="perc">0.00%</span></li>
+<li>NachoDB.Key getKey(int) <span class="perc">0.00%</span></li>
+<li>object getKeyValue(int) <span class="perc">0.00%</span></li>
+<li>void insert(, int) <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls60');">NachoDB.Impl.AltBtree`2BtreePageOfLong</a></span>
+<span class="perc">71.26%</span>:<br/><span id="cls60" style="display:none"><ul>
+<li><a href="src_impl_AltBtree_cs.html#l834">void .ctor(NachoDB.Storage)</a> <span class="perc">96.67%</span></li>
+<li><a href="src_impl_AltBtree_cs.html#l839">void .ctor()</a> <span class="perc">87.50%</span></li>
+<li> clonePage() <span class="perc">0.00%</span></li>
+<li><a href="src_impl_AltBtree_cs.html#l825">int compare(NachoDB.Key, int)</a> <span class="perc">97.44%</span></li>
+<li><a href="src_impl_AltBtree_cs.html#l799">System.Array get_Data()</a> <span class="perc">87.50%</span></li>
+<li>NachoDB.Key getKey(int) <span class="perc">0.00%</span></li>
+<li>object getKeyValue(int) <span class="perc">0.00%</span></li>
+<li><a href="src_impl_AltBtree_cs.html#l830">void insert(, int)</a> <span class="perc">97.44%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls66');">NachoDB.Impl.AltBtree`2BtreePageOfObject</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls66" style="display:none"><ul>
+<li>void .ctor(NachoDB.Storage) <span class="perc">0.00%</span></li>
+<li>void .ctor() <span class="perc">0.00%</span></li>
+<li> clonePage() <span class="perc">0.00%</span></li>
+<li>int compare(NachoDB.Key, int) <span class="perc">0.00%</span></li>
+<li>System.Array get_Data() <span class="perc">0.00%</span></li>
+<li>NachoDB.Key getKey(int) <span class="perc">0.00%</span></li>
+<li>object getKeyValue(int) <span class="perc">0.00%</span></li>
+<li>void insert(, int) <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls68');">NachoDB.Impl.AltBtree`2BtreePageOfRaw</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls68" style="display:none"><ul>
+<li>void .ctor() <span class="perc">0.00%</span></li>
+<li>void .ctor(NachoDB.Storage) <span class="perc">0.00%</span></li>
+<li>void clearKeyValue(int) <span class="perc">0.00%</span></li>
+<li> clonePage() <span class="perc">0.00%</span></li>
+<li>int compare(NachoDB.Key, int) <span class="perc">0.00%</span></li>
+<li>System.Array get_Data() <span class="perc">0.00%</span></li>
+<li>NachoDB.Key getKey(int) <span class="perc">0.00%</span></li>
+<li>object getKeyValue(int) <span class="perc">0.00%</span></li>
+<li>void insert(, int) <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls54');">NachoDB.Impl.AltBtree`2BtreePageOfSByte</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls54" style="display:none"><ul>
+<li>void .ctor(NachoDB.Storage) <span class="perc">0.00%</span></li>
+<li>void .ctor() <span class="perc">0.00%</span></li>
+<li> clonePage() <span class="perc">0.00%</span></li>
+<li>int compare(NachoDB.Key, int) <span class="perc">0.00%</span></li>
+<li>System.Array get_Data() <span class="perc">0.00%</span></li>
+<li>NachoDB.Key getKey(int) <span class="perc">0.00%</span></li>
+<li>object getKeyValue(int) <span class="perc">0.00%</span></li>
+<li>void insert(, int) <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls56');">NachoDB.Impl.AltBtree`2BtreePageOfShort</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls56" style="display:none"><ul>
+<li>void .ctor(NachoDB.Storage) <span class="perc">0.00%</span></li>
+<li>void .ctor() <span class="perc">0.00%</span></li>
+<li> clonePage() <span class="perc">0.00%</span></li>
+<li>int compare(NachoDB.Key, int) <span class="perc">0.00%</span></li>
+<li>System.Array get_Data() <span class="perc">0.00%</span></li>
+<li>NachoDB.Key getKey(int) <span class="perc">0.00%</span></li>
+<li>object getKeyValue(int) <span class="perc">0.00%</span></li>
+<li>void insert(, int) <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls67');">NachoDB.Impl.AltBtree`2BtreePageOfString</a></span>
+<span class="perc">26.72%</span>:<br/><span id="cls67" style="display:none"><ul>
+<li><a href="src_impl_AltBtree_cs.html#l1256">void .ctor(NachoDB.Storage)</a> <span class="perc">95.83%</span></li>
+<li><a href="src_impl_AltBtree_cs.html#l1261">void .ctor()</a> <span class="perc">87.50%</span></li>
+<li>void clearKeyValue(int) <span class="perc">0.00%</span></li>
+<li> clonePage() <span class="perc">0.00%</span></li>
+<li><a href="src_impl_AltBtree_cs.html#l1188">int compare(NachoDB.Key, int)</a> <span class="perc">96.15%</span></li>
+<li><a href="src_impl_AltBtree_cs.html#l1157">System.Array get_Data()</a> <span class="perc">87.50%</span></li>
+<li>NachoDB.Key getKey(int) <span class="perc">0.00%</span></li>
+<li>object getKeyValue(int) <span class="perc">0.00%</span></li>
+<li><a href="src_impl_AltBtree_cs.html#l1193">void insert(, int)</a> <span class="perc">97.73%</span></li>
+<li>void memset(int, int) <span class="perc">0.00%</span></li>
+<li>bool prefixSearch(string, int, System.Collections.ArrayList) <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls59');">NachoDB.Impl.AltBtree`2BtreePageOfUInt</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls59" style="display:none"><ul>
+<li>void .ctor(NachoDB.Storage) <span class="perc">0.00%</span></li>
+<li>void .ctor() <span class="perc">0.00%</span></li>
+<li> clonePage() <span class="perc">0.00%</span></li>
+<li>int compare(NachoDB.Key, int) <span class="perc">0.00%</span></li>
+<li>System.Array get_Data() <span class="perc">0.00%</span></li>
+<li>NachoDB.Key getKey(int) <span class="perc">0.00%</span></li>
+<li>object getKeyValue(int) <span class="perc">0.00%</span></li>
+<li>void insert(, int) <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls61');">NachoDB.Impl.AltBtree`2BtreePageOfULong</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls61" style="display:none"><ul>
+<li>void .ctor(NachoDB.Storage) <span class="perc">0.00%</span></li>
+<li>void .ctor() <span class="perc">0.00%</span></li>
+<li> clonePage() <span class="perc">0.00%</span></li>
+<li>int compare(NachoDB.Key, int) <span class="perc">0.00%</span></li>
+<li>System.Array get_Data() <span class="perc">0.00%</span></li>
+<li>NachoDB.Key getKey(int) <span class="perc">0.00%</span></li>
+<li>object getKeyValue(int) <span class="perc">0.00%</span></li>
+<li>void insert(, int) <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls57');">NachoDB.Impl.AltBtree`2BtreePageOfUShort</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls57" style="display:none"><ul>
+<li>void .ctor(NachoDB.Storage) <span class="perc">0.00%</span></li>
+<li>void .ctor() <span class="perc">0.00%</span></li>
+<li> clonePage() <span class="perc">0.00%</span></li>
+<li>int compare(NachoDB.Key, int) <span class="perc">0.00%</span></li>
+<li>System.Array get_Data() <span class="perc">0.00%</span></li>
+<li>NachoDB.Key getKey(int) <span class="perc">0.00%</span></li>
+<li>object getKeyValue(int) <span class="perc">0.00%</span></li>
+<li>void insert(, int) <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls69');">NachoDB.Impl.AltBtree`2BtreeSelectionIterator</a></span>
+<span class="perc">97.04%</span>:<br/><span id="cls69" style="display:none"><ul>
+<li><a href="src_impl_AltBtree_cs.html#l1900">void .ctor(, NachoDB.Key, NachoDB.Key, NachoDB.IterationOrder)</a> <span class="perc">97.67%</span></li>
+<li><a href="src_impl_AltBtree_cs.html#l2089">void Dispose()</a> <span class="perc">50.00%</span></li>
+<li><a href="src_impl_AltBtree_cs.html#l2119"> get_Current()</a> <span class="perc">96.30%</span></li>
+<li><a href="src_impl_AltBtree_cs.html#l2112">void getCurrent(, int)</a> <span class="perc">95.00%</span></li>
+<li><a href="src_impl_AltBtree_cs.html#l1911"> GetEnumerator()</a> <span class="perc">66.67%</span></li>
+<li><a href="src_impl_AltBtree_cs.html#l2137">void gotoNextItem(, int)</a> <span class="perc">97.90%</span></li>
+<li><a href="src_impl_AltBtree_cs.html#l2093">bool MoveNext()</a> <span class="perc">89.66%</span></li>
+<li><a href="src_impl_AltBtree_cs.html#l1923">void Reset()</a> <span class="perc">98.94%</span></li>
+<li>System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator() <span class="perc">0.00%</span></li>
+<li>object System.Collections.IEnumerator.get_Current() <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls18');">NachoDB.Impl.AltBtreeFieldIndex`2</a></span>
+<span class="perc">60.54%</span>:<br/><span id="cls18" style="display:none"><ul>
+<li><a href="src_impl_AltBtreeFieldIndex_cs.html#l20">void .ctor()</a> <span class="perc">87.50%</span></li>
+<li><a href="src_impl_AltBtreeFieldIndex_cs.html#l73">void .ctor(string, bool)</a> <span class="perc">86.67%</span></li>
+<li>void Append() <span class="perc">0.00%</span></li>
+<li>bool Contains() <span class="perc">0.00%</span></li>
+<li><a href="src_impl_AltBtreeFieldIndex_cs.html#l85">NachoDB.Key extractKey(NachoDB.IPersistent)</a> <span class="perc">97.45%</span></li>
+<li>System.Type get_IndexedClass() <span class="perc">0.00%</span></li>
+<li>System.Reflection.MemberInfo get_KeyField() <span class="perc">0.00%</span></li>
+<li><a href="src_impl_AltBtreeFieldIndex_cs.html#l26">void lookupField(string)</a> <span class="perc">93.22%</span></li>
+<li><a href="src_impl_AltBtreeFieldIndex_cs.html#l65">void OnLoad()</a> <span class="perc">85.88%</span></li>
+<li><a href="src_impl_AltBtreeFieldIndex_cs.html#l155">bool Put()</a> <span class="perc">95.24%</span></li>
+<li>bool Remove() <span class="perc">0.00%</span></li>
+<li> Set() <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls22');">NachoDB.Impl.AltBtreeMultiFieldIndex`1</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls22" style="display:none"><ul>
+<li>void .ctor() <span class="perc">0.00%</span></li>
+<li>void .ctor(string[], bool) <span class="perc">0.00%</span></li>
+<li>void Append() <span class="perc">0.00%</span></li>
+<li>bool Contains() <span class="perc">0.00%</span></li>
+<li>NachoDB.Key convertKey(NachoDB.Key) <span class="perc">0.00%</span></li>
+<li>NachoDB.Key extractKey(NachoDB.IPersistent) <span class="perc">0.00%</span></li>
+<li>[] Get(NachoDB.Key, NachoDB.Key) <span class="perc">0.00%</span></li>
+<li> Get(NachoDB.Key) <span class="perc">0.00%</span></li>
+<li>System.Type get_IndexedClass() <span class="perc">0.00%</span></li>
+<li>System.Reflection.MemberInfo get_KeyField() <span class="perc">0.00%</span></li>
+<li>System.Reflection.MemberInfo[] get_KeyFields() <span class="perc">0.00%</span></li>
+<li>System.Collections.IDictionaryEnumerator GetDictionaryEnumerator(NachoDB.Key, NachoDB.Key, NachoDB.IterationOrder) <span class="perc">0.00%</span></li>
+<li>void locateFields() <span class="perc">0.00%</span></li>
+<li>void OnLoad() <span class="perc">0.00%</span></li>
+<li>bool Put() <span class="perc">0.00%</span></li>
+<li> Range(NachoDB.Key, NachoDB.Key, NachoDB.IterationOrder) <span class="perc">0.00%</span></li>
+<li>bool Remove() <span class="perc">0.00%</span></li>
+<li> Remove(NachoDB.Key) <span class="perc">0.00%</span></li>
+<li> Set() <span class="perc">0.00%</span></li>
+<li>[] ToArray() <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls24');">NachoDB.Impl.AltBtreeMultiFieldIndex`1CompoundKey</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls24" style="display:none"><ul>
+<li>void .ctor(object[]) <span class="perc">0.00%</span></li>
+<li>int CompareTo(object) <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls26');">NachoDB.Impl.AltPersistentSet`1</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls26" style="display:none"><ul>
+<li>void .ctor() <span class="perc">0.00%</span></li>
+<li>void Add() <span class="perc">0.00%</span></li>
+<li>bool AddAll() <span class="perc">0.00%</span></li>
+<li>bool Contains() <span class="perc">0.00%</span></li>
+<li>bool ContainsAll() <span class="perc">0.00%</span></li>
+<li>bool Equals(object) <span class="perc">0.00%</span></li>
+<li>int GetHashCode() <span class="perc">0.00%</span></li>
+<li>bool Remove() <span class="perc">0.00%</span></li>
+<li>bool RemoveAll() <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls71');">NachoDB.Impl.AsyncReplicationMasterFile</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls71" style="display:none"><ul>
+<li>void .ctor(NachoDB.Impl.ReplicationMasterStorageImpl, NachoDB.IFile, int) <span class="perc">0.00%</span></li>
+<li>void .ctor(NachoDB.IFile, string[], int, bool) <span class="perc">0.00%</span></li>
+<li>void Close() <span class="perc">0.00%</span></li>
+<li>void run() <span class="perc">0.00%</span></li>
+<li>void start() <span class="perc">0.00%</span></li>
+<li>void Write(long, unsigned byte[]) <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls28');">NachoDB.Impl.AsyncReplicationMasterFileParcel</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls28" style="display:none"><ul>
+<li>void .ctor() <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls36');">NachoDB.Impl.BitIndexImpl`1</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls36" style="display:none"><ul>
+<li>void .ctor() <span class="perc">0.00%</span></li>
+<li>int Get() <span class="perc">0.00%</span></li>
+<li>int get_Item() <span class="perc">0.00%</span></li>
+<li> GetEnumerator(int, int) <span class="perc">0.00%</span></li>
+<li> GetEnumerator() <span class="perc">0.00%</span></li>
+<li>void Put(, int) <span class="perc">0.00%</span></li>
+<li>bool Remove() <span class="perc">0.00%</span></li>
+<li> Select(int, int) <span class="perc">0.00%</span></li>
+<li>void set_Item(, int) <span class="perc">0.00%</span></li>
+<li>System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator() <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls38');">NachoDB.Impl.BitIndexImpl`1BitIndexIterator</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls38" style="display:none"><ul>
+<li>void .ctor(, int, int) <span class="perc">0.00%</span></li>
+<li>void Dispose() <span class="perc">0.00%</span></li>
+<li> get_Current() <span class="perc">0.00%</span></li>
+<li> GetEnumerator() <span class="perc">0.00%</span></li>
+<li>bool MoveNext() <span class="perc">0.00%</span></li>
+<li>void Reset() <span class="perc">0.00%</span></li>
+<li>System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator() <span class="perc">0.00%</span></li>
+<li>object System.Collections.IEnumerator.get_Current() <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls76');">NachoDB.Impl.BitIndexImpl`1BitIndexPage</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls76" style="display:none"><ul>
+<li>void .ctor() <span class="perc">0.00%</span></li>
+<li>int allocate(NachoDB.Impl.StorageImpl, int, ) <span class="perc">0.00%</span></li>
+<li>int find(NachoDB.Impl.StorageImpl, int, int, int) <span class="perc">0.00%</span></li>
+<li>int getItem(NachoDB.Impl.Page, int) <span class="perc">0.00%</span></li>
+<li>NachoDB.Impl.BtreeResult handlePageUnderflow(NachoDB.Impl.StorageImpl, NachoDB.Impl.Page, int, int) <span class="perc">0.00%</span></li>
+<li>NachoDB.Impl.BtreeResult insert(NachoDB.Impl.StorageImpl, int, , int) <span class="perc">0.00%</span></li>
+<li>void memcpy(NachoDB.Impl.Page, int, NachoDB.Impl.Page, int, int) <span class="perc">0.00%</span></li>
+<li>NachoDB.Impl.BtreeResult remove(NachoDB.Impl.StorageImpl, int, int, int) <span class="perc">0.00%</span></li>
+<li>void setItem(NachoDB.Impl.Page, int, int) <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls75');">NachoDB.Impl.BitIndexImpl`1Key</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls75" style="display:none"><ul>
+<li>void .ctor(int, int) <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls77');">NachoDB.Impl.BlobImpl</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls77" style="display:none"><ul>
+<li>void .ctor(int) <span class="perc">0.00%</span></li>
+<li>void .ctor() <span class="perc">0.00%</span></li>
+<li>void Deallocate() <span class="perc">0.00%</span></li>
+<li>void DeallocateAll(NachoDB.Impl.BlobImpl) <span class="perc">0.00%</span></li>
+<li>System.IO.Stream GetStream() <span class="perc">0.00%</span></li>
+<li>bool RecursiveLoading() <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls78');">NachoDB.Impl.BlobImplBlobStream</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls78" style="display:none"><ul>
+<li>void .ctor(NachoDB.Impl.BlobImpl) <span class="perc">0.00%</span></li>
+<li>void Close() <span class="perc">0.00%</span></li>
+<li>void Flush() <span class="perc">0.00%</span></li>
+<li>bool get_CanRead() <span class="perc">0.00%</span></li>
+<li>bool get_CanSeek() <span class="perc">0.00%</span></li>
+<li>bool get_CanWrite() <span class="perc">0.00%</span></li>
+<li>long get_Length() <span class="perc">0.00%</span></li>
+<li>long get_Position() <span class="perc">0.00%</span></li>
+<li>int Read(unsigned byte[], int, int) <span class="perc">0.00%</span></li>
+<li>long Seek(long, System.IO.SeekOrigin) <span class="perc">0.00%</span></li>
+<li>void set_Position(long) <span class="perc">0.00%</span></li>
+<li>void SetLength(long) <span class="perc">0.00%</span></li>
+<li>void SetPointer() <span class="perc">0.00%</span></li>
+<li>void Write(unsigned byte[], int, int) <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls20');">NachoDB.Impl.Btree`2</a></span>
+<span class="perc">29.54%</span>:<br/><span id="cls20" style="display:none"><ul>
+<li><a href="src_impl_Btree_cs.html#l134">void .cctor()</a> <span class="perc">95.00%</span></li>
+<li><a href="src_impl_Btree_cs.html#l136">void .ctor()</a> <span class="perc">87.50%</span></li>
+<li><a href="src_impl_Btree_cs.html#l140">void .ctor(unsigned byte[], int)</a> <span class="perc">88.68%</span></li>
+<li><a href="src_impl_Btree_cs.html#l153">void .ctor(bool)</a> <span class="perc">97.22%</span></li>
+<li>void .ctor(NachoDB.Impl.ClassDescriptor.FieldType, bool) <span class="perc">0.00%</span></li>
+<li><a href="src_impl_Btree_cs.html#l276">NachoDB.Key checkKey(NachoDB.Key)</a> <span class="perc">87.50%</span></li>
+<li><a href="src_impl_Btree_cs.html#l181">NachoDB.Impl.ClassDescriptor.FieldType checkType(System.Type)</a> <span class="perc">75.51%</span></li>
+<li>void Clear() <span class="perc">0.00%</span></li>
+<li>int compareByteArrays(unsigned byte[], unsigned byte[], int, int) <span class="perc">0.00%</span></li>
+<li>int compareByteArrays(NachoDB.Key, NachoDB.Impl.Page, int) <span class="perc">0.00%</span></li>
+<li>void Deallocate() <span class="perc">0.00%</span></li>
+<li><a href="src_impl_Btree_cs.html#l545">void export(NachoDB.Impl.XMLExporter)</a> <span class="perc">97.78%</span></li>
+<li><a href="src_impl_Btree_cs.html#l292"> Get(NachoDB.Key)</a> <span class="perc">90.40%</span></li>
+<li><a href="src_impl_Btree_cs.html#l315"> Get()</a> <span class="perc">94.74%</span></li>
+<li>[] Get(NachoDB.Key, NachoDB.Key) <span class="perc">0.00%</span></li>
+<li>[] Get(, ) <span class="perc">0.00%</span></li>
+<li>int get_Count() <span class="perc">0.00%</span></li>
+<li><a href="src_impl_Btree_cs.html#l234">NachoDB.Impl.ClassDescriptor.FieldType get_FieldType()</a> <span class="perc">87.50%</span></li>
+<li>NachoDB.Impl.ClassDescriptor.FieldType[] get_FieldTypes() <span class="perc">0.00%</span></li>
+<li><a href="src_impl_Btree_cs.html#l226">int get_HeaderSize()</a> <span class="perc">85.71%</span></li>
+<li><a href="src_impl_Btree_cs.html#l218">bool get_IsUnique()</a> <span class="perc">87.50%</span></li>
+<li>[] get_Item(, ) <span class="perc">0.00%</span></li>
+<li><a href="src_impl_Btree_cs.html#l266"> get_Item()</a> <span class="perc">88.89%</span></li>
+<li>System.Type get_KeyType() <span class="perc">0.00%</span></li>
+<li>System.Collections.IDictionaryEnumerator GetDictionaryEnumerator() <span class="perc">0.00%</span></li>
+<li>System.Collections.IDictionaryEnumerator GetDictionaryEnumerator(NachoDB.Key, NachoDB.Key, NachoDB.IterationOrder) <span class="perc">0.00%</span></li>
+<li><a href="src_impl_Btree_cs.html#l879"> GetEnumerator()</a> <span class="perc">97.14%</span></li>
+<li> GetEnumerator(NachoDB.Key, NachoDB.Key, NachoDB.IterationOrder) <span class="perc">0.00%</span></li>
+<li> GetEnumerator(, , NachoDB.IterationOrder) <span class="perc">0.00%</span></li>
+<li> GetEnumerator(NachoDB.Key, NachoDB.Key) <span class="perc">0.00%</span></li>
+<li> GetEnumerator(, ) <span class="perc">0.00%</span></li>
+<li> GetEnumerator(string) <span class="perc">0.00%</span></li>
+<li>[] GetPrefix(string) <span class="perc">0.00%</span></li>
+<li><a href="src_impl_Btree_cs.html#l175">void init(System.Type, NachoDB.Impl.ClassDescriptor.FieldType, string[], bool, long)</a> <span class="perc">94.12%</span></li>
+<li><a href="src_impl_Btree_cs.html#l386">int insert(NachoDB.Key, NachoDB.IPersistent, bool)</a> <span class="perc">94.85%</span></li>
+<li>int markTree() <span class="perc">0.00%</span></li>
+<li><a href="src_impl_Btree_cs.html#l162">void OnLoad()</a> <span class="perc">97.62%</span></li>
+<li>[] PrefixSearch(string) <span class="perc">0.00%</span></li>
+<li><a href="src_impl_Btree_cs.html#l365">bool Put(NachoDB.Key, )</a> <span class="perc">95.45%</span></li>
+<li>bool Put(, ) <span class="perc">0.00%</span></li>
+<li><a href="src_impl_Btree_cs.html#l1819"> Range(NachoDB.Key, NachoDB.Key, NachoDB.IterationOrder)</a> <span class="perc">95.65%</span></li>
+<li> Range(NachoDB.Key, NachoDB.Key) <span class="perc">0.00%</span></li>
+<li> Range(, , NachoDB.IterationOrder) <span class="perc">0.00%</span></li>
+<li> Range(, ) <span class="perc">0.00%</span></li>
+<li>void Remove(NachoDB.Key, ) <span class="perc">0.00%</span></li>
+<li>void Remove(, ) <span class="perc">0.00%</span></li>
+<li>void remove(NachoDB.Impl.BtreeKey) <span class="perc">0.00%</span></li>
+<li> Remove(NachoDB.Key) <span class="perc">0.00%</span></li>
+<li> RemoveKey() <span class="perc">0.00%</span></li>
+<li> Reverse() <span class="perc">0.00%</span></li>
+<li><a href="src_impl_Btree_cs.html#l375"> Set(NachoDB.Key, )</a> <span class="perc">81.25%</span></li>
+<li><a href="src_impl_Btree_cs.html#l381"> Set(, )</a> <span class="perc">95.00%</span></li>
+<li><a href="src_impl_Btree_cs.html#l270">void set_Item(, )</a> <span class="perc">90.91%</span></li>
+<li>int Size() <span class="perc">0.00%</span></li>
+<li> StartsWith(string) <span class="perc">0.00%</span></li>
+<li>System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator() <span class="perc">0.00%</span></li>
+<li>[] ToArray() <span class="perc">0.00%</span></li>
+<li>System.Array ToArray(System.Type) <span class="perc">0.00%</span></li>
+<li>object unpackByteArrayKey(NachoDB.Impl.Page, int) <span class="perc">0.00%</span></li>
+<li>object unpackEnum(int) <span class="perc">0.00%</span></li>
+<li>object unpackKey(NachoDB.Impl.StorageImpl, NachoDB.Impl.Page, int) <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls73');">NachoDB.Impl.Btree`2BtreeDictionaryEnumerator</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls73" style="display:none"><ul>
+<li>void .ctor() <span class="perc">0.00%</span></li>
+<li>object get_Current() <span class="perc">0.00%</span></li>
+<li>System.Collections.DictionaryEntry get_Entry() <span class="perc">0.00%</span></li>
+<li>object get_Key() <span class="perc">0.00%</span></li>
+<li>object get_Value() <span class="perc">0.00%</span></li>
+<li>void getCurrent(NachoDB.Impl.Page, int) <span class="perc">0.00%</span></li>
+<li>object System.Collections.IEnumerator.get_Current() <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls34');">NachoDB.Impl.Btree`2BtreeDictionarySelectionIterator</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls34" style="display:none"><ul>
+<li>void .ctor(, NachoDB.Key, NachoDB.Key, NachoDB.IterationOrder) <span class="perc">0.00%</span></li>
+<li>object get_Current() <span class="perc">0.00%</span></li>
+<li>System.Collections.DictionaryEntry get_Entry() <span class="perc">0.00%</span></li>
+<li>object get_Key() <span class="perc">0.00%</span></li>
+<li>object get_Value() <span class="perc">0.00%</span></li>
+<li>void getCurrent(NachoDB.Impl.Page, int) <span class="perc">0.00%</span></li>
+<li>object System.Collections.IEnumerator.get_Current() <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls74');">NachoDB.Impl.Btree`2BtreeDictionaryStrEnumerator</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls74" style="display:none"><ul>
+<li>void .ctor() <span class="perc">0.00%</span></li>
+<li>int getReference(NachoDB.Impl.Page, int) <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls30');">NachoDB.Impl.Btree`2BtreeEnumerator</a></span>
+<span class="perc">92.70%</span>:<br/><span id="cls30" style="display:none"><ul>
+<li><a href="src_impl_Btree_cs.html#l656">void .ctor()</a> <span class="perc">95.24%</span></li>
+<li><a href="src_impl_Btree_cs.html#l672">void Dispose()</a> <span class="perc">50.00%</span></li>
+<li><a href="src_impl_Btree_cs.html#l724"> get_Current()</a> <span class="perc">97.44%</span></li>
+<li><a href="src_impl_Btree_cs.html#l669">void getCurrent(NachoDB.Impl.Page, int)</a> <span class="perc">93.75%</span></li>
+<li>int getReference(NachoDB.Impl.Page, int) <span class="perc">0.00%</span></li>
+<li><a href="src_impl_Btree_cs.html#l676">bool MoveNext()</a> <span class="perc">97.20%</span></li>
+<li><a href="src_impl_Btree_cs.html#l742">void Reset()</a> <span class="perc">94.85%</span></li>
+<li>object System.Collections.IEnumerator.get_Current() <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls32');">NachoDB.Impl.Btree`2BtreeSelectionIterator</a></span>
+<span class="perc">99.09%</span>:<br/><span id="cls32" style="display:none"><ul>
+<li><a href="src_impl_Btree_cs.html#l900">void .ctor(, NachoDB.Key, NachoDB.Key, NachoDB.IterationOrder)</a> <span class="perc">98.18%</span></li>
+<li><a href="src_impl_Btree_cs.html#l1436">void Dispose()</a> <span class="perc">50.00%</span></li>
+<li><a href="src_impl_Btree_cs.html#l1468"> get_Current()</a> <span class="perc">97.44%</span></li>
+<li><a href="src_impl_Btree_cs.html#l1459">void getCurrent(NachoDB.Impl.Page, int)</a> <span class="perc">98.00%</span></li>
+<li><a href="src_impl_Btree_cs.html#l912"> GetEnumerator()</a> <span class="perc">66.67%</span></li>
+<li><a href="src_impl_Btree_cs.html#l1486">void gotoNextItem(NachoDB.Impl.Page, int)</a> <span class="perc">99.44%</span></li>
+<li><a href="src_impl_Btree_cs.html#l1440">bool MoveNext()</a> <span class="perc">90.55%</span></li>
+<li><a href="src_impl_Btree_cs.html#l924">void Reset()</a> <span class="perc">99.69%</span></li>
+<li>System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator() <span class="perc">0.00%</span></li>
+<li>object System.Collections.IEnumerator.get_Current() <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls72');">NachoDB.Impl.Btree`2BtreeStrEnumerator</a></span>
+<span class="perc">88.89%</span>:<br/><span id="cls72" style="display:none"><ul>
+<li><a href="src_impl_Btree_cs.html#l779">void .ctor()</a> <span class="perc">88.89%</span></li>
+<li><a href="src_impl_Btree_cs.html#l786">int getReference(NachoDB.Impl.Page, int)</a> <span class="perc">88.89%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls80');">NachoDB.Impl.BtreeFieldIndex`2</a></span>
+<span class="perc">53.84%</span>:<br/><span id="cls80" style="display:none"><ul>
+<li><a href="src_impl_BtreeFieldIndex_cs.html#l20">void .ctor()</a> <span class="perc">87.50%</span></li>
+<li><a href="src_impl_BtreeFieldIndex_cs.html#l73">void .ctor(string, bool)</a> <span class="perc">91.67%</span></li>
+<li><a href="src_impl_BtreeFieldIndex_cs.html#l78">void .ctor(string, bool, long)</a> <span class="perc">95.24%</span></li>
+<li><a href="src_impl_BtreeFieldIndex_cs.html#l83">void .ctor(System.Type, string, bool, long)</a> <span class="perc">72.09%</span></li>
+<li>void Append() <span class="perc">0.00%</span></li>
+<li>bool Contains() <span class="perc">0.00%</span></li>
+<li><a href="src_impl_BtreeFieldIndex_cs.html#l106">NachoDB.Key extractKey(NachoDB.IPersistent)</a> <span class="perc">97.45%</span></li>
+<li>[] Get(NachoDB.Key, NachoDB.Key) <span class="perc">0.00%</span></li>
+<li>System.Type get_IndexedClass() <span class="perc">0.00%</span></li>
+<li>System.Reflection.MemberInfo get_KeyField() <span class="perc">0.00%</span></li>
+<li><a href="src_impl_BtreeFieldIndex_cs.html#l90">void init(System.Type, NachoDB.Impl.ClassDescriptor.FieldType, string[], bool, long)</a> <span class="perc">85.54%</span></li>
+<li><a href="src_impl_BtreeFieldIndex_cs.html#l26">void lookupField(string)</a> <span class="perc">93.22%</span></li>
+<li><a href="src_impl_BtreeFieldIndex_cs.html#l65">void OnLoad()</a> <span class="perc">85.88%</span></li>
+<li><a href="src_impl_BtreeFieldIndex_cs.html#l176">bool Put()</a> <span class="perc">95.24%</span></li>
+<li>bool Remove() <span class="perc">0.00%</span></li>
+<li> Set() <span class="perc">0.00%</span></li>
+<li>[] ToArray() <span class="perc">0.00%</span></li>
+<li>object unpackEnum(int) <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls81');">NachoDB.Impl.BtreeKey</a></span>
+<span class="perc">39.96%</span>:<br/><span id="cls81" style="display:none"><ul>
+<li><a href="src_impl_BtreeKey_cs.html#l11">void .ctor(NachoDB.Key, int)</a> <span class="perc">95.45%</span></li>
+<li>void extract(NachoDB.Impl.Page, int, NachoDB.Impl.ClassDescriptor.FieldType) <span class="perc">0.00%</span></li>
+<li>void getByteArray(NachoDB.Impl.Page, int) <span class="perc">0.00%</span></li>
+<li>void getStr(NachoDB.Impl.Page, int) <span class="perc">0.00%</span></li>
+<li><a href="src_impl_BtreeKey_cs.html#l111">void pack(NachoDB.Impl.Page, int)</a> <span class="perc">96.54%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls82');">NachoDB.Impl.BtreeMultiFieldIndex`1</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls82" style="display:none"><ul>
+<li>void .ctor() <span class="perc">0.00%</span></li>
+<li>void .ctor(System.Type, string[], bool) <span class="perc">0.00%</span></li>
+<li>void .ctor(string[], bool) <span class="perc">0.00%</span></li>
+<li>void Append() <span class="perc">0.00%</span></li>
+<li>int compareByteArrays(unsigned byte[], unsigned byte[], int, int) <span class="perc">0.00%</span></li>
+<li>bool Contains() <span class="perc">0.00%</span></li>
+<li>NachoDB.Key convertKey(NachoDB.Key) <span class="perc">0.00%</span></li>
+<li>NachoDB.Key extractKey(NachoDB.IPersistent) <span class="perc">0.00%</span></li>
+<li> Get(NachoDB.Key) <span class="perc">0.00%</span></li>
+<li>NachoDB.Impl.ClassDescriptor.FieldType[] get_FieldTypes() <span class="perc">0.00%</span></li>
+<li>System.Type get_IndexedClass() <span class="perc">0.00%</span></li>
+<li>System.Reflection.MemberInfo get_KeyField() <span class="perc">0.00%</span></li>
+<li>System.Reflection.MemberInfo[] get_KeyFields() <span class="perc">0.00%</span></li>
+<li>System.Collections.IDictionaryEnumerator GetDictionaryEnumerator(NachoDB.Key, NachoDB.Key, NachoDB.IterationOrder) <span class="perc">0.00%</span></li>
+<li>void init(System.Type, NachoDB.Impl.ClassDescriptor.FieldType, string[], bool, long) <span class="perc">0.00%</span></li>
+<li>void locateFields() <span class="perc">0.00%</span></li>
+<li>void OnLoad() <span class="perc">0.00%</span></li>
+<li>int packKeyPart(NachoDB.Impl.ByteBuffer, int, NachoDB.Impl.ClassDescriptor.FieldType, object) <span class="perc">0.00%</span></li>
+<li>bool Put() <span class="perc">0.00%</span></li>
+<li> Range(NachoDB.Key, NachoDB.Key, NachoDB.IterationOrder) <span class="perc">0.00%</span></li>
+<li>bool Remove() <span class="perc">0.00%</span></li>
+<li> Remove(NachoDB.Key) <span class="perc">0.00%</span></li>
+<li> Set() <span class="perc">0.00%</span></li>
+<li>object unpackByteArrayKey(NachoDB.Impl.Page, int) <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls40');">NachoDB.Impl.BtreePage</a></span>
+<span class="perc">30.86%</span>:<br/><span id="cls40" style="display:none"><ul>
+<li>void .ctor() <span class="perc">0.00%</span></li>
+<li><a href="src_impl_BtreePage_cs.html#l476">int allocate(NachoDB.Impl.StorageImpl, int, NachoDB.Impl.ClassDescriptor.FieldType, NachoDB.Impl.BtreeKey)</a> <span class="perc">95.49%</span></li>
+<li>int compactifyByteArrays(NachoDB.Impl.Page, int) <span class="perc">0.00%</span></li>
+<li>int compactifyStrings(NachoDB.Impl.Page, int) <span class="perc">0.00%</span></li>
+<li><a href="src_impl_BtreePage_cs.html#l86">int compare(NachoDB.Key, NachoDB.Impl.Page, int)</a> <span class="perc">97.83%</span></li>
+<li>int comparePrefix(string, NachoDB.Impl.Page, int) <span class="perc">0.00%</span></li>
+<li><a href="src_impl_BtreePage_cs.html#l143">int compareStr(NachoDB.Key, NachoDB.Impl.Page, int)</a> <span class="perc">89.47%</span></li>
+<li><a href="src_impl_BtreePage_cs.html#l2175">void exportPage(NachoDB.Impl.StorageImpl, NachoDB.Impl.XMLExporter, int, NachoDB.Impl.ClassDescriptor.FieldType, int)</a> <span class="perc">89.18%</span></li>
+<li><a href="src_impl_BtreePage_cs.html#l163">bool find(NachoDB.Impl.StorageImpl, int, NachoDB.Key, NachoDB.Key, NachoDB.Impl.Btree, int, System.Collections.ArrayList)</a> <span class="perc">95.69%</span></li>
+<li><a href="src_impl_BtreePage_cs.html#l31">int getKeyStrOffs(NachoDB.Impl.Page, int)</a> <span class="perc">95.00%</span></li>
+<li><a href="src_impl_BtreePage_cs.html#l23">int getKeyStrOid(NachoDB.Impl.Page, int)</a> <span class="perc">94.44%</span></li>
+<li><a href="src_impl_BtreePage_cs.html#l27">int getKeyStrSize(NachoDB.Impl.Page, int)</a> <span class="perc">95.00%</span></li>
+<li><a href="src_impl_BtreePage_cs.html#l15">int getnItems(NachoDB.Impl.Page)</a> <span class="perc">92.86%</span></li>
+<li><a href="src_impl_BtreePage_cs.html#l36">int getReference(NachoDB.Impl.Page, int)</a> <span class="perc">94.44%</span></li>
+<li><a href="src_impl_BtreePage_cs.html#l19">int getSize(NachoDB.Impl.Page)</a> <span class="perc">92.86%</span></li>
+<li>NachoDB.Impl.BtreeResult handlePageUnderflow(NachoDB.Impl.StorageImpl, NachoDB.Impl.Page, int, NachoDB.Impl.ClassDescriptor.FieldType, NachoDB.Impl.BtreeKey, int) <span class="perc">0.00%</span></li>
+<li><a href="src_impl_BtreePage_cs.html#l517">NachoDB.Impl.BtreeResult insert(NachoDB.Impl.StorageImpl, int, NachoDB.Impl.Btree, NachoDB.Impl.BtreeKey, int, bool, bool)</a> <span class="perc">96.86%</span></li>
+<li>NachoDB.Impl.BtreeResult insertByteArrayKey(NachoDB.Impl.StorageImpl, NachoDB.Impl.Page, int, NachoDB.Impl.BtreeKey, int) <span class="perc">0.00%</span></li>
+<li><a href="src_impl_BtreePage_cs.html#l715">NachoDB.Impl.BtreeResult insertStrKey(NachoDB.Impl.StorageImpl, NachoDB.Impl.Page, int, NachoDB.Impl.BtreeKey, int)</a> <span class="perc">98.45%</span></li>
+<li>int markPage(NachoDB.Impl.StorageImpl, int, NachoDB.Impl.ClassDescriptor.FieldType, int) <span class="perc">0.00%</span></li>
+<li><a href="src_impl_BtreePage_cs.html#l512">void memcpy(NachoDB.Impl.Page, int, NachoDB.Impl.Page, int, int, int)</a> <span class="perc">97.22%</span></li>
+<li>bool prefixSearch(NachoDB.Impl.StorageImpl, int, string, int, System.Collections.ArrayList) <span class="perc">0.00%</span></li>
+<li>void purge(NachoDB.Impl.StorageImpl, int, NachoDB.Impl.ClassDescriptor.FieldType, int) <span class="perc">0.00%</span></li>
+<li>NachoDB.Impl.BtreeResult remove(NachoDB.Impl.StorageImpl, int, NachoDB.Impl.Btree, NachoDB.Impl.BtreeKey, int) <span class="perc">0.00%</span></li>
+<li>NachoDB.Impl.BtreeResult removeByteArrayKey(NachoDB.Impl.Page, int) <span class="perc">0.00%</span></li>
+<li>NachoDB.Impl.BtreeResult removeStrKey(NachoDB.Impl.Page, int) <span class="perc">0.00%</span></li>
+<li>NachoDB.Impl.BtreeResult replaceByteArrayKey(NachoDB.Impl.StorageImpl, NachoDB.Impl.Page, int, NachoDB.Impl.BtreeKey, int) <span class="perc">0.00%</span></li>
+<li>NachoDB.Impl.BtreeResult replaceStrKey(NachoDB.Impl.StorageImpl, NachoDB.Impl.Page, int, NachoDB.Impl.BtreeKey, int) <span class="perc">0.00%</span></li>
+<li>void setKeyBytes(NachoDB.Impl.Page, int, unsigned byte[]) <span class="perc">0.00%</span></li>
+<li><a href="src_impl_BtreePage_cs.html#l61">void setKeyStrChars(NachoDB.Impl.Page, int, char[])</a> <span class="perc">76.92%</span></li>
+<li><a href="src_impl_BtreePage_cs.html#l57">void setKeyStrOffs(NachoDB.Impl.Page, int, int)</a> <span class="perc">95.45%</span></li>
+<li><a href="src_impl_BtreePage_cs.html#l49">void setKeyStrOid(NachoDB.Impl.Page, int, int)</a> <span class="perc">94.74%</span></li>
+<li><a href="src_impl_BtreePage_cs.html#l53">void setKeyStrSize(NachoDB.Impl.Page, int, int)</a> <span class="perc">95.45%</span></li>
+<li><a href="src_impl_BtreePage_cs.html#l41">void setnItems(NachoDB.Impl.Page, int)</a> <span class="perc">93.75%</span></li>
+<li><a href="src_impl_BtreePage_cs.html#l75">void setReference(NachoDB.Impl.Page, int, int)</a> <span class="perc">94.74%</span></li>
+<li><a href="src_impl_BtreePage_cs.html#l45">void setSize(NachoDB.Impl.Page, int)</a> <span class="perc">93.75%</span></li>
+<li>int traverseForward(NachoDB.Impl.StorageImpl, int, NachoDB.Impl.ClassDescriptor.FieldType, int, NachoDB.IPersistent[], int) <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls83');">NachoDB.Impl.ByteBuffer</a></span>
+<span class="perc">62.94%</span>:<br/><span id="cls83" style="display:none"><ul>
+<li><a href="src_impl_ByteBuffer_cs.html#l129">void .ctor(System.Text.Encoding)</a> <span class="perc">96.43%</span></li>
+<li><a href="src_impl_ByteBuffer_cs.html#l8">void extend(int)</a> <span class="perc">86.96%</span></li>
+<li><a href="src_impl_ByteBuffer_cs.html#l34">int packBool(int, bool)</a> <span class="perc">96.97%</span></li>
+<li>int packDate(int, System.DateTime) <span class="perc">0.00%</span></li>
+<li>int packDecimal(int, System.Decimal) <span class="perc">0.00%</span></li>
+<li>int packF4(int, float) <span class="perc">0.00%</span></li>
+<li><a href="src_impl_ByteBuffer_cs.html#l69">int packF8(int, double)</a> <span class="perc">96.30%</span></li>
+<li>int packGuid(int, System.Guid) <span class="perc">0.00%</span></li>
+<li>int packI1(int, int) <span class="perc">0.00%</span></li>
+<li>int packI2(int, int) <span class="perc">0.00%</span></li>
+<li><a href="src_impl_ByteBuffer_cs.html#l48">int packI4(int, int)</a> <span class="perc">96.30%</span></li>
+<li><a href="src_impl_ByteBuffer_cs.html#l55">int packI8(int, long)</a> <span class="perc">96.30%</span></li>
+<li><a href="src_impl_ByteBuffer_cs.html#l97">int packString(int, string)</a> <span class="perc">94.17%</span></li>
+<li>unsigned toArraybyte[]  () <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls84');">NachoDB.Impl.Bytes</a></span>
+<span class="perc">48.97%</span>:<br/><span id="cls84" style="display:none"><ul>
+<li>void .ctor() <span class="perc">0.00%</span></li>
+<li><a href="src_impl_Bytes_cs.html#l74">void pack2(unsigned byte[], int, short)</a> <span class="perc">93.75%</span></li>
+<li><a href="src_impl_Bytes_cs.html#l79">void pack4(unsigned byte[], int, int)</a> <span class="perc">97.22%</span></li>
+<li><a href="src_impl_Bytes_cs.html#l86">void pack8(unsigned byte[], int, long)</a> <span class="perc">96.00%</span></li>
+<li>void packDate(unsigned byte[], int, System.DateTime) <span class="perc">0.00%</span></li>
+<li>void packDecimal(unsigned byte[], int, System.Decimal) <span class="perc">0.00%</span></li>
+<li>void packF4(unsigned byte[], int, float) <span class="perc">0.00%</span></li>
+<li><a href="src_impl_Bytes_cs.html#l167">void packF8(unsigned byte[], int, double)</a> <span class="perc">93.33%</span></li>
+<li>void packGuid(unsigned byte[], int, System.Guid) <span class="perc">0.00%</span></li>
+<li><a href="src_impl_Bytes_cs.html#l59">short unpack2(unsigned byte[], int)</a> <span class="perc">93.33%</span></li>
+<li><a href="src_impl_Bytes_cs.html#l64">int unpack4(unsigned byte[], int)</a> <span class="perc">96.88%</span></li>
+<li><a href="src_impl_Bytes_cs.html#l69">long unpack8(unsigned byte[], int)</a> <span class="perc">95.83%</span></li>
+<li>System.DateTime unpackDate(unsigned byte[], int) <span class="perc">0.00%</span></li>
+<li>System.Decimal unpackDecimal(unsigned byte[], int) <span class="perc">0.00%</span></li>
+<li>float unpackF4(unsigned byte[], int) <span class="perc">0.00%</span></li>
+<li><a href="src_impl_Bytes_cs.html#l101">double unpackF8(unsigned byte[], int)</a> <span class="perc">92.86%</span></li>
+<li>System.Guid unpackGuid(unsigned byte[], int) <span class="perc">0.00%</span></li>
+<li><a href="src_impl_Bytes_cs.html#l117">int unpackString(unsigned byte[], int, ref string, System.Text.Encoding)</a> <span class="perc">90.55%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls85');">NachoDB.Impl.ClassDescriptor</a></span>
+<span class="perc">89.38%</span>:<br/><span id="cls85" style="display:none"><ul>
+<li><a href="src_impl_ClassDescriptor_cs.html#l99">void .cctor()</a> <span class="perc">98.25%</span></li>
+<li><a href="src_impl_ClassDescriptor_cs.html#l451">void .ctor()</a> <span class="perc">87.50%</span></li>
+<li><a href="src_impl_ClassDescriptor_cs.html#l455">void .ctor(NachoDB.Impl.StorageImpl, System.Type)</a> <span class="perc">91.95%</span></li>
+<li><a href="src_impl_ClassDescriptor_cs.html#l272">void buildFieldList(NachoDB.Impl.StorageImpl, System.Type, System.Collections.ArrayList)</a> <span class="perc">97.77%</span></li>
+<li><a href="src_impl_ClassDescriptor_cs.html#l165">bool equals(NachoDB.Impl.ClassDescriptor)</a> <span class="perc">85.19%</span></li>
+<li><a href="src_impl_ClassDescriptor_cs.html#l198">void generateSerializer()</a> <span class="perc">93.72%</span></li>
+<li><a href="src_impl_ClassDescriptor_cs.html#l237">System.Reflection.MethodInfo GetConstructor(System.Reflection.FieldInfo, string)</a> <span class="perc">75.51%</span></li>
+<li><a href="src_impl_ClassDescriptor_cs.html#l340">NachoDB.Impl.ClassDescriptor.FieldType getTypeCode(System.Type)</a> <span class="perc">98.10%</span></li>
+<li><a href="src_impl_ClassDescriptor_cs.html#l245">string getTypeName(System.Type)</a> <span class="perc">90.16%</span></li>
+<li>bool isObjectProperty(System.Type, System.Reflection.FieldInfo) <span class="perc">0.00%</span></li>
+<li>bool isPerstInternalType(System.Type) <span class="perc">0.00%</span></li>
+<li><a href="src_impl_ClassDescriptor_cs.html#l472">System.Type lookup(NachoDB.Storage, string)</a> <span class="perc">91.06%</span></li>
+<li><a href="src_impl_ClassDescriptor_cs.html#l183">object newInstance()</a> <span class="perc">54.41%</span></li>
+<li><a href="src_impl_ClassDescriptor_cs.html#l586">void OnLoad()</a> <span class="perc">96.83%</span></li>
+<li><a href="src_impl_ClassDescriptor_cs.html#l640">bool RecursiveLoading()</a> <span class="perc">66.67%</span></li>
+<li><a href="src_impl_ClassDescriptor_cs.html#l626">void resolve()</a> <span class="perc">82.61%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls86');">NachoDB.Impl.ClassDescriptorFieldDescriptor</a></span>
+<span class="perc">85.39%</span>:<br/><span id="cls86" style="display:none"><ul>
+<li>void .ctor() <span class="perc">87.50%</span></li>
+<li><a href="src_impl_ClassDescriptor_cs.html#l32">bool equals(NachoDB.Impl.ClassDescriptor.FieldDescriptor)</a> <span class="perc">85.19%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls87');">NachoDB.Impl.CNetMonitor</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls87" style="display:none"><ul>
+<li>void .ctor() <span class="perc">0.00%</span></li>
+<li>void Enter() <span class="perc">0.00%</span></li>
+<li>void Exit() <span class="perc">0.00%</span></li>
+<li>void Pulse() <span class="perc">0.00%</span></li>
+<li>void PulseAll() <span class="perc">0.00%</span></li>
+<li>void Wait() <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls89');">NachoDB.Impl.CodeGenerator</a></span>
+<span class="perc">82.92%</span>:<br/><span id="cls89" style="display:none"><ul>
+<li><a href="src_impl_CodeGenerator_cs.html#l582">void .ctor()</a> <span class="perc">98.37%</span></li>
+<li>System.Type CreateWrapper(System.Type) <span class="perc">0.00%</span></li>
+<li><a href="src_impl_CodeGenerator_cs.html#l28">System.Reflection.Emit.ModuleBuilder EmitAssemblyModule()</a> <span class="perc">85.00%</span></li>
+<li><a href="src_impl_CodeGenerator_cs.html#l430">System.Type EmitClass(System.Reflection.Emit.ModuleBuilder, NachoDB.Impl.ClassDescriptor)</a> <span class="perc">94.50%</span></li>
+<li>System.Type EmitClassWrapper(System.Reflection.Emit.ModuleBuilder, System.Type) <span class="perc">0.00%</span></li>
+<li><a href="src_impl_CodeGenerator_cs.html#l16">NachoDB.Impl.GeneratedSerializer Generate(NachoDB.Impl.ClassDescriptor)</a> <span class="perc">76.47%</span></li>
+<li><a href="src_impl_CodeGenerator_cs.html#l423">void generateNewMethod(NachoDB.Impl.ClassDescriptor, System.Reflection.Emit.MethodBuilder)</a> <span class="perc">75.00%</span></li>
+<li><a href="src_impl_CodeGenerator_cs.html#l61">void generatePackField(System.Reflection.Emit.ILGenerator, System.Reflection.FieldInfo, System.Reflection.MethodInfo)</a> <span class="perc">87.88%</span></li>
+<li><a href="src_impl_CodeGenerator_cs.html#l71">void generatePackMethod(NachoDB.Impl.ClassDescriptor, System.Reflection.Emit.MethodBuilder)</a> <span class="perc">98.23%</span></li>
+<li><a href="src_impl_CodeGenerator_cs.html#l158">void generateUnpackMethod(NachoDB.Impl.ClassDescriptor, System.Reflection.Emit.MethodBuilder)</a> <span class="perc">99.51%</span></li>
+<li><a href="src_impl_CodeGenerator_cs.html#l568">NachoDB.Impl.CodeGenerator get_Instance()</a> <span class="perc">95.83%</span></li>
+<li><a href="src_impl_CodeGenerator_cs.html#l46">System.Reflection.Emit.MethodBuilder GetBuilder(System.Reflection.Emit.TypeBuilder, System.Reflection.MethodInfo)</a> <span class="perc">84.42%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls90');">NachoDB.Impl.DefaultPersistentComparator`2</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls90" style="display:none"><ul>
+<li>void .ctor() <span class="perc">0.00%</span></li>
+<li>int CompareMembers(, ) <span class="perc">0.00%</span></li>
+<li>int CompareMemberWithKey(, ) <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls124');">NachoDB.Impl.Header</a></span>
+<span class="perc">96.72%</span>:<br/><span id="cls124" style="display:none"><ul>
+<li><a href="src_impl_StorageImpl_cs.html#l4987">void .cctor()</a> <span class="perc">91.67%</span></li>
+<li>void .ctor() <span class="perc">87.50%</span></li>
+<li><a href="src_impl_StorageImpl_cs.html#l4991">void pack(unsigned byte[])</a> <span class="perc">96.80%</span></li>
+<li><a href="src_impl_StorageImpl_cs.html#l5026">void unpack(unsigned byte[])</a> <span class="perc">96.98%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls79');">NachoDB.Impl.KeyBuilder</a></span>
+<span class="perc">95.58%</span>:<br/><span id="cls79" style="display:none"><ul>
+<li>void .ctor() <span class="perc">0.00%</span></li>
+<li><a href="src_impl_Btree_cs.html#l20">NachoDB.Key getKeyFromObject(object)</a> <span class="perc">97.30%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls91');">NachoDB.Impl.LinkImpl`1</a></span>
+<span class="perc">33.86%</span>:<br/><span id="cls91" style="display:none"><ul>
+<li>void .ctor() <span class="perc">0.00%</span></li>
+<li><a href="src_impl_LinkImpl_cs.html#l364">void .ctor(int)</a> <span class="perc">95.00%</span></li>
+<li><a href="src_impl_LinkImpl_cs.html#l369">void .ctor(NachoDB.IPersistent[], NachoDB.IPersistent)</a> <span class="perc">96.77%</span></li>
+<li>void Add() <span class="perc">0.00%</span></li>
+<li>void AddAll([]) <span class="perc">0.00%</span></li>
+<li>void AddAll([], int, int) <span class="perc">0.00%</span></li>
+<li>void AddAll() <span class="perc">0.00%</span></li>
+<li>void Clear() <span class="perc">0.00%</span></li>
+<li>bool Contains() <span class="perc">0.00%</span></li>
+<li>bool ContainsElement(int, ) <span class="perc">0.00%</span></li>
+<li>void CopyTo([], int) <span class="perc">0.00%</span></li>
+<li><a href="src_impl_LinkImpl_cs.html#l95"> Get(int)</a> <span class="perc">96.43%</span></li>
+<li>int get_Count() <span class="perc">0.00%</span></li>
+<li>bool get_IsReadOnly() <span class="perc">0.00%</span></li>
+<li>bool get_IsSynchronized() <span class="perc">0.00%</span></li>
+<li><a href="src_impl_LinkImpl_cs.html#l84"> get_Item(int)</a> <span class="perc">88.89%</span></li>
+<li><a href="src_impl_LinkImpl_cs.html#l62">int get_Length()</a> <span class="perc">87.50%</span></li>
+<li>object get_SyncRoot() <span class="perc">0.00%</span></li>
+<li> GetEnumerator() <span class="perc">0.00%</span></li>
+<li><a href="src_impl_LinkImpl_cs.html#l104">NachoDB.IPersistent GetRaw(int)</a> <span class="perc">96.55%</span></li>
+<li>int IndexOf() <span class="perc">0.00%</span></li>
+<li>void Insert(int, ) <span class="perc">0.00%</span></li>
+<li><a href="src_impl_LinkImpl_cs.html#l347"> loadElem(int)</a> <span class="perc">80.95%</span></li>
+<li><a href="src_impl_LinkImpl_cs.html#l10">void Modify()</a> <span class="perc">95.24%</span></li>
+<li>void Pin() <span class="perc">0.00%</span></li>
+<li>bool Remove() <span class="perc">0.00%</span></li>
+<li>void Remove(int) <span class="perc">0.00%</span></li>
+<li>void RemoveAt(int) <span class="perc">0.00%</span></li>
+<li><a href="src_impl_LinkImpl_cs.html#l151">void reserveSpace(int)</a> <span class="perc">89.09%</span></li>
+<li><a href="src_impl_LinkImpl_cs.html#l113">void Set(int, )</a> <span class="perc">97.56%</span></li>
+<li><a href="src_impl_LinkImpl_cs.html#l89">void set_Item(int, )</a> <span class="perc">90.00%</span></li>
+<li><a href="src_impl_LinkImpl_cs.html#l67">void set_Length(int)</a> <span class="perc">98.28%</span></li>
+<li><a href="src_impl_LinkImpl_cs.html#l357">void SetOwner(NachoDB.IPersistent)</a> <span class="perc">88.89%</span></li>
+<li><a href="src_impl_LinkImpl_cs.html#l55">int Size()</a> <span class="perc">87.50%</span></li>
+<li>System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator() <span class="perc">0.00%</span></li>
+<li>[] ToArray() <span class="perc">0.00%</span></li>
+<li>System.Array ToArray(System.Type) <span class="perc">0.00%</span></li>
+<li><a href="src_impl_LinkImpl_cs.html#l203">System.Array ToRawArray()</a> <span class="perc">87.50%</span></li>
+<li><a href="src_impl_LinkImpl_cs.html#l335">void Unpin()</a> <span class="perc">85.88%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls92');">NachoDB.Impl.LinkImpl`1LinkEnumerator</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls92" style="display:none"><ul>
+<li>void .ctor() <span class="perc">0.00%</span></li>
+<li>void Dispose() <span class="perc">0.00%</span></li>
+<li> get_Current() <span class="perc">0.00%</span></li>
+<li>bool MoveNext() <span class="perc">0.00%</span></li>
+<li>void Reset() <span class="perc">0.00%</span></li>
+<li>object System.Collections.IEnumerator.get_Current() <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls93');">NachoDB.Impl.LRU</a></span>
+<span class="perc">87.39%</span>:<br/><span id="cls93" style="display:none"><ul>
+<li><a href="src_impl_LRU_cs.html#l9">void .ctor()</a> <span class="perc">65.71%</span></li>
+<li><a href="src_impl_LRU_cs.html#l22">void link(NachoDB.Impl.LRU)</a> <span class="perc">97.50%</span></li>
+<li><a href="src_impl_LRU_cs.html#l16">void unlink()</a> <span class="perc">97.22%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls94');">NachoDB.Impl.LruObjectCache</a></span>
+<span class="perc">53.51%</span>:<br/><span id="cls94" style="display:none"><ul>
+<li><a href="src_impl_LruObjectCache_cs.html#l15">void .ctor(int)</a> <span class="perc">89.09%</span></li>
+<li><a href="src_impl_LruObjectCache_cs.html#l304">void clearDirty(int)</a> <span class="perc">85.00%</span></li>
+<li><a href="src_impl_LruObjectCache_cs.html#l223">void flush()</a> <span class="perc">81.08%</span></li>
+<li><a href="src_impl_LruObjectCache_cs.html#l119">NachoDB.IPersistent get(int)</a> <span class="perc">87.30%</span></li>
+<li>void invalidate() <span class="perc">0.00%</span></li>
+<li><a href="src_impl_LruObjectCache_cs.html#l64">void pinObject(NachoDB.Impl.LruObjectCache.Entry, NachoDB.IPersistent)</a> <span class="perc">87.50%</span></li>
+<li><a href="src_impl_LruObjectCache_cs.html#l87">void put(int, NachoDB.IPersistent)</a> <span class="perc">85.29%</span></li>
+<li>void rehash() <span class="perc">0.00%</span></li>
+<li>bool remove(int) <span class="perc">0.00%</span></li>
+<li><a href="src_impl_LruObjectCache_cs.html#l287">void setDirty(int)</a> <span class="perc">75.00%</span></li>
+<li>int size() <span class="perc">0.00%</span></li>
+<li>void unpinObject(NachoDB.Impl.LruObjectCache.Entry) <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls95');">NachoDB.Impl.LruObjectCacheEntry</a></span>
+<span class="perc">57.67%</span>:<br/><span id="cls95" style="display:none"><ul>
+<li><a href="src_impl_LruObjectCache_cs.html#l384">void .ctor(int, System.WeakReference, NachoDB.Impl.LruObjectCache.Entry)</a> <span class="perc">96.55%</span></li>
+<li>void clear() <span class="perc">0.00%</span></li>
+<li><a href="src_impl_LruObjectCache_cs.html#l369">void linkAfter(NachoDB.Impl.LruObjectCache.Entry, NachoDB.IPersistent)</a> <span class="perc">97.87%</span></li>
+<li><a href="src_impl_LruObjectCache_cs.html#l356">void unlink()</a> <span class="perc">97.22%</span></li>
+<li>void unpin() <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls96');">NachoDB.Impl.ObjectHeader</a></span>
+<span class="perc">76.00%</span>:<br/><span id="cls96" style="display:none"><ul>
+<li>void .ctor() <span class="perc">0.00%</span></li>
+<li><a href="src_impl_ObjectHeader_cs.html#l10">int getSize(unsigned byte[], int)</a> <span class="perc">88.89%</span></li>
+<li><a href="src_impl_ObjectHeader_cs.html#l18">int getType(unsigned byte[], int)</a> <span class="perc">90.91%</span></li>
+<li><a href="src_impl_ObjectHeader_cs.html#l14">void setSize(unsigned byte[], int, int)</a> <span class="perc">90.00%</span></li>
+<li><a href="src_impl_ObjectHeader_cs.html#l22">void setType(unsigned byte[], int, int)</a> <span class="perc">91.67%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls97');">NachoDB.Impl.OSFile</a></span>
+<span class="perc">78.92%</span>:<br/><span id="cls97" style="display:none"><ul>
+<li><a href="src_impl_OSFile_cs.html#l63">void .ctor(string, bool, bool)</a> <span class="perc">97.14%</span></li>
+<li><a href="src_impl_OSFile_cs.html#l47">void Close()</a> <span class="perc">92.31%</span></li>
+<li>bool FlushFileBuffers(int) <span class="perc">100.00%</span></li>
+<li>long get_Length() <span class="perc">0.00%</span></li>
+<li>bool get_NoFlush() <span class="perc">0.00%</span></li>
+<li><a href="src_impl_OSFile_cs.html#l53">void Lock()</a> <span class="perc">95.83%</span></li>
+<li><a href="src_impl_OSFile_cs.html#l21">int Read(long, unsigned byte[])</a> <span class="perc">96.88%</span></li>
+<li>void set_NoFlush(bool) <span class="perc">0.00%</span></li>
+<li><a href="src_impl_OSFile_cs.html#l27">void Sync()</a> <span class="perc">78.95%</span></li>
+<li><a href="src_impl_OSFile_cs.html#l15">void Write(long, unsigned byte[])</a> <span class="perc">96.88%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls98');">NachoDB.Impl.Page</a></span>
+<span class="perc">81.94%</span>:<br/><span id="cls98" style="display:none"><ul>
+<li><a href="src_impl_Page_cs.html#l26">void .ctor()</a> <span class="perc">95.83%</span></li>
+<li><a href="src_impl_Page_cs.html#l22">int CompareTo(object)</a> <span class="perc">75.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls99');">NachoDB.Impl.PagePool</a></span>
+<span class="perc">87.84%</span>:<br/><span id="cls99" style="display:none"><ul>
+<li><a href="src_impl_PagePool_cs.html#l21">void .ctor(int)</a> <span class="perc">96.43%</span></li>
+<li><a href="src_impl_PagePool_cs.html#l220">void close()</a> <span class="perc">69.57%</span></li>
+<li><a href="src_impl_PagePool_cs.html#l141">void copy(long, long, long)</a> <span class="perc">95.08%</span></li>
+<li><a href="src_impl_PagePool_cs.html#l34">NachoDB.Impl.Page find(long, int)</a> <span class="perc">92.23%</span></li>
+<li><a href="src_impl_PagePool_cs.html#l335">void flush()</a> <span class="perc">80.45%</span></li>
+<li><a href="src_impl_PagePool_cs.html#l275">unsigned getbyte[]  (long)</a> <span class="perc">92.81%</span></li>
+<li><a href="src_impl_PagePool_cs.html#l264">NachoDB.Impl.Page getPage(long)</a> <span class="perc">90.00%</span></li>
+<li><a href="src_impl_PagePool_cs.html#l244">void modify(NachoDB.Impl.Page)</a> <span class="perc">82.39%</span></li>
+<li><a href="src_impl_PagePool_cs.html#l202">void open(NachoDB.IFile)</a> <span class="perc">90.70%</span></li>
+<li>void put(long, unsigned byte[]) <span class="perc">0.00%</span></li>
+<li><a href="src_impl_PagePool_cs.html#l303">void put(long, unsigned byte[], int)</a> <span class="perc">91.55%</span></li>
+<li><a href="src_impl_PagePool_cs.html#l269">NachoDB.Impl.Page putPage(long)</a> <span class="perc">90.00%</span></li>
+<li><a href="src_impl_PagePool_cs.html#l232">void unfix(NachoDB.Impl.Page)</a> <span class="perc">66.67%</span></li>
+<li><a href="src_impl_PagePool_cs.html#l186">void write(long, unsigned byte[])</a> <span class="perc">85.37%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls100');">NachoDB.Impl.PArrayImpl`1</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls100" style="display:none"><ul>
+<li>void .ctor() <span class="perc">0.00%</span></li>
+<li>void .ctor(NachoDB.Impl.StorageImpl, int) <span class="perc">0.00%</span></li>
+<li>void .ctor(NachoDB.Impl.StorageImpl, int[], NachoDB.IPersistent) <span class="perc">0.00%</span></li>
+<li>void Add() <span class="perc">0.00%</span></li>
+<li>void AddAll([]) <span class="perc">0.00%</span></li>
+<li>void AddAll([], int, int) <span class="perc">0.00%</span></li>
+<li>void AddAll() <span class="perc">0.00%</span></li>
+<li>void Clear() <span class="perc">0.00%</span></li>
+<li>bool Contains() <span class="perc">0.00%</span></li>
+<li>bool ContainsElement(int, ) <span class="perc">0.00%</span></li>
+<li>void CopyTo([], int) <span class="perc">0.00%</span></li>
+<li> Get(int) <span class="perc">0.00%</span></li>
+<li>int get_Count() <span class="perc">0.00%</span></li>
+<li>bool get_IsReadOnly() <span class="perc">0.00%</span></li>
+<li>bool get_IsSynchronized() <span class="perc">0.00%</span></li>
+<li> get_Item(int) <span class="perc">0.00%</span></li>
+<li>int get_Length() <span class="perc">0.00%</span></li>
+<li>object get_SyncRoot() <span class="perc">0.00%</span></li>
+<li> GetEnumerator() <span class="perc">0.00%</span></li>
+<li>int GetOid(int) <span class="perc">0.00%</span></li>
+<li>NachoDB.IPersistent GetRaw(int) <span class="perc">0.00%</span></li>
+<li>int IndexOf() <span class="perc">0.00%</span></li>
+<li>void Insert(int, ) <span class="perc">0.00%</span></li>
+<li> loadElem(int) <span class="perc">0.00%</span></li>
+<li>void Modify() <span class="perc">0.00%</span></li>
+<li>void Pin() <span class="perc">0.00%</span></li>
+<li>bool Remove() <span class="perc">0.00%</span></li>
+<li>void Remove(int) <span class="perc">0.00%</span></li>
+<li>void RemoveAt(int) <span class="perc">0.00%</span></li>
+<li>void reserveSpace(int) <span class="perc">0.00%</span></li>
+<li>void Set(int, ) <span class="perc">0.00%</span></li>
+<li>void set_Item(int, ) <span class="perc">0.00%</span></li>
+<li>void set_Length(int) <span class="perc">0.00%</span></li>
+<li>void SetOwner(NachoDB.IPersistent) <span class="perc">0.00%</span></li>
+<li>int Size() <span class="perc">0.00%</span></li>
+<li>System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator() <span class="perc">0.00%</span></li>
+<li>[] ToArray() <span class="perc">0.00%</span></li>
+<li>System.Array ToArray(System.Type) <span class="perc">0.00%</span></li>
+<li>System.Array ToRawArray() <span class="perc">0.00%</span></li>
+<li>void Unpin() <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls101');">NachoDB.Impl.PArrayImpl`1ArrayEnumerator</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls101" style="display:none"><ul>
+<li>void .ctor() <span class="perc">0.00%</span></li>
+<li>void Dispose() <span class="perc">0.00%</span></li>
+<li> get_Current() <span class="perc">0.00%</span></li>
+<li>bool MoveNext() <span class="perc">0.00%</span></li>
+<li>void Reset() <span class="perc">0.00%</span></li>
+<li>object System.Collections.IEnumerator.get_Current() <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls102');">NachoDB.Impl.PersistentSet`1</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls102" style="display:none"><ul>
+<li>void .ctor() <span class="perc">0.00%</span></li>
+<li>void Add() <span class="perc">0.00%</span></li>
+<li>bool AddAll() <span class="perc">0.00%</span></li>
+<li>bool Contains() <span class="perc">0.00%</span></li>
+<li>bool ContainsAll() <span class="perc">0.00%</span></li>
+<li>bool Equals(object) <span class="perc">0.00%</span></li>
+<li>int GetHashCode() <span class="perc">0.00%</span></li>
+<li>bool Remove() <span class="perc">0.00%</span></li>
+<li>bool RemoveAll() <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls103');">NachoDB.Impl.PersistentStub</a></span>
+<span class="perc">24.53%</span>:<br/><span id="cls103" style="display:none"><ul>
+<li><a href="src_impl_PersistentStub_cs.html#l94">void .ctor(NachoDB.Storage, int)</a> <span class="perc">95.45%</span></li>
+<li>void AssignOid(NachoDB.Storage, int, bool) <span class="perc">0.00%</span></li>
+<li>void Deallocate() <span class="perc">0.00%</span></li>
+<li>bool Equals(object) <span class="perc">0.00%</span></li>
+<li><a href="src_impl_PersistentStub_cs.html#l9">int get_Oid()</a> <span class="perc">87.50%</span></li>
+<li><a href="src_impl_PersistentStub_cs.html#l17">NachoDB.Storage get_Storage()</a> <span class="perc">87.50%</span></li>
+<li>int GetHashCode() <span class="perc">0.00%</span></li>
+<li>void Invalidate() <span class="perc">0.00%</span></li>
+<li>bool IsDeleted() <span class="perc">0.00%</span></li>
+<li>bool IsModified() <span class="perc">0.00%</span></li>
+<li><a href="src_impl_PersistentStub_cs.html#l43">bool IsPersistent()</a> <span class="perc">66.67%</span></li>
+<li><a href="src_impl_PersistentStub_cs.html#l28">bool IsRaw()</a> <span class="perc">66.67%</span></li>
+<li>void Load() <span class="perc">0.00%</span></li>
+<li>int MakePersistent(NachoDB.Storage) <span class="perc">0.00%</span></li>
+<li>void Modify() <span class="perc">0.00%</span></li>
+<li>void OnLoad() <span class="perc">0.00%</span></li>
+<li>void OnStore() <span class="perc">0.00%</span></li>
+<li>bool RecursiveLoading() <span class="perc">0.00%</span></li>
+<li>void Store() <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls104');">NachoDB.Impl.PerstSink</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls104" style="display:none"><ul>
+<li>void .ctor(NachoDB.PersistentContext, System.Runtime.Remoting.Messaging.IMessageSink) <span class="perc">0.00%</span></li>
+<li>System.Runtime.Remoting.Messaging.IMessageCtrl AsyncProcessMessage(System.Runtime.Remoting.Messaging.IMessage, System.Runtime.Remoting.Messaging.IMessageSink) <span class="perc">0.00%</span></li>
+<li>System.Runtime.Remoting.Messaging.IMessageSink get_NextSink() <span class="perc">0.00%</span></li>
+<li>System.Runtime.Remoting.Messaging.IMessage SyncProcessMessage(System.Runtime.Remoting.Messaging.IMessage) <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls105');">NachoDB.Impl.PTrie`1</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls105" style="display:none"><ul>
+<li>void .ctor() <span class="perc">0.00%</span></li>
+<li> Add(NachoDB.PatriciaTrieKey, ) <span class="perc">0.00%</span></li>
+<li>void Clear() <span class="perc">0.00%</span></li>
+<li>void fill(, ) <span class="perc">0.00%</span></li>
+<li> FindBestMatch(NachoDB.PatriciaTrieKey) <span class="perc">0.00%</span></li>
+<li> FindExactMatch(NachoDB.PatriciaTrieKey) <span class="perc">0.00%</span></li>
+<li>int firstDigit(unsigned long, int) <span class="perc">0.00%</span></li>
+<li>int get_Count() <span class="perc">0.00%</span></li>
+<li>int getCommonPart(unsigned long, int, unsigned long, int) <span class="perc">0.00%</span></li>
+<li> GetEnumerator() <span class="perc">0.00%</span></li>
+<li> Remove(NachoDB.PatriciaTrieKey) <span class="perc">0.00%</span></li>
+<li>System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator() <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls106');">NachoDB.Impl.PTrie`1PTrieNode</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls106" style="display:none"><ul>
+<li>void .ctor(unsigned long, int, ) <span class="perc">0.00%</span></li>
+<li>void .ctor() <span class="perc">0.00%</span></li>
+<li> add(unsigned long, int, ) <span class="perc">0.00%</span></li>
+<li>void Deallocate() <span class="perc">0.00%</span></li>
+<li> findBestMatch(unsigned long, int) <span class="perc">0.00%</span></li>
+<li> findExactMatch(unsigned long, int) <span class="perc">0.00%</span></li>
+<li>bool isNotUsed() <span class="perc">0.00%</span></li>
+<li> remove(unsigned long, int) <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls107');">NachoDB.Impl.Rc4File</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls107" style="display:none"><ul>
+<li>void .ctor(string, bool, bool, string) <span class="perc">0.00%</span></li>
+<li>void decrypt(unsigned byte[], int, unsigned byte[], int, int) <span class="perc">0.00%</span></li>
+<li>void encrypt(unsigned byte[], int, unsigned byte[], int, int) <span class="perc">0.00%</span></li>
+<li>int nextState() <span class="perc">0.00%</span></li>
+<li>int Read(long, unsigned byte[]) <span class="perc">0.00%</span></li>
+<li>void setKey(string) <span class="perc">0.00%</span></li>
+<li>void Write(long, unsigned byte[]) <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls108');">NachoDB.Impl.RelationImpl`2</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls108" style="display:none"><ul>
+<li>void .ctor() <span class="perc">0.00%</span></li>
+<li>void .ctor() <span class="perc">0.00%</span></li>
+<li>void Add() <span class="perc">0.00%</span></li>
+<li>void AddAll([]) <span class="perc">0.00%</span></li>
+<li>void AddAll([], int, int) <span class="perc">0.00%</span></li>
+<li>void AddAll() <span class="perc">0.00%</span></li>
+<li>void Clear() <span class="perc">0.00%</span></li>
+<li>bool Contains() <span class="perc">0.00%</span></li>
+<li>bool ContainsElement(int, ) <span class="perc">0.00%</span></li>
+<li>void CopyTo([], int) <span class="perc">0.00%</span></li>
+<li> Get(int) <span class="perc">0.00%</span></li>
+<li>int get_Count() <span class="perc">0.00%</span></li>
+<li> get_Item(int) <span class="perc">0.00%</span></li>
+<li>int get_Length() <span class="perc">0.00%</span></li>
+<li> GetEnumerator() <span class="perc">0.00%</span></li>
+<li>NachoDB.IPersistent GetRaw(int) <span class="perc">0.00%</span></li>
+<li>int IndexOf() <span class="perc">0.00%</span></li>
+<li>void Insert(int, ) <span class="perc">0.00%</span></li>
+<li>void Pin() <span class="perc">0.00%</span></li>
+<li>bool Remove() <span class="perc">0.00%</span></li>
+<li>void Remove(int) <span class="perc">0.00%</span></li>
+<li>void RemoveAt(int) <span class="perc">0.00%</span></li>
+<li>void Set(int, ) <span class="perc">0.00%</span></li>
+<li>void set_Item(int, ) <span class="perc">0.00%</span></li>
+<li>void set_Length(int) <span class="perc">0.00%</span></li>
+<li>int Size() <span class="perc">0.00%</span></li>
+<li>[] ToArray() <span class="perc">0.00%</span></li>
+<li>System.Array ToArray(System.Type) <span class="perc">0.00%</span></li>
+<li>System.Array ToRawArray() <span class="perc">0.00%</span></li>
+<li>void Unpin() <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls70');">NachoDB.Impl.ReplicationMasterFile</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls70" style="display:none"><ul>
+<li>void .cctor() <span class="perc">0.00%</span></li>
+<li>void .ctor(NachoDB.Impl.ReplicationMasterStorageImpl, NachoDB.IFile) <span class="perc">0.00%</span></li>
+<li>void .ctor(NachoDB.IFile, string[], bool) <span class="perc">0.00%</span></li>
+<li>void Close() <span class="perc">0.00%</span></li>
+<li>void connect(int) <span class="perc">0.00%</span></li>
+<li>long get_Length() <span class="perc">0.00%</span></li>
+<li>bool get_NoFlush() <span class="perc">0.00%</span></li>
+<li>int GetNumberOfAvailableHosts() <span class="perc">0.00%</span></li>
+<li>bool HandleError(string) <span class="perc">0.00%</span></li>
+<li>void Lock() <span class="perc">0.00%</span></li>
+<li>int Read(long, unsigned byte[]) <span class="perc">0.00%</span></li>
+<li>void set_NoFlush(bool) <span class="perc">0.00%</span></li>
+<li>void Sync() <span class="perc">0.00%</span></li>
+<li>void Write(long, unsigned byte[]) <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls112');">NachoDB.Impl.ReplicationMasterStorageImpl</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls112" style="display:none"><ul>
+<li>void .ctor(string[], int) <span class="perc">0.00%</span></li>
+<li>int GetNumberOfAvailableHosts() <span class="perc">0.00%</span></li>
+<li>void Open(NachoDB.IFile, int) <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls113');">NachoDB.Impl.ReplicationSlaveStorageImpl</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls113" style="display:none"><ul>
+<li>void .cctor() <span class="perc">0.00%</span></li>
+<li>void .ctor(int) <span class="perc">0.00%</span></li>
+<li>void BeginThreadTransaction(NachoDB.TransactionMode) <span class="perc">0.00%</span></li>
+<li>void Close() <span class="perc">0.00%</span></li>
+<li>void connect() <span class="perc">0.00%</span></li>
+<li>void EndThreadTransaction(int) <span class="perc">0.00%</span></li>
+<li>bool HandleError() <span class="perc">0.00%</span></li>
+<li>void hangup() <span class="perc">0.00%</span></li>
+<li>bool IsConnected() <span class="perc">0.00%</span></li>
+<li>bool isDirty() <span class="perc">0.00%</span></li>
+<li>void Open(NachoDB.IFile, int) <span class="perc">0.00%</span></li>
+<li>void run() <span class="perc">0.00%</span></li>
+<li>void WaitForModification() <span class="perc">0.00%</span></li>
+<li>void WaitInitializationCompletion() <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls123');">NachoDB.Impl.RootPage</a></span>
+<span class="perc">87.50%</span>:<br/><span id="cls123" style="display:none"><ul>
+<li>void .ctor() <span class="perc">87.50%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls114');">NachoDB.Impl.Rtree`1</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls114" style="display:none"><ul>
+<li>void .ctor() <span class="perc">0.00%</span></li>
+<li>void Clear() <span class="perc">0.00%</span></li>
+<li>void Deallocate() <span class="perc">0.00%</span></li>
+<li>[] Get(NachoDB.Rectangle) <span class="perc">0.00%</span></li>
+<li>int get_Count() <span class="perc">0.00%</span></li>
+<li>NachoDB.Rectangle get_WrappingRectangle() <span class="perc">0.00%</span></li>
+<li>System.Collections.IDictionaryEnumerator GetDictionaryEnumerator(NachoDB.Rectangle) <span class="perc">0.00%</span></li>
+<li>System.Collections.IDictionaryEnumerator GetDictionaryEnumerator() <span class="perc">0.00%</span></li>
+<li> GetEnumerator() <span class="perc">0.00%</span></li>
+<li> Overlaps(NachoDB.Rectangle) <span class="perc">0.00%</span></li>
+<li>void Put(NachoDB.Rectangle, ) <span class="perc">0.00%</span></li>
+<li>void Remove(NachoDB.Rectangle, ) <span class="perc">0.00%</span></li>
+<li>int Size() <span class="perc">0.00%</span></li>
+<li>System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator() <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls116');">NachoDB.Impl.Rtree`1RtreeEntryIterator</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls116" style="display:none"><ul>
+<li>void .ctor(, NachoDB.Rectangle) <span class="perc">0.00%</span></li>
+<li>object get_Current() <span class="perc">0.00%</span></li>
+<li>System.Collections.DictionaryEntry get_Entry() <span class="perc">0.00%</span></li>
+<li>object get_Key() <span class="perc">0.00%</span></li>
+<li>object get_Value() <span class="perc">0.00%</span></li>
+<li>object System.Collections.IEnumerator.get_Current() <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls115');">NachoDB.Impl.Rtree`1RtreeIterator</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls115" style="display:none"><ul>
+<li>void .ctor(, NachoDB.Rectangle) <span class="perc">0.00%</span></li>
+<li>void Dispose() <span class="perc">0.00%</span></li>
+<li> get_Current() <span class="perc">0.00%</span></li>
+<li> GetEnumerator() <span class="perc">0.00%</span></li>
+<li>bool gotoFirstItem(int, NachoDB.Impl.RtreePage) <span class="perc">0.00%</span></li>
+<li>bool gotoNextItem(int) <span class="perc">0.00%</span></li>
+<li>bool MoveNext() <span class="perc">0.00%</span></li>
+<li>void Reset() <span class="perc">0.00%</span></li>
+<li>System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator() <span class="perc">0.00%</span></li>
+<li>object System.Collections.IEnumerator.get_Current() <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls117');">NachoDB.Impl.RtreePage</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls117" style="display:none"><ul>
+<li>void .ctor(NachoDB.Storage, NachoDB.IPersistent, NachoDB.Rectangle) <span class="perc">0.00%</span></li>
+<li>void .ctor(NachoDB.Storage, NachoDB.Impl.RtreePage, NachoDB.Impl.RtreePage) <span class="perc">0.00%</span></li>
+<li>void .ctor() <span class="perc">0.00%</span></li>
+<li>NachoDB.Impl.RtreePage addBranch(NachoDB.Storage, NachoDB.Rectangle, NachoDB.IPersistent) <span class="perc">0.00%</span></li>
+<li>NachoDB.Rectangle cover() <span class="perc">0.00%</span></li>
+<li>void find(NachoDB.Rectangle, System.Collections.ArrayList, int) <span class="perc">0.00%</span></li>
+<li>NachoDB.Impl.RtreePage insert(NachoDB.Storage, NachoDB.Rectangle, NachoDB.IPersistent, int) <span class="perc">0.00%</span></li>
+<li>void purge(int) <span class="perc">0.00%</span></li>
+<li>int remove(NachoDB.Rectangle, NachoDB.IPersistent, int, System.Collections.ArrayList) <span class="perc">0.00%</span></li>
+<li>void removeBranch(int) <span class="perc">0.00%</span></li>
+<li>void setBranch(int, NachoDB.Rectangle, NachoDB.IPersistent) <span class="perc">0.00%</span></li>
+<li>NachoDB.Impl.RtreePage splitPage(NachoDB.Storage, NachoDB.Rectangle, NachoDB.IPersistent) <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls118');">NachoDB.Impl.RtreeR2`1</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls118" style="display:none"><ul>
+<li>void .ctor() <span class="perc">0.00%</span></li>
+<li>void Clear() <span class="perc">0.00%</span></li>
+<li>void Deallocate() <span class="perc">0.00%</span></li>
+<li>[] Get(NachoDB.RectangleR2) <span class="perc">0.00%</span></li>
+<li>int get_Count() <span class="perc">0.00%</span></li>
+<li>NachoDB.RectangleR2 get_WrappingRectangle() <span class="perc">0.00%</span></li>
+<li>System.Collections.IDictionaryEnumerator GetDictionaryEnumerator(NachoDB.RectangleR2) <span class="perc">0.00%</span></li>
+<li>System.Collections.IDictionaryEnumerator GetDictionaryEnumerator() <span class="perc">0.00%</span></li>
+<li> GetEnumerator() <span class="perc">0.00%</span></li>
+<li> Overlaps(NachoDB.RectangleR2) <span class="perc">0.00%</span></li>
+<li>void Put(NachoDB.RectangleR2, ) <span class="perc">0.00%</span></li>
+<li>void Remove(NachoDB.RectangleR2, ) <span class="perc">0.00%</span></li>
+<li>int Size() <span class="perc">0.00%</span></li>
+<li>System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator() <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls120');">NachoDB.Impl.RtreeR2`1RtreeEntryIterator</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls120" style="display:none"><ul>
+<li>void .ctor(, NachoDB.RectangleR2) <span class="perc">0.00%</span></li>
+<li>object get_Current() <span class="perc">0.00%</span></li>
+<li>System.Collections.DictionaryEntry get_Entry() <span class="perc">0.00%</span></li>
+<li>object get_Key() <span class="perc">0.00%</span></li>
+<li>object get_Value() <span class="perc">0.00%</span></li>
+<li>object System.Collections.IEnumerator.get_Current() <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls119');">NachoDB.Impl.RtreeR2`1RtreeIterator</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls119" style="display:none"><ul>
+<li>void .ctor(, NachoDB.RectangleR2) <span class="perc">0.00%</span></li>
+<li>void Dispose() <span class="perc">0.00%</span></li>
+<li> get_Current() <span class="perc">0.00%</span></li>
+<li> GetEnumerator() <span class="perc">0.00%</span></li>
+<li>bool gotoFirstItem(int, NachoDB.Impl.RtreeR2Page) <span class="perc">0.00%</span></li>
+<li>bool gotoNextItem(int) <span class="perc">0.00%</span></li>
+<li>bool MoveNext() <span class="perc">0.00%</span></li>
+<li>void Reset() <span class="perc">0.00%</span></li>
+<li>System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator() <span class="perc">0.00%</span></li>
+<li>object System.Collections.IEnumerator.get_Current() <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls121');">NachoDB.Impl.RtreeR2Page</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls121" style="display:none"><ul>
+<li>void .ctor(NachoDB.Storage, NachoDB.IPersistent, NachoDB.RectangleR2) <span class="perc">0.00%</span></li>
+<li>void .ctor(NachoDB.Storage, NachoDB.Impl.RtreeR2Page, NachoDB.Impl.RtreeR2Page) <span class="perc">0.00%</span></li>
+<li>void .ctor() <span class="perc">0.00%</span></li>
+<li>NachoDB.Impl.RtreeR2Page addBranch(NachoDB.Storage, NachoDB.RectangleR2, NachoDB.IPersistent) <span class="perc">0.00%</span></li>
+<li>NachoDB.RectangleR2 cover() <span class="perc">0.00%</span></li>
+<li>void find(NachoDB.RectangleR2, System.Collections.ArrayList, int) <span class="perc">0.00%</span></li>
+<li>NachoDB.Impl.RtreeR2Page insert(NachoDB.Storage, NachoDB.RectangleR2, NachoDB.IPersistent, int) <span class="perc">0.00%</span></li>
+<li>void purge(int) <span class="perc">0.00%</span></li>
+<li>int remove(NachoDB.RectangleR2, NachoDB.IPersistent, int, System.Collections.ArrayList) <span class="perc">0.00%</span></li>
+<li>void removeBranch(int) <span class="perc">0.00%</span></li>
+<li>void setBranch(int, NachoDB.RectangleR2, NachoDB.IPersistent) <span class="perc">0.00%</span></li>
+<li>NachoDB.Impl.RtreeR2Page splitPage(NachoDB.Storage, NachoDB.RectangleR2, NachoDB.IPersistent) <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls122');">NachoDB.Impl.ScalableSet`1</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls122" style="display:none"><ul>
+<li>void .ctor(NachoDB.Impl.StorageImpl, int) <span class="perc">0.00%</span></li>
+<li>void .ctor() <span class="perc">0.00%</span></li>
+<li>void Add() <span class="perc">0.00%</span></li>
+<li>bool AddAll() <span class="perc">0.00%</span></li>
+<li>void Clear() <span class="perc">0.00%</span></li>
+<li>bool Contains() <span class="perc">0.00%</span></li>
+<li>bool ContainsAll() <span class="perc">0.00%</span></li>
+<li>void Deallocate() <span class="perc">0.00%</span></li>
+<li>bool Equals(object) <span class="perc">0.00%</span></li>
+<li>int get_Count() <span class="perc">0.00%</span></li>
+<li> GetEnumerator() <span class="perc">0.00%</span></li>
+<li>int GetHashCode() <span class="perc">0.00%</span></li>
+<li>bool Remove() <span class="perc">0.00%</span></li>
+<li>bool RemoveAll() <span class="perc">0.00%</span></li>
+<li>System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator() <span class="perc">0.00%</span></li>
+<li>[] ToArray() <span class="perc">0.00%</span></li>
+<li>System.Array ToArray(System.Type) <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls109');">NachoDB.Impl.StorageImpl</a></span>
+<span class="perc">58.62%</span>:<br/><span id="cls109" style="display:none"><ul>
+<li><a href="src_impl_StorageImpl_cs.html#l65">void .cctor()</a> <span class="perc">91.30%</span></li>
+<li><a href="src_impl_StorageImpl_cs.html#l4883">void .ctor()</a> <span class="perc">98.31%</span></li>
+<li>void activateGc() <span class="perc">0.00%</span></li>
+<li><a href="src_impl_StorageImpl_cs.html#l392">long allocate(long, int)</a> <span class="perc">98.63%</span></li>
+<li><a href="src_impl_StorageImpl_cs.html#l248">int allocateId()</a> <span class="perc">91.45%</span></li>
+<li><a href="src_impl_StorageImpl_cs.html#l172">int allocatePage()</a> <span class="perc">74.47%</span></li>
+<li><a href="src_impl_StorageImpl_cs.html#l1233">void assignOid(NachoDB.IPersistent, int)</a> <span class="perc">90.91%</span></li>
+<li>void backgroundGcThread() <span class="perc">0.00%</span></li>
+<li>void Backup(System.IO.Stream) <span class="perc">0.00%</span></li>
+<li>void BeginThreadTransaction(NachoDB.TransactionMode) <span class="perc">0.00%</span></li>
+<li><a href="src_impl_StorageImpl_cs.html#l1170">void checkIfFinal(NachoDB.Impl.ClassDescriptor)</a> <span class="perc">86.52%</span></li>
+<li><a href="src_impl_StorageImpl_cs.html#l876">void cloneBitmap(long, long)</a> <span class="perc">88.71%</span></li>
+<li><a href="src_impl_StorageImpl_cs.html#l2954">void Close()</a> <span class="perc">90.58%</span></li>
+<li><a href="src_impl_StorageImpl_cs.html#l1261">void Commit()</a> <span class="perc">69.12%</span></li>
+<li><a href="src_impl_StorageImpl_cs.html#l1280">void commit0()</a> <span class="perc">99.47%</span></li>
+<li><a href="src_impl_StorageImpl_cs.html#l377">void commitLocation()</a> <span class="perc">94.74%</span></li>
+<li> ConstructArray<1> (int[], NachoDB.IPersistent) <span class="perc">0.00%</span></li>
+<li><a href="src_impl_StorageImpl_cs.html#l1932"> ConstructLink<1> (NachoDB.IPersistent[], NachoDB.IPersistent)</a> <span class="perc">88.89%</span></li>
+<li> CreateArray<1> () <span class="perc">0.00%</span></li>
+<li> CreateArray<1> (int) <span class="perc">0.00%</span></li>
+<li>NachoDB.IPersistent CreateArray() <span class="perc">0.00%</span></li>
+<li>NachoDB.IPersistent CreateArray(int) <span class="perc">0.00%</span></li>
+<li> CreateBitIndex<1> () <span class="perc">0.00%</span></li>
+<li>NachoDB.Blob CreateBlob() <span class="perc">0.00%</span></li>
+<li><a href="src_impl_StorageImpl_cs.html#l2062">NachoDB.Impl.Btree createBtreeStub(unsigned byte[], int)</a> <span class="perc">90.91%</span></li>
+<li>NachoDB.IPersistent CreateClass(System.Type) <span class="perc">0.00%</span></li>
+<li><a href="src_impl_StorageImpl_cs.html#l1887"> CreateFieldIndex<2> (string, bool)</a> <span class="perc">72.00%</span></li>
+<li> CreateFieldIndex<1> (string[], bool) <span class="perc">0.00%</span></li>
+<li><a href="src_impl_StorageImpl_cs.html#l1790"> CreateIndex<2> (bool)</a> <span class="perc">70.00%</span></li>
+<li><a href="src_impl_StorageImpl_cs.html#l1927"> CreateLink<1> (int)</a> <span class="perc">87.50%</span></li>
+<li> CreateLink<1> () <span class="perc">0.00%</span></li>
+<li>NachoDB.IPersistent CreateLink() <span class="perc">0.00%</span></li>
+<li><a href="src_impl_StorageImpl_cs.html#l1977">NachoDB.IPersistent CreateLink(int)</a> <span class="perc">88.89%</span></li>
+<li><a href="src_impl_StorageImpl_cs.html#l941">NachoDB.Impl.OidHashTable createObjectCache(NachoDB.CacheType, int, int)</a> <span class="perc">96.97%</span></li>
+<li> CreatePatriciaTrie<1> () <span class="perc">0.00%</span></li>
+<li> CreateRelation<2> () <span class="perc">0.00%</span></li>
+<li> CreateScalableSet<1> () <span class="perc">0.00%</span></li>
+<li> CreateScalableSet<1> (int) <span class="perc">0.00%</span></li>
+<li> CreateSet<1> () <span class="perc">0.00%</span></li>
+<li>NachoDB.IPersistent CreateSet() <span class="perc">0.00%</span></li>
+<li> CreateSortedCollection<2> (, bool) <span class="perc">0.00%</span></li>
+<li> CreateSortedCollection<2> (bool) <span class="perc">0.00%</span></li>
+<li> CreateSpatialIndex<1> () <span class="perc">0.00%</span></li>
+<li> CreateSpatialIndexR2<1> () <span class="perc">0.00%</span></li>
+<li> CreateThickIndex<2> () <span class="perc">0.00%</span></li>
+<li> CreateTimeSeries<1> (int, long) <span class="perc">0.00%</span></li>
+<li>void deallocateObject(NachoDB.IPersistent) <span class="perc">0.00%</span></li>
+<li>void EndThreadTransaction() <span class="perc">0.00%</span></li>
+<li>void EndThreadTransaction(int) <span class="perc">0.00%</span></li>
+<li><a href="src_impl_StorageImpl_cs.html#l92">void ensureOpened()</a> <span class="perc">94.12%</span></li>
+<li><a href="src_impl_StorageImpl_cs.html#l1998">void ExportXML(System.IO.StreamWriter)</a> <span class="perc">72.12%</span></li>
+<li><a href="src_impl_StorageImpl_cs.html#l341">void extend(long)</a> <span class="perc">98.21%</span></li>
+<li>void fillBitmap(long, int) <span class="perc">0.00%</span></li>
+<li><a href="src_impl_StorageImpl_cs.html#l3272">NachoDB.Impl.ClassDescriptor findClassDescriptor(int)</a> <span class="perc">95.83%</span></li>
+<li><a href="src_impl_StorageImpl_cs.html#l821">void free(long, long)</a> <span class="perc">92.00%</span></li>
+<li>void freeId(int) <span class="perc">0.00%</span></li>
+<li>void freePage(int) <span class="perc">0.00%</span></li>
+<li>int Gc() <span class="perc">0.00%</span></li>
+<li>int gc0() <span class="perc">0.00%</span></li>
+<li><a href="src_impl_StorageImpl_cs.html#l1225">void generateSerializers()</a> <span class="perc">68.42%</span></li>
+<li><a href="src_impl_StorageImpl_cs.html#l131">unsigned getbyte[]  (int)</a> <span class="perc">77.36%</span></li>
+<li>bool get_AlternativeBtree() <span class="perc">0.00%</span></li>
+<li>bool get_BackgroundGc() <span class="perc">0.00%</span></li>
+<li>NachoDB.CacheType get_CacheKind() <span class="perc">0.00%</span></li>
+<li>bool get_CodeGeneration() <span class="perc">0.00%</span></li>
+<li>long get_DatabaseSize() <span class="perc">0.00%</span></li>
+<li>long get_ExtensionQuantum() <span class="perc">0.00%</span></li>
+<li>bool get_FileNoFlush() <span class="perc">0.00%</span></li>
+<li>bool get_FileReadOnly() <span class="perc">0.00%</span></li>
+<li>long get_GcThreshold() <span class="perc">0.00%</span></li>
+<li><a href="src_impl_StorageImpl_cs.html#l4879">NachoDB.ClassLoader get_Loader()</a> <span class="perc">87.50%</span></li>
+<li>int get_ObjectCacheInitSize() <span class="perc">0.00%</span></li>
+<li>int get_ObjectIndexInitSize() <span class="perc">0.00%</span></li>
+<li>bool get_ReplicationAck() <span class="perc">0.00%</span></li>
+<li><a href="src_impl_StorageImpl_cs.html#l29">NachoDB.IPersistent get_Root()</a> <span class="perc">70.19%</span></li>
+<li>bool get_SerializeTransientObjects() <span class="perc">0.00%</span></li>
+<li>System.Text.Encoding get_StringEncoding() <span class="perc">0.00%</span></li>
+<li>NachoDB.Impl.StorageImpl.ThreadTransactionContext get_TransactionContext() <span class="perc">0.00%</span></li>
+<li>long get_UsedSize() <span class="perc">0.00%</span></li>
+<li><a href="src_impl_StorageImpl_cs.html#l387">NachoDB.Impl.Page getBitmapPage(int)</a> <span class="perc">93.33%</span></li>
+<li><a href="src_impl_StorageImpl_cs.html#l100">int getBitmapPageId(int)</a> <span class="perc">97.56%</span></li>
+<li>long getBitmapUsedSpace(int, int) <span class="perc">0.00%</span></li>
+<li><a href="src_impl_StorageImpl_cs.html#l1249">NachoDB.Impl.ClassDescriptor getClassDescriptor(System.Type)</a> <span class="perc">78.57%</span></li>
+<li>NachoDB.Impl.Page getGCPage(int) <span class="perc">0.00%</span></li>
+<li>long getGCPos(int) <span class="perc">0.00%</span></li>
+<li>System.Collections.Hashtable GetMemoryDump() <span class="perc">0.00%</span></li>
+<li>NachoDB.IPersistent GetObjectByOID(int) <span class="perc">0.00%</span></li>
+<li><a href="src_impl_StorageImpl_cs.html#l141">NachoDB.Impl.Page getPage(int)</a> <span class="perc">77.36%</span></li>
+<li><a href="src_impl_StorageImpl_cs.html#l105">long getPos(int)</a> <span class="perc">81.71%</span></li>
+<li>System.Type getWrapper(System.Type) <span class="perc">0.00%</span></li>
+<li><a href="src_impl_StorageImpl_cs.html#l2012">void ImportXML(System.IO.StreamReader)</a> <span class="perc">59.21%</span></li>
+<li><a href="src_impl_StorageImpl_cs.html#l230">bool isDirty()</a> <span class="perc">92.31%</span></li>
+<li>bool IsOpened() <span class="perc">0.00%</span></li>
+<li><a href="src_impl_StorageImpl_cs.html#l3237">void loadObject(NachoDB.IPersistent)</a> <span class="perc">63.10%</span></li>
+<li><a href="src_impl_StorageImpl_cs.html#l3319">NachoDB.IPersistent loadStub(int, NachoDB.IPersistent, System.Type)</a> <span class="perc">94.42%</span></li>
+<li>void lockObject(NachoDB.IPersistent) <span class="perc">0.00%</span></li>
+<li><a href="src_impl_StorageImpl_cs.html#l3248">NachoDB.IPersistent lookupObject(int, System.Type)</a> <span class="perc">75.00%</span></li>
+<li><a href="src_impl_StorageImpl_cs.html#l1576">int MakePersistent(NachoDB.IPersistent)</a> <span class="perc">75.00%</span></li>
+<li>void mark() <span class="perc">0.00%</span></li>
+<li>int markObject(unsigned byte[], int, NachoDB.Impl.ClassDescriptor) <span class="perc">0.00%</span></li>
+<li>void markOid(int) <span class="perc">0.00%</span></li>
+<li><a href="src_impl_StorageImpl_cs.html#l315">void memset(NachoDB.Impl.Page, int, int, int)</a> <span class="perc">72.09%</span></li>
+<li>void memset(unsigned byte[], int, int, unsigned byte) <span class="perc">0.00%</span></li>
+<li><a href="src_impl_StorageImpl_cs.html#l3112">void modifyObject(NachoDB.IPersistent)</a> <span class="perc">74.36%</span></li>
+<li><a href="src_impl_StorageImpl_cs.html#l917">void Open(string)</a> <span class="perc">92.86%</span></li>
+<li>void Open(NachoDB.IFile) <span class="perc">0.00%</span></li>
+<li><a href="src_impl_StorageImpl_cs.html#l927">void Open(string, int)</a> <span class="perc">57.35%</span></li>
+<li>void Open(string, int, string) <span class="perc">0.00%</span></li>
+<li><a href="src_impl_StorageImpl_cs.html#l969">void Open(NachoDB.IFile, int)</a> <span class="perc">98.14%</span></li>
+<li><a href="src_impl_StorageImpl_cs.html#l4340">int packField(NachoDB.Impl.ByteBuffer, int, object, NachoDB.Impl.ClassDescriptor.FieldDescriptor, NachoDB.Impl.ClassDescriptor.FieldType, NachoDB.IPersistent)</a> <span class="perc">99.64%</span></li>
+<li><a href="src_impl_StorageImpl_cs.html#l4167">unsigned packObjectbyte[]  (NachoDB.IPersistent)</a> <span class="perc">90.08%</span></li>
+<li><a href="src_impl_StorageImpl_cs.html#l4186">int packObject(object, NachoDB.Impl.ClassDescriptor, int, NachoDB.Impl.ByteBuffer, NachoDB.IPersistent)</a> <span class="perc">83.56%</span></li>
+<li>int packRawValue(NachoDB.Impl.ByteBuffer, int, object) <span class="perc">0.00%</span></li>
+<li><a href="src_impl_StorageImpl_cs.html#l382">NachoDB.Impl.Page putBitmapPage(int)</a> <span class="perc">93.33%</span></li>
+<li><a href="src_impl_StorageImpl_cs.html#l151">NachoDB.Impl.Page putPage(int)</a> <span class="perc">84.18%</span></li>
+<li><a href="src_impl_StorageImpl_cs.html#l1238">void registerClassDescriptor(NachoDB.Impl.ClassDescriptor)</a> <span class="perc">88.12%</span></li>
+<li><a href="src_impl_StorageImpl_cs.html#l1187">void reloadScheme()</a> <span class="perc">95.88%</span></li>
+<li><a href="src_impl_StorageImpl_cs.html#l368">void reserveLocation(long, long)</a> <span class="perc">76.92%</span></li>
+<li>void Rollback() <span class="perc">0.00%</span></li>
+<li>void rollback0() <span class="perc">0.00%</span></li>
+<li>void RollbackThreadTransaction() <span class="perc">0.00%</span></li>
+<li><a href="src_impl_StorageImpl_cs.html#l2994">void set_AlternativeBtree(bool)</a> <span class="perc">88.89%</span></li>
+<li>void set_BackgroundGc(bool) <span class="perc">0.00%</span></li>
+<li>void set_CacheKind(NachoDB.CacheType) <span class="perc">0.00%</span></li>
+<li>void set_CodeGeneration(bool) <span class="perc">0.00%</span></li>
+<li>void set_ExtensionQuantum(long) <span class="perc">0.00%</span></li>
+<li>void set_FileNoFlush(bool) <span class="perc">0.00%</span></li>
+<li>void set_FileReadOnly(bool) <span class="perc">0.00%</span></li>
+<li>void set_GcThreshold(long) <span class="perc">0.00%</span></li>
+<li>void set_Loader(NachoDB.ClassLoader) <span class="perc">0.00%</span></li>
+<li>void set_ObjectCacheInitSize(int) <span class="perc">0.00%</span></li>
+<li>void set_ObjectIndexInitSize(int) <span class="perc">0.00%</span></li>
+<li>void set_ReplicationAck(bool) <span class="perc">0.00%</span></li>
+<li><a href="src_impl_StorageImpl_cs.html#l39">void set_Root(NachoDB.IPersistent)</a> <span class="perc">75.00%</span></li>
+<li>void set_SerializeTransientObjects(bool) <span class="perc">0.00%</span></li>
+<li>void set_StringEncoding(System.Text.Encoding) <span class="perc">0.00%</span></li>
+<li><a href="src_impl_StorageImpl_cs.html#l235">void setDirty()</a> <span class="perc">87.88%</span></li>
+<li>NachoDB.StorageListener SetListener(NachoDB.StorageListener) <span class="perc">0.00%</span></li>
+<li><a href="src_impl_StorageImpl_cs.html#l120">void setPos(int, long)</a> <span class="perc">84.09%</span></li>
+<li>int skipField(unsigned byte[], int, NachoDB.Impl.ClassDescriptor.FieldDescriptor, NachoDB.Impl.ClassDescriptor.FieldType) <span class="perc">0.00%</span></li>
+<li><a href="src_impl_StorageImpl_cs.html#l3159">void storeFinalizedObject(NachoDB.IPersistent)</a> <span class="perc">63.10%</span></li>
+<li><a href="src_impl_StorageImpl_cs.html#l3146">void storeObject(NachoDB.IPersistent)</a> <span class="perc">62.04%</span></li>
+<li><a href="src_impl_StorageImpl_cs.html#l3173">void storeObject0(NachoDB.IPersistent)</a> <span class="perc">96.96%</span></li>
+<li>int sweep() <span class="perc">0.00%</span></li>
+<li><a href="src_impl_StorageImpl_cs.html#l3258">int swizzle(NachoDB.IPersistent)</a> <span class="perc">70.73%</span></li>
+<li><a href="src_impl_StorageImpl_cs.html#l3626">int unpackField(unsigned byte[], int, bool, ref object, NachoDB.Impl.ClassDescriptor.FieldDescriptor, NachoDB.Impl.ClassDescriptor.FieldType, NachoDB.IPersistent)</a> <span class="perc">99.56%</span></li>
+<li><a href="src_impl_StorageImpl_cs.html#l3362">int unpackObject(object, NachoDB.Impl.ClassDescriptor, bool, unsigned byte[], int, NachoDB.IPersistent)</a> <span class="perc">90.08%</span></li>
+<li>int unpackRawValue(unsigned byte[], int, ref object, bool) <span class="perc">0.00%</span></li>
+<li><a href="src_impl_StorageImpl_cs.html#l3277">NachoDB.IPersistent unswizzle(int, System.Type, bool)</a> <span class="perc">94.98%</span></li>
+<li><a href="src_impl_StorageImpl_cs.html#l356">bool wasReserved(long, long)</a> <span class="perc">85.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls110');">NachoDB.Impl.StorageImplLocation</a></span>
+<span class="perc">87.50%</span>:<br/><span id="cls110" style="display:none"><ul>
+<li>void .ctor() <span class="perc">87.50%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls111');">NachoDB.Impl.StorageImplThreadTransactionContext</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls111" style="display:none"><ul>
+<li>void .ctor() <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls125');">NachoDB.Impl.StrongHashTable</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls125" style="display:none"><ul>
+<li>void .ctor(int) <span class="perc">0.00%</span></li>
+<li>void clearDirty(int) <span class="perc">0.00%</span></li>
+<li>void flush() <span class="perc">0.00%</span></li>
+<li>NachoDB.IPersistent get(int) <span class="perc">0.00%</span></li>
+<li>void invalidate() <span class="perc">0.00%</span></li>
+<li>void put(int, NachoDB.IPersistent) <span class="perc">0.00%</span></li>
+<li>void rehash() <span class="perc">0.00%</span></li>
+<li>bool remove(int) <span class="perc">0.00%</span></li>
+<li>void setDirty(int) <span class="perc">0.00%</span></li>
+<li>int size() <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls126');">NachoDB.Impl.StrongHashTableEntry</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls126" style="display:none"><ul>
+<li>void .ctor(int, NachoDB.IPersistent, NachoDB.Impl.StrongHashTable.Entry) <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls88');">NachoDB.Impl.SynchronizationLockException</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls88" style="display:none"><ul>
+<li>void .ctor(string) <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls127');">NachoDB.Impl.ThickIndex`2</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls127" style="display:none"><ul>
+<li>void .ctor(NachoDB.Impl.StorageImpl) <span class="perc">0.00%</span></li>
+<li>void .ctor() <span class="perc">0.00%</span></li>
+<li>void Clear() <span class="perc">0.00%</span></li>
+<li>void Deallocate() <span class="perc">0.00%</span></li>
+<li>[] extend(NachoDB.IPersistent[]) <span class="perc">0.00%</span></li>
+<li> Get() <span class="perc">0.00%</span></li>
+<li> Get(NachoDB.Key) <span class="perc">0.00%</span></li>
+<li>[] Get(NachoDB.Key, NachoDB.Key) <span class="perc">0.00%</span></li>
+<li>[] Get(, ) <span class="perc">0.00%</span></li>
+<li>int get_Count() <span class="perc">0.00%</span></li>
+<li> get_Item() <span class="perc">0.00%</span></li>
+<li>[] get_Item(, ) <span class="perc">0.00%</span></li>
+<li>System.Type get_KeyType() <span class="perc">0.00%</span></li>
+<li>System.Collections.IDictionaryEnumerator GetDictionaryEnumerator() <span class="perc">0.00%</span></li>
+<li>System.Collections.IDictionaryEnumerator GetDictionaryEnumerator(NachoDB.Key, NachoDB.Key, NachoDB.IterationOrder) <span class="perc">0.00%</span></li>
+<li> GetEnumerator() <span class="perc">0.00%</span></li>
+<li> GetEnumerator(NachoDB.Key, NachoDB.Key, NachoDB.IterationOrder) <span class="perc">0.00%</span></li>
+<li> GetEnumerator(, , NachoDB.IterationOrder) <span class="perc">0.00%</span></li>
+<li> GetEnumerator(NachoDB.Key, NachoDB.Key) <span class="perc">0.00%</span></li>
+<li> GetEnumerator(, ) <span class="perc">0.00%</span></li>
+<li> GetEnumerator(string) <span class="perc">0.00%</span></li>
+<li>[] GetPrefix(string) <span class="perc">0.00%</span></li>
+<li>[] PrefixSearch(string) <span class="perc">0.00%</span></li>
+<li>bool Put(NachoDB.Key, ) <span class="perc">0.00%</span></li>
+<li>bool Put(, ) <span class="perc">0.00%</span></li>
+<li> Range(NachoDB.Key, NachoDB.Key, NachoDB.IterationOrder) <span class="perc">0.00%</span></li>
+<li> Range(NachoDB.Key, NachoDB.Key) <span class="perc">0.00%</span></li>
+<li> Range(, , NachoDB.IterationOrder) <span class="perc">0.00%</span></li>
+<li> Range(, ) <span class="perc">0.00%</span></li>
+<li>void Remove(NachoDB.Key, ) <span class="perc">0.00%</span></li>
+<li> Remove(NachoDB.Key) <span class="perc">0.00%</span></li>
+<li>void Remove(, ) <span class="perc">0.00%</span></li>
+<li> RemoveKey() <span class="perc">0.00%</span></li>
+<li> Reverse() <span class="perc">0.00%</span></li>
+<li> Set(NachoDB.Key, ) <span class="perc">0.00%</span></li>
+<li> Set(, ) <span class="perc">0.00%</span></li>
+<li>void set_Item(, ) <span class="perc">0.00%</span></li>
+<li>int Size() <span class="perc">0.00%</span></li>
+<li> StartsWith(string) <span class="perc">0.00%</span></li>
+<li>System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator() <span class="perc">0.00%</span></li>
+<li>[] ToArray() <span class="perc">0.00%</span></li>
+<li>System.Array ToArray(System.Type) <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls129');">NachoDB.Impl.ThickIndex`2ExtendDictionaryEnumerator</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls129" style="display:none"><ul>
+<li>void .ctor(System.Collections.IDictionaryEnumerator) <span class="perc">0.00%</span></li>
+<li>void Dispose() <span class="perc">0.00%</span></li>
+<li>object get_Current() <span class="perc">0.00%</span></li>
+<li>System.Collections.DictionaryEntry get_Entry() <span class="perc">0.00%</span></li>
+<li>object get_Key() <span class="perc">0.00%</span></li>
+<li>object get_Value() <span class="perc">0.00%</span></li>
+<li>bool MoveNext() <span class="perc">0.00%</span></li>
+<li>void Reset() <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls128');">NachoDB.Impl.ThickIndex`2ExtendEnumerator</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls128" style="display:none"><ul>
+<li>void .ctor(NachoDB.IPersistent) <span class="perc">0.00%</span></li>
+<li>void Dispose() <span class="perc">0.00%</span></li>
+<li> get_Current() <span class="perc">0.00%</span></li>
+<li> GetEnumerator() <span class="perc">0.00%</span></li>
+<li>bool MoveNext() <span class="perc">0.00%</span></li>
+<li>void Reset() <span class="perc">0.00%</span></li>
+<li>System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator() <span class="perc">0.00%</span></li>
+<li>object System.Collections.IEnumerator.get_Current() <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls130');">NachoDB.Impl.TimeSeriesImpl`1</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls130" style="display:none"><ul>
+<li>void .ctor(NachoDB.Storage, int, long) <span class="perc">0.00%</span></li>
+<li>void .ctor() <span class="perc">0.00%</span></li>
+<li>void Add() <span class="perc">0.00%</span></li>
+<li>void addNewBlock() <span class="perc">0.00%</span></li>
+<li>void Clear() <span class="perc">0.00%</span></li>
+<li>bool Contains() <span class="perc">0.00%</span></li>
+<li>bool Contains(System.DateTime) <span class="perc">0.00%</span></li>
+<li>void CopyTo([], int) <span class="perc">0.00%</span></li>
+<li>void Deallocate() <span class="perc">0.00%</span></li>
+<li> From(System.DateTime) <span class="perc">0.00%</span></li>
+<li>int get_Count() <span class="perc">0.00%</span></li>
+<li>System.DateTime get_FirstTime() <span class="perc">0.00%</span></li>
+<li>bool get_IsReadOnly() <span class="perc">0.00%</span></li>
+<li>bool get_IsSynchronized() <span class="perc">0.00%</span></li>
+<li> get_Item(System.DateTime) <span class="perc">0.00%</span></li>
+<li>System.DateTime get_LastTime() <span class="perc">0.00%</span></li>
+<li>object get_SyncRoot() <span class="perc">0.00%</span></li>
+<li> GetEnumerator() <span class="perc">0.00%</span></li>
+<li> GetEnumerator(System.DateTime, System.DateTime) <span class="perc">0.00%</span></li>
+<li> GetEnumerator(System.DateTime, System.DateTime, NachoDB.IterationOrder) <span class="perc">0.00%</span></li>
+<li> GetEnumerator(NachoDB.IterationOrder) <span class="perc">0.00%</span></li>
+<li>void insertInBlock(, ) <span class="perc">0.00%</span></li>
+<li> iterator(long, long, NachoDB.IterationOrder) <span class="perc">0.00%</span></li>
+<li> Range(System.DateTime, System.DateTime) <span class="perc">0.00%</span></li>
+<li> Range(System.DateTime, System.DateTime, NachoDB.IterationOrder) <span class="perc">0.00%</span></li>
+<li> Range(NachoDB.IterationOrder) <span class="perc">0.00%</span></li>
+<li>bool Remove() <span class="perc">0.00%</span></li>
+<li>int Remove(System.DateTime, System.DateTime) <span class="perc">0.00%</span></li>
+<li>int remove(long, long) <span class="perc">0.00%</span></li>
+<li>int RemoveAll() <span class="perc">0.00%</span></li>
+<li>int RemoveFrom(System.DateTime) <span class="perc">0.00%</span></li>
+<li>int RemoveTill(System.DateTime) <span class="perc">0.00%</span></li>
+<li> Reverse() <span class="perc">0.00%</span></li>
+<li>System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator() <span class="perc">0.00%</span></li>
+<li> Till(System.DateTime) <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls131');">NachoDB.Impl.TimeSeriesImpl`1TimeSeriesBlock</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls131" style="display:none"><ul>
+<li>void .ctor(int) <span class="perc">0.00%</span></li>
+<li>void .ctor() <span class="perc">0.00%</span></li>
+<li> get_Item(int) <span class="perc">0.00%</span></li>
+<li>void set_Item(int, ) <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls132');">NachoDB.Impl.TimeSeriesImpl`1TimeSeriesEnumerator</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls132" style="display:none"><ul>
+<li>void .ctor(, long, long) <span class="perc">0.00%</span></li>
+<li>void Dispose() <span class="perc">0.00%</span></li>
+<li> get_Current() <span class="perc">0.00%</span></li>
+<li> GetEnumerator() <span class="perc">0.00%</span></li>
+<li>bool MoveNext() <span class="perc">0.00%</span></li>
+<li>void Reset() <span class="perc">0.00%</span></li>
+<li>System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator() <span class="perc">0.00%</span></li>
+<li>object System.Collections.IEnumerator.get_Current() <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls133');">NachoDB.Impl.TimeSeriesImpl`1TimeSeriesReverseEnumerator</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls133" style="display:none"><ul>
+<li>void .ctor(, long, long) <span class="perc">0.00%</span></li>
+<li>void Dispose() <span class="perc">0.00%</span></li>
+<li> get_Current() <span class="perc">0.00%</span></li>
+<li> GetEnumerator() <span class="perc">0.00%</span></li>
+<li>bool MoveNext() <span class="perc">0.00%</span></li>
+<li>void Reset() <span class="perc">0.00%</span></li>
+<li>System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator() <span class="perc">0.00%</span></li>
+<li>object System.Collections.IEnumerator.get_Current() <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls134');">NachoDB.Impl.Ttree`2</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls134" style="display:none"><ul>
+<li>void .ctor() <span class="perc">0.00%</span></li>
+<li>void .ctor(, bool) <span class="perc">0.00%</span></li>
+<li>void Add() <span class="perc">0.00%</span></li>
+<li>void Clear() <span class="perc">0.00%</span></li>
+<li>bool Contains() <span class="perc">0.00%</span></li>
+<li>void Deallocate() <span class="perc">0.00%</span></li>
+<li>[] Get(, ) <span class="perc">0.00%</span></li>
+<li> Get() <span class="perc">0.00%</span></li>
+<li>[] Get(, NachoDB.BoundaryKind, , NachoDB.BoundaryKind) <span class="perc">0.00%</span></li>
+<li>int get_Count() <span class="perc">0.00%</span></li>
+<li> get_Item() <span class="perc">0.00%</span></li>
+<li>[] get_Item(, ) <span class="perc">0.00%</span></li>
+<li> GetComparator() <span class="perc">0.00%</span></li>
+<li> GetEnumerator() <span class="perc">0.00%</span></li>
+<li> GetEnumerator(, ) <span class="perc">0.00%</span></li>
+<li> GetEnumerator(, NachoDB.BoundaryKind, , NachoDB.BoundaryKind) <span class="perc">0.00%</span></li>
+<li> Range(, ) <span class="perc">0.00%</span></li>
+<li> Range(, NachoDB.BoundaryKind, , NachoDB.BoundaryKind) <span class="perc">0.00%</span></li>
+<li>bool RecursiveLoading() <span class="perc">0.00%</span></li>
+<li>bool Remove() <span class="perc">0.00%</span></li>
+<li>int Size() <span class="perc">0.00%</span></li>
+<li>System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator() <span class="perc">0.00%</span></li>
+<li>[] ToArray() <span class="perc">0.00%</span></li>
+<li>System.Array ToArray(System.Type) <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls135');">NachoDB.Impl.Ttree`2TtreeEnumerator</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls135" style="display:none"><ul>
+<li>void .ctor(, ) <span class="perc">0.00%</span></li>
+<li>void Dispose() <span class="perc">0.00%</span></li>
+<li> get_Current() <span class="perc">0.00%</span></li>
+<li> GetEnumerator() <span class="perc">0.00%</span></li>
+<li>bool MoveNext() <span class="perc">0.00%</span></li>
+<li>void Reset() <span class="perc">0.00%</span></li>
+<li>System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator() <span class="perc">0.00%</span></li>
+<li>object System.Collections.IEnumerator.get_Current() <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls136');">NachoDB.Impl.TtreePage`2</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls136" style="display:none"><ul>
+<li>void .ctor() <span class="perc">0.00%</span></li>
+<li>void .ctor() <span class="perc">0.00%</span></li>
+<li>int balanceLeftBranch(ref ) <span class="perc">0.00%</span></li>
+<li>int balanceRightBranch(ref ) <span class="perc">0.00%</span></li>
+<li>bool contains(, ) <span class="perc">0.00%</span></li>
+<li>bool find(, , NachoDB.BoundaryKind, , NachoDB.BoundaryKind, ) <span class="perc">0.00%</span></li>
+<li>int insert(, , bool, ref ) <span class="perc">0.00%</span></li>
+<li> loadItem(int) <span class="perc">0.00%</span></li>
+<li>void prune() <span class="perc">0.00%</span></li>
+<li>bool RecursiveLoading() <span class="perc">0.00%</span></li>
+<li>int remove(, , ref ) <span class="perc">0.00%</span></li>
+<li>int toArray(NachoDB.IPersistent[], int) <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls137');">NachoDB.Impl.WeakHashTable</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls137" style="display:none"><ul>
+<li>void .ctor(int) <span class="perc">0.00%</span></li>
+<li>void clearDirty(int) <span class="perc">0.00%</span></li>
+<li>void flush() <span class="perc">0.00%</span></li>
+<li>NachoDB.IPersistent get(int) <span class="perc">0.00%</span></li>
+<li>void invalidate() <span class="perc">0.00%</span></li>
+<li>void put(int, NachoDB.IPersistent) <span class="perc">0.00%</span></li>
+<li>void rehash() <span class="perc">0.00%</span></li>
+<li>bool remove(int) <span class="perc">0.00%</span></li>
+<li>void setDirty(int) <span class="perc">0.00%</span></li>
+<li>int size() <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls138');">NachoDB.Impl.WeakHashTableEntry</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls138" style="display:none"><ul>
+<li>void .ctor(int, System.WeakReference, NachoDB.Impl.WeakHashTable.Entry) <span class="perc">0.00%</span></li>
+<li>void clear() <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls139');">NachoDB.Impl.XMLExporter</a></span>
+<span class="perc">85.60%</span>:<br/><span id="cls139" style="display:none"><ul>
+<li><a href="src_impl_XMLExporter_cs.html#l374">void .cctor()</a> <span class="perc">96.00%</span></li>
+<li><a href="src_impl_XMLExporter_cs.html#l10">void .ctor(NachoDB.Impl.StorageImpl, System.IO.StreamWriter)</a> <span class="perc">95.45%</span></li>
+<li><a href="src_impl_XMLExporter_cs.html#l93">NachoDB.Impl.Btree createBtree(int, unsigned byte[])</a> <span class="perc">70.73%</span></li>
+<li><a href="src_impl_XMLExporter_cs.html#l282">void exportAssoc(int, unsigned byte[], int, int, NachoDB.Impl.ClassDescriptor.FieldType)</a> <span class="perc">93.51%</span></li>
+<li>int exportBinary(unsigned byte[], int) <span class="perc">0.00%</span></li>
+<li><a href="src_impl_XMLExporter_cs.html#l310">void exportChar(char)</a> <span class="perc">90.62%</span></li>
+<li>void exportCompoundKey(unsigned byte[], int, int, NachoDB.Impl.ClassDescriptor.FieldType) <span class="perc">0.00%</span></li>
+<li><a href="src_impl_XMLExporter_cs.html#l18">void exportDatabase(int)</a> <span class="perc">98.28%</span></li>
+<li><a href="src_impl_XMLExporter_cs.html#l119">void exportFieldIndex(int, unsigned byte[], string)</a> <span class="perc">94.85%</span></li>
+<li><a href="src_impl_XMLExporter_cs.html#l82">string exportIdentifier(string)</a> <span class="perc">89.66%</span></li>
+<li><a href="src_impl_XMLExporter_cs.html#l109">void exportIndex(int, unsigned byte[], string)</a> <span class="perc">93.30%</span></li>
+<li><a href="src_impl_XMLExporter_cs.html#l160">int exportKey(unsigned byte[], int, int, NachoDB.Impl.ClassDescriptor.FieldType)</a> <span class="perc">98.38%</span></li>
+<li>void exportMultiFieldIndex(int, unsigned byte[], string) <span class="perc">0.00%</span></li>
+<li><a href="src_impl_XMLExporter_cs.html#l430">int exportObject(NachoDB.Impl.ClassDescriptor, unsigned byte[], int, int)</a> <span class="perc">99.65%</span></li>
+<li><a href="src_impl_XMLExporter_cs.html#l378">void exportRef(int)</a> <span class="perc">88.57%</span></li>
+<li>void exportSet(int, unsigned byte[], string) <span class="perc">0.00%</span></li>
+<li><a href="src_impl_XMLExporter_cs.html#l337">int exportString(unsigned byte[], int)</a> <span class="perc">94.76%</span></li>
+<li><a href="src_impl_XMLExporter_cs.html#l304">void indentation(int)</a> <span class="perc">96.15%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls140');">NachoDB.Impl.XMLImporter</a></span>
+<span class="perc">84.37%</span>:<br/><span id="cls140" style="display:none"><ul>
+<li><a href="src_impl_XMLImporter_cs.html#l9">void .ctor(NachoDB.Impl.StorageImpl, System.IO.StreamReader)</a> <span class="perc">97.37%</span></li>
+<li>NachoDB.Key createCompoundKey(NachoDB.Impl.ClassDescriptor.FieldType[], string[]) <span class="perc">0.00%</span></li>
+<li><a href="src_impl_XMLImporter_cs.html#l486">void createIndex(string)</a> <span class="perc">98.84%</span></li>
+<li><a href="src_impl_XMLImporter_cs.html#l393">NachoDB.Key createKey(NachoDB.Impl.ClassDescriptor.FieldType, string)</a> <span class="perc">97.34%</span></li>
+<li><a href="src_impl_XMLImporter_cs.html#l641">void createObject(NachoDB.Impl.XMLImporter.XMLElement)</a> <span class="perc">93.41%</span></li>
+<li><a href="src_impl_XMLImporter_cs.html#l474">System.Type findClassByName(string)</a> <span class="perc">82.09%</span></li>
+<li><a href="src_impl_XMLImporter_cs.html#l236">string getAttribute(NachoDB.Impl.XMLImporter.XMLElement, string)</a> <span class="perc">74.47%</span></li>
+<li>int getHexValue(char) <span class="perc">0.00%</span></li>
+<li><a href="src_impl_XMLImporter_cs.html#l246">int getIntAttribute(NachoDB.Impl.XMLImporter.XMLElement, string)</a> <span class="perc">71.00%</span></li>
+<li>int importBinary(NachoDB.Impl.XMLImporter.XMLElement, int, NachoDB.Impl.ByteBuffer, string) <span class="perc">0.00%</span></li>
+<li><a href="src_impl_XMLImporter_cs.html#l18">void importDatabase()</a> <span class="perc">94.20%</span></li>
+<li><a href="src_impl_XMLImporter_cs.html#l264">int mapId(int)</a> <span class="perc">90.32%</span></li>
+<li><a href="src_impl_XMLImporter_cs.html#l293">NachoDB.Impl.ClassDescriptor.FieldType mapType(string)</a> <span class="perc">59.72%</span></li>
+<li><a href="src_impl_XMLImporter_cs.html#l751">int packObject(NachoDB.Impl.XMLImporter.XMLElement, NachoDB.Impl.ClassDescriptor, int, NachoDB.Impl.ByteBuffer)</a> <span class="perc">98.05%</span></li>
+<li><a href="src_impl_XMLImporter_cs.html#l469">int parseInt(string)</a> <span class="perc">87.50%</span></li>
+<li><a href="src_impl_XMLImporter_cs.html#l1573">NachoDB.Impl.XMLImporter.XMLElement readElement(string)</a> <span class="perc">97.47%</span></li>
+<li>void throwException(string) <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls141');">NachoDB.Impl.XMLImporterXMLElement</a></span>
+<span class="perc">85.22%</span>:<br/><span id="cls141" style="display:none"><ul>
+<li><a href="src_impl_XMLImporter_cs.html#l156">void .ctor(string)</a> <span class="perc">95.45%</span></li>
+<li><a href="src_impl_XMLImporter_cs.html#l187">void addAttribute(string, string)</a> <span class="perc">97.06%</span></li>
+<li><a href="src_impl_XMLImporter_cs.html#l164">void addSibling(NachoDB.Impl.XMLImporter.XMLElement)</a> <span class="perc">91.61%</span></li>
+<li><a href="src_impl_XMLImporter_cs.html#l80">int get_Counter()</a> <span class="perc">87.50%</span></li>
+<li><a href="src_impl_XMLImporter_cs.html#l88">long get_IntValue()</a> <span class="perc">87.50%</span></li>
+<li><a href="src_impl_XMLImporter_cs.html#l131">string get_Name()</a> <span class="perc">87.50%</span></li>
+<li><a href="src_impl_XMLImporter_cs.html#l72">NachoDB.Impl.XMLImporter.XMLElement get_NextSibling()</a> <span class="perc">87.50%</span></li>
+<li>double get_RealValue() <span class="perc">0.00%</span></li>
+<li><a href="src_impl_XMLImporter_cs.html#l116">string get_StringValue()</a> <span class="perc">87.50%</span></li>
+<li><a href="src_impl_XMLImporter_cs.html#l205">string getAttribute(string)</a> <span class="perc">96.55%</span></li>
+<li><a href="src_impl_XMLImporter_cs.html#l196">NachoDB.Impl.XMLImporter.XMLElement getSibling(string)</a> <span class="perc">96.55%</span></li>
+<li><a href="src_impl_XMLImporter_cs.html#l215">bool isIntValue()</a> <span class="perc">90.91%</span></li>
+<li><a href="src_impl_XMLImporter_cs.html#l230">bool isNullValue()</a> <span class="perc">90.91%</span></li>
+<li><a href="src_impl_XMLImporter_cs.html#l220">bool isRealValue()</a> <span class="perc">90.91%</span></li>
+<li><a href="src_impl_XMLImporter_cs.html#l225">bool isStringValue()</a> <span class="perc">90.91%</span></li>
+<li><a href="src_impl_XMLImporter_cs.html#l93">void set_IntValue(long)</a> <span class="perc">93.75%</span></li>
+<li>void set_RealValue(double) <span class="perc">0.00%</span></li>
+<li><a href="src_impl_XMLImporter_cs.html#l121">void set_StringValue(string)</a> <span class="perc">93.75%</span></li>
+<li>void setNullValue() <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls142');">NachoDB.Impl.XMLImporterXMLScanner</a></span>
+<span class="perc">94.96%</span>:<br/><span id="cls142" style="display:none"><ul>
+<li><a href="src_impl_XMLImporter_cs.html#l1733">void .ctor(System.IO.StreamReader)</a> <span class="perc">83.33%</span></li>
+<li><a href="src_impl_XMLImporter_cs.html#l1744">int get()</a> <span class="perc">90.08%</span></li>
+<li>int get_Column() <span class="perc">0.00%</span></li>
+<li><a href="src_impl_XMLImporter_cs.html#l1663">string get_Identifier()</a> <span class="perc">87.50%</span></li>
+<li><a href="src_impl_XMLImporter_cs.html#l1679">long get_Int()</a> <span class="perc">87.50%</span></li>
+<li>int get_Line() <span class="perc">0.00%</span></li>
+<li>double get_Real() <span class="perc">0.00%</span></li>
+<li><a href="src_impl_XMLImporter_cs.html#l1671">string get_String()</a> <span class="perc">95.00%</span></li>
+<li><a href="src_impl_XMLImporter_cs.html#l1789">NachoDB.Impl.XMLImporter.XMLScanner.Token scan()</a> <span class="perc">97.78%</span></li>
+<li><a href="src_impl_XMLImporter_cs.html#l1768">void unget(int)</a> <span class="perc">98.04%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls11');">NachoDB.Key</a></span>
+<span class="perc">12.44%</span>:<br/><span id="cls11" style="display:none"><ul>
+<li>void .ctor(bool) <span class="perc">0.00%</span></li>
+<li>void .ctor(System.Enum) <span class="perc">0.00%</span></li>
+<li>void .ctor(byte) <span class="perc">0.00%</span></li>
+<li>void .ctor(unsigned byte) <span class="perc">0.00%</span></li>
+<li>void .ctor(char) <span class="perc">0.00%</span></li>
+<li>void .ctor(short) <span class="perc">0.00%</span></li>
+<li>void .ctor(unsigned short) <span class="perc">0.00%</span></li>
+<li>void .ctor(int) <span class="perc">0.00%</span></li>
+<li>void .ctor(unsigned int) <span class="perc">0.00%</span></li>
+<li><a href="src_Key_cs.html#l74">void .ctor(long)</a> <span class="perc">90.00%</span></li>
+<li>void .ctor(unsigned long) <span class="perc">0.00%</span></li>
+<li>void .ctor(float) <span class="perc">0.00%</span></li>
+<li>void .ctor(double) <span class="perc">0.00%</span></li>
+<li>void .ctor(System.Decimal) <span class="perc">0.00%</span></li>
+<li>void .ctor(System.Guid) <span class="perc">0.00%</span></li>
+<li>void .ctor(System.DateTime) <span class="perc">0.00%</span></li>
+<li><a href="src_Key_cs.html#l116">void .ctor(string)</a> <span class="perc">90.00%</span></li>
+<li>void .ctor(System.IComparable) <span class="perc">0.00%</span></li>
+<li>void .ctor(char[]) <span class="perc">0.00%</span></li>
+<li>void .ctor(unsigned byte[]) <span class="perc">0.00%</span></li>
+<li>void .ctor(object[]) <span class="perc">0.00%</span></li>
+<li>void .ctor(object, object) <span class="perc">0.00%</span></li>
+<li>void .ctor(NachoDB.IPersistent) <span class="perc">0.00%</span></li>
+<li><a href="src_Key_cs.html#l161">void .ctor(NachoDB.Impl.ClassDescriptor.FieldType, bool)</a> <span class="perc">96.43%</span></li>
+<li>void .ctor(NachoDB.Impl.ClassDescriptor.FieldType, int) <span class="perc">0.00%</span></li>
+<li>void .ctor(bool, bool) <span class="perc">0.00%</span></li>
+<li>void .ctor(byte, bool) <span class="perc">0.00%</span></li>
+<li>void .ctor(unsigned byte, bool) <span class="perc">0.00%</span></li>
+<li>void .ctor(char, bool) <span class="perc">0.00%</span></li>
+<li>void .ctor(short, bool) <span class="perc">0.00%</span></li>
+<li>void .ctor(unsigned short, bool) <span class="perc">0.00%</span></li>
+<li>void .ctor(System.Enum, bool) <span class="perc">0.00%</span></li>
+<li>void .ctor(int, bool) <span class="perc">0.00%</span></li>
+<li>void .ctor(unsigned int, bool) <span class="perc">0.00%</span></li>
+<li><a href="src_Key_cs.html#l289">void .ctor(long, bool)</a> <span class="perc">94.44%</span></li>
+<li>void .ctor(unsigned long, bool) <span class="perc">0.00%</span></li>
+<li>void .ctor(float, bool) <span class="perc">0.00%</span></li>
+<li>void .ctor(double, bool) <span class="perc">0.00%</span></li>
+<li>void .ctor(System.Decimal, bool) <span class="perc">0.00%</span></li>
+<li>void .ctor(System.Guid, bool) <span class="perc">0.00%</span></li>
+<li>void .ctor(System.DateTime, bool) <span class="perc">0.00%</span></li>
+<li><a href="src_Key_cs.html#l373">void .ctor(string, bool)</a> <span class="perc">94.44%</span></li>
+<li><a href="src_Key_cs.html#l385">void .ctor(char[], bool)</a> <span class="perc">94.44%</span></li>
+<li>void .ctor(unsigned byte[], bool) <span class="perc">0.00%</span></li>
+<li>void .ctor(object[], bool) <span class="perc">0.00%</span></li>
+<li>void .ctor(object, object, bool) <span class="perc">0.00%</span></li>
+<li>void .ctor(NachoDB.IPersistent, bool) <span class="perc">0.00%</span></li>
+<li>void .ctor(System.IComparable, bool) <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls21');">NachoDB.L2List`1</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls21" style="display:none"><ul>
+<li>void .ctor() <span class="perc">0.00%</span></li>
+<li>void Add() <span class="perc">0.00%</span></li>
+<li>void Append() <span class="perc">0.00%</span></li>
+<li>void Clear() <span class="perc">0.00%</span></li>
+<li>bool Contains() <span class="perc">0.00%</span></li>
+<li>int get_Count() <span class="perc">0.00%</span></li>
+<li> get_Head() <span class="perc">0.00%</span></li>
+<li> get_Tail() <span class="perc">0.00%</span></li>
+<li> GetEnumerator() <span class="perc">0.00%</span></li>
+<li>void Prepend() <span class="perc">0.00%</span></li>
+<li>bool Remove() <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls23');">NachoDB.L2List`1L2ListEnumerator</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls23" style="display:none"><ul>
+<li>void .ctor() <span class="perc">0.00%</span></li>
+<li>void Dispose() <span class="perc">0.00%</span></li>
+<li> get_Current() <span class="perc">0.00%</span></li>
+<li>bool MoveNext() <span class="perc">0.00%</span></li>
+<li>void Reset() <span class="perc">0.00%</span></li>
+<li>object System.Collections.IEnumerator.get_Current() <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls25');">NachoDB.L2ListElem`1</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls25" style="display:none"><ul>
+<li>void .ctor() <span class="perc">0.00%</span></li>
+<li> get_Next() <span class="perc">0.00%</span></li>
+<li> get_Prev() <span class="perc">0.00%</span></li>
+<li>void Prune() <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls27');">NachoDB.MarshalByRefPersistent</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls27" style="display:none"><ul>
+<li>void .ctor() <span class="perc">0.00%</span></li>
+<li>void .ctor(NachoDB.Storage) <span class="perc">0.00%</span></li>
+<li>void AssignOid(NachoDB.Storage, int, bool) <span class="perc">0.00%</span></li>
+<li>void Deallocate() <span class="perc">0.00%</span></li>
+<li>bool Equals(object) <span class="perc">0.00%</span></li>
+<li>void Finalize() <span class="perc">0.00%</span></li>
+<li>int get_Oid() <span class="perc">0.00%</span></li>
+<li>NachoDB.Storage get_Storage() <span class="perc">0.00%</span></li>
+<li>int GetHashCode() <span class="perc">0.00%</span></li>
+<li>void Invalidate() <span class="perc">0.00%</span></li>
+<li>bool IsDeleted() <span class="perc">0.00%</span></li>
+<li>bool IsModified() <span class="perc">0.00%</span></li>
+<li>bool IsPersistent() <span class="perc">0.00%</span></li>
+<li>bool IsRaw() <span class="perc">0.00%</span></li>
+<li>void Load() <span class="perc">0.00%</span></li>
+<li>int MakePersistent(NachoDB.Storage) <span class="perc">0.00%</span></li>
+<li>void Modify() <span class="perc">0.00%</span></li>
+<li>void OnLoad() <span class="perc">0.00%</span></li>
+<li>void OnStore() <span class="perc">0.00%</span></li>
+<li>bool RecursiveLoading() <span class="perc">0.00%</span></li>
+<li>void Store() <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls19');">NachoDB.MemoryUsage</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls19" style="display:none"><ul>
+<li>void .ctor(System.Type) <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls29');">NachoDB.NullFile</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls29" style="display:none"><ul>
+<li>void .ctor() <span class="perc">0.00%</span></li>
+<li>void Close() <span class="perc">0.00%</span></li>
+<li>long get_Length() <span class="perc">0.00%</span></li>
+<li>bool get_NoFlush() <span class="perc">0.00%</span></li>
+<li>void Lock() <span class="perc">0.00%</span></li>
+<li>int Read(long, unsigned byte[]) <span class="perc">0.00%</span></li>
+<li>void set_NoFlush(bool) <span class="perc">0.00%</span></li>
+<li>void Sync() <span class="perc">0.00%</span></li>
+<li>void Write(long, unsigned byte[]) <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls31');">NachoDB.PatriciaTrieKey</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls31" style="display:none"><ul>
+<li>void .ctor(unsigned long, int) <span class="perc">0.00%</span></li>
+<li>NachoDB.PatriciaTrieKey from7bitString(string) <span class="perc">0.00%</span></li>
+<li>NachoDB.PatriciaTrieKey from8bitString(string) <span class="perc">0.00%</span></li>
+<li>NachoDB.PatriciaTrieKey fromByteArray(unsigned byte[]) <span class="perc">0.00%</span></li>
+<li>NachoDB.PatriciaTrieKey fromDecimalDigits(string) <span class="perc">0.00%</span></li>
+<li>NachoDB.PatriciaTrieKey FromIpAddress(System.Net.IPAddress) <span class="perc">0.00%</span></li>
+<li>NachoDB.PatriciaTrieKey FromIpAddress(string) <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls13');">NachoDB.Persistent</a></span>
+<span class="perc">65.26%</span>:<br/><span id="cls13" style="display:none"><ul>
+<li><a href="src_Persistent_cs.html#l134">void .ctor()</a> <span class="perc">87.50%</span></li>
+<li><a href="src_Persistent_cs.html#l136">void .ctor(NachoDB.Storage)</a> <span class="perc">93.33%</span></li>
+<li><a href="src_Persistent_cs.html#l152">void AssignOid(NachoDB.Storage, int, bool)</a> <span class="perc">97.96%</span></li>
+<li>void Deallocate() <span class="perc">0.00%</span></li>
+<li>bool Equals(object) <span class="perc">0.00%</span></li>
+<li><a href="src_Persistent_cs.html#l143">void Finalize()</a> <span class="perc">61.84%</span></li>
+<li><a href="src_Persistent_cs.html#l19">int get_Oid()</a> <span class="perc">87.50%</span></li>
+<li><a href="src_Persistent_cs.html#l30">NachoDB.Storage get_Storage()</a> <span class="perc">87.50%</span></li>
+<li>int GetHashCode() <span class="perc">0.00%</span></li>
+<li>void Invalidate() <span class="perc">0.00%</span></li>
+<li><a href="src_Persistent_cs.html#l54">bool IsDeleted()</a> <span class="perc">93.75%</span></li>
+<li><a href="src_Persistent_cs.html#l49">bool IsModified()</a> <span class="perc">93.75%</span></li>
+<li><a href="src_Persistent_cs.html#l59">bool IsPersistent()</a> <span class="perc">92.86%</span></li>
+<li><a href="src_Persistent_cs.html#l44">bool IsRaw()</a> <span class="perc">93.75%</span></li>
+<li><a href="src_Persistent_cs.html#l36">void Load()</a> <span class="perc">96.88%</span></li>
+<li>int MakePersistent(NachoDB.Storage) <span class="perc">0.00%</span></li>
+<li><a href="src_Persistent_cs.html#l82">void Modify()</a> <span class="perc">98.44%</span></li>
+<li><a href="src_Persistent_cs.html#l122">void OnLoad()</a> <span class="perc">50.00%</span></li>
+<li><a href="src_Persistent_cs.html#l126">void OnStore()</a> <span class="perc">50.00%</span></li>
+<li><a href="src_Persistent_cs.html#l107">bool RecursiveLoading()</a> <span class="perc">66.67%</span></li>
+<li><a href="src_Persistent_cs.html#l69">void Store()</a> <span class="perc">98.18%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls17');">NachoDB.PersistentCollection`1</a></span>
+<span class="perc">3.04%</span>:<br/><span id="cls17" style="display:none"><ul>
+<li><a href="src_PersistentCollection_cs.html#l10">void .ctor()</a> <span class="perc">87.50%</span></li>
+<li>void .ctor(NachoDB.Storage) <span class="perc">0.00%</span></li>
+<li>void Add() <span class="perc">0.00%</span></li>
+<li>void Clear() <span class="perc">100.00%</span></li>
+<li>bool Contains() <span class="perc">0.00%</span></li>
+<li>void CopyTo([], int) <span class="perc">0.00%</span></li>
+<li>int get_Count() <span class="perc">100.00%</span></li>
+<li>bool get_IsReadOnly() <span class="perc">0.00%</span></li>
+<li>bool get_IsSynchronized() <span class="perc">0.00%</span></li>
+<li>object get_SyncRoot() <span class="perc">0.00%</span></li>
+<li> GetEnumerator() <span class="perc">100.00%</span></li>
+<li>bool Remove() <span class="perc">0.00%</span></li>
+<li>System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator() <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls33');">NachoDB.PersistentComparator`2</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls33" style="display:none"><ul>
+<li>void .ctor() <span class="perc">0.00%</span></li>
+<li>int CompareMembers(, ) <span class="perc">100.00%</span></li>
+<li>int CompareMemberWithKey(, ) <span class="perc">100.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls35');">NachoDB.PersistentContext</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls35" style="display:none"><ul>
+<li>void .ctor() <span class="perc">0.00%</span></li>
+<li>void .ctor(NachoDB.Storage) <span class="perc">0.00%</span></li>
+<li>void AssignOid(NachoDB.Storage, int, bool) <span class="perc">0.00%</span></li>
+<li>void Deallocate() <span class="perc">0.00%</span></li>
+<li>bool Equals(object) <span class="perc">0.00%</span></li>
+<li>void Finalize() <span class="perc">0.00%</span></li>
+<li>int get_Oid() <span class="perc">0.00%</span></li>
+<li>NachoDB.Storage get_Storage() <span class="perc">0.00%</span></li>
+<li>int GetHashCode() <span class="perc">0.00%</span></li>
+<li>void Invalidate() <span class="perc">0.00%</span></li>
+<li>bool IsDeleted() <span class="perc">0.00%</span></li>
+<li>bool IsModified() <span class="perc">0.00%</span></li>
+<li>bool IsPersistent() <span class="perc">0.00%</span></li>
+<li>bool IsRaw() <span class="perc">0.00%</span></li>
+<li>void Load() <span class="perc">0.00%</span></li>
+<li>int MakePersistent(NachoDB.Storage) <span class="perc">0.00%</span></li>
+<li>void Modify() <span class="perc">0.00%</span></li>
+<li>void OnLoad() <span class="perc">0.00%</span></li>
+<li>void OnStore() <span class="perc">0.00%</span></li>
+<li>bool RecursiveLoading() <span class="perc">0.00%</span></li>
+<li>void Store() <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls15');">NachoDB.PersistentResource</a></span>
+<span class="perc">0.74%</span>:<br/><span id="cls15" style="display:none"><ul>
+<li><a href="src_PersistentResource_cs.html#l335">void .ctor()</a> <span class="perc">87.50%</span></li>
+<li>void .ctor(NachoDB.Storage) <span class="perc">0.00%</span></li>
+<li>void ExclusiveLock() <span class="perc">0.00%</span></li>
+<li>bool ExclusiveLock(long) <span class="perc">0.00%</span></li>
+<li>void Reset() <span class="perc">0.00%</span></li>
+<li>void SharedLock() <span class="perc">0.00%</span></li>
+<li>bool SharedLock(long) <span class="perc">0.00%</span></li>
+<li>void Unlock() <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls37');">NachoDB.PersistentString</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls37" style="display:none"><ul>
+<li>void .ctor(string) <span class="perc">0.00%</span></li>
+<li>void Append(string) <span class="perc">0.00%</span></li>
+<li>string Get() <span class="perc">0.00%</span></li>
+<li>NachoDB.PersistentString op_Implicit(string) <span class="perc">0.00%</span></li>
+<li>string op_Implicit(NachoDB.PersistentString) <span class="perc">0.00%</span></li>
+<li>void Set(string) <span class="perc">0.00%</span></li>
+<li>string ToString() <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls39');">NachoDB.Projection`2</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls39" style="display:none"><ul>
+<li>void .ctor(string) <span class="perc">0.00%</span></li>
+<li>void .ctor() <span class="perc">0.00%</span></li>
+<li>void Add() <span class="perc">0.00%</span></li>
+<li>void Clear() <span class="perc">0.00%</span></li>
+<li>bool Contains() <span class="perc">0.00%</span></li>
+<li>void CopyTo([], int) <span class="perc">0.00%</span></li>
+<li>int get_Count() <span class="perc">0.00%</span></li>
+<li>bool get_IsReadOnly() <span class="perc">0.00%</span></li>
+<li>bool get_IsSynchronized() <span class="perc">0.00%</span></li>
+<li>int get_Length() <span class="perc">0.00%</span></li>
+<li>object get_SyncRoot() <span class="perc">0.00%</span></li>
+<li> GetEnumerator() <span class="perc">0.00%</span></li>
+<li>void Join<1> () <span class="perc">0.00%</span></li>
+<li>void Map() <span class="perc">0.00%</span></li>
+<li>void Project() <span class="perc">0.00%</span></li>
+<li>void Project([]) <span class="perc">0.00%</span></li>
+<li>void Project() <span class="perc">0.00%</span></li>
+<li>void Project() <span class="perc">0.00%</span></li>
+<li>bool Remove() <span class="perc">0.00%</span></li>
+<li>void Reset() <span class="perc">0.00%</span></li>
+<li>void SetProjectionField(string) <span class="perc">0.00%</span></li>
+<li>System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator() <span class="perc">0.00%</span></li>
+<li>[] ToArray() <span class="perc">0.00%</span></li>
+<li>System.Array ToArray(System.Type) <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls41');">NachoDB.Rectangle</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls41" style="display:none"><ul>
+<li>void .ctor(NachoDB.Rectangle) <span class="perc">0.00%</span></li>
+<li>void .ctor(int, int, int, int) <span class="perc">0.00%</span></li>
+<li>long Area() <span class="perc">0.00%</span></li>
+<li>bool Contains(NachoDB.Rectangle) <span class="perc">0.00%</span></li>
+<li>int get_Bottom() <span class="perc">0.00%</span></li>
+<li>int get_Left() <span class="perc">0.00%</span></li>
+<li>int get_Right() <span class="perc">0.00%</span></li>
+<li>int get_Top() <span class="perc">0.00%</span></li>
+<li>bool Intersects(NachoDB.Rectangle) <span class="perc">0.00%</span></li>
+<li>bool IsEmpty() <span class="perc">0.00%</span></li>
+<li>void Join(NachoDB.Rectangle) <span class="perc">0.00%</span></li>
+<li>NachoDB.Rectangle Join(NachoDB.Rectangle, NachoDB.Rectangle) <span class="perc">0.00%</span></li>
+<li>long JoinArea(NachoDB.Rectangle, NachoDB.Rectangle) <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls42');">NachoDB.RectangleR2</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls42" style="display:none"><ul>
+<li>void .ctor(NachoDB.RectangleR2) <span class="perc">0.00%</span></li>
+<li>void .ctor(double, double, double, double) <span class="perc">0.00%</span></li>
+<li>double Area() <span class="perc">0.00%</span></li>
+<li>bool Contains(NachoDB.RectangleR2) <span class="perc">0.00%</span></li>
+<li>double get_Bottom() <span class="perc">0.00%</span></li>
+<li>double get_Left() <span class="perc">0.00%</span></li>
+<li>double get_Right() <span class="perc">0.00%</span></li>
+<li>double get_Top() <span class="perc">0.00%</span></li>
+<li>bool Intersects(NachoDB.RectangleR2) <span class="perc">0.00%</span></li>
+<li>bool IsEmpty() <span class="perc">0.00%</span></li>
+<li>void Join(NachoDB.RectangleR2) <span class="perc">0.00%</span></li>
+<li>NachoDB.RectangleR2 Join(NachoDB.RectangleR2, NachoDB.RectangleR2) <span class="perc">0.00%</span></li>
+<li>double JoinArea(NachoDB.RectangleR2, NachoDB.RectangleR2) <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls43');">NachoDB.Relation`2</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls43" style="display:none"><ul>
+<li>void .ctor() <span class="perc">0.00%</span></li>
+<li>void .ctor() <span class="perc">0.00%</span></li>
+<li>void AddAll([]) <span class="perc">100.00%</span></li>
+<li>void AddAll([], int, int) <span class="perc">100.00%</span></li>
+<li>void AddAll() <span class="perc">100.00%</span></li>
+<li>bool ContainsElement(int, ) <span class="perc">100.00%</span></li>
+<li> Get(int) <span class="perc">100.00%</span></li>
+<li> get_Item(int) <span class="perc">100.00%</span></li>
+<li>int get_Length() <span class="perc">100.00%</span></li>
+<li> get_Owner() <span class="perc">0.00%</span></li>
+<li>NachoDB.IPersistent GetRaw(int) <span class="perc">100.00%</span></li>
+<li>int IndexOf() <span class="perc">100.00%</span></li>
+<li>void Insert(int, ) <span class="perc">100.00%</span></li>
+<li>void Pin() <span class="perc">100.00%</span></li>
+<li>void Remove(int) <span class="perc">100.00%</span></li>
+<li>void RemoveAt(int) <span class="perc">100.00%</span></li>
+<li>void Set(int, ) <span class="perc">100.00%</span></li>
+<li>void set_Item(int, ) <span class="perc">100.00%</span></li>
+<li>void set_Length(int) <span class="perc">100.00%</span></li>
+<li>void set_Owner() <span class="perc">0.00%</span></li>
+<li>void SetOwner(NachoDB.IPersistent) <span class="perc">0.00%</span></li>
+<li>int Size() <span class="perc">100.00%</span></li>
+<li>[] ToArray() <span class="perc">100.00%</span></li>
+<li>System.Array ToArray(System.Type) <span class="perc">100.00%</span></li>
+<li>System.Array ToRawArray() <span class="perc">100.00%</span></li>
+<li>void Unpin() <span class="perc">100.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls44');">NachoDB.StorageError</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls44" style="display:none"><ul>
+<li>void .cctor() <span class="perc">0.00%</span></li>
+<li>void .ctor(NachoDB.StorageError.ErrorCode) <span class="perc">0.00%</span></li>
+<li>void .ctor(NachoDB.StorageError.ErrorCode, System.Exception) <span class="perc">0.00%</span></li>
+<li>void .ctor(NachoDB.StorageError.ErrorCode, object) <span class="perc">0.00%</span></li>
+<li>void .ctor(NachoDB.StorageError.ErrorCode, object, System.Exception) <span class="perc">0.00%</span></li>
+<li>NachoDB.StorageError.ErrorCode get_Code() <span class="perc">0.00%</span></li>
+<li>System.Exception get_OriginalException() <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls45');">NachoDB.StorageFactory</a></span>
+<span class="perc">18.75%</span>:<br/><span id="cls45" style="display:none"><ul>
+<li>void .ctor() <span class="perc">0.00%</span></li>
+<li>NachoDB.ReplicationMasterStorage CreateReplicationMasterStorage(string[], int) <span class="perc">0.00%</span></li>
+<li>NachoDB.ReplicationSlaveStorage CreateReplicationSlaveStorage(int) <span class="perc">0.00%</span></li>
+<li><a href="src_StorageFactory_cs.html#l18">NachoDB.Storage CreateStorage()</a> <span class="perc">85.71%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls46');">NachoDB.StorageListener</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls46" style="display:none"><ul>
+<li>void .ctor() <span class="perc">0.00%</span></li>
+<li>void DatabaseCorrupted() <span class="perc">0.00%</span></li>
+<li>void DeallocateObject(System.Type, int) <span class="perc">0.00%</span></li>
+<li>void GcCompleted(int) <span class="perc">0.00%</span></li>
+<li>void GcStarted() <span class="perc">0.00%</span></li>
+<li>void RecoveryCompleted() <span class="perc">0.00%</span></li>
+<li>bool ReplicationError(string) <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls47');">NachoDB.StreamFile</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls47" style="display:none"><ul>
+<li>void .ctor(System.IO.Stream) <span class="perc">0.00%</span></li>
+<li>void .ctor(System.IO.Stream, long) <span class="perc">0.00%</span></li>
+<li>void Close() <span class="perc">0.00%</span></li>
+<li>long get_Length() <span class="perc">0.00%</span></li>
+<li>bool get_NoFlush() <span class="perc">0.00%</span></li>
+<li>void Lock() <span class="perc">0.00%</span></li>
+<li>int Read(long, unsigned byte[]) <span class="perc">0.00%</span></li>
+<li>void set_NoFlush(bool) <span class="perc">0.00%</span></li>
+<li>void Sync() <span class="perc">0.00%</span></li>
+<li>void Write(long, unsigned byte[]) <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls48');">NachoDB.TransparentPersistenceAttribute</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls48" style="display:none"><ul>
+<li>void .ctor() <span class="perc">0.00%</span></li>
+<li>System.Runtime.Remoting.Messaging.IMessageSink GetObjectSink(System.MarshalByRefObject, System.Runtime.Remoting.Messaging.IMessageSink) <span class="perc">0.00%</span></li>
+<li>bool IsContextOK(System.Runtime.Remoting.Contexts.Context, System.Runtime.Remoting.Activation.IConstructionCallMessage) <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls49');">NachoDB.XMLImportException</a></span>
+<span class="perc">0.00%</span>:<br/><span id="cls49" style="display:none"><ul>
+<li>void .ctor(int, int, string) <span class="perc">0.00%</span></li>
+<li>int get_Column() <span class="perc">0.00%</span></li>
+<li>int get_Line() <span class="perc">0.00%</span></li>
+<li>string get_MessageText() <span class="perc">0.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls3');">Record</a></span>
+<span class="perc">87.50%</span>:<br/><span id="cls3" style="display:none"><ul>
+<li>void .ctor() <span class="perc">87.50%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls4');">StringInt</a></span>
+<span class="perc">93.33%</span>:<br/><span id="cls4" style="display:none"><ul>
+<li><a href="tests_UnitTests_UnitTests_cs.html#l44">void .ctor()</a> <span class="perc">87.50%</span></li>
+<li><a href="tests_UnitTests_UnitTests_cs.html#l47">void .ctor(string, int)</a> <span class="perc">95.45%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls5');">UnitTest1</a></span>
+<span class="perc">90.12%</span>:<br/><span id="cls5" style="display:none"><ul>
+<li>void .ctor() <span class="perc">0.00%</span></li>
+<li><a href="tests_UnitTests_UnitTests_cs.html#l58">void CheckStrings(stringStringInt, string[])</a> <span class="perc">81.82%</span></li>
+<li><a href="tests_UnitTests_UnitTests_cs.html#l68">void Run(bool)</a> <span class="perc">95.20%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls6');">UnitTest2</a></span>
+<span class="perc">88.80%</span>:<br/><span id="cls6" style="display:none"><ul>
+<li>void .ctor() <span class="perc">0.00%</span></li>
+<li><a href="tests_UnitTests_UnitTests_cs.html#l107">void Run(bool)</a> <span class="perc">89.91%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls7');">UnitTest2Root</a></span>
+<span class="perc">87.50%</span>:<br/><span id="cls7" style="display:none"><ul>
+<li>void .ctor() <span class="perc">87.50%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls1');">UnitTests</a></span>
+<span class="perc">57.45%</span>:<br/><span id="cls1" style="display:none"><ul>
+<li>void .cctor() <span class="perc">50.00%</span></li>
+<li>void .ctor() <span class="perc">0.00%</span></li>
+<li><a href="tests_UnitTests_UnitTests_cs.html#l18">void AssertThat(bool)</a> <span class="perc">96.67%</span></li>
+<li><a href="tests_UnitTests_UnitTests_cs.html#l13">int get_FailedTests()</a> <span class="perc">85.71%</span></li>
+<li><a href="tests_UnitTests_UnitTests_cs.html#l9">int get_TotalTests()</a> <span class="perc">85.71%</span></li>
+<li><a href="tests_UnitTests_UnitTests_cs.html#l28">void SafeDeleteFile(string)</a> <span class="perc">30.00%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls10');">UnitTestsRunner</a></span>
+<span class="perc">79.17%</span>:<br/><span id="cls10" style="display:none"><ul>
+<li>void .ctor() <span class="perc">0.00%</span></li>
+<li><a href="tests_UnitTests_UnitTests_cs.html#l278">void Main(string[])</a> <span class="perc">86.36%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls8');">UnitTestXml</a></span>
+<span class="perc">96.29%</span>:<br/><span id="cls8" style="display:none"><ul>
+<li><a href="tests_UnitTests_UnitTests_cs.html#l205">void .cctor()</a> <span class="perc">91.67%</span></li>
+<li>void .ctor() <span class="perc">0.00%</span></li>
+<li><a href="tests_UnitTests_UnitTests_cs.html#l209">void Run(int, bool)</a> <span class="perc">97.80%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls9');">UnitTestXmlRecord</a></span>
+<span class="perc">87.50%</span>:<br/><span id="cls9" style="display:none"><ul>
+<li>void .ctor() <span class="perc">87.50%</span></li>
+</ul>
+</span><span class="typename"><a href="#" onclick="return toggleVisibility('cls2');">UnitTestXmlRoot</a></span>
+<span class="perc">87.50%</span>:<br/><span id="cls2" style="display:none"><ul>
+<li>void .ctor() <span class="perc">87.50%</span></li>
+</ul>
+</span></td><td valign=top><ul>
+<li><a href="tests_UnitTests_UnitTests_cs.html">tests\UnitTests\UnitTests.cs</a></li><li><a href="src_StorageFactory_cs.html">src\StorageFactory.cs</a></li><li><a href="src_impl_StorageImpl_cs.html">src\impl\StorageImpl.cs</a></li><li><a href="src_impl_OSFile_cs.html">src\impl\OSFile.cs</a></li><li><a href="src_PersistentResource_cs.html">src\PersistentResource.cs</a></li><li><a href="src_Persistent_cs.html">src\Persistent.cs</a></li><li><a href="src_impl_LruObjectCache_cs.html">src\impl\LruObjectCache.cs</a></li><li><a href="src_impl_Bytes_cs.html">src\impl\Bytes.cs</a></li><li><a href="src_impl_PagePool_cs.html">src\impl\PagePool.cs</a></li><li><a href="src_impl_LRU_cs.html">src\impl\LRU.cs</a></li><li><a href="src_impl_Page_cs.html">src\impl\Page.cs</a></li><li><a href="src_impl_ClassDescriptor_cs.html">src\impl\ClassDescriptor.cs</a></li><li><a href="src_impl_CodeGenerator_cs.html">src\impl\CodeGenerator.cs</a></li><li><a href="src_impl_Btree_cs.html">src\impl\Btree.cs</a></li><li><a href="src_PersistentCollection_cs.html">src\PersistentCollection.cs</a></li><li><a href="src_impl_BtreeFieldIndex_cs.html">src\impl\BtreeFieldIndex.cs</a></li><li><a href="src_impl_ByteBuffer_cs.html">src\impl\ByteBuffer.cs</a></li><li><a href="src_impl_ObjectHeader_cs.html">src\impl\ObjectHeader.cs</a></li><li><a href="src_Key_cs.html">src\Key.cs</a></li><li><a href="src_impl_BtreeKey_cs.html">src\impl\BtreeKey.cs</a></li><li><a href="src_impl_BtreePage_cs.html">src\impl\BtreePage.cs</a></li><li><a href="src_impl_XMLExporter_cs.html">src\impl\XMLExporter.cs</a></li><li><a href="src_impl_XMLImporter_cs.html">src\impl\XMLImporter.cs</a></li><li><a href="src_impl_PersistentStub_cs.html">src\impl\PersistentStub.cs</a></li><li><a href="src_impl_AltBtree_cs.html">src\impl\AltBtree.cs</a></li><li><a href="src_impl_AltBtreeFieldIndex_cs.html">src\impl\AltBtreeFieldIndex.cs</a></li><li><a href="src_impl_LinkImpl_cs.html">src\impl\LinkImpl.cs</a></li></ul>
+</td></table></body></html>

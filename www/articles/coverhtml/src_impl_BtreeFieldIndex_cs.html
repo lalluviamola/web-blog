@@ -1,0 +1,473 @@
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type=text/css> 
+pre,code {font-size:9pt; font:Consolas,Monaco,"Courier New","DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace;}
+.c { background-color: #96EBA6; }
+</style>
+</head>
+<body>
+<pre><a href="index.html">Home</a> : csharp\src\impl\BtreeFieldIndex.cs</pre>
+<table cellpadding="0" cellspacing="0">
+<tbody>
+  <tr>
+  <td style="margin:0px; vertical-align:top">
+  <pre><span>1</span>
+<span>2</span>
+<span>3</span>
+<span>4</span>
+<span>5</span>
+<span>6</span>
+<span>7</span>
+<span>8</span>
+<span>9</span>
+<span>10</span>
+<span>11</span>
+<span>12</span>
+<span>13</span>
+<span>14</span>
+<span>15</span>
+<span>16</span>
+<span>17</span>
+<span>18</span>
+<span>19</span>
+<span>20</span>
+<span>21</span>
+<span>22</span>
+<span>23</span>
+<span>24</span>
+<span>25</span>
+<span>26</span>
+<span>27</span>
+<span>28</span>
+<span>29</span>
+<span>30</span>
+<span>31</span>
+<span>32</span>
+<span>33</span>
+<span>34</span>
+<span>35</span>
+<span>36</span>
+<span>37</span>
+<span>38</span>
+<span>39</span>
+<span>40</span>
+<span>41</span>
+<span>42</span>
+<span>43</span>
+<span>44</span>
+<span>45</span>
+<span>46</span>
+<span>47</span>
+<span>48</span>
+<span>49</span>
+<span>50</span>
+<span>51</span>
+<span>52</span>
+<span>53</span>
+<span>54</span>
+<span>55</span>
+<span>56</span>
+<span>57</span>
+<span>58</span>
+<span>59</span>
+<span>60</span>
+<span>61</span>
+<span>62</span>
+<span>63</span>
+<span>64</span>
+<span>65</span>
+<span>66</span>
+<span>67</span>
+<span>68</span>
+<span>69</span>
+<span>70</span>
+<span>71</span>
+<span>72</span>
+<span>73</span>
+<span>74</span>
+<span>75</span>
+<span>76</span>
+<span>77</span>
+<span>78</span>
+<span>79</span>
+<span>80</span>
+<span>81</span>
+<span>82</span>
+<span>83</span>
+<span>84</span>
+<span>85</span>
+<span>86</span>
+<span>87</span>
+<span>88</span>
+<span>89</span>
+<span>90</span>
+<span>91</span>
+<span>92</span>
+<span>93</span>
+<span>94</span>
+<span>95</span>
+<span>96</span>
+<span>97</span>
+<span>98</span>
+<span>99</span>
+<span>100</span>
+<span>101</span>
+<span>102</span>
+<span>103</span>
+<span>104</span>
+<span>105</span>
+<span>106</span>
+<span>107</span>
+<span>108</span>
+<span>109</span>
+<span>110</span>
+<span>111</span>
+<span>112</span>
+<span>113</span>
+<span>114</span>
+<span>115</span>
+<span>116</span>
+<span>117</span>
+<span>118</span>
+<span>119</span>
+<span>120</span>
+<span>121</span>
+<span>122</span>
+<span>123</span>
+<span>124</span>
+<span>125</span>
+<span>126</span>
+<span>127</span>
+<span>128</span>
+<span>129</span>
+<span>130</span>
+<span>131</span>
+<span>132</span>
+<span>133</span>
+<span>134</span>
+<span>135</span>
+<span>136</span>
+<span>137</span>
+<span>138</span>
+<span>139</span>
+<span>140</span>
+<span>141</span>
+<span>142</span>
+<span>143</span>
+<span>144</span>
+<span>145</span>
+<span>146</span>
+<span>147</span>
+<span>148</span>
+<span>149</span>
+<span>150</span>
+<span>151</span>
+<span>152</span>
+<span>153</span>
+<span>154</span>
+<span>155</span>
+<span>156</span>
+<span>157</span>
+<span>158</span>
+<span>159</span>
+<span>160</span>
+<span>161</span>
+<span>162</span>
+<span>163</span>
+<span>164</span>
+<span>165</span>
+<span>166</span>
+<span>167</span>
+<span>168</span>
+<span>169</span>
+<span>170</span>
+<span>171</span>
+<span>172</span>
+<span>173</span>
+<span>174</span>
+<span>175</span>
+<span>176</span>
+<span>177</span>
+<span>178</span>
+<span>179</span>
+<span>180</span>
+<span>181</span>
+<span>182</span>
+<span>183</span>
+<span>184</span>
+<span>185</span>
+<span>186</span>
+<span>187</span>
+<span>188</span>
+<span>189</span>
+<span>190</span>
+<span>191</span>
+<span>192</span>
+<span>193</span>
+<span>194</span>
+<span>195</span>
+<span>196</span>
+<span>197</span>
+<span>198</span>
+<span>199</span>
+<span>200</span>
+<span>201</span>
+<span>202</span>
+<span>203</span>
+<span>204</span>
+<span>205</span>
+<span>206</span>
+<span>207</span>
+<span>208</span>
+<span>209</span>
+<span>210</span>
+<span>211</span>
+<span>212</span>
+<span>213</span>
+<span>214</span>
+<span>215</span>
+<span>216</span>
+<span>217</span>
+<span>218</span>
+<span>219</span>
+<span>220</span>
+<span>221</span>
+<span>222</span>
+<span>223</span>
+<span>224</span>
+<span>225</span>
+<span>226</span>
+<span>227</span>
+<span>228</span>
+<span>229</span>
+<span>230</span>
+<span>231</span>
+<span>232</span>
+<span>233</span>
+<span>234</span>
+<span>235</span>
+<span>236</span>
+<span>237</span>
+<span>238</span>
+<span>239</span>
+<span>240</span>
+<span>241</span>
+<span>242</span>
+<span>243</span>
+<span>244</span>
+<span>245</span>
+<span>246</span>
+<span>247</span>
+<span>248</span>
+<span>249</span>
+<span>250</span>
+<span>251</span>
+<span>252</span>
+<span>253</span>
+<span>254</span>
+<span>255</span>
+<span>256</span>
+<span>257</span>
+<span>258</span>
+<span>259</span>
+<span>260</span>
+<span>261</span>
+<span>262</span>
+<span>263</span>
+<span>264</span>
+<span>265</span>
+<span>266</span>
+<span>267</span>
+<span>268</span>
+<span>269</span>
+<span>270</span>
+<span>271</span>
+
+  </pre>
+  </td>
+
+  <td  style="margin:0px; padding-left:8px; vertical-align:top" width="100%">
+  <pre><div class="line" id="l1">namespace NachoDB.Impl
+</div><div class="line" id="l2">{
+</div><div class="line" id="l3">    using System;
+</div><div class="line" id="l4">    using System.Collections;
+</div><div class="line" id="l5">    using System.Collections.Generic;
+</div><div class="line" id="l6">    using System.Reflection;
+</div><div class="line" id="l7">    using System.Diagnostics;
+</div><div class="line" id="l8">    using NachoDB;
+</div><div class="line" id="l9"><br></div><div class="line" id="l10">    class BtreeFieldIndex&lt;K,V&gt;:Btree&lt;K,V&gt;, FieldIndex&lt;K,V&gt; where V:class,IPersistent
+</div><div class="line" id="l11">    {
+</div><div class="line" id="l12">        internal String className;
+</div><div class="line" id="l13">        internal String fieldName;
+</div><div class="line" id="l14">        internal long   autoincCount;
+</div><div class="line" id="l15">        [NonSerialized()]
+</div><div class="line" id="l16">        Type cls;
+</div><div class="line" id="l17">        [NonSerialized()]
+</div><div class="line" id="l18">        MemberInfo mbr;
+</div><div class="line" id="l19">        [NonSerialized()]
+</div><div class="line" id="l20">        Type mbrType;
+</div><div class="line" id="l21"><br></div><div class="line" id="l22">        <span class="c">internal BtreeFieldIndex()</span></div><div class="line" id="l23">        {
+</div><div class="line" id="l24">        <span class="c">}</span></div><div class="line" id="l25"><br></div><div class="line" id="l26">        private void lookupField(String name) 
+</div><div class="line" id="l27">        {
+</div><div class="line" id="l28">            <span class="c">FieldInfo fld = cls.GetField(fieldName, BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);</span></div><div class="line" id="l29">            <span class="c">if (fld == null)</span></div><div class="line" id="l30">            { 
+</div><div class="line" id="l31">                <span class="c">PropertyInfo prop = cls.GetProperty(fieldName, BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);</span></div><div class="line" id="l32">                <span class="c">if (prop == null)</span></div><div class="line" id="l33">                {
+</div><div class="line" id="l34">                    <span class="c">throw new StorageError(StorageError.ErrorCode.INDEXED_FIELD_NOT_FOUND, className + "." + fieldName);</span></div><div class="line" id="l35">                }
+</div><div class="line" id="l36">                <span class="c">mbrType = prop.PropertyType;</span></div><div class="line" id="l37">                <span class="c">mbr = prop;</span></div><div class="line" id="l38">            } 
+</div><div class="line" id="l39">            else 
+</div><div class="line" id="l40">            {
+</div><div class="line" id="l41">                <span class="c">mbrType = fld.FieldType;</span></div><div class="line" id="l42">                <span class="c">mbr = fld;</span></div><div class="line" id="l43">            }
+</div><div class="line" id="l44">            <span class="c">if (mbrType != typeof(K))</span> {</div><div class="line" id="l45">                <span class="c">throw new StorageError(StorageError.ErrorCode.INCOMPATIBLE_KEY_TYPE, mbrType);</span></div><div class="line" id="l46">            }    
+</div><div class="line" id="l47">        <span class="c">}</span></div><div class="line" id="l48"><br></div><div class="line" id="l49">        public Type IndexedClass 
+</div><div class="line" id="l50">        {
+</div><div class="line" id="l51">            get 
+</div><div class="line" id="l52">            { 
+</div><div class="line" id="l53">                return cls;
+</div><div class="line" id="l54">            }
+</div><div class="line" id="l55">        }
+</div><div class="line" id="l56"><br></div><div class="line" id="l57">        public MemberInfo KeyField 
+</div><div class="line" id="l58">        {
+</div><div class="line" id="l59">            get 
+</div><div class="line" id="l60">            { 
+</div><div class="line" id="l61">                return mbr;
+</div><div class="line" id="l62">            }
+</div><div class="line" id="l63">        }
+</div><div class="line" id="l64"><br></div><div class="line" id="l65">        public override void OnLoad()
+</div><div class="line" id="l66">        {
+</div><div class="line" id="l67">            <span class="c">cls = ClassDescriptor.lookup(Storage, className);</span></div><div class="line" id="l68">            <span class="c">if (cls != typeof(V))</span></div><div class="line" id="l69">            {
+</div><div class="line" id="l70">                <span class="c">throw new StorageError(StorageError.ErrorCode.INCOMPATIBLE_VALUE_TYPE, cls);</span></div><div class="line" id="l71">            }
+</div><div class="line" id="l72">            <span class="c">lookupField(fieldName);</span></div><div class="line" id="l73">        <span class="c">}</span></div><div class="line" id="l74"><br></div><div class="line" id="l75">        <span class="c">internal BtreeFieldIndex(String fieldName, bool unique)</span></div><div class="line" id="l76">        : this(fieldName, unique, 0<span class="c">)</span></div><div class="line" id="l77">        {
+</div><div class="line" id="l78">        <span class="c">}</span></div><div class="line" id="l79"><br></div><div class="line" id="l80">        <span class="c">internal BtreeFieldIndex(String fieldName, bool unique, long autoincCount)</span></div><div class="line" id="l81">        : this(typeof(V), fieldName, unique, autoincCount<span class="c">)</span></div><div class="line" id="l82">        {
+</div><div class="line" id="l83">        <span class="c">}</span></div><div class="line" id="l84"><br></div><div class="line" id="l85">        <span class="c">internal BtreeFieldIndex(Type cls, string fieldName, bool unique, long autoincCount)</span></div><div class="line" id="l86">        {
+</div><div class="line" id="l87">            <span class="c">init(cls, ClassDescriptor.FieldType.tpLast, new string[]{fieldName}, unique, autoincCount);</span></div><div class="line" id="l88">        <span class="c">}</span></div><div class="line" id="l89"><br></div><div class="line" id="l90">        public override void init(Type cls, ClassDescriptor.FieldType type, string[] fieldNames, bool unique, long autoincCount) 
+</div><div class="line" id="l91">        {    
+</div><div class="line" id="l92">            <span class="c">this.cls = cls;</span></div><div class="line" id="l93">            <span class="c">this.unique = unique;</span></div><div class="line" id="l94">            <span class="c">this.fieldName = fieldNames[0];</span></div><div class="line" id="l95">            <span class="c">this.className = ClassDescriptor.getTypeName(cls);</span></div><div class="line" id="l96">            <span class="c">this.autoincCount = autoincCount;</span></div><div class="line" id="l97">            <span class="c">lookupField(fieldNames[0]);</span></div><div class="line" id="l98">            <span class="c">this.type = checkType(mbrType);</span></div><div class="line" id="l99">        <span class="c">}</span></div><div class="line" id="l100"><br></div><div class="line" id="l101">        protected override object unpackEnum(int val) 
+</div><div class="line" id="l102">        {
+</div><div class="line" id="l103">            return Enum.ToObject(mbrType, val);
+</div><div class="line" id="l104">        }
+</div><div class="line" id="l105"><br></div><div class="line" id="l106">        private Key extractKey(IPersistent obj) 
+</div><div class="line" id="l107">        { 
+</div><div class="line" id="l108">            <span class="c">Object val = mbr is FieldInfo ? ((FieldInfo)mbr).GetValue(obj) : ((PropertyInfo)mbr).GetValue(obj, null);</span></div><div class="line" id="l109">            <span class="c">Key key = null;</span></div><div class="line" id="l110">            <span class="c">switch (type)</span></div><div class="line" id="l111">            {
+</div><div class="line" id="l112">                case ClassDescriptor.FieldType.tpBoolean:
+</div><div class="line" id="l113">                    <span class="c">key = new Key((bool)val);</span></div><div class="line" id="l114">                    <span class="c">break;</span></div><div class="line" id="l115">                case ClassDescriptor.FieldType.tpByte:
+</div><div class="line" id="l116">                    <span class="c">key = new Key((byte)val);</span></div><div class="line" id="l117">                    <span class="c">break;</span></div><div class="line" id="l118">                case ClassDescriptor.FieldType.tpSByte:
+</div><div class="line" id="l119">                    <span class="c">key = new Key((sbyte)val);</span></div><div class="line" id="l120">                    <span class="c">break;</span></div><div class="line" id="l121">                case ClassDescriptor.FieldType.tpShort:
+</div><div class="line" id="l122">                    <span class="c">key = new Key((short)val);</span></div><div class="line" id="l123">                    <span class="c">break;</span></div><div class="line" id="l124">                case ClassDescriptor.FieldType.tpUShort:
+</div><div class="line" id="l125">                    <span class="c">key = new Key((ushort)val);</span></div><div class="line" id="l126">                    <span class="c">break;</span></div><div class="line" id="l127">                case ClassDescriptor.FieldType.tpChar:
+</div><div class="line" id="l128">                    <span class="c">key = new Key((char)val);</span></div><div class="line" id="l129">                    <span class="c">break;</span></div><div class="line" id="l130">                case ClassDescriptor.FieldType.tpInt:
+</div><div class="line" id="l131">                    <span class="c">key = new Key((int)val);</span></div><div class="line" id="l132">                    <span class="c">break;</span></div><div class="line" id="l133">                case ClassDescriptor.FieldType.tpUInt:
+</div><div class="line" id="l134">                    <span class="c">key = new Key((uint)val);</span></div><div class="line" id="l135">                    <span class="c">break;</span></div><div class="line" id="l136">                case ClassDescriptor.FieldType.tpOid:
+</div><div class="line" id="l137">                    <span class="c">key = new Key(ClassDescriptor.FieldType.tpOid, (int)val);</span></div><div class="line" id="l138">                    <span class="c">break;</span></div><div class="line" id="l139">                case ClassDescriptor.FieldType.tpObject:
+</div><div class="line" id="l140">                    <span class="c">key = new Key((IPersistent)val);</span></div><div class="line" id="l141">                    <span class="c">break;</span></div><div class="line" id="l142">                case ClassDescriptor.FieldType.tpLong:
+</div><div class="line" id="l143">                    <span class="c">key = new Key((long)val);</span></div><div class="line" id="l144">                    <span class="c">break;</span></div><div class="line" id="l145">                case ClassDescriptor.FieldType.tpULong:
+</div><div class="line" id="l146">                    <span class="c">key = new Key((ulong)val);</span></div><div class="line" id="l147">                    <span class="c">break;</span></div><div class="line" id="l148">                case ClassDescriptor.FieldType.tpDate:
+</div><div class="line" id="l149">                    <span class="c">key = new Key((DateTime)val);</span></div><div class="line" id="l150">                    <span class="c">break;</span></div><div class="line" id="l151">                case ClassDescriptor.FieldType.tpFloat:
+</div><div class="line" id="l152">                    <span class="c">key = new Key((float)val);</span></div><div class="line" id="l153">                    <span class="c">break;</span></div><div class="line" id="l154">                case ClassDescriptor.FieldType.tpDouble:
+</div><div class="line" id="l155">                    <span class="c">key = new Key((double)val);</span></div><div class="line" id="l156">                    <span class="c">break;</span></div><div class="line" id="l157">                case ClassDescriptor.FieldType.tpDecimal:
+</div><div class="line" id="l158">                    <span class="c">key = new Key((decimal)val);</span></div><div class="line" id="l159">                    <span class="c">break;</span></div><div class="line" id="l160">                case ClassDescriptor.FieldType.tpGuid:
+</div><div class="line" id="l161">                    <span class="c">key = new Key((Guid)val);</span></div><div class="line" id="l162">                    <span class="c">break;</span></div><div class="line" id="l163">                case ClassDescriptor.FieldType.tpString:
+</div><div class="line" id="l164">                    <span class="c">key = new Key(((string)val).ToCharArray());</span></div><div class="line" id="l165">                    <span class="c">break;</span></div><div class="line" id="l166">                case ClassDescriptor.FieldType.tpEnum:
+</div><div class="line" id="l167">                    <span class="c">key = new Key((Enum)val);</span></div><div class="line" id="l168">                    break;
+</div><div class="line" id="l169">                default:
+</div><div class="line" id="l170">                    Debug.Assert(false, "Invalid type");
+</div><div class="line" id="l171">                    break;
+</div><div class="line" id="l172">            }
+</div><div class="line" id="l173">            <span class="c">return key;</span></div><div class="line" id="l174">        }
+</div><div class="line" id="l175"><br></div><div class="line" id="l176">        public bool Put(V obj) 
+</div><div class="line" id="l177">        {
+</div><div class="line" id="l178">            <span class="c">return base.Put(extractKey(obj), obj);</span></div><div class="line" id="l179">        }
+</div><div class="line" id="l180"><br></div><div class="line" id="l181">        public V Set(V obj) 
+</div><div class="line" id="l182">        {
+</div><div class="line" id="l183">            return base.Set(extractKey(obj), obj);
+</div><div class="line" id="l184">        }
+</div><div class="line" id="l185"><br></div><div class="line" id="l186">        public override bool Remove(V obj) 
+</div><div class="line" id="l187">        {
+</div><div class="line" id="l188">            try 
+</div><div class="line" id="l189">            {
+</div><div class="line" id="l190">                base.remove(new BtreeKey(extractKey(obj), obj.Oid));
+</div><div class="line" id="l191">            }
+</div><div class="line" id="l192">            catch (StorageError x) 
+</div><div class="line" id="l193">            { 
+</div><div class="line" id="l194">                if (x.Code == StorageError.ErrorCode.KEY_NOT_FOUND) 
+</div><div class="line" id="l195">                { 
+</div><div class="line" id="l196">                    return false;
+</div><div class="line" id="l197">                }
+</div><div class="line" id="l198">                throw;
+</div><div class="line" id="l199">            }
+</div><div class="line" id="l200">            return true;
+</div><div class="line" id="l201">        }
+</div><div class="line" id="l202"><br></div><div class="line" id="l203">        public override bool Contains(V obj) 
+</div><div class="line" id="l204">        {
+</div><div class="line" id="l205">            Key key = extractKey(obj);
+</div><div class="line" id="l206">            if (unique) { 
+</div><div class="line" id="l207">                return base.Get(key) != null;
+</div><div class="line" id="l208">            } else { 
+</div><div class="line" id="l209">                V[] mbrs = Get(key, key);
+</div><div class="line" id="l210">                for (int i = 0; i &lt; mbrs.Length; i++) { 
+</div><div class="line" id="l211">                    if (mbrs[i] == obj) { 
+</div><div class="line" id="l212">                        return true;
+</div><div class="line" id="l213">                    }
+</div><div class="line" id="l214">                }
+</div><div class="line" id="l215">                return false;
+</div><div class="line" id="l216">            }
+</div><div class="line" id="l217">        }
+</div><div class="line" id="l218"><br></div><div class="line" id="l219">        public void Append(V obj)
+</div><div class="line" id="l220">        {
+</div><div class="line" id="l221">            lock (this) 
+</div><div class="line" id="l222">            { 
+</div><div class="line" id="l223">                Key key;
+</div><div class="line" id="l224">                object val; 
+</div><div class="line" id="l225">                switch (type) 
+</div><div class="line" id="l226">                {
+</div><div class="line" id="l227">                    case ClassDescriptor.FieldType.tpInt:
+</div><div class="line" id="l228">                        key = new Key((int)autoincCount);
+</div><div class="line" id="l229">                        val = (int)autoincCount;
+</div><div class="line" id="l230">                        break;            
+</div><div class="line" id="l231">                    case ClassDescriptor.FieldType.tpLong:
+</div><div class="line" id="l232">                        key = new Key(autoincCount);
+</div><div class="line" id="l233">                        val = autoincCount;
+</div><div class="line" id="l234">                        break;            
+</div><div class="line" id="l235">                    default:
+</div><div class="line" id="l236">                        throw new StorageError(StorageError.ErrorCode.UNSUPPORTED_INDEX_TYPE, mbrType);
+</div><div class="line" id="l237">                }
+</div><div class="line" id="l238">                if (mbr is FieldInfo) 
+</div><div class="line" id="l239">                { 
+</div><div class="line" id="l240">                    ((FieldInfo)mbr).SetValue(obj, val);
+</div><div class="line" id="l241">                } 
+</div><div class="line" id="l242">                else 
+</div><div class="line" id="l243">                {
+</div><div class="line" id="l244">                    ((PropertyInfo)mbr).SetValue(obj, val, null);
+</div><div class="line" id="l245">                }              
+</div><div class="line" id="l246">                autoincCount += 1;
+</div><div class="line" id="l247">                obj.Modify();
+</div><div class="line" id="l248">                base.insert(key, obj, false);
+</div><div class="line" id="l249">            }
+</div><div class="line" id="l250">        }
+</div><div class="line" id="l251"><br></div><div class="line" id="l252">        public override V[] Get(Key from, Key till)
+</div><div class="line" id="l253">        {
+</div><div class="line" id="l254">            ArrayList list = new ArrayList();
+</div><div class="line" id="l255">            if (root != 0)
+</div><div class="line" id="l256">            {
+</div><div class="line" id="l257">                BtreePage.find((StorageImpl) Storage, root, checkKey(from), checkKey(till), this, height, list);
+</div><div class="line" id="l258">            }
+</div><div class="line" id="l259">            return (V[]) list.ToArray(cls);
+</div><div class="line" id="l260">        }
+</div><div class="line" id="l261"><br></div><div class="line" id="l262">        public override V[] ToArray() 
+</div><div class="line" id="l263">        {
+</div><div class="line" id="l264">            V[] arr = (V[])Array.CreateInstance(cls, nElems);
+</div><div class="line" id="l265">            if (root != 0) { 
+</div><div class="line" id="l266">                BtreePage.traverseForward((StorageImpl)Storage, root, type, height, arr, 0);
+</div><div class="line" id="l267">            }
+</div><div class="line" id="l268">            return arr;
+</div><div class="line" id="l269">        }
+</div><div class="line" id="l270">    }
+</div><div class="line" id="l271">}
+</div>
+  </pre>
+  </td>
+  </tr>
+</tbody>
+</table>
+</body>
+</html>

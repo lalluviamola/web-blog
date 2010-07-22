@@ -1,0 +1,191 @@
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type=text/css> 
+pre,code {font-size:9pt; font:Consolas,Monaco,"Courier New","DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace;}
+.c { background-color: #96EBA6; }
+</style>
+</head>
+<body>
+<pre><a href="index.html">Home</a> : csharp\src\PersistentCollection.cs</pre>
+<table cellpadding="0" cellspacing="0">
+<tbody>
+  <tr>
+  <td style="margin:0px; vertical-align:top">
+  <pre><span>1</span>
+<span>2</span>
+<span>3</span>
+<span>4</span>
+<span>5</span>
+<span>6</span>
+<span>7</span>
+<span>8</span>
+<span>9</span>
+<span>10</span>
+<span>11</span>
+<span>12</span>
+<span>13</span>
+<span>14</span>
+<span>15</span>
+<span>16</span>
+<span>17</span>
+<span>18</span>
+<span>19</span>
+<span>20</span>
+<span>21</span>
+<span>22</span>
+<span>23</span>
+<span>24</span>
+<span>25</span>
+<span>26</span>
+<span>27</span>
+<span>28</span>
+<span>29</span>
+<span>30</span>
+<span>31</span>
+<span>32</span>
+<span>33</span>
+<span>34</span>
+<span>35</span>
+<span>36</span>
+<span>37</span>
+<span>38</span>
+<span>39</span>
+<span>40</span>
+<span>41</span>
+<span>42</span>
+<span>43</span>
+<span>44</span>
+<span>45</span>
+<span>46</span>
+<span>47</span>
+<span>48</span>
+<span>49</span>
+<span>50</span>
+<span>51</span>
+<span>52</span>
+<span>53</span>
+<span>54</span>
+<span>55</span>
+<span>56</span>
+<span>57</span>
+<span>58</span>
+<span>59</span>
+<span>60</span>
+<span>61</span>
+<span>62</span>
+<span>63</span>
+<span>64</span>
+<span>65</span>
+<span>66</span>
+<span>67</span>
+<span>68</span>
+<span>69</span>
+<span>70</span>
+<span>71</span>
+<span>72</span>
+<span>73</span>
+<span>74</span>
+<span>75</span>
+<span>76</span>
+<span>77</span>
+<span>78</span>
+<span>79</span>
+<span>80</span>
+<span>81</span>
+<span>82</span>
+<span>83</span>
+<span>84</span>
+<span>85</span>
+<span>86</span>
+<span>87</span>
+<span>88</span>
+<span>89</span>
+
+  </pre>
+  </td>
+
+  <td  style="margin:0px; padding-left:8px; vertical-align:top" width="100%">
+  <pre><div class="line" id="l1">using System;
+</div><div class="line" id="l2">using System.Collections;
+</div><div class="line" id="l3">using System.Collections.Generic;
+</div><div class="line" id="l4"><br></div><div class="line" id="l5">namespace NachoDB
+</div><div class="line" id="l6">{
+</div><div class="line" id="l7">    /// &lt;summary&gt;
+</div><div class="line" id="l8">    /// Base class for all persistent collections
+</div><div class="line" id="l9">    /// &lt;/summary&gt;
+</div><div class="line" id="l10">    public abstract class PersistentCollection&lt;T&gt; : PersistentResource, ICollection&lt;T&gt; where T:class,IPersistent
+</div><div class="line" id="l11">    {
+</div><div class="line" id="l12">        <span class="c">public PersistentCollection()</span></div><div class="line" id="l13">        {
+</div><div class="line" id="l14">        <span class="c">}</span></div><div class="line" id="l15"><br></div><div class="line" id="l16">        public PersistentCollection(Storage storage)
+</div><div class="line" id="l17">        : base(storage) 
+</div><div class="line" id="l18">        {
+</div><div class="line" id="l19">        }
+</div><div class="line" id="l20"><br></div><div class="line" id="l21">        public abstract IEnumerator&lt;T&gt; GetEnumerator();
+</div><div class="line" id="l22"><br></div><div class="line" id="l23">        IEnumerator IEnumerable.GetEnumerator()
+</div><div class="line" id="l24">        {
+</div><div class="line" id="l25">            return GetEnumerator();
+</div><div class="line" id="l26">        }
+</div><div class="line" id="l27"><br></div><div class="line" id="l28">        public abstract int Count 
+</div><div class="line" id="l29">        { 
+</div><div class="line" id="l30">            get;
+</div><div class="line" id="l31">         }
+</div><div class="line" id="l32"><br></div><div class="line" id="l33">        public virtual bool IsSynchronized 
+</div><div class="line" id="l34">        {
+</div><div class="line" id="l35">            get 
+</div><div class="line" id="l36">            {
+</div><div class="line" id="l37">                return true;
+</div><div class="line" id="l38">            }
+</div><div class="line" id="l39">        }
+</div><div class="line" id="l40"><br></div><div class="line" id="l41">        public virtual object SyncRoot 
+</div><div class="line" id="l42">        {
+</div><div class="line" id="l43">            get 
+</div><div class="line" id="l44">            {
+</div><div class="line" id="l45">                return this;
+</div><div class="line" id="l46">            }
+</div><div class="line" id="l47">        }
+</div><div class="line" id="l48"><br></div><div class="line" id="l49">        public virtual void CopyTo(T[] dst, int i) 
+</div><div class="line" id="l50">        {
+</div><div class="line" id="l51">            foreach (object o in this) 
+</div><div class="line" id="l52">            { 
+</div><div class="line" id="l53">                dst.SetValue(o, i++);
+</div><div class="line" id="l54">            }
+</div><div class="line" id="l55">        }
+</div><div class="line" id="l56"><br></div><div class="line" id="l57">        public virtual void Add(T obj)
+</div><div class="line" id="l58">        {
+</div><div class="line" id="l59">            throw new InvalidOperationException("Add is not supported");
+</div><div class="line" id="l60">        }
+</div><div class="line" id="l61"><br></div><div class="line" id="l62">        public abstract void Clear();
+</div><div class="line" id="l63"><br></div><div class="line" id="l64">        public virtual bool IsReadOnly 
+</div><div class="line" id="l65">        { 
+</div><div class="line" id="l66">            get
+</div><div class="line" id="l67">            { 
+</div><div class="line" id="l68">                return false;
+</div><div class="line" id="l69">            } 
+</div><div class="line" id="l70">        } 
+</div><div class="line" id="l71"><br></div><div class="line" id="l72">        public virtual bool Contains(T obj) 
+</div><div class="line" id="l73">        {
+</div><div class="line" id="l74">            foreach (T o in this)
+</div><div class="line" id="l75">            { 
+</div><div class="line" id="l76">                if (o == obj) 
+</div><div class="line" id="l77">                {
+</div><div class="line" id="l78">                    return true;
+</div><div class="line" id="l79">                }
+</div><div class="line" id="l80">            }
+</div><div class="line" id="l81">            return false;
+</div><div class="line" id="l82">        }
+</div><div class="line" id="l83"><br></div><div class="line" id="l84">        public virtual bool Remove(T obj) 
+</div><div class="line" id="l85">        {        
+</div><div class="line" id="l86">            throw new InvalidOperationException("Remove is not supported");
+</div><div class="line" id="l87">        }
+</div><div class="line" id="l88">    }
+</div><div class="line" id="l89">}
+</div>
+  </pre>
+  </td>
+  </tr>
+</tbody>
+</table>
+</body>
+</html>

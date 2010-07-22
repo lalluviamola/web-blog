@@ -1,0 +1,702 @@
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type=text/css> 
+pre,code {font-size:9pt; font:Consolas,Monaco,"Courier New","DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace;}
+.c { background-color: #96EBA6; }
+</style>
+</head>
+<body>
+<pre><a href="index.html">Home</a> : csharp\src\PersistentResource.cs</pre>
+<table cellpadding="0" cellspacing="0">
+<tbody>
+  <tr>
+  <td style="margin:0px; vertical-align:top">
+  <pre><span>1</span>
+<span>2</span>
+<span>3</span>
+<span>4</span>
+<span>5</span>
+<span>6</span>
+<span>7</span>
+<span>8</span>
+<span>9</span>
+<span>10</span>
+<span>11</span>
+<span>12</span>
+<span>13</span>
+<span>14</span>
+<span>15</span>
+<span>16</span>
+<span>17</span>
+<span>18</span>
+<span>19</span>
+<span>20</span>
+<span>21</span>
+<span>22</span>
+<span>23</span>
+<span>24</span>
+<span>25</span>
+<span>26</span>
+<span>27</span>
+<span>28</span>
+<span>29</span>
+<span>30</span>
+<span>31</span>
+<span>32</span>
+<span>33</span>
+<span>34</span>
+<span>35</span>
+<span>36</span>
+<span>37</span>
+<span>38</span>
+<span>39</span>
+<span>40</span>
+<span>41</span>
+<span>42</span>
+<span>43</span>
+<span>44</span>
+<span>45</span>
+<span>46</span>
+<span>47</span>
+<span>48</span>
+<span>49</span>
+<span>50</span>
+<span>51</span>
+<span>52</span>
+<span>53</span>
+<span>54</span>
+<span>55</span>
+<span>56</span>
+<span>57</span>
+<span>58</span>
+<span>59</span>
+<span>60</span>
+<span>61</span>
+<span>62</span>
+<span>63</span>
+<span>64</span>
+<span>65</span>
+<span>66</span>
+<span>67</span>
+<span>68</span>
+<span>69</span>
+<span>70</span>
+<span>71</span>
+<span>72</span>
+<span>73</span>
+<span>74</span>
+<span>75</span>
+<span>76</span>
+<span>77</span>
+<span>78</span>
+<span>79</span>
+<span>80</span>
+<span>81</span>
+<span>82</span>
+<span>83</span>
+<span>84</span>
+<span>85</span>
+<span>86</span>
+<span>87</span>
+<span>88</span>
+<span>89</span>
+<span>90</span>
+<span>91</span>
+<span>92</span>
+<span>93</span>
+<span>94</span>
+<span>95</span>
+<span>96</span>
+<span>97</span>
+<span>98</span>
+<span>99</span>
+<span>100</span>
+<span>101</span>
+<span>102</span>
+<span>103</span>
+<span>104</span>
+<span>105</span>
+<span>106</span>
+<span>107</span>
+<span>108</span>
+<span>109</span>
+<span>110</span>
+<span>111</span>
+<span>112</span>
+<span>113</span>
+<span>114</span>
+<span>115</span>
+<span>116</span>
+<span>117</span>
+<span>118</span>
+<span>119</span>
+<span>120</span>
+<span>121</span>
+<span>122</span>
+<span>123</span>
+<span>124</span>
+<span>125</span>
+<span>126</span>
+<span>127</span>
+<span>128</span>
+<span>129</span>
+<span>130</span>
+<span>131</span>
+<span>132</span>
+<span>133</span>
+<span>134</span>
+<span>135</span>
+<span>136</span>
+<span>137</span>
+<span>138</span>
+<span>139</span>
+<span>140</span>
+<span>141</span>
+<span>142</span>
+<span>143</span>
+<span>144</span>
+<span>145</span>
+<span>146</span>
+<span>147</span>
+<span>148</span>
+<span>149</span>
+<span>150</span>
+<span>151</span>
+<span>152</span>
+<span>153</span>
+<span>154</span>
+<span>155</span>
+<span>156</span>
+<span>157</span>
+<span>158</span>
+<span>159</span>
+<span>160</span>
+<span>161</span>
+<span>162</span>
+<span>163</span>
+<span>164</span>
+<span>165</span>
+<span>166</span>
+<span>167</span>
+<span>168</span>
+<span>169</span>
+<span>170</span>
+<span>171</span>
+<span>172</span>
+<span>173</span>
+<span>174</span>
+<span>175</span>
+<span>176</span>
+<span>177</span>
+<span>178</span>
+<span>179</span>
+<span>180</span>
+<span>181</span>
+<span>182</span>
+<span>183</span>
+<span>184</span>
+<span>185</span>
+<span>186</span>
+<span>187</span>
+<span>188</span>
+<span>189</span>
+<span>190</span>
+<span>191</span>
+<span>192</span>
+<span>193</span>
+<span>194</span>
+<span>195</span>
+<span>196</span>
+<span>197</span>
+<span>198</span>
+<span>199</span>
+<span>200</span>
+<span>201</span>
+<span>202</span>
+<span>203</span>
+<span>204</span>
+<span>205</span>
+<span>206</span>
+<span>207</span>
+<span>208</span>
+<span>209</span>
+<span>210</span>
+<span>211</span>
+<span>212</span>
+<span>213</span>
+<span>214</span>
+<span>215</span>
+<span>216</span>
+<span>217</span>
+<span>218</span>
+<span>219</span>
+<span>220</span>
+<span>221</span>
+<span>222</span>
+<span>223</span>
+<span>224</span>
+<span>225</span>
+<span>226</span>
+<span>227</span>
+<span>228</span>
+<span>229</span>
+<span>230</span>
+<span>231</span>
+<span>232</span>
+<span>233</span>
+<span>234</span>
+<span>235</span>
+<span>236</span>
+<span>237</span>
+<span>238</span>
+<span>239</span>
+<span>240</span>
+<span>241</span>
+<span>242</span>
+<span>243</span>
+<span>244</span>
+<span>245</span>
+<span>246</span>
+<span>247</span>
+<span>248</span>
+<span>249</span>
+<span>250</span>
+<span>251</span>
+<span>252</span>
+<span>253</span>
+<span>254</span>
+<span>255</span>
+<span>256</span>
+<span>257</span>
+<span>258</span>
+<span>259</span>
+<span>260</span>
+<span>261</span>
+<span>262</span>
+<span>263</span>
+<span>264</span>
+<span>265</span>
+<span>266</span>
+<span>267</span>
+<span>268</span>
+<span>269</span>
+<span>270</span>
+<span>271</span>
+<span>272</span>
+<span>273</span>
+<span>274</span>
+<span>275</span>
+<span>276</span>
+<span>277</span>
+<span>278</span>
+<span>279</span>
+<span>280</span>
+<span>281</span>
+<span>282</span>
+<span>283</span>
+<span>284</span>
+<span>285</span>
+<span>286</span>
+<span>287</span>
+<span>288</span>
+<span>289</span>
+<span>290</span>
+<span>291</span>
+<span>292</span>
+<span>293</span>
+<span>294</span>
+<span>295</span>
+<span>296</span>
+<span>297</span>
+<span>298</span>
+<span>299</span>
+<span>300</span>
+<span>301</span>
+<span>302</span>
+<span>303</span>
+<span>304</span>
+<span>305</span>
+<span>306</span>
+<span>307</span>
+<span>308</span>
+<span>309</span>
+<span>310</span>
+<span>311</span>
+<span>312</span>
+<span>313</span>
+<span>314</span>
+<span>315</span>
+<span>316</span>
+<span>317</span>
+<span>318</span>
+<span>319</span>
+<span>320</span>
+<span>321</span>
+<span>322</span>
+<span>323</span>
+<span>324</span>
+<span>325</span>
+<span>326</span>
+<span>327</span>
+<span>328</span>
+<span>329</span>
+<span>330</span>
+<span>331</span>
+<span>332</span>
+<span>333</span>
+<span>334</span>
+<span>335</span>
+<span>336</span>
+<span>337</span>
+<span>338</span>
+<span>339</span>
+<span>340</span>
+<span>341</span>
+<span>342</span>
+<span>343</span>
+<span>344</span>
+<span>345</span>
+<span>346</span>
+<span>347</span>
+<span>348</span>
+<span>349</span>
+
+  </pre>
+  </td>
+
+  <td  style="margin:0px; padding-left:8px; vertical-align:top" width="100%">
+  <pre><div class="line" id="l1">namespace NachoDB
+</div><div class="line" id="l2">{
+</div><div class="line" id="l3">    using System;
+</div><div class="line" id="l4">    using System.Threading;
+</div><div class="line" id="l5">    using System.Collections;
+</div><div class="line" id="l6"><br></div><div class="line" id="l7">    /// &lt;summary&gt;Base class for persistent capable objects supporting locking
+</div><div class="line" id="l8">    /// &lt;/summary&gt;
+</div><div class="line" id="l9">    public class PersistentResource : Persistent, IResource 
+</div><div class="line" id="l10">    {
+</div><div class="line" id="l11">#if COMPACT_NET_FRAMEWORK
+</div><div class="line" id="l12">        class WaitContext 
+</div><div class="line" id="l13">        {
+</div><div class="line" id="l14">            internal AutoResetEvent evt;
+</div><div class="line" id="l15">            internal WaitContext    next;
+</div><div class="line" id="l16">            internal bool           exclusive;
+</div><div class="line" id="l17"><br></div><div class="line" id="l18">            internal WaitContext() 
+</div><div class="line" id="l19">            {
+</div><div class="line" id="l20">                evt = new AutoResetEvent(false);
+</div><div class="line" id="l21">            }
+</div><div class="line" id="l22">        }
+</div><div class="line" id="l23"><br></div><div class="line" id="l24">        static WaitContext freeContexts;
+</div><div class="line" id="l25"><br></div><div class="line" id="l26">        [NonSerialized()]
+</div><div class="line" id="l27">        WaitContext queueStart;
+</div><div class="line" id="l28">        [NonSerialized()]
+</div><div class="line" id="l29">        WaitContext queueEnd;
+</div><div class="line" id="l30"><br></div><div class="line" id="l31">        private void wait(bool exclusive)
+</div><div class="line" id="l32">        {
+</div><div class="line" id="l33">            WaitContext ctx;
+</div><div class="line" id="l34">            lock (typeof(PersistentResource)) 
+</div><div class="line" id="l35">            {
+</div><div class="line" id="l36">                ctx = freeContexts;
+</div><div class="line" id="l37">                if (ctx == null) 
+</div><div class="line" id="l38">                {
+</div><div class="line" id="l39">                    ctx = new WaitContext();
+</div><div class="line" id="l40">                } 
+</div><div class="line" id="l41">                else 
+</div><div class="line" id="l42">                {
+</div><div class="line" id="l43">                    freeContexts = ctx.next;
+</div><div class="line" id="l44">                }
+</div><div class="line" id="l45">                ctx.next = null;
+</div><div class="line" id="l46">            }
+</div><div class="line" id="l47">            if (queueStart != null) 
+</div><div class="line" id="l48">            { 
+</div><div class="line" id="l49">                queueEnd = queueEnd.next = ctx;
+</div><div class="line" id="l50">            } 
+</div><div class="line" id="l51">            else 
+</div><div class="line" id="l52">            { 
+</div><div class="line" id="l53">                queueStart = queueEnd = ctx;
+</div><div class="line" id="l54">            }                            
+</div><div class="line" id="l55">            ctx.exclusive = exclusive;
+</div><div class="line" id="l56"><br></div><div class="line" id="l57">            Monitor.Exit(this);
+</div><div class="line" id="l58">            ctx.evt.WaitOne();
+</div><div class="line" id="l59"><br></div><div class="line" id="l60">            lock (typeof(PersistentResource)) 
+</div><div class="line" id="l61">            {
+</div><div class="line" id="l62">                ctx.next = freeContexts;
+</div><div class="line" id="l63">                freeContexts = ctx;
+</div><div class="line" id="l64">            }
+</div><div class="line" id="l65">        }
+</div><div class="line" id="l66"><br></div><div class="line" id="l67">        public void SharedLock()    
+</div><div class="line" id="l68">        {
+</div><div class="line" id="l69">            Monitor.Enter(this);
+</div><div class="line" id="l70">            Thread currThread = Thread.CurrentThread;
+</div><div class="line" id="l71">            if (owner == currThread) 
+</div><div class="line" id="l72">            { 
+</div><div class="line" id="l73">                nWriters += 1;
+</div><div class="line" id="l74">                Monitor.Exit(this);
+</div><div class="line" id="l75">            } 
+</div><div class="line" id="l76">            else if (nWriters == 0) 
+</div><div class="line" id="l77">            { 
+</div><div class="line" id="l78">                nReaders += 1;
+</div><div class="line" id="l79">                Monitor.Exit(this);
+</div><div class="line" id="l80">            } 
+</div><div class="line" id="l81">            else 
+</div><div class="line" id="l82">            { 
+</div><div class="line" id="l83">                wait(false);
+</div><div class="line" id="l84">            } 
+</div><div class="line" id="l85">        }
+</div><div class="line" id="l86"><br></div><div class="line" id="l87">        public void ExclusiveLock() 
+</div><div class="line" id="l88">        {
+</div><div class="line" id="l89">            Thread currThread = Thread.CurrentThread;
+</div><div class="line" id="l90">            Monitor.Enter(this);
+</div><div class="line" id="l91">            if (owner == currThread) 
+</div><div class="line" id="l92">            { 
+</div><div class="line" id="l93">                nWriters += 1;
+</div><div class="line" id="l94">                Monitor.Exit(this);
+</div><div class="line" id="l95">            } 
+</div><div class="line" id="l96">            else if (nReaders == 0 &amp;&amp; nWriters == 0) 
+</div><div class="line" id="l97">            { 
+</div><div class="line" id="l98">                nWriters = 1;
+</div><div class="line" id="l99">                owner = currThread;
+</div><div class="line" id="l100">                Monitor.Exit(this);
+</div><div class="line" id="l101">            } 
+</div><div class="line" id="l102">            else {
+</div><div class="line" id="l103">                wait(true);
+</div><div class="line" id="l104">                owner = currThread;    
+</div><div class="line" id="l105">            } 
+</div><div class="line" id="l106">        }
+</div><div class="line" id="l107"><br></div><div class="line" id="l108"><br></div><div class="line" id="l109">        private void notify() 
+</div><div class="line" id="l110">        {
+</div><div class="line" id="l111">            WaitContext next, ctx = queueStart;
+</div><div class="line" id="l112">            while (ctx != null) 
+</div><div class="line" id="l113">            { 
+</div><div class="line" id="l114">                if (ctx.exclusive) 
+</div><div class="line" id="l115">                {
+</div><div class="line" id="l116">                    if (nReaders == 0) 
+</div><div class="line" id="l117">                    {
+</div><div class="line" id="l118">                        nWriters = 1;
+</div><div class="line" id="l119">                        next = ctx.next;
+</div><div class="line" id="l120">                        ctx.evt.Set();
+</div><div class="line" id="l121">                        ctx = next;
+</div><div class="line" id="l122">                    } 
+</div><div class="line" id="l123">                    break;
+</div><div class="line" id="l124">                } 
+</div><div class="line" id="l125">                else 
+</div><div class="line" id="l126">                {
+</div><div class="line" id="l127">                    nReaders += 1;
+</div><div class="line" id="l128">                    next = ctx.next;
+</div><div class="line" id="l129">                    ctx.evt.Set();
+</div><div class="line" id="l130">                    ctx = next;
+</div><div class="line" id="l131">                }
+</div><div class="line" id="l132">            }
+</div><div class="line" id="l133">            queueStart = ctx;
+</div><div class="line" id="l134">        }
+</div><div class="line" id="l135"><br></div><div class="line" id="l136"><br></div><div class="line" id="l137">        public void Unlock() 
+</div><div class="line" id="l138">        {
+</div><div class="line" id="l139">            lock (this) 
+</div><div class="line" id="l140">            { 
+</div><div class="line" id="l141">                if (nWriters != 0) 
+</div><div class="line" id="l142">                { 
+</div><div class="line" id="l143">                    if (--nWriters == 0) 
+</div><div class="line" id="l144">                    { 
+</div><div class="line" id="l145">                        owner = null;
+</div><div class="line" id="l146">                        notify();
+</div><div class="line" id="l147">                    }
+</div><div class="line" id="l148">                } 
+</div><div class="line" id="l149">                else if (nReaders != 0)
+</div><div class="line" id="l150">                { 
+</div><div class="line" id="l151">                    if (--nReaders == 0) 
+</div><div class="line" id="l152">                    { 
+</div><div class="line" id="l153">                        notify();
+</div><div class="line" id="l154">                    }
+</div><div class="line" id="l155">                }
+</div><div class="line" id="l156">            }
+</div><div class="line" id="l157">        }
+</div><div class="line" id="l158"><br></div><div class="line" id="l159">        public void Reset() 
+</div><div class="line" id="l160">        { 
+</div><div class="line" id="l161">            lock (this) 
+</div><div class="line" id="l162">            { 
+</div><div class="line" id="l163">                nReaders = 0;
+</div><div class="line" id="l164">                nWriters = 0;
+</div><div class="line" id="l165">                owner = null;
+</div><div class="line" id="l166">                notify();
+</div><div class="line" id="l167">            }
+</div><div class="line" id="l168">        }
+</div><div class="line" id="l169">#else
+</div><div class="line" id="l170">        public void SharedLock()    
+</div><div class="line" id="l171">        {
+</div><div class="line" id="l172">            lock (this) 
+</div><div class="line" id="l173">            { 
+</div><div class="line" id="l174">                Thread currThread = Thread.CurrentThread;
+</div><div class="line" id="l175">                while (true) 
+</div><div class="line" id="l176">                { 
+</div><div class="line" id="l177">                    if (owner == currThread) 
+</div><div class="line" id="l178">                    { 
+</div><div class="line" id="l179">                        nWriters += 1;
+</div><div class="line" id="l180">                        break;
+</div><div class="line" id="l181">                    } 
+</div><div class="line" id="l182">                    else if (nWriters == 0) 
+</div><div class="line" id="l183">                    { 
+</div><div class="line" id="l184">                        if (nReaders == 0 &amp;&amp; storage != null) 
+</div><div class="line" id="l185">                        { 
+</div><div class="line" id="l186">                            storage.lockObject(this);
+</div><div class="line" id="l187">                        }
+</div><div class="line" id="l188">                        nReaders += 1;
+</div><div class="line" id="l189">                        break;
+</div><div class="line" id="l190">                    } 
+</div><div class="line" id="l191">                    else 
+</div><div class="line" id="l192">                    { 
+</div><div class="line" id="l193">                        Monitor.Wait(this);
+</div><div class="line" id="l194">                    }
+</div><div class="line" id="l195">                }
+</div><div class="line" id="l196">            }
+</div><div class="line" id="l197">        }
+</div><div class="line" id="l198"><br></div><div class="line" id="l199">        public bool SharedLock(long timeout) 
+</div><div class="line" id="l200">        {
+</div><div class="line" id="l201">            Thread currThread = Thread.CurrentThread;
+</div><div class="line" id="l202">            DateTime startTime = DateTime.Now;
+</div><div class="line" id="l203">            TimeSpan ts = TimeSpan.FromMilliseconds(timeout);
+</div><div class="line" id="l204">            lock (this) 
+</div><div class="line" id="l205">            { 
+</div><div class="line" id="l206">                while (true) 
+</div><div class="line" id="l207">                { 
+</div><div class="line" id="l208">                    if (owner == currThread) 
+</div><div class="line" id="l209">                    { 
+</div><div class="line" id="l210">                        nWriters += 1;
+</div><div class="line" id="l211">                        return true;
+</div><div class="line" id="l212">                    } 
+</div><div class="line" id="l213">                    else if (nWriters == 0) 
+</div><div class="line" id="l214">                    { 
+</div><div class="line" id="l215">                        if (nReaders == 0 &amp;&amp; storage != null) 
+</div><div class="line" id="l216">                        { 
+</div><div class="line" id="l217">                            storage.lockObject(this);
+</div><div class="line" id="l218">                        }
+</div><div class="line" id="l219">                        nReaders += 1;
+</div><div class="line" id="l220">                        return true;
+</div><div class="line" id="l221">                    } 
+</div><div class="line" id="l222">                    else 
+</div><div class="line" id="l223">                    { 
+</div><div class="line" id="l224">                        DateTime currTime = DateTime.Now;
+</div><div class="line" id="l225">                        if (startTime + ts &lt;= currTime) 
+</div><div class="line" id="l226">                        { 
+</div><div class="line" id="l227">                            return false;
+</div><div class="line" id="l228">                        }
+</div><div class="line" id="l229">                        Monitor.Wait(this, startTime + ts - currTime);
+</div><div class="line" id="l230">                    }
+</div><div class="line" id="l231">                }
+</div><div class="line" id="l232">            } 
+</div><div class="line" id="l233">        }
+</div><div class="line" id="l234"><br></div><div class="line" id="l235"><br></div><div class="line" id="l236">        public void ExclusiveLock() 
+</div><div class="line" id="l237">        {
+</div><div class="line" id="l238">            Thread currThread = Thread.CurrentThread;
+</div><div class="line" id="l239">            lock (this)
+</div><div class="line" id="l240">            { 
+</div><div class="line" id="l241">                while (true) 
+</div><div class="line" id="l242">                { 
+</div><div class="line" id="l243">                    if (owner == currThread) 
+</div><div class="line" id="l244">                    { 
+</div><div class="line" id="l245">                        nWriters += 1;
+</div><div class="line" id="l246">                        break;
+</div><div class="line" id="l247">                    } 
+</div><div class="line" id="l248">                    else if (nReaders == 0 &amp;&amp; nWriters == 0) 
+</div><div class="line" id="l249">                    { 
+</div><div class="line" id="l250">                        nWriters = 1;
+</div><div class="line" id="l251">                        owner = currThread;
+</div><div class="line" id="l252">                        if (storage != null) 
+</div><div class="line" id="l253">                        { 
+</div><div class="line" id="l254">                            storage.lockObject(this);
+</div><div class="line" id="l255">                        }
+</div><div class="line" id="l256">                        break;
+</div><div class="line" id="l257">                    } 
+</div><div class="line" id="l258">                    else 
+</div><div class="line" id="l259">                    { 
+</div><div class="line" id="l260">                        Monitor.Wait(this);
+</div><div class="line" id="l261">                    }
+</div><div class="line" id="l262">                }
+</div><div class="line" id="l263">            } 
+</div><div class="line" id="l264">        }
+</div><div class="line" id="l265"><br></div><div class="line" id="l266">        public bool ExclusiveLock(long timeout) 
+</div><div class="line" id="l267">        {
+</div><div class="line" id="l268">            Thread currThread = Thread.CurrentThread;
+</div><div class="line" id="l269">            TimeSpan ts = TimeSpan.FromMilliseconds(timeout);
+</div><div class="line" id="l270">            DateTime startTime = DateTime.Now;
+</div><div class="line" id="l271">            lock (this) 
+</div><div class="line" id="l272">            { 
+</div><div class="line" id="l273">                while (true) 
+</div><div class="line" id="l274">                { 
+</div><div class="line" id="l275">                    if (owner == currThread) 
+</div><div class="line" id="l276">                    { 
+</div><div class="line" id="l277">                        nWriters += 1;
+</div><div class="line" id="l278">                        return true;
+</div><div class="line" id="l279">                    } 
+</div><div class="line" id="l280">                    else if (nReaders == 0 &amp;&amp; nWriters == 0) 
+</div><div class="line" id="l281">                    { 
+</div><div class="line" id="l282">                        nWriters = 1;
+</div><div class="line" id="l283">                        owner = currThread;
+</div><div class="line" id="l284">                        if (storage != null) 
+</div><div class="line" id="l285">                        { 
+</div><div class="line" id="l286">                            storage.lockObject(this);
+</div><div class="line" id="l287">                        }
+</div><div class="line" id="l288">                        return true;
+</div><div class="line" id="l289">                    } 
+</div><div class="line" id="l290">                    else 
+</div><div class="line" id="l291">                    { 
+</div><div class="line" id="l292">                        DateTime currTime = DateTime.Now;
+</div><div class="line" id="l293">                        if (startTime + ts &lt;= currTime) 
+</div><div class="line" id="l294">                        { 
+</div><div class="line" id="l295">                            return false;
+</div><div class="line" id="l296">                        }
+</div><div class="line" id="l297">                        Monitor.Wait(this, startTime + ts - currTime);
+</div><div class="line" id="l298">                    }
+</div><div class="line" id="l299">                }
+</div><div class="line" id="l300">            } 
+</div><div class="line" id="l301">        }
+</div><div class="line" id="l302"><br></div><div class="line" id="l303">        public void Unlock() 
+</div><div class="line" id="l304">        {
+</div><div class="line" id="l305">            lock (this) 
+</div><div class="line" id="l306">            { 
+</div><div class="line" id="l307">                if (nWriters != 0) 
+</div><div class="line" id="l308">                { 
+</div><div class="line" id="l309">                    if (--nWriters == 0) 
+</div><div class="line" id="l310">                    { 
+</div><div class="line" id="l311">                        owner = null;
+</div><div class="line" id="l312">                        Monitor.PulseAll(this);
+</div><div class="line" id="l313">                    }
+</div><div class="line" id="l314">                } 
+</div><div class="line" id="l315">                else if (nReaders != 0)
+</div><div class="line" id="l316">                { 
+</div><div class="line" id="l317">                    if (--nReaders == 0) 
+</div><div class="line" id="l318">                    { 
+</div><div class="line" id="l319">                        Monitor.PulseAll(this);
+</div><div class="line" id="l320">                    }
+</div><div class="line" id="l321">                }
+</div><div class="line" id="l322">            }
+</div><div class="line" id="l323">        }
+</div><div class="line" id="l324"><br></div><div class="line" id="l325">        public void Reset() 
+</div><div class="line" id="l326">        { 
+</div><div class="line" id="l327">            lock (this) 
+</div><div class="line" id="l328">            { 
+</div><div class="line" id="l329">                nReaders = 0;
+</div><div class="line" id="l330">                nWriters = 0;
+</div><div class="line" id="l331">                owner = null;
+</div><div class="line" id="l332">                Monitor.PulseAll(this);
+</div><div class="line" id="l333">            }
+</div><div class="line" id="l334">        }
+</div><div class="line" id="l335"><br></div><div class="line" id="l336">#endif
+</div><div class="line" id="l337">        <span class="c">internal protected PersistentResource()</span> {<span class="c">}</span></div><div class="line" id="l338"><br></div><div class="line" id="l339">        internal protected PersistentResource(Storage storage) 
+</div><div class="line" id="l340">            : base(storage) {}
+</div><div class="line" id="l341"><br></div><div class="line" id="l342">        [NonSerialized()]
+</div><div class="line" id="l343">        private Thread owner;
+</div><div class="line" id="l344">        [NonSerialized()]
+</div><div class="line" id="l345">        private int    nReaders;
+</div><div class="line" id="l346">        [NonSerialized()]
+</div><div class="line" id="l347">        private int    nWriters;
+</div><div class="line" id="l348">    }
+</div><div class="line" id="l349">}
+</div>
+  </pre>
+  </td>
+  </tr>
+</tbody>
+</table>
+</body>
+</html>

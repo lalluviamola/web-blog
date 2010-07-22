@@ -1,0 +1,148 @@
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type=text/css> 
+pre,code {font-size:9pt; font:Consolas,Monaco,"Courier New","DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace;}
+.c { background-color: #96EBA6; }
+</style>
+</head>
+<body>
+<pre><a href="index.html">Home</a> : csharp\src\impl\OSFile.cs</pre>
+<table cellpadding="0" cellspacing="0">
+<tbody>
+  <tr>
+  <td style="margin:0px; vertical-align:top">
+  <pre><span>1</span>
+<span>2</span>
+<span>3</span>
+<span>4</span>
+<span>5</span>
+<span>6</span>
+<span>7</span>
+<span>8</span>
+<span>9</span>
+<span>10</span>
+<span>11</span>
+<span>12</span>
+<span>13</span>
+<span>14</span>
+<span>15</span>
+<span>16</span>
+<span>17</span>
+<span>18</span>
+<span>19</span>
+<span>20</span>
+<span>21</span>
+<span>22</span>
+<span>23</span>
+<span>24</span>
+<span>25</span>
+<span>26</span>
+<span>27</span>
+<span>28</span>
+<span>29</span>
+<span>30</span>
+<span>31</span>
+<span>32</span>
+<span>33</span>
+<span>34</span>
+<span>35</span>
+<span>36</span>
+<span>37</span>
+<span>38</span>
+<span>39</span>
+<span>40</span>
+<span>41</span>
+<span>42</span>
+<span>43</span>
+<span>44</span>
+<span>45</span>
+<span>46</span>
+<span>47</span>
+<span>48</span>
+<span>49</span>
+<span>50</span>
+<span>51</span>
+<span>52</span>
+<span>53</span>
+<span>54</span>
+<span>55</span>
+<span>56</span>
+<span>57</span>
+<span>58</span>
+<span>59</span>
+<span>60</span>
+<span>61</span>
+<span>62</span>
+<span>63</span>
+<span>64</span>
+<span>65</span>
+<span>66</span>
+<span>67</span>
+<span>68</span>
+<span>69</span>
+<span>70</span>
+<span>71</span>
+<span>72</span>
+<span>73</span>
+<span>74</span>
+<span>75</span>
+
+  </pre>
+  </td>
+
+  <td  style="margin:0px; padding-left:8px; vertical-align:top" width="100%">
+  <pre><div class="line" id="l1">namespace NachoDB.Impl    
+</div><div class="line" id="l2">{
+</div><div class="line" id="l3">    using System;
+</div><div class="line" id="l4">    using System.IO;
+</div><div class="line" id="l5">    using System.Runtime.InteropServices;
+</div><div class="line" id="l6">    using NachoDB;
+</div><div class="line" id="l7"><br></div><div class="line" id="l8">    public class OSFile : IFile
+</div><div class="line" id="l9">    {
+</div><div class="line" id="l10">        [DllImport("kernel32.dll", SetLastError=true)]
+</div><div class="line" id="l11">        // TODO: this seems more correct but doesn't work in mono
+</div><div class="line" id="l12">        //static extern bool FlushFileBuffers(IntPtr hFile); 
+</div><div class="line" id="l13">        static extern bool FlushFileBuffers(int hFile); 
+</div><div class="line" id="l14"><br></div><div class="line" id="l15">        public virtual void Write(long pos, byte[] buf)
+</div><div class="line" id="l16">        {
+</div><div class="line" id="l17">            <span class="c">file.Seek(pos, SeekOrigin.Begin);</span></div><div class="line" id="l18">            <span class="c">file.Write(buf, 0, buf.Length);</span></div><div class="line" id="l19">        <span class="c">}</span></div><div class="line" id="l20"><br></div><div class="line" id="l21">        public virtual int Read(long pos, byte[] buf)
+</div><div class="line" id="l22">        {
+</div><div class="line" id="l23">            <span class="c">file.Seek(pos, SeekOrigin.Begin);</span></div><div class="line" id="l24">            <span class="c">return file.Read(buf, 0, buf.Length);</span></div><div class="line" id="l25">        }
+</div><div class="line" id="l26"><br></div><div class="line" id="l27">        public virtual void  Sync()
+</div><div class="line" id="l28">        {
+</div><div class="line" id="l29">            <span class="c">file.Flush();</span></div><div class="line" id="l30">#if !COMPACT_NET_FRAMEWORK 
+</div><div class="line" id="l31">            <span class="c">if (!noFlush)</span> {</div><div class="line" id="l32">                // TODO: this seems more correct but doesn't work in mono
+</div><div class="line" id="l33">                //FlushFileBuffers(file.SafeFileHandle.DangerousGetHandle());
+</div><div class="line" id="l34">                // TODO: this uses deprecated API but I can't get SafeFileHandle
+</div><div class="line" id="l35">                // to work in mono
+</div><div class="line" id="l36">                <span class="c">FlushFileBuffers(file.Handle.ToInt32());</span></div><div class="line" id="l37">            }
+</div><div class="line" id="l38">#endif
+</div><div class="line" id="l39">        <span class="c">}</span></div><div class="line" id="l40"><br></div><div class="line" id="l41">        public bool NoFlush
+</div><div class="line" id="l42">        {
+</div><div class="line" id="l43">            get { return this.noFlush; }
+</div><div class="line" id="l44">            set { this.noFlush = value; }
+</div><div class="line" id="l45">        }
+</div><div class="line" id="l46"><br></div><div class="line" id="l47">        public virtual void  Close()
+</div><div class="line" id="l48">        {
+</div><div class="line" id="l49">            <span class="c">file.Close();</span></div><div class="line" id="l50">        <span class="c">}</span></div><div class="line" id="l51"><br></div><div class="line" id="l52">        public virtual void Lock() 
+</div><div class="line" id="l53">        {
+</div><div class="line" id="l54">#if !COMPACT_NET_FRAMEWORK 
+</div><div class="line" id="l55">            <span class="c">file.Lock(0, long.MaxValue);</span></div><div class="line" id="l56">#endif
+</div><div class="line" id="l57">        <span class="c">}</span></div><div class="line" id="l58"><br></div><div class="line" id="l59">        public long Length
+</div><div class="line" id="l60">        {
+</div><div class="line" id="l61">            get { return file.Length; }
+</div><div class="line" id="l62">        }
+</div><div class="line" id="l63"><br></div><div class="line" id="l64"><br></div><div class="line" id="l65">        <span class="c">internal OSFile(String filePath, bool readOnly, bool noFlush)</span></div><div class="line" id="l66">        {
+</div><div class="line" id="l67">            <span class="c">this.noFlush = noFlush;</span></div><div class="line" id="l68">            <span class="c">file = new FileStream(filePath, FileMode.OpenOrCreate,</span></div><div class="line" id="l69">                                  readOnly ? FileAccess.Read : FileAccess.ReadWrite)<span class="c">;</span></div><div class="line" id="l70">        <span class="c">}</span></div><div class="line" id="l71"><br></div><div class="line" id="l72">        protected FileStream file;
+</div><div class="line" id="l73">        protected bool       noFlush;
+</div><div class="line" id="l74">    }
+</div><div class="line" id="l75">}</div>
+  </pre>
+  </td>
+  </tr>
+</tbody>
+</table>
+</body>
+</html>

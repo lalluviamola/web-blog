@@ -1,0 +1,421 @@
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type=text/css> 
+pre,code {font-size:9pt; font:Consolas,Monaco,"Courier New","DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace;}
+.c { background-color: #96EBA6; }
+</style>
+</head>
+<body>
+<pre><a href="index.html">Home</a> : csharp\tests\UnitTests\UnitTests.cs</pre>
+<table cellpadding="0" cellspacing="0">
+<tbody>
+  <tr>
+  <td style="margin:0px; vertical-align:top">
+  <pre><span>1</span>
+<span>2</span>
+<span>3</span>
+<span>4</span>
+<span>5</span>
+<span>6</span>
+<span>7</span>
+<span>8</span>
+<span>9</span>
+<span>10</span>
+<span>11</span>
+<span>12</span>
+<span>13</span>
+<span>14</span>
+<span>15</span>
+<span>16</span>
+<span>17</span>
+<span>18</span>
+<span>19</span>
+<span>20</span>
+<span>21</span>
+<span>22</span>
+<span>23</span>
+<span>24</span>
+<span>25</span>
+<span>26</span>
+<span>27</span>
+<span>28</span>
+<span>29</span>
+<span>30</span>
+<span>31</span>
+<span>32</span>
+<span>33</span>
+<span>34</span>
+<span>35</span>
+<span>36</span>
+<span>37</span>
+<span>38</span>
+<span>39</span>
+<span>40</span>
+<span>41</span>
+<span>42</span>
+<span>43</span>
+<span>44</span>
+<span>45</span>
+<span>46</span>
+<span>47</span>
+<span>48</span>
+<span>49</span>
+<span>50</span>
+<span>51</span>
+<span>52</span>
+<span>53</span>
+<span>54</span>
+<span>55</span>
+<span>56</span>
+<span>57</span>
+<span>58</span>
+<span>59</span>
+<span>60</span>
+<span>61</span>
+<span>62</span>
+<span>63</span>
+<span>64</span>
+<span>65</span>
+<span>66</span>
+<span>67</span>
+<span>68</span>
+<span>69</span>
+<span>70</span>
+<span>71</span>
+<span>72</span>
+<span>73</span>
+<span>74</span>
+<span>75</span>
+<span>76</span>
+<span>77</span>
+<span>78</span>
+<span>79</span>
+<span>80</span>
+<span>81</span>
+<span>82</span>
+<span>83</span>
+<span>84</span>
+<span>85</span>
+<span>86</span>
+<span>87</span>
+<span>88</span>
+<span>89</span>
+<span>90</span>
+<span>91</span>
+<span>92</span>
+<span>93</span>
+<span>94</span>
+<span>95</span>
+<span>96</span>
+<span>97</span>
+<span>98</span>
+<span>99</span>
+<span>100</span>
+<span>101</span>
+<span>102</span>
+<span>103</span>
+<span>104</span>
+<span>105</span>
+<span>106</span>
+<span>107</span>
+<span>108</span>
+<span>109</span>
+<span>110</span>
+<span>111</span>
+<span>112</span>
+<span>113</span>
+<span>114</span>
+<span>115</span>
+<span>116</span>
+<span>117</span>
+<span>118</span>
+<span>119</span>
+<span>120</span>
+<span>121</span>
+<span>122</span>
+<span>123</span>
+<span>124</span>
+<span>125</span>
+<span>126</span>
+<span>127</span>
+<span>128</span>
+<span>129</span>
+<span>130</span>
+<span>131</span>
+<span>132</span>
+<span>133</span>
+<span>134</span>
+<span>135</span>
+<span>136</span>
+<span>137</span>
+<span>138</span>
+<span>139</span>
+<span>140</span>
+<span>141</span>
+<span>142</span>
+<span>143</span>
+<span>144</span>
+<span>145</span>
+<span>146</span>
+<span>147</span>
+<span>148</span>
+<span>149</span>
+<span>150</span>
+<span>151</span>
+<span>152</span>
+<span>153</span>
+<span>154</span>
+<span>155</span>
+<span>156</span>
+<span>157</span>
+<span>158</span>
+<span>159</span>
+<span>160</span>
+<span>161</span>
+<span>162</span>
+<span>163</span>
+<span>164</span>
+<span>165</span>
+<span>166</span>
+<span>167</span>
+<span>168</span>
+<span>169</span>
+<span>170</span>
+<span>171</span>
+<span>172</span>
+<span>173</span>
+<span>174</span>
+<span>175</span>
+<span>176</span>
+<span>177</span>
+<span>178</span>
+<span>179</span>
+<span>180</span>
+<span>181</span>
+<span>182</span>
+<span>183</span>
+<span>184</span>
+<span>185</span>
+<span>186</span>
+<span>187</span>
+<span>188</span>
+<span>189</span>
+<span>190</span>
+<span>191</span>
+<span>192</span>
+<span>193</span>
+<span>194</span>
+<span>195</span>
+<span>196</span>
+<span>197</span>
+<span>198</span>
+<span>199</span>
+<span>200</span>
+<span>201</span>
+<span>202</span>
+<span>203</span>
+<span>204</span>
+<span>205</span>
+<span>206</span>
+<span>207</span>
+<span>208</span>
+<span>209</span>
+<span>210</span>
+<span>211</span>
+<span>212</span>
+<span>213</span>
+<span>214</span>
+<span>215</span>
+<span>216</span>
+<span>217</span>
+<span>218</span>
+<span>219</span>
+<span>220</span>
+<span>221</span>
+<span>222</span>
+<span>223</span>
+<span>224</span>
+<span>225</span>
+<span>226</span>
+<span>227</span>
+<span>228</span>
+<span>229</span>
+<span>230</span>
+<span>231</span>
+<span>232</span>
+<span>233</span>
+<span>234</span>
+<span>235</span>
+<span>236</span>
+<span>237</span>
+<span>238</span>
+<span>239</span>
+<span>240</span>
+<span>241</span>
+<span>242</span>
+<span>243</span>
+<span>244</span>
+<span>245</span>
+<span>246</span>
+<span>247</span>
+<span>248</span>
+<span>249</span>
+<span>250</span>
+<span>251</span>
+<span>252</span>
+<span>253</span>
+<span>254</span>
+<span>255</span>
+<span>256</span>
+<span>257</span>
+<span>258</span>
+<span>259</span>
+<span>260</span>
+<span>261</span>
+<span>262</span>
+<span>263</span>
+<span>264</span>
+<span>265</span>
+<span>266</span>
+<span>267</span>
+<span>268</span>
+<span>269</span>
+<span>270</span>
+<span>271</span>
+<span>272</span>
+<span>273</span>
+<span>274</span>
+<span>275</span>
+<span>276</span>
+<span>277</span>
+<span>278</span>
+<span>279</span>
+<span>280</span>
+<span>281</span>
+<span>282</span>
+<span>283</span>
+<span>284</span>
+<span>285</span>
+<span>286</span>
+<span>287</span>
+<span>288</span>
+<span>289</span>
+
+  </pre>
+  </td>
+
+  <td  style="margin:0px; padding-left:8px; vertical-align:top" width="100%">
+  <pre><div class="line" id="l1">using System;
+</div><div class="line" id="l2">using NachoDB;
+</div><div class="line" id="l3">using System.IO;
+</div><div class="line" id="l4"><br></div><div class="line" id="l5">public class UnitTests
+</div><div class="line" id="l6">{
+</div><div class="line" id="l7">    internal static int totalTests = 0;
+</div><div class="line" id="l8">    internal static int failedTests = 0;
+</div><div class="line" id="l9"><br></div><div class="line" id="l10">    public static int TotalTests {
+</div><div class="line" id="l11">        get { <span class="c">return totalTests;</span> }</div><div class="line" id="l12">    }
+</div><div class="line" id="l13"><br></div><div class="line" id="l14">    public static int FailedTests {
+</div><div class="line" id="l15">        get { <span class="c">return failedTests;</span> }</div><div class="line" id="l16">    }
+</div><div class="line" id="l17"><br></div><div class="line" id="l18">    public static void AssertThat(bool cond)
+</div><div class="line" id="l19">    {
+</div><div class="line" id="l20">        <span class="c">totalTests += 1;</span></div><div class="line" id="l21">        <span class="c">if (cond)</span> <span class="c">return;</span></div><div class="line" id="l22">        <span class="c">failedTests += 1;</span></div><div class="line" id="l23">        // TODO: record callstacks of all failed exceptions
+</div><div class="line" id="l24">    <span class="c">}</span></div><div class="line" id="l25"><br></div><div class="line" id="l26">    public static void SafeDeleteFile(string path)
+</div><div class="line" id="l27">    {
+</div><div class="line" id="l28">        try
+</div><div class="line" id="l29">        {
+</div><div class="line" id="l30">            <span class="c">File.Delete(path);</span></div><div class="line" id="l31">        }
+</div><div class="line" id="l32">        <span class="c">catch</span> {}</div><div class="line" id="l33">    <span class="c">}</span></div><div class="line" id="l34">}
+</div><div class="line" id="l35"><br></div><div class="line" id="l36">public class Record : Persistent
+</div><div class="line" id="l37">{
+</div><div class="line" id="l38">    public string strKey;
+</div><div class="line" id="l39">    public long intKey;
+</div><div class="line" id="l40">}
+</div><div class="line" id="l41"><br></div><div class="line" id="l42">public class StringInt : Persistent
+</div><div class="line" id="l43">{
+</div><div class="line" id="l44">    public string s;
+</div><div class="line" id="l45">    public int no;
+</div><div class="line" id="l46">    <span class="c">public StringInt()</span></div><div class="line" id="l47">    {
+</div><div class="line" id="l48">    <span class="c">}</span></div><div class="line" id="l49">    <span class="c">public StringInt(string s, int no)</span></div><div class="line" id="l50">    {
+</div><div class="line" id="l51">        <span class="c">this.s = s;</span></div><div class="line" id="l52">        <span class="c">this.no = no;</span></div><div class="line" id="l53">    <span class="c">}</span></div><div class="line" id="l54">}
+</div><div class="line" id="l55"><br></div><div class="line" id="l56">public class UnitTest1
+</div><div class="line" id="l57">{
+</div><div class="line" id="l58">    public static void CheckStrings(Index&lt;string,StringInt&gt; root, string[] strs)
+</div><div class="line" id="l59">    {
+</div><div class="line" id="l60">        <span class="c">int no = 1;</span></div><div class="line" id="l61">        foreach (<span class="c">string s</span> <span class="c">in</span> <span class="c">strs</span>)</div><div class="line" id="l62">        {
+</div><div class="line" id="l63">            <span class="c">StringInt o = root[s];</span></div><div class="line" id="l64">            <span class="c">UnitTests.AssertThat(o.no == no++);</span></div><div class="line" id="l65">        }
+</div><div class="line" id="l66">    <span class="c">}</span></div><div class="line" id="l67"><br></div><div class="line" id="l68">    public static void Run(bool useAltBtree)
+</div><div class="line" id="l69">    {
+</div><div class="line" id="l70">        <span class="c">string dbName = @"testblob.dbs";</span></div><div class="line" id="l71">        <span class="c">UnitTests.SafeDeleteFile(dbName);</span></div><div class="line" id="l72">        <span class="c">Storage db = StorageFactory.CreateStorage();</span></div><div class="line" id="l73">        <span class="c">db.AlternativeBtree = useAltBtree;</span></div><div class="line" id="l74">        <span class="c">db.Open(dbName);</span></div><div class="line" id="l75">        <span class="c">Index&lt;string,StringInt&gt; root = (Index&lt;string,StringInt&gt;)db.Root;</span></div><div class="line" id="l76">        <span class="c">UnitTests.AssertThat(null == root);</span></div><div class="line" id="l77">        <span class="c">root = db.CreateIndex&lt;string,StringInt&gt;(true);</span></div><div class="line" id="l78">        <span class="c">db.Root = root;</span></div><div class="line" id="l79"><br></div><div class="line" id="l80">        <span class="c">int no = 1;</span></div><div class="line" id="l81">        <span class="c">string[] strs = new string[] { "one", "two", "three", "four" };</span></div><div class="line" id="l82">        foreach (<span class="c">string s</span> <span class="c">in</span> <span class="c">strs</span>)</div><div class="line" id="l83">        { 
+</div><div class="line" id="l84">            <span class="c">var o = new StringInt(s, no++);</span></div><div class="line" id="l85">            <span class="c">root[s] = o;</span></div><div class="line" id="l86">        }
+</div><div class="line" id="l87"><br></div><div class="line" id="l88">        <span class="c">CheckStrings(root, strs);</span></div><div class="line" id="l89">        <span class="c">db.Close();</span></div><div class="line" id="l90"><br></div><div class="line" id="l91">        <span class="c">db = StorageFactory.CreateStorage();</span></div><div class="line" id="l92">        <span class="c">db.Open(dbName);</span></div><div class="line" id="l93">        <span class="c">root = (Index&lt;string,StringInt&gt;)db.Root;</span></div><div class="line" id="l94">        <span class="c">UnitTests.AssertThat(null != root);</span></div><div class="line" id="l95">        <span class="c">CheckStrings(root, strs);</span></div><div class="line" id="l96">        <span class="c">db.Close();</span></div><div class="line" id="l97">    <span class="c">}</span></div><div class="line" id="l98">}
+</div><div class="line" id="l99"><br></div><div class="line" id="l100">public class UnitTest2
+</div><div class="line" id="l101">{
+</div><div class="line" id="l102">    public class Root : Persistent
+</div><div class="line" id="l103">    {
+</div><div class="line" id="l104">        public Index&lt;string, Record&gt; strIndex;
+</div><div class="line" id="l105">    }
+</div><div class="line" id="l106"><br></div><div class="line" id="l107">    public static void Run(bool useAltBtree)
+</div><div class="line" id="l108">    {
+</div><div class="line" id="l109">        <span class="c">string dbName = @"testidx.dbs";</span></div><div class="line" id="l110">        <span class="c">UnitTests.SafeDeleteFile(dbName);</span></div><div class="line" id="l111"><br></div><div class="line" id="l112">        <span class="c">Storage db = StorageFactory.CreateStorage();</span></div><div class="line" id="l113">        <span class="c">db.AlternativeBtree = useAltBtree;</span></div><div class="line" id="l114">        <span class="c">db.Open(dbName);</span></div><div class="line" id="l115">        <span class="c">Root root = (Root)db.Root;</span></div><div class="line" id="l116">        <span class="c">UnitTests.AssertThat(null == root);</span></div><div class="line" id="l117">        <span class="c">root = new Root();</span></div><div class="line" id="l118">        <span class="c">root.strIndex = db.CreateIndex&lt;string,Record&gt;(true);</span></div><div class="line" id="l119">        <span class="c">db.Root = root;</span></div><div class="line" id="l120">        <span class="c">int no = 0;</span></div><div class="line" id="l121">        <span class="c">string[] strs = new string[] { "one", "two", "three", "four" };</span></div><div class="line" id="l122">        foreach (<span class="c">string s</span> <span class="c">in</span> <span class="c">strs</span>)</div><div class="line" id="l123">        { 
+</div><div class="line" id="l124">            <span class="c">Record o = new Record();</span></div><div class="line" id="l125">            <span class="c">o.strKey = s;</span></div><div class="line" id="l126">            <span class="c">o.intKey = no++;</span></div><div class="line" id="l127">            <span class="c">root.strIndex[s] = o;</span></div><div class="line" id="l128">        }
+</div><div class="line" id="l129">        <span class="c">db.Commit();</span></div><div class="line" id="l130"><br></div><div class="line" id="l131">        // Test that modyfing an index while traversing it throws an exception
+</div><div class="line" id="l132">        // Tests AltBtree.BtreeEnumerator
+</div><div class="line" id="l133">        <span class="c">long n = -1;</span></div><div class="line" id="l134">        <span class="c">bool gotException = false;</span></div><div class="line" id="l135">        try
+</div><div class="line" id="l136">        {
+</div><div class="line" id="l137">            foreach (<span class="c">Record r</span> <span class="c">in</span> <span class="c">root.strIndex</span>)</div><div class="line" id="l138">            {
+</div><div class="line" id="l139">                <span class="c">n = r.intKey;</span></div><div class="line" id="l140">                <span class="c">string expectedStr = strs[n];</span></div><div class="line" id="l141">                <span class="c">string s = r.strKey;</span></div><div class="line" id="l142">                <span class="c">UnitTests.AssertThat(s == expectedStr);</span></div><div class="line" id="l143"><br></div><div class="line" id="l144">                <span class="c">if (n == 0)</span></div><div class="line" id="l145">                {
+</div><div class="line" id="l146">                    <span class="c">Record o = new Record();</span></div><div class="line" id="l147">                    <span class="c">o.strKey = "five";</span></div><div class="line" id="l148">                    <span class="c">o.intKey = 5;</span></div><div class="line" id="l149">                    <span class="c">root.strIndex[o.strKey] = o;</span></div><div class="line" id="l150">                }
+</div><div class="line" id="l151">            }
+</div><div class="line" id="l152">        }
+</div><div class="line" id="l153">        <span class="c">catch (InvalidOperationException)</span></div><div class="line" id="l154">        {
+</div><div class="line" id="l155">            <span class="c">gotException = true;</span></div><div class="line" id="l156">        }
+</div><div class="line" id="l157">        <span class="c">UnitTests.AssertThat(gotException);</span></div><div class="line" id="l158">        <span class="c">UnitTests.AssertThat(n == 0);</span></div><div class="line" id="l159"><br></div><div class="line" id="l160">        // Test that modyfing an index while traversing it throws an exception
+</div><div class="line" id="l161">        // Tests AltBtree.BtreeSelectionIterator
+</div><div class="line" id="l162"><br></div><div class="line" id="l163">        <span class="c">Key keyStart = new Key("four", true);</span></div><div class="line" id="l164">        <span class="c">Key keyEnd = new Key("three", true);</span></div><div class="line" id="l165">        <span class="c">gotException = false;</span></div><div class="line" id="l166">        try
+</div><div class="line" id="l167">        {
+</div><div class="line" id="l168">            foreach (<span class="c">Record r</span> <span class="c">in</span> <span class="c">root.strIndex.Range(keyStart, keyEnd, IterationOrder.AscentOrder)</span>)</div><div class="line" id="l169">            {
+</div><div class="line" id="l170">                <span class="c">n = r.intKey;</span></div><div class="line" id="l171">                <span class="c">string expectedStr = strs[n];</span></div><div class="line" id="l172">                <span class="c">string s = r.strKey;</span></div><div class="line" id="l173">                <span class="c">UnitTests.AssertThat(s == expectedStr);</span></div><div class="line" id="l174"><br></div><div class="line" id="l175">                <span class="c">Record o = new Record();</span></div><div class="line" id="l176">                <span class="c">o.strKey = "six";</span></div><div class="line" id="l177">                <span class="c">o.intKey = 6;</span></div><div class="line" id="l178">                <span class="c">root.strIndex[o.strKey] = o;</span></div><div class="line" id="l179">            }
+</div><div class="line" id="l180">        }
+</div><div class="line" id="l181">        <span class="c">catch (InvalidOperationException)</span></div><div class="line" id="l182">        {
+</div><div class="line" id="l183">            <span class="c">gotException = true;</span></div><div class="line" id="l184">        }
+</div><div class="line" id="l185">        <span class="c">UnitTests.AssertThat(gotException);</span></div><div class="line" id="l186"><br></div><div class="line" id="l187">        <span class="c">db.Close();</span></div><div class="line" id="l188">    <span class="c">}</span></div><div class="line" id="l189"><br></div><div class="line" id="l190">}
+</div><div class="line" id="l191"><br></div><div class="line" id="l192">public class UnitTestXml
+</div><div class="line" id="l193">{
+</div><div class="line" id="l194">    class Record : Persistent
+</div><div class="line" id="l195">    {
+</div><div class="line" id="l196">        internal String strKey;
+</div><div class="line" id="l197">        internal long   intKey;
+</div><div class="line" id="l198">        internal double realKey;
+</div><div class="line" id="l199">    }
+</div><div class="line" id="l200"><br></div><div class="line" id="l201">    class Root : Persistent
+</div><div class="line" id="l202">    {
+</div><div class="line" id="l203">        internal Index&lt;string,Record&gt;    strIndex;
+</div><div class="line" id="l204">        internal FieldIndex&lt;long,Record&gt; intIndex;
+</div><div class="line" id="l205">    }
+</div><div class="line" id="l206"><br></div><div class="line" id="l207">    <span class="c">internal static int pagePoolSize = 32 * 1024 * 1024;</span></div><div class="line" id="l208"><br></div><div class="line" id="l209">    public static void Run(int nRecords, bool useAltBtree)
+</div><div class="line" id="l210">    {
+</div><div class="line" id="l211">        <span class="c">string dbName = @"testxml.dbs";</span></div><div class="line" id="l212">        <span class="c">string xmlName = useAltBtree ? @"testalt.xml" : @"test.xml";</span></div><div class="line" id="l213">        <span class="c">UnitTests.SafeDeleteFile(dbName);</span></div><div class="line" id="l214">        <span class="c">Storage db = StorageFactory.CreateStorage();</span></div><div class="line" id="l215">        <span class="c">db.AlternativeBtree = useAltBtree;</span></div><div class="line" id="l216">        <span class="c">db.Open(dbName, pagePoolSize);</span></div><div class="line" id="l217">        <span class="c">Root root = (Root)db.Root;</span></div><div class="line" id="l218">        <span class="c">UnitTests.AssertThat(null == root);</span></div><div class="line" id="l219">        <span class="c">root = new Root();</span></div><div class="line" id="l220">        <span class="c">root.strIndex = db.CreateIndex&lt;string,Record&gt;(true);</span></div><div class="line" id="l221">        <span class="c">root.intIndex = db.CreateFieldIndex&lt;long,Record&gt;("intKey", true);</span></div><div class="line" id="l222">        <span class="c">db.Root = root;</span></div><div class="line" id="l223">        <span class="c">DateTime start = DateTime.Now;</span></div><div class="line" id="l224">        <span class="c">long key = 1999;</span></div><div class="line" id="l225">        <span class="c">Index&lt;string,Record&gt; strIndex = root.strIndex;</span></div><div class="line" id="l226">        <span class="c">FieldIndex&lt;long,Record&gt; intIndex = root.intIndex;</span></div><div class="line" id="l227">        int i;
+</div><div class="line" id="l228">        for (<span class="c">i = 0</span>; <span class="c">i &lt; nRecords</span>; <span class="c">i++</span>)</div><div class="line" id="l229">        {
+</div><div class="line" id="l230">            <span class="c">Record rec = new Record();</span></div><div class="line" id="l231">            <span class="c">key = (3141592621L * key + 2718281829L) % 1000000007L;</span></div><div class="line" id="l232">            <span class="c">rec.intKey = key;</span></div><div class="line" id="l233">            <span class="c">rec.strKey = System.Convert.ToString(key);</span></div><div class="line" id="l234">            <span class="c">rec.realKey = (double)key;</span></div><div class="line" id="l235">            <span class="c">strIndex.Put(new Key(rec.strKey), rec);</span></div><div class="line" id="l236">            <span class="c">intIndex.Put(rec);</span></div><div class="line" id="l237">        }
+</div><div class="line" id="l238">        <span class="c">db.Commit();</span></div><div class="line" id="l239"><br></div><div class="line" id="l240">        <span class="c">System.IO.StreamWriter writer = new System.IO.StreamWriter(xmlName);</span></div><div class="line" id="l241">        <span class="c">db.ExportXML(writer);</span></div><div class="line" id="l242">        <span class="c">writer.Close();</span></div><div class="line" id="l243">        <span class="c">db.Close();</span></div><div class="line" id="l244"><br></div><div class="line" id="l245">        <span class="c">UnitTests.SafeDeleteFile(dbName);</span></div><div class="line" id="l246">        <span class="c">db.Open(dbName, pagePoolSize);</span></div><div class="line" id="l247">        <span class="c">System.IO.StreamReader reader = new System.IO.StreamReader(xmlName);</span></div><div class="line" id="l248">        <span class="c">db.ImportXML(reader);</span></div><div class="line" id="l249">        <span class="c">reader.Close();</span></div><div class="line" id="l250"><br></div><div class="line" id="l251">        <span class="c">root = (Root)db.Root;</span></div><div class="line" id="l252">        <span class="c">strIndex = root.strIndex;</span></div><div class="line" id="l253">        <span class="c">intIndex = root.intIndex;</span></div><div class="line" id="l254"><br></div><div class="line" id="l255">        <span class="c">key = 1999;</span></div><div class="line" id="l256">        for (<span class="c">i = 0</span>; <span class="c">i &lt; nRecords</span>; <span class="c">i++</span>)</div><div class="line" id="l257">        {
+</div><div class="line" id="l258">            <span class="c">key = (3141592621L * key + 2718281829L) % 1000000007L;</span></div><div class="line" id="l259">            <span class="c">String strKey = System.Convert.ToString(key);</span></div><div class="line" id="l260">            <span class="c">Record rec1 = strIndex[strKey];</span></div><div class="line" id="l261">            <span class="c">Record rec2 = intIndex[key];</span></div><div class="line" id="l262">            //Record rec3 = compoundIndex.Get(new Key(strKey, key));
+</div><div class="line" id="l263">            <span class="c">UnitTests.AssertThat(rec1 != null);</span></div><div class="line" id="l264">            <span class="c">UnitTests.AssertThat(rec1 == rec2);</span></div><div class="line" id="l265">            <span class="c">UnitTests.AssertThat(rec1.intKey == key);</span></div><div class="line" id="l266">            <span class="c">UnitTests.AssertThat(rec1.realKey == (double)key);</span></div><div class="line" id="l267">            <span class="c">UnitTests.AssertThat(strKey.Equals(rec1.strKey));</span></div><div class="line" id="l268">            /*
+</div><div class="line" id="l269">            Debug.Assert(rec1 == rec3);
+</div><div class="line" id="l270">            */
+</div><div class="line" id="l271">        }
+</div><div class="line" id="l272">        <span class="c">db.Close();</span></div><div class="line" id="l273">    <span class="c">}</span></div><div class="line" id="l274">}
+</div><div class="line" id="l275"><br></div><div class="line" id="l276">public class UnitTestsRunner
+</div><div class="line" id="l277">{ 
+</div><div class="line" id="l278">    public static void Main(string[] args) 
+</div><div class="line" id="l279">    {
+</div><div class="line" id="l280">        <span class="c">UnitTestXml.Run(100, false);</span></div><div class="line" id="l281">        <span class="c">UnitTestXml.Run(100, true);</span></div><div class="line" id="l282">        <span class="c">UnitTest1.Run(false);</span></div><div class="line" id="l283">        <span class="c">UnitTest1.Run(true);</span></div><div class="line" id="l284">        <span class="c">UnitTest2.Run(false);</span></div><div class="line" id="l285">        <span class="c">UnitTest2.Run(true);</span></div><div class="line" id="l286">        <span class="c">Console.WriteLine(String.Format("Failed {0} out of {1} tests", UnitTests.FailedTests, UnitTests.TotalTests));</span></div><div class="line" id="l287">    <span class="c">}</span></div><div class="line" id="l288">}
+</div><div class="line" id="l289"><br></div>
+  </pre>
+  </td>
+  </tr>
+</tbody>
+</table>
+</body>
+</html>

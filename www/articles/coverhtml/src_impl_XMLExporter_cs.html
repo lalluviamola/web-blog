@@ -1,0 +1,1454 @@
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type=text/css> 
+pre,code {font-size:9pt; font:Consolas,Monaco,"Courier New","DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace;}
+.c { background-color: #96EBA6; }
+</style>
+</head>
+<body>
+<pre><a href="index.html">Home</a> : csharp\src\impl\XMLExporter.cs</pre>
+<table cellpadding="0" cellspacing="0">
+<tbody>
+  <tr>
+  <td style="margin:0px; vertical-align:top">
+  <pre><span>1</span>
+<span>2</span>
+<span>3</span>
+<span>4</span>
+<span>5</span>
+<span>6</span>
+<span>7</span>
+<span>8</span>
+<span>9</span>
+<span>10</span>
+<span>11</span>
+<span>12</span>
+<span>13</span>
+<span>14</span>
+<span>15</span>
+<span>16</span>
+<span>17</span>
+<span>18</span>
+<span>19</span>
+<span>20</span>
+<span>21</span>
+<span>22</span>
+<span>23</span>
+<span>24</span>
+<span>25</span>
+<span>26</span>
+<span>27</span>
+<span>28</span>
+<span>29</span>
+<span>30</span>
+<span>31</span>
+<span>32</span>
+<span>33</span>
+<span>34</span>
+<span>35</span>
+<span>36</span>
+<span>37</span>
+<span>38</span>
+<span>39</span>
+<span>40</span>
+<span>41</span>
+<span>42</span>
+<span>43</span>
+<span>44</span>
+<span>45</span>
+<span>46</span>
+<span>47</span>
+<span>48</span>
+<span>49</span>
+<span>50</span>
+<span>51</span>
+<span>52</span>
+<span>53</span>
+<span>54</span>
+<span>55</span>
+<span>56</span>
+<span>57</span>
+<span>58</span>
+<span>59</span>
+<span>60</span>
+<span>61</span>
+<span>62</span>
+<span>63</span>
+<span>64</span>
+<span>65</span>
+<span>66</span>
+<span>67</span>
+<span>68</span>
+<span>69</span>
+<span>70</span>
+<span>71</span>
+<span>72</span>
+<span>73</span>
+<span>74</span>
+<span>75</span>
+<span>76</span>
+<span>77</span>
+<span>78</span>
+<span>79</span>
+<span>80</span>
+<span>81</span>
+<span>82</span>
+<span>83</span>
+<span>84</span>
+<span>85</span>
+<span>86</span>
+<span>87</span>
+<span>88</span>
+<span>89</span>
+<span>90</span>
+<span>91</span>
+<span>92</span>
+<span>93</span>
+<span>94</span>
+<span>95</span>
+<span>96</span>
+<span>97</span>
+<span>98</span>
+<span>99</span>
+<span>100</span>
+<span>101</span>
+<span>102</span>
+<span>103</span>
+<span>104</span>
+<span>105</span>
+<span>106</span>
+<span>107</span>
+<span>108</span>
+<span>109</span>
+<span>110</span>
+<span>111</span>
+<span>112</span>
+<span>113</span>
+<span>114</span>
+<span>115</span>
+<span>116</span>
+<span>117</span>
+<span>118</span>
+<span>119</span>
+<span>120</span>
+<span>121</span>
+<span>122</span>
+<span>123</span>
+<span>124</span>
+<span>125</span>
+<span>126</span>
+<span>127</span>
+<span>128</span>
+<span>129</span>
+<span>130</span>
+<span>131</span>
+<span>132</span>
+<span>133</span>
+<span>134</span>
+<span>135</span>
+<span>136</span>
+<span>137</span>
+<span>138</span>
+<span>139</span>
+<span>140</span>
+<span>141</span>
+<span>142</span>
+<span>143</span>
+<span>144</span>
+<span>145</span>
+<span>146</span>
+<span>147</span>
+<span>148</span>
+<span>149</span>
+<span>150</span>
+<span>151</span>
+<span>152</span>
+<span>153</span>
+<span>154</span>
+<span>155</span>
+<span>156</span>
+<span>157</span>
+<span>158</span>
+<span>159</span>
+<span>160</span>
+<span>161</span>
+<span>162</span>
+<span>163</span>
+<span>164</span>
+<span>165</span>
+<span>166</span>
+<span>167</span>
+<span>168</span>
+<span>169</span>
+<span>170</span>
+<span>171</span>
+<span>172</span>
+<span>173</span>
+<span>174</span>
+<span>175</span>
+<span>176</span>
+<span>177</span>
+<span>178</span>
+<span>179</span>
+<span>180</span>
+<span>181</span>
+<span>182</span>
+<span>183</span>
+<span>184</span>
+<span>185</span>
+<span>186</span>
+<span>187</span>
+<span>188</span>
+<span>189</span>
+<span>190</span>
+<span>191</span>
+<span>192</span>
+<span>193</span>
+<span>194</span>
+<span>195</span>
+<span>196</span>
+<span>197</span>
+<span>198</span>
+<span>199</span>
+<span>200</span>
+<span>201</span>
+<span>202</span>
+<span>203</span>
+<span>204</span>
+<span>205</span>
+<span>206</span>
+<span>207</span>
+<span>208</span>
+<span>209</span>
+<span>210</span>
+<span>211</span>
+<span>212</span>
+<span>213</span>
+<span>214</span>
+<span>215</span>
+<span>216</span>
+<span>217</span>
+<span>218</span>
+<span>219</span>
+<span>220</span>
+<span>221</span>
+<span>222</span>
+<span>223</span>
+<span>224</span>
+<span>225</span>
+<span>226</span>
+<span>227</span>
+<span>228</span>
+<span>229</span>
+<span>230</span>
+<span>231</span>
+<span>232</span>
+<span>233</span>
+<span>234</span>
+<span>235</span>
+<span>236</span>
+<span>237</span>
+<span>238</span>
+<span>239</span>
+<span>240</span>
+<span>241</span>
+<span>242</span>
+<span>243</span>
+<span>244</span>
+<span>245</span>
+<span>246</span>
+<span>247</span>
+<span>248</span>
+<span>249</span>
+<span>250</span>
+<span>251</span>
+<span>252</span>
+<span>253</span>
+<span>254</span>
+<span>255</span>
+<span>256</span>
+<span>257</span>
+<span>258</span>
+<span>259</span>
+<span>260</span>
+<span>261</span>
+<span>262</span>
+<span>263</span>
+<span>264</span>
+<span>265</span>
+<span>266</span>
+<span>267</span>
+<span>268</span>
+<span>269</span>
+<span>270</span>
+<span>271</span>
+<span>272</span>
+<span>273</span>
+<span>274</span>
+<span>275</span>
+<span>276</span>
+<span>277</span>
+<span>278</span>
+<span>279</span>
+<span>280</span>
+<span>281</span>
+<span>282</span>
+<span>283</span>
+<span>284</span>
+<span>285</span>
+<span>286</span>
+<span>287</span>
+<span>288</span>
+<span>289</span>
+<span>290</span>
+<span>291</span>
+<span>292</span>
+<span>293</span>
+<span>294</span>
+<span>295</span>
+<span>296</span>
+<span>297</span>
+<span>298</span>
+<span>299</span>
+<span>300</span>
+<span>301</span>
+<span>302</span>
+<span>303</span>
+<span>304</span>
+<span>305</span>
+<span>306</span>
+<span>307</span>
+<span>308</span>
+<span>309</span>
+<span>310</span>
+<span>311</span>
+<span>312</span>
+<span>313</span>
+<span>314</span>
+<span>315</span>
+<span>316</span>
+<span>317</span>
+<span>318</span>
+<span>319</span>
+<span>320</span>
+<span>321</span>
+<span>322</span>
+<span>323</span>
+<span>324</span>
+<span>325</span>
+<span>326</span>
+<span>327</span>
+<span>328</span>
+<span>329</span>
+<span>330</span>
+<span>331</span>
+<span>332</span>
+<span>333</span>
+<span>334</span>
+<span>335</span>
+<span>336</span>
+<span>337</span>
+<span>338</span>
+<span>339</span>
+<span>340</span>
+<span>341</span>
+<span>342</span>
+<span>343</span>
+<span>344</span>
+<span>345</span>
+<span>346</span>
+<span>347</span>
+<span>348</span>
+<span>349</span>
+<span>350</span>
+<span>351</span>
+<span>352</span>
+<span>353</span>
+<span>354</span>
+<span>355</span>
+<span>356</span>
+<span>357</span>
+<span>358</span>
+<span>359</span>
+<span>360</span>
+<span>361</span>
+<span>362</span>
+<span>363</span>
+<span>364</span>
+<span>365</span>
+<span>366</span>
+<span>367</span>
+<span>368</span>
+<span>369</span>
+<span>370</span>
+<span>371</span>
+<span>372</span>
+<span>373</span>
+<span>374</span>
+<span>375</span>
+<span>376</span>
+<span>377</span>
+<span>378</span>
+<span>379</span>
+<span>380</span>
+<span>381</span>
+<span>382</span>
+<span>383</span>
+<span>384</span>
+<span>385</span>
+<span>386</span>
+<span>387</span>
+<span>388</span>
+<span>389</span>
+<span>390</span>
+<span>391</span>
+<span>392</span>
+<span>393</span>
+<span>394</span>
+<span>395</span>
+<span>396</span>
+<span>397</span>
+<span>398</span>
+<span>399</span>
+<span>400</span>
+<span>401</span>
+<span>402</span>
+<span>403</span>
+<span>404</span>
+<span>405</span>
+<span>406</span>
+<span>407</span>
+<span>408</span>
+<span>409</span>
+<span>410</span>
+<span>411</span>
+<span>412</span>
+<span>413</span>
+<span>414</span>
+<span>415</span>
+<span>416</span>
+<span>417</span>
+<span>418</span>
+<span>419</span>
+<span>420</span>
+<span>421</span>
+<span>422</span>
+<span>423</span>
+<span>424</span>
+<span>425</span>
+<span>426</span>
+<span>427</span>
+<span>428</span>
+<span>429</span>
+<span>430</span>
+<span>431</span>
+<span>432</span>
+<span>433</span>
+<span>434</span>
+<span>435</span>
+<span>436</span>
+<span>437</span>
+<span>438</span>
+<span>439</span>
+<span>440</span>
+<span>441</span>
+<span>442</span>
+<span>443</span>
+<span>444</span>
+<span>445</span>
+<span>446</span>
+<span>447</span>
+<span>448</span>
+<span>449</span>
+<span>450</span>
+<span>451</span>
+<span>452</span>
+<span>453</span>
+<span>454</span>
+<span>455</span>
+<span>456</span>
+<span>457</span>
+<span>458</span>
+<span>459</span>
+<span>460</span>
+<span>461</span>
+<span>462</span>
+<span>463</span>
+<span>464</span>
+<span>465</span>
+<span>466</span>
+<span>467</span>
+<span>468</span>
+<span>469</span>
+<span>470</span>
+<span>471</span>
+<span>472</span>
+<span>473</span>
+<span>474</span>
+<span>475</span>
+<span>476</span>
+<span>477</span>
+<span>478</span>
+<span>479</span>
+<span>480</span>
+<span>481</span>
+<span>482</span>
+<span>483</span>
+<span>484</span>
+<span>485</span>
+<span>486</span>
+<span>487</span>
+<span>488</span>
+<span>489</span>
+<span>490</span>
+<span>491</span>
+<span>492</span>
+<span>493</span>
+<span>494</span>
+<span>495</span>
+<span>496</span>
+<span>497</span>
+<span>498</span>
+<span>499</span>
+<span>500</span>
+<span>501</span>
+<span>502</span>
+<span>503</span>
+<span>504</span>
+<span>505</span>
+<span>506</span>
+<span>507</span>
+<span>508</span>
+<span>509</span>
+<span>510</span>
+<span>511</span>
+<span>512</span>
+<span>513</span>
+<span>514</span>
+<span>515</span>
+<span>516</span>
+<span>517</span>
+<span>518</span>
+<span>519</span>
+<span>520</span>
+<span>521</span>
+<span>522</span>
+<span>523</span>
+<span>524</span>
+<span>525</span>
+<span>526</span>
+<span>527</span>
+<span>528</span>
+<span>529</span>
+<span>530</span>
+<span>531</span>
+<span>532</span>
+<span>533</span>
+<span>534</span>
+<span>535</span>
+<span>536</span>
+<span>537</span>
+<span>538</span>
+<span>539</span>
+<span>540</span>
+<span>541</span>
+<span>542</span>
+<span>543</span>
+<span>544</span>
+<span>545</span>
+<span>546</span>
+<span>547</span>
+<span>548</span>
+<span>549</span>
+<span>550</span>
+<span>551</span>
+<span>552</span>
+<span>553</span>
+<span>554</span>
+<span>555</span>
+<span>556</span>
+<span>557</span>
+<span>558</span>
+<span>559</span>
+<span>560</span>
+<span>561</span>
+<span>562</span>
+<span>563</span>
+<span>564</span>
+<span>565</span>
+<span>566</span>
+<span>567</span>
+<span>568</span>
+<span>569</span>
+<span>570</span>
+<span>571</span>
+<span>572</span>
+<span>573</span>
+<span>574</span>
+<span>575</span>
+<span>576</span>
+<span>577</span>
+<span>578</span>
+<span>579</span>
+<span>580</span>
+<span>581</span>
+<span>582</span>
+<span>583</span>
+<span>584</span>
+<span>585</span>
+<span>586</span>
+<span>587</span>
+<span>588</span>
+<span>589</span>
+<span>590</span>
+<span>591</span>
+<span>592</span>
+<span>593</span>
+<span>594</span>
+<span>595</span>
+<span>596</span>
+<span>597</span>
+<span>598</span>
+<span>599</span>
+<span>600</span>
+<span>601</span>
+<span>602</span>
+<span>603</span>
+<span>604</span>
+<span>605</span>
+<span>606</span>
+<span>607</span>
+<span>608</span>
+<span>609</span>
+<span>610</span>
+<span>611</span>
+<span>612</span>
+<span>613</span>
+<span>614</span>
+<span>615</span>
+<span>616</span>
+<span>617</span>
+<span>618</span>
+<span>619</span>
+<span>620</span>
+<span>621</span>
+<span>622</span>
+<span>623</span>
+<span>624</span>
+<span>625</span>
+<span>626</span>
+<span>627</span>
+<span>628</span>
+<span>629</span>
+<span>630</span>
+<span>631</span>
+<span>632</span>
+<span>633</span>
+<span>634</span>
+<span>635</span>
+<span>636</span>
+<span>637</span>
+<span>638</span>
+<span>639</span>
+<span>640</span>
+<span>641</span>
+<span>642</span>
+<span>643</span>
+<span>644</span>
+<span>645</span>
+<span>646</span>
+<span>647</span>
+<span>648</span>
+<span>649</span>
+<span>650</span>
+<span>651</span>
+<span>652</span>
+<span>653</span>
+<span>654</span>
+<span>655</span>
+<span>656</span>
+<span>657</span>
+<span>658</span>
+<span>659</span>
+<span>660</span>
+<span>661</span>
+<span>662</span>
+<span>663</span>
+<span>664</span>
+<span>665</span>
+<span>666</span>
+<span>667</span>
+<span>668</span>
+<span>669</span>
+<span>670</span>
+<span>671</span>
+<span>672</span>
+<span>673</span>
+<span>674</span>
+<span>675</span>
+<span>676</span>
+<span>677</span>
+<span>678</span>
+<span>679</span>
+<span>680</span>
+<span>681</span>
+<span>682</span>
+<span>683</span>
+<span>684</span>
+<span>685</span>
+<span>686</span>
+<span>687</span>
+<span>688</span>
+<span>689</span>
+<span>690</span>
+<span>691</span>
+<span>692</span>
+<span>693</span>
+<span>694</span>
+<span>695</span>
+<span>696</span>
+<span>697</span>
+<span>698</span>
+<span>699</span>
+<span>700</span>
+<span>701</span>
+<span>702</span>
+<span>703</span>
+<span>704</span>
+<span>705</span>
+<span>706</span>
+<span>707</span>
+<span>708</span>
+<span>709</span>
+<span>710</span>
+<span>711</span>
+<span>712</span>
+<span>713</span>
+<span>714</span>
+<span>715</span>
+<span>716</span>
+<span>717</span>
+<span>718</span>
+<span>719</span>
+<span>720</span>
+<span>721</span>
+<span>722</span>
+<span>723</span>
+<span>724</span>
+<span>725</span>
+<span>726</span>
+<span>727</span>
+<span>728</span>
+<span>729</span>
+<span>730</span>
+<span>731</span>
+<span>732</span>
+<span>733</span>
+<span>734</span>
+<span>735</span>
+<span>736</span>
+<span>737</span>
+<span>738</span>
+<span>739</span>
+<span>740</span>
+<span>741</span>
+<span>742</span>
+<span>743</span>
+<span>744</span>
+<span>745</span>
+<span>746</span>
+<span>747</span>
+<span>748</span>
+<span>749</span>
+<span>750</span>
+<span>751</span>
+<span>752</span>
+<span>753</span>
+<span>754</span>
+<span>755</span>
+<span>756</span>
+<span>757</span>
+<span>758</span>
+<span>759</span>
+<span>760</span>
+<span>761</span>
+<span>762</span>
+<span>763</span>
+<span>764</span>
+<span>765</span>
+<span>766</span>
+<span>767</span>
+<span>768</span>
+<span>769</span>
+<span>770</span>
+<span>771</span>
+<span>772</span>
+<span>773</span>
+<span>774</span>
+<span>775</span>
+<span>776</span>
+<span>777</span>
+<span>778</span>
+<span>779</span>
+<span>780</span>
+<span>781</span>
+<span>782</span>
+<span>783</span>
+<span>784</span>
+<span>785</span>
+<span>786</span>
+<span>787</span>
+<span>788</span>
+<span>789</span>
+<span>790</span>
+<span>791</span>
+<span>792</span>
+<span>793</span>
+<span>794</span>
+<span>795</span>
+<span>796</span>
+<span>797</span>
+<span>798</span>
+<span>799</span>
+<span>800</span>
+<span>801</span>
+<span>802</span>
+<span>803</span>
+<span>804</span>
+<span>805</span>
+<span>806</span>
+<span>807</span>
+<span>808</span>
+<span>809</span>
+<span>810</span>
+<span>811</span>
+<span>812</span>
+<span>813</span>
+<span>814</span>
+<span>815</span>
+<span>816</span>
+<span>817</span>
+<span>818</span>
+<span>819</span>
+<span>820</span>
+<span>821</span>
+<span>822</span>
+<span>823</span>
+<span>824</span>
+<span>825</span>
+<span>826</span>
+<span>827</span>
+<span>828</span>
+<span>829</span>
+<span>830</span>
+<span>831</span>
+<span>832</span>
+<span>833</span>
+<span>834</span>
+<span>835</span>
+<span>836</span>
+<span>837</span>
+<span>838</span>
+<span>839</span>
+<span>840</span>
+<span>841</span>
+<span>842</span>
+<span>843</span>
+<span>844</span>
+<span>845</span>
+<span>846</span>
+<span>847</span>
+<span>848</span>
+<span>849</span>
+<span>850</span>
+<span>851</span>
+<span>852</span>
+<span>853</span>
+<span>854</span>
+<span>855</span>
+<span>856</span>
+<span>857</span>
+<span>858</span>
+<span>859</span>
+<span>860</span>
+<span>861</span>
+<span>862</span>
+<span>863</span>
+<span>864</span>
+<span>865</span>
+<span>866</span>
+<span>867</span>
+<span>868</span>
+<span>869</span>
+<span>870</span>
+<span>871</span>
+<span>872</span>
+<span>873</span>
+<span>874</span>
+<span>875</span>
+<span>876</span>
+<span>877</span>
+<span>878</span>
+<span>879</span>
+<span>880</span>
+<span>881</span>
+<span>882</span>
+<span>883</span>
+<span>884</span>
+<span>885</span>
+<span>886</span>
+<span>887</span>
+<span>888</span>
+<span>889</span>
+<span>890</span>
+<span>891</span>
+<span>892</span>
+<span>893</span>
+<span>894</span>
+<span>895</span>
+<span>896</span>
+<span>897</span>
+<span>898</span>
+<span>899</span>
+<span>900</span>
+<span>901</span>
+<span>902</span>
+<span>903</span>
+<span>904</span>
+<span>905</span>
+<span>906</span>
+<span>907</span>
+<span>908</span>
+<span>909</span>
+<span>910</span>
+<span>911</span>
+<span>912</span>
+<span>913</span>
+<span>914</span>
+<span>915</span>
+<span>916</span>
+<span>917</span>
+<span>918</span>
+<span>919</span>
+<span>920</span>
+<span>921</span>
+<span>922</span>
+<span>923</span>
+<span>924</span>
+<span>925</span>
+<span>926</span>
+<span>927</span>
+<span>928</span>
+<span>929</span>
+<span>930</span>
+<span>931</span>
+<span>932</span>
+<span>933</span>
+<span>934</span>
+<span>935</span>
+<span>936</span>
+<span>937</span>
+<span>938</span>
+<span>939</span>
+<span>940</span>
+<span>941</span>
+<span>942</span>
+<span>943</span>
+<span>944</span>
+<span>945</span>
+<span>946</span>
+<span>947</span>
+<span>948</span>
+<span>949</span>
+<span>950</span>
+<span>951</span>
+<span>952</span>
+<span>953</span>
+<span>954</span>
+<span>955</span>
+<span>956</span>
+<span>957</span>
+<span>958</span>
+<span>959</span>
+<span>960</span>
+<span>961</span>
+<span>962</span>
+<span>963</span>
+<span>964</span>
+<span>965</span>
+<span>966</span>
+<span>967</span>
+<span>968</span>
+<span>969</span>
+
+  </pre>
+  </td>
+
+  <td  style="margin:0px; padding-left:8px; vertical-align:top" width="100%">
+  <pre><div class="line" id="l1">#if !OMIT_XML
+</div><div class="line" id="l2">namespace NachoDB.Impl
+</div><div class="line" id="l3">{
+</div><div class="line" id="l4">    using System;
+</div><div class="line" id="l5">    using System.Reflection;
+</div><div class="line" id="l6">    using System.Diagnostics;
+</div><div class="line" id="l7">    using System.Text;
+</div><div class="line" id="l8">    using NachoDB;
+</div><div class="line" id="l9"><br></div><div class="line" id="l10">    public class XMLExporter
+</div><div class="line" id="l11">    {
+</div><div class="line" id="l12">        <span class="c">public XMLExporter(StorageImpl storage, System.IO.StreamWriter writer)</span></div><div class="line" id="l13">        {
+</div><div class="line" id="l14">            <span class="c">this.storage = storage;</span></div><div class="line" id="l15">            <span class="c">this.writer = writer;</span></div><div class="line" id="l16">        <span class="c">}</span></div><div class="line" id="l17"><br></div><div class="line" id="l18">        public virtual void  exportDatabase(int rootOid)
+</div><div class="line" id="l19">        {
+</div><div class="line" id="l20">            <span class="c">writer.Write("&lt;?xml version=\"1.0\" encoding=\"UTF-8\"?&gt;\n");</span></div><div class="line" id="l21">            <span class="c">writer.Write("&lt;database root=\"" + rootOid + "\"&gt;\n");</span></div><div class="line" id="l22">            <span class="c">exportedBitmap = new int[(storage.currIndexSize + 31) / 32];</span></div><div class="line" id="l23">            <span class="c">markedBitmap = new int[(storage.currIndexSize + 31) / 32];</span></div><div class="line" id="l24">            <span class="c">markedBitmap[rootOid &gt;&gt; 5] |= 1 &lt;&lt; (rootOid &amp; 31);</span></div><div class="line" id="l25">            int nExportedObjects;
+</div><div class="line" id="l26">            do 
+</div><div class="line" id="l27">            {
+</div><div class="line" id="l28">                <span class="c">nExportedObjects = 0;</span></div><div class="line" id="l29">                for (<span class="c">int i = 0;</span> <span class="c">i &lt; markedBitmap.Length</span>; <span class="c">i++</span>)</div><div class="line" id="l30">                {
+</div><div class="line" id="l31">                    <span class="c">int mask = markedBitmap[i];</span></div><div class="line" id="l32">                    <span class="c">if (mask != 0)</span></div><div class="line" id="l33">                    {
+</div><div class="line" id="l34">                        for (<span class="c">int j = 0,</span> <span class="c">bit = 1;</span> <span class="c">j &lt; 32</span>; <span class="c">j++, bit &lt;&lt;= 1</span>)</div><div class="line" id="l35">                        {
+</div><div class="line" id="l36">                            <span class="c">if ((mask &amp; bit) != 0)</span></div><div class="line" id="l37">                            {
+</div><div class="line" id="l38">                                <span class="c">int oid = (i &lt;&lt; 5) + j;</span></div><div class="line" id="l39">                                <span class="c">exportedBitmap[i] |= bit;</span></div><div class="line" id="l40">                                <span class="c">markedBitmap[i] &amp;= ~ bit;</span></div><div class="line" id="l41">                                <span class="c">byte[] obj = storage.get(oid);</span></div><div class="line" id="l42">                                <span class="c">int typeOid = ObjectHeader.getType(obj, 0);</span></div><div class="line" id="l43">                                <span class="c">ClassDescriptor desc = storage.findClassDescriptor(typeOid);</span></div><div class="line" id="l44">                                <span class="c">string name = desc.name;</span></div><div class="line" id="l45">                                <span class="c">if (typeof(Btree).IsAssignableFrom(desc.cls))</span></div><div class="line" id="l46">                                {
+</div><div class="line" id="l47">                                    <span class="c">Type t = desc.cls.GetGenericTypeDefinition();</span></div><div class="line" id="l48">                                    <span class="c">if (t == typeof(Btree&lt;,&gt;) || t == typeof(BitIndex&lt;&gt;))</span></div><div class="line" id="l49">                                    { 
+</div><div class="line" id="l50">                                        <span class="c">exportIndex(oid, obj, name);</span></div><div class="line" id="l51">                                    }
+</div><div class="line" id="l52">                                    else <span class="c">if (t == typeof(PersistentSet&lt;&gt;))</span></div><div class="line" id="l53">                                    {
+</div><div class="line" id="l54">                                         <span class="c">exportSet(oid, obj, name);</span></div><div class="line" id="l55">                                    }
+</div><div class="line" id="l56">                                    else <span class="c">if (t == typeof(BtreeFieldIndex&lt;,&gt;))</span></div><div class="line" id="l57">                                    {
+</div><div class="line" id="l58">                                         <span class="c">exportFieldIndex(oid, obj, name);</span></div><div class="line" id="l59">                                    }
+</div><div class="line" id="l60">                                    else <span class="c">if (t == typeof(BtreeMultiFieldIndex&lt;&gt;))</span></div><div class="line" id="l61">                                    {
+</div><div class="line" id="l62">                                        <span class="c">exportMultiFieldIndex(oid, obj, name);</span></div><div class="line" id="l63">                                    }
+</div><div class="line" id="l64">                                }
+</div><div class="line" id="l65">                                else
+</div><div class="line" id="l66">                                {
+</div><div class="line" id="l67">                                    <span class="c">String className = exportIdentifier(desc.name);</span></div><div class="line" id="l68">                                    <span class="c">writer.Write(" &lt;" + className + " id=\"" + oid + "\"&gt;\n");</span></div><div class="line" id="l69">                                    <span class="c">exportObject(desc, obj, ObjectHeader.Sizeof, 2);</span></div><div class="line" id="l70">                                    <span class="c">writer.Write(" &lt;/" + className + "&gt;\n");</span></div><div class="line" id="l71">                                }
+</div><div class="line" id="l72">                                <span class="c">nExportedObjects += 1;</span></div><div class="line" id="l73">                            }
+</div><div class="line" id="l74">                        }
+</div><div class="line" id="l75">                    }
+</div><div class="line" id="l76">                }
+</div><div class="line" id="l77">            }
+</div><div class="line" id="l78">            <span class="c">while (nExportedObjects != 0);</span></div><div class="line" id="l79">            <span class="c">writer.Write("&lt;/database&gt;\n");</span></div><div class="line" id="l80">        <span class="c">}</span></div><div class="line" id="l81"><br></div><div class="line" id="l82">        internal String exportIdentifier(String name) 
+</div><div class="line" id="l83">        { 
+</div><div class="line" id="l84">            <span class="c">name = name.Replace('+', '-');</span></div><div class="line" id="l85">            <span class="c">name = name.Replace("`", ".1");</span></div><div class="line" id="l86">            <span class="c">name = name.Replace(",", ".2");</span></div><div class="line" id="l87">            <span class="c">name = name.Replace("[", ".3");</span></div><div class="line" id="l88">            <span class="c">name = name.Replace("]", ".4");</span></div><div class="line" id="l89">            <span class="c">name = name.Replace("=", ".5");</span></div><div class="line" id="l90">            <span class="c">return name;</span></div><div class="line" id="l91">        }
+</div><div class="line" id="l92"><br></div><div class="line" id="l93">        Btree createBtree(int oid, byte[] data) 
+</div><div class="line" id="l94">        {
+</div><div class="line" id="l95">            <span class="c">Btree btree = storage.createBtreeStub(data, 0);</span></div><div class="line" id="l96">            <span class="c">storage.assignOid(btree, oid);</span></div><div class="line" id="l97">            <span class="c">return btree;</span></div><div class="line" id="l98">        }
+</div><div class="line" id="l99"><br></div><div class="line" id="l100">        internal void exportSet(int oid, byte[] data, string name) 
+</div><div class="line" id="l101">        { 
+</div><div class="line" id="l102">            Btree btree = createBtree(oid, data);
+</div><div class="line" id="l103">            name = exportIdentifier(name);
+</div><div class="line" id="l104">            writer.Write(" &lt;" + name + " id=\"" + oid + "\"&gt;\n");
+</div><div class="line" id="l105">            btree.export(this);
+</div><div class="line" id="l106">            writer.Write(" &lt;/" + name + "&gt;\n");
+</div><div class="line" id="l107">        }
+</div><div class="line" id="l108"><br></div><div class="line" id="l109">        internal void  exportIndex(int oid, byte[] data, string name)
+</div><div class="line" id="l110">        {
+</div><div class="line" id="l111">            <span class="c">Btree btree = createBtree(oid, data);</span></div><div class="line" id="l112">            <span class="c">name = exportIdentifier(name);</span></div><div class="line" id="l113">            <span class="c">writer.Write(" &lt;" + name + " id=\"" + oid + "\" unique=\"" + (btree.IsUnique ? '1' : '0')</span></div><div class="line" id="l114">                + "\" type=\"" + btree.FieldType + "\"&gt;\n")<span class="c">;</span></div><div class="line" id="l115">            <span class="c">btree.export(this);</span></div><div class="line" id="l116">            <span class="c">writer.Write(" &lt;/" + name + "&gt;\n");</span></div><div class="line" id="l117">        <span class="c">}</span></div><div class="line" id="l118"><br></div><div class="line" id="l119">        internal void  exportFieldIndex(int oid, byte[] data, string name)
+</div><div class="line" id="l120">        {
+</div><div class="line" id="l121">            <span class="c">Btree btree = createBtree(oid, data);</span></div><div class="line" id="l122">            <span class="c">name = exportIdentifier(name);</span></div><div class="line" id="l123">            <span class="c">writer.Write(" &lt;" + name + " id=\"" + oid + "\" unique=\"" + (btree.IsUnique?'1':'0') + "\" class=");</span></div><div class="line" id="l124">            <span class="c">int offs = exportString(data, btree.HeaderSize);</span></div><div class="line" id="l125">            <span class="c">writer.Write(" field=");</span></div><div class="line" id="l126">            <span class="c">offs = exportString(data, offs);</span></div><div class="line" id="l127">            <span class="c">writer.Write(" autoinc=\"" + Bytes.unpack8(data, offs) + "\"&gt;\n");</span></div><div class="line" id="l128">            <span class="c">btree.export(this);</span></div><div class="line" id="l129">            <span class="c">writer.Write(" &lt;/" + name + "&gt;\n");</span></div><div class="line" id="l130">        <span class="c">}</span></div><div class="line" id="l131"><br></div><div class="line" id="l132">        internal void exportMultiFieldIndex(int oid, byte[] data, string name) 
+</div><div class="line" id="l133">        { 
+</div><div class="line" id="l134">            Btree btree = createBtree(oid, data);
+</div><div class="line" id="l135">            name = exportIdentifier(name);
+</div><div class="line" id="l136">            writer.Write(" &lt;" + name + " id=\"" + oid + "\" unique=\"" + (btree.IsUnique ? '1' : '0') 
+</div><div class="line" id="l137">                + "\" class=");
+</div><div class="line" id="l138">            int offs = exportString(data, btree.HeaderSize);
+</div><div class="line" id="l139">            int nFields = Bytes.unpack4(data, offs);
+</div><div class="line" id="l140">            offs += 4;
+</div><div class="line" id="l141">            for (int i = 0; i &lt; nFields; i++) 
+</div><div class="line" id="l142">            { 
+</div><div class="line" id="l143">                writer.Write(" field" + i + "=");
+</div><div class="line" id="l144">                offs = exportString(data, offs);
+</div><div class="line" id="l145">            }
+</div><div class="line" id="l146">            writer.Write("&gt;\n");
+</div><div class="line" id="l147">            int nTypes = Bytes.unpack4(data, offs);
+</div><div class="line" id="l148">            offs += 4;
+</div><div class="line" id="l149">            compoundKeyTypes = new ClassDescriptor.FieldType[nTypes];
+</div><div class="line" id="l150">            for (int i = 0; i &lt; nTypes; i++) 
+</div><div class="line" id="l151">            { 
+</div><div class="line" id="l152">                compoundKeyTypes[i] = (ClassDescriptor.FieldType)Bytes.unpack4(data, offs);
+</div><div class="line" id="l153">                offs += 4;
+</div><div class="line" id="l154">            }
+</div><div class="line" id="l155">            btree.export(this); 
+</div><div class="line" id="l156">            compoundKeyTypes = null;
+</div><div class="line" id="l157">            writer.Write(" &lt;/" + name + "&gt;\n");
+</div><div class="line" id="l158">        }
+</div><div class="line" id="l159"><br></div><div class="line" id="l160">        int exportKey(byte[] body, int offs, int size, ClassDescriptor.FieldType type) 
+</div><div class="line" id="l161">        {
+</div><div class="line" id="l162">            <span class="c">switch (type)</span></div><div class="line" id="l163">            {
+</div><div class="line" id="l164">                case ClassDescriptor.FieldType.tpBoolean: 
+</div><div class="line" id="l165">                    <span class="c">writer.Write(body[offs++] != 0?"1":"0");</span></div><div class="line" id="l166">                    <span class="c">break;</span></div><div class="line" id="l167"><br></div><div class="line" id="l168">                case ClassDescriptor.FieldType.tpByte: 
+</div><div class="line" id="l169">                    <span class="c">writer.Write(System.Convert.ToString((byte) body[offs++]));</span></div><div class="line" id="l170">                    <span class="c">break;</span></div><div class="line" id="l171"><br></div><div class="line" id="l172">                case ClassDescriptor.FieldType.tpSByte: 
+</div><div class="line" id="l173">                    <span class="c">writer.Write(System.Convert.ToString((sbyte) body[offs++]));</span></div><div class="line" id="l174">                    <span class="c">break;</span></div><div class="line" id="l175"><br></div><div class="line" id="l176">                case ClassDescriptor.FieldType.tpChar: 
+</div><div class="line" id="l177">                    <span class="c">writer.Write(System.Convert.ToString((ushort)Bytes.unpack2(body, offs)));</span></div><div class="line" id="l178">                    <span class="c">offs += 2;</span></div><div class="line" id="l179">                    <span class="c">break;</span></div><div class="line" id="l180"><br></div><div class="line" id="l181">                case ClassDescriptor.FieldType.tpShort: 
+</div><div class="line" id="l182">                    <span class="c">writer.Write(System.Convert.ToString((ushort)Bytes.unpack2(body, offs)));</span></div><div class="line" id="l183">                    <span class="c">offs += 2;</span></div><div class="line" id="l184">                    <span class="c">break;</span></div><div class="line" id="l185"><br></div><div class="line" id="l186">                case ClassDescriptor.FieldType.tpUShort: 
+</div><div class="line" id="l187">                    <span class="c">writer.Write(System.Convert.ToString((ushort)Bytes.unpack2(body, offs)));</span></div><div class="line" id="l188">                    <span class="c">offs += 2;</span></div><div class="line" id="l189">                    <span class="c">break;</span></div><div class="line" id="l190"><br></div><div class="line" id="l191">                case ClassDescriptor.FieldType.tpInt: 
+</div><div class="line" id="l192">                    <span class="c">writer.Write(System.Convert.ToString(Bytes.unpack4(body, offs)));</span></div><div class="line" id="l193">                    <span class="c">offs += 4;</span></div><div class="line" id="l194">                    <span class="c">break;</span></div><div class="line" id="l195"><br></div><div class="line" id="l196">                case ClassDescriptor.FieldType.tpUInt: 
+</div><div class="line" id="l197">                case ClassDescriptor.FieldType.tpObject:  
+</div><div class="line" id="l198">                case ClassDescriptor.FieldType.tpOid:  
+</div><div class="line" id="l199">                case ClassDescriptor.FieldType.tpEnum:
+</div><div class="line" id="l200">                    <span class="c">writer.Write(System.Convert.ToString((uint)Bytes.unpack4(body, offs)));</span></div><div class="line" id="l201">                    <span class="c">offs += 4;</span></div><div class="line" id="l202">                    <span class="c">break;</span></div><div class="line" id="l203"><br></div><div class="line" id="l204">                case ClassDescriptor.FieldType.tpLong: 
+</div><div class="line" id="l205">                    <span class="c">writer.Write(System.Convert.ToString(Bytes.unpack8(body, offs)));</span></div><div class="line" id="l206">                    <span class="c">offs += 8;</span></div><div class="line" id="l207">                    <span class="c">break;</span></div><div class="line" id="l208"><br></div><div class="line" id="l209">                case ClassDescriptor.FieldType.tpULong: 
+</div><div class="line" id="l210">                    <span class="c">writer.Write(System.Convert.ToString((ulong)Bytes.unpack8(body, offs)));</span></div><div class="line" id="l211">                    <span class="c">offs += 8;</span></div><div class="line" id="l212">                    <span class="c">break;</span></div><div class="line" id="l213"><br></div><div class="line" id="l214">                case ClassDescriptor.FieldType.tpFloat: 
+</div><div class="line" id="l215">                    <span class="c">writer.Write(System.Convert.ToString(Bytes.unpackF4(body, offs)));</span></div><div class="line" id="l216">                    <span class="c">offs += 4;</span></div><div class="line" id="l217">                    <span class="c">break;</span></div><div class="line" id="l218"><br></div><div class="line" id="l219">                case ClassDescriptor.FieldType.tpDouble: 
+</div><div class="line" id="l220">                    <span class="c">writer.Write(System.Convert.ToString(Bytes.unpackF8(body, offs)));</span></div><div class="line" id="l221">                    <span class="c">offs += 8;</span></div><div class="line" id="l222">                    <span class="c">break;</span></div><div class="line" id="l223"><br></div><div class="line" id="l224">                case ClassDescriptor.FieldType.tpGuid:
+</div><div class="line" id="l225">                    <span class="c">writer.Write(Bytes.unpackGuid(body, offs).ToString());</span></div><div class="line" id="l226">                    <span class="c">offs += 16;</span></div><div class="line" id="l227">                    <span class="c">break;</span></div><div class="line" id="l228"><br></div><div class="line" id="l229">                case ClassDescriptor.FieldType.tpDecimal:
+</div><div class="line" id="l230">                    <span class="c">writer.Write(Bytes.unpackDecimal(body, offs).ToString());</span></div><div class="line" id="l231">                    <span class="c">offs += 16;</span></div><div class="line" id="l232">                    <span class="c">break;</span></div><div class="line" id="l233"><br></div><div class="line" id="l234">                case ClassDescriptor.FieldType.tpString: 
+</div><div class="line" id="l235">                    for (<span class="c">int i = 0;</span> <span class="c">i &lt; size</span>; <span class="c">i++</span>)</div><div class="line" id="l236">                    {
+</div><div class="line" id="l237">                        <span class="c">exportChar((char) Bytes.unpack2(body, offs));</span></div><div class="line" id="l238">                        <span class="c">offs += 2;</span></div><div class="line" id="l239">                    }
+</div><div class="line" id="l240">                    <span class="c">break;</span></div><div class="line" id="l241"><br></div><div class="line" id="l242">                case ClassDescriptor.FieldType.tpArrayOfByte:
+</div><div class="line" id="l243">                    for (<span class="c">int i = 0;</span> <span class="c">i &lt; size</span>; <span class="c">i++</span>)</div><div class="line" id="l244">                    { 
+</div><div class="line" id="l245">                        <span class="c">byte b = body[offs++];</span></div><div class="line" id="l246">                        <span class="c">writer.Write(hexDigit[(b &gt;&gt; 4) &amp; 0xF]);</span></div><div class="line" id="l247">                        <span class="c">writer.Write(hexDigit[b &amp; 0xF]);</span></div><div class="line" id="l248">                    }
+</div><div class="line" id="l249">                    <span class="c">break;</span></div><div class="line" id="l250"><br></div><div class="line" id="l251">                case ClassDescriptor.FieldType.tpDate: 
+</div><div class="line" id="l252">                    <span class="c">writer.Write(Bytes.unpackDate(body, offs).ToString());</span></div><div class="line" id="l253">                    <span class="c">offs += 8;</span></div><div class="line" id="l254">                    break;
+</div><div class="line" id="l255"><br></div><div class="line" id="l256">                default:
+</div><div class="line" id="l257">                    Debug.Assert(false, "Invalid type");
+</div><div class="line" id="l258">                    break;
+</div><div class="line" id="l259">            }              
+</div><div class="line" id="l260">            <span class="c">return offs;</span></div><div class="line" id="l261">        }
+</div><div class="line" id="l262"><br></div><div class="line" id="l263">        void exportCompoundKey(byte[] body, int offs, int size, ClassDescriptor.FieldType type) 
+</div><div class="line" id="l264">        { 
+</div><div class="line" id="l265">            Debug.Assert(type == ClassDescriptor.FieldType.tpArrayOfByte);
+</div><div class="line" id="l266">            int end = offs + size;
+</div><div class="line" id="l267">            for (int i = 0; i &lt; compoundKeyTypes.Length; i++) 
+</div><div class="line" id="l268">            { 
+</div><div class="line" id="l269">                type = compoundKeyTypes[i];
+</div><div class="line" id="l270">                if (type == ClassDescriptor.FieldType.tpArrayOfByte || type == ClassDescriptor.FieldType.tpString) 
+</div><div class="line" id="l271">                { 
+</div><div class="line" id="l272">                    size = Bytes.unpack4(body, offs);
+</div><div class="line" id="l273">                    offs += 4;
+</div><div class="line" id="l274">                }
+</div><div class="line" id="l275">                writer.Write(" key" + i + "=\"");
+</div><div class="line" id="l276">                offs = exportKey(body, offs, size, type); 
+</div><div class="line" id="l277">                writer.Write("\"");
+</div><div class="line" id="l278">            }
+</div><div class="line" id="l279">            Debug.Assert(offs == end);
+</div><div class="line" id="l280">        }
+</div><div class="line" id="l281"><br></div><div class="line" id="l282">        internal void  exportAssoc(int oid, byte[] body, int offs, int size, ClassDescriptor.FieldType type)
+</div><div class="line" id="l283">        {
+</div><div class="line" id="l284">            <span class="c">writer.Write("  &lt;ref id=\"" + oid + "\"");</span></div><div class="line" id="l285">            <span class="c">if ((exportedBitmap[oid &gt;&gt; 5] &amp; (1 &lt;&lt; (oid &amp; 31))) == 0)</span></div><div class="line" id="l286">            {
+</div><div class="line" id="l287">                <span class="c">markedBitmap[oid &gt;&gt; 5] |= 1 &lt;&lt; (oid &amp; 31);</span></div><div class="line" id="l288">            }
+</div><div class="line" id="l289">            <span class="c">if (compoundKeyTypes != null)</span></div><div class="line" id="l290">            { 
+</div><div class="line" id="l291">                <span class="c">exportCompoundKey(body, offs, size, type);</span></div><div class="line" id="l292">            } 
+</div><div class="line" id="l293">            else 
+</div><div class="line" id="l294">            { 
+</div><div class="line" id="l295">                <span class="c">writer.Write(" key=\"");</span></div><div class="line" id="l296">                <span class="c">exportKey(body, offs, size, type);</span></div><div class="line" id="l297">                <span class="c">writer.Write("\"");</span></div><div class="line" id="l298">            }
+</div><div class="line" id="l299">            <span class="c">writer.Write("/&gt;\n");</span></div><div class="line" id="l300">        <span class="c">}</span></div><div class="line" id="l301"><br></div><div class="line" id="l302">        internal void  indentation(int indent)
+</div><div class="line" id="l303">        {
+</div><div class="line" id="l304">            <span class="c">while (--indent &gt;= 0)</span></div><div class="line" id="l305">            {
+</div><div class="line" id="l306">                <span class="c">writer.Write(' ');</span></div><div class="line" id="l307">            }
+</div><div class="line" id="l308">        <span class="c">}</span></div><div class="line" id="l309"><br></div><div class="line" id="l310">        internal void  exportChar(char ch)
+</div><div class="line" id="l311">        {
+</div><div class="line" id="l312">            <span class="c">switch (ch)</span></div><div class="line" id="l313">            {
+</div><div class="line" id="l314">                case '&lt;': 
+</div><div class="line" id="l315">                    <span class="c">writer.Write("&amp;lt;");</span></div><div class="line" id="l316">                    <span class="c">break;</span></div><div class="line" id="l317"><br></div><div class="line" id="l318">                case '&gt;': 
+</div><div class="line" id="l319">                    <span class="c">writer.Write("&amp;gt;");</span></div><div class="line" id="l320">                    <span class="c">break;</span></div><div class="line" id="l321"><br></div><div class="line" id="l322">                case '&amp;': 
+</div><div class="line" id="l323">                    <span class="c">writer.Write("&amp;amp;");</span></div><div class="line" id="l324">                    <span class="c">break;</span></div><div class="line" id="l325"><br></div><div class="line" id="l326">                case '"': 
+</div><div class="line" id="l327">                    <span class="c">writer.Write("&amp;quot;");</span></div><div class="line" id="l328">                    <span class="c">break;</span></div><div class="line" id="l329"><br></div><div class="line" id="l330">                default: 
+</div><div class="line" id="l331">                    <span class="c">writer.Write(ch);</span></div><div class="line" id="l332">                    <span class="c">break;</span></div><div class="line" id="l333"><br></div><div class="line" id="l334">            }
+</div><div class="line" id="l335">        }
+</div><div class="line" id="l336"><br></div><div class="line" id="l337">        internal int exportString(byte[] body, int offs)
+</div><div class="line" id="l338">        {
+</div><div class="line" id="l339">            <span class="c">int len = Bytes.unpack4(body, offs);</span></div><div class="line" id="l340">            <span class="c">offs += 4;</span></div><div class="line" id="l341">            <span class="c">if (len &gt;= 0)</span></div><div class="line" id="l342">            {
+</div><div class="line" id="l343">                <span class="c">writer.Write("\"");</span></div><div class="line" id="l344">                <span class="c">while (--len &gt;= 0)</span></div><div class="line" id="l345">                {
+</div><div class="line" id="l346">                    <span class="c">exportChar((char) Bytes.unpack2(body, offs));</span></div><div class="line" id="l347">                    <span class="c">offs += 2;</span></div><div class="line" id="l348">                }
+</div><div class="line" id="l349">                <span class="c">writer.Write("\"");</span></div><div class="line" id="l350">            } 
+</div><div class="line" id="l351">            else <span class="c">if (len &lt; -1)</span></div><div class="line" id="l352">            { 
+</div><div class="line" id="l353">                <span class="c">writer.Write("\"");</span></div><div class="line" id="l354">                string s;
+</div><div class="line" id="l355">                <span class="c">if (storage.encoding != null)</span></div><div class="line" id="l356">                { 
+</div><div class="line" id="l357">                    <span class="c">s = storage.encoding.GetString(body, offs, -len-2);</span></div><div class="line" id="l358">                } 
+</div><div class="line" id="l359">                else 
+</div><div class="line" id="l360">                { 
+</div><div class="line" id="l361">                    <span class="c">s = Encoding.Default.GetString(body, offs, -len-2);</span></div><div class="line" id="l362">                }
+</div><div class="line" id="l363">                <span class="c">offs -= len+2;</span></div><div class="line" id="l364">                for (<span class="c">int i = 0,</span> <span class="c">n = s.Length;</span> <span class="c">i &lt; n</span>; <span class="c">i++</span>)</div><div class="line" id="l365">                { 
+</div><div class="line" id="l366">                    <span class="c">exportChar(s[i]);</span></div><div class="line" id="l367">                }
+</div><div class="line" id="l368">            }
+</div><div class="line" id="l369">            else
+</div><div class="line" id="l370">            {
+</div><div class="line" id="l371">                <span class="c">writer.Write("null");</span></div><div class="line" id="l372">            }
+</div><div class="line" id="l373">            <span class="c">return offs;</span></div><div class="line" id="l374">        }
+</div><div class="line" id="l375"><br></div><div class="line" id="l376">        <span class="c">internal static char[] hexDigit = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};</span></div><div class="line" id="l377"><br></div><div class="line" id="l378">        internal void exportRef(int oid) 
+</div><div class="line" id="l379">        { 
+</div><div class="line" id="l380">            <span class="c">writer.Write("&lt;ref id=\"" + oid + "\"/&gt;");</span></div><div class="line" id="l381">            <span class="c">if (oid != 0 &amp;&amp; (exportedBitmap[oid &gt;&gt; 5] &amp; (1 &lt;&lt; (oid &amp; 31))) == 0)</span></div><div class="line" id="l382">            { 
+</div><div class="line" id="l383">                <span class="c">markedBitmap[oid &gt;&gt; 5] |= 1 &lt;&lt; (oid &amp; 31);</span></div><div class="line" id="l384">            }
+</div><div class="line" id="l385">        <span class="c">}</span></div><div class="line" id="l386"><br></div><div class="line" id="l387">        internal int exportBinary(byte[] body, int offs)
+</div><div class="line" id="l388">        {
+</div><div class="line" id="l389">            int len = Bytes.unpack4(body, offs);
+</div><div class="line" id="l390">            offs += 4;
+</div><div class="line" id="l391">            if (len &lt; 0) 
+</div><div class="line" id="l392">            { 
+</div><div class="line" id="l393">                if (len == -2-(int)ClassDescriptor.FieldType.tpObject) 
+</div><div class="line" id="l394">                { 
+</div><div class="line" id="l395">                    exportRef(Bytes.unpack4(body, offs));
+</div><div class="line" id="l396">                    offs += 4;
+</div><div class="line" id="l397">                } 
+</div><div class="line" id="l398">                else if (len &lt; -1) 
+</div><div class="line" id="l399">                { 
+</div><div class="line" id="l400">                    writer.Write("\"#");
+</div><div class="line" id="l401">                    writer.Write(hexDigit[-2-len]);
+</div><div class="line" id="l402">                    len = ClassDescriptor.Sizeof[-2-len];
+</div><div class="line" id="l403">                    while (--len &gt;= 0) 
+</div><div class="line" id="l404">                    {
+</div><div class="line" id="l405">                        byte b = body[offs++];
+</div><div class="line" id="l406">                        writer.Write(hexDigit[(b &gt;&gt; 4) &amp; 0xF]);
+</div><div class="line" id="l407">                        writer.Write(hexDigit[b &amp; 0xF]);
+</div><div class="line" id="l408">                    }
+</div><div class="line" id="l409">                    writer.Write('\"');
+</div><div class="line" id="l410">                } 
+</div><div class="line" id="l411">                else 
+</div><div class="line" id="l412">                { 
+</div><div class="line" id="l413">                    writer.Write("null");
+</div><div class="line" id="l414">                }
+</div><div class="line" id="l415">            } 
+</div><div class="line" id="l416">            else 
+</div><div class="line" id="l417">            {
+</div><div class="line" id="l418">                writer.Write('\"');
+</div><div class="line" id="l419">                while (--len &gt;= 0) 
+</div><div class="line" id="l420">                {
+</div><div class="line" id="l421">                    byte b = body[offs++];
+</div><div class="line" id="l422">                    writer.Write(hexDigit[(b &gt;&gt; 4) &amp; 0xF]);
+</div><div class="line" id="l423">                    writer.Write(hexDigit[b &amp; 0xF]);
+</div><div class="line" id="l424">                }
+</div><div class="line" id="l425">                writer.Write('\"');
+</div><div class="line" id="l426">            }
+</div><div class="line" id="l427">            return offs;
+</div><div class="line" id="l428">        }
+</div><div class="line" id="l429"><br></div><div class="line" id="l430">        internal int exportObject(ClassDescriptor desc, byte[] body, int offs, int indent)
+</div><div class="line" id="l431">        {
+</div><div class="line" id="l432">            <span class="c">ClassDescriptor.FieldDescriptor[] all = desc.allFields;</span></div><div class="line" id="l433"><br></div><div class="line" id="l434">            for (<span class="c">int i = 0,</span> <span class="c">n = all.Length;</span> <span class="c">i &lt; n</span>; <span class="c">i++</span>)</div><div class="line" id="l435">            {
+</div><div class="line" id="l436">                <span class="c">ClassDescriptor.FieldDescriptor fd = all[i];</span></div><div class="line" id="l437">                <span class="c">FieldInfo f = fd.field;</span></div><div class="line" id="l438">                <span class="c">indentation(indent);</span></div><div class="line" id="l439">                <span class="c">String fieldName = exportIdentifier(fd.fieldName);</span></div><div class="line" id="l440">                <span class="c">writer.Write("&lt;" + fieldName + "&gt;");</span></div><div class="line" id="l441">                <span class="c">switch (fd.type)</span></div><div class="line" id="l442">                {
+</div><div class="line" id="l443">                    case ClassDescriptor.FieldType.tpBoolean: 
+</div><div class="line" id="l444">                        <span class="c">writer.Write(body[offs++] != 0?"1":"0");</span></div><div class="line" id="l445">                        <span class="c">break;</span></div><div class="line" id="l446"><br></div><div class="line" id="l447">                    case ClassDescriptor.FieldType.tpByte: 
+</div><div class="line" id="l448">                        <span class="c">writer.Write(System.Convert.ToString((byte) body[offs++]));</span></div><div class="line" id="l449">                        <span class="c">break;</span></div><div class="line" id="l450"><br></div><div class="line" id="l451">                    case ClassDescriptor.FieldType.tpSByte: 
+</div><div class="line" id="l452">                        <span class="c">writer.Write(System.Convert.ToString((sbyte) body[offs++]));</span></div><div class="line" id="l453">                        <span class="c">break;</span></div><div class="line" id="l454"><br></div><div class="line" id="l455">                    case ClassDescriptor.FieldType.tpChar: 
+</div><div class="line" id="l456">                        <span class="c">writer.Write(System.Convert.ToString((ushort)Bytes.unpack2(body, offs)));</span></div><div class="line" id="l457">                        <span class="c">offs += 2;</span></div><div class="line" id="l458">                        <span class="c">break;</span></div><div class="line" id="l459"><br></div><div class="line" id="l460">                    case ClassDescriptor.FieldType.tpShort: 
+</div><div class="line" id="l461">                        <span class="c">writer.Write(System.Convert.ToString((ushort)Bytes.unpack2(body, offs)));</span></div><div class="line" id="l462">                        <span class="c">offs += 2;</span></div><div class="line" id="l463">                        <span class="c">break;</span></div><div class="line" id="l464"><br></div><div class="line" id="l465">                    case ClassDescriptor.FieldType.tpUShort: 
+</div><div class="line" id="l466">                        <span class="c">writer.Write(System.Convert.ToString((ushort)Bytes.unpack2(body, offs)));</span></div><div class="line" id="l467">                        <span class="c">offs += 2;</span></div><div class="line" id="l468">                        <span class="c">break;</span></div><div class="line" id="l469"><br></div><div class="line" id="l470">                    case ClassDescriptor.FieldType.tpInt: 
+</div><div class="line" id="l471">                        <span class="c">writer.Write(System.Convert.ToString(Bytes.unpack4(body, offs)));</span></div><div class="line" id="l472">                        <span class="c">offs += 4;</span></div><div class="line" id="l473">                        <span class="c">break;</span></div><div class="line" id="l474"><br></div><div class="line" id="l475">                    case ClassDescriptor.FieldType.tpEnum:
+</div><div class="line" id="l476">                        <span class="c">writer.Write(Enum.ToObject(f.FieldType, Bytes.unpack4(body, offs)));</span></div><div class="line" id="l477">                        <span class="c">offs += 4;</span></div><div class="line" id="l478">                        <span class="c">break;</span></div><div class="line" id="l479"><br></div><div class="line" id="l480">                    case ClassDescriptor.FieldType.tpUInt: 
+</div><div class="line" id="l481">                        <span class="c">writer.Write(System.Convert.ToString((uint)Bytes.unpack4(body, offs)));</span></div><div class="line" id="l482">                        <span class="c">offs += 4;</span></div><div class="line" id="l483">                        <span class="c">break;</span></div><div class="line" id="l484"><br></div><div class="line" id="l485">                    case ClassDescriptor.FieldType.tpLong: 
+</div><div class="line" id="l486">                        <span class="c">writer.Write(System.Convert.ToString(Bytes.unpack8(body, offs)));</span></div><div class="line" id="l487">                        <span class="c">offs += 8;</span></div><div class="line" id="l488">                        <span class="c">break;</span></div><div class="line" id="l489"><br></div><div class="line" id="l490">                    case ClassDescriptor.FieldType.tpULong: 
+</div><div class="line" id="l491">                        <span class="c">writer.Write(System.Convert.ToString((ulong)Bytes.unpack8(body, offs)));</span></div><div class="line" id="l492">                        <span class="c">offs += 8;</span></div><div class="line" id="l493">                        <span class="c">break;</span></div><div class="line" id="l494"><br></div><div class="line" id="l495">                    case ClassDescriptor.FieldType.tpFloat: 
+</div><div class="line" id="l496">                        <span class="c">writer.Write(System.Convert.ToString(Bytes.unpackF4(body, offs)));</span></div><div class="line" id="l497">                        <span class="c">offs += 4;</span></div><div class="line" id="l498">                        <span class="c">break;</span></div><div class="line" id="l499"><br></div><div class="line" id="l500">                    case ClassDescriptor.FieldType.tpDouble: 
+</div><div class="line" id="l501">                        <span class="c">writer.Write(System.Convert.ToString(Bytes.unpackF8(body, offs)));</span></div><div class="line" id="l502">                        <span class="c">offs += 8;</span></div><div class="line" id="l503">                        <span class="c">break;</span></div><div class="line" id="l504"><br></div><div class="line" id="l505">                    case ClassDescriptor.FieldType.tpGuid:
+</div><div class="line" id="l506">                        <span class="c">writer.Write("\"" + Bytes.unpackGuid(body, offs) + "\"");</span></div><div class="line" id="l507">                        <span class="c">offs += 16;</span></div><div class="line" id="l508">                        <span class="c">break;</span></div><div class="line" id="l509"><br></div><div class="line" id="l510">                    case ClassDescriptor.FieldType.tpDecimal:
+</div><div class="line" id="l511">                        <span class="c">writer.Write("\"" + Bytes.unpackDecimal(body, offs) + "\"");</span></div><div class="line" id="l512">                        <span class="c">offs += 16;</span></div><div class="line" id="l513">                        <span class="c">break;</span></div><div class="line" id="l514"><br></div><div class="line" id="l515">                    case ClassDescriptor.FieldType.tpString: 
+</div><div class="line" id="l516">                        <span class="c">offs = exportString(body, offs);</span></div><div class="line" id="l517">                        <span class="c">break;</span></div><div class="line" id="l518"><br></div><div class="line" id="l519">                    case ClassDescriptor.FieldType.tpDate: 
+</div><div class="line" id="l520">                    {
+</div><div class="line" id="l521">                        <span class="c">long msec = Bytes.unpack8(body, offs);</span></div><div class="line" id="l522">                        <span class="c">offs += 8;</span></div><div class="line" id="l523">                        <span class="c">if (msec &gt;= 0)</span></div><div class="line" id="l524">                        {
+</div><div class="line" id="l525">                            <span class="c">writer.Write("\"" + new System.DateTime(msec) + "\"");</span></div><div class="line" id="l526">                        }
+</div><div class="line" id="l527">                        else
+</div><div class="line" id="l528">                        {
+</div><div class="line" id="l529">                            <span class="c">writer.Write("null");</span></div><div class="line" id="l530">                        }
+</div><div class="line" id="l531">                        <span class="c">break;</span></div><div class="line" id="l532">                    }
+</div><div class="line" id="l533"><br></div><div class="line" id="l534">                    case ClassDescriptor.FieldType.tpObject: 
+</div><div class="line" id="l535">                    case ClassDescriptor.FieldType.tpOid: 
+</div><div class="line" id="l536">                        <span class="c">exportRef(Bytes.unpack4(body, offs));</span></div><div class="line" id="l537">                        <span class="c">offs += 4;</span></div><div class="line" id="l538">                        <span class="c">break;</span></div><div class="line" id="l539"><br></div><div class="line" id="l540">                    case ClassDescriptor.FieldType.tpValue: 
+</div><div class="line" id="l541">                        <span class="c">writer.Write('\n');</span></div><div class="line" id="l542">                        <span class="c">offs = exportObject(fd.valueDesc, body, offs, indent + 1);</span></div><div class="line" id="l543">                        <span class="c">indentation(indent);</span></div><div class="line" id="l544">                        <span class="c">break;</span></div><div class="line" id="l545"><br></div><div class="line" id="l546">#if SUPPORT_RAW_TYPE
+</div><div class="line" id="l547">                    case ClassDescriptor.FieldType.tpRaw: 
+</div><div class="line" id="l548">#endif
+</div><div class="line" id="l549">                    case ClassDescriptor.FieldType.tpArrayOfByte: 
+</div><div class="line" id="l550">                    case ClassDescriptor.FieldType.tpArrayOfSByte: 
+</div><div class="line" id="l551">                        <span class="c">offs = exportBinary(body, offs);</span></div><div class="line" id="l552">                        <span class="c">break;</span></div><div class="line" id="l553"><br></div><div class="line" id="l554">                    case ClassDescriptor.FieldType.tpArrayOfBoolean: 
+</div><div class="line" id="l555">                    {
+</div><div class="line" id="l556">                        <span class="c">int len = Bytes.unpack4(body, offs);</span></div><div class="line" id="l557">                        <span class="c">offs += 4;</span></div><div class="line" id="l558">                        <span class="c">if (len &lt; 0)</span></div><div class="line" id="l559">                        {
+</div><div class="line" id="l560">                            <span class="c">writer.Write("null");</span></div><div class="line" id="l561">                        }
+</div><div class="line" id="l562">                        else
+</div><div class="line" id="l563">                        {
+</div><div class="line" id="l564">                            <span class="c">writer.Write('\n');</span></div><div class="line" id="l565">                            <span class="c">while (--len &gt;= 0)</span></div><div class="line" id="l566">                            {
+</div><div class="line" id="l567">                                <span class="c">indentation(indent + 1);</span></div><div class="line" id="l568">                                <span class="c">writer.Write("&lt;element&gt;" + (body[offs++] != 0?"1":"0") + "&lt;/element&gt;\n");</span></div><div class="line" id="l569">                            }
+</div><div class="line" id="l570">                            <span class="c">indentation(indent);</span></div><div class="line" id="l571">                        }
+</div><div class="line" id="l572">                        <span class="c">break;</span></div><div class="line" id="l573">                    }
+</div><div class="line" id="l574"><br></div><div class="line" id="l575">                    case ClassDescriptor.FieldType.tpArrayOfChar: 
+</div><div class="line" id="l576">                    {
+</div><div class="line" id="l577">                        <span class="c">int len = Bytes.unpack4(body, offs);</span></div><div class="line" id="l578">                        <span class="c">offs += 4;</span></div><div class="line" id="l579">                        <span class="c">if (len &lt; 0)</span></div><div class="line" id="l580">                        {
+</div><div class="line" id="l581">                            <span class="c">writer.Write("null");</span></div><div class="line" id="l582">                        }
+</div><div class="line" id="l583">                        else
+</div><div class="line" id="l584">                        {
+</div><div class="line" id="l585">                            <span class="c">writer.Write('\n');</span></div><div class="line" id="l586">                            <span class="c">while (--len &gt;= 0)</span></div><div class="line" id="l587">                            {
+</div><div class="line" id="l588">                                <span class="c">indentation(indent + 1);</span></div><div class="line" id="l589">                                <span class="c">writer.Write("&lt;element&gt;" + (Bytes.unpack2(body, offs) &amp; 0xFFFF) + "&lt;/element&gt;\n");</span></div><div class="line" id="l590">                                <span class="c">offs += 2;</span></div><div class="line" id="l591">                            }
+</div><div class="line" id="l592">                            <span class="c">indentation(indent);</span></div><div class="line" id="l593">                        }
+</div><div class="line" id="l594">                        <span class="c">break;</span></div><div class="line" id="l595">                    }
+</div><div class="line" id="l596"><br></div><div class="line" id="l597">                    case ClassDescriptor.FieldType.tpArrayOfShort: 
+</div><div class="line" id="l598">                    {
+</div><div class="line" id="l599">                        <span class="c">int len = Bytes.unpack4(body, offs);</span></div><div class="line" id="l600">                        <span class="c">offs += 4;</span></div><div class="line" id="l601">                        <span class="c">if (len &lt; 0)</span></div><div class="line" id="l602">                        {
+</div><div class="line" id="l603">                            <span class="c">writer.Write("null");</span></div><div class="line" id="l604">                        }
+</div><div class="line" id="l605">                        else
+</div><div class="line" id="l606">                        {
+</div><div class="line" id="l607">                            <span class="c">writer.Write('\n');</span></div><div class="line" id="l608">                            <span class="c">while (--len &gt;= 0)</span></div><div class="line" id="l609">                            {
+</div><div class="line" id="l610">                                <span class="c">indentation(indent + 1);</span></div><div class="line" id="l611">                                <span class="c">writer.Write("&lt;element&gt;" + Bytes.unpack2(body, offs) + "&lt;/element&gt;\n");</span></div><div class="line" id="l612">                                <span class="c">offs += 2;</span></div><div class="line" id="l613">                            }
+</div><div class="line" id="l614">                            <span class="c">indentation(indent);</span></div><div class="line" id="l615">                        }
+</div><div class="line" id="l616">                        <span class="c">break;</span></div><div class="line" id="l617">                    }
+</div><div class="line" id="l618"><br></div><div class="line" id="l619">                    case ClassDescriptor.FieldType.tpArrayOfUShort: 
+</div><div class="line" id="l620">                    {
+</div><div class="line" id="l621">                        <span class="c">int len = Bytes.unpack4(body, offs);</span></div><div class="line" id="l622">                        <span class="c">offs += 4;</span></div><div class="line" id="l623">                        <span class="c">if (len &lt; 0)</span></div><div class="line" id="l624">                        {
+</div><div class="line" id="l625">                            <span class="c">writer.Write("null");</span></div><div class="line" id="l626">                        }
+</div><div class="line" id="l627">                        else
+</div><div class="line" id="l628">                        {
+</div><div class="line" id="l629">                            <span class="c">writer.Write('\n');</span></div><div class="line" id="l630">                            <span class="c">while (--len &gt;= 0)</span></div><div class="line" id="l631">                            {
+</div><div class="line" id="l632">                                <span class="c">indentation(indent + 1);</span></div><div class="line" id="l633">                                <span class="c">writer.Write("&lt;element&gt;" + (ushort)Bytes.unpack2(body, offs) + "&lt;/element&gt;\n");</span></div><div class="line" id="l634">                                <span class="c">offs += 2;</span></div><div class="line" id="l635">                            }
+</div><div class="line" id="l636">                            <span class="c">indentation(indent);</span></div><div class="line" id="l637">                        }
+</div><div class="line" id="l638">                        <span class="c">break;</span></div><div class="line" id="l639">                    }
+</div><div class="line" id="l640"><br></div><div class="line" id="l641">                    case ClassDescriptor.FieldType.tpArrayOfInt: 
+</div><div class="line" id="l642">                    {
+</div><div class="line" id="l643">                        <span class="c">int len = Bytes.unpack4(body, offs);</span></div><div class="line" id="l644">                        <span class="c">offs += 4;</span></div><div class="line" id="l645">                        <span class="c">if (len &lt; 0)</span></div><div class="line" id="l646">                        {
+</div><div class="line" id="l647">                            <span class="c">writer.Write("null");</span></div><div class="line" id="l648">                        }
+</div><div class="line" id="l649">                        else
+</div><div class="line" id="l650">                        {
+</div><div class="line" id="l651">                            <span class="c">writer.Write('\n');</span></div><div class="line" id="l652">                            <span class="c">while (--len &gt;= 0)</span></div><div class="line" id="l653">                            {
+</div><div class="line" id="l654">                                <span class="c">indentation(indent + 1);</span></div><div class="line" id="l655">                                <span class="c">writer.Write("&lt;element&gt;" + Bytes.unpack4(body, offs) + "&lt;/element&gt;\n");</span></div><div class="line" id="l656">                                <span class="c">offs += 4;</span></div><div class="line" id="l657">                            }
+</div><div class="line" id="l658">                            <span class="c">indentation(indent);</span></div><div class="line" id="l659">                        }
+</div><div class="line" id="l660">                        <span class="c">break;</span></div><div class="line" id="l661">                    }
+</div><div class="line" id="l662"><br></div><div class="line" id="l663">                    case ClassDescriptor.FieldType.tpArrayOfEnum: 
+</div><div class="line" id="l664">                    {
+</div><div class="line" id="l665">                        <span class="c">int len = Bytes.unpack4(body, offs);</span></div><div class="line" id="l666">                        <span class="c">offs += 4;</span></div><div class="line" id="l667">                        <span class="c">if (len &lt; 0)</span></div><div class="line" id="l668">                        {
+</div><div class="line" id="l669">                            <span class="c">writer.Write("null");</span></div><div class="line" id="l670">                        }
+</div><div class="line" id="l671">                        else
+</div><div class="line" id="l672">                        {
+</div><div class="line" id="l673">                            <span class="c">Type elemType = f.FieldType.GetElementType();</span></div><div class="line" id="l674">                            <span class="c">writer.Write('\n');</span></div><div class="line" id="l675">                            <span class="c">while (--len &gt;= 0)</span></div><div class="line" id="l676">                            {
+</div><div class="line" id="l677">                                <span class="c">indentation(indent + 1);</span></div><div class="line" id="l678">                                <span class="c">writer.Write("&lt;element&gt;" + Enum.ToObject(elemType, Bytes.unpack4(body, offs)) + "&lt;/element&gt;\n");</span></div><div class="line" id="l679">                                <span class="c">offs += 4;</span></div><div class="line" id="l680">                            }
+</div><div class="line" id="l681">                            <span class="c">indentation(indent);</span></div><div class="line" id="l682">                        }
+</div><div class="line" id="l683">                        <span class="c">break;</span></div><div class="line" id="l684">                    }
+</div><div class="line" id="l685"><br></div><div class="line" id="l686">                    case ClassDescriptor.FieldType.tpArrayOfUInt: 
+</div><div class="line" id="l687">                    {
+</div><div class="line" id="l688">                        <span class="c">int len = Bytes.unpack4(body, offs);</span></div><div class="line" id="l689">                        <span class="c">offs += 4;</span></div><div class="line" id="l690">                        <span class="c">if (len &lt; 0)</span></div><div class="line" id="l691">                        {
+</div><div class="line" id="l692">                            <span class="c">writer.Write("null");</span></div><div class="line" id="l693">                        }
+</div><div class="line" id="l694">                        else
+</div><div class="line" id="l695">                        {
+</div><div class="line" id="l696">                            <span class="c">writer.Write('\n');</span></div><div class="line" id="l697">                            <span class="c">while (--len &gt;= 0)</span></div><div class="line" id="l698">                            {
+</div><div class="line" id="l699">                                <span class="c">indentation(indent + 1);</span></div><div class="line" id="l700">                                <span class="c">writer.Write("&lt;element&gt;" + (uint)Bytes.unpack4(body, offs) + "&lt;/element&gt;\n");</span></div><div class="line" id="l701">                                <span class="c">offs += 4;</span></div><div class="line" id="l702">                            }
+</div><div class="line" id="l703">                            <span class="c">indentation(indent);</span></div><div class="line" id="l704">                        }
+</div><div class="line" id="l705">                        <span class="c">break;</span></div><div class="line" id="l706">                    }
+</div><div class="line" id="l707"><br></div><div class="line" id="l708">                    case ClassDescriptor.FieldType.tpArrayOfLong: 
+</div><div class="line" id="l709">                    {
+</div><div class="line" id="l710">                        <span class="c">int len = Bytes.unpack4(body, offs);</span></div><div class="line" id="l711">                        <span class="c">offs += 4;</span></div><div class="line" id="l712">                        <span class="c">if (len &lt; 0)</span></div><div class="line" id="l713">                        {
+</div><div class="line" id="l714">                            <span class="c">writer.Write("null");</span></div><div class="line" id="l715">                        }
+</div><div class="line" id="l716">                        else
+</div><div class="line" id="l717">                        {
+</div><div class="line" id="l718">                            <span class="c">writer.Write('\n');</span></div><div class="line" id="l719">                            <span class="c">while (--len &gt;= 0)</span></div><div class="line" id="l720">                            {
+</div><div class="line" id="l721">                                <span class="c">indentation(indent + 1);</span></div><div class="line" id="l722">                                <span class="c">writer.Write("&lt;element&gt;" + Bytes.unpack8(body, offs) + "&lt;/element&gt;\n");</span></div><div class="line" id="l723">                                <span class="c">offs += 8;</span></div><div class="line" id="l724">                            }
+</div><div class="line" id="l725">                            <span class="c">indentation(indent);</span></div><div class="line" id="l726">                        }
+</div><div class="line" id="l727">                        <span class="c">break;</span></div><div class="line" id="l728">                    }
+</div><div class="line" id="l729"><br></div><div class="line" id="l730">                    case ClassDescriptor.FieldType.tpArrayOfULong: 
+</div><div class="line" id="l731">                    {
+</div><div class="line" id="l732">                        <span class="c">int len = Bytes.unpack4(body, offs);</span></div><div class="line" id="l733">                        <span class="c">offs += 4;</span></div><div class="line" id="l734">                        <span class="c">if (len &lt; 0)</span></div><div class="line" id="l735">                        {
+</div><div class="line" id="l736">                            <span class="c">writer.Write("null");</span></div><div class="line" id="l737">                        }
+</div><div class="line" id="l738">                        else
+</div><div class="line" id="l739">                        {
+</div><div class="line" id="l740">                            <span class="c">writer.Write('\n');</span></div><div class="line" id="l741">                            <span class="c">while (--len &gt;= 0)</span></div><div class="line" id="l742">                            {
+</div><div class="line" id="l743">                                <span class="c">indentation(indent + 1);</span></div><div class="line" id="l744">                                <span class="c">writer.Write("&lt;element&gt;" + (ulong)Bytes.unpack8(body, offs) + "&lt;/element&gt;\n");</span></div><div class="line" id="l745">                                <span class="c">offs += 8;</span></div><div class="line" id="l746">                            }
+</div><div class="line" id="l747">                            <span class="c">indentation(indent);</span></div><div class="line" id="l748">                        }
+</div><div class="line" id="l749">                        <span class="c">break;</span></div><div class="line" id="l750">                    }
+</div><div class="line" id="l751"><br></div><div class="line" id="l752">                    case ClassDescriptor.FieldType.tpArrayOfFloat: 
+</div><div class="line" id="l753">                    {
+</div><div class="line" id="l754">                        <span class="c">int len = Bytes.unpack4(body, offs);</span></div><div class="line" id="l755">                        <span class="c">offs += 4;</span></div><div class="line" id="l756">                        <span class="c">if (len &lt; 0)</span></div><div class="line" id="l757">                        {
+</div><div class="line" id="l758">                            <span class="c">writer.Write("null");</span></div><div class="line" id="l759">                        }
+</div><div class="line" id="l760">                        else
+</div><div class="line" id="l761">                        {
+</div><div class="line" id="l762">                            <span class="c">writer.Write('\n');</span></div><div class="line" id="l763">                            <span class="c">while (--len &gt;= 0)</span></div><div class="line" id="l764">                            {
+</div><div class="line" id="l765">                                <span class="c">indentation(indent + 1);</span></div><div class="line" id="l766">                                <span class="c">writer.Write("&lt;element&gt;" + Bytes.unpackF4(body, offs) + "&lt;/element&gt;\n");</span></div><div class="line" id="l767">                                <span class="c">offs += 4;</span></div><div class="line" id="l768">                            }
+</div><div class="line" id="l769">                            <span class="c">indentation(indent);</span></div><div class="line" id="l770">                        }
+</div><div class="line" id="l771">                        <span class="c">break;</span></div><div class="line" id="l772">                    }
+</div><div class="line" id="l773"><br></div><div class="line" id="l774">                    case ClassDescriptor.FieldType.tpArrayOfDouble: 
+</div><div class="line" id="l775">                    {
+</div><div class="line" id="l776">                        <span class="c">int len = Bytes.unpack4(body, offs);</span></div><div class="line" id="l777">                        <span class="c">offs += 4;</span></div><div class="line" id="l778">                        <span class="c">if (len &lt; 0)</span></div><div class="line" id="l779">                        {
+</div><div class="line" id="l780">                            <span class="c">writer.Write("null");</span></div><div class="line" id="l781">                        }
+</div><div class="line" id="l782">                        else
+</div><div class="line" id="l783">                        {
+</div><div class="line" id="l784">                            <span class="c">writer.Write('\n');</span></div><div class="line" id="l785">                            <span class="c">while (--len &gt;= 0)</span></div><div class="line" id="l786">                            {
+</div><div class="line" id="l787">                                <span class="c">indentation(indent + 1);</span></div><div class="line" id="l788">                                <span class="c">writer.Write("&lt;element&gt;" + Bytes.unpackF8(body, offs) + "&lt;/element&gt;\n");</span></div><div class="line" id="l789">                                <span class="c">offs += 8;</span></div><div class="line" id="l790">                            }
+</div><div class="line" id="l791">                            <span class="c">indentation(indent);</span></div><div class="line" id="l792">                        }
+</div><div class="line" id="l793">                        <span class="c">break;</span></div><div class="line" id="l794">                    }
+</div><div class="line" id="l795"><br></div><div class="line" id="l796">                    case ClassDescriptor.FieldType.tpArrayOfDate: 
+</div><div class="line" id="l797">                    {
+</div><div class="line" id="l798">                        <span class="c">int len = Bytes.unpack4(body, offs);</span></div><div class="line" id="l799">                        <span class="c">offs += 4;</span></div><div class="line" id="l800">                        <span class="c">if (len &lt; 0)</span></div><div class="line" id="l801">                        {
+</div><div class="line" id="l802">                            <span class="c">writer.Write("null");</span></div><div class="line" id="l803">                        }
+</div><div class="line" id="l804">                        else
+</div><div class="line" id="l805">                        {
+</div><div class="line" id="l806">                            <span class="c">writer.Write('\n');</span></div><div class="line" id="l807">                            <span class="c">while (--len &gt;= 0)</span></div><div class="line" id="l808">                            {
+</div><div class="line" id="l809">                                <span class="c">indentation(indent + 1);</span></div><div class="line" id="l810">                                <span class="c">writer.Write("&lt;element&gt;\"" + Bytes.unpackDate(body, offs) + "\"&lt;/element&gt;\n");</span></div><div class="line" id="l811">                                <span class="c">offs += 8;</span></div><div class="line" id="l812">                            }
+</div><div class="line" id="l813">                        }
+</div><div class="line" id="l814">                        <span class="c">break;</span></div><div class="line" id="l815">                    }
+</div><div class="line" id="l816"><br></div><div class="line" id="l817">                    case ClassDescriptor.FieldType.tpArrayOfGuid: 
+</div><div class="line" id="l818">                    {
+</div><div class="line" id="l819">                        <span class="c">int len = Bytes.unpack4(body, offs);</span></div><div class="line" id="l820">                        <span class="c">offs += 4;</span></div><div class="line" id="l821">                        <span class="c">if (len &lt; 0)</span></div><div class="line" id="l822">                        {
+</div><div class="line" id="l823">                            <span class="c">writer.Write("null");</span></div><div class="line" id="l824">                        }
+</div><div class="line" id="l825">                        else
+</div><div class="line" id="l826">                        {
+</div><div class="line" id="l827">                            <span class="c">writer.Write('\n');</span></div><div class="line" id="l828">                            <span class="c">while (--len &gt;= 0)</span></div><div class="line" id="l829">                            {
+</div><div class="line" id="l830">                                <span class="c">writer.Write("&lt;element&gt;\"" + Bytes.unpackGuid(body, offs) + "\"&lt;/element&gt;\n");</span></div><div class="line" id="l831">                                <span class="c">offs += 16;</span></div><div class="line" id="l832">                            }
+</div><div class="line" id="l833">                        }
+</div><div class="line" id="l834">                        <span class="c">break;</span></div><div class="line" id="l835">                    }
+</div><div class="line" id="l836"><br></div><div class="line" id="l837">                    case ClassDescriptor.FieldType.tpArrayOfDecimal: 
+</div><div class="line" id="l838">                    {
+</div><div class="line" id="l839">                        <span class="c">int len = Bytes.unpack4(body, offs);</span></div><div class="line" id="l840">                        <span class="c">offs += 4;</span></div><div class="line" id="l841">                        <span class="c">if (len &lt; 0)</span></div><div class="line" id="l842">                        {
+</div><div class="line" id="l843">                            <span class="c">writer.Write("null");</span></div><div class="line" id="l844">                        }
+</div><div class="line" id="l845">                        else
+</div><div class="line" id="l846">                        {
+</div><div class="line" id="l847">                            <span class="c">writer.Write('\n');</span></div><div class="line" id="l848">                            <span class="c">while (--len &gt;= 0)</span></div><div class="line" id="l849">                            {
+</div><div class="line" id="l850">                                <span class="c">writer.Write("&lt;element&gt;\"" + Bytes.unpackDecimal(body, offs) + "\"&lt;/element&gt;\n");</span></div><div class="line" id="l851">                                <span class="c">offs += 16;</span></div><div class="line" id="l852">                            }
+</div><div class="line" id="l853">                        }
+</div><div class="line" id="l854">                        <span class="c">break;</span></div><div class="line" id="l855">                    }
+</div><div class="line" id="l856"><br></div><div class="line" id="l857">                    case ClassDescriptor.FieldType.tpArrayOfString: 
+</div><div class="line" id="l858">                    {
+</div><div class="line" id="l859">                        <span class="c">int len = Bytes.unpack4(body, offs);</span></div><div class="line" id="l860">                        <span class="c">offs += 4;</span></div><div class="line" id="l861">                        <span class="c">if (len &lt; 0)</span></div><div class="line" id="l862">                        {
+</div><div class="line" id="l863">                            <span class="c">writer.Write("null");</span></div><div class="line" id="l864">                        }
+</div><div class="line" id="l865">                        else
+</div><div class="line" id="l866">                        {
+</div><div class="line" id="l867">                            <span class="c">writer.Write('\n');</span></div><div class="line" id="l868">                            <span class="c">while (--len &gt;= 0)</span></div><div class="line" id="l869">                            {
+</div><div class="line" id="l870">                                <span class="c">indentation(indent + 1);</span></div><div class="line" id="l871">                                <span class="c">writer.Write("&lt;element&gt;");</span></div><div class="line" id="l872">                                <span class="c">offs = exportString(body, offs);</span></div><div class="line" id="l873">                                <span class="c">writer.Write("&lt;/element&gt;\n");</span></div><div class="line" id="l874">                            }
+</div><div class="line" id="l875">                            <span class="c">indentation(indent);</span></div><div class="line" id="l876">                        }
+</div><div class="line" id="l877">                        <span class="c">break;</span></div><div class="line" id="l878">                    }
+</div><div class="line" id="l879"><br></div><div class="line" id="l880">                    case ClassDescriptor.FieldType.tpLink: 
+</div><div class="line" id="l881">                    case ClassDescriptor.FieldType.tpArrayOfObject: 
+</div><div class="line" id="l882">                    case ClassDescriptor.FieldType.tpArrayOfOid: 
+</div><div class="line" id="l883">                    {
+</div><div class="line" id="l884">                        <span class="c">int len = Bytes.unpack4(body, offs);</span></div><div class="line" id="l885">                        <span class="c">offs += 4;</span></div><div class="line" id="l886">                        <span class="c">if (len &lt; 0)</span></div><div class="line" id="l887">                        {
+</div><div class="line" id="l888">                            <span class="c">writer.Write("null");</span></div><div class="line" id="l889">                        }
+</div><div class="line" id="l890">                        else
+</div><div class="line" id="l891">                        {
+</div><div class="line" id="l892">                            <span class="c">writer.Write('\n');</span></div><div class="line" id="l893">                            <span class="c">while (--len &gt;= 0)</span></div><div class="line" id="l894">                            {
+</div><div class="line" id="l895">                                <span class="c">indentation(indent + 1);</span></div><div class="line" id="l896">                                <span class="c">int oid = Bytes.unpack4(body, offs);</span></div><div class="line" id="l897">                                <span class="c">if (oid != 0 &amp;&amp; (exportedBitmap[oid &gt;&gt; 5] &amp; (1 &lt;&lt; (oid &amp; 31))) == 0)</span></div><div class="line" id="l898">                                {
+</div><div class="line" id="l899">                                    <span class="c">markedBitmap[oid &gt;&gt; 5] |= 1 &lt;&lt; (oid &amp; 31);</span></div><div class="line" id="l900">                                }
+</div><div class="line" id="l901">                                <span class="c">writer.Write("&lt;element&gt;&lt;ref id=\"" + oid + "\"/&gt;&lt;/element&gt;\n");</span></div><div class="line" id="l902">                                <span class="c">offs += 4;</span></div><div class="line" id="l903">                            }
+</div><div class="line" id="l904">                            <span class="c">indentation(indent);</span></div><div class="line" id="l905">                        }
+</div><div class="line" id="l906">                        <span class="c">break;</span></div><div class="line" id="l907">                    }
+</div><div class="line" id="l908"><br></div><div class="line" id="l909">                    case ClassDescriptor.FieldType.tpArrayOfValue: 
+</div><div class="line" id="l910">                    {
+</div><div class="line" id="l911">                        <span class="c">int len = Bytes.unpack4(body, offs);</span></div><div class="line" id="l912">                        <span class="c">offs += 4;</span></div><div class="line" id="l913">                        <span class="c">if (len &lt; 0)</span></div><div class="line" id="l914">                        {
+</div><div class="line" id="l915">                            <span class="c">writer.Write("null");</span></div><div class="line" id="l916">                        }
+</div><div class="line" id="l917">                        else
+</div><div class="line" id="l918">                        {
+</div><div class="line" id="l919">                            <span class="c">writer.Write('\n');</span></div><div class="line" id="l920">                            <span class="c">while (--len &gt;= 0)</span></div><div class="line" id="l921">                            {
+</div><div class="line" id="l922">                                <span class="c">indentation(indent + 1);</span></div><div class="line" id="l923">                                <span class="c">writer.Write("&lt;element&gt;\n");</span></div><div class="line" id="l924">                                <span class="c">offs = exportObject(fd.valueDesc, body, offs, indent + 2);</span></div><div class="line" id="l925">                                <span class="c">indentation(indent + 1);</span></div><div class="line" id="l926">                                <span class="c">writer.Write("&lt;/element&gt;\n");</span></div><div class="line" id="l927">                            }
+</div><div class="line" id="l928">                            <span class="c">indentation(indent);</span></div><div class="line" id="l929">                        }
+</div><div class="line" id="l930">                        <span class="c">break;</span></div><div class="line" id="l931">                    }
+</div><div class="line" id="l932">#if SUPPORT_RAW_TYPE
+</div><div class="line" id="l933">                    case ClassDescriptor.FieldType.tpArrayOfRaw: 
+</div><div class="line" id="l934">                    {
+</div><div class="line" id="l935">                        <span class="c">int len = Bytes.unpack4(body, offs);</span></div><div class="line" id="l936">                        <span class="c">offs += 4;</span></div><div class="line" id="l937">                        <span class="c">if (len &lt; 0)</span></div><div class="line" id="l938">                        {
+</div><div class="line" id="l939">                            <span class="c">writer.Write("null");</span></div><div class="line" id="l940">                        }
+</div><div class="line" id="l941">                        else
+</div><div class="line" id="l942">                        {
+</div><div class="line" id="l943">                            <span class="c">writer.Write('\n');</span></div><div class="line" id="l944">                            <span class="c">while (--len &gt;= 0)</span></div><div class="line" id="l945">                            {
+</div><div class="line" id="l946">                                <span class="c">indentation(indent+1);</span></div><div class="line" id="l947">                                <span class="c">writer.Write("&lt;element&gt;");</span></div><div class="line" id="l948">                                <span class="c">offs = exportBinary(body, offs);</span></div><div class="line" id="l949">                                <span class="c">writer.Write("&lt;/element&gt;\n");</span></div><div class="line" id="l950">                            }
+</div><div class="line" id="l951">                            <span class="c">indentation(indent);</span></div><div class="line" id="l952">                        }
+</div><div class="line" id="l953">                        break;
+</div><div class="line" id="l954">                    }
+</div><div class="line" id="l955">#endif
+</div><div class="line" id="l956">                }
+</div><div class="line" id="l957">                <span class="c">writer.Write("&lt;/" + fieldName + "&gt;\n");</span></div><div class="line" id="l958">            }
+</div><div class="line" id="l959">            <span class="c">return offs;</span></div><div class="line" id="l960">        }
+</div><div class="line" id="l961"><br></div><div class="line" id="l962">        private StorageImpl storage;
+</div><div class="line" id="l963">        private System.IO.StreamWriter writer;
+</div><div class="line" id="l964">        private int[] markedBitmap;
+</div><div class="line" id="l965">        private int[] exportedBitmap;
+</div><div class="line" id="l966">        private ClassDescriptor.FieldType[] compoundKeyTypes;
+</div><div class="line" id="l967">    }
+</div><div class="line" id="l968">}
+</div><div class="line" id="l969">#endif
+</div>
+  </pre>
+  </td>
+  </tr>
+</tbody>
+</table>
+</body>
+</html>
