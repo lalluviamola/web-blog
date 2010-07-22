@@ -552,6 +552,10 @@ class PageHandler(webapp.RequestHandler):
         if pageno < pages_count:
             older_page = { 'no' : pageno + 1 }
 
+        # don't index those pages except the first one
+        no_index = True
+        if newer_page == None: no_index = False
+
         vals = {
             'is_admin' : users.is_current_user_admin(),
             'login_out_url' : get_login_logut_url("/"),
@@ -562,6 +566,7 @@ class PageHandler(webapp.RequestHandler):
             'page_no' : pageno,
             'pages_count' : pages_count,
             'show_analytics' : show_analytics(),
+            'no_index' : no_index,
         }
         template_out(self.response, "tmpl/page.html", vals)
 
