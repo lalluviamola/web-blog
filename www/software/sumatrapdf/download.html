@@ -9,6 +9,15 @@
 </head>
 
 <body>
+<script type="text/javascript">
+function SetupRedirect()
+{
+  var dest = "downloadafter.html";
+  setTimeout("window.location='"+dest+"'",2000);
+  return true;
+}
+</script>
+
 <div id="container">
 <div id="banner">
 <h1>Sumatra PDF</h1>
@@ -44,8 +53,8 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 </script>
 
 <h2 id="download">Download</h2>
-<p> Installer: <a href="http://kjkpub.s3.amazonaws.com/sumatrapdf/rel/SumatraPDF-1.1-install.exe">SumatraPDF-1.1-install.exe</a>
- <br>Zip file: <a href="http://kjkpub.s3.amazonaws.com/sumatrapdf/rel/SumatraPDF-1.1.zip">SumatraPDF-1.1.zip</a>
+<p> Installer: <a href="http://kjkpub.s3.amazonaws.com/sumatrapdf/rel/SumatraPDF-1.1-install.exe" onclick="SetupRedirect()">SumatraPDF-1.1-install.exe</a>
+ <br>Zip file: <a href="http://kjkpub.s3.amazonaws.com/sumatrapdf/rel/SumatraPDF-1.1.zip" onclick="SetupRedirect()">SumatraPDF-1.1.zip</a>
 </p><p>
 You can also <a href="develop.html">download the sources</a> and contribute your
 code to Sumatra PDF.

@@ -166,7 +166,7 @@ function twitterCallback(twitterData)
   <a href="more.html">more...</a>
   <a id=headsearch href="javascript:toggleSearch();">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
   </span>
-  <a href="me.html">Krzysztof Kowalczyk</a>
+  <a href="krzysztof.html">Krzysztof Kowalczyk</a>
   </div>
 </div>
 
