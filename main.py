@@ -1110,7 +1110,6 @@ def require_login(handler):
     handler.response.headers['Content-Type'] = 'text/html'
     user = users.get_current_user()
     url = handler.request.url
-    ip_addr = os.environ['REMOTE_ADDR']
     if user:
         assert not can_view_crash_reports()
         handler.response.out.write("<html><body>You're logged in as %s but this account doesn't have access. <a href=\"%s\">relogin</a></body></html>" % (user.nickname(), users.create_logout_url(url)))
