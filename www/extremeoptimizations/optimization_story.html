@@ -317,7 +317,7 @@ const char* ParsedStr::value(size_t idx)
 
 <p>All pointers point somewhere within a string so they could be represented as an offset from the beginning of the string.</p>
 
-<p>If we can guarantee that the string size is limited, which is often the case, we can represent the offset with a smaller number of bytes. For strings 3 bytes (24 bits) would be a safe value for most cases. In our case let&#8217;s put a hard cap on the string limit at 64 kB and use 2 bytes for offset.</p>
+<p>If we can guarantee that the string size is limited, which is often the case, we can represent the offset with a smaller number of bytes. For strings 3 bytes (24 bits) would be a safe value for most cases. In our case, let&#8217;s limit the string size to 64 kB and use 2 bytes for offset.</p>
 
 <p><a href="http://www.flickr.com/photos/jonhanson/181087083/in/set-72157594186301066/"><img src="http://farm1.static.flickr.com/63/181087083_fcf7fe632d_m.jpg" style="float:right;" alt="" class="right" /></a></p>
 
