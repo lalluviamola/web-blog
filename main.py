@@ -1116,12 +1116,12 @@ def require_login(handler):
     else:
         handler.response.out.write("<html><body>You need to <a href=\"%s\">log in</a>. </body></html>" % users.create_login_url(url))
 
-# Stores crash reports from mac apps
+# Stores crash reports from apps
 class CrashReports(db.Model):
     created_on = db.DateTimeProperty(required=True, auto_now_add=True)
     ip_addr = db.StringProperty(required=True)
     app_name = db.StringProperty(required=True)
-    data = db.BlobProperty(required=True)
+    data = db.BlobProperty(required=True) # in utf-8 with signature
 
 CRASH_REPORT_HTML_START = """
 <html>
@@ -1150,12 +1150,12 @@ class CrashSubmit(webapp.RequestHandler):
     def post(self):
         ip_addr = os.environ['REMOTE_ADDR']
         app_name = self.request.get("appname")
-        crash_report = self.request.get("file")
-        crashreport = CrashReports(ip_addr=ip_addr, app_name=app_name, data=crash_report)
+        crash_data = self.request.get("file")
+        crashreport = CrashReports(ip_addr=ip_addr, app_name=app_name, data=crash_data)
         crashreport.put()
         report_url = my_hostname() + "/app/crashes/" + str(crashreport.key().id())
         self.response.out.write(report_url)
-        s = unicode(diagnosticData, 'utf-8-sig')
+        s = unicode(crash_data, 'utf-8-sig')
         body = report_url + "\n" + s
         subject = "New crash report"
         mail.send_mail(sender=EMAIL_FROM,
@@ -1172,7 +1172,7 @@ class CrashDelete(webapp.RequestHandler):
         self.redirect("/app/crashes/")
 
 class Crashes(webapp.RequestHandler):
-    def list_recent(self, template):
+    def list_recent(self):
         if not can_view_crash_reports():
             return require_login(self)
         MAX = 25
@@ -1185,7 +1185,7 @@ class Crashes(webapp.RequestHandler):
             'user_email' : user_email,
             'logout_url' : users.create_logout_url(self.request.url)
         }
-        template_out(self.response, template, tvals)
+        template_out(self.response, "tmpl/recent_crash_reports.html", tvals)
 
     def show_report(self, report):
         self.response.headers['Content-Type'] = 'text/html'
@@ -1200,7 +1200,7 @@ class Crashes(webapp.RequestHandler):
 
     def get(self, key):
         if 0 == len(key):
-            return self.list_recent("tmpl/recent_crash_reports.html")
+            return self.list_recent()
 
         report = db.get(db.Key.from_path('CrashReports', int(key)))
         ip_addr = os.environ['REMOTE_ADDR']
