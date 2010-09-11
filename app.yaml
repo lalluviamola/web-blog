@@ -13,6 +13,15 @@ handlers:
 - url: /software/sumatrapdf
   script: main.py
 
+- url: /software/sumatrapdf/index.html
+  script: main.py
+
+- url: /software/sumatrapdf/download.html
+  script: main.py
+
+- url: /software/sumatrapdf/prerelase.html
+  script: main.py
+
 - url: /software/fofou
   script: main.py
 
