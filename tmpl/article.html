@@ -108,19 +108,34 @@ $(document).ready(function(){
 </span>
 
 <div id="post">
-    {% if article.is_public %}
     <div style="margin-top:8px;">
-    <span class="postmeta" style="vertical-align:top;">
-    {{ article.published_on|date:"d M Y" }}
-    {% if tags_display %}
-    &bull; Tags: {{ tags_display }}
-    {% endif %}
-    &nbsp;
-    </span>
-    <span>
-    <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="kjk">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-    </span>
-    {% endif %}
+
+		    <span class="postmeta">
+			{{ article.published_on|date:"d M Y" }}
+			{% if tags_display %}
+			 &bull; Tags: <span class="tags">{{ tags_display }}</span>
+			{% endif %}
+			 &nbsp;
+		  </span>
+
+		  {% if article.is_public %}
+          <!-- buzz button -->
+          <span style="position: relative; left: 8px;">
+          <a title="Post to Google Buzz" class="google-buzz-button" href="http://www.google.com/buzz/post" data-button-style="small-count" data-url="http://blog.kowalczyk.info/{{ article.permalink }}"></a>
+<script type="text/javascript" src="http://www.google.com/buzz/api/button.js"></script>
+          </span>
+
+	      <!-- tweet button -->
+	      <span style="position:relative; left: 16px; top: 6px;">
+          <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.kowalczyk.info/{{ article.permalink }}" data-text="{{ article.title|escape }}" data-count="horizontal" data-via="kjk">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+          </span>
+          
+          <!-- facebook like button -->
+          <span style="position:relative; top: 7px; left: 4px;">
+        <iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fblog.kowalczyk.info/{{ article.permalink|urlencode }}&amp;layout=button_count&amp;show_faces=false&amp;width=450&amp;action=like&amp;colorscheme=light&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:80px; height:21px;" allowTransparency="true"></iframe>
+         </span>
+         {% endif %}
+
     </div>
 
 {{ article.html_body }}
