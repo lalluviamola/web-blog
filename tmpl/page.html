@@ -184,27 +184,36 @@ Krzysztof J. Kowalczyk</a> <span class="smaller">(a guy and his software)</span>
 
 		<table width=100%>
 		<tr>
-		<td valign="top" style="padding-left: 0px;">
+		<td style="padding-left: 0px;">
 		  <span onMouseOver="showById('article_{{ article.no }}');" onMouseOut="hideById('article_{{ article.no }}');">
-			<a class="title_permalink" href="/{{ article.permalink }}">{{ article.title }}</a>
+			<a class="title_permalink" href="/{{ article.permalink }}">{{ article.title|escape }}</a>
 			{% if not article.is_public %} &nbsp;<font style="color: red;">private</font> {% endif %}
 			{% if is_admin %}&nbsp;
 			<a id="article_{{ article.no }}" class="invisible" href="/app/edit?article_permalink={{ article.permalink }}">edit</a>
-			</span>
 			{% endif %}
+		  </span>
+
+
 		</td>
 		</tr>
 		</table>
-		{{ article.html_body }}
 
-		<div class="tags">
+		<div style="margin-top:8px;">
+		    <span class="postmeta" style="vertical-align:top;">
+			{{ article.published_on|date:"d M Y" }}
 			{% if article.tags_display %}
-			Tags: {{ article.tags_display }} &bull;
+			Tags: {{ article.tags_display|escape }} &bull;
 			{% endif %}
-			posted on {{ article.published_on|date:"d F Y" }}
+		  </span>&nbsp;
+		  {% if article.is_public %}
+		  <span>
+          <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.kowalczyk.info/{{ article.permalink }}" data-text="{{ article.title|escape }}" data-count="horizontal" data-via="kjk">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+          </span>
+          {% endif %}
 		</div>
-		<br>
 
+		{{ article.html_body }}
+		<br>
 		{% endfor %}
 		</div>
 	</td>

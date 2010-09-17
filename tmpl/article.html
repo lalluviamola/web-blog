@@ -3,7 +3,7 @@
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
-<title>{{ article.title }}</title>
+<title>{{ article.title|escape }}</title>
 
 <link rel="alternate" type="application/atom+xml" title="RSS 2.0" href="/atom.xml">
 <link  href="{{ prettify_css_url }}" type="text/css" rel="stylesheet">
@@ -66,11 +66,10 @@ $(document).ready(function(){
 
 {% endif %}
 
-
 <h1 style="display:inline;">
   <a href="/index.html">home</a> &#8227;
   <span onMouseOver="showById('article_edit');" onMouseOut="hideById('article_edit');" style="color: #6e0315">
-  {{ article.title }}
+  {{ article.title|escape }}
   {% if not article.is_public %}
     &nbsp;<font color="red">private</font>
   {% endif %}
@@ -109,21 +108,28 @@ $(document).ready(function(){
 </span>
 
 <div id="post">
+    {% if article.is_public %}
+    <div style="margin-top:8px;">
+    <span class="postmeta" style="vertical-align:top;">
+    {{ article.published_on|date:"d M Y" }}
+    {% if tags_display %}
+    &bull; Tags: {{ tags_display }}
+    {% endif %}
+    &nbsp;
+    </span>
+    <span>
+    <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="kjk">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+    </span>
+    {% endif %}
+    </div>
 
 {{ article.html_body }}
-
-<span class="postmeta">
-Posted on {{ article.published_on|date:"d F Y" }}
-{% if tags_display %}
-&bull; Tags: {{ tags_display }}
-{% endif %}
-</span>
 
 </div>
 
 <center class="postmeta">
     {% if next_article %}
-    <a title="{{ next_article.title }}" href="/{{ next_article.permalink}}">← newer</a>
+    <a title="{{ next_article.title|escape }}" href="/{{ next_article.permalink}}">← newer</a>
     {% else %}
     ← newer
     {% endif %}
@@ -131,7 +137,7 @@ Posted on {{ article.published_on|date:"d F Y" }}
     {{ article_no }} of <a href="/archives.html">{{ articles_count }}</a>
     &bull;
     {% if prev_article %}
-    <a title="{{ prev_article.title }}" href="/{{ prev_article.permalink}}">older →</a>
+    <a title="{{ prev_article.title|escape }}" href="/{{ prev_article.permalink}}">older →</a>
     {% else %}
     older →
     {% endif %}
