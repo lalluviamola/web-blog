@@ -111,7 +111,7 @@ $(document).ready(function(){
     <div style="margin-top:8px;">
 
 		    <span class="postmeta">
-			{{ article.published_on|date:"d M Y" }}
+			{{ article.published_on|date:"M d Y" }}
 			{% if tags_display %}
 			 &bull; Tags: <span class="tags">{{ tags_display }}</span>
 			{% endif %}

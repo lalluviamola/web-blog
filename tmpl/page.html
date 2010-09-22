@@ -40,16 +40,24 @@ $(document).ready(function(){
 {% include "inline_css.html" %}
 <style>
 
-.smaller {
-	color: gray;
-	font-size: 65%;
-	font-weight: normal;
+.l {
+  margin-top: 2px;
 }
 
-.smaller2, .tags {
+.tags {
 	color: gray;
 	font-size: 85%;
 	font-weight: normal;
+}
+
+.smaller {
+  margin-top: 3px;
+  margin-bottom: 2px;
+}
+
+.sidebarhdr {
+  margin-bottom: 4px;
+  font-weight: bold;
 }
 
 .tags a:link {
@@ -104,7 +112,7 @@ a.title_permalink:hover {
 <div id="content">
 
 <h1 style="display:inline; padding-left:4px"><a href="/" style="text-decoration:none; color: black">
-Krzysztof J. Kowalczyk</a> <span class="smaller">(a guy and his software)</span>
+Krzysztof J. Kowalczyk</a>
 </h1>
 <span style="float:right;">
 <a class="title_permalink2" href="/static/krzysztof.html">About</a>
@@ -125,55 +133,57 @@ Krzysztof J. Kowalczyk</a> <span class="smaller">(a guy and his software)</span>
 <tr>
 	<td valign=top style="background: #F9F7F5; padding-right: 12px; padding-left: 4px; padding-top: 8px; padding-bottom: 8px; max-width: 240px; font-size: 80%">
 		{% if is_admin %}
-		<b>Admin actions</b><br>
+		<div class="sidebarhdr">Admin actions</div>
 		<div style="margin-left: 6px">
-		<a href="{{ login_out_url }}">log out</a><br>
-		<a href="/app/edit">new blog post</a><br>
-		<a href="/app/edit?ramblings=yes">new note post</a><br>
-		<a href="/app/showprivate">show private</a><br>
+  		<div><a href="{{ login_out_url }}">log out</a></div>
+  		<div class="l"><a href="/app/edit">new blog post</a></div>
+  		<div class="l"><a href="/app/edit?ramblings=yes">new note post</a></div>
+  		<div class="l"><a href="/app/showprivate">show private</a></div>
 		</div>
 		{% endif %}
 
-		<b>Me</b> {% if not is_admin %} <a id="login_id" class="invisible" onMouseOver="showById('login_id');" onMouseOut="hideById('login_id');" href="{{ login_out_url }}">login</a>
-		{% endif %}
-		<br>
+    <br>
+		<div class="sidebarhdr">Me {% if not is_admin %} <a id="login_id" class="invisible" onMouseOver="showById('login_id');" onMouseOut="hideById('login_id');" href="{{ login_out_url }}">login</a>
+		{% endif %}</div>
+
 		<div style="margin-left: 6px">
-		<script>
-		  var email = "kkowalczyk";
-		  email += "@";
-		  email += "gmail.com"
-		  hyperlink = "<a href='mailto:email'>email</a>";
-		  hyperlink = hyperlink.replace(/email/g, email);
-		  document.write(hyperlink);
-		</script>
+  		<script>
+  		  var email = "kkowalczyk";
+  		  email += "@";
+  		  email += "gmail.com"
+  		  hyperlink = "<a href='mailto:email'>email</a>";
+  		  hyperlink = hyperlink.replace(/email/g, email);
+  		  document.write(hyperlink);
+  		</script>
+  		<br>
+  		<div class="l"><a href="http://github.com/kjk">github.com/kjk</a></div>
+  		<div class="l"><a href="http://code.google.com/u/kkowalczyk/">code.google.com/u/kkowalczyk</a></div>
+  		<div class="l"><a href="http://twitter.com/kjk">twitter.com/kjk</a></div>
+  		<div class="l"><a href="/static/krzysztof.html">more...</a></div>
+		</div>
 		<br>
-		<a href="http://github.com/kjk">github.com/kjk</a><br>
-		<a href="http://code.google.com/u/kkowalczyk/">code.google.com/u/kkowalczyk</a><br>
-		<a href="http://twitter.com/kjk">twitter.com/kjk</a><br>
-		<a href="/static/krzysztof.html">more...</a><br>
+
+		<div class="sidebarhdr">My software</div>
+  		<div style="margin-left: 6px">
+  		<a href="http://www.yepi.ws/fotofi/free-stock-photos">Fotofi</a>
+  		<div class="smaller">Find free stock photos, Windows app</div>
+  		<a href="/software/sumatrapdf/free-pdf-reader.html">SumatraPDF</a>
+  		<div class="smaller">PDF Reader for Windows</div>
+  		<a href="/software/vack/">VisualAck</a>
+  		<div class="smaller">Visual grep for Mac</div>
+  		<a href="/software/fofou/">fofou</a>
+  		<div class="smaller">Forum software for App Engine</div>
+  		<div><a href="/articles/cocoa-reference.html">Cocoa reference</a></div>
+  		<div class="l"><a href="/articles/pyref.html">Python reference</a></div>
+  		<div class="l"><a href="/articles/jsref.html">JavaScript reference</a></div>
+  		<div class="l"><a href="/software/15minutes/">15minutes</a></div>
+  		<div class="l"><a href="/software/scdiff/">scdiff</a></div>
+  		<div class="l"><a href="/static/krzysztof.html">more...</a></div>
 		</div>
 
 		<br>
 
-		<b>On this site</b><br>
-		<div style="margin-left: 6px">
-		<a href="/software/sumatrapdf/free-pdf-reader.html">SumatraPDF</a><br>
-		<span class="smaller2">(PDF Reader for Windows)</span><br>
-		<a href="/software/vack/">VisualAck</a><br>
-		<span class="smaller2">(visual grep for Mac)</span><br>
-		<a href="/software/fofou/">fofou</a><br>
-		<span class="smaller2">(forum software for App Engine)</span><br>
-		<a href="/articles/cocoa-reference.html">Cocoa reference</a><br>
-		<a href="/articles/pyref.html">Python reference</a><br>
-		<a href="/articles/jsref.html">JavaScript reference</a><br>
-		<a href="/software/15minutes/">15minutes</a><br>
-		<a href="/software/scdiff/">scdiff</a><br>
-		<a href="/static/krzysztof.html">more...</a><br>
-		</div>
-
-		<br>
-
-		<b>Tags</b><br>
+		<div class="sidebarhdr">Tags</div>
 		<div id="tagCloud" style="margin-left: 6px">
 		</div>
 	</td>
@@ -198,7 +208,7 @@ Krzysztof J. Kowalczyk</a> <span class="smaller">(a guy and his software)</span>
 
 		<div style="margin-top:8px;">
 		    <span class="postmeta">
-			{{ article.published_on|date:"d M Y" }}
+			{{ article.published_on|date:"M d Y" }}
 			{% if article.tags_display %}
 			 &bull; Tags: <span class="tags">{{ article.tags_display }}</span>
 			{% endif %}
