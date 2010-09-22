@@ -64,104 +64,101 @@ $(document).ready(function(){
 <div id="content">
 
 <h1 style="display:inline; padding-left:4px"><a href="/" style="text-decoration:none; color: black">
-Krzysztof J. Kowalczyk</a>
-</h1>
+Krzysztof J. Kowalczyk</a></h1>
 <span style="float:right;">
-<a class="hdrlink" href="/static/krzysztof.html">About</a>
-<span style="color:gray">&nbsp;&bull;&nbsp;</span>
-<a class="hdrlink" href="/atom.xml"><img alt="Rss feed" src="http://kjkpub.s3.amazonaws.com/blog/img/feed-icon-14x14.png" style="position:relative; top:2px;" width=14 height=14> <span style="">RSS</span></a>
-<span style="color:gray">&nbsp;&bull;&nbsp;</span>
-<form style="display:inline" method="get" action="http://google.com/search" >
-<input type="hidden" name="IncludeBlogs" value="1">
-<input type="hidden" name="as_sitesearch" value="http://blog.kowalczyk.info">
-<input size=20 type="text" name="q" id="searchFieldId">
-<input class="button" value="Go" type="submit">
-</form>
+    <a class="hdrlink" href="/static/krzysztof.html">About</a>
+    <span style="color:gray">&nbsp;&bull;&nbsp;</span>
+    <a class="hdrlink" href="/atom.xml"><img alt="Rss feed" src="http://kjkpub.s3.amazonaws.com/blog/img/feed-icon-14x14.png" style="position:relative; top:2px;" width=14 height=14> <span style="">RSS</span></a>
+    <span style="color:gray">&nbsp;&bull;&nbsp;</span>
+    <form style="display:inline" method="get" action="http://google.com/search" >
+    <input type="hidden" name="IncludeBlogs" value="1">
+    <input type="hidden" name="as_sitesearch" value="http://blog.kowalczyk.info">
+    <input size=20 type="text" name="q" id="searchFieldId">
+    <input class="button" value="Go" type="submit">
+    </form>
 </span>
-<p></p>
-<p></p>
 
 <table>
 <tr>
-	<td valign=top style="background: #F9F7F5; padding-right: 12px; padding-left: 4px; padding-top: 8px; padding-bottom: 8px; max-width: 240px; font-size: 80%">
-		{% if is_admin %}
-		<div class="sidebarhdr">Admin actions</div>
-		<div style="margin-left: 6px">
-  		<div><a href="{{ login_out_url }}">log out</a></div>
-  		<div class="l"><a href="/app/edit">new blog post</a></div>
-  		<div class="l"><a href="/app/edit?ramblings=yes">new note post</a></div>
-  		<div class="l"><a href="/app/showprivate">show private</a></div>
-		</div>
-		{% endif %}
+    <td valign=top style="background: #F9F7F5; padding-right: 12px; padding-left: 4px; padding-top: 8px; padding-bottom: 8px; max-width: 260px; font-size: 80%">
+        {% if is_admin %}
+            <div class="sidebarhdr">Admin actions</div>
+            <div style="margin-left: 6px">
+            <div><a href="{{ login_out_url }}">log out</a></div>
+            <div class="l"><a href="/app/edit">new blog post</a></div>
+            <div class="l"><a href="/app/edit?ramblings=yes">new note post</a></div>
+            <div class="l"><a href="/app/showprivate">show private</a></div>
+            </div>
+        {% endif %}
 
-		<div class="sidebarhdr">Me {% if not is_admin %} <a id="login_id" class="invisible" onMouseOver="showById('login_id');" onMouseOut="hideById('login_id');" href="{{ login_out_url }}">login</a>
-		{% endif %}</div>
+        <div class="sidebarhdr">Me {% if not is_admin %} <a id="login_id" class="invisible" onMouseOver="showById('login_id');" onMouseOut="hideById('login_id');" href="{{ login_out_url }}">login</a>
+        {% endif %}</div>
 
-		<div style="margin-left: 6px">
-  		<script>
-  		  var email = "kkowalczyk";
-  		  email += "@";
-  		  email += "gmail.com"
-  		  hyperlink = "<a href='mailto:email'>email</a>";
-  		  hyperlink = hyperlink.replace(/email/g, email);
-  		  document.write(hyperlink);
-  		</script>
-  		<br>
-  		<div class="l"><a href="http://github.com/kjk">github.com/kjk</a></div>
-  		<div class="l"><a href="http://code.google.com/u/kkowalczyk/">code.google.com/u/kkowalczyk</a></div>
-  		<div class="l"><a href="http://twitter.com/kjk">twitter.com/kjk</a></div>
-  		<div class="l"><a href="/static/krzysztof.html">more...</a></div>
-		</div>
-		<br>
+        <div style="margin-left: 6px">
+        <script>
+          var email = "kkowalczyk";
+          email += "@";
+          email += "gmail.com"
+          hyperlink = '<a href="mailto:em">em</a>';
+          hyperlink = hyperlink.replace(/em/g, email);
+          document.write(hyperlink);
+        </script>
+        <br>
+        <div class="l"><a href="http://github.com/kjk">github.com/kjk</a></div>
+        <div class="l"><a href="http://code.google.com/u/kkowalczyk/">code.google.com/u/kkowalczyk</a></div>
+        <div class="l"><a href="http://twitter.com/kjk">twitter.com/kjk</a></div>
+        <div class="l"><a href="/static/krzysztof.html">more...</a></div>
+        </div>
+        <br>
 
-		<div class="sidebarhdr">My software</div>
-  		<div style="margin-left: 6px">
-  		<a href="http://www.yepi.ws/fotofi/free-stock-photos">Fotofi</a>
-  		<div class="smaller">Find free stock photos, Windows app</div>
-  		<a href="/software/sumatrapdf/free-pdf-reader.html">SumatraPDF</a>
-  		<div class="smaller">PDF Reader for Windows</div>
-  		<a href="/software/vack/">VisualAck</a>
-  		<div class="smaller">Visual grep for Mac</div>
-  		<a href="/software/fofou/">fofou</a>
-  		<div class="smaller">Forum software for App Engine</div>
-  		<div><a href="/articles/cocoa-reference.html">Cocoa reference</a></div>
-  		<div class="l"><a href="/articles/pyref.html">Python reference</a></div>
-  		<div class="l"><a href="/articles/jsref.html">JavaScript reference</a></div>
-  		<div class="l"><a href="/software/15minutes/">15minutes</a></div>
-  		<div class="l"><a href="/software/scdiff/">scdiff</a></div>
-  		<div class="l"><a href="/static/krzysztof.html">more...</a></div>
-		</div>
-
-		<br>
-
-		<div class="sidebarhdr">Tags</div>
-		<div id="tagCloud" style="margin-left: 6px">
-		</div>
-	</td>
-
-	<td style="padding-left: 12px" valign="top">
-		<div id="post">
-		{% for article in articles_summary %}
-
-		<div style="position: relative; left:-2px;">
-		  <span onMouseOver="showById('article_{{ article.no }}');" onMouseOut="hideById('article_{{ article.no }}');">
-			<a class="title" href="/{{ article.permalink }}">{{ article.title|escape }}</a>
-			{% if not article.is_public %} &nbsp;<font style="color: red;">private</font> {% endif %}
-			{% if is_admin %}&nbsp;
-			<a id="article_{{ article.no }}" class="invisible" href="/app/edit?article_permalink={{ article.permalink }}">edit</a>
-			{% endif %}
-		  </span>
+        <div class="sidebarhdr">My software</div>
+        <div style="margin-left: 6px">
+        <a href="http://www.yepi.ws/fotofi/free-stock-photos">Fotofi</a>
+        <div class="smaller">Find free stock photos, Windows app</div>
+        <a href="/software/sumatrapdf/free-pdf-reader.html">SumatraPDF</a>
+        <div class="smaller">PDF Reader for Windows</div>
+        <a href="/software/vack/">VisualAck</a>
+        <div class="smaller">Visual grep for Mac</div>
+        <a href="/software/fofou/">fofou</a>
+        <div class="smaller">Forum software for App Engine</div>
+        <div><a href="/articles/cocoa-reference.html">Cocoa reference</a></div>
+        <div class="l"><a href="/articles/pyref.html">Python reference</a></div>
+        <div class="l"><a href="/articles/jsref.html">JavaScript reference</a></div>
+        <div class="l"><a href="/software/15minutes/">15minutes</a></div>
+        <div class="l"><a href="/software/scdiff/">scdiff</a></div>
+        <div class="l"><a href="/static/krzysztof.html">more...</a></div>
         </div>
 
-		<div>
-		    <span class="postmeta">
-			{{ article.published_on|date:"M d Y" }}
-			{% if article.tags_display %}
-			 &bull; Tags: <span class="tag">{{ article.tags_display }}</span>
-			{% endif %}
-			&nbsp;
-		  </span>
-		  {% if article.is_public %}
+        <br>
+
+        <div class="sidebarhdr">Tags</div>
+        <div id="tagCloud" style="margin-left: 6px">
+        </div>
+    </td>
+
+    <td style="padding-left: 12px" valign="top">
+        <div id="post">
+        {% for article in articles_summary %}
+
+        <div style="position: relative; left:-2px;">
+          <span onMouseOver="showById('article_{{ article.no }}');" onMouseOut="hideById('article_{{ article.no }}');">
+            <a class="title" href="/{{ article.permalink }}">{{ article.title|escape }}</a>
+            {% if not article.is_public %} &nbsp;<font style="color: red;">private</font> {% endif %}
+            {% if is_admin %}&nbsp;
+            <a id="article_{{ article.no }}" class="invisible" href="/app/edit?article_permalink={{ article.permalink }}">edit</a>
+            {% endif %}
+          </span>
+        </div>
+
+        <div>
+            <span class="postmeta">
+            {{ article.published_on|date:"M d Y" }}
+            {% if article.tags_display %}
+             &bull; Tags: <span class="tag">{{ article.tags_display }}</span>
+            {% endif %}
+            &nbsp;
+          </span>
+          {% if article.is_public %}
 
           <!-- buzz button -->
           <span style="position: relative; left: 8px;">
@@ -169,23 +166,23 @@ Krzysztof J. Kowalczyk</a>
 <script type="text/javascript" src="http://www.google.com/buzz/api/button.js"></script>
           </span>
 
-	      <!-- tweet button -->
-	      <span style="position:relative; left: 16px; top: 6px;">
+          <!-- tweet button -->
+          <span style="position:relative; left: 16px; top: 6px;">
           <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.kowalczyk.info/{{ article.permalink }}" data-text="{{ article.title|escape }}" data-count="horizontal" data-via="kjk">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
           </span>
-          
+
           <!-- facebook like button -->
           <span style="position:relative; top: 7px; left: 4px;">
-        <iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fblog.kowalczyk.info/{{ article.permalink|urlencode }}&amp;layout=button_count&amp;show_faces=false&amp;width=450&amp;action=like&amp;colorscheme=light&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:80px; height:21px;" allowTransparency="true"></iframe>
-         </span>
+          <iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fblog.kowalczyk.info/{{ article.permalink|urlencode }}&amp;layout=button_count&amp;show_faces=false&amp;width=450&amp;action=like&amp;colorscheme=light&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:80px; height:21px;" allowTransparency="true"></iframe>
+          </span>
           {% endif %}
-		</div>
+        </div>
 
-		{{ article.html_body }}
-		<br>
-		{% endfor %}
-		</div>
-	</td>
+        {{ article.html_body }}
+        <br>
+        {% endfor %}
+        </div>
+    </td>
 </tr>
 </table>
 
