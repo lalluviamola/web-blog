@@ -1,4 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!doctype HTML>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -44,12 +44,6 @@ $(document).ready(function(){
   margin-top: 2px;
 }
 
-.tags {
-	color: gray;
-	font-size: 85%;
-	font-weight: normal;
-}
-
 .smaller {
   margin-top: 3px;
   margin-bottom: 2px;
@@ -58,21 +52,6 @@ $(document).ready(function(){
 .sidebarhdr {
   margin-bottom: 4px;
   font-weight: bold;
-}
-
-.tags a:link {
-  text-decoration: none;
-}
-
-.tags a:visited {
-  text-decoration: none;
-  color: blue;
-}
-
-.tags a:hover   { 
-  background-color: #5F9EA0; 
-  color: #fff; 
-  text-decoration: none;  
 }
 
 .invisible { color: #F9F7F5 }
@@ -178,7 +157,7 @@ Krzysztof J. Kowalczyk</a>
 		    <span class="postmeta">
 			{{ article.published_on|date:"M d Y" }}
 			{% if article.tags_display %}
-			 &bull; Tags: <span class="tags">{{ article.tags_display }}</span>
+			 &bull; Tags: <span class="tag">{{ article.tags_display }}</span>
 			{% endif %}
 			&nbsp;
 		  </span>

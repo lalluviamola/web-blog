@@ -1,4 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!doctype html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -38,14 +38,15 @@ $(document).ready(function(){
 <div id="content" style="line-height:1.50">
 
 {% if is_admin %}
-<center id="adminList" style="font-size: 90%; background: #ddd">
+<center style="font-size: 90%; background: #ddd">
 <a href="{{ login_out_url }}">Log out</a>&nbsp;
 <a href="/app/edit">New Post</a>&nbsp;
 <a href="/app/showprivate">Show private</a>&nbsp;
 </center>
 {% endif %}
 
-<h1 style="display:inline;"><a href=/index.html>home</a> &#8227; 
+<h1 style="display:inline;">
+  <a class="title" style="font-size:100%;" href=/index.html>home</a> &#8227; 
   {% if tag %}
   Posts tagged with: {{ tag }} ({{ posts_count }} articles)
   {% else %}
@@ -53,7 +54,7 @@ $(document).ready(function(){
   {% endif %} 
 </h1>
 {% if not is_admign %}
-<a id="login_id" class="invisible" onMouseOver="showLogin();" onMouseOut="hideLogin();" href="{{ login_out_url }}">login</a>
+<a id="login" class="invisible" onMouseOver="showById('login');" onMouseOut="hideById('login');" href="{{ login_out_url }}">login</a>
 {% endif %}
 
 <span style="float:right">
@@ -96,7 +97,7 @@ $(document).ready(function(){
 </table>
 <br>
 
-<div id="tagCloud">
+<div id="tagCloud" style="margin-left:20px; margin-right:20px">
 </div>
 <br>
 <div class="line"></div>

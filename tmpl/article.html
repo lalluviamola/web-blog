@@ -19,7 +19,14 @@ div#content {
 
 <script type="text/javascript" src="{{ jquery_url }}"></script>
 
+{% include "tagcloud.js" %}
+
 <script type="text/javascript">
+function articlesJsonLoaded(articlesJson) {
+  articles_json = articlesJson;
+  /* no need to do anything */
+}
+
 $(document).ready(function(){
   $("#searchFieldId").focus(function(){
     $(this).val("").removeClass("inactiveSearch");
@@ -40,7 +47,7 @@ $(document).ready(function(){
 
 <div id="content">
 {% if is_admin %}
-    <center id="adminList" style="font-size: 90%; background: #ddd">
+    <center style="font-size: 90%; background: #ddd">
         <a href="{{ login_out_url }}">Log out</a>&nbsp;
         <a href="/app/edit?article_id={{ article.key.id }}">Edit</a>&nbsp;
         <a href="/app/edit">New</a>&nbsp;
@@ -66,7 +73,8 @@ $(document).ready(function(){
   {% if is_admin %}&nbsp;
   <a id="article_edit" class="invisible" href="/app/edit?article_permalink={{ article.permalink }}">edit</a>
   {% else %}
-  &nbsp;&nbsp;<a id="login_id" class="invisible" onMouseOver="showById('login_id');" onMouseOut="hideById('login_id');" href="{{ login_out_url }}">login</a>
+  &nbsp;&nbsp;<a id="login" class="invisible" onMouseOver="showById('login');"
+                 onMouseOut="hideById('login');" href="{{ login_out_url }}">login</a>
   {% endif %}
   </span>
 </h1>
@@ -78,54 +86,35 @@ $(document).ready(function(){
   <input size=20 type="text" name="q" id="searchFieldId" />
   <input class="button" value="Go" type="submit">
   </form>
-<!--
-  <center class="postmeta">
-      {% if next_article %}
-      <a title="{{ next_article.title }}" href="/{{ next_article.permalink}}">← newer</a>
-      {% else %}
-      ← newer
-      {% endif %}
-      &bull;
-      {{ article_no }} of <a href="/archives.html">{{ articles_count }}</a>
-      &bull;
-      {% if prev_article %}
-      <a title="{{ prev_article.title }}" href="/{{ prev_article.permalink}}">older →</a>
-      {% else %}
-      older →
-      {% endif %}
-  </center>  
--->
 </span>
 
 <div id="post">
     <div style="margin-top:8px;">
+        <span class="postmeta">
+            {{ article.published_on|date:"M d Y" }}
+            {% if tags_display %}
+             &bull; Tags: <span class="tag">{{ tags_display }}</span>
+            {% endif %}
+             &nbsp;
+        </span>
 
-		    <span class="postmeta">
-			{{ article.published_on|date:"M d Y" }}
-			{% if tags_display %}
-			 &bull; Tags: <span class="tags">{{ tags_display }}</span>
-			{% endif %}
-			 &nbsp;
-		  </span>
+        {% if article.is_public %}
+        <!-- buzz button -->
+        <span style="position: relative; left: 8px;">
+        <a title="Post to Google Buzz" class="google-buzz-button" href="http://www.google.com/buzz/post" data-button-style="small-count" data-url="http://blog.kowalczyk.info/{{ article.permalink }}"></a>
+        <script type="text/javascript" src="http://www.google.com/buzz/api/button.js"></script>
+        </span>
 
-		  {% if article.is_public %}
-          <!-- buzz button -->
-          <span style="position: relative; left: 8px;">
-          <a title="Post to Google Buzz" class="google-buzz-button" href="http://www.google.com/buzz/post" data-button-style="small-count" data-url="http://blog.kowalczyk.info/{{ article.permalink }}"></a>
-<script type="text/javascript" src="http://www.google.com/buzz/api/button.js"></script>
-          </span>
+        <!-- tweet button -->
+        <span style="position:relative; left: 16px; top: 6px;">
+        <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.kowalczyk.info/{{ article.permalink }}" data-text="{{ article.title|escape }}" data-count="horizontal" data-via="kjk">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+        </span>
 
-	      <!-- tweet button -->
-	      <span style="position:relative; left: 16px; top: 6px;">
-          <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.kowalczyk.info/{{ article.permalink }}" data-text="{{ article.title|escape }}" data-count="horizontal" data-via="kjk">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-          </span>
-          
-          <!-- facebook like button -->
-          <span style="position:relative; top: 7px; left: 4px;">
+        <!-- facebook like button -->
+        <span style="position:relative; top: 7px; left: 4px;">
         <iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fblog.kowalczyk.info/{{ article.permalink|urlencode }}&amp;layout=button_count&amp;show_faces=false&amp;width=450&amp;action=like&amp;colorscheme=light&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:80px; height:21px;" allowTransparency="true"></iframe>
-         </span>
-         {% endif %}
-
+        </span>
+        {% endif %}
     </div>
 
 {{ article.html_body }}
