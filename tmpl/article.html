@@ -1,4 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!doctype html>
 <html>
 
 <head>
@@ -15,20 +15,11 @@ body {
 div#content {
   max-width: 900px;
 }
-
 </style>
 
 <script type="text/javascript" src="{{ jquery_url }}"></script>
 
-{% include "tagcloud.js" %}
-
 <script type="text/javascript">
-function articlesJsonLoaded(articlesJson) {
-  articles_json = articlesJson;
-  var html = genTagCloudHtml();
-  $('#tagCloud').val(html);
-}
-
 $(document).ready(function(){
   $("#searchFieldId").focus(function(){
     $(this).val("").removeClass("inactiveSearch");
@@ -50,25 +41,24 @@ $(document).ready(function(){
 <div id="content">
 {% if is_admin %}
     <center id="adminList" style="font-size: 90%; background: #ddd">
-    <a href="{{ login_out_url }}">Log out</a>&nbsp;
-    <a href="/app/edit?article_id={{ article.key.id }}">Edit</a>&nbsp;
-    <a href="/app/edit">New</a>&nbsp;
-    {% if article.is_deleted %}
-     <a href="/app/undelete?article_id={{ article.key.id }}">Undelete</a>&nbsp;
-     {% else %}
-     <a href="/app/delete?article_id={{ article.key.id }}">Delete</a>&nbsp;
-    {% endif %}
-    <a href="/app/permanentdelete?article_id={{ article.key.id }}">Permanent delete</a>&nbsp;
-    <a href="/app/showprivate">Show private</a>&nbsp;
-    <a href="/app/showdeleted">Show deleted</a>&nbsp;
+        <a href="{{ login_out_url }}">Log out</a>&nbsp;
+        <a href="/app/edit?article_id={{ article.key.id }}">Edit</a>&nbsp;
+        <a href="/app/edit">New</a>&nbsp;
+        {% if article.is_deleted %}
+         <a href="/app/undelete?article_id={{ article.key.id }}">Undelete</a>&nbsp;
+         {% else %}
+         <a href="/app/delete?article_id={{ article.key.id }}">Delete</a>&nbsp;
+        {% endif %}
+        <a href="/app/permanentdelete?article_id={{ article.key.id }}">Permanent delete</a>&nbsp;
+        <a href="/app/showprivate">Show private</a>&nbsp;
+        <a href="/app/showdeleted">Show deleted</a>&nbsp;
     </center>
-    <br/>
-
+    <br>
 {% endif %}
 
 <h1 style="display:inline;">
-  <a href="/index.html">home</a> &#8227;
-  <span onMouseOver="showById('article_edit');" onMouseOut="hideById('article_edit');" style="color: #6e0315">
+  <a class="title" style="font-size:100%;" href="/index.html">home</a> &#8227;
+  <span onMouseOver="showById('article_edit');" onMouseOut="hideById('article_edit');">
   {{ article.title|escape }}
   {% if not article.is_public %}
     &nbsp;<font color="red">private</font>

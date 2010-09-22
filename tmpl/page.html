@@ -75,33 +75,6 @@ $(document).ready(function(){
   text-decoration: none;  
 }
 
-.article_title {
-	color: black;
-	font-weight: bold;
-}
-
-.title_permalink2 {
-	font-weight: bold;
-	text-decoration: none;
-	color: gray;
-}
-
-a.title_permalink2:hover {
-	color: #c00;
-}
-
-.title_permalink {
-	font-weight: bold;
-	font-size: 160%;
-	text-decoration: none;
-	color: #6e0315;
-	border-bottom: 1px solid #6e0315;
-}
-
-a.title_permalink:hover {
-	color: #c00;
-}
-
 .invisible { color: #F9F7F5 }
 
 </style>
@@ -115,9 +88,9 @@ a.title_permalink:hover {
 Krzysztof J. Kowalczyk</a>
 </h1>
 <span style="float:right;">
-<a class="title_permalink2" href="/static/krzysztof.html">About</a>
+<a class="hdrlink" href="/static/krzysztof.html">About</a>
 <span style="color:gray">&nbsp;&bull;&nbsp;</span>
-<a class="title_permalink2" href="/atom.xml"><img src="http://kjkpub.s3.amazonaws.com/blog/img/feed-icon-14x14.png" style="position:relative; top:2px;" width=14 height=14> <span style="">RSS</span></a>
+<a class="hdrlink" href="/atom.xml"><img alt="Rss feed" src="http://kjkpub.s3.amazonaws.com/blog/img/feed-icon-14x14.png" style="position:relative; top:2px;" width=14 height=14> <span style="">RSS</span></a>
 <span style="color:gray">&nbsp;&bull;&nbsp;</span>
 <form style="display:inline" method="get" action="http://google.com/search" >
 <input type="hidden" name="IncludeBlogs" value="1">
@@ -142,7 +115,6 @@ Krzysztof J. Kowalczyk</a>
 		</div>
 		{% endif %}
 
-    <br>
 		<div class="sidebarhdr">Me {% if not is_admin %} <a id="login_id" class="invisible" onMouseOver="showById('login_id');" onMouseOut="hideById('login_id');" href="{{ login_out_url }}">login</a>
 		{% endif %}</div>
 
@@ -192,21 +164,17 @@ Krzysztof J. Kowalczyk</a>
 		<div id="post">
 		{% for article in articles_summary %}
 
-		<table width=100%>
-		<tr>
-		<td style="padding-left: 0px;">
+		<div style="position: relative; left:-2px;">
 		  <span onMouseOver="showById('article_{{ article.no }}');" onMouseOut="hideById('article_{{ article.no }}');">
-			<a class="title_permalink" href="/{{ article.permalink }}">{{ article.title|escape }}</a>
+			<a class="title" href="/{{ article.permalink }}">{{ article.title|escape }}</a>
 			{% if not article.is_public %} &nbsp;<font style="color: red;">private</font> {% endif %}
 			{% if is_admin %}&nbsp;
 			<a id="article_{{ article.no }}" class="invisible" href="/app/edit?article_permalink={{ article.permalink }}">edit</a>
 			{% endif %}
 		  </span>
-		</td>
-		</tr>
-		</table>
+        </div>
 
-		<div style="margin-top:8px;">
+		<div>
 		    <span class="postmeta">
 			{{ article.published_on|date:"M d Y" }}
 			{% if article.tags_display %}
