@@ -45,8 +45,9 @@ $(document).ready(function(){
 }
 
 .smaller {
-  margin-top: 3px;
-  margin-bottom: 2px;
+  margin-top: 0px;
+  margin-bottom: 3px;
+  color: #555;
 }
 
 .sidebarhdr {
@@ -77,6 +78,9 @@ Krzysztof J. Kowalczyk</a></h1>
     <input class="button" value="Go" type="submit">
     </form>
 </span>
+
+<p></p>
+<p></p>
 
 <table>
 <tr>
@@ -114,13 +118,13 @@ Krzysztof J. Kowalczyk</a></h1>
         <div class="sidebarhdr">My software</div>
         <div style="margin-left: 6px">
         <a href="http://www.yepi.ws/fotofi/free-stock-photos">Fotofi</a>
-        <div class="smaller">Find free stock photos, Windows app</div>
+        <div class="smaller">Find free stock photos</div>
         <a href="/software/sumatrapdf/free-pdf-reader.html">SumatraPDF</a>
         <div class="smaller">PDF Reader for Windows</div>
         <a href="/software/vack/">VisualAck</a>
         <div class="smaller">Visual grep for Mac</div>
         <a href="/software/fofou/">fofou</a>
-        <div class="smaller">Forum software for App Engine</div>
+        <div class="smaller">Forum software</div>
         <div><a href="/articles/cocoa-reference.html">Cocoa reference</a></div>
         <div class="l"><a href="/articles/pyref.html">Python reference</a></div>
         <div class="l"><a href="/articles/jsref.html">JavaScript reference</a></div>
@@ -150,31 +154,31 @@ Krzysztof J. Kowalczyk</a></h1>
           </span>
         </div>
 
-        <div>
+        <div class="nowrap">
             <span class="postmeta">
             {{ article.published_on|date:"M d Y" }}
             {% if article.tags_display %}
              &bull; Tags: <span class="tag">{{ article.tags_display }}</span>
             {% endif %}
             &nbsp;
-          </span>
+            </span>
+
           {% if article.is_public %}
+              <!-- buzz button -->
+              <span style="position: relative; left: 8px;">
+              <a title="Post to Google Buzz" class="google-buzz-button" href="http://www.google.com/buzz/post" data-button-style="small-count" data-url="http://blog.kowalczyk.info/{{ article.permalink }}"></a>
+    <script type="text/javascript" src="http://www.google.com/buzz/api/button.js"></script>
+              </span>
 
-          <!-- buzz button -->
-          <span style="position: relative; left: 8px;">
-          <a title="Post to Google Buzz" class="google-buzz-button" href="http://www.google.com/buzz/post" data-button-style="small-count" data-url="http://blog.kowalczyk.info/{{ article.permalink }}"></a>
-<script type="text/javascript" src="http://www.google.com/buzz/api/button.js"></script>
-          </span>
+              <!-- tweet button -->
+              <span style="position:relative; left: 16px; top: 6px;">
+              <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.kowalczyk.info/{{ article.permalink }}" data-text="{{ article.title|escape }}" data-count="horizontal" data-via="kjk">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+              </span>
 
-          <!-- tweet button -->
-          <span style="position:relative; left: 16px; top: 6px;">
-          <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.kowalczyk.info/{{ article.permalink }}" data-text="{{ article.title|escape }}" data-count="horizontal" data-via="kjk">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-          </span>
-
-          <!-- facebook like button -->
-          <span style="position:relative; top: 7px; left: 4px;">
-          <iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fblog.kowalczyk.info/{{ article.permalink|urlencode }}&amp;layout=button_count&amp;show_faces=false&amp;width=450&amp;action=like&amp;colorscheme=light&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:80px; height:21px;" allowTransparency="true"></iframe>
-          </span>
+              <!-- facebook like button -->
+              <span style="position:relative; top: 7px; left: 4px;">
+              <iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fblog.kowalczyk.info/{{ article.permalink|urlencode }}&amp;layout=button_count&amp;show_faces=false&amp;width=450&amp;action=like&amp;colorscheme=light&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:80px; height:21px;" allowTransparency="true"></iframe>
+              </span>
           {% endif %}
         </div>
 
