@@ -91,6 +91,7 @@ $(document).ready(function(){
             <div class="l"><a href="/app/edit?ramblings=yes">new note post</a></div>
             <div class="l"><a href="/app/showprivate">show private</a></div>
             </div>
+			<br>
         {% endif %}
 
         <div class="sidebarhdr">Me {% if not is_admin %} <a id="login_id" class="invisible" onMouseOver="showById('login_id');" onMouseOut="hideById('login_id');" href="{{ login_out_url }}">login</a>
