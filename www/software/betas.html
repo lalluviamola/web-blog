@@ -3,7 +3,10 @@
 <meta http-equiv="Content-Type"content="text/html; charset=utf-8" />
 <title>Misc software betas</title>
 <script src="http://kjkpub.s3.amazonaws.com/app/fotofi/latestver.js" type="text/javascript"></script>
+<script src="http://kjkpub.s3.amazonaws.com/app/fm/latestver.js" type="text/javascript"></script>
+<!--
 <script src="http://kjkpub.s3.amazonaws.com/app/simplerion/latestver.js" type="text/javascript"></script>
+-->
 
 <script>
 function $(id) {
@@ -30,10 +33,12 @@ function build_link_html(latestVer) {
 
 function build_fotofi_html() { return build_link_html(fotofiLatestVer); }
 function build_simplerion_html() { return build_link_html(simplerionLatestVer); }
+function build_fm_html() { return build_link_html(fmLatestVer); }
 
 function myInit() {
 	$("fotofi").innerHTML = build_fotofi_html();
-	$("simplerion").innerHTML = build_simplerion_html();
+	//$("simplerion").innerHTML = build_simplerion_html();
+	$("fm").innerHTML = build_fm_html();
 }
  
 window.onload = myInit;
@@ -43,7 +48,8 @@ window.onload = myInit;
 
 <ul>
   <li>Latest Fotofi: <span id="fotofi"></span></li>
-  <li>Latest Simplerion: <span id="simplerion"></span></li>
+  <!-- <li>Latest Simplerion: <span id="simplerion"></span></li> -->
+  <li>Latest Fm: <span id="fm"></span></li>
 </ul>
 
 </html>
