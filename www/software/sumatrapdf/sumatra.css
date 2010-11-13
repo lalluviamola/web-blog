@@ -21,7 +21,7 @@ center { font-size: small; }
   padding-left: 15px; 
   padding-right: 15px; 
 }
-#banner a { color: #FFFFFF;    text-decoration: none;}
+
 #banner h1 { font-size: x-large; font-weight: bold;}
 #banner h2 { font-size: small;}
 
@@ -104,4 +104,15 @@ background-color: #fff;
 
 #ddcolortabsline{
   clear: both;
+}
+
+.trans {
+    position: relative;
+    top: 2px;
+    left: -8px;
+    font-size:80%;
+    font-weight: normal;
+}
+
+.trans a {
 }
